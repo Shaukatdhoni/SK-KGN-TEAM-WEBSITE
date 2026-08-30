@@ -696,19 +696,96 @@ function closeComplaintForm() {
 const complaintMessage = document.getElementById("complaintMessage");
 
 const complaintObserver = new MutationObserver(function() {
+  if (complaintMessage.textContent.includes("successfully")) {
 
-  if (
-    complaintMessage.textContent.includes("successfully")
-  ) {
-    document.getElementById("complaintActions").style.display = "flex";
+    const text = complaintMessage.textContent;
+    const idMatch = text.match(/Complaint ID is\s+([A-Z0-9-]+)/i);
+    const complaintId = idMatch ? idMatch[1] : "SKKGN-" + Math.random().toString(36).substring(2,8).toUpperCase();
+
+    complaintMessage.style.display = "none";
+    document.getElementById("complaintActions").style.display = "none";
+
+    const popup = document.createElement("div");
+    popup.style.cssText = `
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.65);
+      backdrop-filter:blur(6px);
+      z-index:99999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    `;
+
+    popup.innerHTML = `
+      <div style="
+        background:white;
+        width:100%;
+        max-width:430px;
+        border-radius:25px;
+        padding:35px 25px;
+        text-align:center;
+        box-shadow:0 25px 70px rgba(0,0,0,.35);
+      ">
+        <div style="
+          width:90px;
+          height:90px;
+          margin:auto;
+          border-radius:50%;
+          background:#22c55e;
+          color:white;
+          font-size:58px;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-weight:700;
+        ">✓</div>
+
+        <h2 style="font-size:28px;margin:22px 0 10px;">
+          Complaint Submitted
+        </h2>
+
+        <p style="color:#666;font-size:16px;">
+          Your complaint has been successfully submitted.
+        </p>
+
+        <div style="
+          background:#f3f4f6;
+          border-radius:14px;
+          padding:15px;
+          margin:20px 0;
+          font-size:18px;
+          font-weight:700;
+        ">
+          Complaint ID<br>
+          <span style="font-size:22px;">${complaintId}</span>
+        </div>
+
+        <button onclick="this.closest('div[style*=fixed]').remove()"
+          style="
+            width:100%;
+            padding:14px;
+            border:0;
+            border-radius:12px;
+            background:#111827;
+            color:white;
+            font-size:17px;
+            font-weight:700;
+          ">
+          Done
+        </button>
+      </div>
+    `;
+
+    document.body.appendChild(popup);
   }
-
 });
 
 complaintObserver.observe(complaintMessage, {
-  childList: true,
-  characterData: true,
-  subtree: true
+  childList:true,
+  characterData:true,
+  subtree:true
 });
 </script>
 
