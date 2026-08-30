@@ -736,6 +736,42 @@ import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.g
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 const db = getFirestore(app);
+const complaintForm = document.getElementById("complaintForm");
+
+complaintForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("complaintName").value.trim();
+  const mobile = document.getElementById("complaintMobile").value.trim();
+  const subject = document.getElementById("complaintSubject").value.trim();
+  const details = document.getElementById("complaintDetails").value.trim();
+  const message = document.getElementById("complaintMessage");
+
+  const complaintId =
+    "SKKGN-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+
+  try {
+    await addDoc(collection(db, "complaints"), {
+      complaintId: complaintId,
+      name: name,
+      mobile: mobile,
+      subject: subject,
+      details: details,
+      status: "Submitted",
+      createdAt: serverTimestamp()
+    });
+
+    message.textContent =
+      "Complaint submitted successfully. Your Complaint ID is " + complaintId;
+
+    complaintForm.reset();
+
+  } catch (error) {
+    console.error(error);
+    message.textContent =
+      "Complaint submit nahi ho saki. Please try again.";
+  }
+});
 </script>
 
 </body>
