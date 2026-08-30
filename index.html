@@ -536,13 +536,59 @@ footer p,footer a{
       </div>
     </div>
 
-    <form id="complaintForm">
+ <form id="complaintForm" style="display:none;">
+
+  <div style="
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(6px);
+    z-index:9999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  " id="complaintModal">
+
+    <div style="
+      width:100%;
+      max-width:520px;
+      background:#fff;
+      border-radius:24px;
+      padding:25px;
+      box-shadow:0 25px 70px rgba(0,0,0,.35);
+      position:relative;
+    ">
+
+      <button type="button"
+        onclick="closeComplaintForm()"
+        style="
+          position:absolute;
+          right:18px;
+          top:15px;
+          border:0;
+          background:#f1f1f1;
+          width:38px;
+          height:38px;
+          border-radius:50%;
+          font-size:22px;
+          cursor:pointer;
+        ">×</button>
+
+      <h2 style="margin:0 40px 8px 0;font-size:28px;">
+        Lodge a Complaint
+      </h2>
+
+      <p style="color:#666;margin-bottom:22px;">
+        Apni complaint ki details neeche bhariye.
+      </p>
 
       <input
         type="text"
         id="complaintName"
-        placeholder="Your Name"
+        placeholder="Full Name"
         required
+        style="width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;border-radius:12px;font-size:16px;box-sizing:border-box;"
       >
 
       <input
@@ -550,6 +596,7 @@ footer p,footer a{
         id="complaintMobile"
         placeholder="Mobile Number"
         required
+        style="width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;border-radius:12px;font-size:16px;box-sizing:border-box;"
       >
 
       <input
@@ -557,21 +604,113 @@ footer p,footer a{
         id="complaintSubject"
         placeholder="Complaint Subject"
         required
+        style="width:100%;padding:14px;margin-bottom:12px;border:1px solid #ddd;border-radius:12px;font-size:16px;box-sizing:border-box;"
       >
 
       <textarea
         id="complaintDetails"
-        placeholder="Describe your complaint in detail"
+        placeholder="Apni complaint detail mein likhiye..."
         required
+        style="width:100%;min-height:130px;padding:14px;margin-bottom:15px;border:1px solid #ddd;border-radius:12px;font-size:16px;box-sizing:border-box;resize:vertical;"
       ></textarea>
 
-      <button type="submit" class="btn">
+      <button
+        type="submit"
+        class="btn"
+        style="
+          width:100%;
+          padding:15px;
+          border:0;
+          border-radius:12px;
+          font-size:17px;
+          font-weight:700;
+          cursor:pointer;
+        ">
         Submit Complaint →
       </button>
 
-      <p id="complaintMessage"></p>
+      <p id="complaintMessage"
+         style="margin-top:15px;font-weight:600;"></p>
 
-    </form>
+      <div id="complaintActions" style="display:none;margin-top:18px;gap:10px;">
+
+        <a href="tel:YOUR_PHONE_NUMBER"
+           style="
+             flex:1;
+             text-align:center;
+             padding:13px;
+             border-radius:12px;
+             background:#111827;
+             color:white;
+             text-decoration:none;
+             font-weight:700;
+           ">
+          📞 Call Us
+        </a>
+
+        <a href="https://wa.me/YOUR_WHATSAPP_NUMBER"
+           target="_blank"
+           style="
+             flex:1;
+             text-align:center;
+             padding:13px;
+             border-radius:12px;
+             background:#25D366;
+             color:white;
+             text-decoration:none;
+             font-weight:700;
+           ">
+          💬 WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</form>
+
+<button
+  type="button"
+  onclick="openComplaintForm()"
+  class="btn"
+  style="
+    padding:15px 25px;
+    border-radius:12px;
+    border:0;
+    cursor:pointer;
+    font-weight:700;
+    font-size:16px;
+  ">
+  Lodge a Complaint →
+</button>
+
+<script>
+function openComplaintForm() {
+  document.getElementById("complaintModal").style.display = "flex";
+}
+
+function closeComplaintForm() {
+  document.getElementById("complaintModal").style.display = "none";
+}
+
+const complaintMessage = document.getElementById("complaintMessage");
+
+const complaintObserver = new MutationObserver(function() {
+
+  if (
+    complaintMessage.textContent.includes("successfully")
+  ) {
+    document.getElementById("complaintActions").style.display = "flex";
+  }
+
+});
+
+complaintObserver.observe(complaintMessage, {
+  childList: true,
+  characterData: true,
+  subtree: true
+});
+</script>
 
   </div>
 </section>
