@@ -1226,6 +1226,152 @@ window.searchComplaintStatus = async function() {
 };
 
 </script>
+<div id="statusModal" class="status-modal">
 
+  <div class="status-box">
+
+    <button class="status-close" onclick="closeStatusModal()">×</button>
+
+    <div class="status-icon">🔍</div>
+
+    <h2>Track Your Complaint</h2>
+
+    <p>Enter your Complaint ID to check the latest status.</p>
+
+    <div class="status-input">
+      <input
+        id="statusComplaintId"
+        type="text"
+        placeholder="SKKGN-XXXXXX"
+      >
+
+      <button onclick="searchComplaintStatus()">
+        Check Status →
+      </button>
+    </div>
+
+    <div id="statusResult"></div>
+
+  </div>
+
+</div>
+
+<style>
+.status-modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:rgba(0,0,0,.65);
+  backdrop-filter:blur(8px);
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.status-box {
+  width:100%;
+  max-width:500px;
+  background:white;
+  border-radius:28px;
+  padding:30px;
+  position:relative;
+  box-shadow:0 25px 70px rgba(0,0,0,.3);
+  animation:statusIn .3s ease;
+}
+
+@keyframes statusIn {
+  from {
+    opacity:0;
+    transform:translateY(30px) scale(.95);
+  }
+  to {
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+.status-close {
+  position:absolute;
+  right:16px;
+  top:16px;
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:#f1f3f5;
+  font-size:26px;
+  cursor:pointer;
+}
+
+.status-icon {
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  background:#eaf2ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:18px;
+}
+
+.status-box h2 {
+  margin:0;
+  font-size:28px;
+  color:#101828;
+}
+
+.status-box > p {
+  color:#667085;
+  line-height:1.5;
+}
+
+.status-input {
+  display:flex;
+  gap:10px;
+  margin-top:22px;
+}
+
+.status-input input {
+  flex:1;
+  min-width:0;
+  padding:15px;
+  border:1px solid #d0d5dd;
+  border-radius:14px;
+  font-size:15px;
+  outline:none;
+}
+
+.status-input button {
+  border:0;
+  border-radius:14px;
+  padding:0 18px;
+  background:#111827;
+  color:white;
+  font-weight:700;
+  cursor:pointer;
+}
+
+#statusResult {
+  margin-top:20px;
+  color:#344054;
+  line-height:1.6;
+}
+
+@media(max-width:600px) {
+  .status-box {
+    padding:24px 20px;
+  }
+
+  .status-input {
+    flex-direction:column;
+  }
+
+  .status-input button {
+    padding:15px;
+  }
+}
+</style>
 </body>
   </html>
