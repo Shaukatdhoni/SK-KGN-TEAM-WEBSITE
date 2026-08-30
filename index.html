@@ -1149,17 +1149,6 @@ complaintForm.addEventListener("submit", async (e) => {
       "Complaint submit nahi ho saki. Please try again.";
   }
 });
-history.replaceState(null, "", window.location.pathname);
-window.scrollTo(0, 0);
-
-window.addEventListener("pageshow", function () {
-    history.replaceState(null, "", window.location.pathname);
-    window.scrollTo(0, 0);
-});
-
-setTimeout(function () {
-    window.scrollTo(0, 0);
-}, 300);
 window.checkComplaintStatus = function() {
     const modal = document.getElementById("statusModal");
     const input = document.getElementById("statusComplaintId");
