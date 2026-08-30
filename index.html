@@ -683,7 +683,6 @@ footer p,footer a{
   ">
   Lodge a Complaint →
 </button>
-
 <script>
 function openComplaintForm() {
   document.getElementById("complaintModal").style.display = "flex";
@@ -693,92 +692,235 @@ function closeComplaintForm() {
   document.getElementById("complaintModal").style.display = "none";
 }
 
+const form = document.getElementById("complaintForm");
 const complaintMessage = document.getElementById("complaintMessage");
 
+form.addEventListener("submit", function() {
+  const processing = document.createElement("div");
+
+  processing.id = "processingPopup";
+  processing.style.cssText = `
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    backdrop-filter:blur(6px);
+    z-index:99999;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  `;
+
+  processing.innerHTML = `
+    <div style="
+      background:white;
+      width:100%;
+      max-width:430px;
+      border-radius:25px;
+      padding:45px 25px;
+      text-align:center;
+    ">
+      <div style="
+        width:65px;
+        height:65px;
+        margin:auto;
+        border:6px solid #ddd;
+        border-top:6px solid #111827;
+        border-radius:50%;
+        animation:spin 1s linear infinite;
+      "></div>
+
+      <h2 style="font-size:28px;margin:25px 0 8px;">
+        Processing...
+      </h2>
+
+      <p style="color:#666;font-size:16px;">
+        Please wait while we submit your complaint.
+      </p>
+    </div>
+  `;
+
+  document.body.appendChild(processing);
+});
+
+const style = document.createElement("style");
+style.innerHTML = `
+@keyframes spin {
+  to { transform:rotate(360deg); }
+}
+`;
+document.head.appendChild(style);
+
 const complaintObserver = new MutationObserver(function() {
+
   if (complaintMessage.textContent.includes("successfully")) {
 
     const text = complaintMessage.textContent;
     const idMatch = text.match(/Complaint ID is\s+([A-Z0-9-]+)/i);
-    const complaintId = idMatch ? idMatch[1] : "SKKGN-" + Math.random().toString(36).substring(2,8).toUpperCase();
+    const complaintId = idMatch
+      ? idMatch[1]
+      : "SKKGN-" + Math.random().toString(36).substring(2,8).toUpperCase();
 
-    complaintMessage.style.display = "none";
-    document.getElementById("complaintActions").style.display = "none";
+    setTimeout(function() {
 
-    const popup = document.createElement("div");
-    popup.style.cssText = `
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.65);
-      backdrop-filter:blur(6px);
-      z-index:99999;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-    `;
+      const processing = document.getElementById("processingPopup");
+      if (processing) processing.remove();
 
-    popup.innerHTML = `
-      <div style="
-        background:white;
-        width:100%;
-        max-width:430px;
-        border-radius:25px;
-        padding:35px 25px;
-        text-align:center;
-        box-shadow:0 25px 70px rgba(0,0,0,.35);
-      ">
+      complaintMessage.style.display = "none";
+
+      const popup = document.createElement("div");
+
+      popup.style.cssText = `
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.65);
+        backdrop-filter:blur(6px);
+        z-index:99999;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:20px;
+      `;
+
+      popup.innerHTML = `
         <div style="
-          width:90px;
-          height:90px;
-          margin:auto;
-          border-radius:50%;
-          background:#22c55e;
-          color:white;
-          font-size:58px;
+          background:white;
+          width:100%;
+          max-width:430px;
+          border-radius:25px;
+          padding:35px 25px;
+          text-align:center;
+          box-shadow:0 25px 70px rgba(0,0,0,.35);
+        ">
+
+          <div style="
+            width:90px;
+            height:90px;
+            margin:auto;
+            border-radius:50%;
+            background:#22c55e;
+            color:white;
+            font-size:58px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            font-weight:700;
+          ">✓</div>
+
+          <h2 style="font-size:28px;margin:22px 0 10px;">
+            Complaint Submitted
+          </h2>
+
+          <p style="color:#666;font-size:16px;">
+            Your complaint has been successfully submitted.
+          </p>
+
+          <div style="
+            background:#f3f4f6;
+            border-radius:14px;
+            padding:15px;
+            margin:20px 0;
+            font-size:18px;
+            font-weight:700;
+          ">
+            Complaint ID<br>
+            <span style="font-size:22px;">
+              ${complaintId}
+            </span>
+          </div>
+
+          <button id="doneComplaint"
+            style="
+              width:100%;
+              padding:14px;
+              border:0;
+              border-radius:12px;
+              background:#111827;
+              color:white;
+              font-size:17px;
+              font-weight:700;
+            ">
+            Done
+          </button>
+
+        </div>
+      `;
+
+      document.body.appendChild(popup);
+
+      document.getElementById("doneComplaint").onclick = function() {
+
+        popup.remove();
+
+        const contact = document.createElement("div");
+
+        contact.style.cssText = `
+          position:fixed;
+          inset:0;
+          background:rgba(0,0,0,.65);
+          backdrop-filter:blur(6px);
+          z-index:99999;
           display:flex;
           align-items:center;
           justify-content:center;
-          font-weight:700;
-        ">✓</div>
+          padding:20px;
+        `;
 
-        <h2 style="font-size:28px;margin:22px 0 10px;">
-          Complaint Submitted
-        </h2>
-
-        <p style="color:#666;font-size:16px;">
-          Your complaint has been successfully submitted.
-        </p>
-
-        <div style="
-          background:#f3f4f6;
-          border-radius:14px;
-          padding:15px;
-          margin:20px 0;
-          font-size:18px;
-          font-weight:700;
-        ">
-          Complaint ID<br>
-          <span style="font-size:22px;">${complaintId}</span>
-        </div>
-
-        <button onclick="this.closest('div[style*=fixed]').remove()"
-          style="
+        contact.innerHTML = `
+          <div style="
+            background:white;
             width:100%;
-            padding:14px;
-            border:0;
-            border-radius:12px;
-            background:#111827;
-            color:white;
-            font-size:17px;
-            font-weight:700;
+            max-width:430px;
+            border-radius:25px;
+            padding:30px 25px;
+            text-align:center;
           ">
-          Done
-        </button>
-      </div>
-    `;
 
-    document.body.appendChild(popup);
+            <h2 style="font-size:27px;margin:5px 0 10px;">
+              Need Help?
+            </h2>
+
+            <p style="color:#666;font-size:16px;margin-bottom:25px;">
+              Contact SK KGN TEAM regarding your complaint.
+            </p>
+
+            <a href="tel:+917007027158"
+              style="
+                display:block;
+                padding:15px;
+                margin-bottom:12px;
+                border-radius:12px;
+                background:#111827;
+                color:white;
+                text-decoration:none;
+                font-size:17px;
+                font-weight:700;
+              ">
+              📞 Call Us
+            </a>
+
+            <a href="https://wa.me/917007027158"
+              target="_blank"
+              style="
+                display:block;
+                padding:15px;
+                border-radius:12px;
+                background:#25D366;
+                color:white;
+                text-decoration:none;
+                font-size:17px;
+                font-weight:700;
+              ">
+              💬 WhatsApp
+            </a>
+
+          </div>
+        `;
+
+        document.body.appendChild(contact);
+      };
+
+    }, 1000);
   }
 });
 
