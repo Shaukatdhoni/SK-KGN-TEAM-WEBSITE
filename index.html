@@ -1130,11 +1130,17 @@ complaintForm.addEventListener("submit", async (e) => {
       "Complaint submit nahi ho saki. Please try again.";
   }
 });
-window.history.scrollRestoration = "manual";
+history.replaceState(null, "", window.location.pathname);
+window.scrollTo(0, 0);
 
-window.addEventListener("load", function () {
+window.addEventListener("pageshow", function () {
+    history.replaceState(null, "", window.location.pathname);
     window.scrollTo(0, 0);
 });
+
+setTimeout(function () {
+    window.scrollTo(0, 0);
+}, 300);
 </script>
 
 </body>
