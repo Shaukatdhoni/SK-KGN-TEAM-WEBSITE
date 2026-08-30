@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SK KGN TEAM — Public Grievance Assistance</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:#f5f7fa;
+  color:#10131a;
+  line-height:1.5
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+
+/* HEADER */
+header{
+  background:#fff;
+  border-bottom:1px solid #e7e9ee;
+  position:sticky;
+  top:0;
+  z-index:1000
+}
+.nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between
+}
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px
+}
+.logo span{color:#164a9c}
+nav{
+  display:flex;
+  gap:25px;
+  align-items:center
+}
+nav a{
+  font-size:14px;
+  font-weight:700;
+  color:#454b57
+}
+nav a:hover{color:#164a9c}
+.nav-btn{
+  background:#111827;
+  color:white!important;
+  padding:11px 18px;
+  border-radius:10px
+}
+.menu{
+  display:none;
+  font-size:27px;
+  cursor:pointer
+}
+
+/* HERO */
+.hero{
+  padding:70px 0 45px;
+  background:
+    radial-gradient(circle at 85% 20%,#dce8fb 0,transparent 35%),
+    #fff
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:45px;
+  align-items:center
+}
+.badge{
+  display:inline-block;
+  background:#eaf1ff;
+  color:#164a9c;
+  padding:7px 13px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:18px
+}
+.hero h1{
+  font-size:clamp(38px,5vw,64px);
+  line-height:1.05;
+  letter-spacing:-2.5px;
+  margin-bottom:20px
+}
+.hero h1 span{color:#164a9c}
+.hero p{
+  max-width:620px;
+  color:#606875;
+  font-size:17px;
+  margin-bottom:28px
+}
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 21px;
+  border-radius:11px;
+  font-weight:800;
+  border:1px solid #dce0e7;
+  transition:.2s
+}
+.btn:hover{transform:translateY(-2px)}
+.primary{
+  background:#111827;
+  color:white;
+  border-color:#111827
+}
+.secondary{background:#fff}
+
+/* HERO VISUAL */
+.hero-card{
+  background:#111827;
+  border-radius:28px;
+  padding:30px;
+  color:white;
+  min-height:330px;
+  position:relative;
+  overflow:hidden
+}
+.hero-card:before{
+  content:"";
+  position:absolute;
+  width:230px;
+  height:230px;
+  border:35px solid #164a9c;
+  border-radius:50%;
+  right:-70px;
+  top:-60px;
+  opacity:.7
+}
+.hero-card h3{
+  font-size:26px;
+  position:relative;
+  z-index:2
+}
+.hero-card p{
+  color:#cbd5e1;
+  margin-top:10px;
+  position:relative;
+  z-index:2
+}
+.stat{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  right:25px;
+  background:#fff;
+  color:#111827;
+  border-radius:18px;
+  padding:20px;
+  display:flex;
+  justify-content:space-between
+}
+.stat strong{font-size:25px}
+.stat small{color:#697180}
+
+/* SLIDER */
+.slider-section{padding:35px 0}
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  background:#111827;
+  aspect-ratio:16/5
+}
+.slides{
+  display:flex;
+  height:100%;
+  transition:transform .6s ease
+}
+.slide{
+  min-width:100%;
+  height:100%;
+  position:relative
+}
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block
+}
+.dots{
+  position:absolute;
+  bottom:13px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:7px
+}
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#fff8;
+  cursor:pointer
+}
+.dot.active{background:#fff;width:22px;border-radius:10px}
+
+/* SERVICES */
+.section{padding:65px 0}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:28px
+}
+.section-head h2{
+  font-size:32px;
+  letter-spacing:-1px
+}
+.section-head p{
+  color:#68707d;
+  max-width:520px
+}
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px
+}
+.service{
+  background:#fff;
+  border:1px solid #e4e7ec;
+  border-radius:18px;
+  padding:25px;
+  min-height:190px;
+  transition:.25s;
+  position:relative
+}
+.service:hover{
+  transform:translateY(-5px);
+  box-shadow:0 15px 35px #17203312
+}
+.service.featured{
+  background:#111827;
+  color:#fff;
+  border-color:#111827
+}
+.icon{
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  background:#eaf1ff;
+  color:#164a9c;
+  border-radius:13px;
+  font-size:21px;
+  margin-bottom:20px
+}
+.featured .icon{
+  background:#164a9c;
+  color:white
+}
+.service h3{font-size:19px;margin-bottom:7px}
+.service p{font-size:13px;color:#6b7280}
+.featured p{color:#cbd5e1}
+.arrow{
+  position:absolute;
+  right:22px;
+  bottom:20px;
+  font-size:20px
+}
+
+/* HOW */
+.how{
+  background:#111827;
+  color:white;
+  padding:55px 0
+}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:30px
+}
+.step{
+  border:1px solid #ffffff20;
+  border-radius:16px;
+  padding:22px
+}
+.step-number{
+  color:#60a5fa;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:12px
+}
+.step h3{font-size:17px;margin-bottom:6px}
+.step p{font-size:13px;color:#aeb7c5}
+
+/* CTA */
+.cta{
+  margin:65px auto;
+  background:linear-gradient(120deg,#164a9c,#0e326d);
+  color:white;
+  border-radius:25px;
+  padding:45px;
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+  align-items:center
+}
+.cta h2{font-size:32px;line-height:1.1}
+.cta p{color:#d9e7ff;margin-top:8px}
+.cta .btn{background:#fff;color:#111827;border:none}
+
+/* FOOTER */
+footer{
+  background:#0b0f17;
+  color:white;
+  padding:45px 0 20px
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px
+}
+footer h3{margin-bottom:13px}
+footer p,footer a{
+  color:#9da6b5;
+  font-size:13px;
+  display:block;
+  margin:7px 0
+}
+.copyright{
+  border-top:1px solid #ffffff15;
+  margin-top:30px;
+  padding-top:18px;
+  color:#778091;
+  font-size:12px
+}
+
+/* MOBILE */
+@media(max-width:850px){
+  nav{display:none}
+  .menu{display:block}
+  .hero-grid{grid-template-columns:1fr}
+  .hero{padding-top:45px}
+  .services{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .slider{aspect-ratio:16/8}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .nav{height:62px}
+  .logo{font-size:21px}
+  .hero h1{font-size:39px}
+  .hero p{font-size:15px}
+  .hero-card{min-height:280px}
+  .services{grid-template-columns:1fr 1fr;gap:10px}
+  .service{padding:17px;min-height:170px}
+  .service h3{font-size:15px}
+  .service p{font-size:12px}
+  .icon{width:39px;height:39px;margin-bottom:14px}
+  .steps{grid-template-columns:1fr 1fr}
+  .cta{padding:30px 22px;display:block}
+  .cta h2{font-size:27px}
+  .cta .btn{margin-top:20px}
+  .footer-grid{grid-template-columns:1fr}
+  .slider{border-radius:15px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#" class="logo">SK <span>KGN TEAM</span></a>
+
+    <nav id="nav">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#status">Check Status</a>
+      <a href="#schemes">Schemes</a>
+      <a href="#contact">Contact</a>
+      <a href="#complaint" class="nav-btn">Lodge Complaint</a>
+    </nav>
+
+    <div class="menu" onclick="toggleMenu()">☰</div>
+  </div>
+</header>
+
+<main id="home">
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="badge">PUBLIC GRIEVANCE ASSISTANCE</div>
+
+      <h1>Your Voice.<br><span>Your Right.</span><br>Our Assistance.</h1>
+
+      <p>
+        Get professional assistance for submitting and tracking
+        public grievances, government-related matters and important
+        citizen services.
+      </p>
+
+      <div class="buttons">
+        <a href="#complaint" class="btn primary">Lodge Complaint →</a>
+        <a href="#status" class="btn secondary">Check Status</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>SK KGN TEAM</h3>
+      <p>Public Grievance Assistance</p>
+
+      <div class="stat">
+        <div>
+          <strong>01</strong><br>
+          <small>Start your complaint</small>
+        </div>
+        <div>
+          <strong>→</strong><br>
+          <small>Track your progress</small>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4 IMAGE SLIDER -->
+<section class="slider-section">
+  <div class="container">
+    <div class="slider">
+      <div class="slides" id="slides">
+
+        <!-- Replace these 4 paths with your actual image filenames -->
+        <div class="slide">
+          <img src="banner1.jpg" alt="SK KGN TEAM">
+        </div>
+
+        <div class="slide">
+          <img src="banner2.jpg" alt="SK KGN TEAM">
+        </div>
+
+        <div class="slide">
+          <img src="banner3.jpg" alt="SK KGN TEAM">
+        </div>
+
+        <div class="slide">
+          <img src="banner4.jpg" alt="SK KGN TEAM">
+        </div>
+
+      </div>
+
+      <div class="dots">
+        <span class="dot active" onclick="goSlide(0)"></span>
+        <span class="dot" onclick="goSlide(1)"></span>
+        <span class="dot" onclick="goSlide(2)"></span>
+        <span class="dot" onclick="goSlide(3)"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+        <h2>Our Services</h2>
+        <p>Professional assistance for important public grievance and citizen-service matters.</p>
+      </div>
+    </div>
+
+    <div class="services">
+
+      <a href="#complaint" class="service featured">
+        <div class="icon">📝</div>
+        <h3>Lodge Complaint</h3>
+        <p>Submit your grievance through our complaint system.</p>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="#status" class="service">
+        <div class="icon">🔎</div>
+        <h3>Check Status</h3>
+        <p>Track your complaint using your Complaint ID.</p>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="#schemes" class="service">
+        <div class="icon">🎁</div>
+        <h3>Schemes & Benefits</h3>
+        <p>Explore useful government schemes and benefits.</p>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="#legal" class="service">
+        <div class="icon">⚖️</div>
+        <h3>Legal & RTI Help</h3>
+        <p>Information and assistance related to RTI and grievances.</p>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="#public" class="service">
+        <div class="icon">🏛️</div>
+        <h3>Public Services</h3>
+        <p>Useful public-service information in one place.</p>
+        <span class="arrow">→</span>
+      </a>
+
+      <a href="#contact" class="service">
+        <div class="icon">☎️</div>
+        <h3>Contact Us</h3>
+        <p>Contact SK KGN TEAM for assistance and enquiries.</p>
+        <span class="arrow">→</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="complaint">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>How It Works</h2>
+        <p style="color:#aeb7c5">A simple process from complaint submission to tracking.</p>
+      </div>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <h3>Lodge Complaint</h3>
+        <p>Submit your complaint with the required information and documents.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">02</div>
+        <h3>Get Complaint ID</h3>
+        <p>Receive your unique Complaint ID after successful submission.</p>
+      </div>
+
+      <div class="step" id="status">
+        <div class="step-number">03</div>
+        <h3>Check Status</h3>
+        <p>Use your Complaint ID to check the current status.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">04</div>
+        <h3>Follow Progress</h3>
+        <p>Stay informed about updates related to your grievance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEMES -->
+<section class="section" id="schemes">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Schemes & Benefits</h2>
+        <p>Important government schemes and citizen benefits can be added here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="container">
+  <section class="cta">
+    <div>
+      <h2>Have a grievance?</h2>
+      <p>Start your complaint through SK KGN TEAM.</p>
+    </div>
+    <a href="#complaint" class="btn">Lodge Complaint →</a>
+  </section>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="container">
+
+    <div class="footer-grid">
+
+      <div>
+        <h3>SK KGN TEAM</h3>
+        <p>Public Grievance Assistance</p>
+        <p>Professional assistance for public grievance and citizen-service matters.</p>
+      </div>
+
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#complaint">Lodge Complaint</a>
+        <a href="#status">Check Status</a>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <p>Phone: +91 70070 27158</p>
+        <p>Email: Add your official email</p>
+        <p>Website: skkgnteam.in</p>
+      </div>
+
+    </div>
+
+    <div class="copyright">
+      © 2026 SK KGN TEAM. All rights reserved.
+    </div>
+
+  </div>
+</footer>
+
+<script>
+let currentSlide = 0;
+const slides = document.getElementById("slides");
+const dots = document.querySelectorAll(".dot");
+
+function goSlide(index){
+  currentSlide = index;
+  slides.style.transform = `translateX(-${index * 100}%)`;
+
+  dots.forEach((dot,i)=>{
+    dot.classList.toggle("active",i === index);
+  });
+}
+
+setInterval(()=>{
+  currentSlide = (currentSlide + 1) % 4;
+  goSlide(currentSlide);
+},4500);
+
+function toggleMenu(){
+  const nav = document.getElementById("nav");
+
+  if(nav.style.display === "flex"){
+    nav.style.display = "none";
+  }else{
+    nav.style.display = "flex";
+    nav.style.position = "absolute";
+    nav.style.top = "62px";
+    nav.style.left = "0";
+    nav.style.right = "0";
+    nav.style.padding = "20px";
+    nav.style.background = "#fff";
+    nav.style.flexDirection = "column";
+    nav.style.alignItems = "stretch";
+  }
+}
+</script>
+
+</body>
+  </html>
