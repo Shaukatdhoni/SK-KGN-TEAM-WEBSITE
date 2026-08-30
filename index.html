@@ -1105,6 +1105,13 @@ import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.g
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 const db = getFirestore(app);
+window.openStatusPopup = function () {
+  const id = prompt("Enter your Complaint ID:");
+
+  if (!id) return;
+
+  alert("Checking Complaint ID: " + id);
+};
 const complaintForm = document.getElementById("complaintForm");
 
 complaintForm.addEventListener("submit", async (e) => {
