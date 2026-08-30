@@ -525,7 +525,56 @@ footer p,footer a{
     </div>
   </div>
 </section>
+<!-- LODGE COMPLAINT -->
+<section class="section" id="complaint">
+  <div class="container">
 
+    <div class="section-head">
+      <div>
+        <h2>Lodge a Complaint</h2>
+        <p>Submit your complaint and we will record your details.</p>
+      </div>
+    </div>
+
+    <form id="complaintForm">
+
+      <input
+        type="text"
+        id="complaintName"
+        placeholder="Your Name"
+        required
+      >
+
+      <input
+        type="tel"
+        id="complaintMobile"
+        placeholder="Mobile Number"
+        required
+      >
+
+      <input
+        type="text"
+        id="complaintSubject"
+        placeholder="Complaint Subject"
+        required
+      >
+
+      <textarea
+        id="complaintDetails"
+        placeholder="Describe your complaint in detail"
+        required
+      ></textarea>
+
+      <button type="submit" class="btn">
+        Submit Complaint →
+      </button>
+
+      <p id="complaintMessage"></p>
+
+    </form>
+
+  </div>
+</section>
 <!-- HOW IT WORKS -->
 <section class="how" id="how-it-works">
   <div class="container">
