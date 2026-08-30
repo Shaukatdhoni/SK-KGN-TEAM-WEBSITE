@@ -1160,13 +1160,13 @@ window.addEventListener("pageshow", function () {
 setTimeout(function () {
     window.scrollTo(0, 0);
 }, 300);
-function checkComplaintStatus() {
+window.checkComplaintStatus = function() {
     const complaintId = prompt("Enter your Complaint ID:");
 
     if (!complaintId) return;
 
     alert("Checking Complaint ID: " + complaintId);
-}
+};
 
 </script>
 
