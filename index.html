@@ -1161,8 +1161,65 @@ setTimeout(function () {
     window.scrollTo(0, 0);
 }, 300);
 window.checkComplaintStatus = function() {
-    const complaintId = prompt("Enter your Complaint ID:");
+    const modal = document.getElementById("statusModal");
+    const input = document.getElementById("statusComplaintId");
+    const result = document.getElementById("statusResult");
 
+    modal.style.display = "flex";
+    input.value = "";
+    result.innerHTML = "";
+
+    setTimeout(function() {
+        input.focus();
+    }, 200);
+};
+
+window.closeStatusModal = function() {
+    document.getElementById("statusModal").style.display = "none";
+};
+
+window.searchComplaintStatus = async function() {
+    const input = document.getElementById("statusComplaintId");
+    const result = document.getElementById("statusResult");
+
+    const complaintId = input.value.trim();
+
+    if (!complaintId) {
+        result.innerHTML = "Please enter your Complaint ID.";
+        return;
+    }
+
+    result.innerHTML = "Checking your complaint...";
+
+    try {
+        const q = query(
+            collection(db, "complaints"),
+            where("complaintId", "==", complaintId)
+        );
+
+        const snapshot = await getDocs(q);
+
+        if (snapshot.empty) {
+            result.innerHTML = "Complaint not found. Please check your Complaint ID.";
+            return;
+        }
+
+        const data = snapshot.docs[0].data();
+
+        result.innerHTML = `
+            <div>
+                <strong>Complaint ID:</strong> ${data.complaintId}<br><br>
+                <strong>Name:</strong> ${data.name || "-"}<br><br>
+                <strong>Subject:</strong> ${data.subject || "-"}<br><br>
+                <strong>Status:</strong> ${data.status || "Submitted"}
+            </div>
+        `;
+
+    } catch (error) {
+        console.error(error);
+        result.innerHTML = "Unable to check status. Please try again.";
+    }
+};
     if (!complaintId) return;
 
     alert("Checking Complaint ID: " + complaintId);
