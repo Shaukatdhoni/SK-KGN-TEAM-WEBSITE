@@ -1764,5 +1764,47 @@ window.searchComplaintStatus = async function() {
 }
 
 </style>
+<script>
+function openContactPopup() {
+    const contact = document.createElement("div");
+
+    contact.style.cssText = `
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,.65);
+        backdrop-filter:blur(6px);
+        z-index:99999;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:20px;
+    `;
+
+    contact.innerHTML = `
+        <div style="background:white;width:100%;max-width:430px;border-radius:25px;padding:30px 25px;text-align:center;">
+            <h2 style="font-size:27px;margin:5px 0 10px;">Contact Us</h2>
+
+            <p style="color:#666;font-size:16px;margin-bottom:25px;">
+                Contact SK KGN TEAM for assistance and enquiries.
+            </p>
+
+            <a href="tel:+917007027158" style="display:block;padding:15px;margin-bottom:12px;border-radius:12px;background:#111827;color:white;text-decoration:none;font-size:17px;font-weight:700;">
+                📞 Call Us
+            </a>
+
+            <a href="https://wa.me/917007027158" target="_blank" style="display:block;padding:15px;border-radius:12px;background:#25D366;color:white;text-decoration:none;font-size:17px;font-weight:700;">
+                💬 WhatsApp
+            </a>
+
+            <button onclick="this.closest('.contact-popup').remove()" style="margin-top:15px;padding:10px 20px;border:0;border-radius:10px;background:#eee;">
+                Close
+            </button>
+        </div>
+    `;
+
+    contact.className = "contact-popup";
+    document.body.appendChild(contact);
+}
+</script>
 </body>
   </html>
