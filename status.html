@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111827">
+<title>Track Complaint — SK KGN TEAM</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Arial,sans-serif;background:#f5f7fa;color:#10131a;min-height:100vh}
+.container{width:min(760px,92%);margin:auto}
+.top{padding:26px 0 12px}
+.brand{display:flex;align-items:center;gap:10px;color:#111827;text-decoration:none;font-weight:900;font-size:20px}
+.brand img{width:42px;height:42px;border-radius:50%;object-fit:contain}
+.hero{padding:34px 0 22px;text-align:center}
+.badge{display:inline-block;background:#eaf1ff;color:#164a9c;padding:8px 14px;border-radius:30px;font-size:11px;font-weight:900;letter-spacing:.5px;margin-bottom:14px}
+h1{font-size:clamp(34px,8vw,54px);line-height:1.05;letter-spacing:-2px;color:#111827}
+.hero p{color:#667085;margin:14px auto 0;max-width:560px;font-size:16px}
+.search-card{margin-top:25px;background:#111827;border-radius:28px;padding:24px;box-shadow:0 22px 55px rgba(17,24,39,.18)}
+.search-card label{display:block;text-align:left;color:#cbd5e1;font-size:12px;font-weight:800;margin-bottom:8px}
+.search-row{display:flex;gap:10px}
+.search-row input{flex:1;min-width:0;border:0;border-radius:14px;padding:16px;font-size:16px;outline:none;text-transform:uppercase;background:#fff}
+.search-row button{border:0;border-radius:14px;padding:0 20px;background:#2563eb;color:#fff;font-weight:800;font-size:15px;cursor:pointer}
+.search-row button:disabled{opacity:.65;cursor:wait}
+#message{display:none;margin-top:15px;padding:13px 15px;border-radius:12px;text-align:left;font-size:14px;background:#fff;color:#344054}
+.result{display:none;margin:24px 0 50px}
+.result-card{background:#fff;border:1px solid #e4e7ec;border-radius:28px;overflow:hidden;box-shadow:0 18px 50px rgba(16,24,40,.08)}
+.result-head{background:linear-gradient(135deg,#111827,#164a9c);color:#fff;padding:25px}
+.result-head small{color:#cbd5e1;font-weight:700}
+.result-head h2{font-size:25px;margin-top:4px;word-break:break-word}
+.status-pill{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:8px 12px;border-radius:30px;background:#fff;color:#111827;font-size:13px;font-weight:900}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#22c55e}
+.details{padding:24px}
+.detail{padding:15px 0;border-bottom:1px solid #edf0f4}
+.detail:last-child{border-bottom:0}
+.detail label{display:block;color:#667085;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.detail div{font-size:15px;color:#1d2939;line-height:1.6;word-break:break-word}
+.timeline{padding:0 24px 28px}
+.timeline h3{font-size:18px;margin-bottom:18px}
+.track{position:relative}
+.track:before{content:"";position:absolute;left:15px;top:16px;bottom:16px;width:2px;background:#e4e7ec}
+.stage{position:relative;display:flex;gap:14px;align-items:flex-start;padding:0 0 18px}
+.stage:last-child{padding-bottom:0}
+.stage-icon{width:32px;height:32px;flex:0 0 32px;border-radius:50%;display:grid;place-items:center;background:#eef0f3;color:#98a2b3;font-size:14px;font-weight:900;z-index:1;border:3px solid #fff}
+.stage.done .stage-icon{background:#22c55e;color:#fff}
+.stage.current .stage-icon{background:#2563eb;color:#fff;box-shadow:0 0 0 5px #dbeafe}
+.stage-title{font-weight:800;color:#344054;font-size:14px;padding-top:6px}
+.stage.current .stage-title{color:#164a9c}
+.stage-note{font-size:11px;color:#98a2b3;margin-top:2px}
+.footer{text-align:center;color:#98a2b3;font-size:11px;padding:0 0 35px}
+.back{display:inline-block;margin-top:16px;color:#164a9c;font-weight:800;text-decoration:none;font-size:13px}
+@media(max-width:560px){
+ .search-card{padding:18px;border-radius:22px}
+ .search-row{flex-direction:column}
+ .search-row button{padding:15px}
+ .result-card{border-radius:22px}
+ .details,.timeline{padding-left:19px;padding-right:19px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="top">
+    <a class="brand" href="index.html"><img src="Logo.jpg" alt="SK KGN TEAM"><span>SK KGN TEAM</span></a>
+  </div>
+
+  <section class="hero">
+    <div class="badge">PUBLIC COMPLAINT TRACKING</div>
+    <h1>Track Your Complaint</h1>
+    <p>Enter your Complaint ID to view the latest status and complaint information.</p>
+
+    <div class="search-card">
+      <label for="complaintId">COMPLAINT ID</label>
+      <div class="search-row">
+        <input id="complaintId" type="text" placeholder="SKKGN-XXXXXX" autocomplete="off" spellcheck="false">
+        <button id="checkBtn" onclick="checkComplaint()">Check Status →</button>
+      </div>
+      <div id="message"></div>
+    </div>
+  </section>
+
+  <section id="result" class="result"></section>
+
+  <div class="footer">
+    SK KGN TEAM • Complaint Tracking System<br>
+    <a class="back" href="index.html">← Back to Website</a>
+  </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+  authDomain: "sk-kgn-team.firebaseapp.com",
+  databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "sk-kgn-team",
+  storageBucket: "sk-kgn-team.firebasestorage.app",
+  messagingSenderId: "228612697498",
+  appId: "1:228612697498:web:a304b57bf5a59d2933de23",
+  measurementId: "G-BXWT6BPTB6"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const input = document.getElementById('complaintId');
+const button = document.getElementById('checkBtn');
+const message = document.getElementById('message');
+const result = document.getElementById('result');
+
+function escapeHTML(value){
+  return String(value ?? '-')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+}
+
+function formatDate(timestamp){
+  if(!timestamp) return '-';
+  try{
+    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
+    return new Intl.DateTimeFormat('en-IN',{dateStyle:'medium',timeStyle:'short'}).format(date);
+  }catch(e){ return '-'; }
+}
+
+function statusInfo(status){
+  const normalized = String(status || 'Submitted').toLowerCase().trim();
+  if(normalized.includes('resolve')) return {current:3,label:'Resolved'};
+  if(normalized.includes('progress') || normalized.includes('work')) return {current:2,label:status || 'In Progress'};
+  if(normalized.includes('review')) return {current:1,label:status || 'Under Review'};
+  return {current:0,label:status || 'Submitted'};
+}
+
+function timeline(status){
+  const info = statusInfo(status);
+  const stages = ['Submitted','Under Review','In Progress','Resolved'];
+  return stages.map((stage,index)=>{
+    const done = index < info.current;
+    const current = index === info.current;
+    return `<div class="stage ${done?'done':''} ${current?'current':''}">
+      <div class="stage-icon">${done?'✓':current?'●':'○'}</div>
+      <div><div class="stage-title">${stage}</div>${current?'<div class="stage-note">Current status</div>':''}</div>
+    </div>`;
+  }).join('');
+}
+
+window.checkComplaint = async function(){
+  const complaintId = input.value.trim().toUpperCase();
+  result.style.display='none';
+  result.innerHTML='';
+  message.style.display='none';
+
+  if(!complaintId){
+    message.textContent='Please enter your Complaint ID.';
+    message.style.display='block';
+    return;
+  }
+
+  button.disabled=true;
+  button.textContent='Checking...';
+
+  try{
+    const q = query(collection(db,'complaints'),where('complaintId','==',complaintId));
+    const snapshot = await getDocs(q);
+
+    if(snapshot.empty){
+      message.textContent='Complaint not found. Please check the Complaint ID and try again.';
+      message.style.display='block';
+      return;
+    }
+
+    const data = snapshot.docs[0].data();
+    const info = statusInfo(data.status);
+
+    result.innerHTML = `
+      <div class="result-card">
+        <div class="result-head">
+          <small>COMPLAINT ID</small>
+          <h2>${escapeHTML(data.complaintId)}</h2>
+          <div class="status-pill"><span class="status-dot"></span>${escapeHTML(info.label)}</div>
+        </div>
+        <div class="details">
+          <div class="detail"><label>Applicant Name</label><div>${escapeHTML(data.name)}</div></div>
+          <div class="detail"><label>Subject</label><div>${escapeHTML(data.subject)}</div></div>
+          <div class="detail"><label>Complaint Details</label><div>${escapeHTML(data.details)}</div></div>
+          <div class="detail"><label>Submitted On</label><div>${formatDate(data.createdAt)}</div></div>
+        </div>
+        <div class="timeline">
+          <h3>Complaint Progress</h3>
+          <div class="track">${timeline(data.status)}</div>
+        </div>
+      </div>`;
+    result.style.display='block';
+    result.scrollIntoView({behavior:'smooth',block:'start'});
+  }catch(error){
+    console.error(error);
+    message.textContent='Unable to check status right now. Please try again.';
+    message.style.display='block';
+  }finally{
+    button.disabled=false;
+    button.textContent='Check Status →';
+  }
+};
+
+input.addEventListener('keydown',e=>{if(e.key==='Enter') window.checkComplaint();});
+</script>
+</body>
+</html>
