@@ -4,173 +4,808 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Public Services | SK KGN TEAM</title>
-<meta name="description" content="Citizen service directory for Uttar Pradesh, Central Government and State grievance services.">
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f5f7fb;color:#101827;line-height:1.55}
+
+body{
+font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:#f5f7fb;
+color:#101827;
+line-height:1.55
+}
+
 a{text-decoration:none;color:inherit}
-.container{width:min(1120px,92%);margin:auto}
-header{background:#fff;border-bottom:1px solid #e5e9f0;position:sticky;top:0;z-index:100}
-.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:21px}
-.logo{width:47px;height:47px;border:3px solid #174f9c;border-radius:50%;display:grid;place-items:center;color:#174f9c;font-weight:900;font-size:14px}
+
+.container{
+width:min(1120px,92%);
+margin:auto
+}
+
+header{
+background:#fff;
+border-bottom:1px solid #e5e9f0;
+position:sticky;
+top:0;
+z-index:100
+}
+
+.nav{
+min-height:78px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:11px;
+font-weight:900;
+font-size:21px
+}
+
+.logo{
+width:47px;
+height:47px;
+border:3px solid #174f9c;
+border-radius:50%;
+display:grid;
+place-items:center;
+color:#174f9c;
+font-weight:900;
+font-size:14px
+}
+
 .brand span{color:#174f9c}
-.back{border:1px solid #dce2eb;background:#fff;color:#174f9c;border-radius:12px;padding:10px 15px;font-weight:800}
-.hero{padding:68px 0 48px;background:linear-gradient(135deg,#eaf3ff,#fff 50%,#f2f6fb)}
-.kicker{display:inline-block;padding:8px 15px;border-radius:999px;background:#e3efff;color:#174f9c;font-size:12px;font-weight:900;letter-spacing:.8px}
-h1{font-size:clamp(40px,7vw,70px);line-height:1.02;letter-spacing:-2.5px;margin-top:17px;max-width:900px}
+
+.back{
+border:1px solid #dce2eb;
+background:#fff;
+color:#174f9c;
+border-radius:12px;
+padding:10px 15px;
+font-weight:800
+}
+
+.hero{
+padding:68px 0 48px;
+background:linear-gradient(135deg,#eaf3ff,#fff 50%,#f2f6fb)
+}
+
+.kicker{
+display:inline-block;
+padding:8px 15px;
+border-radius:999px;
+background:#e3efff;
+color:#174f9c;
+font-size:12px;
+font-weight:900;
+letter-spacing:.8px
+}
+
+h1{
+font-size:clamp(40px,7vw,70px);
+line-height:1.02;
+letter-spacing:-2.5px;
+margin-top:17px
+}
+
 h1 span{color:#174f9c}
-.hero p{max-width:800px;margin-top:20px;color:#667085;font-size:18px}
-.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:27px}
-.btn{padding:13px 19px;border-radius:13px;font-weight:850;display:inline-flex;justify-content:center;align-items:center}
-.primary{background:#101827;color:#fff}.secondary{background:#fff;border:1px solid #d9e0ea}
-.section{padding:48px 0}
-.section-head{margin-bottom:24px}
-.section-head h2{font-size:32px;letter-spacing:-1px}
-.section-head p{color:#667085;margin-top:5px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}
-.card{background:#fff;border:1px solid #e1e6ee;border-radius:22px;padding:24px;box-shadow:0 10px 28px rgba(16,24,39,.055);transition:.2s}
-.card:hover{transform:translateY(-2px)}
-.card.dark{background:#101827;color:#fff;border-color:#101827}
-.icon{width:52px;height:52px;border-radius:15px;background:#eaf2ff;display:grid;place-items:center;font-size:27px;margin-bottom:16px}
-.dark .icon{background:#174f9c}
-.card h3{font-size:21px}.card p{color:#667085;margin-top:5px}.dark p{color:#d5dbe5}
-.list{margin-top:14px;padding-left:19px;color:#667085}.dark .list{color:#d5dbe5}
-.list li{margin:5px 0}
-.service-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}
-.linkbox{background:#fff;border:1px solid #e1e6ee;border-radius:16px;padding:16px;font-weight:800;display:flex;justify-content:space-between;gap:12px}
-.linkbox small{display:block;color:#667085;font-weight:600;margin-top:3px}
-.note{margin-top:25px;padding:20px;border-radius:18px;background:#edf5ff;border:1px solid #d7e8ff;color:#475467}
-.note strong{color:#174f9c}
-.disclaimer{background:#fff;border:1px solid #e1e6ee;border-radius:20px;padding:22px;margin-top:25px;color:#667085}
-footer{background:#101827;color:#cbd3df;padding:32px 0;margin-top:10px}
-.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.foot b{color:#fff}
+
+.hero p{
+max-width:800px;
+margin-top:20px;
+color:#667085;
+font-size:18px
+}
+
+.hero-actions{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:27px
+}
+
+.btn{
+padding:13px 19px;
+border-radius:13px;
+font-weight:850;
+display:inline-flex;
+justify-content:center;
+align-items:center
+}
+
+.primary{
+background:#101827;
+color:#fff
+}
+
+.secondary{
+background:#fff;
+border:1px solid #d9e0ea
+}
+
+.section{
+padding:48px 0
+}
+
+.section-head{
+margin-bottom:24px
+}
+
+.section-head h2{
+font-size:32px;
+letter-spacing:-1px
+}
+
+.section-head p{
+color:#667085;
+margin-top:5px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:17px
+}
+
+.card{
+background:#fff;
+border:1px solid #e1e6ee;
+border-radius:22px;
+padding:24px;
+box-shadow:0 10px 28px rgba(16,24,39,.055)
+}
+
+.card.dark{
+background:#101827;
+color:#fff;
+border-color:#101827
+}
+
+.icon{
+width:52px;
+height:52px;
+border-radius:15px;
+background:#eaf2ff;
+display:grid;
+place-items:center;
+font-size:27px;
+margin-bottom:16px
+}
+
+.dark .icon{
+background:#174f9c
+}
+
+.card h3{
+font-size:21px
+}
+
+.card p{
+color:#667085;
+margin-top:5px
+}
+
+.dark p{
+color:#d5dbe5
+}
+
+.list{
+margin-top:14px;
+padding-left:19px;
+color:#667085
+}
+
+.dark .list{
+color:#d5dbe5
+}
+
+.list li{
+margin:6px 0
+}
+
+.note{
+margin-top:25px;
+padding:20px;
+border-radius:18px;
+background:#edf5ff;
+border:1px solid #d7e8ff;
+color:#475467
+}
+
+.note strong{
+color:#174f9c
+}
+
+.disclaimer{
+background:#fff;
+border:1px solid #e1e6ee;
+border-radius:20px;
+padding:22px;
+margin-top:25px;
+color:#667085
+}
+
+footer{
+background:#101827;
+color:#cbd3df;
+padding:32px 0;
+margin-top:10px
+}
+
+.foot{
+display:flex;
+justify-content:space-between;
+gap:20px;
+flex-wrap:wrap
+}
+
+.foot b{
+color:#fff
+}
+
 @media(max-width:700px){
- .nav{min-height:70px}.brand{font-size:18px}.logo{width:43px;height:43px}.back{font-size:12px;padding:9px 11px}
- .hero{padding:48px 0 38px}h1{letter-spacing:-1.7px}.hero p{font-size:16px}
- .grid,.service-links{grid-template-columns:1fr}.section{padding:38px 0}
+
+.nav{
+min-height:70px
+}
+
+.brand{
+font-size:18px
+}
+
+.logo{
+width:43px;
+height:43px
+}
+
+.back{
+font-size:12px;
+padding:9px 11px
+}
+
+.hero{
+padding:48px 0 38px
+}
+
+h1{
+letter-spacing:-1.7px
+}
+
+.hero p{
+font-size:16px
+}
+
+.grid{
+grid-template-columns:1fr
+}
+
+.section{
+padding:38px 0
+}
+
 }
 </style>
 </head>
+
 <body>
 
 <header>
 <div class="container nav">
-<a class="brand" href="index.html"><div class="logo">SK</div><div>SK <span>KGN</span> TEAM</div></a>
+
+<a class="brand" href="index.html">
+<div class="logo">SK</div>
+<div>SK <span>KGN</span> TEAM</div>
+</a>
+
 <a class="back" href="index.html">← Home</a>
+
 </div>
 </header>
 
+
 <main>
+
 <section class="hero">
+
 <div class="container">
-<div class="kicker">PUBLIC SERVICES DIRECTORY</div>
-<h1>Government Services.<br><span>All in One Place.</span></h1>
-<p>Explore useful citizen-service and grievance resources for Uttar Pradesh, Central Government and other States. We help you identify the right official channel and understand where to submit a complaint or request.</p>
+
+<div class="kicker">
+PUBLIC SERVICES DIRECTORY
+</div>
+
+<h1>
+Public Services.<br>
+<span>Useful Information.</span>
+</h1>
+
+<p>
+Important public-service information, complaint categories and citizen assistance details in one place. Select the category that matches your issue and use the information to understand what type of service or complaint you may need.
+</p>
+
 <div class="hero-actions">
-<a class="btn primary" href="#up">🇮🇳 Uttar Pradesh Services ↓</a>
-<a class="btn secondary" href="#central">Central Services ↓</a>
+
+<a class="btn primary" href="#police">
+🇮🇳 UP Police Services ↓
+</a>
+
+<a class="btn secondary" href="#central">
+Central Services ↓
+</a>
+
+</div>
+
+</div>
+</section>
+
+
+<section class="section" id="police">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>🇮🇳 Uttar Pradesh Police Services</h2>
+
+<p>
+Citizen-service and police-related complaint information.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<article class="card dark">
+
+<div class="icon">👮</div>
+
+<h3>
+Police Citizen Services
+</h3>
+
+<p>
+Information about commonly used police and citizen-service facilities.
+</p>
+
+<ul class="list">
+
+<li>e-FIR / FIR related information</li>
+<li>View or search FIR status</li>
+<li>Lost Article Report</li>
+<li>Nearest Police Station information</li>
+<li>Road Accident Cases</li>
+<li>Vehicle NOC information</li>
+<li>Character Certificate</li>
+<li>Domestic Help Verification</li>
+<li>Employee Verification</li>
+<li>Tenant Verification</li>
+<li>Procession Request</li>
+<li>Protest / Strike Request</li>
+<li>Event / Programme Permission</li>
+<li>Film Shooting Permission</li>
+<li>Postmortem Report information</li>
+<li>Senior Citizen related assistance</li>
+<li>Complaint by Divyang persons</li>
+<li>Share Information</li>
+<li>Search Status / Download information</li>
+<li>Emergency Helpline information</li>
+<li>Unidentified Dead Bodies</li>
+<li>Missing Person information</li>
+<li>Rewarded Criminals information</li>
+<li>Arrested Accused information</li>
+<li>Cyber Awareness</li>
+<li>Police contact assistance</li>
+
+</ul>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🚨</div>
+
+<h3>
+Police Complaint Information
+</h3>
+
+<p>
+Useful guidance for common police-related problems.
+</p>
+
+<ul class="list">
+
+<li>Complaint about police service</li>
+<li>FIR-related assistance</li>
+<li>Lost article reporting information</li>
+<li>Verification-related information</li>
+<li>Traffic and accident-related matters</li>
+<li>Missing person information</li>
+<li>Cybercrime-related guidance</li>
+<li>Emergency assistance information</li>
+
+</ul>
+
+<div class="note">
+
+<strong>Important:</strong>
+For an actual police complaint, FIR or emergency matter, use the concerned official authority. SK KGN TEAM only provides assistance and information.
+
+</div>
+
+</article>
+
 </div>
 </div>
 </section>
 
-<section class="section" id="up">
-<div class="container">
-<div class="section-head"><h2>🇮🇳 Uttar Pradesh Police & Citizen Services</h2><p>UP Police / UPCOP related citizen services and important assistance channels.</p></div>
-<div class="grid">
-<article class="card dark">
-<div class="icon">👮</div><h3>UPCOP — Citizen Services</h3>
-<p>Useful UP Police citizen-service resources, including verification, FIR-related services and lost-article reporting.</p>
-<ul class="list">
-<li>e-FIR / FIR information</li><li>View or search FIR status</li><li>Lost Article Report</li><li>Know your nearest police station</li><li>Character, employee & tenant verification</li><li>Vehicle NOC / police permissions</li><li>Road accident and postmortem-related information</li><li>Missing persons / unidentified bodies</li><li>Cyber awareness & reporting guidance</li>
-</ul>
-</article>
-<article class="card">
-<div class="icon">🚨</div><h3>UP Police Complaints & Help</h3>
-<p>For police-related complaints, use the appropriate official channel rather than sending sensitive details to SK KGN TEAM.</p>
-<ul class="list">
-<li>Police / CCTNS / e-FIR assistance</li><li>UP Government grievance route</li><li>Cyber crime reporting</li><li>Traffic and challan matters</li><li>Emergency assistance</li>
-</ul>
-<div class="service-links">
-<a class="linkbox" href="https://uppolice.gov.in/" target="_blank">UP Police <b>↗</b></a>
-<a class="linkbox" href="https://www.cybercrime.gov.in/" target="_blank">Cyber Crime <b>↗</b></a>
-</div>
-</article>
-</div>
-<div class="note"><strong>UP Police:</strong> Official UP Police information lists citizen services such as verifications, permissions, complaints, postmortem reports, online FIR/lost-article services and helplines. Verify the current service availability on the official portal before applying. citeturn0search8turn0search21</div>
-</div>
-</section>
 
 <section class="section" id="central">
+
 <div class="container">
-<div class="section-head"><h2>🇮🇳 Central Government Services</h2><p>Major official grievance and citizen-service channels at the national level.</p></div>
-<div class="grid">
-<article class="card">
-<div class="icon">🏛️</div><h3>CPGRAMS — Central & State Grievances</h3>
-<p>Centralised Public Grievance Redress and Monitoring System for service-related grievances to public authorities.</p>
-<ul class="list"><li>Lodge public grievance</li><li>Track registration ID</li><li>Reminder / clarification</li><li>Feedback and eligible appeal</li></ul>
-<a class="linkbox" href="https://pgportal.gov.in/" target="_blank">Open CPGRAMS <b>↗</b></a>
-</article>
-<article class="card">
-<div class="icon">🛡️</div><h3>National Cyber Crime Reporting</h3>
-<p>Report cybercrime and financial fraud through the Government of India's official cybercrime portal.</p>
-<ul class="list"><li>Financial cyber fraud</li><li>Other cybercrime</li><li>Women & children related cybercrime</li><li>Track complaint</li></ul>
-<a class="linkbox" href="https://www.cybercrime.gov.in/" target="_blank">Open Cyber Crime Portal <b>↗</b></a>
-</article>
-<article class="card">
-<div class="icon">🛒</div><h3>Consumer Grievances</h3>
-<p>Consumer complaint and grievance resources, including links to relevant departmental portals.</p>
-<ul class="list"><li>Consumer grievance guidance</li><li>Department grievance portals</li><li>Rail / airline / BIS related routes</li></ul>
-<a class="linkbox" href="https://consumerhelpline.gov.in/" target="_blank">National Consumer Helpline <b>↗</b></a>
-</article>
-<article class="card">
-<div class="icon">🚆</div><h3>Important Central Channels</h3>
-<p>Useful routes for common public-service complaints.</p>
-<ul class="list"><li>Railway assistance & grievances</li><li>Airline grievances</li><li>Department / Ministry grievances</li><li>UMANG-related citizen services</li></ul>
-</article>
+
+<div class="section-head">
+
+<h2>🇮🇳 Central Government Services</h2>
+
+<p>
+Major categories of central-level citizen services and complaints.
+</p>
+
 </div>
-<div class="note"><strong>Important:</strong> CPGRAMS is connected with Central Government Ministries/Departments and States for eligible service-delivery grievances. RTI matters and certain other categories are outside CPGRAMS scope. citeturn0search0turn0search4</div>
+
+
+<div class="grid">
+
+
+<article class="card">
+
+<div class="icon">🏛️</div>
+
+<h3>
+Central Government Complaints
+</h3>
+
+<p>
+Information for complaints concerning Central Government departments and public services.
+</p>
+
+<ul class="list">
+
+<li>Public service grievance</li>
+<li>Department-related complaint</li>
+<li>Service delay complaint</li>
+<li>Complaint status information</li>
+<li>Reminder / escalation guidance</li>
+
+</ul>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🛡️</div>
+
+<h3>
+Cyber Crime & Online Fraud
+</h3>
+
+<p>
+Information for online fraud and cyber-related complaints.
+</p>
+
+<ul class="list">
+
+<li>Online financial fraud</li>
+<li>Cybercrime complaint information</li>
+<li>Suspicious online activity</li>
+<li>Women and children related cybercrime</li>
+<li>Complaint tracking information</li>
+
+</ul>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🛒</div>
+
+<h3>
+Consumer Complaints
+</h3>
+
+<p>
+Information for problems involving products, services and consumer rights.
+</p>
+
+<ul class="list">
+
+<li>Defective product</li>
+<li>Poor service</li>
+<li>Refund-related complaint</li>
+<li>Online purchase issue</li>
+<li>Consumer grievance guidance</li>
+
+</ul>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🚆</div>
+
+<h3>
+Other Central Services
+</h3>
+
+<p>
+Common public-service categories that may require central-level assistance.
+</p>
+
+<ul class="list">
+
+<li>Railway-related complaints</li>
+<li>Air travel service complaints</li>
+<li>Postal service complaints</li>
+<li>Banking and financial service complaints</li>
+<li>Department / Ministry service issues</li>
+
+</ul>
+
+</article>
+
+
+</div>
 </div>
 </section>
+
 
 <section class="section" id="states">
+
 <div class="container">
-<div class="section-head"><h2>🌐 State-wise Complaint Services</h2><p>Select your State to find its official grievance channel. Links should always be verified before submission.</p></div>
-<div class="grid">
-<article class="card dark"><div class="icon">📍</div><h3>Uttar Pradesh</h3><p>UP Government grievance route + UP Police complaint resources.</p><a class="linkbox" href="https://jansunwai.up.nic.in/" target="_blank">UP Jan Sunwai <b>↗</b></a></article>
-<article class="card"><div class="icon">📍</div><h3>State Grievance Portals</h3><p>For other States, use the concerned State Government's official grievance portal or CPGRAMS where applicable.</p><a class="linkbox" href="https://pgportal.gov.in/" target="_blank">Find Central/State Route <b>↗</b></a></article>
+
+<div class="section-head">
+
+<h2>🌐 State-wise Complaint Services</h2>
+
+<p>
+Information categories for complaints and public grievances across India.
+</p>
+
 </div>
-<div class="disclaimer">
-<strong>Planned state directory:</strong> Andhra Pradesh • Arunachal Pradesh • Assam • Bihar • Chhattisgarh • Goa • Gujarat • Haryana • Himachal Pradesh • Jharkhand • Karnataka • Kerala • Madhya Pradesh • Maharashtra • Manipur • Meghalaya • Mizoram • Nagaland • Odisha • Punjab • Rajasthan • Sikkim • Tamil Nadu • Telangana • Tripura • Uttarakhand • West Bengal • Delhi • Jammu & Kashmir • Ladakh • Puducherry • Chandigarh • Andaman & Nicobar Islands • Dadra & Nagar Haveli and Daman & Diu • Lakshadweep.
-<br><br>
-We will add individual official grievance links only after verification, because state portals and URLs can change.
+
+
+<div class="grid">
+
+
+<article class="card dark">
+
+<div class="icon">📍</div>
+
+<h3>
+Uttar Pradesh
+</h3>
+
+<p>
+Public grievance, police, revenue, municipal and department-related complaint information.
+</p>
+
+<ul class="list">
+
+<li>Government office complaints</li>
+<li>Police-related complaints</li>
+<li>Revenue / land complaints</li>
+<li>Municipal service complaints</li>
+<li>Electricity / water / public utility complaints</li>
+
+</ul>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🗺️</div>
+
+<h3>
+Other States & UTs
+</h3>
+
+<p>
+Complaint information can be organised state-by-state so visitors can identify the appropriate type of authority.
+</p>
+
+<ul class="list">
+
+<li>Andhra Pradesh</li>
+<li>Bihar</li>
+<li>Delhi</li>
+<li>Gujarat</li>
+<li>Haryana</li>
+<li>Jharkhand</li>
+<li>Madhya Pradesh</li>
+<li>Maharashtra</li>
+<li>Rajasthan</li>
+<li>Punjab</li>
+<li>Uttarakhand</li>
+<li>West Bengal</li>
+<li>All other States and Union Territories</li>
+
+</ul>
+
+</article>
+
+</div>
+
+
+<div class="note">
+
+<strong>State directory:</strong>
+Individual official portal names and links should be added only after verification. This page currently focuses on complaint/service categories rather than displaying external government website names.
+
+</div>
+
+</div>
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+<div class="section-head">
+
+<h2>📋 More Public Service Categories</h2>
+
+<p>
+Common citizen matters that can be added to the directory.
+</p>
+
+</div>
+
+
+<div class="grid">
+
+
+<article class="card">
+
+<div class="icon">📄</div>
+
+<h3>
+Certificates & Documents
+</h3>
+
+<p>
+Income, caste, domicile, birth/death, family and other citizen-document information.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🌾</div>
+
+<h3>
+Land & Revenue
+</h3>
+
+<p>
+Land records, mutation, measurement, boundary disputes, possession and revenue-office complaints.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">💡</div>
+
+<h3>
+Electricity, Water & Gas
+</h3>
+
+<p>
+Service interruption, billing, connection and delivery-related complaint information.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🎓</div>
+
+<h3>
+Education & Scholarships
+</h3>
+
+<p>
+Admission, scholarship, certificates and student-service complaint information.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">🏥</div>
+
+<h3>
+Health Services
+</h3>
+
+<p>
+Government health facilities, public health services and service-related complaint information.
+</p>
+
+</article>
+
+
+<article class="card">
+
+<div class="icon">👷</div>
+
+<h3>
+Employment & Labour
+</h3>
+
+<p>
+Employment services, worker assistance and labour-related complaint categories.
+</p>
+
+</article>
+
+
 </div>
 </div>
 </section>
 
+
 <section class="section">
+
 <div class="container">
-<div class="section-head"><h2>🔎 More Citizen Assistance</h2><p>Useful categories to build into the directory.</p></div>
-<div class="grid">
-<article class="card"><div class="icon">📄</div><h3>Certificates & Documents</h3><p>Income, caste, domicile, birth/death, family and other citizen documents.</p></article>
-<article class="card"><div class="icon">🌾</div><h3>Land & Revenue</h3><p>Mutation, measurement, land records, revenue complaints and related office guidance.</p></article>
-<article class="card"><div class="icon">💡</div><h3>Electricity, Water & Gas</h3><p>Utility complaint routes and escalation guidance for common service issues.</p></article>
-<article class="card"><div class="icon">🎓</div><h3>Education & Scholarships</h3><p>Admission, scholarship and student-service information.</p></article>
+
+<div class="disclaimer">
+
+<strong>SK KGN TEAM is an independent assistance service.</strong>
+
+This website is not a government department. Information is provided for general assistance. Requirements, procedures and authorities can change; users should verify the applicable process before submitting an official complaint, application or document.
+
 </div>
+
 </div>
 </section>
 
-<section class="section">
-<div class="container">
-<div class="disclaimer">
-<strong>SK KGN TEAM is an independent assistance service.</strong> This website is not a Government of India, Uttar Pradesh Government, Police Department or any other government department. Official portals should be used for actual filing of complaints, FIRs, applications and payments. Do not submit passwords, OTPs, bank PINs or other highly sensitive credentials to us.
-</div>
-</div>
-</section>
 </main>
 
-<footer><div class="container foot"><div><b>SK KGN TEAM</b><br>Public Grievance Assistance</div><div>© 2026 SK KGN TEAM</div></div></footer>
+
+<footer>
+
+<div class="container foot">
+
+<div>
+<b>SK KGN TEAM</b>
+<br>
+Public Grievance Assistance
+</div>
+
+<div>
+© 2026 SK KGN TEAM
+</div>
+
+</div>
+
+</footer>
+
 </body>
 </html>
