@@ -4,100 +4,826 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SK KGN TEAM – Official Store</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:#f5f7fa;color:#10131a;line-height:1.5}
-a{text-decoration:none;color:inherit}.container{width:min(1100px,92%);margin:auto}
-header{background:#155a8a;color:#fff;padding:28px 0}
-.header-inner{display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{display:flex;align-items:center;gap:12px;font-size:28px;font-weight:800}
-.brand img{width:58px;height:58px;object-fit:contain;border-radius:50%}
-.brand span{color:#fff}.home-btn{background:#fff;color:#155a8a;padding:12px 18px;border-radius:14px;font-weight:700}
-.hero{padding:45px 0 25px}.kicker{display:inline-block;background:#e4efff;color:#245b91;padding:10px 18px;border-radius:30px;font-weight:800;letter-spacing:.5px;margin-bottom:18px}
-h1{font-size:clamp(38px,7vw,64px);line-height:1.05;margin-bottom:15px}.hero p{color:#68717d;font-size:18px;max-width:760px}
-.store-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;padding:25px 0 60px}
-.card{background:#fff;border:2px solid #dfe4ea;border-radius:26px;padding:28px;box-shadow:0 8px 22px rgba(16,19,26,.08)}
-.card.basic{border-color:#62d5b0}.card.advance{border-color:#82a9ef}.card.premium{border-color:#c895ef}.card.vip{border-color:#8b939d}
-.badge{display:inline-block;padding:9px 16px;border-radius:14px;background:#13b886;color:#fff;font-weight:800;margin-bottom:18px}
-.advance .badge{background:#2864e8}.premium .badge{background:#9632df}.vip .badge{background:#101827;color:#f5ad00}
-.card-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:8px}
-.card h2{font-size:30px;line-height:1.1}.price{font-size:36px;font-weight:800;color:#155a8a;white-space:nowrap}
-.subtitle{color:#299f7b;font-size:18px;font-weight:800;margin-bottom:22px}.advance .subtitle{color:#2864e8}.premium .subtitle{color:#9632df}.vip .subtitle{color:#101827}
-.divider{height:1px;background:#e1e5e9;margin-bottom:22px}.features{list-style:none;display:grid;gap:14px;margin-bottom:25px}
-.features li{font-size:17px;color:#555d66}.features li::before{content:"✓";display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;margin-right:12px;border-radius:50%;background:#18b98a;color:#fff;font-size:14px;font-weight:800}
-.select-btn{display:block;width:100%;border:0;border-radius:16px;padding:18px;text-align:center;font-size:18px;font-weight:800;color:#fff;background:#13b886;cursor:pointer}
-.advance .select-btn{background:#2864e8}.premium .select-btn{background:#9632df}.vip .select-btn{background:#101827;color:#f5ad00}
-.note{background:#fff;border:1px solid #dfe4ea;border-radius:18px;padding:18px;margin:0 auto 50px;color:#68717d;text-align:center;max-width:850px}
-footer{background:#101827;color:#fff;text-align:center;padding:25px 15px}footer p{color:#c8ced6;font-size:14px}
-@media(max-width:700px){header{padding:20px 0}.brand{font-size:23px}.brand img{width:48px;height:48px}.home-btn{padding:10px 14px}.store-grid{grid-template-columns:1fr;gap:18px}.card{padding:24px}.card h2{font-size:26px}.price{font-size:32px}.hero{padding-top:32px}.hero p{font-size:17px}}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0
+}
+
+html{
+  scroll-behavior:smooth
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 15% 10%,rgba(21,90,138,.08),transparent 28%),
+    radial-gradient(circle at 85% 25%,rgba(150,50,223,.07),transparent 30%),
+    #f5f7fa;
+  color:#10131a;
+  line-height:1.5;
+  overflow-x:hidden
+}
+
+a{
+  text-decoration:none;
+  color:inherit
+}
+
+.container{
+  width:min(1100px,92%);
+  margin:auto
+}
+
+/* ================= HEADER ================= */
+
+header{
+  background:
+    linear-gradient(135deg,#0d4168,#155a8a,#0d4168);
+  color:#fff;
+  padding:28px 0;
+  position:relative;
+  overflow:hidden
+}
+
+header::after{
+  content:"";
+  position:absolute;
+  width:350px;
+  height:350px;
+  border-radius:50%;
+  background:rgba(255,255,255,.05);
+  top:-220px;
+  right:-100px
+}
+
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  position:relative;
+  z-index:2
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-size:28px;
+  font-weight:800
+}
+
+.brand img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.7);
+  box-shadow:0 0 20px rgba(255,255,255,.2)
+}
+
+.brand span{
+  color:#fff
+}
+
+.home-btn{
+  background:#fff;
+  color:#155a8a;
+  padding:12px 18px;
+  border-radius:14px;
+  font-weight:700;
+  transition:.3s;
+  box-shadow:0 8px 20px rgba(0,0,0,.15)
+}
+
+.home-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 25px rgba(0,0,0,.22)
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  padding:55px 0 28px;
+  position:relative
+}
+
+.kicker{
+  display:inline-block;
+  background:#e4efff;
+  color:#245b91;
+  padding:10px 18px;
+  border-radius:30px;
+  font-weight:800;
+  letter-spacing:.8px;
+  margin-bottom:18px;
+  box-shadow:0 8px 25px rgba(36,91,145,.08)
+}
+
+h1{
+  font-size:clamp(38px,7vw,64px);
+  line-height:1.05;
+  margin-bottom:18px;
+  letter-spacing:-2px
+}
+
+.hero p{
+  color:#68717d;
+  font-size:18px;
+  max-width:760px
+}
+
+/* ================= GRID ================= */
+
+.store-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:26px;
+  padding:25px 0 60px
+}
+
+/* ================= NORMAL CARDS ================= */
+
+.card{
+  background:rgba(255,255,255,.96);
+  border:2px solid #dfe4ea;
+  border-radius:26px;
+  padding:28px;
+  box-shadow:0 12px 35px rgba(16,19,26,.08);
+  position:relative;
+  overflow:hidden;
+  transition:.4s cubic-bezier(.2,.8,.2,1)
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(21,90,138,.035);
+  right:-80px;
+  top:-80px;
+  transition:.4s
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 22px 45px rgba(16,19,26,.13)
+}
+
+.card:hover::before{
+  transform:scale(1.4)
+}
+
+.card.basic{
+  border-color:#62d5b0
+}
+
+.card.advance{
+  border-color:#82a9ef
+}
+
+.card.premium{
+  border-color:#c895ef
+}
+
+.card.vip{
+  border-color:#8b939d
+}
+
+.badge{
+  display:inline-block;
+  padding:9px 16px;
+  border-radius:14px;
+  background:#13b886;
+  color:#fff;
+  font-weight:800;
+  margin-bottom:18px;
+  position:relative;
+  z-index:2
+}
+
+.advance .badge{
+  background:#2864e8
+}
+
+.premium .badge{
+  background:#9632df
+}
+
+.card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:8px;
+  position:relative;
+  z-index:2
+}
+
+.card h2{
+  font-size:30px;
+  line-height:1.1
+}
+
+.price{
+  font-size:36px;
+  font-weight:800;
+  color:#155a8a;
+  white-space:nowrap
+}
+
+.subtitle{
+  color:#299f7b;
+  font-size:18px;
+  font-weight:800;
+  margin-bottom:22px;
+  position:relative;
+  z-index:2
+}
+
+.advance .subtitle{
+  color:#2864e8
+}
+
+.premium .subtitle{
+  color:#9632df
+}
+
+.vip .subtitle{
+  color:#d39400
+}
+
+.divider{
+  height:1px;
+  background:#e1e5e9;
+  margin-bottom:22px;
+  position:relative;
+  z-index:2
+}
+
+.features{
+  list-style:none;
+  display:grid;
+  gap:14px;
+  margin-bottom:25px;
+  position:relative;
+  z-index:2
+}
+
+.features li{
+  font-size:17px;
+  color:#555d66
+}
+
+.features li::before{
+  content:"✓";
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:22px;
+  height:22px;
+  margin-right:12px;
+  border-radius:50%;
+  background:#18b98a;
+  color:#fff;
+  font-size:14px;
+  font-weight:800
+}
+
+.select-btn{
+  display:block;
+  width:100%;
+  border:0;
+  border-radius:16px;
+  padding:18px;
+  text-align:center;
+  font-size:18px;
+  font-weight:800;
+  color:#fff;
+  background:#13b886;
+  cursor:pointer;
+  position:relative;
+  z-index:3;
+  transition:.3s;
+  box-shadow:0 10px 20px rgba(19,184,134,.18)
+}
+
+.select-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 28px rgba(19,184,134,.28)
+}
+
+.advance .select-btn{
+  background:#2864e8;
+  box-shadow:0 10px 20px rgba(40,100,232,.18)
+}
+
+.premium .select-btn{
+  background:#9632df;
+  box-shadow:0 10px 20px rgba(150,50,223,.18)
+}
+
+/* ================================================= */
+/* ================= PREMIUM VIP ================== */
+/* ================================================= */
+
+.card.vip{
+  grid-column:1/-1;
+  background:
+    radial-gradient(circle at 15% 20%,rgba(255,193,7,.13),transparent 25%),
+    radial-gradient(circle at 85% 80%,rgba(255,166,0,.10),transparent 28%),
+    linear-gradient(135deg,#070b12,#111925 45%,#080d15);
+  color:#fff;
+  border:2px solid transparent;
+  isolation:isolate;
+  box-shadow:
+    0 20px 55px rgba(0,0,0,.25),
+    0 0 0 1px rgba(255,193,7,.12),
+    0 0 50px rgba(255,174,0,.08);
+  transform:translateZ(0)
+}
+
+/* Animated premium border */
+.card.vip::after{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:28px;
+  padding:2px;
+  background:
+    linear-gradient(
+      120deg,
+      #7b5200,
+      #ffd76a,
+      #fff1a8,
+      #b97900,
+      #ffe27a,
+      #7b5200
+    );
+  background-size:300% 300%;
+  animation:vipBorder 5s linear infinite;
+  z-index:-1;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+}
+
+@keyframes vipBorder{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* Golden ambient glow */
+.card.vip::before{
+  content:"";
+  position:absolute;
+  width:480px;
+  height:480px;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
+    rgba(255,193,7,.13),
+    rgba(255,193,7,.04) 35%,
+    transparent 70%
+  );
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  animation:vipGlow 4s ease-in-out infinite;
+  z-index:-1
+}
+
+@keyframes vipGlow{
+  0%,100%{
+    opacity:.55;
+    transform:translate(-50%,-50%) scale(.9)
+  }
+  50%{
+    opacity:1;
+    transform:translate(-50%,-50%) scale(1.15)
+  }
+}
+
+/* VIP floating light */
+.card.vip .vip-light{
+  position:absolute;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
+    rgba(255,215,90,.16),
+    transparent 70%
+  );
+  pointer-events:none
+}
+
+.card.vip .badge{
+  background:
+    linear-gradient(135deg,#7a4d00,#d99b18,#ffe07a,#b87800);
+  color:#fff;
+  box-shadow:
+    0 8px 25px rgba(255,178,0,.2),
+    inset 0 1px rgba(255,255,255,.4);
+  animation:vipBadge 2.5s ease-in-out infinite
+}
+
+@keyframes vipBadge{
+  0%,100%{
+    transform:scale(1);
+    box-shadow:0 8px 25px rgba(255,178,0,.18)
+  }
+  50%{
+    transform:scale(1.04);
+    box-shadow:
+      0 8px 35px rgba(255,178,0,.35),
+      0 0 20px rgba(255,193,7,.18)
+  }
+}
+
+.vip .card-head{
+  align-items:center
+}
+
+.vip .card-head h2{
+  font-size:36px;
+  color:#ffe18a;
+  letter-spacing:1px;
+  text-shadow:
+    0 0 12px rgba(255,193,7,.22)
+}
+
+.vip .price{
+  color:#ffd45c;
+  font-size:42px;
+  text-shadow:0 0 20px rgba(255,193,7,.18)
+}
+
+.vip .divider{
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,210,100,.55),
+    transparent
+  )
+}
+
+.vip-description{
+  color:#d7dbe2;
+  font-size:17px;
+  max-width:900px;
+  margin:-8px 0 24px;
+  position:relative;
+  z-index:2
+}
+
+.vip-description strong{
+  color:#ffe18a
+}
+
+.vip-validity{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,193,7,.09);
+  border:1px solid rgba(255,193,7,.25);
+  color:#ffd969;
+  padding:9px 15px;
+  border-radius:12px;
+  font-weight:800;
+  margin-bottom:20px;
+  position:relative;
+  z-index:2
+}
+
+.vip .features li{
+  color:#d6dae0
+}
+
+.vip .features li::before{
+  content:"✓";
+  background:linear-gradient(135deg,#b77800,#ffd75a);
+  color:#16120a;
+  box-shadow:0 0 10px rgba(255,193,7,.15)
+}
+
+.vip .select-btn{
+  background:
+    linear-gradient(
+      135deg,
+      #805300,
+      #d69a13,
+      #ffdc65,
+      #bd7e00
+    );
+  color:#171208;
+  border:1px solid rgba(255,238,169,.55);
+  box-shadow:
+    0 12px 30px rgba(255,174,0,.18),
+    inset 0 1px rgba(255,255,255,.45);
+  overflow:hidden
+}
+
+.vip .select-btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:70%;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.45),
+    transparent
+  );
+  transform:skewX(-20deg);
+  animation:vipButtonShine 3.5s infinite
+}
+
+@keyframes vipButtonShine{
+  0%{left:-120%}
+  45%,100%{left:140%}
+}
+
+.vip .select-btn:hover{
+  transform:translateY(-4px) scale(1.01);
+  box-shadow:
+    0 18px 40px rgba(255,174,0,.28),
+    0 0 25px rgba(255,193,7,.13)
+}
+
+/* ================= VIP FEATURE INTRO ================= */
+
+.vip-title-line{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#ffe08a;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:2px;
+  margin-bottom:12px;
+  position:relative;
+  z-index:2
+}
+
+.vip-title-line::before{
+  content:"";
+  width:35px;
+  height:2px;
+  background:linear-gradient(90deg,#9b6700,#ffd75c);
+  box-shadow:0 0 10px rgba(255,193,7,.3)
+}
+
+/* ================= NOTE ================= */
+
+.note{
+  background:#fff;
+  border:1px solid #dfe4ea;
+  border-radius:18px;
+  padding:18px;
+  margin:0 auto 50px;
+  color:#68717d;
+  text-align:center;
+  max-width:850px;
+  box-shadow:0 8px 25px rgba(16,19,26,.05)
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#101827;
+  color:#fff;
+  text-align:center;
+  padding:25px 15px
+}
+
+footer p{
+  color:#c8ced6;
+  font-size:14px
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:700px){
+
+  header{
+    padding:20px 0
+  }
+
+  .brand{
+    font-size:23px
+  }
+
+  .brand img{
+    width:48px;
+    height:48px
+  }
+
+  .home-btn{
+    padding:10px 14px
+  }
+
+  .store-grid{
+    grid-template-columns:1fr;
+    gap:18px
+  }
+
+  .card{
+    padding:24px
+  }
+
+  .card h2{
+    font-size:26px
+  }
+
+  .price{
+    font-size:32px
+  }
+
+  .hero{
+    padding-top:32px
+  }
+
+  .hero p{
+    font-size:17px
+  }
+
+  .card.vip{
+    grid-column:auto;
+    border-radius:24px
+  }
+
+  .vip .card-head{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px
+  }
+
+  .vip .card-head h2{
+    font-size:31px
+  }
+
+  .vip .price{
+    font-size:38px
+  }
+
+  .vip-description{
+    font-size:16px
+  }
+
+  .vip .features{
+    gap:13px
+  }
+
+  .vip .features li{
+    font-size:16px
+  }
+
+  .vip .select-btn{
+    padding:17px
+  }
+}
 </style>
 </head>
+
 <body>
 
 <header>
 <div class="container header-inner">
+
 <a href="index.html" class="brand">
 <img src="Logo.jpg" alt="SK KGN TEAM">
 <span>SK <b>KGN</b> TEAM</span>
 </a>
+
 <a href="index.html" class="home-btn">← Home</a>
+
 </div>
 </header>
+
 
 <main>
 
 <section class="hero">
 <div class="container">
+
 <div class="kicker">OFFICIAL STORE & ASSISTANCE</div>
-<h1>Professional<br><span style="color:#155a8a">Assistance Plans.</span></h1>
-<p>Choose the assistance plan that matches your requirement. Get professional complaint drafting, filing assistance, tracking and follow-up support.</p>
+
+<h1>
+Professional<br>
+<span style="color:#155a8a">Assistance Plans.</span>
+</h1>
+
+<p>
+Choose the assistance plan that matches your requirement.
+Get professional complaint drafting, filing assistance,
+tracking and follow-up support.
+</p>
+
 </div>
 </section>
 
+
 <section class="container store-grid">
 
+
+<!-- ================= BASIC ================= -->
+
 <article class="card basic">
+
 <div class="badge">BEST VALUE</div>
+
 <div class="card-head">
 <h2>BASIC SERVICE</h2>
 <div class="price">₹99</div>
 </div>
-<div class="subtitle">PROFESSIONAL COMPLAINT DRAFT</div>
+
+<div class="subtitle">
+PROFESSIONAL COMPLAINT DRAFT
+</div>
+
 <div class="divider"></div>
+
 <ul class="features">
 <li>Professional Complaint Draft</li>
 <li>Hindi & English</li>
 <li>PDF Format</li>
 <li>Draft Ready in 1 Hour</li>
 </ul>
-<a class="select-btn" href="https://rzp.io/rzp/aCUa2Mtm" target="_blank" rel="noopener">Select Plan • ₹99</a>
+
+<a
+class="select-btn"
+href="https://rzp.io/rzp/aCUa2Mtm"
+target="_blank"
+rel="noopener">
+Select Plan • ₹99
+</a>
+
 </article>
 
+
+<!-- ================= ADVANCE ================= -->
+
 <article class="card advance">
+
 <div class="badge">BEST CHOICE</div>
+
 <div class="card-head">
 <h2>ADVANCE SERVICE</h2>
 <div class="price">₹199</div>
 </div>
-<div class="subtitle">COMPLETE DRAFTING + FILING ASSISTANCE</div>
+
+<div class="subtitle">
+COMPLETE DRAFTING + FILING ASSISTANCE
+</div>
+
 <div class="divider"></div>
+
 <ul class="features">
 <li>Professional Complaint Draft</li>
 <li>Complaint Filing by SK KGN TEAM</li>
 <li>Complaint Submission Copy</li>
 <li>Draft Ready in 1 Hour</li>
 </ul>
-<a class="select-btn" href="https://rzp.io/rzp/Fc1SXRUZ" target="_blank" rel="noopener">Select Plan • ₹199</a>
+
+<a
+class="select-btn"
+href="https://rzp.io/rzp/Fc1SXRUZ"
+target="_blank"
+rel="noopener">
+Select Plan • ₹199
+</a>
+
 </article>
 
+
+<!-- ================= PREMIUM ================= -->
+
 <article class="card premium">
+
 <div class="badge">BEST VALUE</div>
+
 <div class="card-head">
 <h2>PREMIUM SERVICE</h2>
 <div class="price">₹299</div>
 </div>
-<div class="subtitle">COMPLETE ASSISTANCE + TRACKING + FOLLOW-UP</div>
+
+<div class="subtitle">
+COMPLETE ASSISTANCE + TRACKING + FOLLOW-UP
+</div>
+
 <div class="divider"></div>
+
 <ul class="features">
 <li>Professional Complaint Draft</li>
 <li>Complaint Filing by SK KGN TEAM</li>
@@ -105,46 +831,118 @@ footer{background:#101827;color:#fff;text-align:center;padding:25px 15px}footer 
 <li>Follow-up Assistance</li>
 <li>End-to-End Assistance Throughout the Process</li>
 </ul>
-<a class="select-btn" href="https://rzp.io/rzp/jF1l9F5" target="_blank" rel="noopener">Select Plan • ₹299</a>
+
+<a
+class="select-btn"
+href="https://rzp.io/rzp/jF1l9F5"
+target="_blank"
+rel="noopener">
+Select Plan • ₹299
+</a>
+
 </article>
 
+
+<!-- ================================================= -->
+<!-- ===================== VIP ======================= -->
+<!-- ================================================= -->
+
 <article class="card vip">
-<div class="badge">VIP SERVICE</div>
-<div class="card-head">
-<h2>VIP SERVICE</h2>
-<div class="price">₹2999</div>
+
+<div class="vip-light"></div>
+
+<div class="vip-title-line">
+EXCLUSIVE PREMIUM ACCESS
 </div>
-<div class="subtitle">6 MONTHS PREMIUM ASSISTANCE</div>
+
+<div class="badge">👑 VIP SERVICE</div>
+
+<div class="card-head">
+
+<h2>VIP SERVICE</h2>
+
+<div class="price">₹2999</div>
+
+</div>
+
+<div class="subtitle">
+6 MONTHS PREMIUM ASSISTANCE
+</div>
+
+<div class="vip-validity">
+✦ 6 MONTHS VALIDITY
+</div>
+
+<p class="vip-description">
+<strong>For customers who need continuous, priority-level assistance.</strong>
+Get extended support for complaint drafting, filing assistance,
+status tracking, follow-up, document review and other assistance
+requirements throughout the six-month validity period.
+</p>
+
 <div class="divider"></div>
-<p style="color:#68717d;margin-bottom:18px;">6 Months Validity</p>
+
 <ul class="features">
+
 <li>Dedicated Personal Assistant</li>
+
 <li>Unlimited Complaint Drafting</li>
+
 <li>Complaint Filing Assistance</li>
+
 <li>Complaint Status Tracking</li>
+
 <li>Follow-up Assistance</li>
+
 <li>RTI Drafting Guidance</li>
+
 <li>Government Scheme Guidance</li>
+
 <li>Document Review</li>
+
 <li>Priority WhatsApp Support</li>
+
 <li>Priority Customer Support</li>
+
 <li>Personalized Assistance</li>
+
 </ul>
-<a class="select-btn" href="https://rzp.io/rzp/DYnCGJCl" target="_blank" rel="noopener">Select Plan • ₹2999</a>
+
+<a
+class="select-btn"
+href="https://rzp.io/rzp/DYnCGJCl"
+target="_blank"
+rel="noopener">
+👑 Select VIP Plan • ₹2999
+</a>
+
 </article>
+
 
 </section>
 
+
 <div class="container">
+
 <div class="note">
-<strong>Important:</strong> Select a plan to proceed to the secure Razorpay payment page. Please verify the plan and amount before paying.
+
+<strong>Important:</strong>
+Select a plan to proceed to the secure Razorpay payment page.
+Please verify the plan and amount before paying.
+
 </div>
+
 </div>
 
 </main>
 
+
 <footer>
-<p>© SK KGN TEAM. All rights reserved.</p>
+
+<p>
+© SK KGN TEAM. All rights reserved.
+</p>
+
 </footer>
 
 </body>
