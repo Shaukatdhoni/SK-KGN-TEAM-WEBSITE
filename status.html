@@ -3,207 +3,2149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#111827">
+<meta name="theme-color" content="#08152e">
+<meta name="description" content="SK KGN TEAM Complaint Tracking System">
 <title>Track Complaint — SK KGN TEAM</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,Arial,sans-serif;background:#f5f7fa;color:#10131a;min-height:100vh}
-.container{width:min(760px,92%);margin:auto}
-.top{padding:26px 0 12px}
-.brand{display:flex;align-items:center;gap:10px;color:#111827;text-decoration:none;font-weight:900;font-size:20px}
-.brand img{width:42px;height:42px;border-radius:50%;object-fit:contain}
-.hero{padding:34px 0 22px;text-align:center}
-.badge{display:inline-block;background:#eaf1ff;color:#164a9c;padding:8px 14px;border-radius:30px;font-size:11px;font-weight:900;letter-spacing:.5px;margin-bottom:14px}
-h1{font-size:clamp(34px,8vw,54px);line-height:1.05;letter-spacing:-2px;color:#111827}
-.hero p{color:#667085;margin:14px auto 0;max-width:560px;font-size:16px}
-.search-card{margin-top:25px;background:#111827;border-radius:28px;padding:24px;box-shadow:0 22px 55px rgba(17,24,39,.18)}
-.search-card label{display:block;text-align:left;color:#cbd5e1;font-size:12px;font-weight:800;margin-bottom:8px}
-.search-row{display:flex;gap:10px}
-.search-row input{flex:1;min-width:0;border:0;border-radius:14px;padding:16px;font-size:16px;outline:none;text-transform:uppercase;background:#fff}
-.search-row button{border:0;border-radius:14px;padding:0 20px;background:#2563eb;color:#fff;font-weight:800;font-size:15px;cursor:pointer}
-.search-row button:disabled{opacity:.65;cursor:wait}
-#message{display:none;margin-top:15px;padding:13px 15px;border-radius:12px;text-align:left;font-size:14px;background:#fff;color:#344054}
-.result{display:none;margin:24px 0 50px}
-.result-card{background:#fff;border:1px solid #e4e7ec;border-radius:28px;overflow:hidden;box-shadow:0 18px 50px rgba(16,24,40,.08)}
-.result-head{background:linear-gradient(135deg,#111827,#164a9c);color:#fff;padding:25px}
-.result-head small{color:#cbd5e1;font-weight:700}
-.result-head h2{font-size:25px;margin-top:4px;word-break:break-word}
-.status-pill{display:inline-flex;align-items:center;gap:7px;margin-top:14px;padding:8px 12px;border-radius:30px;background:#fff;color:#111827;font-size:13px;font-weight:900}
-.status-dot{width:8px;height:8px;border-radius:50%;background:#22c55e}
-.details{padding:24px}
-.detail{padding:15px 0;border-bottom:1px solid #edf0f4}
-.detail:last-child{border-bottom:0}
-.detail label{display:block;color:#667085;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
-.detail div{font-size:15px;color:#1d2939;line-height:1.6;word-break:break-word}
-.timeline{padding:0 24px 28px}
-.timeline h3{font-size:18px;margin-bottom:18px}
-.track{position:relative}
-.track:before{content:"";position:absolute;left:15px;top:16px;bottom:16px;width:2px;background:#e4e7ec}
-.stage{position:relative;display:flex;gap:14px;align-items:flex-start;padding:0 0 18px}
-.stage:last-child{padding-bottom:0}
-.stage-icon{width:32px;height:32px;flex:0 0 32px;border-radius:50%;display:grid;place-items:center;background:#eef0f3;color:#98a2b3;font-size:14px;font-weight:900;z-index:1;border:3px solid #fff}
-.stage.done .stage-icon{background:#22c55e;color:#fff}
-.stage.current .stage-icon{background:#2563eb;color:#fff;box-shadow:0 0 0 5px #dbeafe}
-.stage-title{font-weight:800;color:#344054;font-size:14px;padding-top:6px}
-.stage.current .stage-title{color:#164a9c}
-.stage-note{font-size:11px;color:#98a2b3;margin-top:2px}
-.footer{text-align:center;color:#98a2b3;font-size:11px;padding:0 0 35px}
-.back{display:inline-block;margin-top:16px;color:#164a9c;font-weight:800;text-decoration:none;font-size:13px}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --blue:#2563eb;
+  --dark:#08152e;
+  --dark2:#111827;
+  --text:#101828;
+  --muted:#667085;
+  --line:#e4e7ec;
+  --green:#16a34a;
+  --red:#dc2626;
+  --orange:#ea580c;
+  --gold:#f59e0b;
+}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(37,99,235,.10),transparent 28%),
+    radial-gradient(circle at 90% 30%,rgba(14,165,233,.08),transparent 25%),
+    #f5f7fb;
+  color:var(--text);
+  min-height:100vh;
+}
+
+.container{
+  width:min(780px,92%);
+  margin:auto;
+}
+
+.top{
+  padding:25px 0 10px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  color:#111827;
+  text-decoration:none;
+  font-weight:900;
+  font-size:20px;
+}
+
+.brand img{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  object-fit:contain;
+  background:#fff;
+  box-shadow:0 5px 18px rgba(0,0,0,.10);
+}
+
+.hero{
+  padding:38px 0 24px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  background:#eaf1ff;
+  color:#164a9c;
+  padding:9px 15px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.7px;
+  margin-bottom:15px;
+  animation:pulseBadge 2.5s infinite;
+}
+
+@keyframes pulseBadge{
+  0%,100%{box-shadow:0 0 0 0 rgba(37,99,235,.10)}
+  50%{box-shadow:0 0 0 8px rgba(37,99,235,0)}
+}
+
+h1{
+  font-size:clamp(34px,8vw,55px);
+  line-height:1.04;
+  letter-spacing:-2.5px;
+  color:#111827;
+}
+
+.hero p{
+  color:#667085;
+  margin:14px auto 0;
+  max-width:580px;
+  font-size:16px;
+  line-height:1.6;
+}
+
+/* SEARCH */
+
+.search-card{
+  margin-top:28px;
+  background:
+    linear-gradient(145deg,#07152f,#102e61);
+  border-radius:28px;
+  padding:25px;
+  box-shadow:
+    0 25px 70px rgba(8,21,46,.25),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  position:relative;
+  overflow:hidden;
+}
+
+.search-card:before{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:rgba(37,99,235,.18);
+  filter:blur(15px);
+  right:-80px;
+  top:-80px;
+}
+
+.search-card label{
+  display:block;
+  text-align:left;
+  color:#cbd5e1;
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:9px;
+  letter-spacing:.6px;
+}
+
+.search-row{
+  display:flex;
+  gap:10px;
+  position:relative;
+  z-index:1;
+}
+
+.search-row input{
+  flex:1;
+  min-width:0;
+  border:0;
+  border-radius:15px;
+  padding:16px;
+  font-size:16px;
+  outline:none;
+  text-transform:uppercase;
+  background:#fff;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+.search-row button{
+  border:0;
+  border-radius:15px;
+  padding:0 21px;
+  background:linear-gradient(135deg,#2563eb,#3b82f6);
+  color:#fff;
+  font-weight:900;
+  font-size:14px;
+  cursor:pointer;
+  box-shadow:0 8px 25px rgba(37,99,235,.30);
+  transition:.2s;
+}
+
+.search-row button:hover{
+  transform:translateY(-2px);
+}
+
+.search-row button:disabled{
+  opacity:.65;
+  cursor:wait;
+}
+
+#message{
+  display:none;
+  margin-top:15px;
+  padding:13px 15px;
+  border-radius:13px;
+  text-align:left;
+  font-size:13px;
+  background:#fff;
+  color:#344054;
+  position:relative;
+  z-index:2;
+}
+
+/* RESULT */
+
+.result{
+  display:none;
+  margin:25px 0 50px;
+}
+
+.result-card{
+  background:#fff;
+  border:1px solid #e4e7ec;
+  border-radius:30px;
+  overflow:hidden;
+  box-shadow:
+    0 25px 70px rgba(16,24,40,.10);
+  animation:cardIn .55s ease;
+}
+
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:translateY(25px) scale(.98);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0) scale(1);
+  }
+}
+
+/* RESULT HEADER */
+
+.result-head{
+  background:
+    radial-gradient(circle at 90% 10%,rgba(59,130,246,.35),transparent 30%),
+    linear-gradient(135deg,#08152e,#164a9c);
+  color:#fff;
+  padding:27px;
+  position:relative;
+  overflow:hidden;
+}
+
+.result-head:after{
+  content:"";
+  position:absolute;
+  width:180px;
+  height:180px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:50%;
+  right:-70px;
+  bottom:-100px;
+}
+
+.result-head small{
+  color:#cbd5e1;
+  font-weight:800;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.result-head h2{
+  font-size:27px;
+  margin-top:5px;
+  word-break:break-word;
+}
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:15px;
+  padding:9px 13px;
+  border-radius:30px;
+  background:#fff;
+  color:#111827;
+  font-size:13px;
+  font-weight:900;
+  position:relative;
+  z-index:2;
+}
+
+.status-dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:#22c55e;
+  box-shadow:0 0 0 5px rgba(34,197,94,.12);
+}
+
+.status-pill.cancelled{
+  color:#991b1b;
+}
+
+.status-pill.cancelled .status-dot{
+  background:#dc2626;
+  box-shadow:0 0 0 5px rgba(220,38,38,.12);
+}
+
+/* DETAILS */
+
+.details{
+  padding:24px;
+}
+
+.detail{
+  padding:16px 0;
+  border-bottom:1px solid #edf0f4;
+}
+
+.detail:last-child{
+  border-bottom:0;
+}
+
+.detail label{
+  display:block;
+  color:#667085;
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:6px;
+}
+
+.detail div{
+  font-size:15px;
+  color:#1d2939;
+  line-height:1.7;
+  word-break:break-word;
+}
+
+/* ADMIN UPDATE */
+
+.update-box{
+  margin:0 24px 24px;
+  padding:20px;
+  border-radius:20px;
+  background:
+    linear-gradient(135deg,#f8fbff,#eef5ff);
+  border:1px solid #dbe8ff;
+  position:relative;
+  overflow:hidden;
+}
+
+.update-box:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(#2563eb,#7c3aed);
+}
+
+.update-title{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:15px;
+  font-weight:900;
+  color:#164a9c;
+  margin-bottom:9px;
+}
+
+.update-text{
+  color:#344054;
+  font-size:14px;
+  line-height:1.65;
+  white-space:pre-wrap;
+}
+
+.update-time{
+  margin-top:10px;
+  color:#98a2b3;
+  font-size:11px;
+}
+
+/* CANCELLED */
+
+.cancel-box{
+  margin:0 24px 24px;
+  padding:20px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#fff5f5,#fff);
+  border:1px solid #fecaca;
+  animation:softGlow 2.5s infinite;
+}
+
+@keyframes softGlow{
+  0%,100%{box-shadow:0 0 0 rgba(220,38,38,0)}
+  50%{box-shadow:0 0 25px rgba(220,38,38,.08)}
+}
+
+.cancel-title{
+  color:#b42318;
+  font-weight:900;
+  font-size:16px;
+  margin-bottom:7px;
+}
+
+.cancel-text{
+  color:#7f1d1d;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* TIMELINE */
+
+.timeline{
+  padding:0 24px 25px;
+}
+
+.timeline h3{
+  font-size:19px;
+  margin-bottom:20px;
+}
+
+.track{
+  position:relative;
+}
+
+.track:before{
+  content:"";
+  position:absolute;
+  left:15px;
+  top:16px;
+  bottom:16px;
+  width:2px;
+  background:#e4e7ec;
+}
+
+.stage{
+  position:relative;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:0 0 19px;
+  animation:stageIn .4s ease both;
+}
+
+.stage:nth-child(2){animation-delay:.08s}
+.stage:nth-child(3){animation-delay:.16s}
+.stage:nth-child(4){animation-delay:.24s}
+.stage:nth-child(5){animation-delay:.32s}
+
+@keyframes stageIn{
+  from{opacity:0;transform:translateX(-10px)}
+  to{opacity:1;transform:translateX(0)}
+}
+
+.stage:last-child{
+  padding-bottom:0;
+}
+
+.stage-icon{
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#eef0f3;
+  color:#98a2b3;
+  font-size:13px;
+  font-weight:900;
+  z-index:1;
+  border:3px solid #fff;
+}
+
+.stage.done .stage-icon{
+  background:#16a34a;
+  color:#fff;
+}
+
+.stage.current .stage-icon{
+  background:#2563eb;
+  color:#fff;
+  box-shadow:0 0 0 5px #dbeafe;
+  animation:currentPulse 1.8s infinite;
+}
+
+@keyframes currentPulse{
+  0%,100%{box-shadow:0 0 0 5px #dbeafe}
+  50%{box-shadow:0 0 0 9px rgba(219,234,254,.3)}
+}
+
+.stage.cancelled .stage-icon{
+  background:#dc2626;
+  color:#fff;
+  box-shadow:0 0 0 5px #fee2e2;
+}
+
+.stage-title{
+  font-weight:800;
+  color:#344054;
+  font-size:14px;
+  padding-top:6px;
+}
+
+.stage.current .stage-title{
+  color:#164a9c;
+}
+
+.stage.cancelled .stage-title{
+  color:#b42318;
+}
+
+.stage-note{
+  font-size:11px;
+  color:#98a2b3;
+  margin-top:3px;
+}
+
+/* ACTIONS */
+
+.actions{
+  padding:0 24px 25px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+}
+
+.action-btn{
+  border:1px solid #e4e7ec;
+  background:#fff;
+  border-radius:13px;
+  padding:12px 8px;
+  font-size:12px;
+  font-weight:900;
+  color:#344054;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.action-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(16,24,40,.08);
+  border-color:#cbd5e1;
+}
+
+.action-btn.primary{
+  background:#eff6ff;
+  color:#1d4ed8;
+  border-color:#dbeafe;
+}
+
+/* FEEDBACK */
+
+.feedback{
+  margin:0 24px 25px;
+  padding:21px;
+  border-radius:22px;
+  background:#111827;
+  color:#fff;
+  box-shadow:0 15px 35px rgba(17,24,39,.15);
+}
+
+.feedback h3{
+  font-size:17px;
+  margin-bottom:5px;
+}
+
+.feedback p{
+  color:#9ca3af;
+  font-size:12px;
+  margin-bottom:15px;
+}
+
+.rating{
+  display:flex;
+  gap:7px;
+  margin-bottom:12px;
+}
+
+.rating button{
+  width:43px;
+  height:43px;
+  border:1px solid #374151;
+  border-radius:12px;
+  background:#1f2937;
+  color:#fff;
+  font-size:19px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.rating button:hover,
+.rating button.selected{
+  background:#f59e0b;
+  border-color:#f59e0b;
+  transform:translateY(-2px);
+}
+
+.feedback textarea{
+  width:100%;
+  border:1px solid #374151;
+  background:#0b1220;
+  color:#fff;
+  border-radius:13px;
+  padding:12px;
+  resize:vertical;
+  min-height:75px;
+  outline:none;
+  font-family:inherit;
+}
+
+.feedback textarea::placeholder{
+  color:#6b7280;
+}
+
+.feedback-send{
+  margin-top:10px;
+  border:0;
+  background:#2563eb;
+  color:#fff;
+  border-radius:12px;
+  padding:12px 16px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+/* REMINDER */
+
+.reminder{
+  margin:0 24px 25px;
+  padding:18px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#fffaf0,#fff);
+  border:1px solid #fde68a;
+}
+
+.reminder h3{
+  font-size:15px;
+  margin-bottom:5px;
+}
+
+.reminder p{
+  color:#667085;
+  font-size:11px;
+  line-height:1.5;
+  margin-bottom:10px;
+}
+
+.reminder-row{
+  display:flex;
+  gap:8px;
+}
+
+.reminder input{
+  flex:1;
+  min-width:0;
+  border:1px solid #e4e7ec;
+  border-radius:11px;
+  padding:11px;
+  font-size:12px;
+}
+
+.reminder button{
+  border:0;
+  background:#f59e0b;
+  color:#fff;
+  border-radius:11px;
+  padding:0 14px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+/* FOOTER */
+
+.footer{
+  text-align:center;
+  color:#98a2b3;
+  font-size:11px;
+  padding:0 0 35px;
+}
+
+.back{
+  display:inline-block;
+  margin-top:16px;
+  color:#164a9c;
+  font-weight:800;
+  text-decoration:none;
+  font-size:13px;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,20px);
+  background:#111827;
+  color:#fff;
+  padding:13px 17px;
+  border-radius:13px;
+  font-size:13px;
+  font-weight:800;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:999;
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* MOBILE */
+
 @media(max-width:560px){
- .search-card{padding:18px;border-radius:22px}
- .search-row{flex-direction:column}
- .search-row button{padding:15px}
- .result-card{border-radius:22px}
- .details,.timeline{padding-left:19px;padding-right:19px}
+
+  .container{
+    width:94%;
+  }
+
+  .search-card{
+    padding:18px;
+    border-radius:23px;
+  }
+
+  .search-row{
+    flex-direction:column;
+  }
+
+  .search-row button{
+    padding:15px;
+  }
+
+  .result-card{
+    border-radius:23px;
+  }
+
+  .result-head{
+    padding:23px;
+  }
+
+  .details,
+  .timeline{
+    padding-left:19px;
+    padding-right:19px;
+  }
+
+  .update-box,
+  .cancel-box,
+  .feedback,
+  .reminder{
+    margin-left:19px;
+    margin-right:19px;
+  }
+
+  .actions{
+    padding-left:19px;
+    padding-right:19px;
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .rating button{
+    width:40px;
+    height:40px;
+  }
+
+  .reminder-row{
+    flex-direction:column;
+  }
+
+  .reminder button{
+    padding:12px;
+  }
+}
+
+/* PRINT */
+
+@media print{
+
+  body{
+    background:#fff;
+  }
+
+  .top,
+  .hero,
+  .actions,
+  .feedback,
+  .reminder,
+  .footer{
+    display:none!important;
+  }
+
+  .result{
+    display:block!important;
+    margin:0;
+  }
+
+  .result-card{
+    box-shadow:none;
+    border:1px solid #ddd;
+  }
 }
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
   <div class="top">
-    <a class="brand" href="index.html"><img src="Logo.jpg" alt="SK KGN TEAM"><span>SK KGN TEAM</span></a>
+    <a class="brand" href="index.html">
+      <img src="Logo.jpg" alt="SK KGN TEAM">
+      <span>SK KGN TEAM</span>
+    </a>
   </div>
 
   <section class="hero">
-    <div class="badge">PUBLIC COMPLAINT TRACKING</div>
+
+    <div class="badge">
+      🔐 SECURE COMPLAINT TRACKING
+    </div>
+
     <h1>Track Your Complaint</h1>
-    <p>Enter your Complaint ID to view the latest status and complaint information.</p>
+
+    <p>
+      Enter your Complaint ID to view the latest status,
+      updates and complaint information.
+    </p>
 
     <div class="search-card">
-      <label for="complaintId">COMPLAINT ID</label>
+
+      <label for="complaintId">
+        COMPLAINT ID
+      </label>
+
       <div class="search-row">
-        <input id="complaintId" type="text" placeholder="SKKGN-XXXXXX" autocomplete="off" spellcheck="false">
-        <button id="checkBtn" onclick="checkComplaint()">Check Status →</button>
+
+        <input
+          id="complaintId"
+          type="text"
+          placeholder="SKKGN-XXXXXX"
+          autocomplete="off"
+          spellcheck="false"
+        >
+
+        <button id="checkBtn" onclick="checkComplaint()">
+          Check Status →
+        </button>
+
       </div>
+
       <div id="message"></div>
+
     </div>
+
   </section>
 
   <section id="result" class="result"></section>
 
   <div class="footer">
     SK KGN TEAM • Complaint Tracking System<br>
-    <a class="back" href="index.html">← Back to Website</a>
+    <a class="back" href="index.html">
+      ← Back to Website
+    </a>
   </div>
+
 </div>
 
+<div id="toast" class="toast"></div>
+
+
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs
+}
+from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+/* =========================
+   FIREBASE
+========================= */
 
 const firebaseConfig = {
+
   apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+
   authDomain: "sk-kgn-team.firebaseapp.com",
-  databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+  databaseURL:
+    "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+
   projectId: "sk-kgn-team",
-  storageBucket: "sk-kgn-team.firebasestorage.app",
-  messagingSenderId: "228612697498",
-  appId: "1:228612697498:web:a304b57bf5a59d2933de23",
-  measurementId: "G-BXWT6BPTB6"
+
+  storageBucket:
+    "sk-kgn-team.firebasestorage.app",
+
+  messagingSenderId:
+    "228612697498",
+
+  appId:
+    "1:228612697498:web:a304b57bf5a59d2933de23",
+
+  measurementId:
+    "G-BXWT6BPTB6"
 };
+
 
 const app = initializeApp(firebaseConfig);
+
 const db = getFirestore(app);
 
-const input = document.getElementById('complaintId');
-const button = document.getElementById('checkBtn');
-const message = document.getElementById('message');
-const result = document.getElementById('result');
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const input =
+  document.getElementById("complaintId");
+
+const button =
+  document.getElementById("checkBtn");
+
+const message =
+  document.getElementById("message");
+
+const result =
+  document.getElementById("result");
+
+const toast =
+  document.getElementById("toast");
+
+
+let currentComplaint = null;
+
+let selectedRating = 0;
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
 
 function escapeHTML(value){
-  return String(value ?? '-')
-    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+
+  return String(value ?? "-")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
+
 }
+
+
+/* =========================
+   DATE
+========================= */
 
 function formatDate(timestamp){
-  if(!timestamp) return '-';
+
+  if(!timestamp) return "-";
+
   try{
-    const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
-    return new Intl.DateTimeFormat('en-IN',{dateStyle:'medium',timeStyle:'short'}).format(date);
-  }catch(e){ return '-'; }
+
+    const date =
+      timestamp.toDate
+      ? timestamp.toDate()
+      : new Date(timestamp);
+
+    if(isNaN(date.getTime())) return "-";
+
+    return new Intl.DateTimeFormat(
+      "en-IN",
+      {
+        dateStyle:"medium",
+        timeStyle:"short"
+      }
+    ).format(date);
+
+  }catch(e){
+
+    return "-";
+
+  }
+
 }
+
+
+/* =========================
+   STATUS
+========================= */
 
 function statusInfo(status){
-  const normalized = String(status || 'Submitted').toLowerCase().trim();
-  if(normalized.includes('resolve')) return {current:3,label:'Resolved'};
-  if(normalized.includes('progress') || normalized.includes('work')) return {current:2,label:status || 'In Progress'};
-  if(normalized.includes('review')) return {current:1,label:status || 'Under Review'};
-  return {current:0,label:status || 'Submitted'};
+
+  const normalized =
+    String(status || "Submitted")
+    .toLowerCase()
+    .trim();
+
+
+  if(
+    normalized.includes("cancel")
+  ){
+
+    return {
+      type:"cancelled",
+      label:"Cancelled"
+    };
+
+  }
+
+
+  if(
+    normalized.includes("resolve")
+  ){
+
+    return {
+      type:"resolved",
+      label:"Resolved"
+    };
+
+  }
+
+
+  if(
+    normalized.includes("progress") ||
+    normalized.includes("work")
+  ){
+
+    return {
+      type:"progress",
+      label:status || "In Progress"
+    };
+
+  }
+
+
+  if(
+    normalized.includes("review")
+  ){
+
+    return {
+      type:"review",
+      label:status || "Under Review"
+    };
+
+  }
+
+
+  return {
+    type:"submitted",
+    label:status || "Submitted"
+  };
+
 }
+
+
+/* =========================
+   TIMELINE
+========================= */
 
 function timeline(status){
-  const info = statusInfo(status);
-  const stages = ['Submitted','Under Review','In Progress','Resolved'];
+
+  const info =
+    statusInfo(status);
+
+
+  let stages;
+
+
+  /* CANCELLED FLOW */
+
+  if(info.type === "cancelled"){
+
+    stages = [
+
+      "Submitted",
+
+      "Under Review",
+
+      "In Progress",
+
+      "Cancelled"
+
+    ];
+
+  }
+
+  else{
+
+    stages = [
+
+      "Submitted",
+
+      "Under Review",
+
+      "In Progress",
+
+      "Resolved"
+
+    ];
+
+  }
+
+
+  let currentIndex;
+
+
+  if(info.type === "cancelled"){
+
+    currentIndex = 3;
+
+  }
+
+  else if(info.type === "resolved"){
+
+    currentIndex = 3;
+
+  }
+
+  else if(info.type === "progress"){
+
+    currentIndex = 2;
+
+  }
+
+  else if(info.type === "review"){
+
+    currentIndex = 1;
+
+  }
+
+  else{
+
+    currentIndex = 0;
+
+  }
+
+
   return stages.map((stage,index)=>{
-    const done = index < info.current;
-    const current = index === info.current;
-    return `<div class="stage ${done?'done':''} ${current?'current':''}">
-      <div class="stage-icon">${done?'✓':current?'●':'○'}</div>
-      <div><div class="stage-title">${stage}</div>${current?'<div class="stage-note">Current status</div>':''}</div>
-    </div>`;
-  }).join('');
+
+    const done =
+      index < currentIndex;
+
+    const current =
+      index === currentIndex;
+
+    const cancelled =
+      info.type === "cancelled" &&
+      current;
+
+
+    return `
+
+      <div class="stage
+        ${done ? "done" : ""}
+        ${current ? "current" : ""}
+        ${cancelled ? "cancelled" : ""}
+      ">
+
+        <div class="stage-icon">
+
+          ${
+            done
+            ? "✓"
+            : cancelled
+            ? "×"
+            : current
+            ? "●"
+            : "○"
+          }
+
+        </div>
+
+        <div>
+
+          <div class="stage-title">
+            ${stage}
+          </div>
+
+          ${
+            current
+            ?
+            `<div class="stage-note">
+              ${
+                cancelled
+                ? "Complaint cancelled"
+                : "Current status"
+              }
+            </div>`
+            :
+            ""
+          }
+
+        </div>
+
+      </div>
+
+    `;
+
+  }).join("");
+
 }
 
-window.checkComplaint = async function(){
-  const complaintId = input.value.trim().toUpperCase();
-  result.style.display='none';
-  result.innerHTML='';
-  message.style.display='none';
+
+/* =========================
+   CHECK COMPLAINT
+========================= */
+
+window.checkComplaint =
+async function(){
+
+  const complaintId =
+    input.value.trim().toUpperCase();
+
+
+  result.style.display="none";
+
+  result.innerHTML="";
+
+  message.style.display="none";
+
 
   if(!complaintId){
-    message.textContent='Please enter your Complaint ID.';
-    message.style.display='block';
+
+    message.textContent =
+      "Please enter your Complaint ID.";
+
+    message.style.display="block";
+
     return;
+
   }
+
 
   button.disabled=true;
-  button.textContent='Checking...';
+
+  button.textContent="Checking...";
+
 
   try{
-    const q = query(collection(db,'complaints'),where('complaintId','==',complaintId));
-    const snapshot = await getDocs(q);
+
+    const q =
+      query(
+        collection(db,"complaints"),
+        where(
+          "complaintId",
+          "==",
+          complaintId
+        )
+      );
+
+
+    const snapshot =
+      await getDocs(q);
+
 
     if(snapshot.empty){
-      message.textContent='Complaint not found. Please check the Complaint ID and try again.';
-      message.style.display='block';
+
+      message.innerHTML =
+        "❌ Complaint not found.<br>" +
+        "Please check your Complaint ID and try again.";
+
+      message.style.display="block";
+
       return;
+
     }
 
-    const data = snapshot.docs[0].data();
-    const info = statusInfo(data.status);
 
-    result.innerHTML = `
-      <div class="result-card">
-        <div class="result-head">
-          <small>COMPLAINT ID</small>
-          <h2>${escapeHTML(data.complaintId)}</h2>
-          <div class="status-pill"><span class="status-dot"></span>${escapeHTML(info.label)}</div>
-        </div>
-        <div class="details">
-          <div class="detail"><label>Applicant Name</label><div>${escapeHTML(data.name)}</div></div>
-          <div class="detail"><label>Subject</label><div>${escapeHTML(data.subject)}</div></div>
-          <div class="detail"><label>Complaint Details</label><div>${escapeHTML(data.details)}</div></div>
-          <div class="detail"><label>Submitted On</label><div>${formatDate(data.createdAt)}</div></div>
-        </div>
-        <div class="timeline">
-          <h3>Complaint Progress</h3>
-          <div class="track">${timeline(data.status)}</div>
-        </div>
-      </div>`;
-    result.style.display='block';
-    result.scrollIntoView({behavior:'smooth',block:'start'});
+    const docData =
+      snapshot.docs[0].data();
+
+
+    currentComplaint = {
+
+      docId:snapshot.docs[0].id,
+
+      ...docData
+
+    };
+
+
+    renderComplaint(currentComplaint);
+
+
   }catch(error){
+
     console.error(error);
-    message.textContent='Unable to check status right now. Please try again.';
-    message.style.display='block';
+
+    message.textContent =
+      "Unable to check status right now. Please try again.";
+
+    message.style.display="block";
+
   }finally{
+
     button.disabled=false;
-    button.textContent='Check Status →';
+
+    button.textContent="Check Status →";
+
   }
+
 };
 
-input.addEventListener('keydown',e=>{if(e.key==='Enter') window.checkComplaint();});
+
+/* =========================
+   RENDER COMPLAINT
+========================= */
+
+function renderComplaint(data){
+
+  const info =
+    statusInfo(data.status);
+
+
+  const isCancelled =
+    info.type === "cancelled";
+
+
+  const remark =
+    data.adminRemark ||
+    data.adminNotes ||
+    "";
+
+
+  const updated =
+    data.adminUpdatedAt;
+
+
+  const phone =
+    String(data.mobile || "")
+    .replace(/\D/g,"");
+
+
+  const whatsappNumber =
+    phone.length === 10
+    ? "91" + phone
+    : phone;
+
+
+  result.innerHTML = `
+
+    <div class="result-card">
+
+
+      <!-- HEADER -->
+
+      <div class="result-head">
+
+        <small>
+          COMPLAINT ID
+        </small>
+
+        <h2>
+          ${escapeHTML(
+            data.complaintId
+          )}
+        </h2>
+
+
+        <div class="status-pill
+          ${isCancelled ? "cancelled" : ""}
+        ">
+
+          <span class="status-dot"></span>
+
+          ${escapeHTML(info.label)}
+
+        </div>
+
+      </div>
+
+
+      <!-- DETAILS -->
+
+      <div class="details">
+
+        <div class="detail">
+
+          <label>
+            Applicant Name
+          </label>
+
+          <div>
+            ${escapeHTML(data.name)}
+          </div>
+
+        </div>
+
+
+        <div class="detail">
+
+          <label>
+            Subject
+          </label>
+
+          <div>
+            ${escapeHTML(data.subject)}
+          </div>
+
+        </div>
+
+
+        <div class="detail">
+
+          <label>
+            Complaint Details
+          </label>
+
+          <div>
+            ${escapeHTML(data.details)}
+          </div>
+
+        </div>
+
+
+        <div class="detail">
+
+          <label>
+            Submitted On
+          </label>
+
+          <div>
+            ${formatDate(data.createdAt)}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      ${
+        isCancelled
+
+        ?
+
+        `
+
+        <div class="cancel-box">
+
+          <div class="cancel-title">
+            ❌ Complaint Cancelled
+          </div>
+
+          <div class="cancel-text">
+
+            ${
+              remark
+              ?
+              escapeHTML(remark)
+              :
+              "This complaint has been cancelled by the administration."
+            }
+
+          </div>
+
+          ${
+            updated
+            ?
+            `<div class="update-time">
+              Updated: ${formatDate(updated)}
+            </div>`
+            :
+            ""
+          }
+
+        </div>
+
+        `
+
+        :
+
+        ""
+
+      }
+
+
+      ${
+        remark && !isCancelled
+
+        ?
+
+        `
+
+        <div class="update-box">
+
+          <div class="update-title">
+            📝 Latest Admin Update
+          </div>
+
+          <div class="update-text">
+            ${escapeHTML(remark)}
+          </div>
+
+          ${
+            updated
+            ?
+            `<div class="update-time">
+              Last updated: ${formatDate(updated)}
+            </div>`
+            :
+            ""
+          }
+
+        </div>
+
+        `
+
+        :
+
+        ""
+
+      }
+
+
+      <!-- TIMELINE -->
+
+      <div class="timeline">
+
+        <h3>
+          Complaint Progress
+        </h3>
+
+        <div class="track">
+
+          ${timeline(data.status)}
+
+        </div>
+
+      </div>
+
+
+      <!-- ACTION BUTTONS -->
+
+      <div class="actions">
+
+        <button
+          class="action-btn primary"
+          onclick="copyComplaintId()"
+        >
+          📋 Copy ID
+        </button>
+
+
+        <button
+          class="action-btn"
+          onclick="refreshComplaint()"
+        >
+          🔄 Refresh
+        </button>
+
+
+        <button
+          class="action-btn"
+          onclick="shareComplaint()"
+        >
+          📤 Share
+        </button>
+
+
+        <button
+          class="action-btn"
+          onclick="printComplaint()"
+        >
+          🖨️ Print
+        </button>
+
+
+        <button
+          class="action-btn"
+          onclick="callSupport()"
+        >
+          📞 Call Support
+        </button>
+
+
+        <button
+          class="action-btn"
+          onclick="whatsappSupport()"
+        >
+          💬 WhatsApp
+        </button>
+
+
+        <button
+          class="action-btn"
+          onclick="emailSupport()"
+        >
+          📧 Email
+        </button>
+
+      </div>
+
+
+      <!-- FEEDBACK -->
+
+      <div class="feedback">
+
+        <h3>
+          ⭐ How was your experience?
+        </h3>
+
+        <p>
+          Your feedback helps us improve our service.
+        </p>
+
+
+        <div class="rating">
+
+          <button onclick="selectRating(1)">😞</button>
+
+          <button onclick="selectRating(2)">😐</button>
+
+          <button onclick="selectRating(3)">🙂</button>
+
+          <button onclick="selectRating(4)">😊</button>
+
+          <button onclick="selectRating(5)">🤩</button>
+
+        </div>
+
+
+        <textarea
+          id="feedbackText"
+          placeholder="Write your feedback or tell us what needs improvement..."
+        ></textarea>
+
+
+        <button
+          class="feedback-send"
+          onclick="sendFeedback()"
+        >
+          Send Feedback →
+        </button>
+
+      </div>
+
+
+      <!-- REMINDER -->
+
+      <div class="reminder">
+
+        <h3>
+          ⏰ Set a Reminder
+        </h3>
+
+        <p>
+          Set a date and time to remind yourself to check this complaint again.
+          Reminder is stored in this browser/device.
+        </p>
+
+
+        <div class="reminder-row">
+
+          <input
+            id="reminderTime"
+            type="datetime-local"
+          >
+
+          <button onclick="setReminder()">
+            Set Reminder
+          </button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  `;
+
+
+  result.style.display="block";
+
+
+  result.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+
+  checkReminder();
+
+}
+
+
+/* =========================
+   COPY ID
+========================= */
+
+window.copyComplaintId =
+async function(){
+
+  if(!currentComplaint) return;
+
+
+  const id =
+    currentComplaint.complaintId;
+
+
+  try{
+
+    await navigator.clipboard.writeText(id);
+
+    showToast(
+      "✅ Complaint ID copied"
+    );
+
+  }catch(e){
+
+    showToast(
+      "Complaint ID: " + id
+    );
+
+  }
+
+};
+
+
+/* =========================
+   REFRESH
+========================= */
+
+window.refreshComplaint =
+function(){
+
+  if(!currentComplaint) return;
+
+
+  input.value =
+    currentComplaint.complaintId;
+
+
+  checkComplaint();
+
+
+};
+
+
+/* =========================
+   SHARE
+========================= */
+
+window.shareComplaint =
+async function(){
+
+  if(!currentComplaint) return;
+
+
+  const id =
+    currentComplaint.complaintId;
+
+
+  const status =
+    currentComplaint.status ||
+    "Submitted";
+
+
+  const text =
+    `SK KGN TEAM Complaint\n\n` +
+    `Complaint ID: ${id}\n` +
+    `Status: ${status}`;
+
+
+  if(navigator.share){
+
+    try{
+
+      await navigator.share({
+        title:"SK KGN TEAM Complaint",
+        text:text,
+        url:window.location.href
+      });
+
+    }catch(e){}
+
+  }else{
+
+    try{
+
+      await navigator.clipboard.writeText(
+        text
+      );
+
+      showToast(
+        "✅ Complaint status copied"
+      );
+
+    }catch(e){
+
+      showToast(text);
+
+    }
+
+  }
+
+};
+
+
+/* =========================
+   PRINT
+========================= */
+
+window.printComplaint =
+function(){
+
+  window.print();
+
+};
+
+
+/* =========================
+   CALL SUPPORT
+========================= */
+
+window.callSupport =
+function(){
+
+  window.location.href =
+    "tel:+917007027158";
+
+};
+
+
+/* =========================
+   WHATSAPP SUPPORT
+========================= */
+
+window.whatsappSupport =
+function(){
+
+  if(!currentComplaint) return;
+
+
+  const id =
+    currentComplaint.complaintId;
+
+
+  const status =
+    currentComplaint.status ||
+    "Submitted";
+
+
+  const text =
+    `Namaste SK KGN TEAM,\n\n` +
+    `Meri complaint ke sambandh mein help chahiye.\n\n` +
+    `Complaint ID: ${id}\n` +
+    `Current Status: ${status}`;
+
+
+  window.open(
+
+    "https://wa.me/917007027158?text=" +
+    encodeURIComponent(text),
+
+    "_blank"
+
+  );
+
+};
+
+
+/* =========================
+   EMAIL SUPPORT
+========================= */
+
+window.emailSupport =
+function(){
+
+  if(!currentComplaint) return;
+
+
+  const id =
+    currentComplaint.complaintId;
+
+
+  const subject =
+    `Complaint Support - ${id}`;
+
+
+  const body =
+    `Namaste SK KGN TEAM,\n\n` +
+    `Mujhe meri complaint ke sambandh mein assistance chahiye.\n\n` +
+    `Complaint ID: ${id}`;
+
+
+  window.location.href =
+    "mailto:skkgnteam@gmail.com" +
+    "?subject=" +
+    encodeURIComponent(subject) +
+    "&body=" +
+    encodeURIComponent(body);
+
+};
+
+
+/* =========================
+   FEEDBACK RATING
+========================= */
+
+window.selectRating =
+function(rating){
+
+  selectedRating = rating;
+
+
+  const buttons =
+    document.querySelectorAll(
+      ".rating button"
+    );
+
+
+  buttons.forEach(
+    (btn,index)=>{
+
+      btn.classList.toggle(
+        "selected",
+        index + 1 === rating
+      );
+
+    }
+  );
+
+};
+
+
+/* =========================
+   SEND FEEDBACK
+========================= */
+
+window.sendFeedback =
+function(){
+
+  if(!currentComplaint) return;
+
+
+  if(!selectedRating){
+
+    showToast(
+      "⭐ Please select a rating first"
+    );
+
+    return;
+
+  }
+
+
+  const feedback =
+    document.getElementById(
+      "feedbackText"
+    ).value.trim();
+
+
+  const id =
+    currentComplaint.complaintId;
+
+
+  const text =
+
+    `SK KGN TEAM Feedback\n\n` +
+
+    `Complaint ID: ${id}\n` +
+
+    `Rating: ${selectedRating}/5\n\n` +
+
+    `Feedback:\n` +
+
+    (feedback || "No written feedback");
+
+
+  window.open(
+
+    "https://wa.me/917007027158?text=" +
+    encodeURIComponent(text),
+
+    "_blank"
+
+  );
+
+};
+
+
+/* =========================
+   REMINDER
+========================= */
+
+window.setReminder =
+function(){
+
+  if(!currentComplaint) return;
+
+
+  const inputTime =
+    document.getElementById(
+      "reminderTime"
+    );
+
+
+  if(!inputTime.value){
+
+    showToast(
+      "⏰ Please select date and time"
+    );
+
+    return;
+
+  }
+
+
+  const reminder = {
+
+    complaintId:
+      currentComplaint.complaintId,
+
+    time:
+      new Date(inputTime.value)
+      .getTime()
+
+  };
+
+
+  localStorage.setItem(
+
+    "skkgn_reminder_" +
+    currentComplaint.complaintId,
+
+    JSON.stringify(reminder)
+
+  );
+
+
+  showToast(
+    "⏰ Reminder saved on this device"
+  );
+
+};
+
+
+/* =========================
+   CHECK REMINDER
+========================= */
+
+function checkReminder(){
+
+  if(!currentComplaint) return;
+
+
+  const key =
+    "skkgn_reminder_" +
+    currentComplaint.complaintId;
+
+
+  const saved =
+    localStorage.getItem(key);
+
+
+  if(!saved) return;
+
+
+  try{
+
+    const reminder =
+      JSON.parse(saved);
+
+
+    if(
+      Date.now() >= reminder.time
+    ){
+
+      showToast(
+        "⏰ Reminder: Complaint " +
+        currentComplaint.complaintId +
+        " check karne ka time hai."
+      );
+
+
+      localStorage.removeItem(key);
+
+    }
+
+  }catch(e){}
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(text){
+
+  toast.textContent=text;
+
+  toast.classList.add("show");
+
+
+  setTimeout(()=>{
+
+    toast.classList.remove("show");
+
+  },2800);
+
+}
+
+
+/* =========================
+   ENTER KEY
+========================= */
+
+input.addEventListener(
+  "keydown",
+  e=>{
+
+    if(e.key==="Enter"){
+
+      window.checkComplaint();
+
+    }
+
+  }
+);
+
+
+/* =========================
+   AUTO CHECK URL
+========================= */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+const urlComplaint =
+  params.get("id");
+
+
+if(urlComplaint){
+
+  input.value =
+    urlComplaint.toUpperCase();
+
+  window.checkComplaint();
+
+}
+
 </script>
+
 </body>
 </html>
