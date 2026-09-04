@@ -2,742 +2,1088 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#07152f">
-<title>Track Complaint — SK KGN TEAM</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#050816">
+<meta name="description" content="SK KGN TEAM Premium Complaint Tracking System">
+<title>Complaint Tracking — SK KGN TEAM</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 :root{
---blue:#2563eb;
---dark:#07152f;
---dark2:#111827;
---green:#16a34a;
---red:#dc2626;
---orange:#ea580c;
---gold:#f59e0b;
---muted:#667085;
---line:#e4e7ec;
+  --bg:#050816;
+  --bg2:#091329;
+  --blue:#2878ff;
+  --blue2:#5b8cff;
+  --cyan:#27c8ff;
+  --purple:#805cff;
+  --green:#20d17a;
+  --red:#ff4f61;
+  --orange:#ff9d2e;
+  --white:#f8fbff;
+  --muted:#8c99ad;
+  --border:rgba(255,255,255,.11);
+}
+
+html{
+  scroll-behavior:smooth;
 }
 
 body{
-font-family:Inter,Arial,sans-serif;
-background:
-radial-gradient(circle at 10% 10%,#2563eb14,transparent 28%),
-radial-gradient(circle at 90% 30%,#0ea5e914,transparent 25%),
-#f5f7fb;
-color:#101828;
-min-height:100vh;
+  font-family:Inter,Arial,sans-serif;
+  min-height:100vh;
+  color:var(--white);
+  background:
+    radial-gradient(circle at 10% 5%,rgba(40,120,255,.17),transparent 30%),
+    radial-gradient(circle at 90% 15%,rgba(128,92,255,.13),transparent 28%),
+    radial-gradient(circle at 50% 90%,rgba(39,200,255,.08),transparent 30%),
+    var(--bg);
+  overflow-x:hidden;
 }
+
+/* =========================
+   BACKGROUND
+========================= */
+
+body:before,
+body:after{
+  content:"";
+  position:fixed;
+  width:360px;
+  height:360px;
+  border-radius:50%;
+  filter:blur(110px);
+  pointer-events:none;
+  z-index:-1;
+}
+
+body:before{
+  background:rgba(40,120,255,.13);
+  left:-180px;
+  top:20%;
+  animation:floatOne 11s ease-in-out infinite;
+}
+
+body:after{
+  background:rgba(128,92,255,.11);
+  right:-180px;
+  top:55%;
+  animation:floatTwo 13s ease-in-out infinite;
+}
+
+@keyframes floatOne{
+  50%{
+    transform:translate(80px,-45px);
+  }
+}
+
+@keyframes floatTwo{
+  50%{
+    transform:translate(-70px,55px);
+  }
+}
+
+/* =========================
+   CONTAINER
+========================= */
 
 .container{
-width:min(800px,94%);
-margin:auto;
+  width:min(850px,94%);
+  margin:auto;
 }
 
+/* =========================
+   BRAND
+========================= */
+
 .top{
-padding:25px 0 10px;
+  padding:24px 0 8px;
 }
 
 .brand{
-display:flex;
-align-items:center;
-gap:11px;
-text-decoration:none;
-color:#111827;
-font-size:20px;
-font-weight:900;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:900;
+  font-size:19px;
 }
 
 .brand img{
-width:45px;
-height:45px;
-border-radius:50%;
-object-fit:contain;
-background:#fff;
-box-shadow:0 6px 22px #0002;
+  width:48px;
+  height:48px;
+  border-radius:15px;
+  object-fit:cover;
+  background:#fff;
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:
+    0 0 0 5px rgba(40,120,255,.07),
+    0 12px 30px rgba(0,0,0,.35);
 }
 
+/* =========================
+   HERO
+========================= */
+
 .hero{
-text-align:center;
-padding:38px 0 25px;
+  padding:62px 0 35px;
+  text-align:center;
 }
 
 .badge{
-display:inline-block;
-padding:9px 16px;
-border-radius:30px;
-background:#eaf1ff;
-color:#164a9c;
-font-size:10px;
-font-weight:900;
-letter-spacing:.8px;
-margin-bottom:15px;
-animation:pulse 2s infinite;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  border-radius:50px;
+  color:#8fc1ff;
+  background:rgba(40,120,255,.08);
+  border:1px solid rgba(40,120,255,.22);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.2px;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 0 35px rgba(40,120,255,.08);
+  animation:badgeGlow 2.8s infinite;
 }
 
-@keyframes pulse{
-50%{box-shadow:0 0 0 8px #2563eb12}
+@keyframes badgeGlow{
+  50%{
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.08),
+      0 0 45px rgba(40,120,255,.22);
+  }
 }
 
 h1{
-font-size:clamp(35px,8vw,57px);
-letter-spacing:-2.5px;
-line-height:1.05;
+  margin-top:22px;
+  font-size:clamp(43px,9vw,76px);
+  line-height:.98;
+  letter-spacing:-4px;
+  background:
+    linear-gradient(
+      120deg,
+      #ffffff 15%,
+      #a7cbff 42%,
+      #6e98ff 68%,
+      #ffffff 92%
+    );
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
 .hero p{
-margin:14px auto 0;
-max-width:600px;
-color:var(--muted);
-font-size:15px;
-line-height:1.6;
+  max-width:600px;
+  margin:20px auto 0;
+  color:#8996aa;
+  font-size:15px;
+  line-height:1.7;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-shell{
+  margin-top:35px;
+  padding:1px;
+  border-radius:28px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(40,120,255,.55),
+      rgba(128,92,255,.20),
+      rgba(39,200,255,.35)
+    );
+  box-shadow:
+    0 25px 90px rgba(0,0,0,.35),
+    0 0 55px rgba(40,120,255,.08);
 }
 
 .search-card{
-margin-top:28px;
-padding:25px;
-border-radius:28px;
-background:linear-gradient(145deg,#07152f,#164a9c);
-box-shadow:0 25px 70px #07152f40;
-position:relative;
-overflow:hidden;
+  padding:25px;
+  border-radius:27px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(10,22,48,.97),
+      rgba(5,12,28,.97)
+    );
+  position:relative;
+  overflow:hidden;
 }
 
-.search-card:after{
-content:"";
-position:absolute;
-width:220px;
-height:220px;
-border:1px solid #ffffff14;
-border-radius:50%;
-right:-100px;
-top:-100px;
+.search-card:before{
+  content:"";
+  position:absolute;
+  width:200px;
+  height:200px;
+  border-radius:50%;
+  background:rgba(40,120,255,.10);
+  filter:blur(35px);
+  right:-80px;
+  top:-100px;
 }
 
 .search-card label{
-display:block;
-text-align:left;
-color:#cbd5e1;
-font-size:10px;
-font-weight:900;
-letter-spacing:.8px;
-margin-bottom:8px;
+  display:block;
+  text-align:left;
+  color:#91a0b6;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1px;
+  margin-bottom:10px;
 }
 
 .search-row{
-display:flex;
-gap:10px;
-position:relative;
-z-index:2;
+  display:flex;
+  gap:10px;
+  position:relative;
+  z-index:2;
 }
 
 .search-row input{
-flex:1;
-min-width:0;
-border:0;
-border-radius:15px;
-padding:16px;
-font-size:15px;
-outline:none;
-text-transform:uppercase;
+  flex:1;
+  min-width:0;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:17px;
+  font-size:16px;
+  outline:none;
+  text-transform:uppercase;
+  background:#fff;
+  color:#101828;
+}
+
+.search-row input:focus{
+  box-shadow:0 0 0 4px rgba(40,120,255,.16);
 }
 
 .search-row button{
-border:0;
-border-radius:15px;
-padding:0 20px;
-background:#2563eb;
-color:#fff;
-font-weight:900;
-cursor:pointer;
+  border:0;
+  border-radius:16px;
+  padding:0 24px;
+  background:linear-gradient(135deg,#2878ff,#4e8dff);
+  color:#fff;
+  font-size:14px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(40,120,255,.25);
+  transition:.25s;
+}
+
+.search-row button:hover{
+  transform:translateY(-2px);
 }
 
 .search-row button:disabled{
-opacity:.6;
+  opacity:.55;
+  cursor:wait;
 }
 
 #message{
-display:none;
-margin-top:14px;
-padding:13px;
-background:#fff;
-border-radius:12px;
-font-size:13px;
-text-align:left;
+  display:none;
+  margin-top:14px;
+  padding:13px;
+  border-radius:12px;
+  background:#fff;
+  color:#344054;
+  text-align:left;
+  font-size:13px;
 }
 
+/* =========================
+   RESULT
+========================= */
+
 .result{
-display:none;
-margin:25px 0 55px;
+  display:none;
+  margin:25px 0 60px;
 }
 
 .result-card{
-background:#fff;
-border-radius:30px;
-overflow:hidden;
-border:1px solid #e4e7ec;
-box-shadow:0 25px 70px #10182818;
-animation:enter .55s ease;
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:30px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.075),
+      rgba(255,255,255,.025)
+    );
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  box-shadow:
+    0 35px 100px rgba(0,0,0,.42),
+    inset 0 1px 0 rgba(255,255,255,.08);
+  animation:resultEnter .65s cubic-bezier(.2,.8,.2,1);
 }
 
-@keyframes enter{
-from{opacity:0;transform:translateY(25px) scale(.98)}
-to{opacity:1;transform:none}
+@keyframes resultEnter{
+  from{
+    opacity:0;
+    transform:translateY(30px) scale(.97);
+  }
+
+  to{
+    opacity:1;
+    transform:none;
+  }
 }
+
+/* =========================
+   RESULT HEADER
+========================= */
 
 .result-head{
-padding:28px;
-color:#fff;
-background:
-radial-gradient(circle at 90% 10%,#3b82f655,transparent 30%),
-linear-gradient(135deg,#07152f,#164a9c);
-position:relative;
-overflow:hidden;
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(40,120,255,.30),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 100%,
+      rgba(128,92,255,.16),
+      transparent 30%
+    ),
+    linear-gradient(135deg,#071633,#0b2451);
+}
+
+.result-head:before{
+  content:"";
+  position:absolute;
+  width:280px;
+  height:280px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:50%;
+  right:-110px;
+  top:-145px;
 }
 
 .result-head:after{
-content:"";
-position:absolute;
-width:190px;
-height:190px;
-border:1px solid #ffffff18;
-border-radius:50%;
-right:-80px;
-bottom:-100px;
+  content:"";
+  position:absolute;
+  width:190px;
+  height:190px;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:50%;
+  right:-45px;
+  top:-85px;
 }
 
 .result-head small{
-color:#cbd5e1;
-font-size:10px;
-font-weight:800;
-letter-spacing:1px;
+  color:#8ea6c9;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.2px;
 }
 
 .result-head h2{
-font-size:27px;
-margin-top:5px;
-word-break:break-word;
+  margin-top:6px;
+  font-size:28px;
+  word-break:break-word;
+  position:relative;
+  z-index:2;
 }
 
+/* =========================
+   STATUS
+========================= */
+
 .status-pill{
-display:inline-flex;
-align-items:center;
-gap:8px;
-margin-top:15px;
-padding:9px 14px;
-border-radius:30px;
-background:#fff;
-color:#111827;
-font-size:12px;
-font-weight:900;
-position:relative;
-z-index:2;
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin-top:16px;
+  padding:9px 15px;
+  border-radius:50px;
+  background:#fff;
+  color:#111827;
+  font-size:12px;
+  font-weight:900;
+  position:relative;
+  z-index:3;
 }
 
 .status-dot{
-width:9px;
-height:9px;
-border-radius:50%;
-background:#22c55e;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--green);
+  box-shadow:0 0 0 5px rgba(32,209,122,.12);
 }
 
 .status-pill.cancelled{
-color:#991b1b;
+  color:#a51f30;
 }
 
 .status-pill.cancelled .status-dot{
-background:#dc2626;
+  background:var(--red);
+  box-shadow:0 0 0 5px rgba(255,79,97,.13);
 }
 
+/* =========================
+   DETAILS
+========================= */
+
 .details{
-padding:24px;
+  padding:25px 30px 5px;
+  background:rgba(255,255,255,.025);
 }
 
 .detail{
-padding:16px 0;
-border-bottom:1px solid #edf0f4;
+  padding:17px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .detail:last-child{
-border-bottom:0;
+  border-bottom:0;
 }
 
 .detail label{
-display:block;
-color:#667085;
-font-size:10px;
-font-weight:900;
-text-transform:uppercase;
-letter-spacing:.7px;
-margin-bottom:6px;
+  display:block;
+  color:#7e8da4;
+  font-size:9px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:7px;
 }
 
 .detail div{
-font-size:15px;
-line-height:1.7;
-word-break:break-word;
+  color:#e8eef8;
+  font-size:15px;
+  line-height:1.7;
+  word-break:break-word;
 }
 
-/* ADMIN UPDATE */
+/* =========================
+   ADMIN REMARK
+========================= */
+
+.admin-update,
+.cancel-box{
+  margin:20px 30px;
+  padding:20px;
+  border-radius:20px;
+  position:relative;
+  overflow:hidden;
+}
 
 .admin-update{
-margin:0 24px 22px;
-padding:20px;
-border-radius:20px;
-background:linear-gradient(135deg,#eff6ff,#fff);
-border:1px solid #bfdbfe;
-position:relative;
-overflow:hidden;
-animation:updateIn .5s ease;
-}
-
-@keyframes updateIn{
-from{opacity:0;transform:translateX(-12px)}
-to{opacity:1;transform:none}
+  background:
+    linear-gradient(
+      135deg,
+      rgba(40,120,255,.14),
+      rgba(128,92,255,.07)
+    );
+  border:1px solid rgba(40,120,255,.23);
 }
 
 .admin-update:before{
-content:"";
-position:absolute;
-left:0;
-top:0;
-bottom:0;
-width:5px;
-background:linear-gradient(#2563eb,#7c3aed);
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:linear-gradient(#2878ff,#805cff);
 }
 
 .admin-title{
-font-size:15px;
-font-weight:900;
-color:#164a9c;
-margin-bottom:8px;
+  color:#8fc1ff;
+  font-size:14px;
+  font-weight:900;
+  margin-bottom:8px;
 }
 
 .admin-text{
-font-size:14px;
-line-height:1.7;
-color:#344054;
-white-space:pre-wrap;
+  color:#d8e2f1;
+  font-size:14px;
+  line-height:1.7;
+  white-space:pre-wrap;
 }
 
 .admin-date{
-margin-top:9px;
-font-size:10px;
-color:#98a2b3;
+  margin-top:10px;
+  color:#74829a;
+  font-size:10px;
 }
 
-/* CANCEL */
-
 .cancel-box{
-margin:0 24px 22px;
-padding:20px;
-border-radius:20px;
-background:linear-gradient(135deg,#fff1f2,#fff);
-border:1px solid #fecdd3;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,79,97,.12),
+      rgba(255,255,255,.025)
+    );
+  border:1px solid rgba(255,79,97,.24);
 }
 
 .cancel-title{
-font-size:16px;
-font-weight:900;
-color:#b42318;
-margin-bottom:7px;
+  color:#ff7180;
+  font-size:15px;
+  font-weight:900;
+  margin-bottom:8px;
 }
 
 .cancel-text{
-font-size:14px;
-line-height:1.7;
-color:#7f1d1d;
-white-space:pre-wrap;
+  color:#f2c7cb;
+  font-size:14px;
+  line-height:1.7;
+  white-space:pre-wrap;
 }
 
-/* TIMELINE */
+/* =========================
+   TIMELINE
+========================= */
 
 .timeline{
-padding:0 24px 25px;
+  padding:25px 30px;
 }
 
-.timeline h3{
-font-size:19px;
-margin-bottom:20px;
+.timeline-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.timeline-head h3{
+  font-size:18px;
+}
+
+.live{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  color:#6fe4a5;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.6px;
+}
+
+.live-dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#20d17a;
+  animation:livePulse 1.5s infinite;
+}
+
+@keyframes livePulse{
+  50%{
+    box-shadow:0 0 0 8px rgba(32,209,122,.10);
+  }
 }
 
 .track{
-position:relative;
+  position:relative;
 }
 
 .track:before{
-content:"";
-position:absolute;
-left:15px;
-top:16px;
-bottom:16px;
-width:2px;
-background:#e4e7ec;
+  content:"";
+  position:absolute;
+  left:15px;
+  top:16px;
+  bottom:16px;
+  width:2px;
+  background:rgba(255,255,255,.08);
 }
 
 .stage{
-position:relative;
-display:flex;
-gap:14px;
-padding-bottom:19px;
-animation:stage .4s ease both;
+  position:relative;
+  display:flex;
+  gap:14px;
+  padding-bottom:20px;
 }
 
-@keyframes stage{
-from{opacity:0;transform:translateX(-10px)}
-to{opacity:1;transform:none}
+.stage:last-child{
+  padding-bottom:0;
 }
 
 .stage-icon{
-width:32px;
-height:32px;
-flex:0 0 32px;
-border-radius:50%;
-display:grid;
-place-items:center;
-background:#eef0f3;
-color:#98a2b3;
-font-weight:900;
-z-index:2;
-border:3px solid #fff;
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:#172033;
+  border:3px solid #0b1325;
+  color:#66758b;
+  font-size:12px;
+  font-weight:900;
+  z-index:2;
 }
 
 .stage.done .stage-icon{
-background:#16a34a;
-color:#fff;
+  background:#16a36a;
+  color:#fff;
+  box-shadow:0 0 0 5px rgba(22,163,106,.10);
 }
 
 .stage.current .stage-icon{
-background:#2563eb;
-color:#fff;
-box-shadow:0 0 0 5px #dbeafe;
-animation:current 1.7s infinite;
-}
-
-@keyframes current{
-50%{box-shadow:0 0 0 10px #dbeafe55}
+  background:#2878ff;
+  color:#fff;
+  box-shadow:0 0 0 5px rgba(40,120,255,.10);
+  animation:currentPulse 1.8s infinite;
 }
 
 .stage.cancelled .stage-icon{
-background:#dc2626;
-color:#fff;
-box-shadow:0 0 0 5px #fee2e2;
+  background:#dc3545;
+  color:#fff;
+  box-shadow:0 0 0 5px rgba(220,53,69,.10);
+}
+
+@keyframes currentPulse{
+  50%{
+    box-shadow:0 0 0 10px rgba(40,120,255,.06);
+  }
 }
 
 .stage-title{
-font-weight:900;
-font-size:14px;
-padding-top:6px;
-color:#344054;
+  color:#9aa8bd;
+  font-size:14px;
+  font-weight:800;
+  padding-top:6px;
+}
+
+.stage.done .stage-title{
+  color:#d9e4f2;
 }
 
 .stage.current .stage-title{
-color:#164a9c;
+  color:#78b0ff;
 }
 
 .stage.cancelled .stage-title{
-color:#b42318;
+  color:#ff7180;
 }
 
 .stage-note{
-font-size:10px;
-color:#98a2b3;
-margin-top:3px;
+  color:#64748b;
+  font-size:10px;
+  margin-top:3px;
 }
 
-/* ACTIONS */
+/* =========================
+   ACTIONS
+========================= */
 
 .actions{
-padding:0 24px 24px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:9px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  padding:0 30px 25px;
 }
 
 .action{
-border:1px solid #e4e7ec;
-background:#fff;
-border-radius:13px;
-padding:12px 8px;
-font-size:11px;
-font-weight:900;
-cursor:pointer;
-transition:.2s;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.035);
+  color:#bdc8d8;
+  border-radius:13px;
+  padding:12px 8px;
+  font-size:11px;
+  font-weight:900;
+  cursor:pointer;
+  transition:.25s;
 }
 
 .action:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 20px #10182812;
+  transform:translateY(-2px);
+  border-color:rgba(40,120,255,.3);
+  background:rgba(40,120,255,.08);
+  color:#fff;
 }
 
 .action.primary{
-background:#eff6ff;
-color:#1d4ed8;
+  background:rgba(40,120,255,.12);
+  color:#75aeff;
+  border-color:rgba(40,120,255,.25);
 }
 
-/* FEEDBACK */
+/* =========================
+   FEEDBACK
+========================= */
 
 .feedback{
-margin:0 24px 23px;
-padding:21px;
-border-radius:22px;
-background:linear-gradient(145deg,#07152f,#111827);
-color:#fff;
-box-shadow:0 18px 40px #07152f30;
+  margin:0 30px 22px;
+  padding:22px;
+  border-radius:22px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.065),
+      rgba(255,255,255,.025)
+    );
+  border:1px solid rgba(255,255,255,.09);
 }
 
 .feedback h3{
-font-size:17px;
+  font-size:17px;
 }
 
 .feedback p{
-font-size:11px;
-color:#9ca3af;
-margin:5px 0 14px;
+  color:#77869d;
+  font-size:11px;
+  line-height:1.6;
+  margin:5px 0 15px;
 }
 
 .rating{
-display:flex;
-gap:7px;
-margin-bottom:12px;
+  display:flex;
+  gap:7px;
+  margin-bottom:13px;
 }
 
 .rating button{
-width:43px;
-height:43px;
-border:1px solid #374151;
-background:#1f2937;
-border-radius:12px;
-font-size:18px;
-cursor:pointer;
-transition:.2s;
+  width:44px;
+  height:44px;
+  border:1px solid rgba(255,255,255,.08);
+  background:#101a2d;
+  border-radius:12px;
+  font-size:18px;
+  cursor:pointer;
+  transition:.2s;
 }
 
+.rating button:hover,
 .rating button.selected{
-background:#f59e0b;
-border-color:#f59e0b;
-transform:translateY(-2px);
+  background:#f59e0b;
+  border-color:#f59e0b;
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 8px 20px rgba(245,158,11,.15);
 }
 
 .feedback textarea{
-width:100%;
-min-height:75px;
-resize:vertical;
-border:1px solid #374151;
-background:#0b1220;
-color:#fff;
-border-radius:13px;
-padding:12px;
-outline:none;
-font-family:inherit;
+  width:100%;
+  min-height:85px;
+  resize:vertical;
+  border:1px solid rgba(255,255,255,.09);
+  background:#07101f;
+  color:#fff;
+  border-radius:13px;
+  padding:13px;
+  font-family:inherit;
+  outline:none;
+}
+
+.feedback textarea:focus{
+  border-color:rgba(40,120,255,.4);
 }
 
 .feedback-send{
-margin-top:10px;
-border:0;
-border-radius:12px;
-background:#2563eb;
-color:#fff;
-padding:12px 16px;
-font-weight:900;
-cursor:pointer;
+  margin-top:10px;
+  border:0;
+  border-radius:12px;
+  padding:12px 17px;
+  background:linear-gradient(135deg,#2878ff,#5a83ff);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
 }
 
-/* REMINDER */
+/* =========================
+   REMINDER
+========================= */
 
 .reminder{
-margin:0 24px 25px;
-padding:20px;
-border-radius:21px;
-background:linear-gradient(135deg,#fffbeb,#fff);
-border:1px solid #fde68a;
+  margin:0 30px 28px;
+  padding:22px;
+  border-radius:22px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,157,46,.09),
+      rgba(255,255,255,.025)
+    );
+  border:1px solid rgba(255,157,46,.20);
 }
 
 .reminder h3{
-font-size:16px;
+  font-size:16px;
 }
 
 .reminder p{
-margin:5px 0 13px;
-font-size:11px;
-line-height:1.6;
-color:#667085;
+  color:#8a96a8;
+  font-size:11px;
+  line-height:1.6;
+  margin:5px 0 13px;
 }
 
 .reminder-row{
-display:flex;
-gap:8px;
+  display:flex;
+  gap:9px;
 }
 
 .reminder input{
-flex:1;
-border:1px solid #e4e7ec;
-border-radius:11px;
-padding:11px;
+  flex:1;
+  min-width:0;
+  border:1px solid rgba(255,255,255,.09);
+  background:#0a1425;
+  color:#fff;
+  border-radius:11px;
+  padding:12px;
+  outline:none;
 }
 
 .reminder button{
-border:0;
-border-radius:11px;
-background:#f59e0b;
-color:#fff;
-font-weight:900;
-padding:0 15px;
-cursor:pointer;
+  border:0;
+  border-radius:11px;
+  background:linear-gradient(135deg,#ff921f,#ffb347);
+  color:#151515;
+  padding:0 17px;
+  font-weight:900;
+  cursor:pointer;
 }
 
-/* FOOTER */
+/* =========================
+   FOOTER
+========================= */
 
 .footer{
-text-align:center;
-color:#98a2b3;
-font-size:11px;
-padding-bottom:35px;
+  text-align:center;
+  color:#56647a;
+  font-size:10px;
+  padding:0 0 35px;
 }
 
 .back{
-display:inline-block;
-margin-top:15px;
-color:#164a9c;
-font-weight:900;
-text-decoration:none;
+  display:inline-block;
+  margin-top:14px;
+  color:#6fa8ff;
+  text-decoration:none;
+  font-weight:900;
 }
 
-/* TOAST */
+/* =========================
+   TOAST
+========================= */
 
 .toast{
-position:fixed;
-left:50%;
-bottom:24px;
-transform:translate(-50%,20px);
-background:#111827;
-color:#fff;
-padding:13px 17px;
-border-radius:13px;
-font-size:12px;
-font-weight:900;
-opacity:0;
-pointer-events:none;
-transition:.3s;
-z-index:9999;
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translate(-50%,25px);
+  opacity:0;
+  pointer-events:none;
+  z-index:9999;
+  padding:13px 18px;
+  border-radius:14px;
+  background:#101a2c;
+  border:1px solid rgba(255,255,255,.1);
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+  box-shadow:0 20px 50px rgba(0,0,0,.5);
+  transition:.3s;
+  white-space:nowrap;
 }
 
 .toast.show{
-opacity:1;
-transform:translate(-50%,0);
+  opacity:1;
+  transform:translate(-50%,0);
 }
 
-@media(max-width:560px){
+/* =========================
+   MOBILE
+========================= */
 
-.container{width:94%}
+@media(max-width:600px){
 
-.search-card{
-padding:18px;
-border-radius:23px;
+  .container{
+    width:94%;
+  }
+
+  .top{
+    padding-top:18px;
+  }
+
+  .hero{
+    padding:48px 0 25px;
+  }
+
+  h1{
+    font-size:45px;
+    letter-spacing:-2.8px;
+  }
+
+  .hero p{
+    font-size:13px;
+  }
+
+  .search-card{
+    padding:18px;
+  }
+
+  .search-row{
+    flex-direction:column;
+  }
+
+  .search-row button{
+    padding:15px;
+  }
+
+  .result-card{
+    border-radius:24px;
+  }
+
+  .result-head{
+    padding:23px;
+  }
+
+  .result-head h2{
+    font-size:23px;
+  }
+
+  .details,
+  .timeline{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .admin-update,
+  .cancel-box,
+  .feedback,
+  .reminder{
+    margin-left:20px;
+    margin-right:20px;
+  }
+
+  .actions{
+    padding-left:20px;
+    padding-right:20px;
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .rating button{
+    width:41px;
+    height:41px;
+  }
+
+  .reminder-row{
+    flex-direction:column;
+  }
+
+  .reminder button{
+    padding:13px;
+  }
+
 }
 
-.search-row{
-flex-direction:column;
-}
-
-.search-row button{
-padding:15px;
-}
-
-.result-card{
-border-radius:23px;
-}
-
-.result-head{
-padding:23px;
-}
-
-.details,.timeline{
-padding-left:19px;
-padding-right:19px;
-}
-
-.admin-update,
-.cancel-box,
-.feedback,
-.reminder{
-margin-left:19px;
-margin-right:19px;
-}
-
-.actions{
-padding-left:19px;
-padding-right:19px;
-grid-template-columns:repeat(2,1fr);
-}
-
-.reminder-row{
-flex-direction:column;
-}
-
-.reminder button{
-padding:12px;
-}
-
-}
+/* =========================
+   PRINT
+========================= */
 
 @media print{
 
-.top,.hero,.actions,.feedback,.reminder,.footer{
-display:none!important;
+  body{
+    background:#fff;
+    color:#111;
+  }
+
+  .top,
+  .hero,
+  .actions,
+  .feedback,
+  .reminder,
+  .footer{
+    display:none!important;
+  }
+
+  .result{
+    display:block!important;
+  }
+
+  .result-card{
+    background:#fff;
+    color:#111;
+    box-shadow:none;
+    border:1px solid #ddd;
+  }
+
 }
 
-.result{
-display:block!important;
-margin:0;
-}
-
-.result-card{
-box-shadow:none;
-}
-
-}
 </style>
 </head>
+
 
 <body>
 
 <div class="container">
 
+<!-- BRAND -->
+
 <div class="top">
+
 <a class="brand" href="index.html">
-<img src="Logo.jpg" alt="SK KGN TEAM">
+
+<img
+src="Logo.jpg"
+alt="SK KGN TEAM">
+
 <span>SK KGN TEAM</span>
+
 </a>
+
 </div>
+
+
+<!-- HERO -->
 
 <section class="hero">
 
-<div class="badge">🔐 SECURE COMPLAINT TRACKING</div>
+<div class="badge">
+🔐 SECURE • LIVE • COMPLAINT TRACKING
+</div>
 
-<h1>Track Your Complaint</h1>
+<h1>
+Track Your Complaint
+</h1>
 
 <p>
-Enter your Complaint ID to view the latest status,
+Enter your Complaint ID to securely view the latest status,
 official updates and complaint information.
 </p>
 
+
+<div class="search-shell">
+
 <div class="search-card">
 
-<label>COMPLAINT ID</label>
+<label for="complaintId">
+COMPLAINT ID
+</label>
 
 <div class="search-row">
 
 <input
 id="complaintId"
+type="text"
 placeholder="SKKGN-XXXXXX"
 autocomplete="off"
 spellcheck="false">
 
-<button id="checkBtn">
+<button
+id="checkBtn"
+onclick="checkComplaint()">
+
 Check Status →
+
 </button>
 
 </div>
@@ -746,984 +1092,1476 @@ Check Status →
 
 </div>
 
+</div>
+
 </section>
 
-<section id="result" class="result"></section>
+
+<!-- RESULT -->
+
+<section
+id="result"
+class="result">
+</section>
+
+
+<!-- FOOTER -->
 
 <div class="footer">
-SK KGN TEAM • Complaint Tracking System<br>
-<a class="back" href="index.html">← Back to Website</a>
-</div>
+
+SK KGN TEAM • Premium Complaint Tracking System
+
+<br>
+
+<a
+class="back"
+href="index.html">
+
+← Back to Website
+
+</a>
 
 </div>
 
-<div id="toast" class="toast"></div>
+</div>
+
+
+<!-- TOAST -->
+
+<div
+id="toast"
+class="toast">
+</div>
 
 
 <script type="module">
 
-import {initializeApp}
+/* =========================================================
+   FIREBASE — ORIGINAL WORKING CONNECTION
+========================================================= */
+
+import {
+  initializeApp
+}
 from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 import {
-getFirestore,
-collection,
-query,
-where,
-getDocs,
-addDoc,
-serverTimestamp
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs,
+  addDoc,
+  serverTimestamp
 }
 from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-/* FIREBASE */
+const firebaseConfig = {
 
-const firebaseConfig={
+  apiKey:
+  "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
 
-apiKey:"AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+  authDomain:
+  "sk-kgn-team.firebaseapp.com",
 
-authDomain:"sk-kgn-team.firebaseapp.com",
+  databaseURL:
+  "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
 
-databaseURL:
-"https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId:
+  "sk-kgn-team",
 
-projectId:"sk-kgn-team",
+  storageBucket:
+  "sk-kgn-team.firebasestorage.app",
 
-storageBucket:
-"sk-kgn-team.firebasestorage.app",
+  messagingSenderId:
+  "228612697498",
 
-messagingSenderId:"228612697498",
+  appId:
+  "1:228612697498:web:a304b57bf5a59d2933de23",
 
-appId:
-"1:228612697498:web:a304b57bf5a59d2933de23",
-
-measurementId:"G-BXWT6BPTB6"
+  measurementId:
+  "G-BXWT6BPTB6"
 
 };
 
-const app=initializeApp(firebaseConfig);
-const db=getFirestore(app);
+
+const app =
+initializeApp(firebaseConfig);
+
+const db =
+getFirestore(app);
 
 
-let currentComplaint=null;
-let selectedRating=0;
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const input =
+document.getElementById("complaintId");
+
+const button =
+document.getElementById("checkBtn");
+
+const message =
+document.getElementById("message");
+
+const result =
+document.getElementById("result");
+
+const toast =
+document.getElementById("toast");
 
 
-/* ELEMENTS */
+let currentComplaint = null;
 
-const input=document.getElementById("complaintId");
-const button=document.getElementById("checkBtn");
-const message=document.getElementById("message");
-const result=document.getElementById("result");
-const toast=document.getElementById("toast");
+let selectedRating = 0;
 
 
-/* ESCAPE */
+/* =========================================================
+   SECURITY
+========================================================= */
 
 function escapeHTML(value){
 
-return String(value ?? "-")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+  return String(value ?? "-")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
-/* DATE */
+/* =========================================================
+   DATE
+========================================================= */
 
-function formatDate(value){
+function formatDate(timestamp){
 
-if(!value)return "-";
+  if(!timestamp) return "-";
 
-try{
+  try{
 
-const d=value.toDate
-?value.toDate()
-:new Date(value);
+    const date =
+      timestamp.toDate
+      ? timestamp.toDate()
+      : new Date(timestamp);
 
-if(isNaN(d.getTime()))return "-";
+    if(isNaN(date.getTime())) return "-";
 
-return new Intl.DateTimeFormat(
-"en-IN",
-{
-dateStyle:"medium",
-timeStyle:"short"
+    return new Intl.DateTimeFormat(
+      "en-IN",
+      {
+        dateStyle:"medium",
+        timeStyle:"short"
+      }
+    ).format(date);
+
+  }catch(error){
+
+    return "-";
+
+  }
+
 }
-).format(d);
-
-}catch(e){
-
-return "-";
-
-}
-
-}
 
 
-/* STATUS */
+/* =========================================================
+   STATUS
+   ORIGINAL FLOW PRESERVED + CANCELLED
+========================================================= */
 
 function statusInfo(status){
 
-const s=String(status||"Submitted")
-.toLowerCase()
-.trim();
+  const normalized =
+    String(status || "Submitted")
+    .toLowerCase()
+    .trim();
 
-if(s.includes("cancel"))
-return{
-type:"cancelled",
-label:"Cancelled"
+
+  if(
+    normalized.includes("cancel")
+  ){
+
+    return {
+      current:3,
+      label:status || "Cancelled",
+      type:"cancelled"
+    };
+
+  }
+
+
+  if(
+    normalized.includes("resolve")
+  ){
+
+    return {
+      current:3,
+      label:status || "Resolved",
+      type:"resolved"
+    };
+
+  }
+
+
+  if(
+    normalized.includes("progress") ||
+    normalized.includes("work")
+  ){
+
+    return {
+      current:2,
+      label:status || "In Progress",
+      type:"progress"
+    };
+
+  }
+
+
+  if(
+    normalized.includes("review")
+  ){
+
+    return {
+      current:1,
+      label:status || "Under Review",
+      type:"review"
+    };
+
+  }
+
+
+  return {
+
+    current:0,
+    label:status || "Submitted",
+    type:"submitted"
+
+  };
+
+}
+
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+function timeline(status){
+
+  const info =
+    statusInfo(status);
+
+
+  let stages;
+
+
+  if(info.type === "cancelled"){
+
+    stages = [
+      "Submitted",
+      "Under Review",
+      "In Progress",
+      "Cancelled"
+    ];
+
+  }else{
+
+    stages = [
+      "Submitted",
+      "Under Review",
+      "In Progress",
+      "Resolved"
+    ];
+
+  }
+
+
+  return stages.map(
+    (stage,index)=>{
+
+      const done =
+        index < info.current;
+
+      const current =
+        index === info.current;
+
+      const cancelled =
+        info.type === "cancelled" &&
+        current;
+
+
+      return `
+
+        <div class="stage
+          ${done ? "done" : ""}
+          ${current ? "current" : ""}
+          ${cancelled ? "cancelled" : ""}">
+
+          <div class="stage-icon">
+
+            ${
+              done
+              ? "✓"
+              : cancelled
+              ? "×"
+              : current
+              ? "●"
+              : "○"
+            }
+
+          </div>
+
+          <div>
+
+            <div class="stage-title">
+
+              ${stage}
+
+            </div>
+
+            ${
+              current
+
+              ?
+
+              `<div class="stage-note">
+
+                ${
+                  cancelled
+                  ? "Complaint cancelled"
+                  : "Current status"
+                }
+
+              </div>`
+
+              :
+
+              ""
+
+            }
+
+          </div>
+
+        </div>
+
+      `;
+
+    }
+  ).join("");
+
+}
+
+
+/* =========================================================
+   CHECK COMPLAINT
+   IMPORTANT:
+   ORIGINAL FIRESTORE QUERY PRESERVED
+========================================================= */
+
+window.checkComplaint = async function(){
+
+  const complaintId =
+    input.value
+      .trim()
+      .toUpperCase();
+
+
+  result.style.display =
+    "none";
+
+  result.innerHTML =
+    "";
+
+  message.style.display =
+    "none";
+
+
+  if(!complaintId){
+
+    message.textContent =
+      "Please enter your Complaint ID.";
+
+    message.style.display =
+      "block";
+
+    return;
+
+  }
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "Checking...";
+
+
+  try{
+
+
+    /* ORIGINAL WORKING QUERY */
+
+    const q =
+      query(
+        collection(
+          db,
+          "complaints"
+        ),
+        where(
+          "complaintId",
+          "==",
+          complaintId
+        )
+      );
+
+
+    const snapshot =
+      await getDocs(q);
+
+
+    if(snapshot.empty){
+
+      message.textContent =
+        "Complaint not found. Please check the Complaint ID and try again.";
+
+      message.style.display =
+        "block";
+
+      return;
+
+    }
+
+
+    const doc =
+      snapshot.docs[0];
+
+
+    currentComplaint = {
+
+      docId:
+        doc.id,
+
+      ...doc.data()
+
+    };
+
+
+    renderComplaint(
+      currentComplaint
+    );
+
+
+  }catch(error){
+
+    console.error(error);
+
+    message.textContent =
+      "Unable to check status right now. Please try again.";
+
+    message.style.display =
+      "block";
+
+  }finally{
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      "Check Status →";
+
+  }
+
 };
 
-if(s.includes("resolve"))
-return{
-type:"resolved",
-label:"Resolved"
-};
 
-if(s.includes("progress")||s.includes("work"))
-return{
-type:"progress",
-label:"In Progress"
-};
-
-if(s.includes("review"))
-return{
-type:"review",
-label:"Under Review"
-};
-
-return{
-type:"submitted",
-label:"Submitted"
-};
-
-}
-
-
-/* TIMELINE */
-
-function makeTimeline(status){
-
-const info=statusInfo(status);
-
-let stages;
-
-if(info.type==="cancelled"){
-
-stages=[
-"Submitted",
-"Under Review",
-"In Progress",
-"Cancelled"
-];
-
-}else{
-
-stages=[
-"Submitted",
-"Under Review",
-"In Progress",
-"Resolved"
-];
-
-}
-
-let current=0;
-
-if(info.type==="review")current=1;
-if(info.type==="progress")current=2;
-if(info.type==="resolved")current=3;
-if(info.type==="cancelled")current=3;
-
-
-return stages.map((stage,i)=>{
-
-const done=i<current;
-const now=i===current;
-const cancelled=
-info.type==="cancelled"&&now;
-
-return`
-
-<div class="stage
-${done?"done":""}
-${now?"current":""}
-${cancelled?"cancelled":""}">
-
-<div class="stage-icon">
-
-${
-done
-?"✓"
-:cancelled
-?"×"
-:now
-?"●"
-:"○"
-}
-
-</div>
-
-<div>
-
-<div class="stage-title">
-${stage}
-</div>
-
-${
-now
-?
-`<div class="stage-note">
-${
-cancelled
-?"Complaint cancelled"
-:"Current status"
-}
-</div>`
-:""
-}
-
-</div>
-
-</div>
-
-`;
-
-}).join("");
-
-}
-
-
-/* CHECK */
-
-async function checkComplaint(){
-
-const id=input.value.trim().toUpperCase();
-
-result.style.display="none";
-result.innerHTML="";
-message.style.display="none";
-
-
-if(!id){
-
-message.textContent=
-"Please enter your Complaint ID.";
-
-message.style.display="block";
-
-return;
-
-}
-
-
-button.disabled=true;
-button.textContent="Checking...";
-
-
-try{
-
-const q=query(
-collection(db,"complaints"),
-where("complaintId","==",id)
-);
-
-const snapshot=await getDocs(q);
-
-
-if(snapshot.empty){
-
-message.innerHTML=
-"❌ Complaint not found.<br>Please check your Complaint ID.";
-
-message.style.display="block";
-
-return;
-
-}
-
-
-const d=snapshot.docs[0];
-
-currentComplaint={
-docId:d.id,
-...d.data()
-};
-
-renderComplaint(currentComplaint);
-
-
-}catch(error){
-
-console.error(error);
-
-message.textContent=
-"Unable to check status right now.";
-
-message.style.display="block";
-
-}finally{
-
-button.disabled=false;
-button.textContent="Check Status →";
-
-}
-
-}
-
-window.checkComplaint=checkComplaint;
-
-
-/* RENDER */
+/* =========================================================
+   RENDER COMPLAINT
+========================================================= */
 
 function renderComplaint(data){
 
-const info=statusInfo(data.status);
-
-const remark=
-data.adminRemark||
-data.adminNotes||
-"";
-
-const updated=
-data.adminUpdatedAt||
-data.updatedAt||
-null;
+  const info =
+    statusInfo(
+      data.status
+    );
 
 
-const isCancelled=
-info.type==="cancelled";
+  const remark =
+    data.adminRemark ||
+    data.adminNotes ||
+    data.remark ||
+    "";
 
 
-result.innerHTML=`
-
-<div class="result-card">
-
-<div class="result-head">
-
-<small>COMPLAINT ID</small>
-
-<h2>
-${escapeHTML(data.complaintId)}
-</h2>
-
-<div class="status-pill ${isCancelled?"cancelled":""}">
-
-<span class="status-dot"></span>
-
-${escapeHTML(info.label)}
-
-</div>
-
-</div>
+  const updated =
+    data.adminUpdatedAt ||
+    data.updatedAt ||
+    null;
 
 
-<div class="details">
-
-<div class="detail">
-<label>Applicant Name</label>
-<div>${escapeHTML(data.name)}</div>
-</div>
-
-<div class="detail">
-<label>Subject</label>
-<div>${escapeHTML(data.subject)}</div>
-</div>
-
-<div class="detail">
-<label>Complaint Details</label>
-<div>${escapeHTML(data.details)}</div>
-</div>
-
-<div class="detail">
-<label>Submitted On</label>
-<div>${formatDate(data.createdAt)}</div>
-</div>
-
-</div>
+  const cancelled =
+    info.type === "cancelled";
 
 
-${
-remark && isCancelled
-?
+  result.innerHTML = `
 
-`<div class="cancel-box">
+    <div class="result-card">
 
-<div class="cancel-title">
-❌ Complaint Cancelled
-</div>
 
-<div class="cancel-text">
-${escapeHTML(remark)}
-</div>
+      <!-- RESULT HEADER -->
 
-${
-updated
-?
-`<div class="admin-date">
-Last updated: ${formatDate(updated)}
-</div>`
-:""
+      <div class="result-head">
+
+        <small>
+          COMPLAINT ID
+        </small>
+
+        <h2>
+          ${escapeHTML(
+            data.complaintId
+          )}
+        </h2>
+
+
+        <div class="status-pill
+          ${cancelled ? "cancelled" : ""}">
+
+          <span class="status-dot"></span>
+
+          ${escapeHTML(
+            info.label
+          )}
+
+        </div>
+
+      </div>
+
+
+      <!-- DETAILS -->
+
+      <div class="details">
+
+        <div class="detail">
+
+          <label>
+            Applicant Name
+          </label>
+
+          <div>
+            ${escapeHTML(
+              data.name
+            )}
+          </div>
+
+        </div>
+
+
+        <div class="detail">
+
+          <label>
+            Subject
+          </label>
+
+          <div>
+            ${escapeHTML(
+              data.subject
+            )}
+          </div>
+
+        </div>
+
+
+        <div class="detail">
+
+          <label>
+            Complaint Details
+          </label>
+
+          <div>
+            ${escapeHTML(
+              data.details ||
+              data.description
+            )}
+          </div>
+
+        </div>
+
+
+        <div class="detail">
+
+          <label>
+            Submitted On
+          </label>
+
+          <div>
+            ${formatDate(
+              data.createdAt
+            )}
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ADMIN REMARK -->
+
+      ${
+        remark && cancelled
+
+        ?
+
+        `
+
+        <div class="cancel-box">
+
+          <div class="cancel-title">
+            ❌ Complaint Cancelled
+          </div>
+
+          <div class="cancel-text">
+
+            ${escapeHTML(
+              remark
+            )}
+
+          </div>
+
+
+          ${
+            updated
+
+            ?
+
+            `<div class="admin-date">
+
+              Last updated:
+              ${formatDate(updated)}
+
+            </div>`
+
+            :
+
+            ""
+
+          }
+
+        </div>
+
+        `
+
+        :
+
+        remark
+
+        ?
+
+        `
+
+        <div class="admin-update">
+
+          <div class="admin-title">
+
+            ✦ Latest Administrative Update
+
+          </div>
+
+          <div class="admin-text">
+
+            ${escapeHTML(
+              remark
+            )}
+
+          </div>
+
+
+          ${
+            updated
+
+            ?
+
+            `<div class="admin-date">
+
+              Last updated:
+              ${formatDate(updated)}
+
+            </div>`
+
+            :
+
+            ""
+
+          }
+
+        </div>
+
+        `
+
+        :
+
+        ""
+
+      }
+
+
+      <!-- TIMELINE -->
+
+      <div class="timeline">
+
+        <div class="timeline-head">
+
+          <h3>
+            Complaint Progress
+          </h3>
+
+          <div class="live">
+
+            <span class="live-dot"></span>
+
+            LIVE STATUS
+
+          </div>
+
+        </div>
+
+
+        <div class="track">
+
+          ${timeline(
+            data.status
+          )}
+
+        </div>
+
+      </div>
+
+
+      <!-- ACTIONS -->
+
+      <div class="actions">
+
+
+        <button
+          class="action primary"
+          onclick="copyID()">
+
+          📋 Copy ID
+
+        </button>
+
+
+        <button
+          class="action"
+          onclick="refreshComplaint()">
+
+          ↻ Refresh
+
+        </button>
+
+
+        <button
+          class="action"
+          onclick="shareComplaint()">
+
+          ↗ Share
+
+        </button>
+
+
+        <button
+          class="action"
+          onclick="window.print()">
+
+          ▣ Print
+
+        </button>
+
+
+        <button
+          class="action"
+          onclick="callSupport()">
+
+          ☎ Call Support
+
+        </button>
+
+
+        <button
+          class="action"
+          onclick="whatsappSupport()">
+
+          ◉ WhatsApp
+
+        </button>
+
+
+      </div>
+
+
+      <!-- FEEDBACK -->
+
+      <div class="feedback">
+
+        <h3>
+          ⭐ Share Your Experience
+        </h3>
+
+        <p>
+          Your feedback is linked to this complaint and submitted to our system.
+        </p>
+
+
+        <div class="rating">
+
+          <button
+            onclick="selectRating(1)">
+            😞
+          </button>
+
+          <button
+            onclick="selectRating(2)">
+            😐
+          </button>
+
+          <button
+            onclick="selectRating(3)">
+            🙂
+          </button>
+
+          <button
+            onclick="selectRating(4)">
+            😊
+          </button>
+
+          <button
+            onclick="selectRating(5)">
+            🤩
+          </button>
+
+        </div>
+
+
+        <textarea
+          id="feedbackText"
+          maxlength="1000"
+          placeholder="Tell us honestly about your experience..."></textarea>
+
+
+        <button
+          class="feedback-send"
+          onclick="sendFeedback()">
+
+          Submit Feedback →
+
+        </button>
+
+      </div>
+
+
+      <!-- TEAM REMINDER -->
+
+      <div class="reminder">
+
+        <h3>
+          ⏰ Team Follow-up Reminder
+        </h3>
+
+        <p>
+          Set a follow-up reminder for SK KGN TEAM.
+          Reminders can be scheduled up to 30 days from today.
+        </p>
+
+
+        <div class="reminder-row">
+
+          <input
+            id="reminderTime"
+            type="datetime-local">
+
+
+          <button
+            onclick="saveReminder()">
+
+            Set Reminder
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  `;
+
+
+  result.style.display =
+    "block";
+
+
+  result.scrollIntoView({
+    behavior:"smooth",
+    block:"start"
+  });
+
+
+  setReminderLimit();
+
 }
 
-</div>`
 
-:
+/* =========================================================
+   COPY ID
+========================================================= */
 
-remark
+window.copyID =
+async function(){
 
-?
+  if(!currentComplaint)
+    return;
 
-`<div class="admin-update">
 
-<div class="admin-title">
-📝 Latest Admin Update
-</div>
+  try{
 
-<div class="admin-text">
-${escapeHTML(remark)}
-</div>
+    await navigator.clipboard.writeText(
+      currentComplaint.complaintId
+    );
 
-${
-updated
-?
-`<div class="admin-date">
-Last updated: ${formatDate(updated)}
-</div>`
-:""
-}
+    showToast(
+      "✓ Complaint ID copied"
+    );
 
-</div>`
+  }catch(error){
 
-:""
+    showToast(
+      currentComplaint.complaintId
+    );
 
-}
-
-
-<div class="timeline">
-
-<h3>Complaint Progress</h3>
-
-<div class="track">
-${makeTimeline(data.status)}
-</div>
-
-</div>
-
-
-<div class="actions">
-
-<button class="action primary"
-onclick="copyID()">
-📋 Copy ID
-</button>
-
-<button class="action"
-onclick="refreshComplaint()">
-🔄 Refresh
-</button>
-
-<button class="action"
-onclick="shareComplaint()">
-📤 Share
-</button>
-
-<button class="action"
-onclick="window.print()">
-🖨️ Print
-</button>
-
-<button class="action"
-onclick="callSupport()">
-📞 Call
-</button>
-
-<button class="action"
-onclick="whatsappSupport()">
-💬 WhatsApp
-</button>
-
-</div>
-
-
-<!-- FEEDBACK -->
-
-<div class="feedback">
-
-<h3>⭐ Give Your Feedback</h3>
-
-<p>
-Your feedback is connected to this complaint and is stored in our system.
-</p>
-
-<div class="rating">
-
-<button onclick="selectRating(1)">😞</button>
-<button onclick="selectRating(2)">😐</button>
-<button onclick="selectRating(3)">🙂</button>
-<button onclick="selectRating(4)">😊</button>
-<button onclick="selectRating(5)">🤩</button>
-
-</div>
-
-<textarea
-id="feedbackText"
-placeholder="Write your genuine feedback..."></textarea>
-
-<button
-class="feedback-send"
-onclick="sendFeedback()">
-
-Submit Feedback →
-
-</button>
-
-</div>
-
-
-<!-- TEAM REMINDER -->
-
-<div class="reminder">
-
-<h3>⏰ Set Team Follow-up Reminder</h3>
-
-<p>
-This reminder is for SK KGN TEAM follow-up.
-Choose a date within the next 30 days.
-Your reminder will be saved with this complaint so the team can see it in the Admin Panel.
-</p>
-
-<div class="reminder-row">
-
-<input
-id="reminderTime"
-type="datetime-local">
-
-<button onclick="saveReminder()">
-Set Reminder
-</button>
-
-</div>
-
-</div>
-
-
-</div>
-
-`;
-
-result.style.display="block";
-
-result.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-
-setReminderLimit();
-
-}
-
-
-/* COPY */
-
-window.copyID=async function(){
-
-if(!currentComplaint)return;
-
-try{
-
-await navigator.clipboard.writeText(
-currentComplaint.complaintId
-);
-
-showToast("✅ Complaint ID copied");
-
-}catch(e){
-
-showToast(currentComplaint.complaintId);
-
-}
+  }
 
 };
 
 
-/* REFRESH */
+/* =========================================================
+   REFRESH
+========================================================= */
 
-window.refreshComplaint=function(){
+window.refreshComplaint =
+function(){
 
-if(!currentComplaint)return;
-
-input.value=currentComplaint.complaintId;
-
-checkComplaint();
-
-};
+  if(!currentComplaint)
+    return;
 
 
-/* SHARE */
+  input.value =
+    currentComplaint.complaintId;
 
-window.shareComplaint=async function(){
 
-if(!currentComplaint)return;
-
-const text=
-`SK KGN TEAM Complaint\n\n`+
-`Complaint ID: ${currentComplaint.complaintId}\n`+
-`Status: ${currentComplaint.status||"Submitted"}`;
-
-if(navigator.share){
-
-try{
-
-await navigator.share({
-title:"SK KGN TEAM Complaint",
-text:text,
-url:location.href
-});
-
-}catch(e){}
-
-}else{
-
-try{
-
-await navigator.clipboard.writeText(text);
-
-showToast("✅ Status copied");
-
-}catch(e){
-
-showToast(text);
-
-}
-
-}
+  checkComplaint();
 
 };
 
 
-/* CALL */
+/* =========================================================
+   SHARE
+========================================================= */
 
-window.callSupport=function(){
+window.shareComplaint =
+async function(){
 
-location.href="tel:+917007027158";
-
-};
-
-
-/* WHATSAPP */
-
-window.whatsappSupport=function(){
-
-if(!currentComplaint)return;
-
-const text=
-`Namaste SK KGN TEAM,\n\n`+
-`Mujhe meri complaint ke sambandh mein help chahiye.\n\n`+
-`Complaint ID: ${currentComplaint.complaintId}\n`+
-`Current Status: ${currentComplaint.status||"Submitted"}`;
-
-window.open(
-"https://wa.me/917007027158?text="+
-encodeURIComponent(text),
-"_blank"
-);
-
-};
+  if(!currentComplaint)
+    return;
 
 
-/* RATING */
+  const text =
 
-window.selectRating=function(rating){
+`SK KGN TEAM Complaint
 
-selectedRating=rating;
+Complaint ID:
+${currentComplaint.complaintId}
 
-document
-.querySelectorAll(".rating button")
-.forEach((btn,index)=>{
-
-btn.classList.toggle(
-"selected",
-index+1===rating
-);
-
-});
-
-};
+Current Status:
+${currentComplaint.status || "Submitted"}`;
 
 
-/* FEEDBACK -> FIRESTORE */
+  if(navigator.share){
 
-window.sendFeedback=async function(){
+    try{
 
-if(!currentComplaint)return;
+      await navigator.share({
 
+        title:
+          "SK KGN TEAM Complaint",
 
-if(!selectedRating){
+        text:text,
 
-showToast("⭐ Please select a rating");
+        url:location.href
 
-return;
+      });
 
-}
+    }catch(error){}
 
+  }else{
 
-const text=
-document.getElementById("feedbackText")
-.value.trim();
+    try{
 
+      await navigator.clipboard.writeText(
+        text
+      );
 
-if(!text){
+      showToast(
+        "✓ Complaint status copied"
+      );
 
-showToast("✍️ Please write your feedback");
+    }catch(error){
 
-return;
+      showToast(
+        "Unable to share"
+      );
 
-}
+    }
 
-
-try{
-
-await addDoc(
-
-collection(
-db,
-"complaints",
-currentComplaint.docId,
-"feedback"
-),
-
-{
-
-complaintId:
-currentComplaint.complaintId,
-
-rating:selectedRating,
-
-message:text,
-
-createdAt:serverTimestamp(),
-
-source:"Complaint Status Page"
-
-}
-
-);
-
-
-showToast(
-"✅ Feedback submitted successfully"
-);
-
-
-document.getElementById(
-"feedbackText"
-).value="";
-
-
-}catch(error){
-
-console.error(error);
-
-showToast(
-"❌ Feedback submit nahi hua"
-);
-
-}
+  }
 
 };
 
 
-/* REMINDER LIMIT */
+/* =========================================================
+   CALL SUPPORT
+========================================================= */
+
+window.callSupport =
+function(){
+
+  location.href =
+    "tel:+917007027158";
+
+};
+
+
+/* =========================================================
+   WHATSAPP SUPPORT
+========================================================= */
+
+window.whatsappSupport =
+function(){
+
+  if(!currentComplaint)
+    return;
+
+
+  const text =
+
+`Namaste SK KGN TEAM,
+
+I need assistance regarding my complaint.
+
+Complaint ID:
+${currentComplaint.complaintId}
+
+Current Status:
+${currentComplaint.status || "Submitted"}`;
+
+
+  window.open(
+
+    "https://wa.me/917007027158?text="+
+    encodeURIComponent(text),
+
+    "_blank"
+
+  );
+
+};
+
+
+/* =========================================================
+   RATING
+========================================================= */
+
+window.selectRating =
+function(rating){
+
+  selectedRating =
+    rating;
+
+
+  document
+    .querySelectorAll(
+      ".rating button"
+    )
+    .forEach(
+      (button,index)=>{
+
+        button.classList.toggle(
+          "selected",
+          index + 1 === rating
+        );
+
+      }
+    );
+
+};
+
+
+/* =========================================================
+   FEEDBACK → FIRESTORE
+========================================================= */
+
+window.sendFeedback =
+async function(){
+
+  if(!currentComplaint)
+    return;
+
+
+  if(!selectedRating){
+
+    showToast(
+      "Please select a rating first"
+    );
+
+    return;
+
+  }
+
+
+  const field =
+    document.getElementById(
+      "feedbackText"
+    );
+
+
+  const text =
+    field.value.trim();
+
+
+  if(!text){
+
+    showToast(
+      "Please write your feedback"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+
+    await addDoc(
+
+      collection(
+        db,
+        "complaints",
+        currentComplaint.docId,
+        "feedback"
+      ),
+
+      {
+
+        complaintId:
+          currentComplaint.complaintId,
+
+        rating:
+          selectedRating,
+
+        message:
+          text,
+
+        createdAt:
+          serverTimestamp(),
+
+        source:
+          "Customer Status Page"
+
+      }
+
+    );
+
+
+    showToast(
+      "✓ Feedback submitted successfully"
+    );
+
+
+    field.value =
+      "";
+
+
+    document
+      .querySelectorAll(
+        ".rating button"
+      )
+      .forEach(
+        button =>
+          button.classList.remove(
+            "selected"
+          )
+      );
+
+
+    selectedRating =
+      0;
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast(
+      "Feedback could not be submitted"
+    );
+
+  }
+
+};
+
+
+/* =========================================================
+   REMINDER LIMIT
+========================================================= */
 
 function setReminderLimit(){
 
-const inputTime=
-document.getElementById("reminderTime");
-
-if(!inputTime)return;
-
-
-const now=new Date();
-
-const max=new Date();
-
-max.setDate(
-max.getDate()+30
-);
+  const field =
+    document.getElementById(
+      "reminderTime"
+    );
 
 
-function localValue(date){
-
-const offset=
-date.getTimezoneOffset()*60000;
-
-return new Date(
-date.getTime()-offset
-)
-.toISOString()
-.slice(0,16);
-
-}
+  if(!field)
+    return;
 
 
-inputTime.min=
-localValue(now);
-
-inputTime.max=
-localValue(max);
-
-}
+  const now =
+    new Date();
 
 
-/* SAVE TEAM REMINDER */
-
-window.saveReminder=async function(){
-
-if(!currentComplaint)return;
+  const max =
+    new Date();
 
 
-const reminderInput=
-document.getElementById("reminderTime");
+  max.setDate(
+    max.getDate() + 30
+  );
 
 
-if(!reminderInput.value){
+  function localDate(date){
 
-showToast(
-"⏰ Reminder date select karein"
-);
+    const offset =
+      date.getTimezoneOffset()
+      * 60000;
 
-return;
+
+    return new Date(
+      date.getTime() - offset
+    )
+    .toISOString()
+    .slice(0,16);
+
+  }
+
+
+  field.min =
+    localDate(now);
+
+
+  field.max =
+    localDate(max);
 
 }
 
 
-const reminderDate=
-new Date(reminderInput.value);
+/* =========================================================
+   TEAM REMINDER → FIRESTORE
+========================================================= */
+
+window.saveReminder =
+async function(){
+
+  if(!currentComplaint)
+    return;
 
 
-const now=new Date();
-
-const max=new Date();
-
-max.setDate(
-max.getDate()+30
-);
+  const field =
+    document.getElementById(
+      "reminderTime"
+    );
 
 
-if(
-reminderDate < now ||
-reminderDate > max
-){
+  if(!field.value){
 
-showToast(
-"⚠️ Reminder maximum 30 days ke andar hona chahiye"
-);
+    showToast(
+      "Please select a reminder date and time"
+    );
 
-return;
+    return;
 
-}
+  }
 
 
-try{
-
-await addDoc(
-
-collection(
-db,
-"complaints",
-currentComplaint.docId,
-"reminders"
-),
-
-{
-
-complaintId:
-currentComplaint.complaintId,
-
-reminderAt:
-reminderDate,
-
-createdAt:
-serverTimestamp(),
-
-status:"Pending",
-
-source:"Customer Status Page"
-
-}
-
-);
+  const reminderDate =
+    new Date(
+      field.value
+    );
 
 
-showToast(
-"⏰ Team follow-up reminder saved"
-);
+  const now =
+    new Date();
 
 
-reminderInput.value="";
+  const max =
+    new Date();
 
 
-}catch(error){
+  max.setDate(
+    max.getDate() + 30
+  );
 
-console.error(error);
 
-showToast(
-"❌ Reminder save nahi hua"
-);
+  if(
+    reminderDate < now ||
+    reminderDate > max
+  ){
 
-}
+    showToast(
+      "Reminder must be within 30 days"
+    );
+
+    return;
+
+  }
+
+
+  try{
+
+
+    await addDoc(
+
+      collection(
+        db,
+        "complaints",
+        currentComplaint.docId,
+        "reminders"
+      ),
+
+      {
+
+        complaintId:
+          currentComplaint.complaintId,
+
+        reminderAt:
+          reminderDate,
+
+        createdAt:
+          serverTimestamp(),
+
+        status:
+          "Pending",
+
+        source:
+          "Customer Status Page"
+
+      }
+
+    );
+
+
+    showToast(
+      "✓ Team follow-up reminder saved"
+    );
+
+
+    field.value =
+      "";
+
+
+  }catch(error){
+
+    console.error(error);
+
+    showToast(
+      "Reminder could not be saved"
+    );
+
+  }
 
 };
 
 
-/* TOAST */
+/* =========================================================
+   TOAST
+========================================================= */
 
 function showToast(text){
 
-toast.textContent=text;
+  toast.textContent =
+    text;
 
-toast.classList.add("show");
 
-setTimeout(()=>{
+  toast.classList.add(
+    "show"
+  );
 
-toast.classList.remove("show");
 
-},3000);
+  setTimeout(
+    ()=>{
+
+      toast.classList.remove(
+        "show"
+      );
+
+    },
+    3000
+  );
 
 }
 
 
-/* ENTER */
+/* =========================================================
+   ENTER KEY
+========================================================= */
 
 input.addEventListener(
-"keydown",
-e=>{
+  "keydown",
+  event => {
 
-if(e.key==="Enter"){
-checkComplaint();
-}
+    if(event.key === "Enter"){
 
-}
+      window.checkComplaint();
+
+    }
+
+  }
 );
 
 
-/* URL ID */
+/* =========================================================
+   AUTO LOAD FROM URL
+========================================================= */
 
-const params=
-new URLSearchParams(location.search);
+const params =
+  new URLSearchParams(
+    location.search
+  );
 
-const urlID=params.get("id");
+
+const urlID =
+  params.get("id");
+
 
 if(urlID){
 
-input.value=urlID.toUpperCase();
+  input.value =
+    urlID.toUpperCase();
 
-checkComplaint();
+  window.checkComplaint();
 
 }
 
