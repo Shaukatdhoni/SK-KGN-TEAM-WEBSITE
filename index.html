@@ -2842,7 +2842,249 @@ Contact SK KGN TEAM for assistance and enquiries.
 </div>
 
 </section>
+<!-- SK KGN TEAM - SCROLL COMPLAINT JOURNEY -->
+<section id="complaintJourney" class="complaint-journey">
 
+  <div class="journey-heading">
+    <span>SK KGN TEAM</span>
+    <h2>Your Complaint. Your Voice.</h2>
+    <p>Scroll to see your complaint journey move forward.</p>
+  </div>
+
+  <div class="journey-stage">
+
+    <div class="journey-road"></div>
+
+    <div class="journey-box">
+      <div class="journey-icon">⚖️</div>
+      <strong>COMPLAINT</strong>
+      <small>Your Voice Matters</small>
+    </div>
+
+    <img
+      src="complaint-person.jpg"
+      id="complaintPerson"
+      class="complaint-person"
+      alt="Complaint submission"
+    >
+
+    <div class="journey-end">
+      <div>✓</div>
+      <strong>JUSTICE</strong>
+      <small>Action Begins</small>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+.complaint-journey{
+  position:relative;
+  min-height:900px;
+  padding:110px 20px 80px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 35%,rgba(30,80,150,.25),transparent 45%),
+    linear-gradient(180deg,#061326,#020712);
+  color:#fff;
+}
+
+.journey-heading{
+  position:relative;
+  z-index:5;
+  text-align:center;
+  max-width:800px;
+  margin:auto;
+}
+
+.journey-heading span{
+  font-size:13px;
+  letter-spacing:4px;
+  font-weight:800;
+  opacity:.65;
+}
+
+.journey-heading h2{
+  margin:12px 0 10px;
+  font-size:clamp(30px,5vw,58px);
+  font-weight:900;
+}
+
+.journey-heading p{
+  margin:0;
+  color:#b9c7d9;
+  font-size:16px;
+}
+
+.journey-stage{
+  position:relative;
+  height:600px;
+  max-width:1200px;
+  margin:40px auto 0;
+}
+
+.journey-road{
+  position:absolute;
+  left:5%;
+  right:5%;
+  bottom:115px;
+  height:5px;
+  background:rgba(255,255,255,.25);
+  box-shadow:0 0 25px rgba(70,150,255,.35);
+}
+
+.journey-road::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:1px;
+  background:rgba(255,255,255,.6);
+}
+
+.complaint-person{
+  position:absolute;
+  width:min(270px,28vw);
+  max-height:420px;
+  object-fit:contain;
+  left:5%;
+  bottom:120px;
+  z-index:3;
+  transform:translateX(0) scale(1);
+  will-change:transform;
+  filter:drop-shadow(0 20px 25px rgba(0,0,0,.45));
+}
+
+.journey-box{
+  position:absolute;
+  left:2%;
+  bottom:55px;
+  z-index:2;
+  width:180px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:18px;
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(10px);
+  text-align:center;
+}
+
+.journey-icon{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+.journey-box strong,
+.journey-end strong{
+  display:block;
+  letter-spacing:2px;
+}
+
+.journey-box small,
+.journey-end small{
+  display:block;
+  margin-top:6px;
+  color:#b9c7d9;
+}
+
+.journey-end{
+  position:absolute;
+  right:2%;
+  bottom:55px;
+  z-index:2;
+  width:180px;
+  padding:20px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:18px;
+  background:rgba(255,255,255,.07);
+  backdrop-filter:blur(10px);
+  text-align:center;
+}
+
+.journey-end > div{
+  font-size:32px;
+  margin-bottom:8px;
+}
+
+@media(max-width:767px){
+  .complaint-journey{
+    min-height:700px;
+    padding-top:80px;
+  }
+
+  .journey-stage{
+    height:450px;
+  }
+
+  .complaint-person{
+    width:210px;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:105px;
+  }
+
+  .journey-box{
+    left:5%;
+    width:130px;
+    padding:12px;
+    font-size:12px;
+  }
+
+  .journey-end{
+    right:5%;
+    width:130px;
+    padding:12px;
+    font-size:12px;
+  }
+
+  .journey-road{
+    left:8%;
+    right:8%;
+    bottom:95px;
+  }
+}
+</style>
+
+<script>
+(function(){
+
+  const section = document.getElementById("complaintJourney");
+  const person = document.getElementById("complaintPerson");
+
+  if(!section || !person) return;
+
+  function animateComplaintPerson(){
+
+    const rect = section.getBoundingClientRect();
+    const screenHeight = window.innerHeight;
+
+    const start = screenHeight * 0.85;
+    const end = -rect.height * 0.15;
+
+    let progress = (start - rect.top) / (start - end);
+
+    progress = Math.max(0, Math.min(1, progress));
+
+    const moveX = progress * 700;
+    const scale = 1 - (progress * 0.12);
+
+    person.style.transform =
+      `translateX(${moveX}px) scale(${scale})`;
+  }
+
+  window.addEventListener("scroll", animateComplaintPerson, {
+    passive:true
+  });
+
+  window.addEventListener("resize", animateComplaintPerson);
+
+  animateComplaintPerson();
+
+})();
+</script>
+<!-- END SCROLL COMPLAINT JOURNEY -->
 
 
 <!-- =======================================================
