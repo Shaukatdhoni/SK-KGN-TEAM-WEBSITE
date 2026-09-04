@@ -1,189 +1,1521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>About Us | SK KGN TEAM</title>
+
+<meta name="description"
+      content="Meet the team behind SK KGN TEAM.">
+
+<style>
+
+/* =====================================================
+   GLOBAL
+===================================================== */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background:#020712;
+  color:#ffffff;
+
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* =====================================================
+   CINEMATIC BACKGROUND
+===================================================== */
+
+body::before{
+  content:"";
+
+  position:fixed;
+  inset:0;
+
+  pointer-events:none;
+  z-index:-2;
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(34,110,205,.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(74,36,170,.16),
+      transparent 32%
+    );
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.sk-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  width:100%;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.09);
+
+  background:
+    rgba(3,10,23,.88);
+
+  backdrop-filter:blur(18px);
+}
+
+.sk-header-inner{
+  max-width:1250px;
+  min-height:76px;
+
+  margin:auto;
+  padding:0 25px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+
+/* LOGO */
+
+.sk-logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+
+  font-weight:900;
+}
+
+.sk-logo img{
+  width:52px;
+  height:52px;
+
+  object-fit:contain;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(120,180,255,.35);
+}
+
+.sk-logo-text{
+  font-size:21px;
+  letter-spacing:-.5px;
+}
+
+.sk-logo-text span{
+  color:#68aeff;
+}
+
+
+/* NAV */
+
+.sk-nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+.sk-nav a{
+  position:relative;
+
+  color:#b7c8dd;
+
+  font-size:13px;
+  font-weight:700;
+
+  transition:.3s ease;
+}
+
+.sk-nav a:hover,
+.sk-nav a.active{
+  color:#ffffff;
+}
+
+.sk-nav a.active::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:-9px;
+
+  height:2px;
+
+  background:#5da9ff;
+
+  box-shadow:
+    0 0 12px rgba(93,169,255,.8);
+}
+
+
+/* BACK BUTTON */
+
+.sk-back{
+  padding:11px 17px;
+
+  border:
+    1px solid rgba(110,175,255,.3);
+
+  border-radius:10px;
+
+  background:
+    rgba(70,140,220,.10);
+
+  color:#8fc4ff !important;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.sk-hero{
+  position:relative;
+
+  min-height:
+    calc(100vh - 76px);
+
+  display:flex;
+  align-items:center;
+
+  overflow:hidden;
+}
+
+.sk-hero-inner{
+  position:relative;
+
+  width:100%;
+  max-width:1250px;
+
+  margin:auto;
+  padding:100px 25px;
+
+  display:grid;
+  grid-template-columns:
+    1.05fr .95fr;
+
+  align-items:center;
+
+  gap:70px;
+}
+
+
+/* HERO TEXT */
+
+.sk-hero-label{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  color:#74b6ff;
+
+  font-size:11px;
+  font-weight:900;
+
+  letter-spacing:4px;
+}
+
+.sk-hero-label i{
+  display:block;
+
+  width:32px;
+  height:1px;
+
+  background:#74b6ff;
+}
+
+.sk-hero h1{
+  margin-top:22px;
+
+  font-size:
+    clamp(48px,6vw,88px);
+
+  line-height:.98;
+
+  letter-spacing:-4px;
+
+  font-weight:900;
+}
+
+.sk-hero h1 strong{
+  display:block;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ffffff,
+      #66aeff,
+      #b783ff,
+      #ffffff
+    );
+
+  background-size:250% auto;
+
+  -webkit-background-clip:text;
+  background-clip:text;
+
+  color:transparent;
+
+  animation:
+    skGradient 5s linear infinite;
+}
+
+@keyframes skGradient{
+
+  0%{
+    background-position:0% center;
+  }
+
+  100%{
+    background-position:250% center;
+  }
+
+}
+
+.sk-hero-text{
+  max-width:650px;
+
+  margin-top:28px;
+
+  color:#aabbd0;
+
+  font-size:17px;
+
+  line-height:1.8;
+}
+
+
+/* HERO BUTTONS */
+
+.sk-hero-buttons{
+  display:flex;
+
+  gap:14px;
+
+  margin-top:35px;
+
+  flex-wrap:wrap;
+}
+
+.sk-btn{
+  display:inline-flex;
+
+  align-items:center;
+  justify-content:center;
+
+  padding:14px 22px;
+
+  border-radius:12px;
+
+  font-size:13px;
+  font-weight:900;
+
+  transition:.4s ease;
+}
+
+.sk-btn-primary{
+  background:
+    linear-gradient(
+      135deg,
+      #1768bd,
+      #4c2aaf
+    );
+
+  box-shadow:
+    0 12px 35px rgba(45,105,190,.28);
+}
+
+.sk-btn-primary:hover{
+  transform:translateY(-4px);
+
+  box-shadow:
+    0 18px 45px rgba(45,105,190,.42);
+}
+
+.sk-btn-secondary{
+  border:
+    1px solid rgba(255,255,255,.15);
+
+  background:
+    rgba(255,255,255,.05);
+
+  color:#b9c9dd;
+}
+
+.sk-btn-secondary:hover{
+  background:
+    rgba(255,255,255,.1);
+
+  transform:translateY(-4px);
+}
+
+
+/* =====================================================
+   HERO VISUAL
+===================================================== */
+
+.sk-hero-visual{
+  position:relative;
+
+  min-height:480px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* RINGS */
+
+.sk-ring{
+  position:absolute;
+
+  border:
+    1px solid rgba(91,164,241,.16);
+
+  border-radius:50%;
+
+  animation:
+    skRotate 18s linear infinite;
+}
+
+.sk-ring-one{
+  width:430px;
+  height:430px;
+}
+
+.sk-ring-two{
+  width:330px;
+  height:330px;
+
+  border-color:
+    rgba(141,96,230,.18);
+
+  animation-duration:13s;
+  animation-direction:reverse;
+}
+
+@keyframes skRotate{
+
+  from{
+    transform:rotate(0deg);
+  }
+
+  to{
+    transform:rotate(360deg);
+  }
+
+}
+
+
+/* JUSTICE SYMBOL */
+
+.sk-hero-symbol{
+  position:relative;
+  z-index:3;
+
+  width:220px;
+  height:220px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(39,111,195,.24),
+      rgba(255,255,255,.025) 65%,
+      transparent 70%
+    );
+
+  border:
+    1px solid rgba(105,177,255,.25);
+
+  box-shadow:
+    0 0 70px rgba(43,120,210,.18),
+    inset 0 0 45px rgba(70,130,210,.08);
+
+  font-size:82px;
+
+  animation:
+    skFloat 4s ease-in-out infinite;
+}
+
+@keyframes skFloat{
+
+  0%,100%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-15px);
+  }
+
+}
+
+
+/* =====================================================
+   TEAM SECTION
+===================================================== */
+
+.sk-team-section{
+  position:relative;
+
+  padding:
+    120px 25px 130px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #020712,
+      #06152b
+    );
+}
+
+.sk-section-inner{
+  max-width:1250px;
+  margin:auto;
+}
+
+.sk-section-heading{
+  text-align:center;
+
+  max-width:800px;
+
+  margin:
+    0 auto 65px;
+}
+
+.sk-section-heading small{
+  color:#6fb1f8;
+
+  font-size:11px;
+
+  font-weight:900;
+
+  letter-spacing:4px;
+}
+
+.sk-section-heading h2{
+  margin-top:15px;
+
+  font-size:
+    clamp(38px,5vw,65px);
+
+  letter-spacing:-2px;
+
+  font-weight:900;
+}
+
+.sk-section-heading p{
+  margin-top:18px;
+
+  color:#9db0c7;
+
+  line-height:1.7;
+}
+
+
+/* =====================================================
+   TEAM GRID
+===================================================== */
+
+.sk-team-grid{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:24px;
+}
+
+
+/* CARD */
+
+.sk-member{
+
+  position:relative;
+
+  min-height:560px;
+
+  overflow:hidden;
+
+  border-radius:28px;
+
+  border:
+    1px solid rgba(255,255,255,.11);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.10),
+      rgba(255,255,255,.025)
+    );
+
+  backdrop-filter:blur(18px);
+
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.3);
+
+  transform:
+    translateY(70px);
+
+  opacity:0;
+
+  transition:
+    transform .9s cubic-bezier(.16,1,.3,1),
+    opacity .9s ease,
+    border-color .4s ease,
+    box-shadow .4s ease;
+}
+
+.sk-member.show{
+  transform:translateY(0);
+
+  opacity:1;
+}
+
+.sk-member:hover{
+
+  transform:
+    translateY(-12px) !important;
+
+  border-color:
+    rgba(95,169,255,.48);
+
+  box-shadow:
+    0 35px 90px rgba(0,0,0,.5),
+    0 0 45px rgba(45,120,210,.12);
+}
+
+
+/* PHOTO */
+
+.sk-photo{
+  position:relative;
+
+  height:340px;
+
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #102b4d,
+      #050b16
+    );
+}
+
+.sk-photo::after{
+  content:"";
+
+  position:absolute;
+
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 45%,
+      rgba(2,7,18,.85)
+    );
+}
+
+.sk-photo img{
+
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
+
+  display:block;
+
+  transition:
+    transform .8s ease;
+}
+
+.sk-member:hover .sk-photo img{
+  transform:scale(1.07);
+}
+
+
+/* NUMBER */
+
+.sk-number{
+
+  position:absolute;
+
+  top:18px;
+  right:20px;
+
+  z-index:5;
+
+  color:
+    rgba(255,255,255,.45);
+
+  font-size:13px;
+
+  font-weight:900;
+
+  letter-spacing:2px;
+}
+
+
+/* MEMBER INFO */
+
+.sk-member-info{
+  position:relative;
+
+  z-index:6;
+
+  padding:26px 27px 30px;
+
+  margin-top:-18px;
+}
+
+.sk-member-role{
+
+  display:inline-block;
+
+  padding:7px 10px;
+
+  border-radius:7px;
+
+  background:
+    rgba(78,157,235,.10);
+
+  border:
+    1px solid rgba(89,166,239,.17);
+
+  color:#78b9f7;
+
+  font-size:9px;
+
+  font-weight:900;
+
+  letter-spacing:2px;
+}
+
+.sk-member h3{
+
+  margin-top:12px;
+
+  font-size:30px;
+
+  letter-spacing:-.7px;
+
+  font-weight:900;
+}
+
+.sk-member p{
+
+  margin-top:10px;
+
+  color:#9eafc4;
+
+  font-size:13px;
+
+  line-height:1.7;
+}
+
+
+/* MEMBER LINE */
+
+.sk-member-line{
+
+  height:1px;
+
+  margin-top:20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(94,169,255,.5),
+      transparent
+    );
+}
+
+
+/* =====================================================
+   VALUES
+===================================================== */
+
+.sk-values{
+
+  padding:
+    110px 25px;
+
+  background:#06152b;
+}
+
+.sk-values-grid{
+
+  max-width:1100px;
+
+  margin:55px auto 0;
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  gap:20px;
+}
+
+.sk-value{
+
+  padding:32px 25px;
+
+  text-align:center;
+
+  border:
+    1px solid rgba(255,255,255,.1);
+
+  border-radius:20px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  transition:.4s ease;
+}
+
+.sk-value:hover{
+
+  transform:translateY(-8px);
+
+  background:
+    rgba(255,255,255,.065);
+
+  border-color:
+    rgba(90,165,245,.35);
+}
+
+.sk-value-icon{
+
+  width:60px;
+  height:60px;
+
+  margin:
+    0 auto 18px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  border-radius:17px;
+
+  background:
+    rgba(75,145,220,.12);
+
+  font-size:27px;
+}
+
+.sk-value h3{
+
+  font-size:18px;
+}
+
+.sk-value p{
+
+  margin-top:9px;
+
+  color:#95a9c1;
+
+  font-size:13px;
+
+  line-height:1.6;
+}
+
+
+/* =====================================================
+   MISSION
+===================================================== */
+
+.sk-mission{
+
+  padding:
+    110px 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #020712,
+      #081a35
+    );
+}
+
+.sk-mission-box{
+
+  position:relative;
+
+  max-width:1050px;
+
+  margin:auto;
+
+  padding:60px;
+
+  text-align:center;
+
+  overflow:hidden;
+
+  border-radius:30px;
+
+  border:
+    1px solid rgba(100,175,250,.18);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(31,94,160,.16),
+      rgba(90,45,170,.10)
+    );
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.3);
+}
+
+.sk-mission-box::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:300px;
+  height:300px;
+
+  left:50%;
+  top:-180px;
+
+  transform:translateX(-50%);
+
+  border-radius:50%;
+
+  background:
+    rgba(72,151,235,.16);
+
+  filter:blur(50px);
+}
+
+.sk-mission-box small{
+
+  position:relative;
+
+  color:#71b5fa;
+
+  font-size:10px;
+
+  font-weight:900;
+
+  letter-spacing:4px;
+}
+
+.sk-mission-box h2{
+
+  position:relative;
+
+  margin-top:15px;
+
+  font-size:
+    clamp(32px,5vw,55px);
+
+  font-weight:900;
+}
+
+.sk-mission-box p{
+
+  position:relative;
+
+  max-width:700px;
+
+  margin:
+    18px auto 0;
+
+  color:#a5b7cb;
+
+  line-height:1.8;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.sk-footer{
+
+  padding:
+    28px 20px;
+
+  text-align:center;
+
+  border-top:
+    1px solid rgba(255,255,255,.08);
+
+  background:#01050d;
+
+  color:#7388a2;
+
+  font-size:12px;
+}
+
+.sk-footer strong{
+  color:#ffffff;
+}
+
+
+/* =====================================================
+   DESKTOP ONLY
+===================================================== */
+
+@media(min-width:1101px){
+
+  .sk-hero-inner{
+    min-height:700px;
+  }
+
+  .sk-team-grid{
+    gap:28px;
+  }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(min-width:768px) and (max-width:1100px){
+
+  .sk-header-inner{
+    min-height:70px;
+  }
+
+  .sk-nav{
+    gap:17px;
+  }
+
+  .sk-nav a{
+    font-size:11px;
+  }
+
+  .sk-hero-inner{
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:35px;
+
+    padding:
+      75px 30px;
+  }
+
+  .sk-hero h1{
+
+    font-size:
+      clamp(45px,7vw,65px);
+  }
+
+  .sk-hero-text{
+    font-size:15px;
+  }
+
+  .sk-hero-visual{
+    min-height:400px;
+  }
+
+  .sk-ring-one{
+    width:350px;
+    height:350px;
+  }
+
+  .sk-ring-two{
+    width:275px;
+    height:275px;
+  }
+
+  .sk-hero-symbol{
+    width:175px;
+    height:175px;
+
+    font-size:65px;
+  }
+
+  .sk-team-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .sk-member{
+    min-height:540px;
+  }
+
+  .sk-values-grid{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:767px){
+
+  body{
+    background:#020712;
+  }
+
+
+  /* HEADER */
+
+  .sk-header-inner{
+
+    min-height:64px;
+
+    padding:
+      0 15px;
+  }
+
+  .sk-logo img{
+
+    width:43px;
+    height:43px;
+  }
+
+  .sk-logo-text{
+
+    font-size:16px;
+  }
+
+  .sk-nav{
+
+    gap:8px;
+  }
+
+  .sk-nav a{
+
+    display:none;
+  }
+
+  .sk-nav .back-mobile{
+
+    display:inline-flex !important;
+
+    padding:
+      9px 12px;
+
+    border:
+      1px solid rgba(100,170,240,.3);
+
+    border-radius:9px;
+
+    font-size:11px;
+  }
+
+
+  /* HERO */
+
+  .sk-hero{
+
+    min-height:
+      auto;
+  }
+
+  .sk-hero-inner{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    padding:
+      70px 20px 85px;
+
+    text-align:center;
+  }
+
+  .sk-hero-label{
+
+    justify-content:center;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+  }
+
+  .sk-hero-label i{
+
+    width:22px;
+  }
+
+  .sk-hero h1{
+
+    margin-top:17px;
+
+    font-size:
+      clamp(39px,12vw,55px);
+
+    letter-spacing:-2.5px;
+  }
+
+  .sk-hero-text{
+
+    margin-top:20px;
+
+    font-size:14px;
+
+    line-height:1.75;
+  }
+
+  .sk-hero-buttons{
+
+    justify-content:center;
+
+    margin-top:27px;
+  }
+
+  .sk-btn{
+
+    padding:
+      12px 17px;
+
+    font-size:11px;
+  }
+
+
+  /* HERO VISUAL */
+
+  .sk-hero-visual{
+
+    min-height:300px;
+
+    width:100%;
+  }
+
+  .sk-ring-one{
+
+    width:270px;
+    height:270px;
+  }
+
+  .sk-ring-two{
+
+    width:210px;
+    height:210px;
+  }
+
+  .sk-hero-symbol{
+
+    width:140px;
+    height:140px;
+
+    font-size:55px;
+  }
+
+
+  /* TEAM */
+
+  .sk-team-section{
+
+    padding:
+      80px 15px 90px;
+  }
+
+  .sk-section-heading{
+
+    margin-bottom:45px;
+  }
+
+  .sk-section-heading small{
+
+    font-size:9px;
+
+    letter-spacing:3px;
+  }
+
+  .sk-section-heading h2{
+
+    margin-top:12px;
+
+    font-size:38px;
+
+    letter-spacing:-1.5px;
+  }
+
+  .sk-section-heading p{
+
+    font-size:13px;
+  }
+
+  .sk-team-grid{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:22px;
+  }
+
+  .sk-member{
+
+    min-height:auto;
+
+    border-radius:23px;
+  }
+
+  .sk-photo{
+
+    height:330px;
+  }
+
+  .sk-member-info{
+
+    padding:
+      23px 22px 26px;
+  }
+
+  .sk-member h3{
+
+    font-size:27px;
+  }
+
+
+  /* VALUES */
+
+  .sk-values{
+
+    padding:
+      80px 15px;
+  }
+
+  .sk-values-grid{
+
+    grid-template-columns:1fr;
+
+    margin-top:40px;
+  }
+
+  .sk-value{
+
+    padding:27px 22px;
+  }
+
+
+  /* MISSION */
+
+  .sk-mission{
+
+    padding:
+      75px 15px;
+  }
+
+  .sk-mission-box{
+
+    padding:
+      45px 22px;
+
+    border-radius:24px;
+  }
+
+  .sk-mission-box h2{
+
+    font-size:34px;
+  }
+
+  .sk-mission-box p{
+
+    font-size:13px;
+  }
+
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media(max-width:380px){
+
+  .sk-logo-text{
+    font-size:14px;
+  }
+
+  .sk-hero h1{
+    font-size:37px;
+  }
+
+  .sk-photo{
+    height:290px;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
 <!-- =====================================================
-     SK KGN TEAM - PREMIUM ABOUT US
+     HEADER
 ===================================================== -->
 
-<section class="sk-about" id="about-us">
+<header class="sk-header">
 
-  <!-- BACKGROUND EFFECTS -->
-  <div class="sk-about-glow sk-glow-one"></div>
-  <div class="sk-about-glow sk-glow-two"></div>
+  <div class="sk-header-inner">
 
-  <div class="sk-about-container">
+    <a href="index.html" class="sk-logo">
 
-    <!-- TOP INTRO -->
-    <div class="sk-about-intro">
+      <img
+        src="Logo.jpg"
+        alt="SK KGN TEAM">
 
-      <div class="sk-about-badge">
-        <span></span>
-        SK KGN TEAM
-        <span></span>
+      <div class="sk-logo-text">
+        SK <span>KGN TEAM</span>
       </div>
 
-      <h2>
-        People Behind
-        <strong>SK KGN TEAM</strong>
-      </h2>
+    </a>
 
-      <p>
-        A dedicated team focused on helping people understand,
-        organize and raise their complaints with clarity,
-        responsibility and professionalism.
+
+    <nav class="sk-nav">
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="index.html#services">
+        Services
+      </a>
+
+      <a href="status.html">
+        Check Status
+      </a>
+
+      <a href="index.html#schemes">
+        Schemes
+      </a>
+
+      <a href="index.html#contact">
+        Contact
+      </a>
+
+      <a
+        href="index.html"
+        class="back-mobile sk-back">
+        ← Home
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="sk-hero">
+
+  <div class="sk-hero-inner">
+
+
+    <div class="sk-hero-content">
+
+      <div class="sk-hero-label">
+        <i></i>
+        ABOUT SK KGN TEAM
+        <i></i>
+      </div>
+
+
+      <h1>
+        The People
+        <strong>Behind The Mission.</strong>
+      </h1>
+
+
+      <p class="sk-hero-text">
+
+        SK KGN TEAM is built by a dedicated group of people
+        working together to make complaint assistance more
+        organized, accessible and transparent.
+
       </p>
 
-    </div>
 
+      <div class="sk-hero-buttons">
 
-    <!-- TEAM -->
-    <div class="sk-team-grid">
+        <a
+          href="#our-team"
+          class="sk-btn sk-btn-primary">
+          Meet Our Team ↓
+        </a>
 
-      <!-- SHOUKAT -->
-      <article class="sk-team-card sk-founder">
+        <a
+          href="index.html"
+          class="sk-btn sk-btn-secondary">
+          ← Back to Home
+        </a>
 
-        <div class="sk-team-number">01</div>
-
-        <div class="sk-avatar">
-          <span>SA</span>
-        </div>
-
-        <div class="sk-team-content">
-
-          <div class="sk-role">
-            FOUNDER & TEAM LEAD
-          </div>
-
-          <h3>Shaukat Ali</h3>
-
-          <p>
-            Leads the overall vision, service development
-            and coordination of SK KGN TEAM.
-          </p>
-
-          <div class="sk-team-line"></div>
-
-          <div class="sk-focus">
-            <span>VISION</span>
-            <span>LEADERSHIP</span>
-            <span>COORDINATION</span>
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- SHUBHAM -->
-      <article class="sk-team-card">
-
-        <div class="sk-team-number">02</div>
-
-        <div class="sk-avatar">
-          <span>SH</span>
-        </div>
-
-        <div class="sk-team-content">
-
-          <div class="sk-role">
-            OPERATIONS & SUPPORT
-          </div>
-
-          <h3>Shubham</h3>
-
-          <p>
-            Supports day-to-day operations, complaint coordination
-            and communication within the team.
-          </p>
-
-          <div class="sk-team-line"></div>
-
-          <div class="sk-focus">
-            <span>OPERATIONS</span>
-            <span>SUPPORT</span>
-            <span>COMMUNICATION</span>
-          </div>
-
-        </div>
-
-      </article>
-
-
-      <!-- AAKASH -->
-      <article class="sk-team-card">
-
-        <div class="sk-team-number">03</div>
-
-        <div class="sk-avatar">
-          <span>AA</span>
-        </div>
-
-        <div class="sk-team-content">
-
-          <div class="sk-role">
-            DIGITAL & TECH SUPPORT
-          </div>
-
-          <h3>Aakash</h3>
-
-          <p>
-            Supports the digital systems, website experience
-            and technology-related activities of the team.
-          </p>
-
-          <div class="sk-team-line"></div>
-
-          <div class="sk-focus">
-            <span>DIGITAL</span>
-            <span>TECHNOLOGY</span>
-            <span>SYSTEMS</span>
-          </div>
-
-        </div>
-
-      </article>
-
-    </div>
-
-
-    <!-- MISSION -->
-    <div class="sk-about-mission">
-
-      <div class="sk-mission-icon">
-        ⚖
-      </div>
-
-      <div>
-        <span>OUR APPROACH</span>
-
-        <h3>
-          Your Voice Deserves
-          <strong>To Be Heard.</strong>
-        </h3>
-
-        <p>
-          SK KGN TEAM is built around a simple principle:
-          make complaint assistance more accessible,
-          organized and transparent for ordinary people.
-        </p>
       </div>
 
     </div>
 
 
-    <!-- BOTTOM STATS -->
-    <div class="sk-about-stats">
 
-      <div>
-        <strong>01</strong>
-        <span>TEAM</span>
-      </div>
+    <div class="sk-hero-visual">
 
-      <div>
-        <strong>03</strong>
-        <span>CORE MEMBERS</span>
-      </div>
+      <div class="sk-ring sk-ring-one"></div>
 
-      <div>
-        <strong>24/7</strong>
-        <span>DIGITAL ACCESS</span>
+      <div class="sk-ring sk-ring-two"></div>
+
+      <div class="sk-hero-symbol">
+        ⚖️
       </div>
 
     </div>
@@ -193,540 +1525,388 @@
 </section>
 
 
-<style>
-
-/* =====================================================
-   MAIN ABOUT SECTION
-===================================================== */
-
-.sk-about{
-  position:relative;
-  overflow:hidden;
-  padding:120px 20px 100px;
-
-  color:#fff;
-
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(24,88,165,.30),
-      transparent 38%
-    ),
-    linear-gradient(
-      145deg,
-      #020713 0%,
-      #06172f 48%,
-      #01050d 100%
-    );
-}
-
-
-/* =====================================================
-   BACKGROUND GLOW
-===================================================== */
-
-.sk-about-glow{
-  position:absolute;
-  border-radius:50%;
-  pointer-events:none;
-  filter:blur(90px);
-  opacity:.22;
-}
-
-.sk-glow-one{
-  width:300px;
-  height:300px;
-  top:10%;
-  left:-150px;
-  background:#1767c4;
-}
-
-.sk-glow-two{
-  width:350px;
-  height:350px;
-  right:-180px;
-  bottom:5%;
-  background:#0c4385;
-}
-
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
-.sk-about-container{
-  position:relative;
-  z-index:2;
-
-  max-width:1200px;
-  margin:auto;
-}
-
-
-/* =====================================================
-   INTRO
-===================================================== */
-
-.sk-about-intro{
-  max-width:850px;
-  margin:0 auto 65px;
-  text-align:center;
-}
-
-.sk-about-badge{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-
-  color:#91b8e8;
-
-  font-size:11px;
-  font-weight:900;
-  letter-spacing:5px;
-}
-
-.sk-about-badge span{
-  width:35px;
-  height:1px;
-  background:rgba(145,184,232,.6);
-}
-
-.sk-about-intro h2{
-  margin:18px 0 18px;
 
-  font-size:clamp(36px,6vw,68px);
-  line-height:1.05;
-  font-weight:800;
-  letter-spacing:-2px;
-}
+<!-- =====================================================
+     OUR TEAM
+===================================================== -->
 
-.sk-about-intro h2 strong{
-  display:block;
+<section
+  class="sk-team-section"
+  id="our-team">
 
-  background:
-    linear-gradient(
-      90deg,
-      #ffffff,
-      #78b7ff,
-      #ffffff
-    );
+  <div class="sk-section-inner">
 
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
 
-.sk-about-intro p{
-  max-width:720px;
-  margin:auto;
+    <div class="sk-section-heading">
 
-  color:#aebed2;
+      <small>THE TEAM</small>
 
-  font-size:16px;
-  line-height:1.8;
-}
+      <h2>
+        Meet Our Team
+      </h2>
 
+      <p>
+        Three people. One vision.
+        Working together to build a better complaint
+        assistance experience.
+      </p>
 
-/* =====================================================
-   TEAM GRID
-===================================================== */
+    </div>
 
-.sk-team-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(3,1fr);
 
-  gap:22px;
-}
 
+    <div class="sk-team-grid">
 
-/* =====================================================
-   TEAM CARD
-===================================================== */
 
-.sk-team-card{
-  position:relative;
+      <!-- =================================================
+           SHOUKAT
+      ================================================== -->
 
-  min-height:390px;
-  padding:35px 28px;
+      <article class="sk-member">
 
-  overflow:hidden;
+        <div class="sk-photo">
 
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:26px;
+          <span class="sk-number">
+            01
+          </span>
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.09),
-      rgba(255,255,255,.025)
-    );
+          <img
+            src="team/shaukat.jpg"
+            alt="Shaukat Ali Khan"
+            loading="lazy">
 
-  backdrop-filter:blur(18px);
+        </div>
 
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.28);
 
-  transition:
-    transform .5s ease,
-    border-color .5s ease,
-    box-shadow .5s ease;
-}
+        <div class="sk-member-info">
 
-.sk-team-card:hover{
-  transform:translateY(-12px);
+          <span class="sk-member-role">
+            FOUNDER & TEAM LEAD
+          </span>
 
-  border-color:
-    rgba(94,169,255,.55);
+          <h3>
+            Shaukat Ali Khan
+          </h3>
 
-  box-shadow:
-    0 35px 90px rgba(0,0,0,.45),
-    0 0 40px rgba(37,116,210,.15);
-}
+          <p>
+            Leads the overall vision, coordination and
+            development of SK KGN TEAM.
+          </p>
 
+          <div class="sk-member-line"></div>
 
-/* NUMBER */
+        </div>
 
-.sk-team-number{
-  position:absolute;
-  top:20px;
-  right:25px;
+      </article>
 
-  color:rgba(255,255,255,.12);
 
-  font-size:50px;
-  font-weight:900;
-}
 
+      <!-- =================================================
+           SHUBHAM
+      ================================================== -->
 
-/* =====================================================
-   AVATAR
-===================================================== */
+      <article class="sk-member">
 
-.sk-avatar{
-  width:92px;
-  height:92px;
+        <div class="sk-photo">
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+          <span class="sk-number">
+            02
+          </span>
 
-  margin-bottom:28px;
+          <img
+            src="team/shubham.jpg"
+            alt="Shubham Singh Yadav"
+            loading="lazy">
 
-  border-radius:50%;
+        </div>
 
-  background:
-    linear-gradient(
-      145deg,
-      #174b83,
-      #07172d
-    );
 
-  border:1px solid rgba(133,190,255,.45);
+        <div class="sk-member-info">
 
-  box-shadow:
-    0 0 0 7px rgba(47,119,193,.07),
-    0 0 35px rgba(34,115,210,.25);
-}
+          <span class="sk-member-role">
+            OPERATIONS & SUPPORT
+          </span>
 
-.sk-avatar span{
-  font-size:25px;
-  font-weight:900;
-  letter-spacing:1px;
-}
+          <h3>
+            Shubham Singh Yadav
+          </h3>
 
+          <p>
+            Supports team operations, complaint coordination
+            and communication activities.
+          </p>
 
-/* =====================================================
-   CONTENT
-===================================================== */
+          <div class="sk-member-line"></div>
 
-.sk-role{
-  color:#75b4ff;
+        </div>
 
-  font-size:10px;
-  font-weight:900;
+      </article>
 
-  letter-spacing:2px;
-}
 
-.sk-team-content h3{
-  margin:9px 0 12px;
 
-  font-size:30px;
-  font-weight:850;
-}
+      <!-- =================================================
+           AAKASH
+      ================================================== -->
 
-.sk-team-content p{
-  margin:0;
+      <article class="sk-member">
 
-  color:#aebed2;
+        <div class="sk-photo">
 
-  font-size:14px;
-  line-height:1.7;
-}
+          <span class="sk-number">
+            03
+          </span>
 
+          <img
+            src="team/aakash.jpg"
+            alt="Aakash Kumar Prajapati"
+            loading="lazy">
 
-/* =====================================================
-   LINE
-===================================================== */
+        </div>
 
-.sk-team-line{
-  width:100%;
-  height:1px;
 
-  margin:24px 0 17px;
+        <div class="sk-member-info">
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(100,170,240,.55),
-      transparent
-    );
-}
+          <span class="sk-member-role">
+            DIGITAL & TECH SUPPORT
+          </span>
 
+          <h3>
+            Aakash Kumar Prajapati
+          </h3>
 
-/* =====================================================
-   FOCUS TAGS
-===================================================== */
+          <p>
+            Supports digital systems, website experience
+            and technology-related activities.
+          </p>
 
-.sk-focus{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-}
+          <div class="sk-member-line"></div>
 
-.sk-focus span{
-  padding:6px 9px;
+        </div>
 
-  border-radius:7px;
+      </article>
 
-  background:rgba(255,255,255,.06);
 
-  color:#9db5d1;
+    </div>
 
-  font-size:8px;
-  font-weight:800;
-  letter-spacing:1px;
-}
+  </div>
 
+</section>
 
-/* =====================================================
-   MISSION
-===================================================== */
 
-.sk-about-mission{
-  display:flex;
-  align-items:center;
-  gap:28px;
 
-  margin-top:70px;
-  padding:35px;
+<!-- =====================================================
+     OUR VALUES
+===================================================== -->
 
-  border:1px solid rgba(255,255,255,.11);
-  border-radius:25px;
+<section class="sk-values">
 
-  background:
-    linear-gradient(
-      100deg,
-      rgba(20,69,125,.25),
-      rgba(255,255,255,.035)
-    );
-}
+  <div class="sk-section-inner">
 
-.sk-mission-icon{
-  flex-shrink:0;
 
-  width:80px;
-  height:80px;
+    <div class="sk-section-heading">
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+      <small>WHAT DRIVES US</small>
 
-  border-radius:20px;
+      <h2>
+        Our Core Values
+      </h2>
 
-  background:rgba(255,255,255,.07);
+    </div>
 
-  border:1px solid rgba(255,255,255,.12);
 
-  font-size:38px;
-}
 
-.sk-about-mission span{
-  color:#73aff1;
+    <div class="sk-values-grid">
 
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:3px;
-}
 
-.sk-about-mission h3{
-  margin:8px 0;
+      <div class="sk-value">
 
-  font-size:28px;
-}
+        <div class="sk-value-icon">
+          ⚖️
+        </div>
 
-.sk-about-mission h3 strong{
-  color:#75b4ff;
-}
+        <h3>
+          Responsibility
+        </h3>
 
-.sk-about-mission p{
-  margin:0;
+        <p>
+          We believe complaints should be handled
+          with seriousness, clarity and responsibility.
+        </p>
 
-  color:#aebed2;
+      </div>
 
-  line-height:1.7;
-  font-size:14px;
-}
 
 
-/* =====================================================
-   STATS
-===================================================== */
+      <div class="sk-value">
 
-.sk-about-stats{
-  display:grid;
-  grid-template-columns:
-    repeat(3,1fr);
+        <div class="sk-value-icon">
+          🔎
+        </div>
 
-  margin-top:30px;
+        <h3>
+          Transparency
+        </h3>
 
-  border-top:1px solid rgba(255,255,255,.1);
-  border-bottom:1px solid rgba(255,255,255,.1);
-}
+        <p>
+          Clear communication and organized information
+          remain central to our approach.
+        </p>
 
-.sk-about-stats div{
-  padding:28px;
-  text-align:center;
-}
+      </div>
 
-.sk-about-stats div + div{
-  border-left:1px solid rgba(255,255,255,.1);
-}
 
-.sk-about-stats strong{
-  display:block;
 
-  font-size:32px;
-  font-weight:900;
+      <div class="sk-value">
 
-  color:#fff;
-}
+        <div class="sk-value-icon">
+          🤝
+        </div>
 
-.sk-about-stats span{
-  display:block;
+        <h3>
+          People First
+        </h3>
 
-  margin-top:5px;
+        <p>
+          Our focus is on making the assistance experience
+          simpler and more accessible.
+        </p>
 
-  color:#8299b4;
+      </div>
 
-  font-size:9px;
-  font-weight:800;
-  letter-spacing:2px;
-}
 
+    </div>
 
-/* =====================================================
-   MOBILE
-===================================================== */
+  </div>
 
-@media(max-width:800px){
+</section>
 
-  .sk-about{
-    padding:85px 15px 70px;
-  }
 
-  .sk-team-grid{
-    grid-template-columns:1fr;
-  }
 
-  .sk-team-card{
-    min-height:auto;
-    padding:30px 24px;
-  }
+<!-- =====================================================
+     MISSION
+===================================================== -->
 
-  .sk-about-mission{
-    align-items:flex-start;
-    flex-direction:column;
-    padding:25px;
-  }
+<section class="sk-mission">
 
-  .sk-about-mission h3{
-    font-size:25px;
-  }
+  <div class="sk-mission-box">
 
-  .sk-about-stats{
-    grid-template-columns:1fr;
-  }
+    <small>
+      OUR MISSION
+    </small>
 
-  .sk-about-stats div + div{
-    border-left:0;
-    border-top:1px solid rgba(255,255,255,.1);
-  }
+    <h2>
+      Your Voice Matters.
+    </h2>
 
-}
+    <p>
+      SK KGN TEAM aims to provide an organized digital
+      platform for people seeking assistance with their
+      complaints and related concerns.
+    </p>
 
-</style>
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="sk-footer">
+
+  <strong>SK KGN TEAM</strong>
+
+  &nbsp; • &nbsp;
+
+  About Us
+
+  &nbsp; • &nbsp;
+
+  Complaint Assistance Platform
+
+</footer>
+
 
 
 <script>
 
 /* =====================================================
-   ABOUT SECTION REVEAL
+   TEAM SCROLL REVEAL
 ===================================================== */
 
 (function(){
 
-  const cards =
-    document.querySelectorAll(".sk-team-card");
+  const members =
+    document.querySelectorAll(".sk-member");
 
-  if(!cards.length) return;
+  if(!members.length) return;
+
 
   const observer =
     new IntersectionObserver(
-      entries => {
 
-        entries.forEach((entry,index) => {
+      function(entries){
+
+        entries.forEach(function(entry){
 
           if(entry.isIntersecting){
 
-            entry.target.style.opacity = "1";
-            entry.target.style.transform =
-              "translateY(0)";
+            entry.target.classList.add("show");
 
           }
 
         });
 
       },
+
       {
         threshold:.15
       }
+
     );
 
 
-  cards.forEach((card,index) => {
+  members.forEach(function(member){
 
-    card.style.opacity = "0";
-
-    card.style.transform =
-      "translateY(60px)";
-
-    card.style.transition =
-      `opacity .8s ease ${index*.15}s,
-       transform .8s cubic-bezier(.16,1,.3,1) ${index*.15}s,
-       border-color .5s ease,
-       box-shadow .5s ease`;
-
-    observer.observe(card);
+    observer.observe(member);
 
   });
 
 })();
 
+
+/* =====================================================
+   ACTIVE HEADER
+===================================================== */
+
+(function(){
+
+  const current =
+    window.location.pathname
+      .split("/")
+      .pop();
+
+  document
+    .querySelectorAll(".sk-nav a")
+    .forEach(function(link){
+
+      if(
+        link.getAttribute("href") ===
+        current
+      ){
+
+        link.classList.add("active");
+
+      }
+
+    });
+
+})();
+
 </script>
 
-<!-- =====================================================
-     END PREMIUM ABOUT US
-===================================================== -->
+
+</body>
+</html>
