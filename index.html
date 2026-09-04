@@ -4585,7 +4585,8 @@ function showSuccessPopup(
 
 
 /* =========================================================
-   SERVICE PLAN POPUP
+   PREMIUM SERVICE PLAN POPUP
+   PLAN CLICK = DIRECT RAZORPAY
 ========================================================= */
 
 function showPlanPopup(
@@ -4596,14 +4597,26 @@ function showPlanPopup(
     document.createElement("div");
 
 
+  contact.className =
+    "plan-popup";
+
+
   contact.style.cssText = `
 
     position:fixed;
     inset:0;
 
-    background:rgba(0,0,0,.70);
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        rgba(37,99,235,.20),
+        transparent 35%
+      ),
+      rgba(2,7,18,.84);
 
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
 
     z-index:100000;
 
@@ -4613,351 +4626,915 @@ function showPlanPopup(
 
     justify-content:center;
 
-    padding:20px;
+    padding:18px;
+
+    animation:planOverlayIn .35s ease;
 
   `;
 
 
   contact.innerHTML = `
 
-    <div style="
+    <style>
 
-      background:white;
+      /* =========================
+         PLAN POPUP ANIMATIONS
+      ========================= */
 
-      width:100%;
+      @keyframes planOverlayIn{
 
-      max-width:440px;
+        from{
+          opacity:0;
+        }
 
-      max-height:92vh;
+        to{
+          opacity:1;
+        }
 
-      overflow-y:auto;
-
-      border-radius:28px;
-
-      padding:30px 25px;
-
-      text-align:center;
-
-      box-shadow:
-      0 25px 80px rgba(0,0,0,.35);
-
-      animation:modalUp .35s ease;
-
-    ">
+      }
 
 
-      <div style="
+      @keyframes planBoxIn{
 
-        display:inline-flex;
+        0%{
+          opacity:0;
 
-        width:58px;
-        height:58px;
+          transform:
+            translateY(55px)
+            scale(.88);
 
-        border-radius:18px;
+          filter:blur(10px);
+        }
+
+        60%{
+          opacity:1;
+
+          transform:
+            translateY(-5px)
+            scale(1.01);
+
+          filter:blur(0);
+        }
+
+        100%{
+          opacity:1;
+
+          transform:
+            translateY(0)
+            scale(1);
+        }
+
+      }
+
+
+      @keyframes planCrown{
+
+        0%,100%{
+          transform:
+            translateY(0)
+            scale(1)
+            rotate(0deg);
+
+          box-shadow:
+            0 10px 30px
+            rgba(37,99,235,.15);
+        }
+
+        50%{
+          transform:
+            translateY(-5px)
+            scale(1.07)
+            rotate(2deg);
+
+          box-shadow:
+            0 18px 40px
+            rgba(37,99,235,.28);
+        }
+
+      }
+
+
+      @keyframes planGlow{
+
+        0%,100%{
+          opacity:.35;
+          transform:scale(.90);
+        }
+
+        50%{
+          opacity:.9;
+          transform:scale(1.15);
+        }
+
+      }
+
+
+      @keyframes planShine{
+
+        0%{
+          left:-130%;
+        }
+
+        45%,100%{
+          left:140%;
+        }
+
+      }
+
+
+      @keyframes planPulse{
+
+        0%,100%{
+          transform:scale(1);
+        }
+
+        50%{
+          transform:scale(1.025);
+        }
+
+      }
+
+
+      .plan-popup-box{
+
+        width:100%;
+
+        max-width:480px;
+
+        max-height:92vh;
+
+        overflow-y:auto;
+
+        position:relative;
+
+        background:
+
+          radial-gradient(
+            circle at 50% 0%,
+            rgba(37,99,235,.08),
+            transparent 38%
+          ),
+
+          #ffffff;
+
+        border-radius:30px;
+
+        padding:28px 22px 22px;
+
+        text-align:center;
+
+        box-shadow:
+
+          0 35px 110px
+          rgba(0,0,0,.55),
+
+          0 0 0 1px
+          rgba(255,255,255,.20);
+
+        animation:
+          planBoxIn .60s
+          cubic-bezier(.16,1,.3,1);
+
+      }
+
+
+      .plan-popup-box::-webkit-scrollbar{
+        width:5px;
+      }
+
+      .plan-popup-box::-webkit-scrollbar-thumb{
+        background:#cbd5e1;
+        border-radius:20px;
+      }
+
+
+      .plan-top-glow{
+
+        position:absolute;
+
+        width:210px;
+        height:210px;
+
+        top:-125px;
+        left:50%;
+
+        transform:translateX(-50%);
+
+        border-radius:50%;
+
+        background:
+          radial-gradient(
+            circle,
+            rgba(37,99,235,.18),
+            transparent 70%
+          );
+
+        animation:
+          planGlow 4s ease-in-out infinite;
+
+        pointer-events:none;
+
+      }
+
+
+      .plan-crown{
+
+        position:relative;
+
+        width:72px;
+        height:72px;
+
+        margin:0 auto 14px;
+
+        display:flex;
 
         align-items:center;
+
         justify-content:center;
 
-        background:#eef4ff;
+        border-radius:23px;
+
+        background:
+
+          linear-gradient(
+            135deg,
+            #eef4ff,
+            #dbeafe
+          );
+
+        font-size:35px;
+
+        box-shadow:
+          0 10px 30px
+          rgba(37,99,235,.15);
+
+        animation:
+          planCrown 3s
+          ease-in-out infinite;
+
+      }
+
+
+      .plan-popup-box h2{
+
+        margin:0 0 8px;
 
         font-size:28px;
 
-        margin-bottom:12px;
+        line-height:1.15;
 
-      ">
+        color:#101828;
 
-        👑
+        letter-spacing:-.7px;
 
-      </div>
+      }
 
 
-      <h2 style="
-        font-size:27px;
-        margin:5px 0 10px;
-      ">
+      .plan-subtitle{
 
-        Choose Your Service Plan
+        margin:0 auto 21px;
 
-      </h2>
+        max-width:400px;
 
+        color:#667085;
 
-      <p style="
-        color:#666;
-        font-size:15px;
-        margin-bottom:22px;
-      ">
-
-        Your complaint has been submitted.
-        Choose a service plan for professional assistance.
-
-      </p>
-
-
-      <div style="
-
-        display:grid;
-
-        grid-template-columns:1fr;
-
-        gap:12px;
-
-        margin-bottom:20px;
-
-      ">
-
-
-        <!-- BASIC -->
-
-        <a
-        href="https://wa.me/917007027158?text=I%20want%20to%20take%20the%20Basic%20Service%20Plan%20%E2%82%B999"
-        target="_blank"
-        style="
-
-          display:block;
-
-          padding:16px;
-
-          border-radius:14px;
-
-          background:#eefaf6;
-
-          border:1px solid #19b98a;
-
-          color:#111827;
-
-          text-align:left;
-
-        ">
-
-          <div style="
-            font-size:18px;
-            font-weight:800;
-          ">
-
-            BASIC SERVICE
-
-            <span style="
-              float:right;
-              color:#147d64;
-            ">
-
-              ₹99
-
-            </span>
-
-          </div>
-
-
-          <div style="
-            font-size:13px;
-            color:#555;
-            margin-top:6px;
-          ">
-
-            Professional Complaint Draft
-
-          </div>
-
-        </a>
-
-
-
-        <!-- ADVANCE -->
-
-        <a
-        href="https://wa.me/917007027158?text=I%20want%20to%20take%20the%20Advance%20Service%20Plan%20%E2%82%B9199"
-        target="_blank"
-        style="
-
-          display:block;
-
-          padding:16px;
-
-          border-radius:14px;
-
-          background:#eef4ff;
-
-          border:1px solid #2864d7;
-
-          color:#111827;
-
-          text-align:left;
-
-        ">
-
-          <div style="
-            font-size:18px;
-            font-weight:800;
-          ">
-
-            ADVANCE SERVICE
-
-            <span style="
-              float:right;
-              color:#2057bd;
-            ">
-
-              ₹199
-
-            </span>
-
-          </div>
-
-
-          <div style="
-            font-size:13px;
-            color:#555;
-            margin-top:6px;
-          ">
-
-            Complete Drafting + Filing Assistance
-
-          </div>
-
-        </a>
-
-
-
-        <!-- PREMIUM -->
-
-        <a
-        href="https://wa.me/917007027158?text=I%20want%20to%20take%20the%20Premium%20Service%20Plan%20%E2%82%B9299"
-        target="_blank"
-        style="
-
-          display:block;
-
-          padding:16px;
-
-          border-radius:14px;
-
-          background:#f7efff;
-
-          border:1px solid #9635d6;
-
-          color:#111827;
-
-          text-align:left;
-
-        ">
-
-          <div style="
-            font-size:18px;
-            font-weight:800;
-          ">
-
-            PREMIUM SERVICE
-
-            <span style="
-              float:right;
-              color:#8b2fc7;
-            ">
-
-              ₹299
-
-            </span>
-
-          </div>
-
-
-          <div style="
-            font-size:13px;
-            color:#555;
-            margin-top:6px;
-          ">
-
-            Complete Assistance + Tracking + Follow-up
-
-          </div>
-
-        </a>
-
-
-      </div>
-
-
-      <p style="
-        color:#666;
         font-size:14px;
-        margin:5px 0 14px;
-      ">
 
-        Want to take a plan directly?
-        Contact us by phone or WhatsApp.
+        line-height:1.55;
 
-      </p>
+      }
 
 
-      <a
-      href="tel:+917007027158"
-      style="
+      .plan-id{
 
-        display:block;
+        display:inline-block;
 
-        padding:15px;
+        margin-bottom:18px;
 
-        margin-bottom:12px;
-
-        border-radius:12px;
-
-        background:#111827;
-
-        color:white;
-
-        font-size:17px;
-
-        font-weight:700;
-
-      ">
-
-        📞 Call Us
-
-      </a>
-
-
-      <a
-      href="https://wa.me/917007027158"
-      target="_blank"
-      style="
-
-        display:block;
-
-        padding:15px;
-
-        border-radius:12px;
-
-        background:#25D366;
-
-        color:white;
-
-        font-size:17px;
-
-        font-weight:700;
-
-      ">
-
-        💬 WhatsApp
-
-      </a>
-
-
-      <button
-      onclick="this.closest('.plan-popup').remove()"
-      style="
-
-        margin-top:12px;
-
-        padding:10px 18px;
-
-        border:0;
+        padding:7px 12px;
 
         border-radius:10px;
 
-        background:#f1f3f5;
+        background:#f2f4f7;
+
+        color:#475467;
+
+        font-size:11px;
+
+        font-weight:800;
+
+      }
+
+
+      .plan-list{
+
+        display:grid;
+
+        gap:12px;
+
+        text-align:left;
+
+      }
+
+
+      .plan-card{
+
+        display:block;
+
+        position:relative;
+
+        overflow:hidden;
+
+        padding:17px;
+
+        border-radius:18px;
+
+        color:#111827;
+
+        transition:
+
+          transform .28s ease,
+
+          box-shadow .28s ease;
+
+      }
+
+
+      .plan-card:hover{
+
+        transform:
+          translateY(-5px)
+          scale(1.012);
+
+      }
+
+
+      .plan-card::after{
+
+        content:"";
+
+        position:absolute;
+
+        top:0;
+        left:-130%;
+
+        width:70%;
+        height:100%;
+
+        background:
+
+          linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.55),
+            transparent
+          );
+
+        transform:skewX(-20deg);
+
+        pointer-events:none;
+
+      }
+
+
+      .plan-card:hover::after{
+
+        animation:
+          planShine 1s ease;
+
+      }
+
+
+      .plan-basic{
+
+        background:
+
+          linear-gradient(
+            135deg,
+            #f0fdf8,
+            #e5faf3
+          );
+
+        border:
+          1px solid #20b486;
+
+        box-shadow:
+          0 9px 25px
+          rgba(19,184,134,.10);
+
+      }
+
+
+      .plan-advance{
+
+        background:
+
+          linear-gradient(
+            135deg,
+            #eff6ff,
+            #e8f0ff
+          );
+
+        border:
+          1px solid #3b72df;
+
+        box-shadow:
+          0 9px 25px
+          rgba(40,100,232,.10);
+
+      }
+
+
+      .plan-premium{
+
+        background:
+
+          linear-gradient(
+            135deg,
+            #faf5ff,
+            #f4eaff
+          );
+
+        border:
+          1px solid #9b3cdb;
+
+        box-shadow:
+          0 9px 25px
+          rgba(150,50,223,.12);
+
+      }
+
+
+      .plan-top{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:space-between;
+
+        gap:10px;
+
+      }
+
+
+      .plan-name{
+
+        font-size:17px;
+
+        font-weight:900;
+
+        letter-spacing:.1px;
+
+      }
+
+
+      .plan-price{
+
+        font-size:23px;
+
+        font-weight:900;
+
+        white-space:nowrap;
+
+      }
+
+
+      .plan-basic .plan-price{
+
+        color:#147d64;
+
+      }
+
+
+      .plan-advance .plan-price{
+
+        color:#2057bd;
+
+      }
+
+
+      .plan-premium .plan-price{
+
+        color:#8b2fc7;
+
+      }
+
+
+      .plan-description{
+
+        margin-top:6px;
+
+        padding-right:10px;
+
+        color:#596273;
+
+        font-size:12px;
+
+        line-height:1.5;
+
+      }
+
+
+      .plan-pay{
+
+        display:inline-block;
+
+        margin-top:11px;
+
+        padding:7px 10px;
+
+        border-radius:8px;
+
+        background:
+          rgba(255,255,255,.80);
+
+        font-size:10px;
+
+        font-weight:900;
+
+        letter-spacing:.45px;
+
+      }
+
+
+      .plan-direct{
+
+        margin:20px 0 12px;
+
+        color:#667085;
+
+        font-size:13px;
+
+      }
+
+
+      .plan-contact{
+
+        display:grid;
+
+        grid-template-columns:
+          1fr 1fr;
+
+        gap:10px;
+
+      }
+
+
+      .plan-contact a{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        gap:7px;
+
+        padding:14px 10px;
+
+        border-radius:13px;
+
+        color:#fff;
+
+        font-size:14px;
+
+        font-weight:800;
+
+        transition:.25s;
+
+      }
+
+
+      .plan-contact a:hover{
+
+        transform:
+          translateY(-3px);
+
+      }
+
+
+      .plan-call{
+
+        background:#111827;
+
+      }
+
+
+      .plan-whatsapp{
+
+        background:#16a34a;
+
+      }
+
+
+      .plan-close{
+
+        margin-top:12px;
+
+        width:100%;
+
+        padding:11px;
+
+        border:0;
+
+        border-radius:11px;
+
+        background:#f2f4f7;
+
+        color:#344054;
+
+        font-size:13px;
+
+        font-weight:700;
 
         cursor:pointer;
 
-      ">
+        transition:.2s;
+
+      }
+
+
+      .plan-close:hover{
+
+        background:#e4e7ec;
+
+      }
+
+
+      @media(max-width:430px){
+
+        .plan-popup-box{
+
+          padding:
+            23px 15px 17px;
+
+          border-radius:25px;
+
+        }
+
+
+        .plan-popup-box h2{
+
+          font-size:24px;
+
+        }
+
+
+        .plan-crown{
+
+          width:61px;
+          height:61px;
+
+          font-size:29px;
+
+          border-radius:19px;
+
+        }
+
+
+        .plan-card{
+
+          padding:15px;
+
+        }
+
+
+        .plan-name{
+
+          font-size:16px;
+
+        }
+
+
+        .plan-price{
+
+          font-size:21px;
+
+        }
+
+
+        .plan-description{
+
+          font-size:11.5px;
+
+        }
+
+
+        .plan-contact{
+
+          grid-template-columns:1fr;
+
+        }
+
+      }
+
+    </style>
+
+
+    <div class="plan-popup-box">
+
+
+      <div class="plan-top-glow"></div>
+
+
+      <div class="plan-crown">
+        👑
+      </div>
+
+
+      <h2>
+        Choose Your Service Plan
+      </h2>
+
+
+      <p class="plan-subtitle">
+
+        Your complaint has been successfully submitted.
+        Select a service plan below for professional assistance.
+
+      </p>
+
+
+      <div class="plan-id">
+
+        COMPLAINT ID: ${complaintId}
+
+      </div>
+
+
+      <div class="plan-list">
+
+
+        <!-- =========================================
+             BASIC ₹99 — DIRECT RAZORPAY
+        ========================================== -->
+
+        <a
+          class="plan-card plan-basic"
+          href="https://rzp.io/rzp/aCUa2Mtm"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="plan-top">
+
+            <span class="plan-name">
+              BASIC SERVICE
+            </span>
+
+            <span class="plan-price">
+              ₹99
+            </span>
+
+          </div>
+
+
+          <div class="plan-description">
+
+            Professional Complaint Draft • Hindi & English
+            • PDF Format • Draft Ready in 1 Hour
+
+          </div>
+
+
+          <span class="plan-pay">
+
+            PROCEED TO SECURE PAYMENT →
+
+          </span>
+
+        </a>
+
+
+
+        <!-- =========================================
+             ADVANCE ₹199 — DIRECT RAZORPAY
+        ========================================== -->
+
+        <a
+          class="plan-card plan-advance"
+          href="https://rzp.io/rzp/Fc1SXRUZ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="plan-top">
+
+            <span class="plan-name">
+              ADVANCE SERVICE
+            </span>
+
+            <span class="plan-price">
+              ₹199
+            </span>
+
+          </div>
+
+
+          <div class="plan-description">
+
+            Complete Drafting + Filing Assistance
+            • Complaint Submission Copy • Draft Ready in 1 Hour
+
+          </div>
+
+
+          <span class="plan-pay">
+
+            PROCEED TO SECURE PAYMENT →
+
+          </span>
+
+        </a>
+
+
+
+        <!-- =========================================
+             PREMIUM ₹299 — DIRECT RAZORPAY
+        ========================================== -->
+
+        <a
+          class="plan-card plan-premium"
+          href="https://rzp.io/rzp/jF1l9F5"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="plan-top">
+
+            <span class="plan-name">
+              PREMIUM SERVICE
+            </span>
+
+            <span class="plan-price">
+              ₹299
+            </span>
+
+          </div>
+
+
+          <div class="plan-description">
+
+            Complete Assistance + Tracking + Follow-up
+            • End-to-End Assistance Throughout the Process
+
+          </div>
+
+
+          <span class="plan-pay">
+
+            PROCEED TO SECURE PAYMENT →
+
+          </span>
+
+        </a>
+
+
+      </div>
+
+
+      <p class="plan-direct">
+
+        Want direct assistance? Contact our team.
+
+      </p>
+
+
+      <div class="plan-contact">
+
+
+        <a
+          href="tel:+917007027158"
+          class="plan-call"
+        >
+
+          📞 Call Us
+
+        </a>
+
+
+        <a
+          href="https://wa.me/917007027158"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="plan-whatsapp"
+        >
+
+          💬 WhatsApp
+
+        </a>
+
+
+      </div>
+
+
+      <button
+        class="plan-close"
+        onclick="
+          this.closest('.plan-popup').remove()
+        "
+      >
 
         Close
 
@@ -4969,12 +5546,24 @@ function showPlanPopup(
   `;
 
 
-  contact.className =
-    "plan-popup";
-
-
   document.body.appendChild(
     contact
+  );
+
+
+  /* CLICK OUTSIDE TO CLOSE */
+
+  contact.addEventListener(
+    "click",
+    function(e){
+
+      if(e.target === contact){
+
+        contact.remove();
+
+      }
+
+    }
   );
 
 }
@@ -5015,14 +5604,18 @@ async function(){
   if(!complaintId){
 
     result.innerHTML = `
+
       <div style="
         padding:13px;
         border-radius:12px;
         background:#fef2f2;
         color:#b91c1c;
       ">
+
         Please enter your Complaint ID.
+
       </div>
+
     `;
 
     return;
@@ -5293,6 +5886,7 @@ async function(){
             data.adminNotes ||
             data.remark
             ?
+
             `
 
             <div style="
@@ -5334,7 +5928,9 @@ async function(){
             </div>
 
             `
+
             :
+
             ""
           }
 
@@ -5389,6 +5985,7 @@ window.checkComplaintStatus =
 function(){
 
   openStatusModal();
+
 
   const input =
     document.getElementById(
