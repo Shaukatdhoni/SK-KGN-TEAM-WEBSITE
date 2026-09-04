@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#050816">
-<meta name="description" content="SK KGN TEAM Premium Complaint Tracking System">
-<title>Complaint Tracking — SK KGN TEAM</title>
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1.0">
+
+<meta
+  name="theme-color"
+  content="#050816">
+
+<meta
+  name="description"
+  content="SK KGN TEAM Complaint Tracking System">
+
+<title>
+Complaint Tracking — SK KGN TEAM
+</title>
+
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
   box-sizing:border-box;
@@ -15,893 +33,1614 @@
   padding:0;
 }
 
+
 :root{
+
   --bg:#050816;
   --bg2:#091329;
+
   --blue:#2878ff;
   --blue2:#5b8cff;
   --cyan:#27c8ff;
+
   --purple:#805cff;
+
   --green:#20d17a;
+
   --red:#ff4f61;
-  --orange:#ff9d2e;
+
   --white:#f8fbff;
-  --muted:#8c99ad;
+
+  --muted:#8996aa;
+
   --border:rgba(255,255,255,.11);
+
 }
+
+
+/* =========================================================
+   BODY
+========================================================= */
 
 html{
   scroll-behavior:smooth;
 }
 
+
 body{
-  font-family:Inter,Arial,sans-serif;
+
+  font-family:
+    Inter,
+    Arial,
+    sans-serif;
+
   min-height:100vh;
+
   color:var(--white);
+
   background:
-    radial-gradient(circle at 10% 5%,rgba(40,120,255,.17),transparent 30%),
-    radial-gradient(circle at 90% 15%,rgba(128,92,255,.13),transparent 28%),
-    radial-gradient(circle at 50% 90%,rgba(39,200,255,.08),transparent 30%),
+
+    radial-gradient(
+      circle at 8% 5%,
+      rgba(40,120,255,.17),
+      transparent 30%
+    ),
+
+    radial-gradient(
+      circle at 92% 15%,
+      rgba(128,92,255,.13),
+      transparent 28%
+    ),
+
+    radial-gradient(
+      circle at 50% 90%,
+      rgba(39,200,255,.07),
+      transparent 30%
+    ),
+
     var(--bg);
+
   overflow-x:hidden;
+
 }
 
-/* =========================
-   BACKGROUND
-========================= */
+
+/* =========================================================
+   AMBIENT LIGHT
+========================================================= */
 
 body:before,
 body:after{
+
   content:"";
+
   position:fixed;
+
   width:360px;
   height:360px;
+
   border-radius:50%;
+
   filter:blur(110px);
+
   pointer-events:none;
+
   z-index:-1;
+
 }
+
 
 body:before{
+
   background:rgba(40,120,255,.13);
-  left:-180px;
+
+  left:-190px;
+
   top:20%;
-  animation:floatOne 11s ease-in-out infinite;
+
+  animation:
+    ambientOne
+    11s
+    ease-in-out
+    infinite;
+
 }
+
 
 body:after{
+
   background:rgba(128,92,255,.11);
-  right:-180px;
+
+  right:-190px;
+
   top:55%;
-  animation:floatTwo 13s ease-in-out infinite;
+
+  animation:
+    ambientTwo
+    13s
+    ease-in-out
+    infinite;
+
 }
 
-@keyframes floatOne{
+
+@keyframes ambientOne{
+
   50%{
-    transform:translate(80px,-45px);
+    transform:
+      translate(80px,-45px);
   }
+
 }
 
-@keyframes floatTwo{
+
+@keyframes ambientTwo{
+
   50%{
-    transform:translate(-70px,55px);
+    transform:
+      translate(-70px,55px);
   }
+
 }
 
-/* =========================
-   CONTAINER
-========================= */
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
 
 .container{
+
   width:min(850px,94%);
+
   margin:auto;
+
 }
 
-/* =========================
+
+/* =========================================================
    BRAND
-========================= */
+========================================================= */
 
 .top{
-  padding:24px 0 8px;
+
+  padding:
+    24px
+    0
+    5px;
+
 }
+
 
 .brand{
+
   display:flex;
+
   align-items:center;
+
   gap:12px;
+
   color:#fff;
+
   text-decoration:none;
+
   font-weight:900;
+
   font-size:19px;
+
 }
+
 
 .brand img{
-  width:48px;
-  height:48px;
-  border-radius:15px;
+
+  width:50px;
+
+  height:50px;
+
+  border-radius:16px;
+
   object-fit:cover;
+
   background:#fff;
-  border:1px solid rgba(255,255,255,.15);
+
+  border:
+    1px solid
+    rgba(255,255,255,.16);
+
   box-shadow:
-    0 0 0 5px rgba(40,120,255,.07),
-    0 12px 30px rgba(0,0,0,.35);
+
+    0 0 0 5px
+      rgba(40,120,255,.07),
+
+    0 12px 32px
+      rgba(0,0,0,.35);
+
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero{
-  padding:62px 0 35px;
+
+  padding:
+    32px
+    0
+    35px;
+
   text-align:center;
+
 }
+
+
+/* =========================================================
+   PREMIUM BADGE
+========================================================= */
 
 .badge{
+
   display:inline-flex;
+
   align-items:center;
+
+  justify-content:center;
+
   gap:8px;
-  padding:10px 18px;
+
+  padding:
+    10px
+    18px;
+
   border-radius:50px;
-  color:#8fc1ff;
-  background:rgba(40,120,255,.08);
-  border:1px solid rgba(40,120,255,.22);
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:1.2px;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.08),
-    0 0 35px rgba(40,120,255,.08);
-  animation:badgeGlow 2.8s infinite;
-}
 
-@keyframes badgeGlow{
-  50%{
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,.08),
-      0 0 45px rgba(40,120,255,.22);
-  }
-}
+  color:#9bc6ff;
 
-h1{
-  margin-top:22px;
-  font-size:clamp(43px,9vw,76px);
-  line-height:.98;
-  letter-spacing:-4px;
   background:
-    linear-gradient(
-      120deg,
-      #ffffff 15%,
-      #a7cbff 42%,
-      #6e98ff 68%,
-      #ffffff 92%
-    );
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+    rgba(40,120,255,.075);
+
+  border:
+    1px solid
+    rgba(40,120,255,.23);
+
+  font-size:10px;
+
+  font-weight:900;
+
+  letter-spacing:1.2px;
+
+  box-shadow:
+
+    inset
+    0 1px 0
+    rgba(255,255,255,.08),
+
+    0 0 35px
+    rgba(40,120,255,.08);
+
+  animation:
+    badgePulse
+    2.8s
+    infinite;
+
 }
 
-.hero p{
-  max-width:600px;
-  margin:20px auto 0;
-  color:#8996aa;
-  font-size:15px;
-  line-height:1.7;
+
+@keyframes badgePulse{
+
+  50%{
+
+    box-shadow:
+
+      inset
+      0 1px 0
+      rgba(255,255,255,.08),
+
+      0 0 48px
+      rgba(40,120,255,.20);
+
+  }
+
 }
 
-/* =========================
-   SEARCH
-========================= */
+
+/* =========================================================
+   SEARCH FIRST
+========================================================= */
 
 .search-shell{
-  margin-top:35px;
+
+  margin-top:25px;
+
   padding:1px;
+
   border-radius:28px;
+
   background:
+
     linear-gradient(
       135deg,
-      rgba(40,120,255,.55),
+      rgba(40,120,255,.60),
       rgba(128,92,255,.20),
-      rgba(39,200,255,.35)
+      rgba(39,200,255,.36)
     );
+
   box-shadow:
-    0 25px 90px rgba(0,0,0,.35),
-    0 0 55px rgba(40,120,255,.08);
+
+    0 25px 90px
+      rgba(0,0,0,.35),
+
+    0 0 55px
+      rgba(40,120,255,.08);
+
 }
+
 
 .search-card{
+
+  position:relative;
+
+  overflow:hidden;
+
   padding:25px;
+
   border-radius:27px;
+
   background:
+
     linear-gradient(
       135deg,
-      rgba(10,22,48,.97),
-      rgba(5,12,28,.97)
+      rgba(10,22,48,.98),
+      rgba(5,12,28,.98)
     );
-  position:relative;
-  overflow:hidden;
+
 }
+
 
 .search-card:before{
+
   content:"";
+
   position:absolute;
-  width:200px;
-  height:200px;
+
+  width:220px;
+  height:220px;
+
   border-radius:50%;
-  background:rgba(40,120,255,.10);
-  filter:blur(35px);
-  right:-80px;
-  top:-100px;
+
+  background:
+    rgba(40,120,255,.10);
+
+  filter:blur(40px);
+
+  right:-90px;
+
+  top:-110px;
+
 }
+
 
 .search-card label{
+
   display:block;
+
   text-align:left;
-  color:#91a0b6;
+
+  color:#9aabc2;
+
   font-size:10px;
+
   font-weight:900;
+
   letter-spacing:1px;
+
   margin-bottom:10px;
+
 }
+
 
 .search-row{
+
   display:flex;
+
   gap:10px;
+
   position:relative;
+
   z-index:2;
+
 }
+
 
 .search-row input{
+
   flex:1;
+
   min-width:0;
-  border:1px solid rgba(255,255,255,.08);
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
   border-radius:16px;
+
   padding:17px;
+
   font-size:16px;
+
   outline:none;
+
   text-transform:uppercase;
+
   background:#fff;
+
   color:#101828;
+
+  transition:.25s;
+
 }
+
 
 .search-row input:focus{
-  box-shadow:0 0 0 4px rgba(40,120,255,.16);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(40,120,255,.15);
+
 }
+
 
 .search-row button{
+
   border:0;
+
   border-radius:16px;
-  padding:0 24px;
-  background:linear-gradient(135deg,#2878ff,#4e8dff);
+
+  padding:
+    0
+    25px;
+
+  background:
+
+    linear-gradient(
+      135deg,
+      #2878ff,
+      #5b8cff
+    );
+
   color:#fff;
+
   font-size:14px;
+
   font-weight:900;
+
   cursor:pointer;
-  box-shadow:0 10px 30px rgba(40,120,255,.25);
+
+  box-shadow:
+
+    0 12px 35px
+    rgba(40,120,255,.25);
+
   transition:.25s;
+
 }
+
 
 .search-row button:hover{
-  transform:translateY(-2px);
+
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+
+    0 15px 40px
+    rgba(40,120,255,.35);
+
 }
+
 
 .search-row button:disabled{
+
   opacity:.55;
+
   cursor:wait;
+
 }
+
+
+/* ERROR MESSAGE */
 
 #message{
+
   display:none;
+
   margin-top:14px;
+
   padding:13px;
+
   border-radius:12px;
+
   background:#fff;
+
   color:#344054;
+
   text-align:left;
+
   font-size:13px;
+
 }
 
-/* =========================
+
+/* =========================================================
+   TITLE AFTER SEARCH
+========================================================= */
+
+.hero-title{
+
+  margin-top:42px;
+
+}
+
+
+.hero-title h1{
+
+  font-size:
+    clamp(
+      43px,
+      9vw,
+      76px
+    );
+
+  line-height:.98;
+
+  letter-spacing:-4px;
+
+  background:
+
+    linear-gradient(
+      120deg,
+      #fff 15%,
+      #a7cbff 42%,
+      #6e98ff 68%,
+      #fff 92%
+    );
+
+  -webkit-background-clip:text;
+
+  background-clip:text;
+
+  color:transparent;
+
+}
+
+
+.hero-title p{
+
+  max-width:610px;
+
+  margin:
+    20px
+    auto
+    0;
+
+  color:#8996aa;
+
+  font-size:15px;
+
+  line-height:1.7;
+
+}
+
+
+/* =========================================================
    RESULT
-========================= */
+========================================================= */
 
 .result{
+
   display:none;
-  margin:25px 0 60px;
+
+  margin:
+    10px
+    0
+    60px;
+
 }
 
+
 .result-card{
+
   position:relative;
+
   overflow:hidden;
-  border:1px solid var(--border);
+
+  border:
+    1px solid
+    var(--border);
+
   border-radius:30px;
+
   background:
+
     linear-gradient(
       145deg,
       rgba(255,255,255,.075),
       rgba(255,255,255,.025)
     );
-  backdrop-filter:blur(22px);
-  -webkit-backdrop-filter:blur(22px);
+
+  backdrop-filter:
+    blur(22px);
+
+  -webkit-backdrop-filter:
+    blur(22px);
+
   box-shadow:
-    0 35px 100px rgba(0,0,0,.42),
-    inset 0 1px 0 rgba(255,255,255,.08);
-  animation:resultEnter .65s cubic-bezier(.2,.8,.2,1);
+
+    0 35px 100px
+      rgba(0,0,0,.42),
+
+    inset
+    0 1px 0
+    rgba(255,255,255,.08);
+
+  animation:
+    resultEnter
+    .65s
+    cubic-bezier(.2,.8,.2,1);
+
 }
 
+
 @keyframes resultEnter{
+
   from{
+
     opacity:0;
-    transform:translateY(30px) scale(.97);
+
+    transform:
+      translateY(30px)
+      scale(.97);
+
   }
 
   to{
+
     opacity:1;
+
     transform:none;
+
   }
+
 }
 
-/* =========================
+
+/* =========================================================
    RESULT HEADER
-========================= */
+========================================================= */
 
 .result-head{
-  padding:30px;
+
   position:relative;
+
   overflow:hidden;
+
+  padding:30px;
+
   background:
+
     radial-gradient(
       circle at 90% 10%,
       rgba(40,120,255,.30),
       transparent 30%
     ),
+
     radial-gradient(
       circle at 10% 100%,
       rgba(128,92,255,.16),
       transparent 30%
     ),
-    linear-gradient(135deg,#071633,#0b2451);
+
+    linear-gradient(
+      135deg,
+      #071633,
+      #0b2451
+    );
+
 }
+
 
 .result-head:before{
+
   content:"";
+
   position:absolute;
+
   width:280px;
   height:280px;
-  border:1px solid rgba(255,255,255,.06);
+
+  border:
+    1px solid
+    rgba(255,255,255,.06);
+
   border-radius:50%;
+
   right:-110px;
+
   top:-145px;
+
 }
+
 
 .result-head:after{
+
   content:"";
+
   position:absolute;
+
   width:190px;
   height:190px;
-  border:1px solid rgba(255,255,255,.05);
+
+  border:
+    1px solid
+    rgba(255,255,255,.05);
+
   border-radius:50%;
+
   right:-45px;
+
   top:-85px;
+
 }
+
 
 .result-head small{
+
   color:#8ea6c9;
+
   font-size:10px;
+
   font-weight:900;
+
   letter-spacing:1.2px;
+
 }
+
 
 .result-head h2{
+
   margin-top:6px;
+
   font-size:28px;
+
   word-break:break-word;
+
   position:relative;
+
   z-index:2;
+
 }
 
-/* =========================
+
+/* =========================================================
    STATUS
-========================= */
+========================================================= */
 
 .status-pill{
+
   display:inline-flex;
+
   align-items:center;
+
   gap:9px;
+
   margin-top:16px;
-  padding:9px 15px;
+
+  padding:
+    9px
+    15px;
+
   border-radius:50px;
+
   background:#fff;
+
   color:#111827;
+
   font-size:12px;
+
   font-weight:900;
+
   position:relative;
+
   z-index:3;
+
 }
+
 
 .status-dot{
+
   width:9px;
+
   height:9px;
+
   border-radius:50%;
-  background:var(--green);
-  box-shadow:0 0 0 5px rgba(32,209,122,.12);
+
+  background:
+    var(--green);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(32,209,122,.12);
+
 }
+
 
 .status-pill.cancelled{
+
   color:#a51f30;
+
 }
 
-.status-pill.cancelled .status-dot{
-  background:var(--red);
-  box-shadow:0 0 0 5px rgba(255,79,97,.13);
+
+.status-pill.cancelled
+.status-dot{
+
+  background:
+    var(--red);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(255,79,97,.13);
+
 }
 
-/* =========================
+
+/* =========================================================
    DETAILS
-========================= */
+========================================================= */
 
 .details{
-  padding:25px 30px 5px;
-  background:rgba(255,255,255,.025);
+
+  padding:
+    25px
+    30px
+    5px;
+
+  background:
+    rgba(255,255,255,.025);
+
 }
+
 
 .detail{
-  padding:17px 0;
-  border-bottom:1px solid rgba(255,255,255,.07);
+
+  padding:
+    17px
+    0;
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.07);
+
 }
+
 
 .detail:last-child{
+
   border-bottom:0;
+
 }
+
 
 .detail label{
+
   display:block;
+
   color:#7e8da4;
+
   font-size:9px;
+
   font-weight:900;
+
   text-transform:uppercase;
+
   letter-spacing:1px;
+
   margin-bottom:7px;
+
 }
+
 
 .detail div{
+
   color:#e8eef8;
+
   font-size:15px;
+
   line-height:1.7;
+
   word-break:break-word;
+
 }
 
-/* =========================
+
+/* =========================================================
    ADMIN REMARK
-========================= */
-
-.admin-update,
-.cancel-box{
-  margin:20px 30px;
-  padding:20px;
-  border-radius:20px;
-  position:relative;
-  overflow:hidden;
-}
+========================================================= */
 
 .admin-update{
+
+  position:relative;
+
+  overflow:hidden;
+
+  margin:
+    20px
+    30px;
+
+  padding:21px;
+
+  border-radius:21px;
+
   background:
+
     linear-gradient(
       135deg,
       rgba(40,120,255,.14),
       rgba(128,92,255,.07)
     );
-  border:1px solid rgba(40,120,255,.23);
+
+  border:
+    1px solid
+    rgba(40,120,255,.25);
+
+  box-shadow:
+    0 12px 40px
+    rgba(0,0,0,.12);
+
 }
+
 
 .admin-update:before{
+
   content:"";
+
   position:absolute;
+
   left:0;
+
   top:0;
+
   bottom:0;
+
   width:4px;
-  background:linear-gradient(#2878ff,#805cff);
+
+  background:
+
+    linear-gradient(
+      #2878ff,
+      #805cff
+    );
+
 }
+
+
+.admin-top{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:9px;
+
+  margin-bottom:10px;
+
+}
+
+
+.admin-icon{
+
+  width:30px;
+
+  height:30px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:10px;
+
+  background:
+    rgba(40,120,255,.14);
+
+  border:
+    1px solid
+    rgba(40,120,255,.20);
+
+  font-size:14px;
+
+}
+
 
 .admin-title{
-  color:#8fc1ff;
-  font-size:14px;
+
+  color:#91c3ff;
+
+  font-size:13px;
+
   font-weight:900;
-  margin-bottom:8px;
+
 }
+
+
+.admin-subtitle{
+
+  color:#687890;
+
+  font-size:9px;
+
+  margin-top:2px;
+
+}
+
 
 .admin-text{
-  color:#d8e2f1;
+
+  color:#e2eafa;
+
   font-size:14px;
-  line-height:1.7;
+
+  line-height:1.75;
+
   white-space:pre-wrap;
+
+  word-break:break-word;
+
 }
+
 
 .admin-date{
-  margin-top:10px;
-  color:#74829a;
+
+  margin-top:12px;
+
+  padding-top:10px;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.06);
+
+  color:#718097;
+
   font-size:10px;
+
 }
 
+
+/* =========================================================
+   CANCELLED
+========================================================= */
+
 .cancel-box{
+
+  position:relative;
+
+  overflow:hidden;
+
+  margin:
+    20px
+    30px;
+
+  padding:21px;
+
+  border-radius:21px;
+
   background:
+
     linear-gradient(
       135deg,
       rgba(255,79,97,.12),
       rgba(255,255,255,.025)
     );
-  border:1px solid rgba(255,79,97,.24);
+
+  border:
+    1px solid
+    rgba(255,79,97,.25);
+
 }
+
+
+.cancel-box:before{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+
+  top:0;
+
+  bottom:0;
+
+  width:4px;
+
+  background:
+    linear-gradient(
+      #ff4f61,
+      #ff8a95
+    );
+
+}
+
 
 .cancel-title{
+
   color:#ff7180;
-  font-size:15px;
+
+  font-size:14px;
+
   font-weight:900;
-  margin-bottom:8px;
+
+  margin-bottom:9px;
+
 }
+
 
 .cancel-text{
+
   color:#f2c7cb;
+
   font-size:14px;
+
   line-height:1.7;
+
   white-space:pre-wrap;
+
 }
 
-/* =========================
+
+/* =========================================================
    TIMELINE
-========================= */
+========================================================= */
 
 .timeline{
-  padding:25px 30px;
+
+  padding:
+    25px
+    30px;
+
 }
+
 
 .timeline-head{
+
   display:flex;
+
   align-items:center;
+
   justify-content:space-between;
+
   margin-bottom:20px;
+
 }
+
 
 .timeline-head h3{
+
   font-size:18px;
+
 }
+
 
 .live{
+
   display:flex;
+
   align-items:center;
+
   gap:6px;
+
   color:#6fe4a5;
+
   font-size:9px;
+
   font-weight:900;
+
   letter-spacing:.6px;
+
 }
+
 
 .live-dot{
+
   width:7px;
+
   height:7px;
+
   border-radius:50%;
+
   background:#20d17a;
-  animation:livePulse 1.5s infinite;
+
+  animation:
+    livePulse
+    1.5s
+    infinite;
+
 }
+
 
 @keyframes livePulse{
+
   50%{
-    box-shadow:0 0 0 8px rgba(32,209,122,.10);
+
+    box-shadow:
+      0 0 0 8px
+      rgba(32,209,122,.10);
+
   }
+
 }
+
 
 .track{
+
   position:relative;
+
 }
+
 
 .track:before{
+
   content:"";
+
   position:absolute;
+
   left:15px;
+
   top:16px;
+
   bottom:16px;
+
   width:2px;
-  background:rgba(255,255,255,.08);
+
+  background:
+    rgba(255,255,255,.08);
+
 }
+
 
 .stage{
+
   position:relative;
+
   display:flex;
+
   gap:14px;
+
   padding-bottom:20px;
+
 }
+
 
 .stage:last-child{
+
   padding-bottom:0;
+
 }
+
 
 .stage-icon{
+
   width:32px;
+
   height:32px;
+
   flex:0 0 32px;
+
   display:grid;
+
   place-items:center;
+
   border-radius:50%;
+
   background:#172033;
-  border:3px solid #0b1325;
+
+  border:
+    3px solid
+    #0b1325;
+
   color:#66758b;
+
   font-size:12px;
+
   font-weight:900;
+
   z-index:2;
+
 }
 
-.stage.done .stage-icon{
+
+.stage.done
+.stage-icon{
+
   background:#16a36a;
+
   color:#fff;
-  box-shadow:0 0 0 5px rgba(22,163,106,.10);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(22,163,106,.10);
+
 }
 
-.stage.current .stage-icon{
+
+.stage.current
+.stage-icon{
+
   background:#2878ff;
+
   color:#fff;
-  box-shadow:0 0 0 5px rgba(40,120,255,.10);
-  animation:currentPulse 1.8s infinite;
+
+  box-shadow:
+    0 0 0 5px
+    rgba(40,120,255,.10);
+
+  animation:
+    currentPulse
+    1.8s
+    infinite;
+
 }
 
-.stage.cancelled .stage-icon{
+
+.stage.cancelled
+.stage-icon{
+
   background:#dc3545;
+
   color:#fff;
-  box-shadow:0 0 0 5px rgba(220,53,69,.10);
+
+  box-shadow:
+    0 0 0 5px
+    rgba(220,53,69,.10);
+
 }
+
 
 @keyframes currentPulse{
+
   50%{
-    box-shadow:0 0 0 10px rgba(40,120,255,.06);
+
+    box-shadow:
+      0 0 0 10px
+      rgba(40,120,255,.06);
+
   }
+
 }
+
 
 .stage-title{
+
   color:#9aa8bd;
+
   font-size:14px;
+
   font-weight:800;
+
   padding-top:6px;
+
 }
 
-.stage.done .stage-title{
+
+.stage.done
+.stage-title{
+
   color:#d9e4f2;
+
 }
 
-.stage.current .stage-title{
+
+.stage.current
+.stage-title{
+
   color:#78b0ff;
+
 }
 
-.stage.cancelled .stage-title{
+
+.stage.cancelled
+.stage-title{
+
   color:#ff7180;
+
 }
+
 
 .stage-note{
+
   color:#64748b;
+
   font-size:10px;
+
   margin-top:3px;
+
 }
 
-/* =========================
-   ACTIONS
-========================= */
+
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
 
 .actions{
+
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:9px;
-  padding:0 30px 25px;
+
+  padding:
+    0
+    30px
+    28px;
+
 }
+
 
 .action{
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.035);
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
+  background:
+    rgba(255,255,255,.035);
+
   color:#bdc8d8;
+
   border-radius:13px;
-  padding:12px 8px;
+
+  padding:
+    12px
+    8px;
+
   font-size:11px;
+
   font-weight:900;
+
   cursor:pointer;
+
   transition:.25s;
+
 }
+
 
 .action:hover{
-  transform:translateY(-2px);
-  border-color:rgba(40,120,255,.3);
-  background:rgba(40,120,255,.08);
+
+  transform:
+    translateY(-2px);
+
+  border-color:
+    rgba(40,120,255,.3);
+
+  background:
+    rgba(40,120,255,.08);
+
   color:#fff;
+
 }
+
 
 .action.primary{
-  background:rgba(40,120,255,.12);
+
+  background:
+    rgba(40,120,255,.12);
+
   color:#75aeff;
-  border-color:rgba(40,120,255,.25);
+
+  border-color:
+    rgba(40,120,255,.25);
+
 }
 
-/* =========================
-   FEEDBACK
-========================= */
 
-.feedback{
-  margin:0 30px 22px;
-  padding:22px;
-  border-radius:22px;
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.065),
-      rgba(255,255,255,.025)
-    );
-  border:1px solid rgba(255,255,255,.09);
-}
-
-.feedback h3{
-  font-size:17px;
-}
-
-.feedback p{
-  color:#77869d;
-  font-size:11px;
-  line-height:1.6;
-  margin:5px 0 15px;
-}
-
-.rating{
-  display:flex;
-  gap:7px;
-  margin-bottom:13px;
-}
-
-.rating button{
-  width:44px;
-  height:44px;
-  border:1px solid rgba(255,255,255,.08);
-  background:#101a2d;
-  border-radius:12px;
-  font-size:18px;
-  cursor:pointer;
-  transition:.2s;
-}
-
-.rating button:hover,
-.rating button.selected{
-  background:#f59e0b;
-  border-color:#f59e0b;
-  transform:translateY(-3px) scale(1.04);
-  box-shadow:0 8px 20px rgba(245,158,11,.15);
-}
-
-.feedback textarea{
-  width:100%;
-  min-height:85px;
-  resize:vertical;
-  border:1px solid rgba(255,255,255,.09);
-  background:#07101f;
-  color:#fff;
-  border-radius:13px;
-  padding:13px;
-  font-family:inherit;
-  outline:none;
-}
-
-.feedback textarea:focus{
-  border-color:rgba(40,120,255,.4);
-}
-
-.feedback-send{
-  margin-top:10px;
-  border:0;
-  border-radius:12px;
-  padding:12px 17px;
-  background:linear-gradient(135deg,#2878ff,#5a83ff);
-  color:#fff;
-  font-weight:900;
-  cursor:pointer;
-}
-
-/* =========================
-   REMINDER
-========================= */
-
-.reminder{
-  margin:0 30px 28px;
-  padding:22px;
-  border-radius:22px;
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,157,46,.09),
-      rgba(255,255,255,.025)
-    );
-  border:1px solid rgba(255,157,46,.20);
-}
-
-.reminder h3{
-  font-size:16px;
-}
-
-.reminder p{
-  color:#8a96a8;
-  font-size:11px;
-  line-height:1.6;
-  margin:5px 0 13px;
-}
-
-.reminder-row{
-  display:flex;
-  gap:9px;
-}
-
-.reminder input{
-  flex:1;
-  min-width:0;
-  border:1px solid rgba(255,255,255,.09);
-  background:#0a1425;
-  color:#fff;
-  border-radius:11px;
-  padding:12px;
-  outline:none;
-}
-
-.reminder button{
-  border:0;
-  border-radius:11px;
-  background:linear-gradient(135deg,#ff921f,#ffb347);
-  color:#151515;
-  padding:0 17px;
-  font-weight:900;
-  cursor:pointer;
-}
-
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 .footer{
+
   text-align:center;
+
   color:#56647a;
+
   font-size:10px;
-  padding:0 0 35px;
+
+  padding:
+    0
+    0
+    35px;
+
 }
+
 
 .back{
+
   display:inline-block;
+
   margin-top:14px;
+
   color:#6fa8ff;
+
   text-decoration:none;
+
   font-weight:900;
+
 }
 
-/* =========================
+
+/* =========================================================
    TOAST
-========================= */
+========================================================= */
 
 .toast{
+
   position:fixed;
+
   left:50%;
+
   bottom:25px;
-  transform:translate(-50%,25px);
+
+  transform:
+    translate(-50%,25px);
+
   opacity:0;
+
   pointer-events:none;
+
   z-index:9999;
-  padding:13px 18px;
+
+  padding:
+    13px
+    18px;
+
   border-radius:14px;
+
   background:#101a2c;
-  border:1px solid rgba(255,255,255,.1);
+
+  border:
+    1px solid
+    rgba(255,255,255,.1);
+
   color:#fff;
+
   font-size:12px;
+
   font-weight:900;
-  box-shadow:0 20px 50px rgba(0,0,0,.5);
+
+  box-shadow:
+    0 20px 50px
+    rgba(0,0,0,.5);
+
   transition:.3s;
+
   white-space:nowrap;
+
 }
+
 
 .toast.show{
+
   opacity:1;
-  transform:translate(-50%,0);
+
+  transform:
+    translate(-50%,0);
+
 }
 
-/* =========================
+
+/* =========================================================
    MOBILE
-========================= */
+========================================================= */
 
 @media(max-width:600px){
 
@@ -909,111 +1648,158 @@ h1{
     width:94%;
   }
 
+
   .top{
     padding-top:18px;
   }
 
+
   .hero{
-    padding:48px 0 25px;
+    padding-top:28px;
   }
 
-  h1{
+
+  .hero-title{
+    margin-top:34px;
+  }
+
+
+  .hero-title h1{
+
     font-size:45px;
+
     letter-spacing:-2.8px;
+
   }
 
-  .hero p{
+
+  .hero-title p{
+
     font-size:13px;
+
   }
+
 
   .search-card{
+
     padding:18px;
+
   }
+
 
   .search-row{
+
     flex-direction:column;
+
   }
+
 
   .search-row button{
+
     padding:15px;
+
   }
+
 
   .result-card{
+
     border-radius:24px;
+
   }
+
 
   .result-head{
+
     padding:23px;
+
   }
 
+
   .result-head h2{
+
     font-size:23px;
+
   }
+
 
   .details,
   .timeline{
+
     padding-left:20px;
+
     padding-right:20px;
+
   }
+
 
   .admin-update,
-  .cancel-box,
-  .feedback,
-  .reminder{
+  .cancel-box{
+
     margin-left:20px;
+
     margin-right:20px;
+
   }
+
 
   .actions{
+
     padding-left:20px;
+
     padding-right:20px;
-    grid-template-columns:repeat(2,1fr);
-  }
 
-  .rating button{
-    width:41px;
-    height:41px;
-  }
+    grid-template-columns:
+      repeat(2,1fr);
 
-  .reminder-row{
-    flex-direction:column;
-  }
-
-  .reminder button{
-    padding:13px;
   }
 
 }
 
-/* =========================
+
+/* =========================================================
    PRINT
-========================= */
+========================================================= */
 
 @media print{
 
   body{
+
     background:#fff;
+
     color:#111;
+
   }
+
 
   .top,
   .hero,
   .actions,
-  .feedback,
-  .reminder,
   .footer{
+
     display:none!important;
+
   }
+
 
   .result{
+
     display:block!important;
+
   }
 
+
   .result-card{
+
     background:#fff;
+
     color:#111;
+
     box-shadow:none;
-    border:1px solid #ddd;
+
+    border:
+      1px solid
+      #ddd;
+
   }
 
 }
@@ -1024,98 +1810,144 @@ h1{
 
 <body>
 
+
 <div class="container">
 
-<!-- BRAND -->
+
+<!-- =======================================================
+     BRAND
+======================================================= -->
 
 <div class="top">
 
-<a class="brand" href="index.html">
+<a
+  class="brand"
+  href="index.html">
 
 <img
-src="Logo.jpg"
-alt="SK KGN TEAM">
+  src="Logo.jpg"
+  alt="SK KGN TEAM">
 
-<span>SK KGN TEAM</span>
+<span>
+SK KGN TEAM
+</span>
 
 </a>
 
 </div>
 
 
-<!-- HERO -->
+<!-- =======================================================
+     HERO
+======================================================= -->
 
 <section class="hero">
 
+
 <div class="badge">
+
 🔐 SECURE • LIVE • COMPLAINT TRACKING
+
 </div>
 
-<h1>
-Track Your Complaint
-</h1>
 
-<p>
-Enter your Complaint ID to securely view the latest status,
-official updates and complaint information.
-</p>
-
+<!-- SEARCH IS ABOVE TITLE -->
 
 <div class="search-shell">
 
+
 <div class="search-card">
 
+
 <label for="complaintId">
+
 COMPLAINT ID
+
 </label>
+
 
 <div class="search-row">
 
+
 <input
-id="complaintId"
-type="text"
-placeholder="SKKGN-XXXXXX"
-autocomplete="off"
-spellcheck="false">
+  id="complaintId"
+  type="text"
+  placeholder="SKKGN-XXXXXX"
+  autocomplete="off"
+  spellcheck="false">
+
 
 <button
-id="checkBtn"
-onclick="checkComplaint()">
+  id="checkBtn"
+  onclick="checkComplaint()">
 
 Check Status →
 
 </button>
 
-</div>
-
-<div id="message"></div>
 
 </div>
 
+
+<div
+  id="message">
 </div>
+
+
+</div>
+
+</div>
+
+
+<!-- TITLE BELOW SEARCH -->
+
+<div class="hero-title">
+
+
+<h1>
+
+Track Your Complaint
+
+</h1>
+
+
+<p>
+
+Enter your Complaint ID to securely view the latest status,
+official updates and complaint information.
+
+</p>
+
+
+</div>
+
 
 </section>
 
 
-<!-- RESULT -->
+<!-- =======================================================
+     RESULT
+======================================================= -->
 
 <section
-id="result"
-class="result">
+  id="result"
+  class="result">
 </section>
 
 
-<!-- FOOTER -->
+<!-- =======================================================
+     FOOTER
+======================================================= -->
 
 <div class="footer">
 
-SK KGN TEAM • Premium Complaint Tracking System
+SK KGN TEAM • Complaint Tracking System
 
 <br>
 
 <a
-class="back"
-href="index.html">
+  class="back"
+  href="index.html">
 
 ← Back to Website
 
@@ -1123,38 +1955,42 @@ href="index.html">
 
 </div>
 
+
 </div>
 
 
 <!-- TOAST -->
 
 <div
-id="toast"
-class="toast">
+  id="toast"
+  class="toast">
 </div>
 
 
 <script type="module">
 
+
 /* =========================================================
-   FIREBASE — ORIGINAL WORKING CONNECTION
+   FIREBASE
+   ORIGINAL WORKING CONNECTION
 ========================================================= */
 
 import {
   initializeApp
 }
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
 
 import {
   getFirestore,
   collection,
   query,
   where,
-  getDocs,
-  addDoc,
-  serverTimestamp
+  getDocs
 }
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
 const firebaseConfig = {
@@ -1189,6 +2025,7 @@ const firebaseConfig = {
 const app =
 initializeApp(firebaseConfig);
 
+
 const db =
 getFirestore(app);
 
@@ -1198,38 +2035,73 @@ getFirestore(app);
 ========================================================= */
 
 const input =
-document.getElementById("complaintId");
+document.getElementById(
+  "complaintId"
+);
+
 
 const button =
-document.getElementById("checkBtn");
+document.getElementById(
+  "checkBtn"
+);
+
 
 const message =
-document.getElementById("message");
+document.getElementById(
+  "message"
+);
+
 
 const result =
-document.getElementById("result");
+document.getElementById(
+  "result"
+);
+
 
 const toast =
-document.getElementById("toast");
+document.getElementById(
+  "toast"
+);
 
 
-let currentComplaint = null;
-
-let selectedRating = 0;
+let currentComplaint =
+null;
 
 
 /* =========================================================
-   SECURITY
+   SAFE HTML
 ========================================================= */
 
 function escapeHTML(value){
 
-  return String(value ?? "-")
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#039;");
+  return String(
+    value ?? "-"
+  )
+
+  .replace(
+    /&/g,
+    "&amp;"
+  )
+
+  .replace(
+    /</g,
+    "&lt;"
+  )
+
+  .replace(
+    />/g,
+    "&gt;"
+  )
+
+  .replace(
+    /"/g,
+    "&quot;"
+  )
+
+  .replace(
+    /'/g,
+    "&#039;"
+  );
 
 }
 
@@ -1240,7 +2112,9 @@ function escapeHTML(value){
 
 function formatDate(timestamp){
 
-  if(!timestamp) return "-";
+  if(!timestamp)
+    return "-";
+
 
   try{
 
@@ -1249,15 +2123,29 @@ function formatDate(timestamp){
       ? timestamp.toDate()
       : new Date(timestamp);
 
-    if(isNaN(date.getTime())) return "-";
+
+    if(
+      isNaN(
+        date.getTime()
+      )
+    ){
+
+      return "-";
+
+    }
+
 
     return new Intl.DateTimeFormat(
+
       "en-IN",
+
       {
         dateStyle:"medium",
         timeStyle:"short"
       }
+
     ).format(date);
+
 
   }catch(error){
 
@@ -1270,65 +2158,106 @@ function formatDate(timestamp){
 
 /* =========================================================
    STATUS
-   ORIGINAL FLOW PRESERVED + CANCELLED
 ========================================================= */
 
 function statusInfo(status){
 
   const normalized =
-    String(status || "Submitted")
+    String(
+      status ||
+      "Submitted"
+    )
     .toLowerCase()
     .trim();
 
 
   if(
-    normalized.includes("cancel")
+    normalized.includes(
+      "cancel"
+    )
   ){
 
     return {
+
       current:3,
-      label:status || "Cancelled",
-      type:"cancelled"
+
+      label:
+        status ||
+        "Cancelled",
+
+      type:
+        "cancelled"
+
     };
 
   }
 
 
   if(
-    normalized.includes("resolve")
+    normalized.includes(
+      "resolve"
+    )
   ){
 
     return {
+
       current:3,
-      label:status || "Resolved",
-      type:"resolved"
+
+      label:
+        status ||
+        "Resolved",
+
+      type:
+        "resolved"
+
     };
 
   }
 
 
   if(
-    normalized.includes("progress") ||
-    normalized.includes("work")
+    normalized.includes(
+      "progress"
+    )
+    ||
+    normalized.includes(
+      "work"
+    )
   ){
 
     return {
+
       current:2,
-      label:status || "In Progress",
-      type:"progress"
+
+      label:
+        status ||
+        "In Progress",
+
+      type:
+        "progress"
+
     };
 
   }
 
 
   if(
-    normalized.includes("review")
+    normalized.includes(
+      "review"
+    )
   ){
 
     return {
+
       current:1,
-      label:status || "Under Review",
-      type:"review"
+
+      label:
+        status ||
+        "Under Review",
+
+      type:
+        "review"
+
     };
 
   }
@@ -1337,8 +2266,13 @@ function statusInfo(status){
   return {
 
     current:0,
-    label:status || "Submitted",
-    type:"submitted"
+
+    label:
+      status ||
+      "Submitted",
+
+    type:
+      "submitted"
 
   };
 
@@ -1358,49 +2292,73 @@ function timeline(status){
   let stages;
 
 
-  if(info.type === "cancelled"){
+  if(
+    info.type ===
+    "cancelled"
+  ){
 
     stages = [
+
       "Submitted",
+
       "Under Review",
+
       "In Progress",
+
       "Cancelled"
+
     ];
 
   }else{
 
     stages = [
+
       "Submitted",
+
       "Under Review",
+
       "In Progress",
+
       "Resolved"
+
     ];
 
   }
 
 
   return stages.map(
+
     (stage,index)=>{
 
+
       const done =
-        index < info.current;
+        index <
+        info.current;
+
 
       const current =
-        index === info.current;
+        index ===
+        info.current;
+
 
       const cancelled =
-        info.type === "cancelled" &&
+        info.type ===
+        "cancelled"
+        &&
         current;
 
 
       return `
 
-        <div class="stage
+        <div
+          class="stage
           ${done ? "done" : ""}
           ${current ? "current" : ""}
           ${cancelled ? "cancelled" : ""}">
 
-          <div class="stage-icon">
+
+          <div
+            class="stage-icon">
 
             ${
               done
@@ -1414,28 +2372,38 @@ function timeline(status){
 
           </div>
 
+
           <div>
 
-            <div class="stage-title">
+            <div
+              class="stage-title">
 
               ${stage}
 
             </div>
+
 
             ${
               current
 
               ?
 
-              `<div class="stage-note">
+              `
+
+              <div
+                class="stage-note">
 
                 ${
                   cancelled
-                  ? "Complaint cancelled"
-                  : "Current status"
+                  ?
+                  "Complaint cancelled"
+                  :
+                  "Current status"
                 }
 
-              </div>`
+              </div>
+
+              `
 
               :
 
@@ -1445,11 +2413,13 @@ function timeline(status){
 
           </div>
 
+
         </div>
 
       `;
 
     }
+
   ).join("");
 
 }
@@ -1457,13 +2427,15 @@ function timeline(status){
 
 /* =========================================================
    CHECK COMPLAINT
-   IMPORTANT:
-   ORIGINAL FIRESTORE QUERY PRESERVED
+   ORIGINAL FIRESTORE FLOW
 ========================================================= */
 
-window.checkComplaint = async function(){
+window.checkComplaint =
+async function(){
+
 
   const complaintId =
+
     input.value
       .trim()
       .toUpperCase();
@@ -1472,8 +2444,10 @@ window.checkComplaint = async function(){
   result.style.display =
     "none";
 
+
   result.innerHTML =
     "";
+
 
   message.style.display =
     "none";
@@ -1495,6 +2469,7 @@ window.checkComplaint = async function(){
   button.disabled =
     true;
 
+
   button.textContent =
     "Checking...";
 
@@ -1502,19 +2477,25 @@ window.checkComplaint = async function(){
   try{
 
 
-    /* ORIGINAL WORKING QUERY */
+    /* =====================================================
+       ORIGINAL QUERY
+    ===================================================== */
 
     const q =
+
       query(
+
         collection(
           db,
           "complaints"
         ),
+
         where(
           "complaintId",
           "==",
           complaintId
         )
+
       );
 
 
@@ -1522,7 +2503,9 @@ window.checkComplaint = async function(){
       await getDocs(q);
 
 
-    if(snapshot.empty){
+    if(
+      snapshot.empty
+    ){
 
       message.textContent =
         "Complaint not found. Please check the Complaint ID and try again.";
@@ -1558,16 +2541,20 @@ window.checkComplaint = async function(){
 
     console.error(error);
 
+
     message.textContent =
       "Unable to check status right now. Please try again.";
 
+
     message.style.display =
       "block";
+
 
   }finally{
 
     button.disabled =
       false;
+
 
     button.textContent =
       "Check Status →";
@@ -1583,131 +2570,180 @@ window.checkComplaint = async function(){
 
 function renderComplaint(data){
 
+
   const info =
     statusInfo(
       data.status
     );
 
 
+  /* ADMIN REMARK
+     Supports multiple existing field names
+  */
+
   const remark =
+
     data.adminRemark ||
+
     data.adminNotes ||
+
     data.remark ||
+
     "";
 
 
   const updated =
+
     data.adminUpdatedAt ||
+
     data.updatedAt ||
+
     null;
 
 
   const cancelled =
-    info.type === "cancelled";
+
+    info.type ===
+    "cancelled";
 
 
   result.innerHTML = `
 
-    <div class="result-card">
+
+    <div
+      class="result-card">
 
 
-      <!-- RESULT HEADER -->
+      <!-- ================================================
+           HEADER
+      ================================================= -->
 
-      <div class="result-head">
+      <div
+        class="result-head">
+
 
         <small>
           COMPLAINT ID
         </small>
 
+
         <h2>
+
           ${escapeHTML(
             data.complaintId
           )}
+
         </h2>
 
 
-        <div class="status-pill
+        <div
+          class="status-pill
           ${cancelled ? "cancelled" : ""}">
 
-          <span class="status-dot"></span>
+
+          <span
+            class="status-dot">
+          </span>
+
 
           ${escapeHTML(
             info.label
           )}
 
+
         </div>
+
 
       </div>
 
 
-      <!-- DETAILS -->
+      <!-- ================================================
+           DETAILS
+      ================================================= -->
 
-      <div class="details">
+      <div
+        class="details">
 
-        <div class="detail">
+
+        <div
+          class="detail">
 
           <label>
             Applicant Name
           </label>
 
           <div>
+
             ${escapeHTML(
               data.name
             )}
+
           </div>
 
         </div>
 
 
-        <div class="detail">
+        <div
+          class="detail">
 
           <label>
             Subject
           </label>
 
           <div>
+
             ${escapeHTML(
               data.subject
             )}
+
           </div>
 
         </div>
 
 
-        <div class="detail">
+        <div
+          class="detail">
 
           <label>
             Complaint Details
           </label>
 
           <div>
+
             ${escapeHTML(
               data.details ||
               data.description
             )}
+
           </div>
 
         </div>
 
 
-        <div class="detail">
+        <div
+          class="detail">
 
           <label>
             Submitted On
           </label>
 
           <div>
+
             ${formatDate(
               data.createdAt
             )}
+
           </div>
 
         </div>
 
+
       </div>
 
 
-      <!-- ADMIN REMARK -->
+      <!-- ================================================
+           ADMIN REMARK
+      ================================================= -->
 
       ${
         remark && cancelled
@@ -1716,13 +2752,20 @@ function renderComplaint(data){
 
         `
 
-        <div class="cancel-box">
+        <div
+          class="cancel-box">
 
-          <div class="cancel-title">
+
+          <div
+            class="cancel-title">
+
             ❌ Complaint Cancelled
+
           </div>
 
-          <div class="cancel-text">
+
+          <div
+            class="cancel-text">
 
             ${escapeHTML(
               remark
@@ -1736,18 +2779,24 @@ function renderComplaint(data){
 
             ?
 
-            `<div class="admin-date">
+            `
+
+            <div
+              class="admin-date">
 
               Last updated:
               ${formatDate(updated)}
 
-            </div>`
+            </div>
+
+            `
 
             :
 
             ""
 
           }
+
 
         </div>
 
@@ -1761,15 +2810,47 @@ function renderComplaint(data){
 
         `
 
-        <div class="admin-update">
+        <div
+          class="admin-update">
 
-          <div class="admin-title">
 
-            ✦ Latest Administrative Update
+          <div
+            class="admin-top">
+
+
+            <div
+              class="admin-icon">
+
+              ✦
+
+            </div>
+
+
+            <div>
+
+              <div
+                class="admin-title">
+
+                Latest Administrative Update
+
+              </div>
+
+
+              <div
+                class="admin-subtitle">
+
+                Official update from SK KGN TEAM
+
+              </div>
+
+            </div>
+
 
           </div>
 
-          <div class="admin-text">
+
+          <div
+            class="admin-text">
 
             ${escapeHTML(
               remark
@@ -1783,18 +2864,24 @@ function renderComplaint(data){
 
             ?
 
-            `<div class="admin-date">
+            `
+
+            <div
+              class="admin-date">
 
               Last updated:
               ${formatDate(updated)}
 
-            </div>`
+            </div>
+
+            `
 
             :
 
             ""
 
           }
+
 
         </div>
 
@@ -1807,28 +2894,40 @@ function renderComplaint(data){
       }
 
 
-      <!-- TIMELINE -->
+      <!-- ================================================
+           TIMELINE
+      ================================================= -->
 
-      <div class="timeline">
+      <div
+        class="timeline">
 
-        <div class="timeline-head">
+
+        <div
+          class="timeline-head">
+
 
           <h3>
             Complaint Progress
           </h3>
 
-          <div class="live">
 
-            <span class="live-dot"></span>
+          <div
+            class="live">
+
+            <span
+              class="live-dot">
+            </span>
 
             LIVE STATUS
 
           </div>
 
+
         </div>
 
 
-        <div class="track">
+        <div
+          class="track">
 
           ${timeline(
             data.status
@@ -1836,12 +2935,16 @@ function renderComplaint(data){
 
         </div>
 
+
       </div>
 
 
-      <!-- ACTIONS -->
+      <!-- ================================================
+           ACTIONS
+      ================================================= -->
 
-      <div class="actions">
+      <div
+        class="actions">
 
 
         <button
@@ -1901,99 +3004,6 @@ function renderComplaint(data){
       </div>
 
 
-      <!-- FEEDBACK -->
-
-      <div class="feedback">
-
-        <h3>
-          ⭐ Share Your Experience
-        </h3>
-
-        <p>
-          Your feedback is linked to this complaint and submitted to our system.
-        </p>
-
-
-        <div class="rating">
-
-          <button
-            onclick="selectRating(1)">
-            😞
-          </button>
-
-          <button
-            onclick="selectRating(2)">
-            😐
-          </button>
-
-          <button
-            onclick="selectRating(3)">
-            🙂
-          </button>
-
-          <button
-            onclick="selectRating(4)">
-            😊
-          </button>
-
-          <button
-            onclick="selectRating(5)">
-            🤩
-          </button>
-
-        </div>
-
-
-        <textarea
-          id="feedbackText"
-          maxlength="1000"
-          placeholder="Tell us honestly about your experience..."></textarea>
-
-
-        <button
-          class="feedback-send"
-          onclick="sendFeedback()">
-
-          Submit Feedback →
-
-        </button>
-
-      </div>
-
-
-      <!-- TEAM REMINDER -->
-
-      <div class="reminder">
-
-        <h3>
-          ⏰ Team Follow-up Reminder
-        </h3>
-
-        <p>
-          Set a follow-up reminder for SK KGN TEAM.
-          Reminders can be scheduled up to 30 days from today.
-        </p>
-
-
-        <div class="reminder-row">
-
-          <input
-            id="reminderTime"
-            type="datetime-local">
-
-
-          <button
-            onclick="saveReminder()">
-
-            Set Reminder
-
-          </button>
-
-        </div>
-
-      </div>
-
-
     </div>
 
   `;
@@ -2004,12 +3014,12 @@ function renderComplaint(data){
 
 
   result.scrollIntoView({
+
     behavior:"smooth",
+
     block:"start"
+
   });
-
-
-  setReminderLimit();
 
 }
 
@@ -2021,19 +3031,25 @@ function renderComplaint(data){
 window.copyID =
 async function(){
 
-  if(!currentComplaint)
+  if(
+    !currentComplaint
+  )
     return;
 
 
   try{
 
     await navigator.clipboard.writeText(
+
       currentComplaint.complaintId
+
     );
+
 
     showToast(
       "✓ Complaint ID copied"
     );
+
 
   }catch(error){
 
@@ -2053,7 +3069,9 @@ async function(){
 window.refreshComplaint =
 function(){
 
-  if(!currentComplaint)
+  if(
+    !currentComplaint
+  )
     return;
 
 
@@ -2061,7 +3079,7 @@ function(){
     currentComplaint.complaintId;
 
 
-  checkComplaint();
+  window.checkComplaint();
 
 };
 
@@ -2073,7 +3091,9 @@ function(){
 window.shareComplaint =
 async function(){
 
-  if(!currentComplaint)
+  if(
+    !currentComplaint
+  )
     return;
 
 
@@ -2088,7 +3108,9 @@ Current Status:
 ${currentComplaint.status || "Submitted"}`;
 
 
-  if(navigator.share){
+  if(
+    navigator.share
+  ){
 
     try{
 
@@ -2097,13 +3119,16 @@ ${currentComplaint.status || "Submitted"}`;
         title:
           "SK KGN TEAM Complaint",
 
-        text:text,
+        text:
+          text,
 
-        url:location.href
+        url:
+          location.href
 
       });
 
     }catch(error){}
+
 
   }else{
 
@@ -2113,9 +3138,11 @@ ${currentComplaint.status || "Submitted"}`;
         text
       );
 
+
       showToast(
         "✓ Complaint status copied"
       );
+
 
     }catch(error){
 
@@ -2150,7 +3177,9 @@ function(){
 window.whatsappSupport =
 function(){
 
-  if(!currentComplaint)
+  if(
+    !currentComplaint
+  )
     return;
 
 
@@ -2169,328 +3198,12 @@ ${currentComplaint.status || "Submitted"}`;
 
   window.open(
 
-    "https://wa.me/917007027158?text="+
+    "https://wa.me/917007027158?text=" +
     encodeURIComponent(text),
 
     "_blank"
 
   );
-
-};
-
-
-/* =========================================================
-   RATING
-========================================================= */
-
-window.selectRating =
-function(rating){
-
-  selectedRating =
-    rating;
-
-
-  document
-    .querySelectorAll(
-      ".rating button"
-    )
-    .forEach(
-      (button,index)=>{
-
-        button.classList.toggle(
-          "selected",
-          index + 1 === rating
-        );
-
-      }
-    );
-
-};
-
-
-/* =========================================================
-   FEEDBACK → FIRESTORE
-========================================================= */
-
-window.sendFeedback =
-async function(){
-
-  if(!currentComplaint)
-    return;
-
-
-  if(!selectedRating){
-
-    showToast(
-      "Please select a rating first"
-    );
-
-    return;
-
-  }
-
-
-  const field =
-    document.getElementById(
-      "feedbackText"
-    );
-
-
-  const text =
-    field.value.trim();
-
-
-  if(!text){
-
-    showToast(
-      "Please write your feedback"
-    );
-
-    return;
-
-  }
-
-
-  try{
-
-
-    await addDoc(
-
-      collection(
-        db,
-        "complaints",
-        currentComplaint.docId,
-        "feedback"
-      ),
-
-      {
-
-        complaintId:
-          currentComplaint.complaintId,
-
-        rating:
-          selectedRating,
-
-        message:
-          text,
-
-        createdAt:
-          serverTimestamp(),
-
-        source:
-          "Customer Status Page"
-
-      }
-
-    );
-
-
-    showToast(
-      "✓ Feedback submitted successfully"
-    );
-
-
-    field.value =
-      "";
-
-
-    document
-      .querySelectorAll(
-        ".rating button"
-      )
-      .forEach(
-        button =>
-          button.classList.remove(
-            "selected"
-          )
-      );
-
-
-    selectedRating =
-      0;
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showToast(
-      "Feedback could not be submitted"
-    );
-
-  }
-
-};
-
-
-/* =========================================================
-   REMINDER LIMIT
-========================================================= */
-
-function setReminderLimit(){
-
-  const field =
-    document.getElementById(
-      "reminderTime"
-    );
-
-
-  if(!field)
-    return;
-
-
-  const now =
-    new Date();
-
-
-  const max =
-    new Date();
-
-
-  max.setDate(
-    max.getDate() + 30
-  );
-
-
-  function localDate(date){
-
-    const offset =
-      date.getTimezoneOffset()
-      * 60000;
-
-
-    return new Date(
-      date.getTime() - offset
-    )
-    .toISOString()
-    .slice(0,16);
-
-  }
-
-
-  field.min =
-    localDate(now);
-
-
-  field.max =
-    localDate(max);
-
-}
-
-
-/* =========================================================
-   TEAM REMINDER → FIRESTORE
-========================================================= */
-
-window.saveReminder =
-async function(){
-
-  if(!currentComplaint)
-    return;
-
-
-  const field =
-    document.getElementById(
-      "reminderTime"
-    );
-
-
-  if(!field.value){
-
-    showToast(
-      "Please select a reminder date and time"
-    );
-
-    return;
-
-  }
-
-
-  const reminderDate =
-    new Date(
-      field.value
-    );
-
-
-  const now =
-    new Date();
-
-
-  const max =
-    new Date();
-
-
-  max.setDate(
-    max.getDate() + 30
-  );
-
-
-  if(
-    reminderDate < now ||
-    reminderDate > max
-  ){
-
-    showToast(
-      "Reminder must be within 30 days"
-    );
-
-    return;
-
-  }
-
-
-  try{
-
-
-    await addDoc(
-
-      collection(
-        db,
-        "complaints",
-        currentComplaint.docId,
-        "reminders"
-      ),
-
-      {
-
-        complaintId:
-          currentComplaint.complaintId,
-
-        reminderAt:
-          reminderDate,
-
-        createdAt:
-          serverTimestamp(),
-
-        status:
-          "Pending",
-
-        source:
-          "Customer Status Page"
-
-      }
-
-    );
-
-
-    showToast(
-      "✓ Team follow-up reminder saved"
-    );
-
-
-    field.value =
-      "";
-
-
-  }catch(error){
-
-    console.error(error);
-
-    showToast(
-      "Reminder could not be saved"
-    );
-
-  }
 
 };
 
@@ -2511,6 +3224,7 @@ function showToast(text){
 
 
   setTimeout(
+
     ()=>{
 
       toast.classList.remove(
@@ -2518,7 +3232,9 @@ function showToast(text){
       );
 
     },
+
     3000
+
   );
 
 }
@@ -2529,16 +3245,22 @@ function showToast(text){
 ========================================================= */
 
 input.addEventListener(
+
   "keydown",
+
   event => {
 
-    if(event.key === "Enter"){
+    if(
+      event.key ===
+      "Enter"
+    ){
 
       window.checkComplaint();
 
     }
 
   }
+
 );
 
 
@@ -2560,6 +3282,7 @@ if(urlID){
 
   input.value =
     urlID.toUpperCase();
+
 
   window.checkComplaint();
 
