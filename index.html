@@ -2877,215 +2877,499 @@ Contact SK KGN TEAM for assistance and enquiries.
   </div>
 
 </section>
+<!-- =========================================
+     SK KGN TEAM - COMPLAINT JOURNEY
+========================================= -->
+
+<section class="skkgn-journey" id="complaintJourney">
+
+  <div class="skkgn-journey-title">
+    <span>SK KGN TEAM</span>
+    <h2>Your Complaint. Your Voice.</h2>
+    <p>Every complaint deserves attention. Every voice deserves to be heard.</p>
+  </div>
+
+  <div class="skkgn-journey-stage">
+
+    <!-- LEFT LABEL -->
+    <div class="skkgn-journey-card skkgn-start-card">
+      <div class="skkgn-card-icon">📩</div>
+      <h3>SUBMIT</h3>
+      <p>Raise Your Complaint</p>
+    </div>
+
+    <!-- ROAD -->
+    <div class="skkgn-road">
+      <div class="skkgn-road-light"></div>
+    </div>
+
+    <!-- PERSON IMAGE -->
+    <div class="skkgn-person-wrap">
+      <img
+        src="./complaint-person.jpg"
+        id="complaintPerson"
+        class="skkgn-person"
+        alt="Complaint Submission"
+      >
+    </div>
+
+    <!-- RIGHT LABEL -->
+    <div class="skkgn-journey-card skkgn-end-card">
+      <div class="skkgn-card-icon">⚖️</div>
+      <h3>ACTION</h3>
+      <p>Your Complaint Moves Forward</p>
+    </div>
+
+  </div>
+
+  <div class="skkgn-scroll-text">
+    <span>↓</span>
+    SCROLL TO MOVE FORWARD
+    <span>↓</span>
+  </div>
+
+</section>
+
 
 <style>
-.complaint-journey{
+
+/* =========================================
+   MAIN SECTION
+========================================= */
+
+.skkgn-journey{
   position:relative;
-  min-height:900px;
+  min-height:950px;
   padding:110px 20px 80px;
   overflow:hidden;
+  color:#ffffff;
+
   background:
-    radial-gradient(circle at 50% 35%,rgba(30,80,150,.25),transparent 45%),
-    linear-gradient(180deg,#061326,#020712);
-  color:#fff;
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(22,91,170,.35),
+      transparent 42%
+    ),
+    linear-gradient(
+      180deg,
+      #06152b 0%,
+      #020712 100%
+    );
 }
 
-.journey-heading{
+
+/* =========================================
+   TITLE
+========================================= */
+
+.skkgn-journey-title{
   position:relative;
-  z-index:5;
+  z-index:10;
   text-align:center;
-  max-width:800px;
-  margin:auto;
+  max-width:850px;
+  margin:0 auto;
 }
 
-.journey-heading span{
+.skkgn-journey-title span{
+  display:inline-block;
   font-size:13px;
-  letter-spacing:4px;
+  letter-spacing:5px;
   font-weight:800;
-  opacity:.65;
+  opacity:.7;
 }
 
-.journey-heading h2{
-  margin:12px 0 10px;
-  font-size:clamp(30px,5vw,58px);
+.skkgn-journey-title h2{
+  margin:14px 0 12px;
+  font-size:clamp(32px,5vw,62px);
+  line-height:1.05;
   font-weight:900;
 }
 
-.journey-heading p{
+.skkgn-journey-title p{
   margin:0;
-  color:#b9c7d9;
+  color:#b8c7da;
   font-size:16px;
 }
 
-.journey-stage{
+
+/* =========================================
+   STAGE
+========================================= */
+
+.skkgn-journey-stage{
   position:relative;
-  height:600px;
-  max-width:1200px;
-  margin:40px auto 0;
+  width:100%;
+  max-width:1250px;
+  height:650px;
+  margin:30px auto 0;
 }
 
-.journey-road{
+
+/* =========================================
+   ROAD
+========================================= */
+
+.skkgn-road{
   position:absolute;
   left:5%;
   right:5%;
-  bottom:115px;
-  height:5px;
-  background:rgba(255,255,255,.25);
-  box-shadow:0 0 25px rgba(70,150,255,.35);
+  bottom:125px;
+  height:6px;
+  border-radius:20px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(255,255,255,.65) 0px,
+      rgba(255,255,255,.65) 45px,
+      transparent 45px,
+      transparent 85px
+    );
+
+  opacity:.35;
 }
 
-.journey-road::before{
-  content:"";
+.skkgn-road-light{
   position:absolute;
   left:0;
-  right:0;
-  top:0;
-  height:1px;
-  background:rgba(255,255,255,.6);
+  top:50%;
+  width:100%;
+  height:2px;
+  transform:translateY(-50%);
+  background:rgba(60,150,255,.7);
+  box-shadow:
+    0 0 15px rgba(60,150,255,.7),
+    0 0 35px rgba(60,150,255,.35);
 }
 
-.complaint-person{
+
+/* =========================================
+   PERSON
+========================================= */
+
+.skkgn-person-wrap{
   position:absolute;
-  width:min(270px,28vw);
-  max-height:420px;
-  object-fit:contain;
-  left:5%;
-  bottom:120px;
-  z-index:3;
-  transform:translateX(0) scale(1);
+  left:7%;
+  bottom:130px;
+
+  width:270px;
+  height:430px;
+
+  z-index:5;
+
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+
   will-change:transform;
-  filter:drop-shadow(0 20px 25px rgba(0,0,0,.45));
 }
 
-.journey-box{
+.skkgn-person{
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  object-fit:contain;
+
+  filter:
+    drop-shadow(0 25px 25px rgba(0,0,0,.55));
+
+  will-change:transform;
+}
+
+
+/* =========================================
+   CARDS
+========================================= */
+
+.skkgn-journey-card{
   position:absolute;
-  left:2%;
-  bottom:55px;
-  z-index:2;
-  width:180px;
-  padding:20px;
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:18px;
-  background:rgba(255,255,255,.07);
-  backdrop-filter:blur(10px);
+  bottom:45px;
+
+  width:190px;
+  padding:22px 18px;
+
   text-align:center;
+
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:20px;
+
+  background:rgba(255,255,255,.07);
+
+  backdrop-filter:blur(12px);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.25);
+
+  z-index:4;
 }
 
-.journey-icon{
-  font-size:32px;
+.skkgn-start-card{
+  left:1%;
+}
+
+.skkgn-end-card{
+  right:1%;
+}
+
+.skkgn-card-icon{
+  font-size:34px;
   margin-bottom:8px;
 }
 
-.journey-box strong,
-.journey-end strong{
-  display:block;
+.skkgn-journey-card h3{
+  margin:0;
+  font-size:18px;
   letter-spacing:2px;
 }
 
-.journey-box small,
-.journey-end small{
-  display:block;
-  margin-top:6px;
-  color:#b9c7d9;
+.skkgn-journey-card p{
+  margin:7px 0 0;
+  color:#b8c7da;
+  font-size:13px;
 }
 
-.journey-end{
-  position:absolute;
-  right:2%;
-  bottom:55px;
-  z-index:2;
-  width:180px;
-  padding:20px;
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:18px;
-  background:rgba(255,255,255,.07);
-  backdrop-filter:blur(10px);
+
+/* =========================================
+   SCROLL TEXT
+========================================= */
+
+.skkgn-scroll-text{
+  position:relative;
+  z-index:10;
+
   text-align:center;
+
+  color:#8ea6c3;
+
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:3px;
+
+  animation:
+    skkgnPulse 2s ease-in-out infinite;
 }
 
-.journey-end > div{
-  font-size:32px;
-  margin-bottom:8px;
+.skkgn-scroll-text span{
+  margin:0 8px;
+  font-size:18px;
 }
+
+@keyframes skkgnPulse{
+  0%,100%{
+    opacity:.4;
+    transform:translateY(0);
+  }
+
+  50%{
+    opacity:1;
+    transform:translateY(7px);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media(max-width:767px){
-  .complaint-journey{
-    min-height:700px;
-    padding-top:80px;
+
+  .skkgn-journey{
+    min-height:780px;
+    padding:80px 15px 60px;
   }
 
-  .journey-stage{
-    height:450px;
+  .skkgn-journey-title h2{
+    font-size:34px;
   }
 
-  .complaint-person{
-    width:210px;
+  .skkgn-journey-title p{
+    font-size:14px;
+  }
+
+  .skkgn-journey-stage{
+    height:520px;
+  }
+
+  .skkgn-person-wrap{
     left:50%;
+    bottom:120px;
+
+    width:210px;
+    height:330px;
+
     transform:translateX(-50%);
-    bottom:105px;
   }
 
-  .journey-box{
-    left:5%;
-    width:130px;
-    padding:12px;
-    font-size:12px;
-  }
-
-  .journey-end{
-    right:5%;
-    width:130px;
-    padding:12px;
-    font-size:12px;
-  }
-
-  .journey-road{
+  .skkgn-road{
     left:8%;
     right:8%;
-    bottom:95px;
+    bottom:110px;
+  }
+
+  .skkgn-journey-card{
+    width:125px;
+    padding:13px 8px;
+    bottom:35px;
+  }
+
+  .skkgn-start-card{
+    left:2%;
+  }
+
+  .skkgn-end-card{
+    right:2%;
+  }
+
+  .skkgn-card-icon{
+    font-size:24px;
+  }
+
+  .skkgn-journey-card h3{
+    font-size:13px;
+  }
+
+  .skkgn-journey-card p{
+    font-size:10px;
+  }
+
+  .skkgn-scroll-text{
+    font-size:9px;
+    letter-spacing:2px;
   }
 }
+
 </style>
 
+
 <script>
+
+/* =========================================
+   SCROLL-DRIVEN PERSON ANIMATION
+========================================= */
+
 (function(){
 
-  const section = document.getElementById("complaintJourney");
-  const person = document.getElementById("complaintPerson");
+  const section =
+    document.getElementById("complaintJourney");
 
-  if(!section || !person) return;
+  const person =
+    document.getElementById("complaintPerson");
 
-  function animateComplaintPerson(){
+  const personWrap =
+    document.querySelector(".skkgn-person-wrap");
 
-    const rect = section.getBoundingClientRect();
-    const screenHeight = window.innerHeight;
+  if(!section || !person || !personWrap) return;
 
-    const start = screenHeight * 0.85;
-    const end = -rect.height * 0.15;
 
-    let progress = (start - rect.top) / (start - end);
+  function updateComplaintJourney(){
 
-    progress = Math.max(0, Math.min(1, progress));
+    const rect =
+      section.getBoundingClientRect();
 
-    const moveX = progress * 700;
-    const scale = 1 - (progress * 0.12);
+    const screen =
+      window.innerHeight;
 
-    person.style.transform =
-      `translateX(${moveX}px) scale(${scale})`;
+
+    /*
+      Animation starts when section
+      enters the screen.
+    */
+
+    const start =
+      screen * 0.90;
+
+
+    /*
+      Animation ends near bottom
+      of the section.
+    */
+
+    const end =
+      -rect.height * 0.10;
+
+
+    let progress =
+      (start - rect.top) /
+      (start - end);
+
+
+    progress =
+      Math.max(
+        0,
+        Math.min(1, progress)
+      );
+
+
+    /* ---------------------------------
+       DESKTOP MOVEMENT
+    --------------------------------- */
+
+    if(window.innerWidth > 767){
+
+      const maxMove =
+        Math.min(
+          window.innerWidth * 0.52,
+          680
+        );
+
+      const move =
+        progress * maxMove;
+
+      const scale =
+        1 - (progress * 0.12);
+
+      personWrap.style.transform =
+        `translateX(${move}px)`;
+
+      person.style.transform =
+        `scale(${scale})`;
+    }
+
+
+    /* ---------------------------------
+       MOBILE MOVEMENT
+    --------------------------------- */
+
+    else{
+
+      const move =
+        progress * 95;
+
+      const scale =
+        1 - (progress * 0.08);
+
+      personWrap.style.transform =
+        `translateX(calc(-50% + ${move}px))`;
+
+      person.style.transform =
+        `scale(${scale})`;
+    }
+
   }
 
-  window.addEventListener("scroll", animateComplaintPerson, {
-    passive:true
-  });
 
-  window.addEventListener("resize", animateComplaintPerson);
+  window.addEventListener(
+    "scroll",
+    updateComplaintJourney,
+    {passive:true}
+  );
 
-  animateComplaintPerson();
+  window.addEventListener(
+    "resize",
+    updateComplaintJourney
+  );
+
+  updateComplaintJourney();
 
 })();
-</script>
-<!-- END SCROLL COMPLAINT JOURNEY -->
 
+</script>
+
+<!-- =========================================
+     END COMPLAINT JOURNEY
+========================================= -->
 
 <!-- =======================================================
      VIP STORE
