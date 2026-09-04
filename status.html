@@ -29,9 +29,10 @@ body{
   overflow-x:hidden;
 }
 
-/* =========================
+
+/* =========================================
    CINEMATIC INTRO
-========================= */
+========================================= */
 
 .intro-screen{
   position:fixed;
@@ -46,19 +47,8 @@ body{
   animation:introExit 7s cubic-bezier(.77,0,.18,1) forwards;
 }
 
-.intro-screen::before{
-  content:"";
-  position:absolute;
-  width:600px;
-  height:600px;
-  border:1px solid rgba(96,165,250,.15);
-  border-radius:50%;
-  box-shadow:
-    0 0 0 80px rgba(37,99,235,.025),
-    0 0 0 160px rgba(37,99,235,.02),
-    0 0 100px rgba(37,99,235,.15);
-  animation:orbit 7s linear infinite;
-}
+
+/* subtle horizontal cinematic scan */
 
 .intro-screen::after{
   content:"";
@@ -77,6 +67,9 @@ body{
   animation:scanLine 4.8s ease-in-out infinite;
 }
 
+
+/* tiny background particles */
+
 .intro-particles{
   position:absolute;
   inset:0;
@@ -87,6 +80,9 @@ body{
   animation:particleMove 10s linear infinite;
 }
 
+
+/* intro content */
+
 .intro-content{
   position:relative;
   z-index:3;
@@ -95,6 +91,7 @@ body{
   animation:introContent 6.6s cubic-bezier(.16,1,.3,1) forwards;
 }
 
+
 .intro-logo{
   width:105px;
   height:105px;
@@ -102,41 +99,32 @@ body{
   border-radius:50%;
   background:#fff;
   padding:7px;
+
   box-shadow:
     0 0 0 1px rgba(255,255,255,.18),
     0 0 35px rgba(59,130,246,.45),
     0 0 100px rgba(37,99,235,.20);
+
   animation:logoPulse 2.2s ease-in-out infinite;
 }
 
-.intro-line{
-  width:0;
-  height:2px;
-  margin:27px auto 20px;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    #60a5fa,
-    white,
-    #60a5fa,
-    transparent
-  );
-  box-shadow:0 0 20px #3b82f6;
-  animation:introLine 2s ease forwards;
-  animation-delay:.8s;
-}
 
 .intro-title{
+  margin-top:30px;
+
   font-size:clamp(32px,8vw,72px);
   letter-spacing:8px;
   font-weight:950;
+
   text-shadow:
     0 0 20px rgba(96,165,250,.55),
     0 0 50px rgba(37,99,235,.25);
 }
 
+
 .intro-subtitle{
   margin-top:12px;
+
   color:#bfdbfe;
   font-size:13px;
   letter-spacing:4px;
@@ -144,25 +132,40 @@ body{
   text-transform:uppercase;
 }
 
+
 .intro-loading{
   margin:32px auto 0;
+
   width:180px;
   height:2px;
+
   background:rgba(255,255,255,.12);
+
   overflow:hidden;
   border-radius:10px;
 }
 
+
 .intro-loading span{
   display:block;
+
   width:35%;
   height:100%;
+
   background:#60a5fa;
+
   box-shadow:0 0 15px #60a5fa;
+
   animation:loading 2.5s ease-in-out infinite;
 }
 
+
+/* =========================================
+   INTRO ANIMATIONS
+========================================= */
+
 @keyframes introContent{
+
   0%{
     opacity:0;
     transform:scale(.55);
@@ -202,9 +205,12 @@ body{
     transform:scale(1.35);
     filter:blur(14px);
   }
+
 }
 
+
 @keyframes introExit{
+
   0%,88%{
     opacity:1;
     visibility:visible;
@@ -214,11 +220,15 @@ body{
     opacity:0;
     visibility:hidden;
   }
+
 }
 
+
 @keyframes logoPulse{
+
   0%,100%{
     transform:scale(1);
+
     box-shadow:
       0 0 0 1px rgba(255,255,255,.18),
       0 0 35px rgba(59,130,246,.45),
@@ -227,26 +237,18 @@ body{
 
   50%{
     transform:scale(1.06);
+
     box-shadow:
       0 0 0 1px rgba(255,255,255,.25),
       0 0 55px rgba(59,130,246,.75),
       0 0 130px rgba(37,99,235,.35);
   }
+
 }
 
-@keyframes introLine{
-  from{
-    width:0;
-    opacity:0;
-  }
-
-  to{
-    width:230px;
-    opacity:1;
-  }
-}
 
 @keyframes loading{
+
   0%{
     transform:translateX(-180%);
   }
@@ -254,19 +256,12 @@ body{
   100%{
     transform:translateX(550%);
   }
+
 }
 
-@keyframes orbit{
-  from{
-    transform:rotate(0deg) scale(1);
-  }
-
-  to{
-    transform:rotate(360deg) scale(1.05);
-  }
-}
 
 @keyframes scanLine{
+
   0%{
     top:-10%;
     opacity:0;
@@ -284,9 +279,12 @@ body{
     top:110%;
     opacity:0;
   }
+
 }
 
+
 @keyframes particleMove{
+
   from{
     transform:translateY(0);
   }
@@ -294,534 +292,816 @@ body{
   to{
     transform:translateY(75px);
   }
+
 }
 
-/* =========================
+
+/* =========================================
    MAIN
-========================= */
+========================================= */
 
 .container{
   width:min(760px,92%);
   margin:auto;
 }
 
+
 .top{
   padding:26px 0 12px;
 }
+
 
 .brand{
   display:flex;
   align-items:center;
   gap:10px;
+
   color:#111827;
   text-decoration:none;
+
   font-weight:900;
   font-size:20px;
 }
 
+
 .brand img{
   width:42px;
   height:42px;
+
   border-radius:50%;
   object-fit:contain;
 }
 
-/* =========================
+
+/* =========================================
    HERO
-========================= */
+========================================= */
 
 .hero{
   padding:34px 0 22px;
   text-align:center;
 }
 
+
 .badge{
   display:inline-block;
+
   background:#eaf1ff;
   color:#164a9c;
+
   padding:8px 14px;
+
   border-radius:30px;
+
   font-size:11px;
   font-weight:900;
   letter-spacing:.5px;
+
   margin-bottom:14px;
 }
 
+
 h1{
   font-size:clamp(34px,8vw,54px);
+
   line-height:1.05;
+
   letter-spacing:-2px;
+
   color:#111827;
 }
 
+
 .hero p{
   color:#667085;
+
   margin:14px auto 0;
+
   max-width:560px;
+
   font-size:16px;
 }
 
-/* =========================
+
+/* =========================================
    SEARCH
-========================= */
+========================================= */
 
 .search-card{
   margin-top:25px;
+
   background:#111827;
+
   border-radius:28px;
+
   padding:24px;
-  box-shadow:0 22px 55px rgba(17,24,39,.18);
+
+  box-shadow:
+    0 22px 55px rgba(17,24,39,.18);
 }
+
 
 .search-card label{
   display:block;
+
   text-align:left;
+
   color:#cbd5e1;
+
   font-size:12px;
   font-weight:800;
+
   margin-bottom:8px;
 }
+
 
 .search-row{
   display:flex;
   gap:10px;
 }
 
+
 .search-row input{
   flex:1;
+
   min-width:0;
+
   border:0;
+
   border-radius:14px;
+
   padding:16px;
+
   font-size:16px;
+
   outline:none;
+
   text-transform:uppercase;
+
   background:#fff;
 }
 
+
 .search-row input:focus{
-  box-shadow:0 0 0 3px rgba(96,165,250,.35);
+  box-shadow:
+    0 0 0 3px rgba(96,165,250,.35);
 }
+
 
 .search-row button{
   border:0;
+
   border-radius:14px;
+
   padding:0 20px;
+
   background:#2563eb;
+
   color:#fff;
+
   font-weight:800;
+
   font-size:15px;
+
   cursor:pointer;
+
   transition:.2s;
 }
 
+
 .search-row button:hover{
   background:#1d4ed8;
+
   transform:translateY(-1px);
 }
 
+
 .search-row button:disabled{
   opacity:.65;
+
   cursor:wait;
 }
 
+
 #message{
   display:none;
+
   margin-top:15px;
+
   padding:13px 15px;
+
   border-radius:12px;
+
   text-align:left;
+
   font-size:14px;
+
   background:#fff;
+
   color:#344054;
 }
 
-/* =========================
-   SCANNING
-========================= */
+
+/* =========================================
+   SCANNING OVERLAY
+========================================= */
 
 .scan{
   display:none;
+
   position:fixed;
+
   inset:0;
+
   z-index:9990;
+
   background:rgba(2,6,23,.72);
+
   backdrop-filter:blur(12px);
+
   align-items:center;
   justify-content:center;
 }
 
+
 .scan-box{
   width:min(330px,85%);
+
   background:#0f172a;
+
   color:#fff;
+
   padding:32px;
+
   border-radius:26px;
+
   text-align:center;
-  box-shadow:0 25px 80px rgba(0,0,0,.45);
-  border:1px solid rgba(96,165,250,.25);
+
+  box-shadow:
+    0 25px 80px rgba(0,0,0,.45);
+
+  border:
+    1px solid rgba(96,165,250,.25);
 }
+
 
 .scan-ring{
   width:72px;
   height:72px;
+
   margin:auto;
+
   border-radius:50%;
-  border:3px solid rgba(96,165,250,.2);
+
+  border:
+    3px solid rgba(96,165,250,.2);
+
   border-top-color:#60a5fa;
+
   border-right-color:#2563eb;
+
   animation:spin 1s linear infinite;
 }
 
+
 .scan-box h3{
   margin-top:20px;
+
   font-size:18px;
 }
 
+
 .scan-box p{
   margin-top:7px;
+
   color:#94a3b8;
+
   font-size:13px;
 }
 
+
 @keyframes spin{
+
   to{
     transform:rotate(360deg);
   }
+
 }
 
-/* =========================
+
+/* =========================================
    RESULT
-========================= */
+========================================= */
 
 .result{
   display:none;
+
   margin:24px 0 50px;
 }
 
+
 .result-card{
   background:#fff;
-  border:1px solid #e4e7ec;
+
+  border:
+    1px solid #e4e7ec;
+
   border-radius:28px;
+
   overflow:hidden;
-  box-shadow:0 18px 50px rgba(16,24,40,.08);
+
+  box-shadow:
+    0 18px 50px rgba(16,24,40,.08);
 }
+
 
 .result-head{
   color:#fff;
+
   padding:25px;
+
   position:relative;
+
   overflow:hidden;
+
   transition:.35s;
 }
 
+
 .result-head::after{
   content:"";
+
   position:absolute;
+
   width:180px;
   height:180px;
+
   right:-80px;
   top:-90px;
+
   border-radius:50%;
+
   background:rgba(255,255,255,.10);
 }
 
+
 .result-head.normal{
-  background:linear-gradient(135deg,#111827,#164a9c);
+  background:
+    linear-gradient(
+      135deg,
+      #111827,
+      #164a9c
+    );
 }
+
 
 .result-head.resolved{
-  background:linear-gradient(135deg,#064e3b,#16a34a);
+  background:
+    linear-gradient(
+      135deg,
+      #064e3b,
+      #16a34a
+    );
 }
+
 
 .result-head.cancelled{
-  background:linear-gradient(135deg,#7f1d1d,#dc2626);
+  background:
+    linear-gradient(
+      135deg,
+      #7f1d1d,
+      #dc2626
+    );
 }
+
 
 .result-head.review{
-  background:linear-gradient(135deg,#78350f,#d97706);
+  background:
+    linear-gradient(
+      135deg,
+      #78350f,
+      #d97706
+    );
 }
 
+
 .result-head.progress{
-  background:linear-gradient(135deg,#172554,#2563eb);
+  background:
+    linear-gradient(
+      135deg,
+      #172554,
+      #2563eb
+    );
 }
+
 
 .result-head small{
   color:rgba(255,255,255,.72);
+
   font-weight:700;
 }
 
+
 .result-head h2{
   font-size:25px;
+
   margin-top:4px;
+
   word-break:break-word;
 }
 
+
 .status-pill{
   display:inline-flex;
+
   align-items:center;
+
   gap:7px;
+
   margin-top:14px;
+
   padding:8px 12px;
+
   border-radius:30px;
+
   background:#fff;
+
   color:#111827;
+
   font-size:13px;
+
   font-weight:900;
 }
+
 
 .status-dot{
   width:8px;
   height:8px;
+
   border-radius:50%;
+
   background:#2563eb;
 }
+
 
 .status-dot.green{
   background:#16a34a;
 }
 
+
 .status-dot.red{
   background:#dc2626;
 }
+
 
 .status-dot.orange{
   background:#d97706;
 }
 
+
 .status-dot.blue{
   background:#2563eb;
 }
 
-/* =========================
+
+/* =========================================
    DETAILS
-========================= */
+========================================= */
 
 .details{
   padding:24px;
 }
 
+
 .detail{
   padding:15px 0;
-  border-bottom:1px solid #edf0f4;
+
+  border-bottom:
+    1px solid #edf0f4;
 }
+
 
 .detail:last-child{
   border-bottom:0;
 }
 
+
 .detail label{
   display:block;
+
   color:#667085;
+
   font-size:11px;
+
   font-weight:900;
+
   text-transform:uppercase;
+
   letter-spacing:.5px;
+
   margin-bottom:5px;
 }
 
+
 .detail div{
   font-size:15px;
+
   color:#1d2939;
+
   line-height:1.6;
+
   word-break:break-word;
 }
 
-/* ADMIN REMARK */
+
+/* =========================================
+   ADMIN REMARK
+========================================= */
 
 .remark-box{
   margin:0 24px 24px;
+
   padding:18px;
+
   border-radius:18px;
+
   background:#eff6ff;
-  border:1px solid #bfdbfe;
+
+  border:
+    1px solid #bfdbfe;
 }
+
 
 .remark-box.cancelled{
   background:#fef2f2;
+
   border-color:#fecaca;
 }
 
+
 .remark-box h3{
   font-size:15px;
+
   color:#164a9c;
+
   margin-bottom:7px;
 }
+
 
 .remark-box.cancelled h3{
   color:#b91c1c;
 }
 
+
 .remark-box p{
   font-size:14px;
+
   line-height:1.65;
+
   color:#334155;
+
   white-space:pre-wrap;
+
   word-break:break-word;
 }
 
-/* =========================
+
+/* =========================================
    TIMELINE
-========================= */
+========================================= */
 
 .timeline{
   padding:0 24px 28px;
 }
 
+
 .timeline h3{
   font-size:18px;
+
   margin-bottom:18px;
 }
+
 
 .track{
   position:relative;
 }
 
+
 .track:before{
   content:"";
+
   position:absolute;
+
   left:15px;
+
   top:16px;
+
   bottom:16px;
+
   width:2px;
+
   background:#e4e7ec;
 }
 
+
 .stage{
   position:relative;
+
   display:flex;
+
   gap:14px;
+
   align-items:flex-start;
+
   padding:0 0 18px;
 }
+
 
 .stage:last-child{
   padding-bottom:0;
 }
 
+
 .stage-icon{
   width:32px;
   height:32px;
+
   flex:0 0 32px;
+
   border-radius:50%;
+
   display:grid;
+
   place-items:center;
+
   background:#eef0f3;
+
   color:#98a2b3;
+
   font-size:14px;
+
   font-weight:900;
+
   z-index:1;
+
   border:3px solid #fff;
 }
 
+
 .stage.done .stage-icon{
   background:#22c55e;
+
   color:#fff;
 }
+
 
 .stage.current .stage-icon{
   background:#2563eb;
+
   color:#fff;
-  box-shadow:0 0 0 5px #dbeafe;
+
+  box-shadow:
+    0 0 0 5px #dbeafe;
 }
+
 
 .stage.current.cancelled .stage-icon{
   background:#dc2626;
-  box-shadow:0 0 0 5px #fee2e2;
+
+  box-shadow:
+    0 0 0 5px #fee2e2;
 }
+
 
 .stage-title{
   font-weight:800;
+
   color:#344054;
+
   font-size:14px;
+
   padding-top:6px;
 }
+
 
 .stage.current .stage-title{
   color:#164a9c;
 }
 
+
 .stage.current.cancelled .stage-title{
   color:#b91c1c;
 }
 
+
 .stage-note{
   font-size:11px;
+
   color:#98a2b3;
+
   margin-top:2px;
 }
 
-/* =========================
-   ACTIONS
-========================= */
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
 
 .actions{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(2,1fr);
+
   gap:10px;
+
   padding:0 24px 24px;
 }
 
+
 .action{
   border:0;
+
   border-radius:13px;
+
   padding:13px 10px;
+
   font-size:13px;
+
   font-weight:800;
+
   cursor:pointer;
+
   background:#f1f5f9;
+
   color:#1e293b;
+
   transition:.2s;
 }
 
+
 .action:hover{
   transform:translateY(-2px);
-  box-shadow:0 7px 18px rgba(15,23,42,.10);
+
+  box-shadow:
+    0 7px 18px rgba(15,23,42,.10);
 }
+
 
 .action.call{
   background:#ecfdf5;
+
   color:#047857;
 }
 
+
 .action.whatsapp{
   background:#f0fdf4;
+
   color:#15803d;
 }
 
+
 .action.primary{
   background:#eff6ff;
+
   color:#1d4ed8;
 }
 
-.action.danger{
-  background:#fef2f2;
-  color:#b91c1c;
-}
 
-/* =========================
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 .footer{
   text-align:center;
+
   color:#98a2b3;
+
   font-size:11px;
+
   padding:0 0 35px;
 }
 
+
 .back{
   display:inline-block;
+
   margin-top:16px;
+
   color:#164a9c;
+
   font-weight:800;
+
   text-decoration:none;
+
   font-size:13px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+
+/* =========================================
+   MOBILE
+========================================= */
 
 @media(max-width:560px){
 
@@ -830,37 +1110,44 @@ h1{
     height:86px;
   }
 
+
   .intro-title{
+    margin-top:24px;
+
     font-size:32px;
+
     letter-spacing:5px;
   }
 
+
   .intro-subtitle{
     font-size:10px;
+
     letter-spacing:2.5px;
   }
 
-  .intro-line{
-    margin-top:20px;
-    margin-bottom:16px;
-  }
 
   .search-card{
     padding:18px;
+
     border-radius:22px;
   }
+
 
   .search-row{
     flex-direction:column;
   }
 
+
   .search-row button{
     padding:15px;
   }
 
+
   .result-card{
     border-radius:22px;
   }
+
 
   .details,
   .timeline{
@@ -868,18 +1155,24 @@ h1{
     padding-right:19px;
   }
 
+
   .remark-box{
     margin-left:19px;
     margin-right:19px;
   }
 
+
   .actions{
     padding-left:19px;
     padding-right:19px;
   }
+
 }
 
-/* ACCESSIBILITY */
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media(prefers-reduced-motion:reduce){
 
@@ -887,18 +1180,23 @@ h1{
   *::before,
   *::after{
     animation-duration:.01ms !important;
+
     animation-iteration-count:1 !important;
+
     scroll-behavior:auto !important;
   }
+
 }
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================
+
+<!-- =========================================
      CINEMATIC INTRO
-========================= -->
+========================================= -->
 
 <div class="intro-screen">
 
@@ -911,8 +1209,6 @@ h1{
       src="Logo.jpg"
       alt="SK KGN TEAM"
     >
-
-    <div class="intro-line"></div>
 
     <div class="intro-title">
       SK KGN TEAM
@@ -927,12 +1223,13 @@ h1{
     </div>
 
   </div>
+
 </div>
 
 
-<!-- =========================
-     SCANNING OVERLAY
-========================= -->
+<!-- =========================================
+     CHECKING OVERLAY
+========================================= -->
 
 <div id="scan" class="scan">
 
@@ -940,7 +1237,9 @@ h1{
 
     <div class="scan-ring"></div>
 
-    <h3>Checking Complaint</h3>
+    <h3>
+      Checking Complaint
+    </h3>
 
     <p>
       Please wait while we retrieve the latest information.
@@ -951,22 +1250,28 @@ h1{
 </div>
 
 
-<!-- =========================
-     MAIN CONTENT
-========================= -->
+<!-- =========================================
+     MAIN
+========================================= -->
 
 <div class="container">
 
+
   <div class="top">
 
-    <a class="brand" href="index.html">
+    <a
+      class="brand"
+      href="index.html"
+    >
 
       <img
         src="Logo.jpg"
         alt="SK KGN TEAM"
       >
 
-      <span>SK KGN TEAM</span>
+      <span>
+        SK KGN TEAM
+      </span>
 
     </a>
 
@@ -975,18 +1280,20 @@ h1{
 
   <section class="hero">
 
+
     <div class="badge">
       PUBLIC COMPLAINT TRACKING
     </div>
 
 
-    <!-- SEARCH ABOVE TITLE -->
+    <!-- SEARCH FIRST -->
 
     <div class="search-card">
 
       <label for="complaintId">
         COMPLAINT ID
       </label>
+
 
       <div class="search-row">
 
@@ -998,6 +1305,7 @@ h1{
           spellcheck="false"
         >
 
+
         <button
           id="checkBtn"
           onclick="checkComplaint()"
@@ -1006,6 +1314,7 @@ h1{
         </button>
 
       </div>
+
 
       <div id="message"></div>
 
@@ -1016,19 +1325,25 @@ h1{
       Track Your Complaint
     </h1>
 
+
     <p>
       Enter your Complaint ID to view the latest status,
       complaint information and administrative remarks.
     </p>
 
+
   </section>
 
+
+  <!-- RESULT -->
 
   <section
     id="result"
     class="result"
   ></section>
 
+
+  <!-- FOOTER -->
 
   <div class="footer">
 
@@ -1045,18 +1360,23 @@ h1{
 
   </div>
 
+
 </div>
 
 
-<!-- =========================
+<!-- =========================================
      FIREBASE
-========================= -->
+========================================= -->
 
 <script type="module">
 
+
 import {
   initializeApp
-} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
 
 import {
   getFirestore,
@@ -1064,8 +1384,14 @@ import {
   query,
   where,
   getDocs
-} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
+
+/* =========================================
+   FIREBASE CONFIG
+========================================= */
 
 const firebaseConfig = {
 
@@ -1099,54 +1425,65 @@ const firebaseConfig = {
 const app =
   initializeApp(firebaseConfig);
 
+
 const db =
   getFirestore(app);
 
 
-/* =========================
+/* =========================================
    ELEMENTS
-========================= */
+========================================= */
 
 const input =
   document.getElementById("complaintId");
 
+
 const button =
   document.getElementById("checkBtn");
+
 
 const message =
   document.getElementById("message");
 
+
 const result =
   document.getElementById("result");
+
 
 const scan =
   document.getElementById("scan");
 
 
-/* =========================
-   SECURITY
-========================= */
+/* =========================================
+   ESCAPE HTML
+========================================= */
 
 function escapeHTML(value){
 
   return String(value ?? "-")
+
     .replace(/&/g,"&amp;")
+
     .replace(/</g,"&lt;")
+
     .replace(/>/g,"&gt;")
+
     .replace(/"/g,"&quot;")
+
     .replace(/'/g,"&#039;");
 
 }
 
 
-/* =========================
-   DATE
-========================= */
+/* =========================================
+   FORMAT DATE
+========================================= */
 
 function formatDate(timestamp){
 
   if(!timestamp)
     return "-";
+
 
   try{
 
@@ -1155,6 +1492,7 @@ function formatDate(timestamp){
         ? timestamp.toDate()
         : new Date(timestamp);
 
+
     return new Intl.DateTimeFormat(
       "en-IN",
       {
@@ -1162,6 +1500,7 @@ function formatDate(timestamp){
         timeStyle:"short"
       }
     ).format(date);
+
 
   }catch(e){
 
@@ -1172,9 +1511,9 @@ function formatDate(timestamp){
 }
 
 
-/* =========================
-   STATUS
-========================= */
+/* =========================================
+   STATUS INFORMATION
+========================================= */
 
 function statusInfo(status){
 
@@ -1184,31 +1523,45 @@ function statusInfo(status){
       .trim();
 
 
+  /* CANCELLED */
+
   if(
     normalized.includes("cancel")
   ){
 
     return {
+
       current:4,
+
       label:"Cancelled",
+
       type:"cancelled"
+
     };
 
   }
 
+
+  /* RESOLVED */
 
   if(
     normalized.includes("resolve")
   ){
 
     return {
+
       current:3,
+
       label:"Resolved",
+
       type:"resolved"
+
     };
 
   }
 
+
+  /* IN PROGRESS */
 
   if(
     normalized.includes("progress") ||
@@ -1216,39 +1569,55 @@ function statusInfo(status){
   ){
 
     return {
+
       current:2,
+
       label:status || "In Progress",
+
       type:"progress"
+
     };
 
   }
 
+
+  /* UNDER REVIEW */
 
   if(
     normalized.includes("review")
   ){
 
     return {
+
       current:1,
+
       label:status || "Under Review",
+
       type:"review"
+
     };
 
   }
 
 
+  /* SUBMITTED */
+
   return {
+
     current:0,
+
     label:status || "Submitted",
+
     type:"normal"
+
   };
 
 }
 
 
-/* =========================
+/* =========================================
    TIMELINE
-========================= */
+========================================= */
 
 function timeline(status){
 
@@ -1256,33 +1625,46 @@ function timeline(status){
     statusInfo(status);
 
 
-  if(info.type === "cancelled"){
+  /* CANCELLED TIMELINE */
+
+  if(
+    info.type === "cancelled"
+  ){
 
     const stages = [
+
       "Submitted",
+
       "Under Review",
+
       "In Progress",
+
       "Cancelled"
+
     ];
 
 
     return stages.map(
       (stage,index)=>{
 
+
         const done =
           index < 3;
+
 
         const current =
           index === 3;
 
 
         return `
+
           <div class="stage
             ${done ? "done" : ""}
             ${current ? "current cancelled" : ""}
           ">
 
             <div class="stage-icon">
+
               ${
                 done
                   ? "✓"
@@ -1290,7 +1672,9 @@ function timeline(status){
                     ? "×"
                     : "○"
               }
+
             </div>
+
 
             <div>
 
@@ -1298,48 +1682,65 @@ function timeline(status){
                 ${stage}
               </div>
 
+
               ${
                 current
-                  ? '<div class="stage-note">Current status</div>'
-                  : ""
+                  ?
+                    '<div class="stage-note">Current status</div>'
+                  :
+                    ""
               }
 
             </div>
 
           </div>
+
         `;
 
       }
+
     ).join("");
 
   }
 
 
+  /* NORMAL TIMELINE */
+
   const stages = [
+
     "Submitted",
+
     "Under Review",
+
     "In Progress",
+
     "Resolved"
+
   ];
 
 
   return stages.map(
     (stage,index)=>{
 
+
       const done =
         index < info.current;
+
 
       const current =
         index === info.current;
 
 
       return `
+
         <div class="stage
           ${done ? "done" : ""}
           ${current ? "current" : ""}
         ">
 
+
           <div class="stage-icon">
+
             ${
               done
                 ? "✓"
@@ -1347,7 +1748,9 @@ function timeline(status){
                   ? "●"
                   : "○"
             }
+
           </div>
+
 
           <div>
 
@@ -1355,35 +1758,44 @@ function timeline(status){
               ${stage}
             </div>
 
+
             ${
               current
-                ? '<div class="stage-note">Current status</div>'
-                : ""
+                ?
+                  '<div class="stage-note">Current status</div>'
+                :
+                  ""
             }
 
           </div>
 
+
         </div>
+
       `;
 
     }
+
   ).join("");
 
 }
 
 
-/* =========================
+/* =========================================
    CHECK COMPLAINT
-========================= */
+========================================= */
 
 window.checkComplaint =
 async function(){
+
 
   const complaintId =
     input.value
       .trim()
       .toUpperCase();
 
+
+  /* CLEAR OLD RESULT */
 
   result.style.display =
     "none";
@@ -1394,6 +1806,8 @@ async function(){
   message.style.display =
     "none";
 
+
+  /* EMPTY ID */
 
   if(!complaintId){
 
@@ -1408,6 +1822,8 @@ async function(){
   }
 
 
+  /* BUTTON */
+
   button.disabled =
     true;
 
@@ -1415,31 +1831,61 @@ async function(){
     "Checking...";
 
 
+  /* SHOW CINEMATIC CHECK */
+
   scan.style.display =
     "flex";
 
 
   try{
 
+
     const q =
       query(
+
         collection(
           db,
           "complaints"
         ),
+
         where(
           "complaintId",
           "==",
           complaintId
         )
+
       );
 
 
-    const snapshot =
-      await getDocs(q);
+    /*
+      IMPORTANT:
+      Firebase result ke saath
+      minimum 2.5 seconds wait.
+    */
 
+    const [snapshot] =
+      await Promise.all([
+
+        getDocs(q),
+
+        new Promise(
+          resolve =>
+            setTimeout(
+              resolve,
+              2500
+            )
+        )
+
+      ]);
+
+
+    /* NOT FOUND */
 
     if(snapshot.empty){
+
+      scan.style.display =
+        "none";
+
 
       message.textContent =
         "Complaint not found. Please check the Complaint ID and try again.";
@@ -1447,39 +1893,62 @@ async function(){
       message.style.display =
         "block";
 
-      scan.style.display =
-        "none";
-
       return;
 
     }
 
+
+    /* DATA */
 
     const data =
       snapshot.docs[0].data();
 
 
     const info =
-      statusInfo(data.status);
+      statusInfo(
+        data.status
+      );
 
+
+    /* STATUS DOT */
 
     let dotClass =
       "blue";
 
 
-    if(info.type === "resolved")
-      dotClass = "green";
+    if(
+      info.type === "resolved"
+    ){
+
+      dotClass =
+        "green";
+
+    }
 
 
-    if(info.type === "cancelled")
-      dotClass = "red";
+    if(
+      info.type === "cancelled"
+    ){
+
+      dotClass =
+        "red";
+
+    }
 
 
-    if(info.type === "review")
-      dotClass = "orange";
+    if(
+      info.type === "review"
+    ){
+
+      dotClass =
+        "orange";
+
+    }
 
 
-    let remark =
+    /* ADMIN REMARK */
+
+    const remark =
       data.adminRemark ||
       data.adminNotes ||
       data.remark ||
@@ -1487,40 +1956,64 @@ async function(){
 
 
     const hasRemark =
-      String(remark).trim().length > 0;
+      String(remark)
+        .trim()
+        .length > 0;
 
 
-    const remarkHTML =
-      hasRemark
-        ? `
-          <div class="remark-box ${
+    let remarkHTML =
+      "";
+
+
+    if(hasRemark){
+
+      remarkHTML = `
+
+        <div class="remark-box
+          ${
             info.type === "cancelled"
               ? "cancelled"
               : ""
-          }">
+          }
+        ">
 
-            <h3>
-              Admin Remark
-            </h3>
 
-            <p>
-              ${escapeHTML(remark)}
-            </p>
+          <h3>
+            Admin Remark
+          </h3>
 
-          </div>
-        `
-        : "";
 
+          <p>
+            ${escapeHTML(remark)}
+          </p>
+
+
+        </div>
+
+      `;
+
+    }
+
+
+    /* =====================================
+       RESULT HTML
+    ===================================== */
 
     result.innerHTML = `
 
+
       <div class="result-card">
 
+
+        <!-- STATUS HEADER -->
+
         <div class="result-head ${info.type}">
+
 
           <small>
             COMPLAINT ID
           </small>
+
 
           <h2>
             ${escapeHTML(data.complaintId)}
@@ -1529,16 +2022,23 @@ async function(){
 
           <div class="status-pill">
 
-            <span class="status-dot ${dotClass}"></span>
+            <span
+              class="status-dot ${dotClass}"
+            ></span>
+
 
             ${escapeHTML(info.label)}
 
           </div>
 
+
         </div>
 
 
+        <!-- DETAILS -->
+
         <div class="details">
+
 
           <div class="detail">
 
@@ -1594,7 +2094,9 @@ async function(){
 
           ${
             data.adminUpdatedAt
-              ? `
+              ?
+                `
+
                 <div class="detail">
 
                   <label>
@@ -1602,25 +2104,36 @@ async function(){
                   </label>
 
                   <div>
-                    ${formatDate(data.adminUpdatedAt)}
+                    ${formatDate(
+                      data.adminUpdatedAt
+                    )}
                   </div>
 
                 </div>
-              `
-              : ""
+
+                `
+              :
+                ""
           }
+
 
         </div>
 
 
+        <!-- ADMIN REMARK -->
+
         ${remarkHTML}
 
 
+        <!-- TIMELINE -->
+
         <div class="timeline">
+
 
           <h3>
             Complaint Progress
           </h3>
+
 
           <div class="track">
 
@@ -1628,16 +2141,22 @@ async function(){
 
           </div>
 
+
         </div>
 
 
+        <!-- ACTIONS -->
+
         <div class="actions">
+
 
           <button
             class="action primary"
             onclick="copyComplaintId('${escapeHTML(data.complaintId)}')"
           >
+
             📋 Copy ID
+
           </button>
 
 
@@ -1645,7 +2164,9 @@ async function(){
             class="action"
             onclick="refreshComplaint()"
           >
+
             🔄 Refresh
+
           </button>
 
 
@@ -1653,7 +2174,9 @@ async function(){
             class="action"
             onclick="shareComplaint('${escapeHTML(data.complaintId)}')"
           >
+
             📤 Share
+
           </button>
 
 
@@ -1661,16 +2184,23 @@ async function(){
             class="action"
             onclick="window.print()"
           >
+
             🖨️ Print
+
           </button>
 
 
           <a
             class="action call"
             href="tel:+917007027158"
-            style="text-align:center;text-decoration:none;"
+            style="
+              text-align:center;
+              text-decoration:none;
+            "
           >
+
             📞 Call Support
+
           </a>
 
 
@@ -1681,37 +2211,55 @@ async function(){
               data.complaintId
             )}"
             target="_blank"
-            style="text-align:center;text-decoration:none;"
+            style="
+              text-align:center;
+              text-decoration:none;
+            "
           >
+
             💬 WhatsApp
+
           </a>
+
 
         </div>
 
+
       </div>
+
 
     `;
 
+
+    /* HIDE CHECKING */
 
     scan.style.display =
       "none";
 
 
+    /* SHOW RESULT */
+
     result.style.display =
       "block";
 
 
+    /* SCROLL */
+
     setTimeout(()=>{
 
       result.scrollIntoView({
+
         behavior:"smooth",
+
         block:"start"
+
       });
 
     },100);
 
 
   }catch(error){
+
 
     console.error(error);
 
@@ -1723,36 +2271,45 @@ async function(){
     message.textContent =
       "Unable to check status right now. Please try again.";
 
+
     message.style.display =
       "block";
 
 
   }finally{
 
+
     button.disabled =
       false;
 
+
     button.textContent =
       "Check Status →";
+
 
   }
 
 };
 
 
-/* =========================
-   COPY ID
-========================= */
+/* =========================================
+   COPY COMPLAINT ID
+========================================= */
 
 window.copyComplaintId =
 async function(id){
 
+
   try{
 
-    await navigator.clipboard.writeText(id);
+
+    await navigator.clipboard
+      .writeText(id);
+
 
     message.textContent =
       "Complaint ID copied successfully.";
+
 
     message.style.display =
       "block";
@@ -1765,10 +2322,13 @@ async function(id){
 
     },2500);
 
+
   }catch(e){
+
 
     message.textContent =
       "Unable to copy Complaint ID.";
+
 
     message.style.display =
       "block";
@@ -1778,15 +2338,17 @@ async function(id){
 };
 
 
-/* =========================
+/* =========================================
    REFRESH
-========================= */
+========================================= */
 
 window.refreshComplaint =
 function(){
 
+
   const id =
     input.value.trim();
+
 
   if(id){
 
@@ -1797,12 +2359,13 @@ function(){
 };
 
 
-/* =========================
+/* =========================================
    SHARE
-========================= */
+========================================= */
 
 window.shareComplaint =
 async function(id){
+
 
   const url =
     window.location.origin +
@@ -1817,46 +2380,68 @@ async function(id){
 
     try{
 
+
       await navigator.share({
 
         title:
           "Complaint Status — SK KGN TEAM",
 
         text:
-          "Track Complaint ID: " + id,
+          "Track Complaint ID: " +
+          id,
 
         url:url
 
       });
 
+
     }catch(e){}
+
 
   }else{
 
-    await navigator.clipboard.writeText(url);
 
-    message.textContent =
-      "Complaint tracking link copied.";
-
-    message.style.display =
-      "block";
+    try{
 
 
-    setTimeout(()=>{
+      await navigator.clipboard
+        .writeText(url);
+
+
+      message.textContent =
+        "Complaint tracking link copied.";
+
 
       message.style.display =
-        "none";
+        "block";
 
-    },2500);
+
+      setTimeout(()=>{
+
+        message.style.display =
+          "none";
+
+      },2500);
+
+
+    }catch(e){
+
+      message.textContent =
+        "Unable to copy tracking link.";
+
+      message.style.display =
+        "block";
+
+    }
 
   }
 
 };
 
 
-/* =========================
+/* =========================================
    ENTER KEY
-========================= */
+========================================= */
 
 input.addEventListener(
   "keydown",
@@ -1872,10 +2457,10 @@ input.addEventListener(
 );
 
 
-/* =========================
-   URL ID SUPPORT
+/* =========================================
+   URL COMPLAINT ID
    status.html?id=SKKGN-XXXXXX
-========================= */
+========================================= */
 
 const params =
   new URLSearchParams(
@@ -1901,12 +2486,13 @@ if(urlId){
 
 }
 
+
 </script>
 
 
-<!-- =========================
-     PRINT
-========================= -->
+<!-- =========================================
+     PRINT STYLE
+========================================= -->
 
 <style>
 
@@ -1921,27 +2507,35 @@ if(urlId){
     display:none !important;
   }
 
+
   body{
     background:#fff;
   }
+
 
   .container{
     width:100%;
   }
 
+
   .result{
     display:block !important;
+
     margin:0;
   }
 
+
   .result-card{
     box-shadow:none;
-    border:1px solid #ddd;
+
+    border:
+      1px solid #ddd;
   }
 
 }
 
 </style>
+
 
 </body>
 </html>
