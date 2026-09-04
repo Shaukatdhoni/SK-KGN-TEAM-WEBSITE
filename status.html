@@ -1,30 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#020817">
 
-<meta
-  name="viewport"
-  content="width=device-width,initial-scale=1.0">
-
-<meta
-  name="theme-color"
-  content="#050816">
-
-<meta
-  name="description"
-  content="SK KGN TEAM Complaint Tracking System">
-
-<title>
-Complaint Tracking — SK KGN TEAM
-</title>
-
+<title>Track Complaint — SK KGN TEAM</title>
 
 <style>
 
 /* =========================================================
-   RESET
+   SK KGN TEAM — COMPLAINT TRACKING SYSTEM
+   CINEMATIC EDITION
 ========================================================= */
 
 *{
@@ -33,1954 +20,1311 @@ Complaint Tracking — SK KGN TEAM
   padding:0;
 }
 
-
-:root{
-
-  --bg:#050816;
-  --bg2:#091329;
-
-  --blue:#2878ff;
-  --blue2:#5b8cff;
-  --cyan:#27c8ff;
-
-  --purple:#805cff;
-
-  --green:#20d17a;
-
-  --red:#ff4f61;
-
-  --white:#f8fbff;
-
-  --muted:#8996aa;
-
-  --border:rgba(255,255,255,.11);
-
-}
-
-
-/* =========================================================
-   BODY
-========================================================= */
-
 html{
   scroll-behavior:smooth;
 }
 
-
 body{
-
-  font-family:
-    Inter,
-    Arial,
-    sans-serif;
-
+  font-family:Inter,Arial,sans-serif;
   min-height:100vh;
-
-  color:var(--white);
-
+  color:#eaf3ff;
   background:
-
-    radial-gradient(
-      circle at 8% 5%,
-      rgba(40,120,255,.17),
-      transparent 30%
-    ),
-
-    radial-gradient(
-      circle at 92% 15%,
-      rgba(128,92,255,.13),
-      transparent 28%
-    ),
-
-    radial-gradient(
-      circle at 50% 90%,
-      rgba(39,200,255,.07),
-      transparent 30%
-    ),
-
-    var(--bg);
-
+    radial-gradient(circle at 15% 10%,rgba(0,110,255,.16),transparent 28%),
+    radial-gradient(circle at 85% 30%,rgba(0,180,255,.10),transparent 25%),
+    linear-gradient(135deg,#010611,#031126 48%,#020817);
   overflow-x:hidden;
-
 }
-
 
 /* =========================================================
-   AMBIENT LIGHT
+   AMBIENT BACKGROUND
 ========================================================= */
 
-body:before,
-body:after{
-
+body::before{
   content:"";
-
   position:fixed;
-
-  width:360px;
-  height:360px;
-
-  border-radius:50%;
-
-  filter:blur(110px);
-
+  inset:-30%;
+  z-index:-5;
   pointer-events:none;
-
-  z-index:-1;
-
+  background:
+    radial-gradient(circle at 30% 40%,rgba(0,119,255,.12),transparent 18%),
+    radial-gradient(circle at 70% 60%,rgba(0,204,255,.08),transparent 20%);
+  animation:ambientMove 18s ease-in-out infinite alternate;
 }
 
-
-body:before{
-
-  background:rgba(40,120,255,.13);
-
-  left:-190px;
-
-  top:20%;
-
-  animation:
-    ambientOne
-    11s
-    ease-in-out
-    infinite;
-
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-4;
+  pointer-events:none;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(90,170,255,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(90,170,255,.08) 1px,transparent 1px);
+  background-size:55px 55px;
+  mask-image:linear-gradient(to bottom,black,transparent 90%);
 }
 
-
-body:after{
-
-  background:rgba(128,92,255,.11);
-
-  right:-190px;
-
-  top:55%;
-
-  animation:
-    ambientTwo
-    13s
-    ease-in-out
-    infinite;
-
-}
-
-
-@keyframes ambientOne{
-
-  50%{
-    transform:
-      translate(80px,-45px);
+@keyframes ambientMove{
+  0%{
+    transform:translate3d(-3%,-2%,0) scale(1);
   }
-
-}
-
-
-@keyframes ambientTwo{
-
   50%{
-    transform:
-      translate(-70px,55px);
+    transform:translate3d(2%,2%,0) scale(1.06);
   }
-
+  100%{
+    transform:translate3d(-1%,4%,0) scale(1.02);
+  }
 }
 
+/* =========================================================
+   CINEMATIC INTRO
+========================================================= */
+
+.intro-screen{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#01050d;
+  overflow:hidden;
+  pointer-events:none;
+  animation:introExit 2.6s cubic-bezier(.77,0,.18,1) forwards;
+}
+
+.intro-screen::before{
+  content:"";
+  position:absolute;
+  width:160vw;
+  height:2px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    #1687ff,
+    #8de8ff,
+    #1687ff,
+    transparent
+  );
+  box-shadow:
+    0 0 15px #1687ff,
+    0 0 45px #1687ff;
+  animation:introLine 1.5s ease-out forwards;
+}
+
+.intro-content{
+  text-align:center;
+  animation:introContent 2.2s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+.intro-logo{
+  width:76px;
+  height:76px;
+  object-fit:contain;
+  border-radius:50%;
+  border:2px solid rgba(110,210,255,.55);
+  box-shadow:
+    0 0 15px rgba(20,150,255,.7),
+    0 0 55px rgba(20,120,255,.35);
+  margin-bottom:20px;
+}
+
+.intro-title{
+  color:white;
+  font-size:clamp(26px,6vw,58px);
+  font-weight:950;
+  letter-spacing:.28em;
+  text-shadow:
+    0 0 12px rgba(90,210,255,.95),
+    0 0 45px rgba(0,130,255,.65);
+}
+
+.intro-subtitle{
+  margin-top:12px;
+  color:#77bde8;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.45em;
+}
+
+@keyframes introContent{
+  0%{
+    opacity:0;
+    transform:scale(.65);
+    filter:blur(20px);
+  }
+  20%{
+    opacity:1;
+    transform:scale(1);
+    filter:blur(0);
+  }
+  70%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+    transform:scale(1.3);
+    filter:blur(12px);
+  }
+}
+
+@keyframes introLine{
+  0%{
+    transform:scaleX(0);
+    opacity:0;
+  }
+  30%{
+    opacity:1;
+  }
+  100%{
+    transform:scaleX(1);
+    opacity:0;
+  }
+}
+
+@keyframes introExit{
+  0%,72%{
+    opacity:1;
+  }
+  100%{
+    opacity:0;
+    visibility:hidden;
+  }
+}
 
 /* =========================================================
    MAIN CONTAINER
 ========================================================= */
 
 .container{
-
-  width:min(850px,94%);
-
+  width:min(900px,92%);
   margin:auto;
-
+  padding-bottom:40px;
+  animation:pageReveal 1.1s cubic-bezier(.16,1,.3,1) .45s both;
 }
 
+@keyframes pageReveal{
+  from{
+    opacity:0;
+    transform:translateY(45px);
+    filter:blur(8px);
+  }
+  to{
+    opacity:1;
+    transform:none;
+    filter:none;
+  }
+}
 
 /* =========================================================
-   BRAND
+   HEADER
 ========================================================= */
 
 .top{
-
-  padding:
-    24px
-    0
-    5px;
-
+  padding:26px 0 12px;
 }
-
 
 .brand{
-
-  display:flex;
-
+  display:inline-flex;
   align-items:center;
-
   gap:12px;
-
   color:#fff;
-
   text-decoration:none;
-
-  font-weight:900;
-
-  font-size:19px;
-
+  font-weight:950;
+  font-size:20px;
+  letter-spacing:.02em;
 }
-
 
 .brand img{
-
-  width:50px;
-
-  height:50px;
-
-  border-radius:16px;
-
-  object-fit:cover;
-
-  background:#fff;
-
-  border:
-    1px solid
-    rgba(255,255,255,.16);
-
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  object-fit:contain;
+  border:1px solid rgba(100,190,255,.35);
   box-shadow:
-
-    0 0 0 5px
-      rgba(40,120,255,.07),
-
-    0 12px 32px
-      rgba(0,0,0,.35);
-
+    0 0 12px rgba(0,130,255,.4);
+  transition:.4s ease;
 }
 
+.brand:hover img{
+  transform:rotate(8deg) scale(1.08);
+  box-shadow:
+    0 0 18px rgba(40,180,255,.8),
+    0 0 40px rgba(0,100,255,.35);
+}
 
 /* =========================================================
    HERO
 ========================================================= */
 
 .hero{
-
-  padding:
-    32px
-    0
-    35px;
-
+  padding:30px 0 25px;
   text-align:center;
-
 }
-
-
-/* =========================================================
-   PREMIUM BADGE
-========================================================= */
 
 .badge{
-
+  position:relative;
   display:inline-flex;
-
   align-items:center;
-
-  justify-content:center;
-
   gap:8px;
-
-  padding:
-    10px
-    18px;
-
-  border-radius:50px;
-
-  color:#9bc6ff;
-
-  background:
-    rgba(40,120,255,.075);
-
-  border:
-    1px solid
-    rgba(40,120,255,.23);
-
+  padding:9px 16px;
+  border-radius:40px;
+  color:#75cfff;
+  background:rgba(13,55,100,.35);
+  border:1px solid rgba(70,170,255,.28);
   font-size:10px;
-
-  font-weight:900;
-
-  letter-spacing:1.2px;
-
+  font-weight:950;
+  letter-spacing:.16em;
   box-shadow:
-
-    inset
-    0 1px 0
-    rgba(255,255,255,.08),
-
-    0 0 35px
-    rgba(40,120,255,.08);
-
-  animation:
-    badgePulse
-    2.8s
-    infinite;
-
+    inset 0 0 20px rgba(20,120,255,.06),
+    0 0 25px rgba(0,100,255,.08);
+  overflow:hidden;
 }
 
+.badge::before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#28a9ff;
+  box-shadow:
+    0 0 8px #28a9ff,
+    0 0 18px #28a9ff;
+  animation:badgePulse 1.5s infinite;
+}
 
 @keyframes badgePulse{
-
-  50%{
-
-    box-shadow:
-
-      inset
-      0 1px 0
-      rgba(255,255,255,.08),
-
-      0 0 48px
-      rgba(40,120,255,.20);
-
+  0%,100%{
+    opacity:.45;
+    transform:scale(.7);
   }
-
+  50%{
+    opacity:1;
+    transform:scale(1.2);
+  }
 }
 
+h1{
+  margin-top:20px;
+  color:#f5fbff;
+  font-size:clamp(36px,8vw,62px);
+  line-height:1;
+  letter-spacing:-.055em;
+  font-weight:950;
+  text-shadow:
+    0 0 35px rgba(50,150,255,.12);
+}
+
+.hero p{
+  max-width:600px;
+  margin:16px auto 0;
+  color:#91a9c2;
+  font-size:15px;
+  line-height:1.7;
+}
 
 /* =========================================================
-   SEARCH FIRST
+   SEARCH COMMAND PANEL
 ========================================================= */
-
-.search-shell{
-
-  margin-top:25px;
-
-  padding:1px;
-
-  border-radius:28px;
-
-  background:
-
-    linear-gradient(
-      135deg,
-      rgba(40,120,255,.60),
-      rgba(128,92,255,.20),
-      rgba(39,200,255,.36)
-    );
-
-  box-shadow:
-
-    0 25px 90px
-      rgba(0,0,0,.35),
-
-    0 0 55px
-      rgba(40,120,255,.08);
-
-}
-
 
 .search-card{
-
   position:relative;
-
-  overflow:hidden;
-
+  margin-top:30px;
   padding:25px;
-
-  border-radius:27px;
-
+  border-radius:28px;
+  overflow:hidden;
   background:
-
-    linear-gradient(
-      135deg,
-      rgba(10,22,48,.98),
-      rgba(5,12,28,.98)
-    );
-
+    linear-gradient(145deg,rgba(9,29,54,.94),rgba(2,12,27,.96));
+  border:1px solid rgba(77,165,255,.24);
+  box-shadow:
+    0 25px 70px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.05);
 }
 
-
-.search-card:before{
-
+.search-card::before{
   content:"";
-
   position:absolute;
-
-  width:220px;
-  height:220px;
-
-  border-radius:50%;
-
-  background:
-    rgba(40,120,255,.10);
-
-  filter:blur(40px);
-
-  right:-90px;
-
-  top:-110px;
-
+  top:0;
+  left:-30%;
+  width:25%;
+  height:100%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(90,200,255,.14),
+    transparent
+  );
+  transform:skewX(-20deg);
+  animation:searchSweep 5s infinite;
 }
 
+@keyframes searchSweep{
+  0%,55%{
+    left:-30%;
+  }
+  75%,100%{
+    left:125%;
+  }
+}
 
 .search-card label{
-
   display:block;
-
+  position:relative;
   text-align:left;
-
-  color:#9aabc2;
-
+  margin-bottom:9px;
+  color:#79b9dc;
   font-size:10px;
-
-  font-weight:900;
-
-  letter-spacing:1px;
-
-  margin-bottom:10px;
-
+  font-weight:950;
+  letter-spacing:.16em;
 }
-
 
 .search-row{
-
-  display:flex;
-
-  gap:10px;
-
   position:relative;
-
-  z-index:2;
-
+  display:flex;
+  gap:11px;
 }
-
 
 .search-row input{
-
   flex:1;
-
   min-width:0;
-
-  border:
-    1px solid
-    rgba(255,255,255,.08);
-
+  border:1px solid rgba(100,170,220,.16);
   border-radius:16px;
-
-  padding:17px;
-
-  font-size:16px;
-
+  padding:16px 17px;
   outline:none;
-
+  color:#102033;
+  background:#f7fbff;
+  font-size:16px;
+  font-weight:700;
   text-transform:uppercase;
-
-  background:#fff;
-
-  color:#101828;
-
-  transition:.25s;
-
+  box-shadow:inset 0 0 20px rgba(0,30,70,.04);
+  transition:.3s ease;
 }
-
 
 .search-row input:focus{
-
+  border-color:#269cff;
   box-shadow:
-    0 0 0 4px
-    rgba(40,120,255,.15);
-
+    0 0 0 4px rgba(38,156,255,.12),
+    0 0 30px rgba(0,120,255,.12);
 }
-
 
 .search-row button{
-
+  position:relative;
   border:0;
-
   border-radius:16px;
-
-  padding:
-    0
-    25px;
-
-  background:
-
-    linear-gradient(
-      135deg,
-      #2878ff,
-      #5b8cff
-    );
-
+  padding:0 23px;
   color:#fff;
-
+  background:
+    linear-gradient(135deg,#1477ed,#0650b8);
   font-size:14px;
-
-  font-weight:900;
-
+  font-weight:950;
   cursor:pointer;
-
+  overflow:hidden;
   box-shadow:
-
-    0 12px 35px
-    rgba(40,120,255,.25);
-
-  transition:.25s;
-
+    0 10px 28px rgba(0,100,255,.24),
+    inset 0 1px 0 rgba(255,255,255,.2);
+  transition:.35s cubic-bezier(.16,1,.3,1);
 }
 
+.search-row button::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255,255,255,.28) 50%,
+    transparent 75%
+  );
+  transform:translateX(-120%);
+}
+
+.search-row button:hover::before{
+  animation:buttonShine .8s ease;
+}
 
 .search-row button:hover{
-
-  transform:
-    translateY(-2px);
-
+  transform:translateY(-3px) scale(1.025);
   box-shadow:
-
-    0 15px 40px
-    rgba(40,120,255,.35);
-
+    0 15px 40px rgba(0,110,255,.35),
+    0 0 30px rgba(0,130,255,.18);
 }
-
 
 .search-row button:disabled{
-
-  opacity:.55;
-
+  opacity:.65;
   cursor:wait;
-
+  transform:none;
 }
 
-
-/* ERROR MESSAGE */
+@keyframes buttonShine{
+  to{
+    transform:translateX(120%);
+  }
+}
 
 #message{
-
   display:none;
-
-  margin-top:14px;
-
-  padding:13px;
-
-  border-radius:12px;
-
-  background:#fff;
-
-  color:#344054;
-
+  position:relative;
+  margin-top:15px;
+  padding:14px 16px;
+  border-radius:14px;
+  color:#cfe8ff;
+  background:rgba(100,30,40,.18);
+  border:1px solid rgba(255,100,120,.2);
   text-align:left;
-
   font-size:13px;
-
+  line-height:1.5;
 }
-
 
 /* =========================================================
-   TITLE AFTER SEARCH
+   CINEMATIC SCANNER
 ========================================================= */
 
-.hero-title{
-
-  margin-top:42px;
-
-}
-
-
-.hero-title h1{
-
-  font-size:
-    clamp(
-      43px,
-      9vw,
-      76px
-    );
-
-  line-height:.98;
-
-  letter-spacing:-4px;
-
+.scan-overlay{
+  position:fixed;
+  inset:0;
+  z-index:9990;
+  display:none;
+  align-items:center;
+  justify-content:center;
   background:
-
-    linear-gradient(
-      120deg,
-      #fff 15%,
-      #a7cbff 42%,
-      #6e98ff 68%,
-      #fff 92%
-    );
-
-  -webkit-background-clip:text;
-
-  background-clip:text;
-
-  color:transparent;
-
+    radial-gradient(circle at center,
+      rgba(0,100,255,.13),
+      rgba(0,4,13,.97) 68%);
+  backdrop-filter:blur(8px);
 }
 
-
-.hero-title p{
-
-  max-width:610px;
-
-  margin:
-    20px
-    auto
-    0;
-
-  color:#8996aa;
-
-  font-size:15px;
-
-  line-height:1.7;
-
+.scan-overlay.active{
+  display:flex;
+  animation:overlayIn .35s ease forwards;
 }
 
+.scan-core{
+  position:relative;
+  width:min(360px,80vw);
+  aspect-ratio:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.scan-core::before,
+.scan-core::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+}
+
+.scan-core::before{
+  inset:5%;
+  border:1px solid rgba(50,180,255,.25);
+  box-shadow:
+    0 0 30px rgba(0,130,255,.18),
+    inset 0 0 30px rgba(0,130,255,.08);
+  animation:scannerRotate 4s linear infinite;
+}
+
+.scan-core::after{
+  inset:17%;
+  border:1px dashed rgba(70,200,255,.32);
+  animation:scannerRotateReverse 6s linear infinite;
+}
+
+.scan-ring{
+  position:absolute;
+  inset:27%;
+  border:2px solid #1687ff;
+  border-radius:50%;
+  box-shadow:
+    0 0 12px #1687ff,
+    0 0 45px rgba(0,130,255,.65),
+    inset 0 0 30px rgba(0,130,255,.2);
+  animation:ringPulse 1.4s ease-in-out infinite;
+}
+
+.scan-ring::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-20%;
+  width:2px;
+  height:70%;
+  background:linear-gradient(
+    #9deaff,
+    #1687ff,
+    transparent
+  );
+  transform-origin:50% 100%;
+  animation:radarSpin 1.7s linear infinite;
+  box-shadow:0 0 12px #2bbcff;
+}
+
+.scan-text{
+  position:relative;
+  z-index:2;
+  text-align:center;
+}
+
+.scan-text strong{
+  display:block;
+  color:#eaf8ff;
+  font-size:18px;
+  letter-spacing:.18em;
+  font-weight:950;
+  text-shadow:0 0 15px rgba(60,190,255,.8);
+}
+
+.scan-text span{
+  display:block;
+  margin-top:9px;
+  color:#62b7e7;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.2em;
+}
+
+.scan-progress{
+  width:190px;
+  height:3px;
+  margin:18px auto 0;
+  overflow:hidden;
+  border-radius:10px;
+  background:rgba(100,180,255,.12);
+}
+
+.scan-progress i{
+  display:block;
+  height:100%;
+  width:30%;
+  background:#3ac4ff;
+  box-shadow:0 0 15px #3ac4ff;
+  animation:scanProgress 1.2s linear infinite;
+}
+
+@keyframes overlayIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes scannerRotate{
+  to{transform:rotate(360deg)}
+}
+
+@keyframes scannerRotateReverse{
+  to{transform:rotate(-360deg)}
+}
+
+@keyframes radarSpin{
+  to{transform:rotate(360deg)}
+}
+
+@keyframes ringPulse{
+  0%,100%{
+    transform:scale(.94);
+    opacity:.7;
+  }
+  50%{
+    transform:scale(1.04);
+    opacity:1;
+  }
+}
+
+@keyframes scanProgress{
+  from{transform:translateX(-130%)}
+  to{transform:translateX(430%)}
+}
 
 /* =========================================================
    RESULT
 ========================================================= */
 
 .result{
-
   display:none;
-
-  margin:
-    10px
-    0
-    60px;
-
+  margin:28px 0 55px;
 }
-
 
 .result-card{
-
   position:relative;
-
   overflow:hidden;
-
-  border:
-    1px solid
-    var(--border);
-
   border-radius:30px;
-
-  background:
-
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.075),
-      rgba(255,255,255,.025)
-    );
-
-  backdrop-filter:
-    blur(22px);
-
-  -webkit-backdrop-filter:
-    blur(22px);
-
+  background:rgba(5,18,35,.94);
+  border:1px solid rgba(78,163,235,.2);
   box-shadow:
-
-    0 35px 100px
-      rgba(0,0,0,.42),
-
-    inset
-    0 1px 0
-    rgba(255,255,255,.08);
-
-  animation:
-    resultEnter
-    .65s
-    cubic-bezier(.2,.8,.2,1);
-
+    0 30px 90px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.045);
+  animation:resultEntrance 1s cubic-bezier(.16,1,.3,1) both;
 }
 
+.result-card::before{
+  content:"";
+  position:absolute;
+  z-index:4;
+  top:0;
+  left:-35%;
+  width:20%;
+  height:100%;
+  pointer-events:none;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(80,200,255,.16),
+    rgba(255,255,255,.22),
+    rgba(80,200,255,.16),
+    transparent
+  );
+  transform:skewX(-18deg);
+  animation:resultScan 4s ease-in-out 1s infinite;
+}
 
-@keyframes resultEnter{
-
+@keyframes resultEntrance{
   from{
-
     opacity:0;
-
     transform:
-      translateY(30px)
-      scale(.97);
-
+      perspective(1200px)
+      rotateX(13deg)
+      translateY(75px)
+      scale(.94);
+    filter:blur(10px);
   }
-
   to{
-
     opacity:1;
-
-    transform:none;
-
+    transform:
+      perspective(1200px)
+      rotateX(0)
+      translateY(0)
+      scale(1);
+    filter:none;
   }
-
 }
 
+@keyframes resultScan{
+  0%,35%{
+    left:-35%;
+    opacity:0;
+  }
+  45%{
+    opacity:1;
+  }
+  70%{
+    left:120%;
+    opacity:1;
+  }
+  80%,100%{
+    left:130%;
+    opacity:0;
+  }
+}
 
 /* =========================================================
    RESULT HEADER
 ========================================================= */
 
 .result-head{
-
   position:relative;
-
-  overflow:hidden;
-
-  padding:30px;
-
+  padding:29px;
   background:
-
-    radial-gradient(
-      circle at 90% 10%,
-      rgba(40,120,255,.30),
-      transparent 30%
-    ),
-
-    radial-gradient(
-      circle at 10% 100%,
-      rgba(128,92,255,.16),
-      transparent 30%
-    ),
-
-    linear-gradient(
-      135deg,
-      #071633,
-      #0b2451
-    );
-
+    radial-gradient(circle at 80% 20%,rgba(0,140,255,.2),transparent 35%),
+    linear-gradient(135deg,#071a31,#06275a 55%,#031226);
+  border-bottom:1px solid rgba(100,180,255,.14);
 }
-
-
-.result-head:before{
-
-  content:"";
-
-  position:absolute;
-
-  width:280px;
-  height:280px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.06);
-
-  border-radius:50%;
-
-  right:-110px;
-
-  top:-145px;
-
-}
-
-
-.result-head:after{
-
-  content:"";
-
-  position:absolute;
-
-  width:190px;
-  height:190px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.05);
-
-  border-radius:50%;
-
-  right:-45px;
-
-  top:-85px;
-
-}
-
 
 .result-head small{
-
-  color:#8ea6c9;
-
+  color:#78bce6;
   font-size:10px;
-
-  font-weight:900;
-
-  letter-spacing:1.2px;
-
+  font-weight:950;
+  letter-spacing:.18em;
 }
-
 
 .result-head h2{
-
-  margin-top:6px;
-
-  font-size:28px;
-
+  margin-top:7px;
+  color:#fff;
+  font-size:clamp(25px,6vw,36px);
+  letter-spacing:.03em;
   word-break:break-word;
-
-  position:relative;
-
-  z-index:2;
-
+  text-shadow:0 0 25px rgba(60,180,255,.25);
 }
-
-
-/* =========================================================
-   STATUS
-========================================================= */
 
 .status-pill{
-
   display:inline-flex;
-
   align-items:center;
-
   gap:9px;
-
-  margin-top:16px;
-
-  padding:
-    9px
-    15px;
-
-  border-radius:50px;
-
-  background:#fff;
-
-  color:#111827;
-
+  margin-top:17px;
+  padding:9px 14px;
+  border-radius:30px;
+  color:#eaf8ff;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(150,220,255,.2);
   font-size:12px;
-
-  font-weight:900;
-
-  position:relative;
-
-  z-index:3;
-
+  font-weight:950;
+  backdrop-filter:blur(10px);
 }
 
-
 .status-dot{
-
   width:9px;
-
   height:9px;
-
   border-radius:50%;
-
-  background:
-    var(--green);
-
+  background:#2bdcff;
   box-shadow:
-    0 0 0 5px
-    rgba(32,209,122,.12);
-
+    0 0 8px #2bdcff,
+    0 0 20px #1687ff;
+  animation:statusDot 1.5s infinite;
 }
 
-
-.status-pill.cancelled{
-
-  color:#a51f30;
-
+@keyframes statusDot{
+  0%,100%{
+    transform:scale(.75);
+    opacity:.6;
+  }
+  50%{
+    transform:scale(1.2);
+    opacity:1;
+  }
 }
-
-
-.status-pill.cancelled
-.status-dot{
-
-  background:
-    var(--red);
-
-  box-shadow:
-    0 0 0 5px
-    rgba(255,79,97,.13);
-
-}
-
 
 /* =========================================================
    DETAILS
 ========================================================= */
 
 .details{
-
-  padding:
-    25px
-    30px
-    5px;
-
-  background:
-    rgba(255,255,255,.025);
-
+  padding:23px 28px 10px;
 }
-
 
 .detail{
-
-  padding:
-    17px
-    0;
-
-  border-bottom:
-    1px solid
-    rgba(255,255,255,.07);
-
+  position:relative;
+  padding:17px 0;
+  border-bottom:1px solid rgba(120,160,195,.11);
 }
-
 
 .detail:last-child{
-
   border-bottom:0;
-
 }
-
 
 .detail label{
-
   display:block;
-
-  color:#7e8da4;
-
-  font-size:9px;
-
-  font-weight:900;
-
-  text-transform:uppercase;
-
-  letter-spacing:1px;
-
   margin-bottom:7px;
-
+  color:#6fa6ca;
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:.15em;
+  text-transform:uppercase;
 }
-
 
 .detail div{
-
-  color:#e8eef8;
-
-  font-size:15px;
-
+  color:#d9e8f5;
+  font-size:14px;
   line-height:1.7;
-
   word-break:break-word;
-
 }
-
 
 /* =========================================================
    ADMIN REMARK
 ========================================================= */
 
-.admin-update{
-
+.admin-remark{
   position:relative;
-
+  margin:5px 28px 25px;
+  padding:20px;
+  border-radius:20px;
   overflow:hidden;
-
-  margin:
-    20px
-    30px;
-
-  padding:21px;
-
-  border-radius:21px;
-
   background:
-
     linear-gradient(
       135deg,
-      rgba(40,120,255,.14),
-      rgba(128,92,255,.07)
+      rgba(20,105,180,.14),
+      rgba(4,30,60,.5)
     );
-
-  border:
-    1px solid
-    rgba(40,120,255,.25);
-
-  box-shadow:
-    0 12px 40px
-    rgba(0,0,0,.12);
-
+  border:1px solid rgba(55,170,255,.2);
 }
 
-
-.admin-update:before{
-
+.admin-remark::before{
   content:"";
-
   position:absolute;
-
   left:0;
-
   top:0;
-
   bottom:0;
-
-  width:4px;
-
-  background:
-
-    linear-gradient(
-      #2878ff,
-      #805cff
-    );
-
+  width:3px;
+  background:linear-gradient(#3ac4ff,#1767ff);
+  box-shadow:0 0 15px rgba(40,180,255,.65);
 }
 
-
-.admin-top{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:9px;
-
-  margin-bottom:10px;
-
-}
-
-
-.admin-icon{
-
-  width:30px;
-
-  height:30px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:10px;
-
-  background:
-    rgba(40,120,255,.14);
-
-  border:
-    1px solid
-    rgba(40,120,255,.20);
-
-  font-size:14px;
-
-}
-
-
-.admin-title{
-
-  color:#91c3ff;
-
-  font-size:13px;
-
-  font-weight:900;
-
-}
-
-
-.admin-subtitle{
-
-  color:#687890;
-
-  font-size:9px;
-
-  margin-top:2px;
-
-}
-
-
-.admin-text{
-
-  color:#e2eafa;
-
-  font-size:14px;
-
-  line-height:1.75;
-
-  white-space:pre-wrap;
-
-  word-break:break-word;
-
-}
-
-
-.admin-date{
-
-  margin-top:12px;
-
-  padding-top:10px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,.06);
-
-  color:#718097;
-
+.admin-remark label{
+  display:block;
+  color:#66c9ff;
   font-size:10px;
-
-}
-
-
-/* =========================================================
-   CANCELLED
-========================================================= */
-
-.cancel-box{
-
-  position:relative;
-
-  overflow:hidden;
-
-  margin:
-    20px
-    30px;
-
-  padding:21px;
-
-  border-radius:21px;
-
-  background:
-
-    linear-gradient(
-      135deg,
-      rgba(255,79,97,.12),
-      rgba(255,255,255,.025)
-    );
-
-  border:
-    1px solid
-    rgba(255,79,97,.25);
-
-}
-
-
-.cancel-box:before{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-
-  top:0;
-
-  bottom:0;
-
-  width:4px;
-
-  background:
-    linear-gradient(
-      #ff4f61,
-      #ff8a95
-    );
-
-}
-
-
-.cancel-title{
-
-  color:#ff7180;
-
-  font-size:14px;
-
-  font-weight:900;
-
+  font-weight:950;
+  letter-spacing:.15em;
   margin-bottom:9px;
-
 }
 
-
-.cancel-text{
-
-  color:#f2c7cb;
-
+.admin-remark p{
+  color:#dceeff;
   font-size:14px;
-
   line-height:1.7;
-
   white-space:pre-wrap;
-
 }
-
 
 /* =========================================================
-   TIMELINE
+   PROGRESS TIMELINE
 ========================================================= */
 
 .timeline{
-
-  padding:
-    25px
-    30px;
-
+  padding:12px 28px 30px;
 }
 
-
-.timeline-head{
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
-  margin-bottom:20px;
-
-}
-
-
-.timeline-head h3{
-
+.timeline h3{
+  margin-bottom:25px;
+  color:#eef8ff;
   font-size:18px;
-
-}
-
-
-.live{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:6px;
-
-  color:#6fe4a5;
-
-  font-size:9px;
-
   font-weight:900;
-
-  letter-spacing:.6px;
-
 }
-
-
-.live-dot{
-
-  width:7px;
-
-  height:7px;
-
-  border-radius:50%;
-
-  background:#20d17a;
-
-  animation:
-    livePulse
-    1.5s
-    infinite;
-
-}
-
-
-@keyframes livePulse{
-
-  50%{
-
-    box-shadow:
-      0 0 0 8px
-      rgba(32,209,122,.10);
-
-  }
-
-}
-
 
 .track{
-
   position:relative;
-
 }
 
-
-.track:before{
-
+.track::before{
   content:"";
-
   position:absolute;
-
   left:15px;
-
   top:16px;
-
   bottom:16px;
-
   width:2px;
-
   background:
-    rgba(255,255,255,.08);
-
+    linear-gradient(
+      to bottom,
+      rgba(50,160,255,.55),
+      rgba(100,140,170,.12)
+    );
 }
-
 
 .stage{
-
   position:relative;
-
   display:flex;
-
-  gap:14px;
-
-  padding-bottom:20px;
-
+  gap:15px;
+  align-items:flex-start;
+  padding-bottom:22px;
+  animation:stageReveal .7s cubic-bezier(.16,1,.3,1) both;
 }
 
+.stage:nth-child(1){animation-delay:.15s}
+.stage:nth-child(2){animation-delay:.28s}
+.stage:nth-child(3){animation-delay:.41s}
+.stage:nth-child(4){animation-delay:.54s}
 
 .stage:last-child{
-
   padding-bottom:0;
-
 }
 
-
-.stage-icon{
-
-  width:32px;
-
-  height:32px;
-
-  flex:0 0 32px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:50%;
-
-  background:#172033;
-
-  border:
-    3px solid
-    #0b1325;
-
-  color:#66758b;
-
-  font-size:12px;
-
-  font-weight:900;
-
-  z-index:2;
-
-}
-
-
-.stage.done
-.stage-icon{
-
-  background:#16a36a;
-
-  color:#fff;
-
-  box-shadow:
-    0 0 0 5px
-    rgba(22,163,106,.10);
-
-}
-
-
-.stage.current
-.stage-icon{
-
-  background:#2878ff;
-
-  color:#fff;
-
-  box-shadow:
-    0 0 0 5px
-    rgba(40,120,255,.10);
-
-  animation:
-    currentPulse
-    1.8s
-    infinite;
-
-}
-
-
-.stage.cancelled
-.stage-icon{
-
-  background:#dc3545;
-
-  color:#fff;
-
-  box-shadow:
-    0 0 0 5px
-    rgba(220,53,69,.10);
-
-}
-
-
-@keyframes currentPulse{
-
-  50%{
-
-    box-shadow:
-      0 0 0 10px
-      rgba(40,120,255,.06);
-
+@keyframes stageReveal{
+  from{
+    opacity:0;
+    transform:
+      translateX(-35px)
+      rotateY(-15deg);
+    filter:blur(4px);
   }
-
+  to{
+    opacity:1;
+    transform:none;
+    filter:none;
+  }
 }
 
+.stage-icon{
+  position:relative;
+  z-index:2;
+  width:32px;
+  height:32px;
+  flex:0 0 32px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  color:#65788b;
+  background:#071525;
+  border:2px solid #20364d;
+  font-size:12px;
+  font-weight:950;
+}
+
+.stage.done .stage-icon{
+  color:#fff;
+  background:#0879c7;
+  border-color:#39baff;
+  box-shadow:
+    0 0 10px rgba(40,190,255,.7),
+    0 0 25px rgba(0,120,255,.28);
+}
+
+.stage.current .stage-icon{
+  color:#fff;
+  background:#147fee;
+  border-color:#75d8ff;
+  box-shadow:
+    0 0 0 5px rgba(30,145,255,.10),
+    0 0 15px #1687ff,
+    0 0 40px rgba(0,120,255,.45);
+  animation:currentCore 1.7s ease-in-out infinite;
+}
+
+@keyframes currentCore{
+  0%,100%{
+    transform:scale(.92);
+  }
+  50%{
+    transform:scale(1.1);
+  }
+}
 
 .stage-title{
-
-  color:#9aa8bd;
-
+  padding-top:5px;
+  color:#829bb1;
   font-size:14px;
-
-  font-weight:800;
-
-  padding-top:6px;
-
+  font-weight:850;
 }
 
-
-.stage.done
-.stage-title{
-
-  color:#d9e4f2;
-
+.stage.done .stage-title{
+  color:#c6dfef;
 }
 
-
-.stage.current
-.stage-title{
-
-  color:#78b0ff;
-
+.stage.current .stage-title{
+  color:#55c7ff;
+  text-shadow:0 0 14px rgba(50,190,255,.3);
 }
-
-
-.stage.cancelled
-.stage-title{
-
-  color:#ff7180;
-
-}
-
 
 .stage-note{
-
-  color:#64748b;
-
+  margin-top:4px;
+  color:#5d89a7;
   font-size:10px;
-
-  margin-top:3px;
-
+  font-weight:800;
+  letter-spacing:.05em;
 }
 
-
 /* =========================================================
-   ACTION BUTTONS
+   ACTIONS
 ========================================================= */
 
 .actions{
-
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
+  grid-template-columns:repeat(6,1fr);
   gap:9px;
-
-  padding:
-    0
-    30px
-    28px;
-
+  padding:0 28px 28px;
 }
 
-
-.action{
-
-  border:
-    1px solid
-    rgba(255,255,255,.08);
-
-  background:
-    rgba(255,255,255,.035);
-
-  color:#bdc8d8;
-
+.action-btn{
+  min-height:45px;
+  border:1px solid rgba(90,160,210,.16);
   border-radius:13px;
-
-  padding:
-    12px
-    8px;
-
+  color:#bcd9eb;
+  background:rgba(13,35,58,.55);
   font-size:11px;
-
-  font-weight:900;
-
+  font-weight:850;
   cursor:pointer;
-
-  transition:.25s;
-
+  transition:.3s cubic-bezier(.16,1,.3,1);
 }
 
-
-.action:hover{
-
-  transform:
-    translateY(-2px);
-
-  border-color:
-    rgba(40,120,255,.3);
-
-  background:
-    rgba(40,120,255,.08);
-
+.action-btn:hover{
   color:#fff;
-
+  border-color:rgba(70,180,255,.45);
+  background:rgba(20,75,120,.5);
+  transform:translateY(-3px);
+  box-shadow:
+    0 10px 25px rgba(0,90,170,.2),
+    0 0 20px rgba(0,130,255,.08);
 }
 
-
-.action.primary{
-
-  background:
-    rgba(40,120,255,.12);
-
-  color:#75aeff;
-
-  border-color:
-    rgba(40,120,255,.25);
-
+.action-btn.primary{
+  color:#fff;
+  background:linear-gradient(135deg,#116fd5,#08499f);
 }
-
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 .footer{
-
+  padding:10px 0 35px;
+  color:#547087;
   text-align:center;
-
-  color:#56647a;
-
   font-size:10px;
-
-  padding:
-    0
-    0
-    35px;
-
+  font-weight:700;
+  letter-spacing:.05em;
 }
-
 
 .back{
-
   display:inline-block;
-
-  margin-top:14px;
-
-  color:#6fa8ff;
-
+  margin-top:15px;
+  color:#55bfff;
   text-decoration:none;
-
-  font-weight:900;
-
+  font-size:12px;
+  font-weight:850;
+  transition:.3s ease;
 }
 
+.back:hover{
+  color:#a9e4ff;
+  text-shadow:0 0 15px rgba(50,190,255,.5);
+}
 
 /* =========================================================
-   TOAST
+   SUCCESS FLASH
 ========================================================= */
 
-.toast{
-
+.success-flash{
   position:fixed;
-
-  left:50%;
-
-  bottom:25px;
-
-  transform:
-    translate(-50%,25px);
-
-  opacity:0;
-
+  inset:0;
+  z-index:9988;
   pointer-events:none;
-
-  z-index:9999;
-
-  padding:
-    13px
-    18px;
-
-  border-radius:14px;
-
-  background:#101a2c;
-
-  border:
-    1px solid
-    rgba(255,255,255,.1);
-
-  color:#fff;
-
-  font-size:12px;
-
-  font-weight:900;
-
-  box-shadow:
-    0 20px 50px
-    rgba(0,0,0,.5);
-
-  transition:.3s;
-
-  white-space:nowrap;
-
+  opacity:0;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(40,190,255,.2),
+      transparent 45%
+    );
 }
 
-
-.toast.show{
-
-  opacity:1;
-
-  transform:
-    translate(-50%,0);
-
+.success-flash.active{
+  animation:successFlash 1.3s ease-out;
 }
 
+@keyframes successFlash{
+  0%{opacity:0}
+  20%{opacity:1}
+  100%{opacity:0}
+}
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
   .container{
-    width:94%;
+    width:min(94%,900px);
   }
-
-
-  .top{
-    padding-top:18px;
-  }
-
-
-  .hero{
-    padding-top:28px;
-  }
-
-
-  .hero-title{
-    margin-top:34px;
-  }
-
-
-  .hero-title h1{
-
-    font-size:45px;
-
-    letter-spacing:-2.8px;
-
-  }
-
-
-  .hero-title p{
-
-    font-size:13px;
-
-  }
-
 
   .search-card{
-
-    padding:18px;
-
+    padding:19px;
+    border-radius:23px;
   }
-
 
   .search-row{
-
     flex-direction:column;
-
   }
-
 
   .search-row button{
-
-    padding:15px;
-
+    min-height:52px;
   }
-
 
   .result-card{
-
     border-radius:24px;
-
   }
-
 
   .result-head{
-
     padding:23px;
-
   }
 
-
-  .result-head h2{
-
-    font-size:23px;
-
+  .details{
+    padding:18px 21px 8px;
   }
 
-
-  .details,
   .timeline{
-
-    padding-left:20px;
-
-    padding-right:20px;
-
+    padding:10px 21px 25px;
   }
 
-
-  .admin-update,
-  .cancel-box{
-
-    margin-left:20px;
-
-    margin-right:20px;
-
+  .admin-remark{
+    margin-left:21px;
+    margin-right:21px;
   }
-
 
   .actions{
-
-    padding-left:20px;
-
-    padding-right:20px;
-
-    grid-template-columns:
-      repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
+    padding:0 21px 22px;
   }
 
+  .action-btn{
+    min-height:46px;
+  }
+
+  .intro-title{
+    letter-spacing:.16em;
+  }
+
+  .intro-subtitle{
+    letter-spacing:.25em;
+  }
 }
 
+@media(max-width:400px){
+
+  h1{
+    font-size:35px;
+  }
+
+  .actions{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .action-btn{
+    font-size:10px;
+  }
+}
 
 /* =========================================================
-   PRINT
+   REDUCED MOTION
 ========================================================= */
 
-@media print{
+@media(prefers-reduced-motion:reduce){
 
-  body{
-
-    background:#fff;
-
-    color:#111;
-
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition:none !important;
   }
 
-
-  .top,
-  .hero,
-  .actions,
-  .footer{
-
-    display:none!important;
-
+  .intro-screen{
+    display:none;
   }
-
-
-  .result{
-
-    display:block!important;
-
-  }
-
-
-  .result-card{
-
-    background:#fff;
-
-    color:#111;
-
-    box-shadow:none;
-
-    border:
-      1px solid
-      #ddd;
-
-  }
-
 }
 
 </style>
 </head>
 
-
 <body>
 
+<!-- =======================================================
+     CINEMATIC INTRO
+======================================================= -->
+
+<div class="intro-screen">
+  <div class="intro-content">
+    <img class="intro-logo" src="Logo.jpg" alt="SK KGN TEAM">
+    <div class="intro-title">SK KGN TEAM</div>
+    <div class="intro-subtitle">COMPLAINT TRACKING SYSTEM</div>
+  </div>
+</div>
+
+<!-- =======================================================
+     SCANNING OVERLAY
+======================================================= -->
+
+<div class="scan-overlay" id="scanOverlay">
+
+  <div class="scan-core">
+
+    <div class="scan-ring"></div>
+
+    <div class="scan-text">
+      <strong id="scanTitle">SYSTEM SCANNING</strong>
+      <span id="scanSubtitle">LOCATING COMPLAINT RECORD</span>
+
+      <div class="scan-progress">
+        <i></i>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="success-flash" id="successFlash"></div>
+
+<!-- =======================================================
+     MAIN
+======================================================= -->
 
 <div class="container">
 
+  <!-- HEADER -->
 
-<!-- =======================================================
-     BRAND
-======================================================= -->
-
-<div class="top">
-
-<a
-  class="brand"
-  href="index.html">
-
-<img
-  src="Logo.jpg"
-  alt="SK KGN TEAM">
-
-<span>
-SK KGN TEAM
-</span>
-
-</a>
-
-</div>
+  <div class="top">
+    <a class="brand" href="index.html">
+      <img src="Logo.jpg" alt="SK KGN TEAM">
+      <span>SK KGN TEAM</span>
+    </a>
+  </div>
 
 
-<!-- =======================================================
-     HERO
-======================================================= -->
+  <!-- SEARCH COMES FIRST -->
 
-<section class="hero">
+  <section class="hero">
 
+    <div class="search-card">
 
-<div class="badge">
+      <label for="complaintId">
+        COMPLAINT ID
+      </label>
 
-🔐 SECURE • LIVE • COMPLAINT TRACKING
+      <div class="search-row">
 
-</div>
+        <input
+          id="complaintId"
+          type="text"
+          placeholder="SKKGN-XXXXXX"
+          autocomplete="off"
+          spellcheck="false"
+        >
 
+        <button id="checkBtn" onclick="checkComplaint()">
+          Check Status →
+        </button>
 
-<!-- SEARCH IS ABOVE TITLE -->
+      </div>
 
-<div class="search-shell">
+      <div id="message"></div>
 
-
-<div class="search-card">
-
-
-<label for="complaintId">
-
-COMPLAINT ID
-
-</label>
-
-
-<div class="search-row">
-
-
-<input
-  id="complaintId"
-  type="text"
-  placeholder="SKKGN-XXXXXX"
-  autocomplete="off"
-  spellcheck="false">
+    </div>
 
 
-<button
-  id="checkBtn"
-  onclick="checkComplaint()">
+    <div class="badge">
+      PUBLIC COMPLAINT TRACKING
+    </div>
 
-Check Status →
+    <h1>
+      Track Your Complaint
+    </h1>
 
-</button>
+    <p>
+      Enter your Complaint ID to view the latest status,
+      complaint information and administrative remarks.
+    </p>
+
+  </section>
 
 
-</div>
+  <!-- RESULT -->
+
+  <section id="result" class="result"></section>
 
 
-<div
-  id="message">
-</div>
+  <!-- FOOTER -->
 
+  <div class="footer">
+
+    SK KGN TEAM • Complaint Tracking System
+
+    <br>
+
+    <a class="back" href="index.html">
+      ← Back to Website
+    </a>
+
+  </div>
 
 </div>
-
-</div>
-
-
-<!-- TITLE BELOW SEARCH -->
-
-<div class="hero-title">
-
-
-<h1>
-
-Track Your Complaint
-
-</h1>
-
-
-<p>
-
-Enter your Complaint ID to securely view the latest status,
-official updates and complaint information.
-
-</p>
-
-
-</div>
-
-
-</section>
 
 
 <!-- =======================================================
-     RESULT
+     FIREBASE + SYSTEM
 ======================================================= -->
-
-<section
-  id="result"
-  class="result">
-</section>
-
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
-<div class="footer">
-
-SK KGN TEAM • Complaint Tracking System
-
-<br>
-
-<a
-  class="back"
-  href="index.html">
-
-← Back to Website
-
-</a>
-
-</div>
-
-
-</div>
-
-
-<!-- TOAST -->
-
-<div
-  id="toast"
-  class="toast">
-</div>
-
 
 <script type="module">
 
-
-/* =========================================================
-   FIREBASE
-   ORIGINAL WORKING CONNECTION
-========================================================= */
-
 import {
   initializeApp
-}
-from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 import {
   getFirestore,
@@ -1988,46 +1332,49 @@ import {
   query,
   where,
   getDocs
-}
-from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
+
+/* =========================================================
+   FIREBASE CONFIG
+========================================================= */
 
 const firebaseConfig = {
 
   apiKey:
-  "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+    "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
 
   authDomain:
-  "sk-kgn-team.firebaseapp.com",
+    "sk-kgn-team.firebaseapp.com",
 
   databaseURL:
-  "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
 
   projectId:
-  "sk-kgn-team",
+    "sk-kgn-team",
 
   storageBucket:
-  "sk-kgn-team.firebasestorage.app",
+    "sk-kgn-team.firebasestorage.app",
 
   messagingSenderId:
-  "228612697498",
+    "228612697498",
 
   appId:
-  "1:228612697498:web:a304b57bf5a59d2933de23",
+    "1:228612697498:web:a304b57bf5a59d2933de23",
 
   measurementId:
-  "G-BXWT6BPTB6"
+    "G-BXWT6BPTB6"
 
 };
 
 
-const app =
-initializeApp(firebaseConfig);
+/* =========================================================
+   INITIALIZE FIREBASE
+========================================================= */
 
+const app = initializeApp(firebaseConfig);
 
-const db =
-getFirestore(app);
+const db = getFirestore(app);
 
 
 /* =========================================================
@@ -2035,117 +1382,68 @@ getFirestore(app);
 ========================================================= */
 
 const input =
-document.getElementById(
-  "complaintId"
-);
-
+  document.getElementById("complaintId");
 
 const button =
-document.getElementById(
-  "checkBtn"
-);
-
+  document.getElementById("checkBtn");
 
 const message =
-document.getElementById(
-  "message"
-);
-
+  document.getElementById("message");
 
 const result =
-document.getElementById(
-  "result"
-);
+  document.getElementById("result");
 
+const scanOverlay =
+  document.getElementById("scanOverlay");
 
-const toast =
-document.getElementById(
-  "toast"
-);
+const scanTitle =
+  document.getElementById("scanTitle");
 
+const scanSubtitle =
+  document.getElementById("scanSubtitle");
 
-let currentComplaint =
-null;
+const successFlash =
+  document.getElementById("successFlash");
 
 
 /* =========================================================
-   SAFE HTML
+   ESCAPE HTML
 ========================================================= */
 
 function escapeHTML(value){
 
-  return String(
-    value ?? "-"
-  )
-
-  .replace(
-    /&/g,
-    "&amp;"
-  )
-
-  .replace(
-    /</g,
-    "&lt;"
-  )
-
-  .replace(
-    />/g,
-    "&gt;"
-  )
-
-  .replace(
-    /"/g,
-    "&quot;"
-  )
-
-  .replace(
-    /'/g,
-    "&#039;"
-  );
+  return String(value ?? "-")
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 
 }
 
 
 /* =========================================================
-   DATE
+   DATE FORMAT
 ========================================================= */
 
 function formatDate(timestamp){
 
-  if(!timestamp)
-    return "-";
-
+  if(!timestamp) return "-";
 
   try{
 
     const date =
       timestamp.toDate
-      ? timestamp.toDate()
-      : new Date(timestamp);
-
-
-    if(
-      isNaN(
-        date.getTime()
-      )
-    ){
-
-      return "-";
-
-    }
-
+        ? timestamp.toDate()
+        : new Date(timestamp);
 
     return new Intl.DateTimeFormat(
-
       "en-IN",
-
       {
         dateStyle:"medium",
         timeStyle:"short"
       }
-
     ).format(date);
-
 
   }catch(error){
 
@@ -2157,123 +1455,61 @@ function formatDate(timestamp){
 
 
 /* =========================================================
-   STATUS
+   STATUS INFORMATION
 ========================================================= */
 
 function statusInfo(status){
 
   const normalized =
-    String(
-      status ||
-      "Submitted"
-    )
-    .toLowerCase()
-    .trim();
+    String(status || "Submitted")
+      .toLowerCase()
+      .trim();
 
+  if(normalized.includes("cancel")){
+    return {
+      current:3,
+      label:"Cancelled",
+      cancelled:true
+    };
+  }
 
-  if(
-    normalized.includes(
-      "cancel"
-    )
-  ){
+  if(normalized.includes("resolve")){
 
     return {
-
       current:3,
-
-      label:
-        status ||
-        "Cancelled",
-
-      type:
-        "cancelled"
-
+      label:"Resolved",
+      cancelled:false
     };
 
   }
 
-
   if(
-    normalized.includes(
-      "resolve"
-    )
+    normalized.includes("progress") ||
+    normalized.includes("work")
   ){
 
     return {
-
-      current:3,
-
-      label:
-        status ||
-        "Resolved",
-
-      type:
-        "resolved"
-
-    };
-
-  }
-
-
-  if(
-    normalized.includes(
-      "progress"
-    )
-    ||
-    normalized.includes(
-      "work"
-    )
-  ){
-
-    return {
-
       current:2,
-
-      label:
-        status ||
-        "In Progress",
-
-      type:
-        "progress"
-
+      label:status || "In Progress",
+      cancelled:false
     };
 
   }
 
-
-  if(
-    normalized.includes(
-      "review"
-    )
-  ){
+  if(normalized.includes("review")){
 
     return {
-
       current:1,
-
-      label:
-        status ||
-        "Under Review",
-
-      type:
-        "review"
-
+      label:status || "Under Review",
+      cancelled:false
     };
 
   }
-
 
   return {
-
     current:0,
-
-    label:
-      status ||
-      "Submitted",
-
-    type:
-      "submitted"
-
+    label:status || "Submitted",
+    cancelled:false
   };
 
 }
@@ -2288,169 +1524,288 @@ function timeline(status){
   const info =
     statusInfo(status);
 
+  if(info.cancelled){
 
-  let stages;
-
-
-  if(
-    info.type ===
-    "cancelled"
-  ){
-
-    stages = [
-
+    const stages = [
       "Submitted",
-
       "Under Review",
-
-      "In Progress",
-
       "Cancelled"
-
     ];
 
-  }else{
+    return stages.map((stage,index)=>{
 
-    stages = [
+      const done =
+        index < 2;
 
-      "Submitted",
+      const current =
+        index === 2;
 
-      "Under Review",
+      return `
+        <div class="stage
+          ${done ? "done" : ""}
+          ${current ? "current" : ""}
+        ">
 
-      "In Progress",
+          <div class="stage-icon">
+            ${done ? "✓" : "×"}
+          </div>
 
-      "Resolved"
+          <div>
 
-    ];
+            <div class="stage-title">
+              ${stage}
+            </div>
+
+            ${
+              current
+              ?
+              `<div class="stage-note">
+                 Current status
+               </div>`
+              :
+              ""
+            }
+
+          </div>
+
+        </div>
+      `;
+
+    }).join("");
 
   }
 
 
-  return stages.map(
-
-    (stage,index)=>{
-
-
-      const done =
-        index <
-        info.current;
+  const stages = [
+    "Submitted",
+    "Under Review",
+    "In Progress",
+    "Resolved"
+  ];
 
 
-      const current =
-        index ===
-        info.current;
+  return stages.map((stage,index)=>{
 
+    const done =
+      index < info.current;
 
-      const cancelled =
-        info.type ===
-        "cancelled"
-        &&
-        current;
+    const current =
+      index === info.current;
 
+    return `
+      <div class="stage
+        ${done ? "done" : ""}
+        ${current ? "current" : ""}
+      ">
 
-      return `
+        <div class="stage-icon">
+          ${done ? "✓" : current ? "●" : "○"}
+        </div>
 
-        <div
-          class="stage
-          ${done ? "done" : ""}
-          ${current ? "current" : ""}
-          ${cancelled ? "cancelled" : ""}">
+        <div>
 
-
-          <div
-            class="stage-icon">
-
-            ${
-              done
-              ? "✓"
-              : cancelled
-              ? "×"
-              : current
-              ? "●"
-              : "○"
-            }
-
+          <div class="stage-title">
+            ${stage}
           </div>
 
-
-          <div>
-
-            <div
-              class="stage-title">
-
-              ${stage}
-
-            </div>
-
-
-            ${
-              current
-
-              ?
-
-              `
-
-              <div
-                class="stage-note">
-
-                ${
-                  cancelled
-                  ?
-                  "Complaint cancelled"
-                  :
-                  "Current status"
-                }
-
-              </div>
-
-              `
-
-              :
-
-              ""
-
-            }
-
-          </div>
-
+          ${
+            current
+            ?
+            `<div class="stage-note">
+               Current status
+             </div>`
+            :
+            ""
+          }
 
         </div>
 
-      `;
+      </div>
+    `;
 
-    }
-
-  ).join("");
+  }).join("");
 
 }
 
 
 /* =========================================================
-   CHECK COMPLAINT
-   ORIGINAL FIRESTORE FLOW
+   SCANNER
 ========================================================= */
 
-window.checkComplaint =
-async function(){
+function startScanner(){
 
+  scanTitle.textContent =
+    "SYSTEM SCANNING";
+
+  scanSubtitle.textContent =
+    "LOCATING COMPLAINT RECORD";
+
+  scanOverlay.classList.add("active");
+
+}
+
+
+function scannerStep(title,subtitle){
+
+  scanTitle.textContent =
+    title;
+
+  scanSubtitle.textContent =
+    subtitle;
+
+}
+
+
+/* =========================================================
+   ACTION FUNCTIONS
+========================================================= */
+
+window.copyComplaintId = async function(){
+
+  const id =
+    document.getElementById("copyIdValue")?.textContent;
+
+  if(!id) return;
+
+  try{
+
+    await navigator.clipboard.writeText(id);
+
+    scannerStep(
+      "COPIED",
+      "COMPLAINT ID SAVED TO CLIPBOARD"
+    );
+
+    setTimeout(()=>{
+
+      scanOverlay.classList.remove("active");
+
+    },700);
+
+  }catch(error){
+
+    alert("Unable to copy Complaint ID.");
+
+  }
+
+};
+
+
+window.refreshComplaint = function(){
+
+  if(input.value.trim()){
+
+    window.checkComplaint();
+
+  }else{
+
+    location.reload();
+
+  }
+
+};
+
+
+window.shareComplaint = async function(){
+
+  const id =
+    document.getElementById("copyIdValue")?.textContent;
+
+  if(!id) return;
+
+  const shareData = {
+
+    title:"SK KGN TEAM — Complaint Status",
+
+    text:
+      "Track Complaint " +
+      id +
+      " on SK KGN TEAM.",
+
+    url:
+      window.location.href.split("?")[0] +
+      "?id=" +
+      encodeURIComponent(id)
+
+  };
+
+
+  try{
+
+    if(navigator.share){
+
+      await navigator.share(shareData);
+
+    }else{
+
+      await navigator.clipboard.writeText(
+        shareData.url
+      );
+
+      alert(
+        "Tracking link copied."
+      );
+
+    }
+
+  }catch(error){
+
+    console.log(error);
+
+  }
+
+};
+
+
+window.printComplaint = function(){
+
+  window.print();
+
+};
+
+
+window.callSupport = function(){
+
+  window.location.href =
+    "tel:+917007027158";
+
+};
+
+
+window.whatsappSupport = function(){
+
+  const id =
+    document.getElementById("copyIdValue")?.textContent || "";
+
+  const text =
+    "Hello SK KGN TEAM, I need assistance regarding my complaint " +
+    id +
+    ".";
+
+  window.open(
+    "https://wa.me/917007027158?text=" +
+    encodeURIComponent(text),
+    "_blank"
+  );
+
+};
+
+
+/* =========================================================
+   MAIN CHECK COMPLAINT
+========================================================= */
+
+window.checkComplaint = async function(){
 
   const complaintId =
-
-    input.value
-      .trim()
-      .toUpperCase();
+    input.value.trim().toUpperCase();
 
 
-  result.style.display =
-    "none";
+  result.style.display = "none";
 
+  result.innerHTML = "";
 
-  result.innerHTML =
-    "";
-
-
-  message.style.display =
-    "none";
+  message.style.display = "none";
 
 
   if(!complaintId){
@@ -2466,46 +1821,86 @@ async function(){
   }
 
 
-  button.disabled =
-    true;
-
+  button.disabled = true;
 
   button.textContent =
     "Checking...";
 
 
+  /* START CINEMATIC SCANNER */
+
+  startScanner();
+
+
   try{
 
+    /* -----------------------------------------------
+       SCAN PHASE 1
+    ----------------------------------------------- */
 
-    /* =====================================================
-       ORIGINAL QUERY
-    ===================================================== */
+    await new Promise(
+      resolve => setTimeout(resolve,650)
+    );
 
-    const q =
 
-      query(
+    scannerStep(
+      "CONNECTING",
+      "SECURE DATABASE CONNECTION"
+    );
 
-        collection(
-          db,
-          "complaints"
-        ),
 
-        where(
-          "complaintId",
-          "==",
-          complaintId
-        )
+    await new Promise(
+      resolve => setTimeout(resolve,600)
+    );
 
-      );
+
+    /* -----------------------------------------------
+       ORIGINAL FIRESTORE QUERY
+    ----------------------------------------------- */
+
+    const q = query(
+      collection(db,"complaints"),
+      where(
+        "complaintId",
+        "==",
+        complaintId
+      )
+    );
+
+
+    scannerStep(
+      "SEARCHING",
+      "MATCHING COMPLAINT IDENTIFIER"
+    );
 
 
     const snapshot =
       await getDocs(q);
 
 
-    if(
-      snapshot.empty
-    ){
+    await new Promise(
+      resolve => setTimeout(resolve,500)
+    );
+
+
+    /* -----------------------------------------------
+       NOT FOUND
+    ----------------------------------------------- */
+
+    if(snapshot.empty){
+
+      scannerStep(
+        "NO MATCH FOUND",
+        "PLEASE VERIFY COMPLAINT ID"
+      );
+
+      await new Promise(
+        resolve => setTimeout(resolve,900)
+      );
+
+      scanOverlay.classList.remove(
+        "active"
+      );
 
       message.textContent =
         "Complaint not found. Please check the Complaint ID and try again.";
@@ -2518,28 +1913,314 @@ async function(){
     }
 
 
-    const doc =
-      snapshot.docs[0];
+    /* -----------------------------------------------
+       FOUND
+    ----------------------------------------------- */
 
-
-    currentComplaint = {
-
-      docId:
-        doc.id,
-
-      ...doc.data()
-
-    };
-
-
-    renderComplaint(
-      currentComplaint
+    scannerStep(
+      "COMPLAINT LOCATED",
+      "RETRIEVING SECURE RECORD"
     );
+
+
+    await new Promise(
+      resolve => setTimeout(resolve,500)
+    );
+
+
+    const data =
+      snapshot.docs[0].data();
+
+
+    const info =
+      statusInfo(data.status);
+
+
+    scannerStep(
+      "STATUS RETRIEVED",
+      "PREPARING COMPLAINT TIMELINE"
+    );
+
+
+    await new Promise(
+      resolve => setTimeout(resolve,650)
+    );
+
+
+    /* -----------------------------------------------
+       ADMIN REMARK
+       Supports all common field names
+    ----------------------------------------------- */
+
+    const adminRemark =
+      data.adminRemark ||
+      data.adminNotes ||
+      data.remark ||
+      "";
+
+
+    /* -----------------------------------------------
+       STATUS DOT
+    ----------------------------------------------- */
+
+    const statusDotColor =
+      info.cancelled
+        ? "#ff5570"
+        : info.label.toLowerCase().includes("resolve")
+          ? "#32e69b"
+          : "#2bdcff";
+
+
+    /* -----------------------------------------------
+       RESULT HTML
+    ----------------------------------------------- */
+
+    result.innerHTML = `
+
+      <div class="result-card">
+
+        <!-- RESULT HEADER -->
+
+        <div class="result-head">
+
+          <small>
+            COMPLAINT ID
+          </small>
+
+          <h2 id="copyIdValue">
+            ${escapeHTML(data.complaintId)}
+          </h2>
+
+          <div class="status-pill">
+
+            <span
+              class="status-dot"
+              style="
+                background:${statusDotColor};
+                box-shadow:
+                  0 0 8px ${statusDotColor},
+                  0 0 20px ${statusDotColor};
+              "
+            ></span>
+
+            ${escapeHTML(info.label)}
+
+          </div>
+
+        </div>
+
+
+        <!-- DETAILS -->
+
+        <div class="details">
+
+          <div class="detail">
+
+            <label>
+              Applicant Name
+            </label>
+
+            <div>
+              ${escapeHTML(data.name)}
+            </div>
+
+          </div>
+
+
+          <div class="detail">
+
+            <label>
+              Subject
+            </label>
+
+            <div>
+              ${escapeHTML(data.subject)}
+            </div>
+
+          </div>
+
+
+          <div class="detail">
+
+            <label>
+              Complaint Details
+            </label>
+
+            <div>
+              ${escapeHTML(data.details)}
+            </div>
+
+          </div>
+
+
+          <div class="detail">
+
+            <label>
+              Submitted On
+            </label>
+
+            <div>
+              ${formatDate(data.createdAt)}
+            </div>
+
+          </div>
+
+        </div>
+
+
+        ${
+          adminRemark.trim()
+          ?
+          `
+          <div class="admin-remark">
+
+            <label>
+              ADMIN REMARK
+            </label>
+
+            <p>
+              ${escapeHTML(adminRemark)}
+            </p>
+
+          </div>
+          `
+          :
+          ""
+        }
+
+
+        <!-- TIMELINE -->
+
+        <div class="timeline">
+
+          <h3>
+            Complaint Progress
+          </h3>
+
+          <div class="track">
+
+            ${timeline(data.status)}
+
+          </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="actions">
+
+          <button
+            class="action-btn primary"
+            onclick="copyComplaintId()"
+          >
+            Copy ID
+          </button>
+
+          <button
+            class="action-btn"
+            onclick="refreshComplaint()"
+          >
+            Refresh
+          </button>
+
+          <button
+            class="action-btn"
+            onclick="shareComplaint()"
+          >
+            Share
+          </button>
+
+          <button
+            class="action-btn"
+            onclick="printComplaint()"
+          >
+            Print
+          </button>
+
+          <button
+            class="action-btn"
+            onclick="callSupport()"
+          >
+            Call Support
+          </button>
+
+          <button
+            class="action-btn"
+            onclick="whatsappSupport()"
+          >
+            WhatsApp
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+
+    /* -----------------------------------------------
+       CLOSE SCANNER
+    ----------------------------------------------- */
+
+    await new Promise(
+      resolve => setTimeout(resolve,450)
+    );
+
+
+    scanOverlay.classList.remove(
+      "active"
+    );
+
+
+    /* -----------------------------------------------
+       SUCCESS FLASH
+    ----------------------------------------------- */
+
+    successFlash.classList.remove(
+      "active"
+    );
+
+    void successFlash.offsetWidth;
+
+    successFlash.classList.add(
+      "active"
+    );
+
+
+    /* -----------------------------------------------
+       SHOW RESULT
+    ----------------------------------------------- */
+
+    result.style.display =
+      "block";
+
+
+    /* -----------------------------------------------
+       SCROLL TO RESULT
+    ----------------------------------------------- */
+
+    setTimeout(()=>{
+
+      result.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+      });
+
+    },180);
 
 
   }catch(error){
 
-    console.error(error);
+    console.error(
+      "Complaint status error:",
+      error
+    );
+
+
+    scanOverlay.classList.remove(
+      "active"
+    );
 
 
     message.textContent =
@@ -2555,7 +2236,6 @@ async function(){
     button.disabled =
       false;
 
-
     button.textContent =
       "Check Status →";
 
@@ -2565,726 +2245,48 @@ async function(){
 
 
 /* =========================================================
-   RENDER COMPLAINT
-========================================================= */
-
-function renderComplaint(data){
-
-
-  const info =
-    statusInfo(
-      data.status
-    );
-
-
-  /* ADMIN REMARK
-     Supports multiple existing field names
-  */
-
-  const remark =
-
-    data.adminRemark ||
-
-    data.adminNotes ||
-
-    data.remark ||
-
-    "";
-
-
-  const updated =
-
-    data.adminUpdatedAt ||
-
-    data.updatedAt ||
-
-    null;
-
-
-  const cancelled =
-
-    info.type ===
-    "cancelled";
-
-
-  result.innerHTML = `
-
-
-    <div
-      class="result-card">
-
-
-      <!-- ================================================
-           HEADER
-      ================================================= -->
-
-      <div
-        class="result-head">
-
-
-        <small>
-          COMPLAINT ID
-        </small>
-
-
-        <h2>
-
-          ${escapeHTML(
-            data.complaintId
-          )}
-
-        </h2>
-
-
-        <div
-          class="status-pill
-          ${cancelled ? "cancelled" : ""}">
-
-
-          <span
-            class="status-dot">
-          </span>
-
-
-          ${escapeHTML(
-            info.label
-          )}
-
-
-        </div>
-
-
-      </div>
-
-
-      <!-- ================================================
-           DETAILS
-      ================================================= -->
-
-      <div
-        class="details">
-
-
-        <div
-          class="detail">
-
-          <label>
-            Applicant Name
-          </label>
-
-          <div>
-
-            ${escapeHTML(
-              data.name
-            )}
-
-          </div>
-
-        </div>
-
-
-        <div
-          class="detail">
-
-          <label>
-            Subject
-          </label>
-
-          <div>
-
-            ${escapeHTML(
-              data.subject
-            )}
-
-          </div>
-
-        </div>
-
-
-        <div
-          class="detail">
-
-          <label>
-            Complaint Details
-          </label>
-
-          <div>
-
-            ${escapeHTML(
-              data.details ||
-              data.description
-            )}
-
-          </div>
-
-        </div>
-
-
-        <div
-          class="detail">
-
-          <label>
-            Submitted On
-          </label>
-
-          <div>
-
-            ${formatDate(
-              data.createdAt
-            )}
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-      <!-- ================================================
-           ADMIN REMARK
-      ================================================= -->
-
-      ${
-        remark && cancelled
-
-        ?
-
-        `
-
-        <div
-          class="cancel-box">
-
-
-          <div
-            class="cancel-title">
-
-            ❌ Complaint Cancelled
-
-          </div>
-
-
-          <div
-            class="cancel-text">
-
-            ${escapeHTML(
-              remark
-            )}
-
-          </div>
-
-
-          ${
-            updated
-
-            ?
-
-            `
-
-            <div
-              class="admin-date">
-
-              Last updated:
-              ${formatDate(updated)}
-
-            </div>
-
-            `
-
-            :
-
-            ""
-
-          }
-
-
-        </div>
-
-        `
-
-        :
-
-        remark
-
-        ?
-
-        `
-
-        <div
-          class="admin-update">
-
-
-          <div
-            class="admin-top">
-
-
-            <div
-              class="admin-icon">
-
-              ✦
-
-            </div>
-
-
-            <div>
-
-              <div
-                class="admin-title">
-
-                Latest Administrative Update
-
-              </div>
-
-
-              <div
-                class="admin-subtitle">
-
-                Official update from SK KGN TEAM
-
-              </div>
-
-            </div>
-
-
-          </div>
-
-
-          <div
-            class="admin-text">
-
-            ${escapeHTML(
-              remark
-            )}
-
-          </div>
-
-
-          ${
-            updated
-
-            ?
-
-            `
-
-            <div
-              class="admin-date">
-
-              Last updated:
-              ${formatDate(updated)}
-
-            </div>
-
-            `
-
-            :
-
-            ""
-
-          }
-
-
-        </div>
-
-        `
-
-        :
-
-        ""
-
-      }
-
-
-      <!-- ================================================
-           TIMELINE
-      ================================================= -->
-
-      <div
-        class="timeline">
-
-
-        <div
-          class="timeline-head">
-
-
-          <h3>
-            Complaint Progress
-          </h3>
-
-
-          <div
-            class="live">
-
-            <span
-              class="live-dot">
-            </span>
-
-            LIVE STATUS
-
-          </div>
-
-
-        </div>
-
-
-        <div
-          class="track">
-
-          ${timeline(
-            data.status
-          )}
-
-        </div>
-
-
-      </div>
-
-
-      <!-- ================================================
-           ACTIONS
-      ================================================= -->
-
-      <div
-        class="actions">
-
-
-        <button
-          class="action primary"
-          onclick="copyID()">
-
-          📋 Copy ID
-
-        </button>
-
-
-        <button
-          class="action"
-          onclick="refreshComplaint()">
-
-          ↻ Refresh
-
-        </button>
-
-
-        <button
-          class="action"
-          onclick="shareComplaint()">
-
-          ↗ Share
-
-        </button>
-
-
-        <button
-          class="action"
-          onclick="window.print()">
-
-          ▣ Print
-
-        </button>
-
-
-        <button
-          class="action"
-          onclick="callSupport()">
-
-          ☎ Call Support
-
-        </button>
-
-
-        <button
-          class="action"
-          onclick="whatsappSupport()">
-
-          ◉ WhatsApp
-
-        </button>
-
-
-      </div>
-
-
-    </div>
-
-  `;
-
-
-  result.style.display =
-    "block";
-
-
-  result.scrollIntoView({
-
-    behavior:"smooth",
-
-    block:"start"
-
-  });
-
-}
-
-
-/* =========================================================
-   COPY ID
-========================================================= */
-
-window.copyID =
-async function(){
-
-  if(
-    !currentComplaint
-  )
-    return;
-
-
-  try{
-
-    await navigator.clipboard.writeText(
-
-      currentComplaint.complaintId
-
-    );
-
-
-    showToast(
-      "✓ Complaint ID copied"
-    );
-
-
-  }catch(error){
-
-    showToast(
-      currentComplaint.complaintId
-    );
-
-  }
-
-};
-
-
-/* =========================================================
-   REFRESH
-========================================================= */
-
-window.refreshComplaint =
-function(){
-
-  if(
-    !currentComplaint
-  )
-    return;
-
-
-  input.value =
-    currentComplaint.complaintId;
-
-
-  window.checkComplaint();
-
-};
-
-
-/* =========================================================
-   SHARE
-========================================================= */
-
-window.shareComplaint =
-async function(){
-
-  if(
-    !currentComplaint
-  )
-    return;
-
-
-  const text =
-
-`SK KGN TEAM Complaint
-
-Complaint ID:
-${currentComplaint.complaintId}
-
-Current Status:
-${currentComplaint.status || "Submitted"}`;
-
-
-  if(
-    navigator.share
-  ){
-
-    try{
-
-      await navigator.share({
-
-        title:
-          "SK KGN TEAM Complaint",
-
-        text:
-          text,
-
-        url:
-          location.href
-
-      });
-
-    }catch(error){}
-
-
-  }else{
-
-    try{
-
-      await navigator.clipboard.writeText(
-        text
-      );
-
-
-      showToast(
-        "✓ Complaint status copied"
-      );
-
-
-    }catch(error){
-
-      showToast(
-        "Unable to share"
-      );
-
-    }
-
-  }
-
-};
-
-
-/* =========================================================
-   CALL SUPPORT
-========================================================= */
-
-window.callSupport =
-function(){
-
-  location.href =
-    "tel:+917007027158";
-
-};
-
-
-/* =========================================================
-   WHATSAPP SUPPORT
-========================================================= */
-
-window.whatsappSupport =
-function(){
-
-  if(
-    !currentComplaint
-  )
-    return;
-
-
-  const text =
-
-`Namaste SK KGN TEAM,
-
-I need assistance regarding my complaint.
-
-Complaint ID:
-${currentComplaint.complaintId}
-
-Current Status:
-${currentComplaint.status || "Submitted"}`;
-
-
-  window.open(
-
-    "https://wa.me/917007027158?text=" +
-    encodeURIComponent(text),
-
-    "_blank"
-
-  );
-
-};
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-function showToast(text){
-
-  toast.textContent =
-    text;
-
-
-  toast.classList.add(
-    "show"
-  );
-
-
-  setTimeout(
-
-    ()=>{
-
-      toast.classList.remove(
-        "show"
-      );
-
-    },
-
-    3000
-
-  );
-
-}
-
-
-/* =========================================================
    ENTER KEY
 ========================================================= */
 
 input.addEventListener(
-
   "keydown",
-
   event => {
 
-    if(
-      event.key ===
-      "Enter"
-    ){
+    if(event.key === "Enter"){
+
+      event.preventDefault();
 
       window.checkComplaint();
 
     }
 
   }
-
 );
 
 
 /* =========================================================
-   AUTO LOAD FROM URL
+   AUTO LOAD FROM ?id=
 ========================================================= */
 
-const params =
+const urlParams =
   new URLSearchParams(
-    location.search
+    window.location.search
   );
 
+const urlComplaintId =
+  urlParams.get("id");
 
-const urlID =
-  params.get("id");
 
-
-if(urlID){
+if(urlComplaintId){
 
   input.value =
-    urlID.toUpperCase();
+    urlComplaintId.toUpperCase();
 
+  setTimeout(()=>{
 
-  window.checkComplaint();
+    window.checkComplaint();
+
+  },900);
 
 }
 
