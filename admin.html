@@ -1,1137 +1,464 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SK KGN TEAM - Admin Panel</title>
-
+<meta name="theme-color" content="#0f172a">
+<title>SK KGN TEAM — Admin Panel</title>
 <style>
 *{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f3f6fb;
-    color:#172033;
+:root{
+  --navy:#0f172a;--navy2:#111827;--blue:#2563eb;--blue2:#1d4ed8;
+  --bg:#f4f7fb;--card:#fff;--text:#101828;--muted:#667085;
+  --line:#e4e7ec;--green:#16a34a;--orange:#d97706;--red:#dc2626;
+  --shadow:0 12px 35px rgba(16,24,40,.08);
 }
-header{
-    background:linear-gradient(135deg,#071b3a,#0d4380);
-    color:white;
-    padding:18px 22px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px;
-    position:sticky;
-    top:0;
-    z-index:20;
-}
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-.brand img{
-    width:52px;
-    height:52px;
-    object-fit:cover;
-    border-radius:12px;
-    background:white;
-}
-.brand h1{
-    margin:0;
-    font-size:21px;
-}
-.brand p{
-    margin:4px 0 0;
-    opacity:.8;
-    font-size:12px;
-}
-button{
-    border:0;
-    cursor:pointer;
-    border-radius:9px;
-    padding:11px 15px;
-    font-weight:bold;
-}
-.logout{
-    background:#fff;
-    color:#0b3970;
-}
-.container{
-    max-width:1400px;
-    margin:auto;
-    padding:20px;
-}
-.login-box{
-    max-width:420px;
-    margin:80px auto;
-    background:white;
-    padding:28px;
-    border-radius:18px;
-    box-shadow:0 10px 35px #0001;
-}
-.login-box h2{
-    margin-top:0;
-    color:#0b3970;
-}
-input,select,textarea{
-    width:100%;
-    padding:12px;
-    border:1px solid #d5ddea;
-    border-radius:9px;
-    outline:none;
-    font-size:14px;
-    margin-top:6px;
-    background:white;
-}
-input:focus,select:focus,textarea:focus{
-    border-color:#1769aa;
-}
-label{
-    display:block;
-    margin-top:14px;
-    font-size:13px;
-    font-weight:bold;
-}
-.primary{
-    background:#0b4d91;
-    color:white;
-}
-.danger{
-    background:#c62828;
-    color:white;
-}
-.warning{
-    background:#ef8b00;
-    color:white;
-}
-.success{
-    background:#198754;
-    color:white;
-}
-.stats{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:12px;
-    margin-bottom:20px;
-}
-.stat{
-    background:white;
-    border-radius:14px;
-    padding:17px;
-    box-shadow:0 5px 18px #0000000b;
-}
-.stat b{
-    display:block;
-    font-size:25px;
-    margin-top:6px;
-}
-.toolbar{
-    background:white;
-    padding:16px;
-    border-radius:15px;
-    box-shadow:0 5px 18px #0000000b;
-    margin-bottom:18px;
-}
-.filters{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr auto auto;
-    gap:10px;
-}
-.table-wrap{
-    background:white;
-    border-radius:15px;
-    overflow:auto;
-    box-shadow:0 5px 18px #0000000b;
-}
-table{
-    width:100%;
-    border-collapse:collapse;
-    min-width:950px;
-}
-th,td{
-    padding:13px;
-    border-bottom:1px solid #edf0f5;
-    text-align:left;
-    font-size:13px;
-}
-th{
-    background:#f5f7fb;
-    color:#31506e;
-}
-.badge{
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:11px;
-    font-weight:bold;
-    display:inline-block;
-}
-.submitted{background:#e3f2fd;color:#1565c0}
-.review{background:#fff3cd;color:#8a6100}
-.progress{background:#e8eaf6;color:#3949ab}
-.resolved{background:#dff5e8;color:#157347}
-.cancelled{background:#fde2e2;color:#b42318}
-.view-btn{
-    background:#0b4d91;
-    color:white;
-    padding:8px 11px;
-    font-size:12px;
-}
-.empty{
-    text-align:center;
-    padding:35px;
-    color:#777;
-}
-.overlay{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:#0009;
-    z-index:100;
-    padding:15px;
-    overflow:auto;
-}
-.modal{
-    background:white;
-    max-width:760px;
-    margin:30px auto;
-    border-radius:18px;
-    overflow:hidden;
-}
-.modal-head{
-    background:linear-gradient(135deg,#071b3a,#0d4380);
-    color:white;
-    padding:18px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-.modal-head h2{
-    margin:0;
-    font-size:19px;
-}
-.close{
-    background:#ffffff22;
-    color:white;
-    font-size:20px;
-    padding:5px 11px;
-}
-.modal-body{
-    padding:20px;
-}
-.detail-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-}
-.detail{
-    background:#f6f8fb;
-    padding:12px;
-    border-radius:10px;
-}
-.detail.full{
-    grid-column:1/-1;
-}
-.detail small{
-    color:#697386;
-    display:block;
-    margin-bottom:5px;
-}
-.detail strong{
-    word-break:break-word;
-}
-.actions{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:18px;
-}
-hr{
-    border:0;
-    border-top:1px solid #e7ebf1;
-    margin:20px 0;
-}
-#message{
-    margin-top:12px;
-    font-size:13px;
-    font-weight:bold;
-}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+.hidden{display:none!important}
+
+/* Login */
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:24px;background:
+radial-gradient(circle at 10% 10%,rgba(37,99,235,.14),transparent 32%),
+radial-gradient(circle at 90% 90%,rgba(22,163,74,.10),transparent 30%),var(--bg)}
+.login-card{width:min(440px,100%);background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:var(--shadow)}
+.logo-row{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.logo{width:48px;height:48px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+.logo-row strong{font-size:19px}
+.eyebrow{display:inline-flex;background:#eef4ff;color:#2457a6;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:900;letter-spacing:.5px;text-transform:uppercase}
+h1{margin:14px 0 8px;font-size:32px;letter-spacing:-1px}
+.login-card p{color:var(--muted);line-height:1.6;margin:0 0 22px}
+.field{margin-bottom:15px}
+.field label{display:block;font-size:12px;font-weight:900;margin-bottom:7px;color:#344054}
+.field input,.field select,.field textarea{
+width:100%;border:1px solid #d0d5dd;background:#fff;border-radius:13px;padding:13px 14px;outline:none;
+transition:.2s;border-color:#d0d5dd}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#7aa2f7;box-shadow:0 0 0 4px #eaf1ff}
+.primary{border:0;background:var(--navy);color:#fff;border-radius:13px;padding:14px 18px;font-weight:850;width:100%}
+.primary:hover{background:#172033}
+.error{margin-top:13px;background:#fff1f2;color:#b42318;border:1px solid #fecdd3;padding:11px 13px;border-radius:12px;font-size:13px}
+.small-note{font-size:11px!important;margin-top:16px!important;color:#98a2b3!important}
+
+/* App */
+.topbar{height:72px;background:var(--navy);color:#fff;display:flex;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 4px 18px rgba(0,0,0,.12)}
+.topbar-inner{width:min(1440px,calc(100% - 32px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:10px}.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover}.brand-text strong{display:block;font-size:15px}.brand-text span{display:block;color:#aab4c3;font-size:11px;margin-top:2px}
+.top-actions{display:flex;align-items:center;gap:9px}
+.ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;border-radius:11px;padding:10px 13px;font-weight:750}
+.ghost:hover{background:rgba(255,255,255,.14)}
+.main{width:min(1440px,calc(100% - 32px));margin:0 auto;padding:28px 0 50px}
+.page-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:22px}
+.page-head h1{font-size:32px;margin:0 0 5px}.page-head p{margin:0;color:var(--muted)}
+.refresh{border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 15px;font-weight:800}
+.refresh:disabled{opacity:.55;cursor:wait}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 5px 18px rgba(16,24,40,.04)}
+.stat-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px;font-weight:800}
+.stat-num{font-size:30px;font-weight:900;margin-top:8px}.stat-dot{width:10px;height:10px;border-radius:50%;background:#98a2b3}.green{background:#22c55e}.orange{background:#f59e0b}.blue{background:#3b82f6}
+
+/* Toolbar */
+.toolbar{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;display:grid;grid-template-columns:minmax(240px,1fr) 180px 180px 180px;gap:10px;margin-bottom:16px}
+.search{position:relative}.search input{width:100%;padding:13px 14px 13px 42px;border:1px solid #d0d5dd;border-radius:12px;outline:none}.search input:focus{border-color:#7aa2f7;box-shadow:0 0 0 4px #eaf1ff}.search span{position:absolute;left:14px;top:11px;color:#98a2b3;font-size:17px}
+.toolbar select{width:100%;padding:12px 13px;border:1px solid #d0d5dd;border-radius:12px;background:#fff;outline:none}
+.count-row{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:12px;margin:0 2px 10px}
+
+/* Table */
+.table-card{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+.table-scroll{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:900px}
+th{background:#f8fafc;text-align:left;color:#667085;font-size:11px;text-transform:uppercase;letter-spacing:.45px;padding:14px 16px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:15px 16px;border-bottom:1px solid #f0f2f5;vertical-align:middle;font-size:13px}
+tr:last-child td{border-bottom:0}
+tr:hover td{background:#fbfcfe}
+.id{font-weight:900;color:#174ea6;white-space:nowrap}.name{font-weight:800}.subject{max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.date{color:var(--muted);white-space:nowrap}
+.status{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900;white-space:nowrap}
+.status:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.s-submitted{background:#f2f4f7;color:#475467}.s-review{background:#fff7e6;color:#b54708}.s-progress{background:#eff8ff;color:#175cd3}.s-resolved{background:#ecfdf3;color:#027a48}
+.view-btn{border:1px solid #d0d5dd;background:#fff;border-radius:9px;padding:7px 10px;font-size:11px;font-weight:850}.view-btn:hover{background:#f8fafc}
+.empty{text-align:center;padding:60px 20px;color:var(--muted)}.empty strong{display:block;color:#344054;font-size:16px;margin-bottom:5px}
+.loading{text-align:center;padding:45px;color:var(--muted)}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.62);backdrop-filter:blur(5px);z-index:100;display:grid;place-items:center;padding:18px}
+.modal{background:#fff;width:min(720px,100%);max-height:min(90vh,900px);overflow:auto;border-radius:25px;box-shadow:0 30px 80px rgba(0,0,0,.25)}
+.modal-head{padding:22px 24px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:15px;align-items:flex-start;position:sticky;top:0;background:#fff;z-index:2}
+.modal-head h2{margin:0;font-size:22px}.modal-head p{margin:5px 0 0;color:var(--muted);font-size:12px}
+.close{width:38px;height:38px;border:0;border-radius:50%;background:#f2f4f7;font-size:22px;line-height:1}
+.modal-body{padding:22px 24px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.detail-box{border:1px solid var(--line);border-radius:14px;padding:14px;background:#fbfcfe}
+.detail-box.full{grid-column:1/-1}.detail-box label{display:block;color:#98a2b3;font-size:10px;text-transform:uppercase;font-weight:900;letter-spacing:.5px;margin-bottom:6px}.detail-box div{font-size:14px;line-height:1.55;word-break:break-word}
+.modal-actions{margin-top:20px;padding-top:20px;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.save{border:0;background:var(--blue);color:#fff;border-radius:12px;padding:13px 18px;font-weight:900}.save:hover{background:var(--blue2)}.save:disabled{opacity:.55;cursor:wait}
+.call,.wa{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:11px;padding:11px 13px;font-weight:850;font-size:12px}
+.call{background:var(--navy);color:#fff}.wa{background:#16a34a;color:#fff}
+.contact-row{display:flex;gap:8px;margin-top:12px}.contact-row a{flex:1}
+.toast{position:fixed;right:20px;bottom:20px;z-index:200;background:var(--navy);color:#fff;padding:13px 16px;border-radius:13px;box-shadow:var(--shadow);font-size:13px;font-weight:750;max-width:340px}
+.toast.bad{background:#b42318}
+
 @media(max-width:900px){
-    .stats{grid-template-columns:repeat(3,1fr)}
-    .filters{grid-template-columns:1fr 1fr}
+.stats{grid-template-columns:repeat(2,1fr)}
+.toolbar{grid-template-columns:1fr 1fr}
+.toolbar .search{grid-column:1/-1}
 }
 @media(max-width:600px){
-    header{padding:13px}
-    .brand img{width:43px;height:43px}
-    .brand h1{font-size:17px}
-    .container{padding:12px}
-    .stats{grid-template-columns:repeat(2,1fr)}
-    .filters{grid-template-columns:1fr}
-    .detail-grid{grid-template-columns:1fr}
-    .detail.full{grid-column:auto}
+.topbar{height:64px}.topbar-inner,.main{width:min(100% - 20px,1440px)}.brand-text span{display:none}.top-actions .ghost:first-child{display:none}
+.main{padding-top:20px}.page-head{align-items:flex-start}.page-head h1{font-size:27px}.page-head p{font-size:12px}
+.stats{grid-template-columns:1fr 1fr;gap:9px}.stat{padding:14px}.stat-num{font-size:25px}
+.toolbar{grid-template-columns:1fr}.toolbar .search{grid-column:auto}.toolbar select{width:100%}
+.modal{border-radius:21px}.modal-head,.modal-body{padding:18px}.detail-grid{grid-template-columns:1fr}.detail-box.full{grid-column:auto}.modal-actions{grid-template-columns:1fr}.contact-row{flex-direction:column}
 }
 </style>
 </head>
-
 <body>
 
-<header>
-    <div class="brand">
+<div id="loginView" class="login-wrap">
+  <div class="login-card">
+    <div class="logo-row">
+      <img class="logo" src="Logo.jpg" alt="SK KGN TEAM">
+      <div><strong>SK KGN TEAM</strong><div style="color:#98a2b3;font-size:11px;margin-top:2px">Secure Admin Area</div></div>
+    </div>
+    <span class="eyebrow">ADMIN PANEL</span>
+    <h1>Complaint Control Center</h1>
+    <p>Login to view complaints, search records and update complaint status.</p>
+
+    <div class="field">
+      <label>ADMIN EMAIL</label>
+      <input id="email" type="email" autocomplete="username" placeholder="admin@example.com">
+    </div>
+    <div class="field">
+      <label>PASSWORD</label>
+      <input id="password" type="password" autocomplete="current-password" placeholder="Enter password">
+    </div>
+    <button id="loginBtn" class="primary">Sign In →</button>
+    <div id="loginError" class="error hidden"></div>
+    <p class="small-note">Access is controlled through Firebase Authentication and an admin role record. Do not use a password hard-coded into this HTML file.</p>
+  </div>
+</div>
+
+<div id="appView" class="hidden">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
         <img src="Logo.jpg" alt="SK KGN TEAM">
-        <div>
-            <h1>SK KGN TEAM</h1>
-            <p>Admin Control Panel</p>
-        </div>
+        <div class="brand-text"><strong>SK KGN TEAM</strong><span>Complaint Administration</span></div>
+      </div>
+      <div class="top-actions">
+        <button id="homeBtn" class="ghost">← Website</button>
+        <button id="logoutBtn" class="ghost">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="page-head">
+      <div>
+        <h1>Complaint Dashboard</h1>
+        <p>Manage, review and update customer complaints.</p>
+      </div>
+      <button id="refreshBtn" class="refresh">↻ Refresh</button>
     </div>
 
-    <button class="logout" id="logoutBtn" style="display:none">
-        Logout
-    </button>
-</header>
+    <section class="stats">
+      <div class="stat"><div class="stat-top">TOTAL COMPLAINTS <span class="stat-dot blue"></span></div><div id="totalStat" class="stat-num">0</div></div>
+      <div class="stat"><div class="stat-top">SUBMITTED <span class="stat-dot"></span></div><div id="submittedStat" class="stat-num">0</div></div>
+      <div class="stat"><div class="stat-top">IN PROGRESS <span class="stat-dot orange"></span></div><div id="progressStat" class="stat-num">0</div></div>
+      <div class="stat"><div class="stat-top">RESOLVED <span class="stat-dot green"></span></div><div id="resolvedStat" class="stat-num">0</div></div>
+    </section>
 
-<div id="loginSection" class="login-box">
-    <h2>🔐 Admin Login</h2>
+    <section class="toolbar">
+      <div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search Complaint ID, name, mobile, subject..."></div>
+      <select id="statusFilter">
+        <option value="all">All Statuses</option>
+        <option value="Submitted">Submitted</option>
+        <option value="Under Review">Under Review</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Resolved">Resolved</option>
+      </select>
+      <select id="sortBy">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="name">Name A–Z</option>
+        <option value="status">Status</option>
+      </select>
+      <button id="clearBtn" class="refresh">Clear Filters</button>
+    </section>
 
-    <label>Email</label>
-    <input id="email" type="email" placeholder="Admin Email">
+    <div class="count-row"><span id="resultCount">0 complaints</span><span>Live data from Firestore</span></div>
 
-    <label>Password</label>
-    <input id="password" type="password" placeholder="Password">
-
-    <button class="primary" style="width:100%;margin-top:18px" id="loginBtn">
-        Login
-    </button>
-
-    <div id="loginMessage"></div>
-</div>
-
-<div id="adminSection" style="display:none">
-<div class="container">
-
-    <div class="stats">
-        <div class="stat">Total <b id="total">0</b></div>
-        <div class="stat">Submitted <b id="submitted">0</b></div>
-        <div class="stat">Review <b id="review">0</b></div>
-        <div class="stat">Progress <b id="progress">0</b></div>
-        <div class="stat">Resolved <b id="resolved">0</b></div>
-        <div class="stat">Cancelled <b id="cancelled">0</b></div>
-    </div>
-
-    <div class="toolbar">
-        <div class="filters">
-            <input id="search" placeholder="🔎 ID / Name / Mobile / Subject">
-
-            <select id="statusFilter">
-                <option value="">All Status</option>
-                <option>Submitted</option>
-                <option>Under Review</option>
-                <option>In Progress</option>
-                <option>Resolved</option>
-                <option>Cancelled</option>
-            </select>
-
-            <select id="sortFilter">
-                <option value="new">Newest First</option>
-                <option value="old">Oldest First</option>
-                <option value="name">Name A-Z</option>
-                <option value="status">Status</option>
-            </select>
-
-            <button class="primary" onclick="loadComplaints()">Refresh</button>
-
-            <button onclick="clearFilters()">Clear</button>
-        </div>
-    </div>
-
-    <div class="table-wrap">
+    <section class="table-card">
+      <div class="table-scroll">
         <table>
-            <thead>
-                <tr>
-                    <th>Complaint ID</th>
-                    <th>Name</th>
-                    <th>Mobile</th>
-                    <th>Subject</th>
-                    <th>Status</th>
-                    <th>Date</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody id="complaintTable">
-                <tr>
-                    <td colspan="7" class="empty">Loading...</td>
-                </tr>
-            </tbody>
+          <thead>
+            <tr><th>Complaint ID</th><th>Applicant</th><th>Mobile</th><th>Subject</th><th>Status</th><th>Submitted</th><th>Action</th></tr>
+          </thead>
+          <tbody id="complaintsBody">
+            <tr><td colspan="7"><div class="loading">Loading complaints…</div></td></tr>
+          </tbody>
         </table>
-    </div>
-
+      </div>
+    </section>
+  </main>
 </div>
-</div>
 
-<!-- MODAL -->
-<div class="overlay" id="overlay">
-<div class="modal">
-
+<div id="modalBackdrop" class="modal-backdrop hidden">
+  <div class="modal" role="dialog" aria-modal="true">
     <div class="modal-head">
-        <h2>Complaint Management</h2>
-        <button class="close" onclick="closeModal()">×</button>
+      <div><h2 id="modalTitle">Complaint</h2><p id="modalSub"></p></div>
+      <button id="closeModal" class="close" aria-label="Close">×</button>
     </div>
-
     <div class="modal-body">
+      <div class="detail-grid">
+        <div class="detail-box"><label>Complaint ID</label><div id="dId">-</div></div>
+        <div class="detail-box"><label>Submitted On</label><div id="dDate">-</div></div>
+        <div class="detail-box"><label>Applicant Name</label><div id="dName">-</div></div>
+        <div class="detail-box"><label>Mobile Number</label><div id="dMobile">-</div></div>
+        <div class="detail-box full"><label>Complaint Subject</label><div id="dSubject">-</div></div>
+        <div class="detail-box full"><label>Complaint Details</label><div id="dDetails">-</div></div>
+      </div>
 
-        <div class="detail-grid">
+      <div class="contact-row">
+        <a id="callLink" class="call" href="#">📞 Call Customer</a>
+        <a id="waLink" class="wa" href="#" target="_blank" rel="noopener">💬 WhatsApp Customer</a>
+      </div>
 
-            <div class="detail">
-                <small>Complaint ID</small>
-                <strong id="mId"></strong>
-            </div>
-
-            <div class="detail">
-                <small>Submitted Date</small>
-                <strong id="mDate"></strong>
-            </div>
-
-            <div class="detail">
-                <small>Applicant Name</small>
-                <strong id="mName"></strong>
-            </div>
-
-            <div class="detail">
-                <small>Mobile</small>
-                <strong id="mMobile"></strong>
-            </div>
-
-            <div class="detail full">
-                <small>Subject</small>
-                <strong id="mSubject"></strong>
-            </div>
-
-            <div class="detail full">
-                <small>Complaint Details</small>
-                <strong id="mDetails"></strong>
-            </div>
-
-        </div>
-
-        <hr>
-
-        <label>Complaint Status</label>
-
-        <select id="mStatus">
+      <div class="modal-actions">
+        <div class="field" style="margin:0">
+          <label>UPDATE COMPLAINT STATUS</label>
+          <select id="statusSelect">
             <option>Submitted</option>
             <option>Under Review</option>
             <option>In Progress</option>
             <option>Resolved</option>
-            <option>Cancelled</option>
-        </select>
-
-        <label>Admin Remark / Action Taken</label>
-
-        <textarea id="mRemark" rows="5"
-        placeholder="Yahan admin apna remark, action taken ya cancellation reason likh sakta hai..."></textarea>
-
-        <div class="actions">
-
-            <button class="primary" onclick="saveComplaint()">
-                💾 Save Changes
-            </button>
-
-            <button class="success" onclick="callCustomer()">
-                📞 Call Customer
-            </button>
-
-            <button class="success" onclick="whatsappCustomer()">
-                💬 WhatsApp
-            </button>
-
-            <button class="danger" onclick="deleteComplaint()">
-                🗑️ Delete Complaint
-            </button>
-
-            <button onclick="closeModal()">
-                Close
-            </button>
-
+          </select>
         </div>
-
-        <div id="saveMessage"></div>
-
+        <button id="saveStatus" class="save">Save Status</button>
+      </div>
     </div>
+  </div>
 </div>
-</div>
+
+<div id="toast" class="toast hidden"></div>
 
 <script type="module">
-
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 import {
-    getAuth,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut
-}
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-
+  getFirestore, collection, getDocs, doc, updateDoc, orderBy, query
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 import {
-    getFirestore,
-    collection,
-    getDocs,
-    doc,
-    updateDoc,
-    deleteDoc
-}
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+  getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
-
-/* =========================
-   FIREBASE CONFIG
-========================= */
-
+/* Same Firebase project already used by the customer status page. */
 const firebaseConfig = {
-    apiKey: "AIzaSyD9w0JXQw2F8q2J1v6wQkKfJfQ3x8xK0x",
-    authDomain: "sk-kgn-team.firebaseapp.com",
-    projectId: "sk-kgn-team",
-    storageBucket: "sk-kgn-team.firebasestorage.app",
-    messagingSenderId: "228612697498",
-    appId: "1:228612697498:web:a304b57bf5a59d2933de23"
+  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+  authDomain: "sk-kgn-team.firebaseapp.com",
+  databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "sk-kgn-team",
+  storageBucket: "sk-kgn-team.firebasestorage.app",
+  messagingSenderId: "228612697498",
+  appId: "1:228612697498:web:a304b57bf5a59d2933de23",
+  measurementId: "G-BXWT6BPTB6"
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 const db = getFirestore(app);
+const auth = getAuth(app);
 
-
-/* =========================
-   VARIABLES
-========================= */
-
+const $ = id => document.getElementById(id);
 let complaints = [];
-let selectedComplaint = null;
-
-
-/* =========================
-   LOGIN
-========================= */
-
-document.getElementById("loginBtn").onclick = async () => {
-
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-
-    if(!email || !password){
-        document.getElementById("loginMessage").innerHTML =
-        "⚠️ Email aur password enter karein.";
-        return;
-    }
-
-    try{
-
-        await signInWithEmailAndPassword(auth,email,password);
-
-        document.getElementById("loginMessage").innerHTML =
-        "Login successful.";
-
-    }catch(error){
-
-        document.getElementById("loginMessage").innerHTML =
-        "❌ Login failed: " + error.message;
-
-    }
-
-};
-
-
-/* =========================
-   AUTH STATE
-========================= */
-
-onAuthStateChanged(auth, async (user)=>{
-
-    if(user){
-
-        document.getElementById("loginSection").style.display="none";
-        document.getElementById("adminSection").style.display="block";
-        document.getElementById("logoutBtn").style.display="block";
-
-        await loadComplaints();
-
-    }else{
-
-        document.getElementById("loginSection").style.display="block";
-        document.getElementById("adminSection").style.display="none";
-        document.getElementById("logoutBtn").style.display="none";
-
-    }
-
-});
-
-
-/* =========================
-   LOGOUT
-========================= */
-
-document.getElementById("logoutBtn").onclick = async ()=>{
-    await signOut(auth);
-};
-
-
-/* =========================
-   LOAD COMPLAINTS
-========================= */
-
-window.loadComplaints = async function(){
-
-    const table = document.getElementById("complaintTable");
-
-    table.innerHTML =
-    `<tr><td colspan="7" class="empty">Loading complaints...</td></tr>`;
-
-    try{
-
-        const snapshot = await getDocs(collection(db,"complaints"));
-
-        complaints = [];
-
-        snapshot.forEach(item=>{
-
-            complaints.push({
-                docId:item.id,
-                ...item.data()
-            });
-
-        });
-
-        renderComplaints();
-
-    }catch(error){
-
-        table.innerHTML =
-        `<tr><td colspan="7" class="empty">
-        ❌ Complaints load nahi hui.<br><br>${error.message}
-        </td></tr>`;
-
-    }
-
-};
-
-
-/* =========================
-   RENDER
-========================= */
-
-function renderComplaints(){
-
-    let data = [...complaints];
-
-    const search =
-        document.getElementById("search").value.toLowerCase().trim();
-
-    const status =
-        document.getElementById("statusFilter").value;
-
-    const sort =
-        document.getElementById("sortFilter").value;
-
-
-    if(search){
-
-        data = data.filter(c => {
-
-            const text = `
-                ${c.complaintId || ""}
-                ${c.name || ""}
-                ${c.mobile || ""}
-                ${c.subject || ""}
-                ${c.details || ""}
-            `.toLowerCase();
-
-            return text.includes(search);
-
-        });
-
-    }
-
-
-    if(status){
-        data = data.filter(c =>
-            (c.status || "Submitted") === status
-        );
-    }
-
-
-    if(sort === "name"){
-
-        data.sort((a,b)=>
-            String(a.name||"").localeCompare(String(b.name||""))
-        );
-
-    }
-
-    else if(sort === "status"){
-
-        data.sort((a,b)=>
-            String(a.status||"").localeCompare(String(b.status||""))
-        );
-
-    }
-
-    else if(sort === "old"){
-
-        data.sort((a,b)=>
-            getDateValue(a)-getDateValue(b)
-        );
-
-    }
-
-    else{
-
-        data.sort((a,b)=>
-            getDateValue(b)-getDateValue(a)
-        );
-
-    }
-
-
-    updateStats();
-
-
-    const table = document.getElementById("complaintTable");
-
-    if(!data.length){
-
-        table.innerHTML =
-        `<tr><td colspan="7" class="empty">
-        No complaints found.
-        </td></tr>`;
-
-        return;
-    }
-
-
-    table.innerHTML = data.map(c=>{
-
-        const status = c.status || "Submitted";
-
-        return `
-        <tr>
-
-            <td><b>${escapeHtml(c.complaintId || c.docId)}</b></td>
-
-            <td>${escapeHtml(c.name || "-")}</td>
-
-            <td>${escapeHtml(c.mobile || "-")}</td>
-
-            <td>${escapeHtml(c.subject || "-")}</td>
-
-            <td>
-                <span class="badge ${statusClass(status)}">
-                    ${escapeHtml(status)}
-                </span>
-            </td>
-
-            <td>${formatDate(c.createdAt || c.submittedAt)}</td>
-
-            <td>
-                <button class="view-btn"
-                onclick="openComplaint('${c.docId}')">
-                    Manage
-                </button>
-            </td>
-
-        </tr>
-        `;
-
-    }).join("");
-
+let selectedDocId = null;
+
+function esc(value){
+  return String(value ?? "-")
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;");
 }
-
-
-/* =========================
-   OPEN COMPLAINT
-========================= */
-
-window.openComplaint = function(docId){
-
-    const c = complaints.find(x=>x.docId === docId);
-
-    if(!c) return;
-
-    selectedComplaint = c;
-
-    document.getElementById("mId").textContent =
-        c.complaintId || c.docId;
-
-    document.getElementById("mDate").textContent =
-        formatDate(c.createdAt || c.submittedAt);
-
-    document.getElementById("mName").textContent =
-        c.name || "-";
-
-    document.getElementById("mMobile").textContent =
-        c.mobile || "-";
-
-    document.getElementById("mSubject").textContent =
-        c.subject || "-";
-
-    document.getElementById("mDetails").textContent =
-        c.details || c.description || "-";
-
-    document.getElementById("mStatus").value =
-        c.status || "Submitted";
-
-    document.getElementById("mRemark").value =
-        c.adminRemark || c.adminNotes || "";
-
-    document.getElementById("saveMessage").textContent="";
-
-    document.getElementById("overlay").style.display="block";
-};
-
-
-/* =========================
-   SAVE STATUS + REMARK
-========================= */
-
-window.saveComplaint = async function(){
-
-    if(!selectedComplaint) return;
-
-    const status =
-        document.getElementById("mStatus").value;
-
-    const remark =
-        document.getElementById("mRemark").value.trim();
-
-    const message =
-        document.getElementById("saveMessage");
-
-    message.textContent = "Saving...";
-
-    try{
-
-        const ref =
-            doc(db,"complaints",selectedComplaint.docId);
-
-        await updateDoc(ref,{
-
-            status: status,
-
-            adminRemark: remark,
-
-            adminUpdatedAt: new Date().toISOString(),
-
-            adminUpdatedBy:
-                auth.currentUser?.email || "Admin"
-
-        });
-
-
-        selectedComplaint.status = status;
-        selectedComplaint.adminRemark = remark;
-
-
-        message.innerHTML =
-        "✅ Complaint successfully updated.";
-
-        await loadComplaints();
-
-    }catch(error){
-
-        message.innerHTML =
-        "❌ Save failed: " + error.message;
-
-    }
-
-};
-
-
-/* =========================
-   DELETE COMPLAINT
-========================= */
-
-window.deleteComplaint = async function(){
-
-    if(!selectedComplaint) return;
-
-    const id =
-        selectedComplaint.complaintId ||
-        selectedComplaint.docId;
-
-
-    const first =
-        confirm(
-        "⚠️ Kya aap complaint " +
-        id +
-        " ko DELETE karna chahte hain?"
-        );
-
-    if(!first) return;
-
-
-    const second =
-        confirm(
-        "FINAL CONFIRMATION:\n\n" +
-        "Ye complaint permanently delete ho jayegi.\n" +
-        "Kya aap sure hain?"
-        );
-
-    if(!second) return;
-
-
-    const message =
-        document.getElementById("saveMessage");
-
-    message.textContent = "Deleting...";
-
-
-    try{
-
-        await deleteDoc(
-            doc(db,"complaints",selectedComplaint.docId)
-        );
-
-
-        message.innerHTML =
-        "✅ Complaint deleted successfully.";
-
-        complaints =
-            complaints.filter(
-                x=>x.docId !== selectedComplaint.docId
-            );
-
-        selectedComplaint = null;
-
-        setTimeout(()=>{
-
-            closeModal();
-            renderComplaints();
-
-        },700);
-
-
-    }catch(error){
-
-        message.innerHTML =
-        "❌ Delete failed: " + error.message;
-
-    }
-
-};
-
-
-/* =========================
-   CALL
-========================= */
-
-window.callCustomer = function(){
-
-    if(!selectedComplaint) return;
-
-    const mobile =
-        String(selectedComplaint.mobile || "")
-        .replace(/\D/g,"");
-
-    if(!mobile){
-
-        alert("Mobile number available nahi hai.");
-        return;
-
-    }
-
-    window.location.href = "tel:" + mobile;
-};
-
-
-/* =========================
-   WHATSAPP
-========================= */
-
-window.whatsappCustomer = function(){
-
-    if(!selectedComplaint) return;
-
-    let mobile =
-        String(selectedComplaint.mobile || "")
-        .replace(/\D/g,"");
-
-    if(mobile.length === 10){
-        mobile = "91" + mobile;
-    }
-
-    if(!mobile){
-
-        alert("Mobile number available nahi hai.");
-        return;
-
-    }
-
-
-    const id =
-        selectedComplaint.complaintId ||
-        selectedComplaint.docId;
-
-
-    const message =
-        `Namaste, SK KGN TEAM se aapki complaint ${id} ke sambandh mein sampark kiya ja raha hai.`;
-
-
-    window.open(
-        "https://wa.me/" +
-        mobile +
-        "?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
-
-};
-
-
-/* =========================
-   CLOSE MODAL
-========================= */
-
-window.closeModal = function(){
-
-    document.getElementById("overlay").style.display="none";
-
-    selectedComplaint = null;
-
-};
-
-
-/* =========================
-   FILTERS
-========================= */
-
-document.getElementById("search")
-.addEventListener("input",renderComplaints);
-
-document.getElementById("statusFilter")
-.addEventListener("change",renderComplaints);
-
-document.getElementById("sortFilter")
-.addEventListener("change",renderComplaints);
-
-
-window.clearFilters = function(){
-
-    document.getElementById("search").value="";
-    document.getElementById("statusFilter").value="";
-    document.getElementById("sortFilter").value="new";
-
-    renderComplaints();
-
-};
-
-
-/* =========================
-   STATS
-========================= */
+function dateValue(v){
+  if(!v) return null;
+  try { return v.toDate ? v.toDate() : new Date(v); } catch(e){ return null; }
+}
+function formatDate(v){
+  const d = dateValue(v);
+  if(!d || isNaN(d.getTime())) return "-";
+  return new Intl.DateTimeFormat("en-IN",{dateStyle:"medium",timeStyle:"short"}).format(d);
+}
+function statusClass(s){
+  const n = String(s || "Submitted").toLowerCase();
+  if(n.includes("resolve")) return "s-resolved";
+  if(n.includes("progress") || n.includes("work")) return "s-progress";
+  if(n.includes("review")) return "s-review";
+  return "s-submitted";
+}
+function statusLabel(s){ return String(s || "Submitted"); }
+
+function toast(message,bad=false){
+  $("toast").textContent = message;
+  $("toast").className = "toast" + (bad ? " bad" : "");
+  setTimeout(()=> $("toast").classList.add("hidden"), 2800);
+}
 
 function updateStats(){
-
-    const count = status =>
-        complaints.filter(c =>
-            (c.status || "Submitted") === status
-        ).length;
-
-
-    document.getElementById("total").textContent =
-        complaints.length;
-
-    document.getElementById("submitted").textContent =
-        count("Submitted");
-
-    document.getElementById("review").textContent =
-        count("Under Review");
-
-    document.getElementById("progress").textContent =
-        count("In Progress");
-
-    document.getElementById("resolved").textContent =
-        count("Resolved");
-
-    document.getElementById("cancelled").textContent =
-        count("Cancelled");
-
+  const counts = {total:complaints.length, submitted:0, progress:0, resolved:0};
+  complaints.forEach(c=>{
+    const n=String(c.status||"Submitted").toLowerCase();
+    if(n.includes("resolve")) counts.resolved++;
+    else if(n.includes("progress") || n.includes("work")) counts.progress++;
+    else if(n.includes("submitted")) counts.submitted++;
+  });
+  $("totalStat").textContent=counts.total;
+  $("submittedStat").textContent=counts.submitted;
+  $("progressStat").textContent=counts.progress;
+  $("resolvedStat").textContent=counts.resolved;
 }
 
-
-/* =========================
-   HELPERS
-========================= */
-
-function statusClass(status){
-
-    if(status === "Under Review") return "review";
-
-    if(status === "In Progress") return "progress";
-
-    if(status === "Resolved") return "resolved";
-
-    if(status === "Cancelled") return "cancelled";
-
-    return "submitted";
+function filtered(){
+  const q=$("search").value.trim().toLowerCase();
+  const sf=$("statusFilter").value;
+  const sort=$("sortBy").value;
+  let arr=complaints.filter(c=>{
+    const text=[c.complaintId,c.name,c.mobile,c.phone,c.subject,c.details,c.status].join(" ").toLowerCase();
+    const statusOk=sf==="all" || String(c.status||"Submitted").toLowerCase()===sf.toLowerCase();
+    return (!q || text.includes(q)) && statusOk;
+  });
+  if(sort==="newest") arr.sort((a,b)=>(dateValue(b.createdAt)?.getTime()||0)-(dateValue(a.createdAt)?.getTime()||0));
+  if(sort==="oldest") arr.sort((a,b)=>(dateValue(a.createdAt)?.getTime()||0)-(dateValue(b.createdAt)?.getTime()||0));
+  if(sort==="name") arr.sort((a,b)=>String(a.name||"").localeCompare(String(b.name||"")));
+  if(sort==="status") arr.sort((a,b)=>String(a.status||"").localeCompare(String(b.status||"")));
+  return arr;
 }
 
-
-function getDateValue(c){
-
-    if(!c) return 0;
-
-    if(typeof c === "number") return c;
-
-    if(c.seconds) return c.seconds * 1000;
-
-    const t = Date.parse(c);
-
-    return isNaN(t) ? 0 : t;
+function render(){
+  const arr=filtered();
+  $("resultCount").textContent=`${arr.length} complaint${arr.length===1?"":"s"}`;
+  if(!arr.length){
+    $("complaintsBody").innerHTML=`<tr><td colspan="7"><div class="empty"><strong>No complaints found</strong>Try another search or clear the filters.</div></td></tr>`;
+    return;
+  }
+  $("complaintsBody").innerHTML=arr.map(c=>{
+    const mobile=c.mobile||c.phone||"-";
+    return `<tr>
+      <td><span class="id">${esc(c.complaintId||c.id||"-")}</span></td>
+      <td><span class="name">${esc(c.name||"-")}</span></td>
+      <td>${esc(mobile)}</td>
+      <td><span class="subject" title="${esc(c.subject||"")}">${esc(c.subject||"-")}</span></td>
+      <td><span class="status ${statusClass(c.status)}">${esc(statusLabel(c.status))}</span></td>
+      <td><span class="date">${esc(formatDate(c.createdAt))}</span></td>
+      <td><button class="view-btn" data-id="${esc(c._docId)}">View / Update</button></td>
+    </tr>`;
+  }).join("");
+  document.querySelectorAll(".view-btn").forEach(btn=>btn.addEventListener("click",()=>openComplaint(btn.dataset.id)));
 }
 
-
-function formatDate(value){
-
-    if(!value) return "-";
-
-    let date;
-
-    if(value.seconds){
-
-        date =
-            new Date(value.seconds * 1000);
-
-    }else{
-
-        date =
-            new Date(value);
-
+async function loadComplaints(){
+  $("refreshBtn").disabled=true;
+  $("refreshBtn").textContent="Loading…";
+  $("complaintsBody").innerHTML=`<tr><td colspan="7"><div class="loading">Loading complaints…</div></td></tr>`;
+  try{
+    const snap=await getDocs(query(collection(db,"complaints"),orderBy("createdAt","desc")));
+    complaints=snap.docs.map(d=>({_docId:d.id,...d.data()}));
+  }catch(error){
+    /* Fallback if createdAt index/order is not available. */
+    try{
+      const snap=await getDocs(collection(db,"complaints"));
+      complaints=snap.docs.map(d=>({_docId:d.id,...d.data()}));
+      toast("Loaded complaints without date sorting. Firestore index may be required.",true);
+    }catch(error2){
+      console.error(error2);
+      $("complaintsBody").innerHTML=`<tr><td colspan="7"><div class="empty"><strong>Unable to load complaints</strong>Check Firebase Authentication and Firestore rules.</div></td></tr>`;
+      toast(error2.message || "Unable to load complaints.",true);
     }
+  }
+  updateStats(); render();
+  $("refreshBtn").disabled=false; $("refreshBtn").textContent="↻ Refresh";
+}
 
-    if(isNaN(date.getTime())) return "-";
+function openComplaint(id){
+  const c=complaints.find(x=>x._docId===id);
+  if(!c) return;
+  selectedDocId=id;
+  const mobile=c.mobile||c.phone||"";
+  $("modalTitle").textContent=c.complaintId||"Complaint";
+  $("modalSub").textContent=c.subject||"Complaint details";
+  $("dId").textContent=c.complaintId||"-";
+  $("dDate").textContent=formatDate(c.createdAt);
+  $("dName").textContent=c.name||"-";
+  $("dMobile").textContent=mobile||"-";
+  $("dSubject").textContent=c.subject||"-";
+  $("dDetails").textContent=c.details||"-";
+  $("statusSelect").value=["Submitted","Under Review","In Progress","Resolved"].includes(c.status)?c.status:"Submitted";
+  $("callLink").href=mobile ? `tel:${mobile}` : "#";
+  const clean=String(mobile).replace(/\D/g,"");
+  $("waLink").href=clean ? `https://wa.me/${clean.startsWith("91")?clean:"91"+clean}` : "#";
+  $("modalBackdrop").classList.remove("hidden");
+}
+function closeModal(){ $("modalBackdrop").classList.add("hidden"); selectedDocId=null; }
 
-    return date.toLocaleString("en-IN",{
-        day:"2-digit",
-        month:"short",
-        year:"numeric",
-        hour:"2-digit",
-        minute:"2-digit"
+async function saveStatus(){
+  if(!selectedDocId) return;
+  const value=$("statusSelect").value;
+  const btn=$("saveStatus"); btn.disabled=true; btn.textContent="Saving…";
+  try{
+    await updateDoc(doc(db,"complaints",selectedDocId),{
+      status:value,
+      updatedAt:new Date()
     });
-
+    const c=complaints.find(x=>x._docId===selectedDocId);
+    if(c){c.status=value;c.updatedAt=new Date();}
+    updateStats(); render(); closeModal();
+    toast(`Status updated to "${value}".`);
+  }catch(error){
+    console.error(error);
+    toast(error.message || "Status update failed. Check Firestore rules.",true);
+  }finally{
+    btn.disabled=false; btn.textContent="Save Status";
+  }
 }
 
+$("loginBtn").addEventListener("click",async()=>{
+  const email=$("email").value.trim(), password=$("password").value;
+  $("loginError").classList.add("hidden");
+  if(!email || !password){$("loginError").textContent="Enter admin email and password."; $("loginError").classList.remove("hidden"); return;}
+  const btn=$("loginBtn"); btn.disabled=true; btn.textContent="Signing in…";
+  try{
+    await signInWithEmailAndPassword(auth,email,password);
+  }catch(error){
+    console.error(error);
+    $("loginError").textContent=error.message || "Login failed.";
+    $("loginError").classList.remove("hidden");
+  }finally{btn.disabled=false;btn.textContent="Sign In →";}
+});
 
-function escapeHtml(value){
+$("password").addEventListener("keydown",e=>{if(e.key==="Enter")$("loginBtn").click()});
+$("logoutBtn").addEventListener("click",()=>signOut(auth));
+$("homeBtn").addEventListener("click",()=>location.href="index.html");
+$("refreshBtn").addEventListener("click",loadComplaints);
+$("search").addEventListener("input",render);
+$("statusFilter").addEventListener("change",render);
+$("sortBy").addEventListener("change",render);
+$("clearBtn").addEventListener("click",()=>{
+  $("search").value="";$("statusFilter").value="all";$("sortBy").value="newest";render();
+});
+$("closeModal").addEventListener("click",closeModal);
+$("modalBackdrop").addEventListener("click",e=>{if(e.target===$("modalBackdrop"))closeModal()});
+$("saveStatus").addEventListener("click",saveStatus);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeModal()});
 
-    return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
-
-}
-
+onAuthStateChanged(auth,user=>{
+  if(user){
+    $("loginView").classList.add("hidden");
+    $("appView").classList.remove("hidden");
+    loadComplaints();
+  }else{
+    $("appView").classList.add("hidden");
+    $("loginView").classList.remove("hidden");
+  }
+});
 </script>
-
 </body>
 </html>
+
