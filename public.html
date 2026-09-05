@@ -1,357 +1,3138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Public Services | SK KGN TEAM</title>
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta
+name="theme-color"
+content="#071426">
+
+<meta
+name="description"
+content="SK KGN TEAM Public Services Directory - citizen assistance, grievances, complaints, applications, government services and public representative grievance assistance.">
+
+<title>
+Public Services Directory | SK KGN TEAM
+</title>
+
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+
+/* =========================================================
+   SK KGN TEAM
+   PREMIUM PUBLIC SERVICES DIRECTORY
+   ========================================================= */
+
+:root{
+
+    --blue:#1455a0;
+    --blue2:#2b7bd6;
+
+    --deep:#071426;
+    --deep2:#0d2748;
+
+    --text:#101827;
+    --muted:#667085;
+
+    --white:#ffffff;
+
+    --soft:#f4f7fb;
+
+    --line:#e1e7ef;
+
+    --gold:#d5a64b;
+
+    --success:#138a52;
+
+    --danger:#b42318;
+
+    --shadow:
+    0 18px 55px rgba(15,23,42,.08);
+
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-background:#f5f7fb;
-color:#101827;
-line-height:1.55
+
+    font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+    background:
+    linear-gradient(
+        180deg,
+        #f7f9fc,
+        #eef3f9
+    );
+
+    color:var(--text);
+
+    line-height:1.6;
+
+    overflow-x:hidden;
 }
 
-a{text-decoration:none;color:inherit}
-
-.container{
-width:min(1120px,92%);
-margin:auto
+a{
+    text-decoration:none;
+    color:inherit;
 }
+
+button,
+input{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+::selection{
+    background:#1455a0;
+    color:#fff;
+}
+
+
+/* =========================================================
+   SCROLL PROGRESS
+   ========================================================= */
+
+.progress{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:0%;
+    height:3px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #1455a0,
+        #65b0ff,
+        #d5a64b
+    );
+
+    z-index:9999;
+
+    box-shadow:
+    0 0 16px rgba(20,85,160,.6);
+
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 header{
-background:#fff;
-border-bottom:1px solid #e5e9f0;
-position:sticky;
-top:0;
-z-index:100
+
+    position:sticky;
+
+    top:0;
+
+    z-index:500;
+
+    background:
+    rgba(255,255,255,.88);
+
+    backdrop-filter:
+    blur(18px);
+
+    -webkit-backdrop-filter:
+    blur(18px);
+
+    border-bottom:
+    1px solid rgba(221,228,238,.8);
+
+    box-shadow:
+    0 8px 30px rgba(15,23,42,.04);
+
 }
+
+
+.container{
+
+    width:
+    min(1180px,92%);
+
+    margin:auto;
+
+}
+
 
 .nav{
-min-height:78px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px
+
+    min-height:80px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
 }
+
 
 .brand{
-display:flex;
-align-items:center;
-gap:11px;
-font-weight:900;
-font-size:21px
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    white-space:nowrap;
+
 }
 
-.logo{
-width:47px;
-height:47px;
-border:3px solid #174f9c;
-border-radius:50%;
-display:grid;
-place-items:center;
-color:#174f9c;
-font-weight:900;
-font-size:14px
+
+.brand img{
+
+    width:58px;
+    height:58px;
+
+    object-fit:contain;
+
+    display:block;
+
+    border-radius:50%;
+
+    filter:
+    drop-shadow(
+        0 7px 16px rgba(20,85,160,.17)
+    );
+
+    transition:
+    .35s ease;
+
 }
 
-.brand span{color:#174f9c}
+
+.brand:hover img{
+
+    transform:
+    scale(1.06)
+    rotate(-4deg);
+
+}
+
+
+.brand-name{
+
+    font-size:24px;
+
+    font-weight:900;
+
+    color:#111;
+
+}
+
+
+.brand-name span{
+
+    color:#1455a0;
+
+}
+
 
 .back{
-border:1px solid #dce2eb;
-background:#fff;
-color:#174f9c;
-border-radius:12px;
-padding:10px 15px;
-font-weight:800
+
+    padding:
+    10px 16px;
+
+    border:
+    1px solid #d7dfeb;
+
+    border-radius:
+    13px;
+
+    background:#fff;
+
+    color:#174f9c;
+
+    font-weight:850;
+
+    transition:.3s ease;
+
 }
+
+
+.back:hover{
+
+    background:#1455a0;
+
+    color:#fff;
+
+    border-color:#1455a0;
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 10px 25px rgba(20,85,160,.18);
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero{
-padding:68px 0 48px;
-background:linear-gradient(135deg,#eaf3ff,#fff 50%,#f2f6fb)
+
+    position:relative;
+
+    min-height:
+    680px;
+
+    display:flex;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    color:#fff;
+
+    background:
+
+    radial-gradient(
+        circle at 80% 20%,
+        rgba(44,126,216,.24),
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 10% 85%,
+        rgba(213,166,75,.10),
+        transparent 25%
+    ),
+
+    linear-gradient(
+        135deg,
+        #06101f,
+        #0a1c34 52%,
+        #123a67
+    );
+
 }
+
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    right:-260px;
+    top:-300px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(74,155,240,.22),
+        transparent 68%
+    );
+
+    animation:
+    heroGlow 10s ease-in-out infinite alternate;
+
+}
+
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:480px;
+    height:480px;
+
+    left:-260px;
+    bottom:-300px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(213,166,75,.12),
+        transparent 70%
+    );
+
+    animation:
+    heroGlow2 12s ease-in-out infinite alternate;
+
+}
+
+
+@keyframes heroGlow{
+
+    from{
+        transform:
+        scale(1);
+    }
+
+    to{
+        transform:
+        scale(1.22)
+        translate(-20px,30px);
+    }
+
+}
+
+
+@keyframes heroGlow2{
+
+    from{
+        transform:
+        scale(1);
+    }
+
+    to{
+        transform:
+        scale(1.25)
+        translate(25px,-20px);
+    }
+
+}
+
+
+.hero-grid{
+
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+    1.1fr
+    .9fr;
+
+    gap:70px;
+
+    align-items:center;
+
+    padding:
+    85px 0;
+
+}
+
 
 .kicker{
-display:inline-block;
-padding:8px 15px;
-border-radius:999px;
-background:#e3efff;
-color:#174f9c;
-font-size:12px;
-font-weight:900;
-letter-spacing:.8px
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+    8px 14px;
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+    background:
+    rgba(255,255,255,.07);
+
+    border-radius:
+    999px;
+
+    color:#d6e8ff;
+
+    font-size:11px;
+
+    font-weight:900;
+
+    letter-spacing:
+    1px;
+
+    backdrop-filter:
+    blur(12px);
+
 }
 
-h1{
-font-size:clamp(40px,7vw,70px);
-line-height:1.02;
-letter-spacing:-2.5px;
-margin-top:17px
+
+.kicker::before{
+
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#66b3ff;
+
+    box-shadow:
+    0 0 14px #66b3ff;
+
 }
 
-h1 span{color:#174f9c}
+
+.hero h1{
+
+    font-size:
+    clamp(43px,7vw,78px);
+
+    line-height:
+    1.01;
+
+    letter-spacing:
+    -3px;
+
+    margin-top:
+    20px;
+
+    font-weight:
+    950;
+
+}
+
+
+.hero h1 span{
+
+    background:
+    linear-gradient(
+        90deg,
+        #fff,
+        #8ac4ff,
+        #d5a64b
+    );
+
+    -webkit-background-clip:text;
+
+    background-clip:text;
+
+    color:transparent;
+
+}
+
 
 .hero p{
-max-width:800px;
-margin-top:20px;
-color:#667085;
-font-size:18px
+
+    max-width:
+    780px;
+
+    margin-top:
+    22px;
+
+    color:#bac9dc;
+
+    font-size:
+    17px;
+
+    line-height:
+    1.8;
+
 }
+
 
 .hero-actions{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-margin-top:27px
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    margin-top:
+    30px;
+
 }
+
 
 .btn{
-padding:13px 19px;
-border-radius:13px;
-font-weight:850;
-display:inline-flex;
-justify-content:center;
-align-items:center
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    padding:
+    13px 19px;
+
+    border-radius:
+    14px;
+
+    font-weight:
+    900;
+
+    transition:
+    .3s ease;
+
 }
+
 
 .primary{
-background:#101827;
-color:#fff
+
+    background:#fff;
+
+    color:#0b1d36;
+
+    box-shadow:
+    0 12px 35px rgba(0,0,0,.18);
+
 }
+
 
 .secondary{
-background:#fff;
-border:1px solid #d9e0ea
+
+    color:#fff;
+
+    background:
+    rgba(255,255,255,.07);
+
+    border:
+    1px solid rgba(255,255,255,.18);
+
 }
+
+
+.btn:hover{
+
+    transform:
+    translateY(-4px);
+
+}
+
+
+.hero-points{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:
+    12px;
+
+    margin-top:
+    28px;
+
+}
+
+
+.hero-point{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#d5e2f0;
+
+    font-size:13px;
+
+}
+
+
+.hero-point span{
+
+    color:#78bcff;
+
+    font-weight:900;
+
+}
+
+
+/* =========================================================
+   HERO DIRECTORY CARD
+   ========================================================= */
+
+.hero-card{
+
+    min-height:
+    420px;
+
+    border-radius:
+    32px;
+
+    padding:
+    32px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.13),
+        rgba(255,255,255,.035)
+    );
+
+    border:
+    1px solid rgba(255,255,255,.16);
+
+    box-shadow:
+    0 35px 90px rgba(0,0,0,.30);
+
+    backdrop-filter:
+    blur(20px);
+
+    position:relative;
+
+    overflow:hidden;
+
+    animation:
+    cardFloat 6s ease-in-out infinite;
+
+}
+
+
+@keyframes cardFloat{
+
+    0%,
+    100%{
+        transform:
+        translateY(0);
+    }
+
+    50%{
+        transform:
+        translateY(-12px);
+    }
+
+}
+
+
+.hero-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:230px;
+    height:230px;
+
+    right:-100px;
+    top:-100px;
+
+    border-radius:50%;
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+}
+
+
+.hero-icon{
+
+    width:
+    92px;
+
+    height:
+    92px;
+
+    border-radius:
+    28px;
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:
+    47px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    1px solid rgba(255,255,255,.14);
+
+    margin-bottom:
+    24px;
+
+}
+
+
+.hero-card h2{
+
+    font-size:
+    30px;
+
+    line-height:
+    1.15;
+
+}
+
+
+.hero-card p{
+
+    color:#b7c8dc;
+
+    margin-top:
+    12px;
+
+    font-size:
+    14px;
+
+    line-height:
+    1.75;
+
+}
+
+
+.hero-card-line{
+
+    height:
+    1px;
+
+    background:
+    rgba(255,255,255,.12);
+
+    margin:
+    24px 0;
+
+}
+
+
+.hero-mini-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:
+    10px;
+
+}
+
+
+.hero-mini{
+
+    padding:
+    13px;
+
+    border-radius:
+    13px;
+
+    background:
+    rgba(255,255,255,.055);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    font-size:
+    12px;
+
+    color:#d6e3f1;
+
+}
+
+
+.hero-mini b{
+
+    display:block;
+
+    color:#fff;
+
+    font-size:
+    17px;
+
+}
+
+
+/* =========================================================
+   QUICK BAR
+   ========================================================= */
+
+.quick-bar{
+
+    background:#fff;
+
+    border-bottom:
+    1px solid var(--line);
+
+    box-shadow:
+    0 8px 25px rgba(15,23,42,.035);
+
+}
+
+
+.quick-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+}
+
+
+.quick-item{
+
+    padding:
+    22px 15px;
+
+    text-align:center;
+
+    border-right:
+    1px solid #edf1f6;
+
+    transition:.3s ease;
+
+}
+
+
+.quick-item:last-child{
+    border-right:none;
+}
+
+
+.quick-item:hover{
+
+    background:
+    #f7faff;
+
+}
+
+
+.quick-icon{
+
+    font-size:
+    23px;
+
+}
+
+
+.quick-item strong{
+
+    display:block;
+
+    margin-top:
+    5px;
+
+    font-size:
+    13px;
+
+}
+
+
+.quick-item span{
+
+    color:
+    var(--muted);
+
+    font-size:
+    11px;
+
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.search-section{
+
+    padding:
+    65px 0 35px;
+
+}
+
+
+.search-box{
+
+    background:#fff;
+
+    border:
+    1px solid var(--line);
+
+    border-radius:
+    25px;
+
+    padding:
+    25px;
+
+    box-shadow:
+    var(--shadow);
+
+}
+
+
+.search-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-bottom:
+    17px;
+
+}
+
+
+.search-title h2{
+
+    font-size:
+    25px;
+
+}
+
+
+.search-title span{
+
+    color:
+    var(--muted);
+
+    font-size:
+    12px;
+
+}
+
+
+.search-input-wrap{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+
+.search-input{
+
+    width:100%;
+
+    border:
+    1px solid #dce3ec;
+
+    border-radius:
+    14px;
+
+    padding:
+    14px 16px;
+
+    outline:none;
+
+    font-size:
+    15px;
+
+    background:#fafcff;
+
+    transition:.3s ease;
+
+}
+
+
+.search-input:focus{
+
+    border-color:
+    #7db4ef;
+
+    box-shadow:
+    0 0 0 4px rgba(20,85,160,.08);
+
+}
+
+
+.search-button{
+
+    border:none;
+
+    background:
+    var(--blue);
+
+    color:#fff;
+
+    border-radius:
+    14px;
+
+    padding:
+    0 20px;
+
+    font-weight:
+    900;
+
+}
+
+
+.search-result{
+
+    display:none;
+
+    margin-top:
+    18px;
+
+    padding:
+    17px;
+
+    border-radius:
+    15px;
+
+    background:
+    #f2f7fd;
+
+    border:
+    1px solid #dce9f7;
+
+}
+
+
+.search-result.show{
+
+    display:block;
+
+}
+
+
+.search-result strong{
+
+    color:
+    var(--blue);
+
+}
+
+
+.search-empty{
+
+    color:
+    var(--muted);
+
+    font-size:
+    14px;
+
+}
+
+
+/* =========================================================
+   SECTION
+   ========================================================= */
 
 .section{
-padding:48px 0
+
+    padding:
+    72px 0;
+
 }
+
 
 .section-head{
-margin-bottom:24px
+
+    margin-bottom:
+    30px;
+
 }
+
+
+.section-label{
+
+    display:inline-block;
+
+    padding:
+    7px 13px;
+
+    border-radius:
+    30px;
+
+    background:
+    #e8f2ff;
+
+    color:
+    var(--blue);
+
+    font-size:
+    11px;
+
+    font-weight:
+    900;
+
+    letter-spacing:
+    1px;
+
+    margin-bottom:
+    11px;
+
+}
+
 
 .section-head h2{
-font-size:32px;
-letter-spacing:-1px
+
+    font-size:
+    clamp(29px,5vw,45px);
+
+    line-height:
+    1.1;
+
+    letter-spacing:
+    -1.3px;
+
 }
+
 
 .section-head p{
-color:#667085;
-margin-top:5px
+
+    margin-top:
+    7px;
+
+    color:
+    var(--muted);
+
+    font-size:
+    15px;
+
 }
+
+
+/* =========================================================
+   DIRECTORY GRID
+   ========================================================= */
 
 .grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:17px
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:
+    19px;
+
 }
+
 
 .card{
-background:#fff;
-border:1px solid #e1e6ee;
-border-radius:22px;
-padding:24px;
-box-shadow:0 10px 28px rgba(16,24,39,.055)
+
+    background:#fff;
+
+    border:
+    1px solid var(--line);
+
+    border-radius:
+    25px;
+
+    padding:
+    27px;
+
+    box-shadow:
+    0 12px 38px rgba(15,23,42,.055);
+
+    transition:
+    transform .4s ease,
+    box-shadow .4s ease,
+    border-color .4s ease;
+
+    position:relative;
+
+    overflow:hidden;
+
 }
+
+
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:
+    140px;
+
+    height:
+    140px;
+
+    right:
+    -80px;
+
+    bottom:
+    -80px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(20,85,160,.09),
+        transparent 70%
+    );
+
+    transition:
+    .4s ease;
+
+}
+
+
+.card:hover{
+
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 25px 65px rgba(20,85,160,.11);
+
+    border-color:
+    #cbdff5;
+
+}
+
+
+.card:hover::after{
+
+    transform:
+    scale(1.6);
+
+}
+
 
 .card.dark{
-background:#101827;
-color:#fff;
-border-color:#101827
+
+    background:
+    linear-gradient(
+        145deg,
+        #09172b,
+        #102f53
+    );
+
+    color:#fff;
+
+    border-color:
+    #102f53;
+
 }
+
+
+.card.dark p{
+
+    color:
+    #c1d0e2;
+
+}
+
 
 .icon{
-width:52px;
-height:52px;
-border-radius:15px;
-background:#eaf2ff;
-display:grid;
-place-items:center;
-font-size:27px;
-margin-bottom:16px
+
+    width:
+    58px;
+
+    height:
+    58px;
+
+    border-radius:
+    17px;
+
+    background:
+    #eaf2ff;
+
+    display:grid;
+
+    place-items:center;
+
+    font-size:
+    27px;
+
+    margin-bottom:
+    18px;
+
 }
+
 
 .dark .icon{
-background:#174f9c
+
+    background:
+    rgba(255,255,255,.09);
+
 }
+
 
 .card h3{
-font-size:21px
+
+    font-size:
+    22px;
+
+    margin-bottom:
+    7px;
+
 }
+
 
 .card p{
-color:#667085;
-margin-top:5px
+
+    color:
+    var(--muted);
+
+    font-size:
+    14px;
+
+    line-height:
+    1.75;
+
 }
 
-.dark p{
-color:#d5dbe5
-}
 
 .list{
-margin-top:14px;
-padding-left:19px;
-color:#667085
+
+    margin-top:
+    17px;
+
+    list-style:none;
+
 }
 
-.dark .list{
-color:#d5dbe5
-}
 
 .list li{
-margin:6px 0
+
+    position:relative;
+
+    padding-left:
+    22px;
+
+    margin:
+    8px 0;
+
+    color:
+    #536176;
+
+    font-size:
+    13px;
+
 }
+
+
+.dark .list li{
+
+    color:
+    #d4deea;
+
+}
+
+
+.list li::before{
+
+    content:"✓";
+
+    position:absolute;
+
+    left:0;
+
+    color:
+    var(--blue);
+
+    font-weight:
+    900;
+
+}
+
+
+.dark .list li::before{
+
+    color:
+    #79baff;
+
+}
+
+
+/* =========================================================
+   LARGE SERVICE CATALOG
+   ========================================================= */
+
+.catalog{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:
+    15px;
+
+}
+
+
+.catalog-item{
+
+    background:#fff;
+
+    border:
+    1px solid var(--line);
+
+    border-radius:
+    18px;
+
+    padding:
+    20px;
+
+    transition:
+    .3s ease;
+
+}
+
+
+.catalog-item:hover{
+
+    transform:
+    translateY(-5px);
+
+    border-color:
+    #c7dcf5;
+
+    box-shadow:
+    0 15px 40px rgba(15,23,42,.07);
+
+}
+
+
+.catalog-item .cat-icon{
+
+    font-size:
+    26px;
+
+    margin-bottom:
+    9px;
+
+}
+
+
+.catalog-item h3{
+
+    font-size:
+    17px;
+
+    margin-bottom:
+    5px;
+
+}
+
+
+.catalog-item p{
+
+    color:
+    var(--muted);
+
+    font-size:
+    12px;
+
+    line-height:
+    1.7;
+
+}
+
+
+.tag{
+
+    display:inline-block;
+
+    margin-top:
+    10px;
+
+    padding:
+    5px 8px;
+
+    border-radius:
+    20px;
+
+    background:
+    #eef5ff;
+
+    color:
+    var(--blue);
+
+    font-size:
+    10px;
+
+    font-weight:
+    900;
+
+}
+
+
+/* =========================================================
+   PUBLIC REPRESENTATIVE SECTION
+   ========================================================= */
+
+.representative{
+
+    background:
+    linear-gradient(
+        135deg,
+        #06101f,
+        #0d2748
+    );
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.representative::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:
+    500px;
+
+    height:
+    500px;
+
+    right:
+    -200px;
+
+    top:
+    -250px;
+
+    border-radius:50%;
+
+    background:
+    rgba(55,140,225,.12);
+
+}
+
+
+.rep-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:
+    22px;
+
+}
+
+
+.rep-card{
+
+    padding:
+    28px;
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    border-radius:
+    23px;
+
+    background:
+    rgba(255,255,255,.055);
+
+    backdrop-filter:
+    blur(12px);
+
+    transition:.35s ease;
+
+}
+
+
+.rep-card:hover{
+
+    transform:
+    translateY(-7px);
+
+    background:
+    rgba(255,255,255,.08);
+
+}
+
+
+.rep-icon{
+
+    width:
+    58px;
+
+    height:
+    58px;
+
+    border-radius:
+    17px;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+    rgba(255,255,255,.09);
+
+    font-size:
+    28px;
+
+    margin-bottom:
+    17px;
+
+}
+
+
+.rep-card h3{
+
+    font-size:
+    22px;
+
+    margin-bottom:
+    8px;
+
+}
+
+
+.rep-card p{
+
+    color:
+    #b8c9dc;
+
+    font-size:
+    14px;
+
+}
+
+
+.rep-list{
+
+    margin-top:
+    15px;
+
+    list-style:none;
+
+}
+
+
+.rep-list li{
+
+    color:
+    #d6e1ed;
+
+    font-size:
+    13px;
+
+    padding:
+    7px 0;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.06);
+
+}
+
+
+.rep-list li::before{
+
+    content:"✓";
+
+    color:
+    #7fc1ff;
+
+    font-weight:
+    900;
+
+    margin-right:
+    8px;
+
+}
+
+
+/* =========================================================
+   DIRECTORY TABLE STYLE
+   ========================================================= */
+
+.topic-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:
+    12px;
+
+}
+
+
+.topic{
+
+    padding:
+    17px;
+
+    border-radius:
+    16px;
+
+    background:#fff;
+
+    border:
+    1px solid var(--line);
+
+    transition:
+    .3s ease;
+
+}
+
+
+.topic:hover{
+
+    transform:
+    translateY(-4px);
+
+    border-color:
+    #bfd7f2;
+
+}
+
+
+.topic-icon{
+
+    font-size:
+    22px;
+
+}
+
+
+.topic h4{
+
+    margin-top:
+    7px;
+
+    font-size:
+    14px;
+
+}
+
+
+.topic p{
+
+    margin-top:
+    3px;
+
+    color:
+    var(--muted);
+
+    font-size:
+    11px;
+
+}
+
+
+/* =========================================================
+   NOTE
+   ========================================================= */
 
 .note{
-margin-top:25px;
-padding:20px;
-border-radius:18px;
-background:#edf5ff;
-border:1px solid #d7e8ff;
-color:#475467
+
+    margin-top:
+    25px;
+
+    padding:
+    21px;
+
+    border-radius:
+    18px;
+
+    background:
+    #edf5ff;
+
+    border:
+    1px solid #d5e7fb;
+
+    color:
+    #475467;
+
+    font-size:
+    13px;
+
 }
+
 
 .note strong{
-color:#174f9c
+
+    color:
+    var(--blue);
+
 }
+
+
+/* =========================================================
+   HOW IT WORKS
+   ========================================================= */
+
+.steps{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:
+    18px;
+
+}
+
+
+.step{
+
+    text-align:center;
+
+    padding:
+    15px;
+
+}
+
+
+.step-number{
+
+    width:
+    70px;
+
+    height:
+    70px;
+
+    margin:
+    auto auto 17px;
+
+    border-radius:
+    50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:#fff;
+
+    border:
+    2px solid #dce8f5;
+
+    color:
+    var(--blue);
+
+    font-weight:
+    900;
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.06);
+
+    transition:.35s ease;
+
+}
+
+
+.step:hover .step-number{
+
+    background:
+    var(--blue);
+
+    color:#fff;
+
+    border-color:
+    var(--blue);
+
+    transform:
+    scale(1.08);
+
+}
+
+
+.step h3{
+
+    font-size:
+    17px;
+
+}
+
+
+.step p{
+
+    color:
+    var(--muted);
+
+    font-size:
+    12px;
+
+    margin-top:
+    6px;
+
+}
+
+
+/* =========================================================
+   CTA
+   ========================================================= */
+
+.cta-section{
+
+    padding:
+    80px 0;
+
+}
+
+
+.cta{
+
+    padding:
+    60px 30px;
+
+    border-radius:
+    32px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #071426,
+        #123b68
+    );
+
+    color:#fff;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 30px 80px rgba(7,20,38,.18);
+
+}
+
+
+.cta::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:
+    420px;
+
+    height:
+    420px;
+
+    right:
+    -190px;
+
+    top:
+    -270px;
+
+    border-radius:50%;
+
+    background:
+    rgba(67,155,241,.14);
+
+}
+
+
+.cta h2{
+
+    position:relative;
+
+    font-size:
+    clamp(31px,5vw,49px);
+
+    line-height:
+    1.1;
+
+}
+
+
+.cta p{
+
+    position:relative;
+
+    max-width:
+    720px;
+
+    margin:
+    15px auto 25px;
+
+    color:
+    #bdcce0;
+
+}
+
+
+.cta-buttons{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:
+    11px;
+
+}
+
+
+.cta-buttons a{
+
+    padding:
+    13px 20px;
+
+    border-radius:
+    13px;
+
+    font-weight:
+    900;
+
+    transition:.3s ease;
+
+}
+
+
+.call{
+
+    background:#fff;
+
+    color:#071426;
+
+}
+
+
+.whatsapp{
+
+    color:#fff;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    1px solid rgba(255,255,255,.18);
+
+}
+
+
+.cta-buttons a:hover{
+
+    transform:
+    translateY(-4px);
+
+}
+
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
 
 .disclaimer{
-background:#fff;
-border:1px solid #e1e6ee;
-border-radius:20px;
-padding:22px;
-margin-top:25px;
-color:#667085
+
+    padding:
+    25px;
+
+    border:
+    1px solid var(--line);
+
+    background:#fff;
+
+    border-radius:
+    20px;
+
+    color:
+    #69778a;
+
+    font-size:
+    12px;
+
+    line-height:
+    1.8;
+
 }
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
 footer{
-background:#101827;
-color:#cbd3df;
-padding:32px 0;
-margin-top:10px
+
+    margin-top:
+    30px;
+
+    background:
+    #06101f;
+
+    color:
+    #b8c6d8;
+
+    padding:
+    48px 0 30px;
+
 }
 
-.foot{
-display:flex;
-justify-content:space-between;
-gap:20px;
-flex-wrap:wrap
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1.4fr 1fr 1fr;
+
+    gap:
+    40px;
+
 }
 
-.foot b{
-color:#fff
+
+.footer-title{
+
+    color:#fff;
+
+    font-size:
+    24px;
+
+    font-weight:
+    900;
+
+    margin-bottom:
+    8px;
+
 }
+
+
+.footer-title span{
+
+    color:
+    #70b7ff;
+
+}
+
+
+.footer-text{
+
+    color:
+    #93a5bc;
+
+    max-width:
+    420px;
+
+    font-size:
+    13px;
+
+    line-height:
+    1.8;
+
+}
+
+
+.footer-col h4{
+
+    color:#fff;
+
+    margin-bottom:
+    14px;
+
+    font-size:
+    14px;
+
+}
+
+
+.footer-col a,
+.footer-col p{
+
+    display:block;
+
+    color:
+    #93a5bc;
+
+    font-size:
+    13px;
+
+    margin-bottom:
+    8px;
+
+}
+
+
+.footer-col a:hover{
+
+    color:#fff;
+
+}
+
+
+.footer-bottom{
+
+    margin-top:
+    35px;
+
+    padding-top:
+    20px;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:
+    20px;
+
+    color:
+    #6f829a;
+
+    font-size:
+    11px;
+
+}
+
+
+/* =========================================================
+   FLOATING WHATSAPP
+   ========================================================= */
+
+.float{
+
+    position:fixed;
+
+    right:
+    19px;
+
+    bottom:
+    19px;
+
+    width:
+    56px;
+
+    height:
+    56px;
+
+    border-radius:
+    50%;
+
+    display:grid;
+
+    place-items:center;
+
+    background:
+    #1455a0;
+
+    color:#fff;
+
+    font-size:
+    23px;
+
+    z-index:
+    300;
+
+    box-shadow:
+    0 14px 38px rgba(20,85,160,.35);
+
+    animation:
+    pulse 3s infinite;
+
+}
+
+
+@keyframes pulse{
+
+    0%,
+    100%{
+        box-shadow:
+        0 14px 38px rgba(20,85,160,.32);
+    }
+
+    50%{
+        box-shadow:
+        0 14px 48px rgba(20,85,160,.58);
+    }
+
+}
+
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+
+.reveal{
+
+    opacity:0;
+
+    transform:
+    translateY(32px)
+    scale(.98);
+
+    filter:
+    blur(2px);
+
+    transition:
+    opacity .75s ease,
+    transform .75s cubic-bezier(.2,.8,.2,1),
+    filter .75s ease;
+
+}
+
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:
+    translateY(0)
+    scale(1);
+
+    filter:
+    blur(0);
+
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:1000px){
+
+    .hero-grid{
+
+        grid-template-columns:
+        1fr;
+
+        gap:
+        45px;
+
+    }
+
+    .hero-card{
+
+        max-width:
+        560px;
+
+    }
+
+    .catalog{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .topic-grid{
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+    }
+
+    .steps{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+        1fr 1fr;
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media(max-width:700px){
 
-.nav{
-min-height:70px
+    .container{
+
+        width:
+        min(94%,600px);
+
+    }
+
+    .nav{
+
+        min-height:
+        70px;
+
+    }
+
+    .brand img{
+
+        width:
+        48px;
+
+        height:
+        48px;
+
+    }
+
+    .brand-name{
+
+        font-size:
+        18px;
+
+    }
+
+    .back{
+
+        font-size:
+        12px;
+
+        padding:
+        8px 10px;
+
+    }
+
+    .hero{
+
+        min-height:
+        auto;
+
+    }
+
+    .hero-grid{
+
+        padding:
+        62px 0 68px;
+
+    }
+
+    .hero h1{
+
+        font-size:
+        45px;
+
+        letter-spacing:
+        -2px;
+
+    }
+
+    .hero p{
+
+        font-size:
+        15px;
+
+    }
+
+    .hero-actions{
+
+        display:grid;
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .btn{
+
+        width:
+        100%;
+
+    }
+
+    .hero-points{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .hero-card{
+
+        min-height:
+        350px;
+
+        padding:
+        25px;
+
+        border-radius:
+        27px;
+
+    }
+
+    .quick-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+
+    }
+
+    .quick-item{
+
+        border-bottom:
+        1px solid #edf1f6;
+
+    }
+
+    .quick-item:nth-child(even){
+
+        border-right:
+        none;
+
+    }
+
+    .search-section{
+
+        padding:
+        45px 0 20px;
+
+    }
+
+    .search-input-wrap{
+
+        flex-direction:
+        column;
+
+    }
+
+    .search-button{
+
+        min-height:
+        48px;
+
+    }
+
+    .section{
+
+        padding:
+        58px 0;
+
+    }
+
+    .grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .catalog{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .rep-grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .topic-grid{
+
+        grid-template-columns:
+        1fr 1fr;
+
+    }
+
+    .steps{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .cta{
+
+        padding:
+        48px 20px;
+
+        border-radius:
+        27px;
+
+    }
+
+    .cta-buttons{
+
+        display:grid;
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .cta-buttons a{
+
+        width:
+        100%;
+
+        text-align:center;
+
+    }
+
+    .footer-grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
+
+    .footer-bottom{
+
+        flex-direction:
+        column;
+
+    }
+
 }
 
-.brand{
-font-size:18px
-}
 
-.logo{
-width:43px;
-height:43px
-}
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
-.back{
-font-size:12px;
-padding:9px 11px
-}
+@media(max-width:380px){
 
-.hero{
-padding:48px 0 38px
-}
+    .hero h1{
 
-h1{
-letter-spacing:-1.7px
-}
+        font-size:
+        39px;
 
-.hero p{
-font-size:16px
-}
+    }
 
-.grid{
-grid-template-columns:1fr
-}
+    .brand-name{
 
-.section{
-padding:38px 0
-}
+        font-size:
+        16px;
+
+    }
+
+    .topic-grid{
+
+        grid-template-columns:
+        1fr;
+
+    }
 
 }
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation-duration:
+        .01ms !important;
+
+        animation-iteration-count:
+        1 !important;
+
+        transition-duration:
+        .01ms !important;
+
+        scroll-behavior:
+        auto !important;
+
+    }
+
+}
+
 </style>
 </head>
 
+
 <body>
+
+
+<div class="progress" id="progress"></div>
+
+
+<!-- ======================================================
+     HEADER
+     ====================================================== -->
+
 <header>
+
 <div class="container nav">
 
-<a class="brand" href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap;">
-<img src="Logo.jpg" alt="SK KGN TEAM" style="width:58px;height:58px;object-fit:contain;display:block;">
-<div style="font-size:24px;font-weight:800;color:#111;white-space:nowrap;">
-SK <span style="color:#1455a0;">KGN</span> TEAM
+<a
+href="index.html"
+class="brand">
+
+<img
+src="Logo.jpg"
+alt="SK KGN TEAM">
+
+<div class="brand-name">
+SK <span>KGN</span> TEAM
 </div>
+
 </a>
 
-<a href="index.html" class="back" style="white-space:nowrap;">
-← Home</a>
+
+<a
+href="index.html"
+class="back">
+
+← Home
+
+</a>
 
 </div>
+
 </header>
 
 
-<main>
+<!-- ======================================================
+     HERO
+     ====================================================== -->
 
 <section class="hero">
 
-<div class="container">
+<div class="container hero-grid">
+
+
+<div class="hero-content reveal">
 
 <div class="kicker">
 PUBLIC SERVICES DIRECTORY
 </div>
 
+
 <h1>
+
 Public Services.<br>
-<span>Useful Information.</span>
+
+<span>
+Useful Information.
+</span>
+
 </h1>
 
+
 <p>
-Important public-service information, complaint categories and citizen assistance details in one place. Select the category that matches your issue and use the information to understand what type of service or complaint you may need.
+
+Explore a wide range of citizen-service
+categories including government grievances,
+police matters, land and revenue issues,
+municipal services, education, health,
+consumer complaints, cyber fraud, public
+representative grievances and many more.
+
 </p>
+
 
 <div class="hero-actions">
 
-<a class="btn primary" href="#police">
-🇮🇳 UP Police Services ↓
+<a
+href="#directory"
+class="btn primary">
+
+Explore Services ↓
+
 </a>
 
-<a class="btn secondary" href="#central">
-Central Services ↓
+
+<a
+href="https://wa.me/917007027158"
+class="btn secondary">
+
+💬 Ask for Assistance
+
 </a>
 
 </div>
 
+
+<div class="hero-points">
+
+<div class="hero-point">
+<span>✓</span>
+Citizen Assistance
 </div>
+
+<div class="hero-point">
+<span>✓</span>
+Complaint Information
+</div>
+
+<div class="hero-point">
+<span>✓</span>
+Application Guidance
+</div>
+
+<div class="hero-point">
+<span>✓</span>
+Online Process Assistance
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hero-card reveal">
+
+<div class="hero-icon">
+🏛️
+</div>
+
+<h2>
+One Place.
+Many Public Services.
+</h2>
+
+<p>
+
+Find the category related to your problem,
+understand the general process and identify
+the type of application, complaint or
+assistance that may be relevant.
+
+</p>
+
+
+<div class="hero-card-line"></div>
+
+
+<div class="hero-mini-grid">
+
+<div class="hero-mini">
+<b>100+</b>
+Service Categories
+</div>
+
+<div class="hero-mini">
+<b>24/7</b>
+Information Access
+</div>
+
+<div class="hero-mini">
+<b>India</b>
+Citizen Topics
+</div>
+
+<div class="hero-mini">
+<b>Online</b>
+Assistance
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
 </section>
 
 
-<section class="section" id="police">
+<!-- ======================================================
+     QUICK BAR
+     ====================================================== -->
+
+<section class="quick-bar">
+
+<div class="container quick-grid">
+
+
+<a
+href="#police"
+class="quick-item">
+
+<div class="quick-icon">
+👮
+</div>
+
+<strong>
+Police
+</strong>
+
+<span>
+Citizen services
+</span>
+
+</a>
+
+
+<a
+href="#central"
+class="quick-item">
+
+<div class="quick-icon">
+🏛️
+</div>
+
+<strong>
+Government
+</strong>
+
+<span>
+Public grievances
+</span>
+
+</a>
+
+
+<a
+href="#representatives"
+class="quick-item">
+
+<div class="quick-icon">
+🗳️
+</div>
+
+<strong>
+Public Representatives
+</strong>
+
+<span>
+MP / MLA matters
+</span>
+
+</a>
+
+
+<a
+href="#consumer"
+class="quick-item">
+
+<div class="quick-icon">
+🛒
+</div>
+
+<strong>
+Consumer
+</strong>
+
+<span>
+Product & service
+</span>
+
+</a>
+
+
+<a
+href="#directory"
+class="quick-item">
+
+<div class="quick-icon">
+🔎
+</div>
+
+<strong>
+All Services
+</strong>
+
+<span>
+Browse directory
+</span>
+
+</a>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     SEARCH
+     ====================================================== -->
+
+<section class="search-section">
 
 <div class="container">
 
-<div class="section-head">
+<div class="search-box reveal">
 
-<h2>🇮🇳 Uttar Pradesh Police Services</h2>
+<div class="search-title">
+
+<h2>
+🔎 Find a Service
+</h2>
+
+<span>
+Search by problem or service
+</span>
+
+</div>
+
+
+<div class="search-input-wrap">
+
+<input
+type="search"
+id="serviceSearch"
+class="search-input"
+placeholder="Example: land, pension, electricity, MP, MLA, FIR, scholarship...">
+
+<button
+class="search-button"
+id="searchButton">
+
+Search
+
+</button>
+
+</div>
+
+
+<div
+class="search-result"
+id="searchResult">
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     EXISTING UP POLICE SERVICES
+     ====================================================== -->
+
+<section
+class="section"
+id="police">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="section-label">
+POLICE & CITIZEN SERVICES
+</div>
+
+<h2>
+🇮🇳 Uttar Pradesh Police Services
+</h2>
 
 <p>
 Citizen-service and police-related complaint information.
@@ -363,9 +3144,11 @@ Citizen-service and police-related complaint information.
 <div class="grid">
 
 
-<article class="card dark">
+<article class="card dark reveal">
 
-<div class="icon">👮</div>
+<div class="icon">
+👮
+</div>
 
 <h3>
 Police Citizen Services
@@ -375,33 +3158,59 @@ Police Citizen Services
 Information about commonly used police and citizen-service facilities.
 </p>
 
+
 <ul class="list">
 
 <li>e-FIR / FIR related information</li>
+
 <li>View or search FIR status</li>
+
 <li>Lost Article Report</li>
+
 <li>Nearest Police Station information</li>
+
 <li>Road Accident Cases</li>
+
 <li>Vehicle NOC information</li>
+
 <li>Character Certificate</li>
+
 <li>Domestic Help Verification</li>
+
 <li>Employee Verification</li>
+
 <li>Tenant Verification</li>
+
 <li>Procession Request</li>
+
 <li>Protest / Strike Request</li>
+
 <li>Event / Programme Permission</li>
+
 <li>Film Shooting Permission</li>
+
 <li>Postmortem Report information</li>
+
 <li>Senior Citizen related assistance</li>
+
 <li>Complaint by Divyang persons</li>
+
 <li>Share Information</li>
+
 <li>Search Status / Download information</li>
+
 <li>Emergency Helpline information</li>
+
 <li>Unidentified Dead Bodies</li>
+
 <li>Missing Person information</li>
+
 <li>Rewarded Criminals information</li>
+
 <li>Arrested Accused information</li>
+
 <li>Cyber Awareness</li>
+
 <li>Police contact assistance</li>
 
 </ul>
@@ -409,9 +3218,11 @@ Information about commonly used police and citizen-service facilities.
 </article>
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">🚨</div>
+<div class="icon">
+🚨
+</div>
 
 <h3>
 Police Complaint Information
@@ -421,40 +3232,71 @@ Police Complaint Information
 Useful guidance for common police-related problems.
 </p>
 
+
 <ul class="list">
 
 <li>Complaint about police service</li>
+
 <li>FIR-related assistance</li>
+
 <li>Lost article reporting information</li>
+
 <li>Verification-related information</li>
+
 <li>Traffic and accident-related matters</li>
+
 <li>Missing person information</li>
+
 <li>Cybercrime-related guidance</li>
+
 <li>Emergency assistance information</li>
 
 </ul>
 
+
 <div class="note">
 
-<strong>Important:</strong>
-For an actual police complaint, FIR or emergency matter, use the concerned official authority. SK KGN TEAM only provides assistance and information.
+<strong>
+Important:
+</strong>
+
+For an actual police complaint, FIR
+or emergency matter, use the concerned
+official authority. SK KGN TEAM provides
+independent assistance and information.
 
 </div>
 
 </article>
 
+
 </div>
+
 </div>
+
 </section>
 
 
-<section class="section" id="central">
+<!-- ======================================================
+     CENTRAL GOVERNMENT
+     ====================================================== -->
+
+<section
+class="section"
+id="central">
 
 <div class="container">
 
-<div class="section-head">
 
-<h2>🇮🇳 Central Government Services</h2>
+<div class="section-head reveal">
+
+<div class="section-label">
+CENTRAL SERVICES
+</div>
+
+<h2>
+🇮🇳 Central Government Services
+</h2>
 
 <p>
 Major categories of central-level citizen services and complaints.
@@ -466,9 +3308,11 @@ Major categories of central-level citizen services and complaints.
 <div class="grid">
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">🏛️</div>
+<div class="icon">
+🏛️
+</div>
 
 <h3>
 Central Government Complaints
@@ -481,9 +3325,13 @@ Information for complaints concerning Central Government departments and public 
 <ul class="list">
 
 <li>Public service grievance</li>
+
 <li>Department-related complaint</li>
+
 <li>Service delay complaint</li>
+
 <li>Complaint status information</li>
+
 <li>Reminder / escalation guidance</li>
 
 </ul>
@@ -491,9 +3339,11 @@ Information for complaints concerning Central Government departments and public 
 </article>
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">🛡️</div>
+<div class="icon">
+🛡️
+</div>
 
 <h3>
 Cyber Crime & Online Fraud
@@ -506,9 +3356,13 @@ Information for online fraud and cyber-related complaints.
 <ul class="list">
 
 <li>Online financial fraud</li>
+
 <li>Cybercrime complaint information</li>
+
 <li>Suspicious online activity</li>
+
 <li>Women and children related cybercrime</li>
+
 <li>Complaint tracking information</li>
 
 </ul>
@@ -516,9 +3370,13 @@ Information for online fraud and cyber-related complaints.
 </article>
 
 
-<article class="card">
+<article
+class="card reveal"
+id="consumer">
 
-<div class="icon">🛒</div>
+<div class="icon">
+🛒
+</div>
 
 <h3>
 Consumer Complaints
@@ -531,19 +3389,29 @@ Information for problems involving products, services and consumer rights.
 <ul class="list">
 
 <li>Defective product</li>
+
 <li>Poor service</li>
+
 <li>Refund-related complaint</li>
+
 <li>Online purchase issue</li>
+
 <li>Consumer grievance guidance</li>
+
+<li>Consumer Commission filing information</li>
+
+<li>e-Jagriti filing assistance</li>
 
 </ul>
 
 </article>
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">🚆</div>
+<div class="icon">
+🚆
+</div>
 
 <h3>
 Other Central Services
@@ -556,9 +3424,13 @@ Common public-service categories that may require central-level assistance.
 <ul class="list">
 
 <li>Railway-related complaints</li>
+
 <li>Air travel service complaints</li>
+
 <li>Postal service complaints</li>
+
 <li>Banking and financial service complaints</li>
+
 <li>Department / Ministry service issues</li>
 
 </ul>
@@ -567,20 +3439,237 @@ Common public-service categories that may require central-level assistance.
 
 
 </div>
+
 </div>
+
 </section>
 
 
-<section class="section" id="states">
+<!-- ======================================================
+     PUBLIC REPRESENTATIVES
+     ====================================================== -->
+
+<section
+class="section representative"
+id="representatives">
 
 <div class="container">
 
-<div class="section-head">
 
-<h2>🌐 State-wise Complaint Services</h2>
+<div class="section-head reveal">
+
+<div class="section-label"
+style="background:rgba(255,255,255,.08);color:#9dccff;border-color:rgba(255,255,255,.12);">
+
+PUBLIC REPRESENTATIVE GRIEVANCES
+
+</div>
+
+<h2>
+🗳️ MP / MLA / Public Representative Matters
+</h2>
+
+<p style="color:#b8c9dc;">
+
+Assistance with organizing and preparing
+representations or grievance information
+concerning public issues and elected
+representatives.
+
+</p>
+
+</div>
+
+
+<div class="rep-grid">
+
+
+<div class="rep-card reveal">
+
+<div class="rep-icon">
+🏛️
+</div>
+
+<h3>
+MLA Related Grievances
+</h3>
 
 <p>
-Information categories for complaints and public grievances across India.
+Assistance in preparing a structured representation concerning public or constituency issues.
+</p>
+
+<ul class="rep-list">
+
+<li>Constituency development issue</li>
+
+<li>Road and street problems</li>
+
+<li>Drainage / sanitation issue</li>
+
+<li>Water supply issue</li>
+
+<li>Electricity infrastructure issue</li>
+
+<li>Government facility issue</li>
+
+<li>School / college infrastructure issue</li>
+
+<li>Hospital / health facility issue</li>
+
+<li>Public transport issue</li>
+
+<li>Local development concern</li>
+
+<li>Pending public work</li>
+
+<li>Public representation drafting</li>
+
+</ul>
+
+</div>
+
+
+<div class="rep-card reveal">
+
+<div class="rep-icon">
+🇮🇳
+</div>
+
+<h3>
+MP Related Grievances
+</h3>
+
+<p>
+Assistance in preparing representations regarding public and constituency-level concerns.
+</p>
+
+<ul class="rep-list">
+
+<li>Parliamentary constituency issues</li>
+
+<li>Road / infrastructure concerns</li>
+
+<li>Railway-related public issue</li>
+
+<li>Central government service issue</li>
+
+<li>Public facility concerns</li>
+
+<li>Employment-related public issue</li>
+
+<li>Education facility concerns</li>
+
+<li>Healthcare infrastructure concern</li>
+
+<li>Public utility issue</li>
+
+<li>Development-related representation</li>
+
+<li>Citizen grievance documentation</li>
+
+<li>Representation drafting</li>
+
+</ul>
+
+</div>
+
+
+<div class="rep-card reveal">
+
+<div class="rep-icon">
+📢
+</div>
+
+<h3>
+Public Representative Complaint
+</h3>
+
+<p>
+Where appropriate, citizens may need to submit grievances through the relevant authority or institutional mechanism.
+</p>
+
+<ul class="rep-list">
+
+<li>Non-response to representation</li>
+
+<li>Public issue not addressed</li>
+
+<li>Pending public request</li>
+
+<li>Development work concern</li>
+
+<li>Constituency grievance</li>
+
+<li>Request for representation guidance</li>
+
+</ul>
+
+</div>
+
+
+<div class="rep-card reveal">
+
+<div class="rep-icon">
+📝
+</div>
+
+<h3>
+Representation Preparation
+</h3>
+
+<p>
+Assistance with presenting facts, documents and requests in a clear written format.
+</p>
+
+<ul class="rep-list">
+
+<li>Issue summary</li>
+
+<li>Chronology of events</li>
+
+<li>Supporting evidence list</li>
+
+<li>Requested action</li>
+
+<li>Contact details</li>
+
+<li>Submission format guidance</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     STATE SERVICES
+     ====================================================== -->
+
+<section
+class="section"
+id="states">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="section-label">
+STATE-WISE
+</div>
+
+<h2>
+🌐 State-wise Complaint Services
+</h2>
+
+<p>
+Major citizen complaint categories applicable across different States and Union Territories.
 </p>
 
 </div>
@@ -589,9 +3678,11 @@ Information categories for complaints and public grievances across India.
 <div class="grid">
 
 
-<article class="card dark">
+<article class="card dark reveal">
 
-<div class="icon">📍</div>
+<div class="icon">
+📍
+</div>
 
 <h3>
 Uttar Pradesh
@@ -604,9 +3695,13 @@ Public grievance, police, revenue, municipal and department-related complaint in
 <ul class="list">
 
 <li>Government office complaints</li>
+
 <li>Police-related complaints</li>
+
 <li>Revenue / land complaints</li>
+
 <li>Municipal service complaints</li>
+
 <li>Electricity / water / public utility complaints</li>
 
 </ul>
@@ -614,63 +3709,1180 @@ Public grievance, police, revenue, municipal and department-related complaint in
 </article>
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">🗺️</div>
+<div class="icon">
+🗺️
+</div>
 
 <h3>
 Other States & UTs
 </h3>
 
 <p>
-Complaint information can be organised state-by-state so visitors can identify the appropriate type of authority.
+Complaint information can be organized state-by-state according to the applicable authority.
 </p>
 
 <ul class="list">
 
 <li>Andhra Pradesh</li>
+
 <li>Bihar</li>
+
 <li>Delhi</li>
+
 <li>Gujarat</li>
+
 <li>Haryana</li>
+
 <li>Jharkhand</li>
+
 <li>Madhya Pradesh</li>
+
 <li>Maharashtra</li>
+
 <li>Rajasthan</li>
+
 <li>Punjab</li>
+
 <li>Uttarakhand</li>
+
 <li>West Bengal</li>
+
 <li>All other States and Union Territories</li>
 
 </ul>
 
 </article>
 
+
 </div>
 
 
 <div class="note">
 
-<strong>State directory:</strong>
-Individual official portal names and links should be added only after verification. This page currently focuses on complaint/service categories rather than displaying external government website names.
+<strong>
+State directory:
+</strong>
+
+Individual official portal names and links
+should be verified before submission. This
+page focuses on service categories and
+assistance rather than claiming official
+government affiliation.
 
 </div>
 
 </div>
+
 </section>
 
+
+<!-- ======================================================
+     LAND / REVENUE / MUNICIPAL
+     ====================================================== -->
+
+<section class="section" id="directory">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="section-label">
+CITIZEN SERVICE CATALOG
+</div>
+
+<h2>
+📚 Major Public Service Categories
+</h2>
+
+<p>
+A broad directory of common citizen issues and assistance categories.
+</p>
+
+</div>
+
+
+<div class="catalog">
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🌾
+</div>
+
+<h3>
+Land & Revenue
+</h3>
+
+<p>
+Land records, mutation, measurement, boundaries, possession, revenue applications and related grievances.
+</p>
+
+<span class="tag">
+LAND
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🏙️
+</div>
+
+<h3>
+Municipal Services
+</h3>
+
+<p>
+Street lights, sanitation, drainage, garbage, roads, water supply and local civic services.
+</p>
+
+<span class="tag">
+MUNICIPAL
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+💡
+</div>
+
+<h3>
+Electricity
+</h3>
+
+<p>
+Billing, meter, connection, transformer, supply interruption and service complaints.
+</p>
+
+<span class="tag">
+UTILITY
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🚰
+</div>
+
+<h3>
+Water Supply
+</h3>
+
+<p>
+Water connection, supply interruption, leakage, billing and public water-service matters.
+</p>
+
+<span class="tag">
+UTILITY
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🔥
+</div>
+
+<h3>
+Gas Services
+</h3>
+
+<p>
+Cylinder booking, delivery, agency service, billing and related consumer complaints.
+</p>
+
+<span class="tag">
+UTILITY
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🍚
+</div>
+
+<h3>
+Ration & Food Supply
+</h3>
+
+<p>
+Ration card, distribution, eligibility, dealer-related complaints and public distribution issues.
+</p>
+
+<span class="tag">
+FOOD
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+👴
+</div>
+
+<h3>
+Pension Services
+</h3>
+
+<p>
+Old-age, widow, disability and other pension-related application and grievance categories.
+</p>
+
+<span class="tag">
+SOCIAL SECURITY
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🎓
+</div>
+
+<h3>
+Education
+</h3>
+
+<p>
+School, college, admission, certificates, scholarship, fee and student-service complaints.
+</p>
+
+<span class="tag">
+EDUCATION
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+💰
+</div>
+
+<h3>
+Scholarship
+</h3>
+
+<p>
+Scholarship application, verification, payment, status and related grievance information.
+</p>
+
+<span class="tag">
+STUDENT
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🏥
+</div>
+
+<h3>
+Health Services
+</h3>
+
+<p>
+Government hospitals, public health facilities, service delays and healthcare grievances.
+</p>
+
+<span class="tag">
+HEALTH
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+👷
+</div>
+
+<h3>
+Labour & Employment
+</h3>
+
+<p>
+Employment services, wages, labour grievances, worker welfare and related information.
+</p>
+
+<span class="tag">
+LABOUR
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🌱
+</div>
+
+<h3>
+Agriculture
+</h3>
+
+<p>
+Farmer services, agriculture schemes, irrigation, crop-related issues and subsidy information.
+</p>
+
+<span class="tag">
+AGRICULTURE
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🐄
+</div>
+
+<h3>
+Animal Husbandry
+</h3>
+
+<p>
+Veterinary services, livestock assistance, vaccination and animal welfare categories.
+</p>
+
+<span class="tag">
+ANIMAL
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🚌
+</div>
+
+<h3>
+Transport
+</h3>
+
+<p>
+Bus services, public transport, route issues, permit and transport-service complaints.
+</p>
+
+<span class="tag">
+TRANSPORT
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🚗
+</div>
+
+<h3>
+Vehicle & RTO
+</h3>
+
+<p>
+Driving licence, registration, vehicle documents, permits and transport-office assistance.
+</p>
+
+<span class="tag">
+RTO
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🚆
+</div>
+
+<h3>
+Railway
+</h3>
+
+<p>
+Passenger services, booking, refund, cleanliness, facilities and railway complaint categories.
+</p>
+
+<span class="tag">
+RAILWAY
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+✈️
+</div>
+
+<h3>
+Air Travel
+</h3>
+
+<p>
+Passenger service, baggage, refund, cancellation and airline-service complaint information.
+</p>
+
+<span class="tag">
+AVIATION
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+📮
+</div>
+
+<h3>
+Postal Services
+</h3>
+
+<p>
+Post, parcel, delivery, tracking, savings and postal-service grievance categories.
+</p>
+
+<span class="tag">
+POST
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🏦
+</div>
+
+<h3>
+Banking
+</h3>
+
+<p>
+Banking service complaints, transaction issues, charges, account services and grievance information.
+</p>
+
+<span class="tag">
+BANKING
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+💳
+</div>
+
+<h3>
+Digital Payments
+</h3>
+
+<p>
+UPI, card, wallet, transaction failure and digital-payment grievance information.
+</p>
+
+<span class="tag">
+PAYMENTS
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🛡️
+</div>
+
+<h3>
+Insurance
+</h3>
+
+<p>
+Policy service, claim, premium, settlement and insurance grievance categories.
+</p>
+
+<span class="tag">
+INSURANCE
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+📱
+</div>
+
+<h3>
+Telecom
+</h3>
+
+<p>
+Mobile service, billing, recharge, network, SIM and telecom-service complaints.
+</p>
+
+<span class="tag">
+TELECOM
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🛍️
+</div>
+
+<h3>
+E-Commerce
+</h3>
+
+<p>
+Online order, delivery, refund, defective product and marketplace service complaints.
+</p>
+
+<span class="tag">
+ONLINE SHOPPING
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+⚖️
+</div>
+
+<h3>
+Consumer Rights
+</h3>
+
+<p>
+Product defects, service deficiency, refund issues, unfair practices and consumer grievance assistance.
+</p>
+
+<span class="tag">
+CONSUMER
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+📄
+</div>
+
+<h3>
+RTI
+</h3>
+
+<p>
+RTI application drafting, information requests, appeal guidance and documentation assistance.
+</p>
+
+<span class="tag">
+RTI
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+📝
+</div>
+
+<h3>
+Government Applications
+</h3>
+
+<p>
+General application, representation, reminder and grievance-document preparation assistance.
+</p>
+
+<span class="tag">
+APPLICATION
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+📢
+</div>
+
+<h3>
+Public Grievances
+</h3>
+
+<p>
+Assistance in organizing facts and preparing formal grievance representations.
+</p>
+
+<span class="tag">
+GRIEVANCE
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+👩
+</div>
+
+<h3>
+Women Assistance
+</h3>
+
+<p>
+Information and assistance categories concerning women-related public services and complaints.
+</p>
+
+<span class="tag">
+WOMEN
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+👶
+</div>
+
+<h3>
+Child Services
+</h3>
+
+<p>
+Child welfare, education, protection and public-service assistance categories.
+</p>
+
+<span class="tag">
+CHILD
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+♿
+</div>
+
+<h3>
+Divyang Services
+</h3>
+
+<p>
+Disability certificate, welfare schemes, accessibility and public-service assistance categories.
+</p>
+
+<span class="tag">
+DISABILITY
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+👴
+</div>
+
+<h3>
+Senior Citizen Services
+</h3>
+
+<p>
+Senior citizen welfare, public-service and assistance-related complaint categories.
+</p>
+
+<span class="tag">
+SENIOR CITIZEN
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🏠
+</div>
+
+<h3>
+Housing
+</h3>
+
+<p>
+Housing schemes, public housing services, allotment and related grievance categories.
+</p>
+
+<span class="tag">
+HOUSING
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🏗️
+</div>
+
+<h3>
+Construction & Development
+</h3>
+
+<p>
+Public construction, roads, drains, development works and infrastructure-related concerns.
+</p>
+
+<span class="tag">
+DEVELOPMENT
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🌳
+</div>
+
+<h3>
+Environment
+</h3>
+
+<p>
+Pollution, waste, public nuisance, environmental service and civic-environment complaints.
+</p>
+
+<span class="tag">
+ENVIRONMENT
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🔥
+</div>
+
+<h3>
+Fire & Safety
+</h3>
+
+<p>
+Public safety, fire-service information and safety-related government service categories.
+</p>
+
+<span class="tag">
+SAFETY
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+📑
+</div>
+
+<h3>
+Certificates & Records
+</h3>
+
+<p>
+Birth, death, income, domicile, caste, family and other citizen-document information.
+</p>
+
+<span class="tag">
+DOCUMENTS
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🛂
+</div>
+
+<h3>
+Passport Services
+</h3>
+
+<p>
+Passport appointment, application, document and service-related assistance categories.
+</p>
+
+<span class="tag">
+PASSPORT
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🪪
+</div>
+
+<h3>
+Identity Documents
+</h3>
+
+<p>
+Common identity-document application and correction assistance categories.
+</p>
+
+<span class="tag">
+IDENTITY
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🏪
+</div>
+
+<h3>
+Shop & Business Complaints
+</h3>
+
+<p>
+Consumer-facing shop, service provider, billing and business-service grievance categories.
+</p>
+
+<span class="tag">
+BUSINESS
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+📞
+</div>
+
+<h3>
+Customer Service Complaints
+</h3>
+
+<p>
+Unresolved customer-service requests, repeated complaints and service-delay documentation.
+</p>
+
+<span class="tag">
+CUSTOMER SERVICE
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+💻
+</div>
+
+<h3>
+Online Services
+</h3>
+
+<p>
+Online application, account, portal, document upload and digital service assistance.
+</p>
+
+<span class="tag">
+DIGITAL
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+🔐
+</div>
+
+<h3>
+Cyber Safety
+</h3>
+
+<p>
+Online fraud, account compromise, suspicious transactions and cyber-safety information.
+</p>
+
+<span class="tag">
+CYBER
+</span>
+
+</div>
+
+
+<div class="catalog-item reveal">
+
+<div class="cat-icon">
+📢
+</div>
+
+<h3>
+Complaint Escalation
+</h3>
+
+<p>
+Assistance in understanding possible escalation or reminder options after an unresolved complaint.
+</p>
+
+<span class="tag">
+ESCALATION
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     SPECIAL TOPICS
+     ====================================================== -->
 
 <section class="section">
 
 <div class="container">
 
-<div class="section-head">
 
-<h2>📋 More Public Service Categories</h2>
+<div class="section-head reveal">
+
+<div class="section-label">
+SPECIAL CITIZEN TOPICS
+</div>
+
+<h2>
+🔎 More Areas You Can Explore
+</h2>
 
 <p>
-Common citizen matters that can be added to the directory.
+Additional issue categories for citizens.
 </p>
+
+</div>
+
+
+<div class="topic-grid">
+
+
+<div class="topic reveal">
+<div class="topic-icon">🏘️</div>
+<h4>Village Development</h4>
+<p>Local development and public works</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🛣️</div>
+<h4>Road Problems</h4>
+<p>Road damage and public infrastructure</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">💡</div>
+<h4>Street Lights</h4>
+<p>Local civic service issues</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🗑️</div>
+<h4>Garbage & Sanitation</h4>
+<p>Waste collection and cleanliness</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🚿</div>
+<h4>Drainage</h4>
+<p>Drain blockage and waterlogging</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🏫</div>
+<h4>School Issues</h4>
+<p>School facilities and services</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🏥</div>
+<h4>Hospital Issues</h4>
+<p>Public health facilities</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🌾</div>
+<h4>Irrigation</h4>
+<p>Water and agricultural infrastructure</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🐄</div>
+<h4>Animal Services</h4>
+<p>Veterinary and livestock services</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🏦</div>
+<h4>Banking Service</h4>
+<p>Account and transaction matters</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">📱</div>
+<h4>Mobile Service</h4>
+<p>Telecom and recharge complaints</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">📦</div>
+<h4>Delivery Problems</h4>
+<p>Parcel and online delivery issues</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🧾</div>
+<h4>Billing Problems</h4>
+<p>Wrong or disputed bills</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">💸</div>
+<h4>Refund Problems</h4>
+<p>Refund and cancellation issues</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">🎫</div>
+<h4>Ticket Problems</h4>
+<p>Travel booking and cancellation</p>
+</div>
+
+
+<div class="topic reveal">
+<div class="topic-icon">📬</div>
+<h4>Notice & Reply</h4>
+<p>Document preparation assistance</p>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     EXISTING MORE SERVICES
+     ====================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+
+<div class="section-head reveal">
+
+<div class="section-label">
+MORE PUBLIC SERVICES
+</div>
+
+<h2>
+📋 Additional Citizen Categories
+</h2>
 
 </div>
 
@@ -678,136 +4890,1025 @@ Common citizen matters that can be added to the directory.
 <div class="grid">
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">📄</div>
+<div class="icon">
+📄
+</div>
 
 <h3>
 Certificates & Documents
 </h3>
 
 <p>
-Income, caste, domicile, birth/death, family and other citizen-document information.
+Income, caste, domicile, birth/death,
+family and other citizen-document
+information.
+
 </p>
 
 </article>
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">🌾</div>
+<div class="icon">
+🌾
+</div>
 
 <h3>
 Land & Revenue
 </h3>
 
 <p>
-Land records, mutation, measurement, boundary disputes, possession and revenue-office complaints.
+Land records, mutation, measurement,
+boundary disputes, possession and
+revenue-office complaints.
+
 </p>
 
 </article>
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">💡</div>
+<div class="icon">
+💡
+</div>
 
 <h3>
 Electricity, Water & Gas
 </h3>
 
 <p>
-Service interruption, billing, connection and delivery-related complaint information.
+Service interruption, billing, connection
+and delivery-related complaint information.
+
 </p>
 
 </article>
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">🎓</div>
+<div class="icon">
+🎓
+</div>
 
 <h3>
 Education & Scholarships
 </h3>
 
 <p>
-Admission, scholarship, certificates and student-service complaint information.
+Admission, scholarship, certificates and
+student-service complaint information.
+
 </p>
 
 </article>
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">🏥</div>
+<div class="icon">
+🏥
+</div>
 
 <h3>
 Health Services
 </h3>
 
 <p>
-Government health facilities, public health services and service-related complaint information.
+Government health facilities, public health
+services and service-related complaint information.
+
 </p>
 
 </article>
 
 
-<article class="card">
+<article class="card reveal">
 
-<div class="icon">👷</div>
+<div class="icon">
+👷
+</div>
 
 <h3>
 Employment & Labour
 </h3>
 
 <p>
-Employment services, worker assistance and labour-related complaint categories.
+Employment services, worker assistance and
+labour-related complaint categories.
+
 </p>
 
 </article>
 
 
 </div>
+
 </div>
+
 </section>
 
+
+<!-- ======================================================
+     PROCESS
+     ====================================================== -->
 
 <section class="section">
 
 <div class="container">
 
-<div class="disclaimer">
 
-<strong>SK KGN TEAM is an independent assistance service.</strong>
+<div class="section-head reveal">
 
-This website is not a government department. Information is provided for general assistance. Requirements, procedures and authorities can change; users should verify the applicable process before submitting an official complaint, application or document.
+<div class="section-label">
+ASSISTANCE PROCESS
+</div>
+
+<h2>
+How SK KGN TEAM Can Assist
+</h2>
+
+<p>
+A simple process for organizing your public-service matter.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step reveal">
+
+<div class="step-number">
+01
+</div>
+
+<h3>
+Tell Us The Problem
+</h3>
+
+<p>
+Explain the issue and provide basic details.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+02
+</div>
+
+<h3>
+Check Documents
+</h3>
+
+<p>
+Arrange bills, applications, proofs and communication.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+03
+</div>
+
+<h3>
+Prepare Representation
+</h3>
+
+<p>
+Organize the facts and requested action clearly.
+</p>
+
+</div>
+
+
+<div class="step reveal">
+
+<div class="step-number">
+04
+</div>
+
+<h3>
+Submission Guidance
+</h3>
+
+<p>
+Understand the applicable online or offline process.
+</p>
+
+</div>
+
 
 </div>
 
 </div>
+
 </section>
 
-</main>
 
+<!-- ======================================================
+     NOTE
+     ====================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="note reveal">
+
+<strong>
+Important:
+</strong>
+
+The categories on this page are general
+service/complaint categories. The correct
+authority, procedure, eligibility, documents
+and filing method can differ according to
+the matter, location and applicable rules.
+
+SK KGN TEAM is an independent assistance
+service and does not represent itself as a
+government department or authority.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     FINAL CTA
+     ====================================================== -->
+
+<section class="cta-section">
+
+<div class="container">
+
+<div class="cta reveal">
+
+<h2>
+Can't Find Your Problem?
+</h2>
+
+<p>
+
+Don't worry. Send us a short description
+of your issue. We can help you identify
+the relevant category and explain the
+general assistance process.
+
+</p>
+
+
+<div class="cta-buttons">
+
+<a
+href="tel:+917007027158"
+class="call">
+
+📞 Call +91 70070 27158
+
+</a>
+
+
+<a
+href="https://wa.me/917007027158"
+class="whatsapp">
+
+💬 WhatsApp Us
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     DISCLAIMER
+     ====================================================== -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="disclaimer reveal">
+
+<strong>
+SK KGN TEAM is an independent assistance service.
+</strong>
+
+This website is not a government department,
+government portal, court, police authority,
+commission or public office.
+
+Information on this page is provided for
+general assistance and awareness. Procedures,
+eligibility requirements, authorities and
+available services may change.
+
+Users should verify the applicable process
+before submitting an official application,
+complaint, representation or document.
+
+No government affiliation or guaranteed
+outcome is claimed.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
 
 <footer>
 
-<div class="container foot">
+<div class="container">
+
+
+<div class="footer-grid">
+
 
 <div>
-<b>SK KGN TEAM</b>
-<br>
-Public Grievance Assistance
+
+<div class="footer-title">
+
+SK <span>KGN</span> TEAM
+
 </div>
 
-<div>
+<p class="footer-text">
+
+Public service information and independent
+assistance for citizens dealing with
+applications, grievances, complaints,
+representations and online processes.
+
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>
+CONTACT
+</h4>
+
+<a href="tel:+917007027158">
+📞 +91 70070 27158
+</a>
+
+<a href="https://wa.me/917007027158">
+💬 WhatsApp
+</a>
+
+<a href="mailto:skkgnteam@gmail.com">
+✉️ skkgnteam@gmail.com
+</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>
+QUICK LINKS
+</h4>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="#directory">
+Services
+</a>
+
+<a href="#representatives">
+MP / MLA Matters
+</a>
+
+<a href="#police">
+Police Services
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
 © 2026 SK KGN TEAM
+</span>
+
+<span>
+Independent Citizen Assistance Service
+</span>
+
 </div>
+
 
 </div>
 
 </footer>
+
+
+<!-- ======================================================
+     FLOATING CONTACT
+     ====================================================== -->
+
+<a
+href="https://wa.me/917007027158"
+class="float"
+aria-label="WhatsApp">
+
+💬
+
+</a>
+
+
+<!-- ======================================================
+     JAVASCRIPT
+     ====================================================== -->
+
+<script>
+
+
+/* =========================================================
+   PAGE PROGRESS
+   ========================================================= */
+
+const progress =
+document.getElementById("progress");
+
+
+function updateProgress(){
+
+    const top =
+    window.scrollY;
+
+    const height =
+    document.documentElement.scrollHeight
+    -
+    window.innerHeight;
+
+    const value =
+    height > 0
+    ?
+    (top / height) * 100
+    :
+    0;
+
+    progress.style.width =
+    value + "%";
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    updateProgress,
+    {passive:true}
+);
+
+updateProgress();
+
+
+/* =========================================================
+   REVEAL ON SCROLL
+   ========================================================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+
+const revealObserver =
+new IntersectionObserver(
+
+(entries,observer)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add(
+                "show"
+            );
+
+            observer.unobserve(
+                entry.target
+            );
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.10,
+    rootMargin:"0px 0px -35px 0px"
+}
+
+);
+
+
+revealElements.forEach(
+    element=>{
+        revealObserver.observe(
+            element
+        );
+    }
+);
+
+
+/* =========================================================
+   SERVICE SEARCH DATABASE
+   ========================================================= */
+
+const serviceData = [
+
+{
+keywords:
+"land जमीन jamin revenue mutation namantaran",
+title:
+"Land & Revenue",
+description:
+"Land records, mutation, measurement, boundary, possession and revenue-related matters."
+},
+
+{
+keywords:
+"electricity bijli light meter bill transformer",
+title:
+"Electricity Services",
+description:
+"Electricity billing, meter, supply, connection and public utility complaint categories."
+},
+
+{
+keywords:
+"water pani jal supply leakage",
+title:
+"Water Services",
+description:
+"Water supply, connection, leakage, billing and public water-service issues."
+},
+
+{
+keywords:
+"gas cylinder indane hp bharat delivery agency",
+title:
+"Gas Services",
+description:
+"Gas booking, delivery, agency service and consumer complaint categories."
+},
+
+{
+keywords:
+"ration food card dealer anaj",
+title:
+"Ration & Food Supply",
+description:
+"Ration card, distribution, dealer and food-supply related matters."
+},
+
+{
+keywords:
+"pension widow old age vriddha vidhwa disability",
+title:
+"Pension Services",
+description:
+"Pension application, payment, verification and grievance categories."
+},
+
+{
+keywords:
+"scholarship student college school education",
+title:
+"Education & Scholarship",
+description:
+"Admission, scholarship, student certificates and education-service matters."
+},
+
+{
+keywords:
+"hospital doctor health medicine treatment",
+title:
+"Health Services",
+description:
+"Public health facility and government health-service complaint categories."
+},
+
+{
+keywords:
+"mla vidhayak constituency road development",
+title:
+"MLA / Vidhayak Matters",
+description:
+"Assistance with organizing public and constituency-level representations."
+},
+
+{
+keywords:
+"mp sansad member parliament constituency",
+title:
+"MP / Sansad Matters",
+description:
+"Assistance with public and constituency-level representations."
+},
+
+{
+keywords:
+"police fir complaint thana missing cyber",
+title:
+"Police Services",
+description:
+"Police citizen services, FIR-related information, missing persons and cyber guidance."
+},
+
+{
+keywords:
+"cyber fraud online fraud upi scam transaction",
+title:
+"Cyber Crime & Online Fraud",
+description:
+"Information and assistance categories for online fraud and cyber-related complaints."
+},
+
+{
+keywords:
+"consumer product shopkeeper company refund warranty defective",
+title:
+"Consumer Complaints",
+description:
+"Consumer-related complaints concerning products, services, refund and warranty issues."
+},
+
+{
+keywords:
+"rti information application appeal",
+title:
+"RTI Assistance",
+description:
+"RTI application, documentation and appeal guidance."
+},
+
+{
+keywords:
+"bank account atm transaction payment",
+title:
+"Banking Services",
+description:
+"Banking service, transaction and account-related complaint categories."
+},
+
+{
+keywords:
+"mobile telecom sim recharge network",
+title:
+"Telecom Services",
+description:
+"Mobile, SIM, recharge, billing and network-related complaint categories."
+},
+
+{
+keywords:
+"railway train ticket refund station",
+title:
+"Railway Services",
+description:
+"Passenger service, booking, refund and railway complaint categories."
+},
+
+{
+keywords:
+"passport appointment passport seva",
+title:
+"Passport Services",
+description:
+"Passport application, appointment and service-related assistance categories."
+},
+
+{
+keywords:
+"labour worker salary wages employment",
+title:
+"Labour & Employment",
+description:
+"Worker, employment, wage and labour-related complaint categories."
+},
+
+{
+keywords:
+"municipal nagar palika garbage drainage street light",
+title:
+"Municipal Services",
+description:
+"Local civic services including sanitation, drainage, roads and street lights."
+}
+
+];
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+const input =
+document.getElementById(
+    "serviceSearch"
+);
+
+const button =
+document.getElementById(
+    "searchButton"
+);
+
+const result =
+document.getElementById(
+    "searchResult"
+);
+
+
+function searchServices(){
+
+    const query =
+    input.value
+    .trim()
+    .toLowerCase();
+
+
+    if(!query){
+
+        result.classList.remove(
+            "show"
+        );
+
+        result.innerHTML="";
+
+        return;
+
+    }
+
+
+    const matches =
+    serviceData.filter(item=>{
+
+        return item.keywords
+        .toLowerCase()
+        .includes(query);
+
+    });
+
+
+    if(matches.length){
+
+        result.innerHTML =
+        matches.map(item=>`
+
+        <div style="
+        margin-bottom:12px;
+        padding-bottom:12px;
+        border-bottom:1px solid #dce6f2;
+        ">
+
+        <strong>
+        ${item.title}
+        </strong>
+
+        <div style="
+        margin-top:4px;
+        color:#667085;
+        font-size:13px;
+        ">
+
+        ${item.description}
+
+        </div>
+
+        </div>
+
+        `).join("");
+
+    }else{
+
+        result.innerHTML = `
+
+        <div class="search-empty">
+
+        No exact category found.
+
+        <br>
+
+        <strong>
+        Tip:
+        </strong>
+
+        Try words such as
+        <b>land, police, pension, electricity,
+        MP, MLA, consumer, RTI, scholarship,
+        bank, railway</b>.
+
+        <br><br>
+
+        You can also contact SK KGN TEAM
+        for general assistance.
+
+        </div>
+
+        `;
+
+    }
+
+
+    result.classList.add(
+        "show"
+    );
+
+}
+
+
+button.addEventListener(
+    "click",
+    searchServices
+);
+
+
+input.addEventListener(
+    "keydown",
+    event=>{
+
+        if(event.key==="Enter"){
+
+            searchServices();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LIVE SEARCH
+   ========================================================= */
+
+let searchTimer;
+
+input.addEventListener(
+    "input",
+    ()=>{
+
+        clearTimeout(
+            searchTimer
+        );
+
+        searchTimer =
+        setTimeout(
+            searchServices,
+            250
+        );
+
+    }
+);
+
+
+/* =========================================================
+   CARD MOUSE EFFECT
+   ========================================================= */
+
+const cards =
+document.querySelectorAll(
+    ".catalog-item,.topic"
+);
+
+
+cards.forEach(card=>{
+
+    card.addEventListener(
+        "mousemove",
+        event=>{
+
+            if(
+                window.innerWidth < 1000
+            ){
+                return;
+            }
+
+            const rect =
+            card.getBoundingClientRect();
+
+            const x =
+            event.clientX -
+            rect.left;
+
+            const y =
+            event.clientY -
+            rect.top;
+
+            const rx =
+            ((y / rect.height)-.5)
+            * -2;
+
+            const ry =
+            ((x / rect.width)-.5)
+            * 2;
+
+            card.style.transform =
+            `perspective(700px)
+             rotateX(${rx}deg)
+             rotateY(${ry}deg)
+             translateY(-4px)`;
+
+        }
+    );
+
+
+    card.addEventListener(
+        "mouseleave",
+        ()=>{
+
+            card.style.transform =
+            "";
+
+        }
+    );
+
+});
+
+
+/* =========================================================
+   PREVENT HASH JUMP FLASH
+   ========================================================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(anchor=>{
+
+    anchor.addEventListener(
+        "click",
+        function(event){
+
+            const id =
+            this.getAttribute(
+                "href"
+            );
+
+            if(
+                id &&
+                id !== "#"
+            ){
+
+                const target =
+                document.querySelector(
+                    id
+                );
+
+                if(target){
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior:
+                        "smooth",
+                        block:
+                        "start"
+                    });
+
+                }
+
+            }
+
+        }
+    );
+
+});
+
+
+</script>
 
 </body>
 </html>
