@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050b18">
@@ -8,6 +9,11 @@
 <title>Track Complaint — SK KGN TEAM</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -20,83 +26,132 @@ html{
 
 body{
   font-family:Inter,Arial,sans-serif;
+
   background:
-    radial-gradient(circle at 20% 10%,rgba(37,99,235,.10),transparent 28%),
-    radial-gradient(circle at 80% 30%,rgba(14,165,233,.08),transparent 30%),
+    radial-gradient(
+      circle at 20% 10%,
+      rgba(37,99,235,.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(14,165,233,.08),
+      transparent 30%
+    ),
     #f5f7fa;
+
   color:#10131a;
   min-height:100vh;
   overflow-x:hidden;
 }
 
 
-/* =========================================
+/* =========================================================
    CINEMATIC INTRO
-========================================= */
+========================================================= */
 
 .intro-screen{
   position:fixed;
   inset:0;
   z-index:99999;
+
   display:grid;
   place-items:center;
+
   background:
-    radial-gradient(circle at center,rgba(37,99,235,.16),transparent 35%),
-    radial-gradient(circle at 50% 50%,#0b1730,#02050b 72%);
+    radial-gradient(
+      circle at center,
+      rgba(37,99,235,.16),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      #0b1730,
+      #02050b 72%
+    );
+
   overflow:hidden;
-  animation:introExit 7s cubic-bezier(.77,0,.18,1) forwards;
+
+  animation:
+    introExit
+    7s
+    cubic-bezier(.77,0,.18,1)
+    forwards;
 }
-
-
-/* subtle horizontal cinematic scan */
 
 .intro-screen::after{
   content:"";
+
   position:absolute;
+
   width:100%;
   height:2px;
+
   left:0;
   top:-10%;
-  background:linear-gradient(
-    90deg,
-    transparent,
-    rgba(96,165,250,.75),
-    transparent
-  );
-  box-shadow:0 0 25px rgba(59,130,246,.65);
-  animation:scanLine 4.8s ease-in-out infinite;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(96,165,250,.75),
+      transparent
+    );
+
+  box-shadow:
+    0 0 25px rgba(59,130,246,.65);
+
+  animation:
+    scanLine
+    4.8s
+    ease-in-out
+    infinite;
 }
-
-
-/* tiny background particles */
 
 .intro-particles{
   position:absolute;
   inset:0;
+
   background-image:
-    radial-gradient(circle,rgba(255,255,255,.7) 1px,transparent 1px);
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.7) 1px,
+      transparent 1px
+    );
+
   background-size:75px 75px;
+
   opacity:.13;
-  animation:particleMove 10s linear infinite;
+
+  animation:
+    particleMove
+    10s
+    linear
+    infinite;
 }
-
-
-/* intro content */
 
 .intro-content{
   position:relative;
   z-index:3;
+
   text-align:center;
   color:white;
-  animation:introContent 6.6s cubic-bezier(.16,1,.3,1) forwards;
-}
 
+  animation:
+    introContent
+    6.6s
+    cubic-bezier(.16,1,.3,1)
+    forwards;
+}
 
 .intro-logo{
   width:105px;
   height:105px;
+
   object-fit:contain;
+
   border-radius:50%;
+
   background:#fff;
   padding:7px;
 
@@ -105,15 +160,21 @@ body{
     0 0 35px rgba(59,130,246,.45),
     0 0 100px rgba(37,99,235,.20);
 
-  animation:logoPulse 2.2s ease-in-out infinite;
+  animation:
+    logoPulse
+    2.2s
+    ease-in-out
+    infinite;
 }
-
 
 .intro-title{
   margin-top:30px;
 
-  font-size:clamp(32px,8vw,72px);
+  font-size:
+    clamp(32px,8vw,72px);
+
   letter-spacing:8px;
+
   font-weight:950;
 
   text-shadow:
@@ -121,17 +182,19 @@ body{
     0 0 50px rgba(37,99,235,.25);
 }
 
-
 .intro-subtitle{
   margin-top:12px;
 
   color:#bfdbfe;
+
   font-size:13px;
+
   letter-spacing:4px;
+
   font-weight:700;
+
   text-transform:uppercase;
 }
-
 
 .intro-loading{
   margin:32px auto 0;
@@ -139,12 +202,13 @@ body{
   width:180px;
   height:2px;
 
-  background:rgba(255,255,255,.12);
+  background:
+    rgba(255,255,255,.12);
 
   overflow:hidden;
+
   border-radius:10px;
 }
-
 
 .intro-loading span{
   display:block;
@@ -154,15 +218,20 @@ body{
 
   background:#60a5fa;
 
-  box-shadow:0 0 15px #60a5fa;
+  box-shadow:
+    0 0 15px #60a5fa;
 
-  animation:loading 2.5s ease-in-out infinite;
+  animation:
+    loading
+    2.5s
+    ease-in-out
+    infinite;
 }
 
 
-/* =========================================
+/* =========================================================
    INTRO ANIMATIONS
-========================================= */
+========================================================= */
 
 @keyframes introContent{
 
@@ -208,7 +277,6 @@ body{
 
 }
 
-
 @keyframes introExit{
 
   0%,88%{
@@ -222,7 +290,6 @@ body{
   }
 
 }
-
 
 @keyframes logoPulse{
 
@@ -246,7 +313,6 @@ body{
 
 }
 
-
 @keyframes loading{
 
   0%{
@@ -258,7 +324,6 @@ body{
   }
 
 }
-
 
 @keyframes scanLine{
 
@@ -282,7 +347,6 @@ body{
 
 }
 
-
 @keyframes particleMove{
 
   from{
@@ -296,20 +360,18 @@ body{
 }
 
 
-/* =========================================
+/* =========================================================
    MAIN
-========================================= */
+========================================================= */
 
 .container{
   width:min(760px,92%);
   margin:auto;
 }
 
-
 .top{
   padding:26px 0 12px;
 }
-
 
 .brand{
   display:flex;
@@ -317,36 +379,39 @@ body{
   gap:10px;
 
   color:#111827;
+
   text-decoration:none;
 
   font-weight:900;
+
   font-size:20px;
 }
-
 
 .brand img{
   width:42px;
   height:42px;
 
   border-radius:50%;
+
   object-fit:contain;
 }
 
 
-/* =========================================
+/* =========================================================
    HERO
-========================================= */
+========================================================= */
 
 .hero{
   padding:34px 0 22px;
+
   text-align:center;
 }
-
 
 .badge{
   display:inline-block;
 
   background:#eaf1ff;
+
   color:#164a9c;
 
   padding:8px 14px;
@@ -354,15 +419,17 @@ body{
   border-radius:30px;
 
   font-size:11px;
+
   font-weight:900;
+
   letter-spacing:.5px;
 
   margin-bottom:14px;
 }
 
-
 h1{
-  font-size:clamp(34px,8vw,54px);
+  font-size:
+    clamp(34px,8vw,54px);
 
   line-height:1.05;
 
@@ -370,7 +437,6 @@ h1{
 
   color:#111827;
 }
-
 
 .hero p{
   color:#667085;
@@ -383,9 +449,9 @@ h1{
 }
 
 
-/* =========================================
+/* =========================================================
    SEARCH
-========================================= */
+========================================================= */
 
 .search-card{
   margin-top:25px;
@@ -400,7 +466,6 @@ h1{
     0 22px 55px rgba(17,24,39,.18);
 }
 
-
 .search-card label{
   display:block;
 
@@ -409,17 +474,17 @@ h1{
   color:#cbd5e1;
 
   font-size:12px;
+
   font-weight:800;
 
   margin-bottom:8px;
 }
 
-
 .search-row{
   display:flex;
+
   gap:10px;
 }
-
 
 .search-row input{
   flex:1;
@@ -441,12 +506,10 @@ h1{
   background:#fff;
 }
 
-
 .search-row input:focus{
   box-shadow:
     0 0 0 3px rgba(96,165,250,.35);
 }
-
 
 .search-row button{
   border:0;
@@ -468,20 +531,17 @@ h1{
   transition:.2s;
 }
 
-
 .search-row button:hover{
   background:#1d4ed8;
 
   transform:translateY(-1px);
 }
 
-
 .search-row button:disabled{
   opacity:.65;
 
   cursor:wait;
 }
-
 
 #message{
   display:none;
@@ -502,9 +562,9 @@ h1{
 }
 
 
-/* =========================================
-   SCANNING OVERLAY
-========================================= */
+/* =========================================================
+   SCANNING
+========================================================= */
 
 .scan{
   display:none;
@@ -515,14 +575,15 @@ h1{
 
   z-index:9990;
 
-  background:rgba(2,6,23,.72);
+  background:
+    rgba(2,6,23,.72);
 
   backdrop-filter:blur(12px);
 
   align-items:center;
+
   justify-content:center;
 }
-
 
 .scan-box{
   width:min(330px,85%);
@@ -544,7 +605,6 @@ h1{
     1px solid rgba(96,165,250,.25);
 }
 
-
 .scan-ring{
   width:72px;
   height:72px;
@@ -560,16 +620,18 @@ h1{
 
   border-right-color:#2563eb;
 
-  animation:spin 1s linear infinite;
+  animation:
+    spin
+    1s
+    linear
+    infinite;
 }
-
 
 .scan-box h3{
   margin-top:20px;
 
   font-size:18px;
 }
-
 
 .scan-box p{
   margin-top:7px;
@@ -578,7 +640,6 @@ h1{
 
   font-size:13px;
 }
-
 
 @keyframes spin{
 
@@ -589,16 +650,15 @@ h1{
 }
 
 
-/* =========================================
+/* =========================================================
    RESULT
-========================================= */
+========================================================= */
 
 .result{
   display:none;
 
   margin:24px 0 50px;
 }
-
 
 .result-card{
   background:#fff;
@@ -612,8 +672,38 @@ h1{
 
   box-shadow:
     0 18px 50px rgba(16,24,40,.08);
+
+  animation:
+    resultAppear
+    .7s
+    cubic-bezier(.16,1,.3,1)
+    both;
 }
 
+@keyframes resultAppear{
+
+  from{
+    opacity:0;
+
+    transform:
+      translateY(30px)
+      scale(.97);
+  }
+
+  to{
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   RESULT HEADER
+========================================================= */
 
 .result-head{
   color:#fff;
@@ -623,10 +713,7 @@ h1{
   position:relative;
 
   overflow:hidden;
-
-  transition:.35s;
 }
-
 
 .result-head::after{
   content:"";
@@ -641,9 +728,9 @@ h1{
 
   border-radius:50%;
 
-  background:rgba(255,255,255,.10);
+  background:
+    rgba(255,255,255,.10);
 }
-
 
 .result-head.normal{
   background:
@@ -654,7 +741,6 @@ h1{
     );
 }
 
-
 .result-head.resolved{
   background:
     linear-gradient(
@@ -663,7 +749,6 @@ h1{
       #16a34a
     );
 }
-
 
 .result-head.cancelled{
   background:
@@ -674,7 +759,6 @@ h1{
     );
 }
 
-
 .result-head.review{
   background:
     linear-gradient(
@@ -683,7 +767,6 @@ h1{
       #d97706
     );
 }
-
 
 .result-head.progress{
   background:
@@ -694,13 +777,12 @@ h1{
     );
 }
 
-
 .result-head small{
-  color:rgba(255,255,255,.72);
+  color:
+    rgba(255,255,255,.72);
 
   font-weight:700;
 }
-
 
 .result-head h2{
   font-size:25px;
@@ -709,7 +791,6 @@ h1{
 
   word-break:break-word;
 }
-
 
 .status-pill{
   display:inline-flex;
@@ -733,7 +814,6 @@ h1{
   font-weight:900;
 }
 
-
 .status-dot{
   width:8px;
   height:8px;
@@ -743,35 +823,30 @@ h1{
   background:#2563eb;
 }
 
-
 .status-dot.green{
   background:#16a34a;
 }
-
 
 .status-dot.red{
   background:#dc2626;
 }
 
-
 .status-dot.orange{
   background:#d97706;
 }
-
 
 .status-dot.blue{
   background:#2563eb;
 }
 
 
-/* =========================================
+/* =========================================================
    DETAILS
-========================================= */
+========================================================= */
 
 .details{
   padding:24px;
 }
-
 
 .detail{
   padding:15px 0;
@@ -780,11 +855,9 @@ h1{
     1px solid #edf0f4;
 }
 
-
 .detail:last-child{
   border-bottom:0;
 }
-
 
 .detail label{
   display:block;
@@ -802,7 +875,6 @@ h1{
   margin-bottom:5px;
 }
 
-
 .detail div{
   font-size:15px;
 
@@ -814,66 +886,209 @@ h1{
 }
 
 
-/* =========================================
-   ADMIN REMARK
-========================================= */
+/* =========================================================
+   ADMIN REMARK — CUSTOMER VIEW
+========================================================= */
 
 .remark-box{
-  margin:0 24px 24px;
 
-  padding:18px;
+  position:relative;
 
-  border-radius:18px;
+  margin:
+    4px 24px 25px;
 
-  background:#eff6ff;
+  padding:
+    21px;
+
+  border-radius:20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff 0%,
+      #f5f3ff 100%
+    );
 
   border:
     1px solid #bfdbfe;
+
+  box-shadow:
+    0 12px 35px rgba(37,99,235,.08);
+
+  overflow:hidden;
+
+  animation:
+    remarkAppear
+    .65s
+    cubic-bezier(.16,1,.3,1)
+    both;
 }
 
+.remark-box::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  top:0;
+  bottom:0;
+
+  width:4px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2563eb,
+      #7c3aed
+    );
+}
 
 .remark-box.cancelled{
-  background:#fef2f2;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fef2f2,
+      #fff7f7
+    );
 
   border-color:#fecaca;
 }
 
+.remark-box.cancelled::before{
 
-.remark-box h3{
-  font-size:15px;
-
-  color:#164a9c;
-
-  margin-bottom:7px;
+  background:
+    linear-gradient(
+      180deg,
+      #dc2626,
+      #991b1b
+    );
 }
 
+.remark-top{
 
-.remark-box.cancelled h3{
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-bottom:14px;
+}
+
+.remark-icon{
+
+  width:43px;
+  height:43px;
+
+  flex:0 0 43px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:13px;
+
+  background:
+    rgba(37,99,235,.10);
+
+  font-size:21px;
+}
+
+.remark-box.cancelled .remark-icon{
+
+  background:
+    rgba(220,38,38,.10);
+}
+
+.remark-heading{
+
+  min-width:0;
+}
+
+.remark-heading h3{
+
+  margin:0;
+
+  font-size:16px;
+
+  color:#164a9c;
+}
+
+.remark-box.cancelled .remark-heading h3{
   color:#b91c1c;
 }
 
+.remark-heading span{
 
-.remark-box p{
-  font-size:14px;
+  display:block;
 
-  line-height:1.65;
+  margin-top:3px;
+
+  color:#718096;
+
+  font-size:10px;
+
+  font-weight:700;
+
+  letter-spacing:.4px;
+}
+
+.remark-message{
+
+  padding:
+    15px 16px;
+
+  border-radius:13px;
+
+  background:
+    rgba(255,255,255,.72);
 
   color:#334155;
+
+  font-size:14px;
+
+  line-height:1.7;
 
   white-space:pre-wrap;
 
   word-break:break-word;
 }
 
+@keyframes remarkAppear{
 
-/* =========================================
-   TIMELINE
-========================================= */
+  from{
 
-.timeline{
-  padding:0 24px 28px;
+    opacity:0;
+
+    transform:
+      translateY(18px)
+      scale(.98);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
 }
 
+
+/* =========================================================
+   TIMELINE
+========================================================= */
+
+.timeline{
+  padding:
+    0 24px 28px;
+}
 
 .timeline h3{
   font-size:18px;
@@ -881,11 +1096,9 @@ h1{
   margin-bottom:18px;
 }
 
-
 .track{
   position:relative;
 }
-
 
 .track:before{
   content:"";
@@ -903,7 +1116,6 @@ h1{
   background:#e4e7ec;
 }
 
-
 .stage{
   position:relative;
 
@@ -916,11 +1128,9 @@ h1{
   padding:0 0 18px;
 }
 
-
 .stage:last-child{
   padding-bottom:0;
 }
-
 
 .stage-icon{
   width:32px;
@@ -947,13 +1157,11 @@ h1{
   border:3px solid #fff;
 }
 
-
 .stage.done .stage-icon{
   background:#22c55e;
 
   color:#fff;
 }
-
 
 .stage.current .stage-icon{
   background:#2563eb;
@@ -964,14 +1172,12 @@ h1{
     0 0 0 5px #dbeafe;
 }
 
-
 .stage.current.cancelled .stage-icon{
   background:#dc2626;
 
   box-shadow:
     0 0 0 5px #fee2e2;
 }
-
 
 .stage-title{
   font-weight:800;
@@ -983,16 +1189,13 @@ h1{
   padding-top:6px;
 }
 
-
 .stage.current .stage-title{
   color:#164a9c;
 }
 
-
 .stage.current.cancelled .stage-title{
   color:#b91c1c;
 }
-
 
 .stage-note{
   font-size:11px;
@@ -1003,9 +1206,9 @@ h1{
 }
 
 
-/* =========================================
-   ACTION BUTTONS
-========================================= */
+/* =========================================================
+   ACTIONS
+========================================================= */
 
 .actions{
   display:grid;
@@ -1015,9 +1218,9 @@ h1{
 
   gap:10px;
 
-  padding:0 24px 24px;
+  padding:
+    0 24px 24px;
 }
-
 
 .action{
   border:0;
@@ -1039,7 +1242,6 @@ h1{
   transition:.2s;
 }
 
-
 .action:hover{
   transform:translateY(-2px);
 
@@ -1047,20 +1249,17 @@ h1{
     0 7px 18px rgba(15,23,42,.10);
 }
 
-
 .action.call{
   background:#ecfdf5;
 
   color:#047857;
 }
 
-
 .action.whatsapp{
   background:#f0fdf4;
 
   color:#15803d;
 }
-
 
 .action.primary{
   background:#eff6ff;
@@ -1069,9 +1268,9 @@ h1{
 }
 
 
-/* =========================================
+/* =========================================================
    FOOTER
-========================================= */
+========================================================= */
 
 .footer{
   text-align:center;
@@ -1080,9 +1279,9 @@ h1{
 
   font-size:11px;
 
-  padding:0 0 35px;
+  padding:
+    0 0 35px;
 }
-
 
 .back{
   display:inline-block;
@@ -1099,9 +1298,9 @@ h1{
 }
 
 
-/* =========================================
+/* =========================================================
    MOBILE
-========================================= */
+========================================================= */
 
 @media(max-width:560px){
 
@@ -1109,7 +1308,6 @@ h1{
     width:86px;
     height:86px;
   }
-
 
   .intro-title{
     margin-top:24px;
@@ -1119,13 +1317,11 @@ h1{
     letter-spacing:5px;
   }
 
-
   .intro-subtitle{
     font-size:10px;
 
     letter-spacing:2.5px;
   }
-
 
   .search-card{
     padding:18px;
@@ -1133,21 +1329,17 @@ h1{
     border-radius:22px;
   }
 
-
   .search-row{
     flex-direction:column;
   }
-
 
   .search-row button{
     padding:15px;
   }
 
-
   .result-card{
     border-radius:22px;
   }
-
 
   .details,
   .timeline{
@@ -1155,12 +1347,10 @@ h1{
     padding-right:19px;
   }
 
-
   .remark-box{
     margin-left:19px;
     margin-right:19px;
   }
-
 
   .actions{
     padding-left:19px;
@@ -1170,23 +1360,64 @@ h1{
 }
 
 
-/* =========================================
+/* =========================================================
+   PRINT
+========================================================= */
+
+@media print{
+
+  .intro-screen,
+  .scan,
+  .top,
+  .hero,
+  .footer,
+  .actions{
+    display:none !important;
+  }
+
+  body{
+    background:#fff;
+  }
+
+  .container{
+    width:100%;
+  }
+
+  .result{
+    display:block !important;
+
+    margin:0;
+  }
+
+  .result-card{
+    box-shadow:none;
+
+    border:
+      1px solid #ddd;
+  }
+
+}
+
+
+/* =========================================================
    REDUCED MOTION
-========================================= */
+========================================================= */
 
 @media(prefers-reduced-motion:reduce){
 
   *,
   *::before,
   *::after{
-    animation-duration:.01ms !important;
 
-    animation-iteration-count:1 !important;
+    animation:none !important;
+
+    transition:none !important;
 
     scroll-behavior:auto !important;
   }
 
 }
+
 </style>
 </head>
 
@@ -1194,9 +1425,9 @@ h1{
 <body>
 
 
-<!-- =========================================
+<!-- =======================================================
      CINEMATIC INTRO
-========================================= -->
+======================================================= -->
 
 <div class="intro-screen">
 
@@ -1227,11 +1458,14 @@ h1{
 </div>
 
 
-<!-- =========================================
+<!-- =======================================================
      CHECKING OVERLAY
-========================================= -->
+======================================================= -->
 
-<div id="scan" class="scan">
+<div
+  id="scan"
+  class="scan"
+>
 
   <div class="scan-box">
 
@@ -1250,12 +1484,14 @@ h1{
 </div>
 
 
-<!-- =========================================
+<!-- =======================================================
      MAIN
-========================================= -->
+======================================================= -->
 
 <div class="container">
 
+
+  <!-- HEADER -->
 
   <div class="top">
 
@@ -1278,15 +1514,16 @@ h1{
   </div>
 
 
-  <section class="hero">
+  <!-- HERO -->
 
+  <section class="hero">
 
     <div class="badge">
       PUBLIC COMPLAINT TRACKING
     </div>
 
 
-    <!-- SEARCH FIRST -->
+    <!-- SEARCH -->
 
     <div class="search-card">
 
@@ -1331,7 +1568,6 @@ h1{
       complaint information and administrative remarks.
     </p>
 
-
   </section>
 
 
@@ -1364,12 +1600,11 @@ h1{
 </div>
 
 
-<!-- =========================================
+<!-- =======================================================
      FIREBASE
-========================================= -->
+======================================================= -->
 
 <script type="module">
-
 
 import {
   initializeApp
@@ -1389,14 +1624,14 @@ from
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
-/* =========================================
+/* =========================================================
    FIREBASE CONFIG
-========================================= */
+========================================================= */
 
 const firebaseConfig = {
 
   apiKey:
-    "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+    "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBKTz9oHKVQ",
 
   authDomain:
     "sk-kgn-team.firebaseapp.com",
@@ -1425,38 +1660,33 @@ const firebaseConfig = {
 const app =
   initializeApp(firebaseConfig);
 
-
 const db =
   getFirestore(app);
 
 
-/* =========================================
+/* =========================================================
    ELEMENTS
-========================================= */
+========================================================= */
 
 const input =
   document.getElementById("complaintId");
 
-
 const button =
   document.getElementById("checkBtn");
-
 
 const message =
   document.getElementById("message");
 
-
 const result =
   document.getElementById("result");
-
 
 const scan =
   document.getElementById("scan");
 
 
-/* =========================================
+/* =========================================================
    ESCAPE HTML
-========================================= */
+========================================================= */
 
 function escapeHTML(value){
 
@@ -1475,9 +1705,9 @@ function escapeHTML(value){
 }
 
 
-/* =========================================
+/* =========================================================
    FORMAT DATE
-========================================= */
+========================================================= */
 
 function formatDate(timestamp){
 
@@ -1511,9 +1741,9 @@ function formatDate(timestamp){
 }
 
 
-/* =========================================
+/* =========================================================
    STATUS INFORMATION
-========================================= */
+========================================================= */
 
 function statusInfo(status){
 
@@ -1522,8 +1752,6 @@ function statusInfo(status){
       .toLowerCase()
       .trim();
 
-
-  /* CANCELLED */
 
   if(
     normalized.includes("cancel")
@@ -1542,8 +1770,6 @@ function statusInfo(status){
   }
 
 
-  /* RESOLVED */
-
   if(
     normalized.includes("resolve")
   ){
@@ -1560,8 +1786,6 @@ function statusInfo(status){
 
   }
 
-
-  /* IN PROGRESS */
 
   if(
     normalized.includes("progress") ||
@@ -1581,8 +1805,6 @@ function statusInfo(status){
   }
 
 
-  /* UNDER REVIEW */
-
   if(
     normalized.includes("review")
   ){
@@ -1600,8 +1822,6 @@ function statusInfo(status){
   }
 
 
-  /* SUBMITTED */
-
   return {
 
     current:0,
@@ -1615,17 +1835,15 @@ function statusInfo(status){
 }
 
 
-/* =========================================
+/* =========================================================
    TIMELINE
-========================================= */
+========================================================= */
 
 function timeline(status){
 
   const info =
     statusInfo(status);
 
-
-  /* CANCELLED TIMELINE */
 
   if(
     info.type === "cancelled"
@@ -1634,11 +1852,8 @@ function timeline(status){
     const stages = [
 
       "Submitted",
-
       "Under Review",
-
       "In Progress",
-
       "Cancelled"
 
     ];
@@ -1647,10 +1862,8 @@ function timeline(status){
     return stages.map(
       (stage,index)=>{
 
-
         const done =
           index < 3;
-
 
         const current =
           index === 3;
@@ -1682,7 +1895,6 @@ function timeline(status){
                 ${stage}
               </div>
 
-
               ${
                 current
                   ?
@@ -1704,16 +1916,11 @@ function timeline(status){
   }
 
 
-  /* NORMAL TIMELINE */
-
   const stages = [
 
     "Submitted",
-
     "Under Review",
-
     "In Progress",
-
     "Resolved"
 
   ];
@@ -1722,10 +1929,8 @@ function timeline(status){
   return stages.map(
     (stage,index)=>{
 
-
       const done =
         index < info.current;
-
 
       const current =
         index === info.current;
@@ -1737,7 +1942,6 @@ function timeline(status){
           ${done ? "done" : ""}
           ${current ? "current" : ""}
         ">
-
 
           <div class="stage-icon">
 
@@ -1758,7 +1962,6 @@ function timeline(status){
               ${stage}
             </div>
 
-
             ${
               current
                 ?
@@ -1768,7 +1971,6 @@ function timeline(status){
             }
 
           </div>
-
 
         </div>
 
@@ -1781,21 +1983,18 @@ function timeline(status){
 }
 
 
-/* =========================================
+/* =========================================================
    CHECK COMPLAINT
-========================================= */
+========================================================= */
 
 window.checkComplaint =
 async function(){
-
 
   const complaintId =
     input.value
       .trim()
       .toUpperCase();
 
-
-  /* CLEAR OLD RESULT */
 
   result.style.display =
     "none";
@@ -1806,8 +2005,6 @@ async function(){
   message.style.display =
     "none";
 
-
-  /* EMPTY ID */
 
   if(!complaintId){
 
@@ -1822,16 +2019,12 @@ async function(){
   }
 
 
-  /* BUTTON */
-
   button.disabled =
     true;
 
   button.textContent =
     "Checking...";
 
-
-  /* SHOW CINEMATIC CHECK */
 
   scan.style.display =
     "flex";
@@ -1858,9 +2051,7 @@ async function(){
 
 
     /*
-      IMPORTANT:
-      Firebase result ke saath
-      minimum 2.5 seconds wait.
+      Minimum 2.5 second checking animation
     */
 
     const [snapshot] =
@@ -1879,8 +2070,6 @@ async function(){
       ]);
 
 
-    /* NOT FOUND */
-
     if(snapshot.empty){
 
       scan.style.display =
@@ -1898,7 +2087,9 @@ async function(){
     }
 
 
-    /* DATA */
+    /* =====================================================
+       COMPLAINT DATA
+    ===================================================== */
 
     const data =
       snapshot.docs[0].data();
@@ -1910,7 +2101,9 @@ async function(){
       );
 
 
-    /* STATUS DOT */
+    /* =====================================================
+       STATUS DOT
+    ===================================================== */
 
     let dotClass =
       "blue";
@@ -1946,46 +2139,77 @@ async function(){
     }
 
 
-    /* ADMIN REMARK */
+    /* =====================================================
+       ADMIN REMARK
+       
+       Admin panel mein:
+       adminRemark
+       
+       fallback:
+       adminNotes / remark
+    ===================================================== */
 
     const remark =
-      data.adminRemark ||
-      data.adminNotes ||
-      data.remark ||
-      "";
-
-
-    const hasRemark =
-      String(remark)
-        .trim()
-        .length > 0;
+      String(
+        data.adminRemark ||
+        data.adminNotes ||
+        data.remark ||
+        ""
+      ).trim();
 
 
     let remarkHTML =
       "";
 
 
-    if(hasRemark){
+    if(remark){
+
+      const cancelledClass =
+        info.type === "cancelled"
+          ? "cancelled"
+          : "";
+
 
       remarkHTML = `
 
-        <div class="remark-box
-          ${
-            info.type === "cancelled"
-              ? "cancelled"
-              : ""
-          }
-        ">
+        <div class="remark-box ${cancelledClass}">
 
 
-          <h3>
-            Admin Remark
-          </h3>
+          <div class="remark-top">
 
 
-          <p>
+            <div class="remark-icon">
+
+              ${
+                info.type === "cancelled"
+                  ? "⚠️"
+                  : "📝"
+              }
+
+            </div>
+
+
+            <div class="remark-heading">
+
+              <h3>
+                Admin Remark
+              </h3>
+
+              <span>
+                LATEST UPDATE FROM SK KGN TEAM
+              </span>
+
+            </div>
+
+
+          </div>
+
+
+          <div class="remark-message">
+
             ${escapeHTML(remark)}
-          </p>
+
+          </div>
 
 
         </div>
@@ -1995,12 +2219,11 @@ async function(){
     }
 
 
-    /* =====================================
-       RESULT HTML
-    ===================================== */
+    /* =====================================================
+       RESULT
+    ===================================================== */
 
     result.innerHTML = `
-
 
       <div class="result-card">
 
@@ -2008,7 +2231,6 @@ async function(){
         <!-- STATUS HEADER -->
 
         <div class="result-head ${info.type}">
-
 
           <small>
             COMPLAINT ID
@@ -2026,16 +2248,14 @@ async function(){
               class="status-dot ${dotClass}"
             ></span>
 
-
             ${escapeHTML(info.label)}
 
           </div>
 
-
         </div>
 
 
-        <!-- DETAILS -->
+        <!-- COMPLAINT DETAILS -->
 
         <div class="details">
 
@@ -2120,15 +2340,18 @@ async function(){
         </div>
 
 
-        <!-- ADMIN REMARK -->
+        <!-- =================================================
+             ADMIN REMARK — CUSTOMER KO YAHI DIKHEGA
+        ================================================== -->
 
         ${remarkHTML}
 
 
-        <!-- TIMELINE -->
+        <!-- =================================================
+             COMPLAINT PROGRESS
+        ================================================== -->
 
         <div class="timeline">
-
 
           <h3>
             Complaint Progress
@@ -2141,11 +2364,12 @@ async function(){
 
           </div>
 
-
         </div>
 
 
-        <!-- ACTIONS -->
+        <!-- =================================================
+             ACTION BUTTONS
+        ================================================== -->
 
         <div class="actions">
 
@@ -2227,11 +2451,10 @@ async function(){
 
       </div>
 
-
     `;
 
 
-    /* HIDE CHECKING */
+    /* HIDE SCAN */
 
     scan.style.display =
       "none";
@@ -2243,7 +2466,7 @@ async function(){
       "block";
 
 
-    /* SCROLL */
+    /* SCROLL TO RESULT */
 
     setTimeout(()=>{
 
@@ -2259,7 +2482,6 @@ async function(){
 
 
   }catch(error){
-
 
     console.error(error);
 
@@ -2278,30 +2500,25 @@ async function(){
 
   }finally{
 
-
     button.disabled =
       false;
 
-
     button.textContent =
       "Check Status →";
-
 
   }
 
 };
 
 
-/* =========================================
+/* =========================================================
    COPY COMPLAINT ID
-========================================= */
+========================================================= */
 
 window.copyComplaintId =
 async function(id){
 
-
   try{
-
 
     await navigator.clipboard
       .writeText(id);
@@ -2309,7 +2526,6 @@ async function(id){
 
     message.textContent =
       "Complaint ID copied successfully.";
-
 
     message.style.display =
       "block";
@@ -2325,10 +2541,8 @@ async function(id){
 
   }catch(e){
 
-
     message.textContent =
       "Unable to copy Complaint ID.";
-
 
     message.style.display =
       "block";
@@ -2338,13 +2552,12 @@ async function(id){
 };
 
 
-/* =========================================
+/* =========================================================
    REFRESH
-========================================= */
+========================================================= */
 
 window.refreshComplaint =
 function(){
-
 
   const id =
     input.value.trim();
@@ -2359,13 +2572,12 @@ function(){
 };
 
 
-/* =========================================
+/* =========================================================
    SHARE
-========================================= */
+========================================================= */
 
 window.shareComplaint =
 async function(id){
-
 
   const url =
     window.location.origin +
@@ -2380,7 +2592,6 @@ async function(id){
 
     try{
 
-
       await navigator.share({
 
         title:
@@ -2394,15 +2605,11 @@ async function(id){
 
       });
 
-
     }catch(e){}
-
 
   }else{
 
-
     try{
-
 
       await navigator.clipboard
         .writeText(url);
@@ -2410,7 +2617,6 @@ async function(id){
 
       message.textContent =
         "Complaint tracking link copied.";
-
 
       message.style.display =
         "block";
@@ -2439,9 +2645,9 @@ async function(id){
 };
 
 
-/* =========================================
+/* =========================================================
    ENTER KEY
-========================================= */
+========================================================= */
 
 input.addEventListener(
   "keydown",
@@ -2457,10 +2663,9 @@ input.addEventListener(
 );
 
 
-/* =========================================
+/* =========================================================
    URL COMPLAINT ID
-   status.html?id=SKKGN-XXXXXX
-========================================= */
+========================================================= */
 
 const params =
   new URLSearchParams(
@@ -2486,55 +2691,7 @@ if(urlId){
 
 }
 
-
 </script>
-
-
-<!-- =========================================
-     PRINT STYLE
-========================================= -->
-
-<style>
-
-@media print{
-
-  .intro-screen,
-  .scan,
-  .top,
-  .hero,
-  .footer,
-  .actions{
-    display:none !important;
-  }
-
-
-  body{
-    background:#fff;
-  }
-
-
-  .container{
-    width:100%;
-  }
-
-
-  .result{
-    display:block !important;
-
-    margin:0;
-  }
-
-
-  .result-card{
-    box-shadow:none;
-
-    border:
-      1px solid #ddd;
-  }
-
-}
-
-</style>
 
 
 </body>
