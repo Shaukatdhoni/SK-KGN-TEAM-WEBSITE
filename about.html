@@ -27,7 +27,6 @@ html{
 }
 
 body{
-  margin:0;
   font-family:Arial,Helvetica,sans-serif;
   background:#020711;
   color:#fff;
@@ -41,50 +40,25 @@ a{
 
 
 /* =========================================================
-   BACKGROUND
-========================================================= */
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-10;
-  pointer-events:none;
-
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(30,110,220,.16),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 85% 70%,
-      rgba(105,55,220,.12),
-      transparent 30%
-    );
-}
-
-
-/* =========================================================
    HEADER
 ========================================================= */
 
-.top-header{
+.site-header{
   position:sticky;
   top:0;
   z-index:9999;
 
-  background:rgba(2,8,20,.88);
-  backdrop-filter:blur(20px);
+  background:rgba(2,8,20,.92);
+  backdrop-filter:blur(18px);
 
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .header-inner{
-  max-width:1250px;
+  max-width:1320px;
   min-height:76px;
   margin:auto;
-  padding:0 25px;
+  padding:0 35px;
 
   display:flex;
   align-items:center;
@@ -94,16 +68,17 @@ body::before{
 .brand{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:13px;
 }
 
 .brand img{
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  object-fit:contain;
+  width:52px;
+  height:52px;
 
-  border:1px solid rgba(100,180,255,.35);
+  object-fit:contain;
+  border-radius:50%;
+
+  border:1px solid rgba(105,180,255,.35);
 }
 
 .brand-name{
@@ -112,28 +87,28 @@ body::before{
 }
 
 .brand-name span{
-  color:#65adfa;
+  color:#69b4ff;
 }
 
-.home-btn{
-  padding:12px 21px;
+.home-button{
+  padding:12px 22px;
 
-  border:1px solid rgba(90,170,250,.35);
+  border:1px solid rgba(91,170,250,.35);
   border-radius:13px;
 
-  color:#91c7ff;
-  background:rgba(70,145,230,.08);
+  background:rgba(70,145,230,.07);
+
+  color:#9acbff;
 
   font-size:13px;
   font-weight:800;
 
-  transition:.35s ease;
+  transition:.3s ease;
 }
 
-.home-btn:hover{
-  transform:translateY(-3px);
-  background:rgba(70,145,230,.17);
-  box-shadow:0 15px 40px rgba(40,120,220,.22);
+.home-button:hover{
+  transform:translateY(-2px);
+  background:rgba(70,145,230,.15);
 }
 
 
@@ -141,245 +116,301 @@ body::before{
    HERO
 ========================================================= */
 
-.about-hero{
+.hero{
   position:relative;
-  min-height:calc(100vh - 76px);
+  min-height:680px;
 
   display:flex;
   align-items:center;
 
   overflow:hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 45%,
+      rgba(27,91,170,.20),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 70%,
+      rgba(92,46,170,.13),
+      transparent 35%
+    ),
+    #020711;
+}
+
+.hero::after{
+  content:"";
+
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(90,170,245,.3),
+      transparent
+    );
 }
 
 .hero-inner{
   width:100%;
-  max-width:1250px;
+  max-width:1320px;
+
   margin:auto;
-  padding:100px 25px;
+
+  padding:75px 35px;
 
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1.1fr .9fr;
+
   gap:70px;
+
   align-items:center;
 }
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
 
 .eyebrow{
   display:flex;
   align-items:center;
   gap:12px;
 
-  color:#72b8ff;
+  color:#71b9fb;
 
-  font-size:11px;
+  font-size:10px;
   font-weight:900;
+
   letter-spacing:4px;
 }
 
-.eyebrow i{
-  width:32px;
+.eyebrow::before,
+.eyebrow::after{
+  content:"";
+
+  width:30px;
   height:1px;
-  background:#72b8ff;
+
+  background:#71b9fb;
 }
 
-.hero-title{
+.hero h1{
   margin-top:22px;
 
-  font-size:clamp(50px,6.5vw,88px);
-  line-height:.95;
+  max-width:750px;
+
+  font-size:
+    clamp(55px,6.5vw,88px);
+
+  line-height:.94;
+
   letter-spacing:-4px;
+
   font-weight:900;
 }
 
-.hero-title strong{
+.hero h1 span{
   display:block;
 
   background:
     linear-gradient(
       90deg,
-      #ffffff,
-      #64b1ff,
-      #a06eff,
-      #ffffff
+      #fff,
+      #65b1ff,
+      #a06cff,
+      #fff
     );
 
-  background-size:250% auto;
+  background-size:200% auto;
 
   -webkit-background-clip:text;
   background-clip:text;
 
   color:transparent;
 
-  animation:titleFlow 5s linear infinite;
+  animation:titleShine 7s linear infinite;
 }
 
-@keyframes titleFlow{
-  from{
+@keyframes titleShine{
+
+  0%{
     background-position:0% center;
   }
 
-  to{
-    background-position:250% center;
+  100%{
+    background-position:200% center;
   }
+
 }
 
-.hero-text{
-  max-width:630px;
-  margin-top:30px;
+.hero-description{
+  max-width:650px;
 
-  color:#a9bdd3;
+  margin-top:28px;
 
-  font-size:17px;
+  color:#a6b8cc;
+
+  font-size:16px;
+
   line-height:1.85;
 }
 
-.meet-btn{
+.hero-button{
   display:inline-flex;
 
-  margin-top:35px;
-  padding:15px 24px;
+  margin-top:32px;
 
-  border-radius:14px;
+  padding:14px 23px;
+
+  border-radius:13px;
 
   background:
     linear-gradient(
       135deg,
-      #176cc4,
-      #6331b8
+      #146ac4,
+      #6531b8
     );
 
-  font-size:13px;
+  font-size:12px;
+
   font-weight:900;
 
   box-shadow:
-    0 20px 50px rgba(35,110,205,.25);
+    0 15px 45px rgba(35,110,210,.25);
 
-  transition:.4s ease;
+  transition:.35s ease;
 }
 
-.meet-btn:hover{
-  transform:translateY(-5px) scale(1.02);
+.hero-button:hover{
+  transform:translateY(-4px);
 
   box-shadow:
-    0 25px 65px rgba(35,110,205,.4);
+    0 22px 55px rgba(35,110,210,.38);
 }
 
 
 /* =========================================================
-   HERO ORBIT
+   HERO VISUAL
 ========================================================= */
 
 .hero-visual{
-  min-height:500px;
 
   position:relative;
+
+  min-height:430px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-circle{
+
+  width:350px;
+  height:350px;
+
+  border-radius:50%;
+
+  border:
+    1px solid rgba(85,170,250,.20);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(50,125,215,.16),
+      rgba(255,255,255,.015) 65%,
+      transparent 70%
+    );
+
+  box-shadow:
+    0 0 100px rgba(40,125,220,.12);
 
   display:flex;
   align-items:center;
   justify-content:center;
 }
 
-.orbit{
-  position:absolute;
+.hero-circle::before{
 
-  border-radius:50%;
-
-  border:1px solid rgba(80,170,250,.20);
-
-  animation:orbitRotate 18s linear infinite;
-}
-
-.orbit.one{
-  width:500px;
-  height:500px;
-}
-
-.orbit.two{
-  width:390px;
-  height:390px;
-
-  border-color:rgba(140,90,245,.20);
-
-  animation-duration:14s;
-  animation-direction:reverse;
-}
-
-.orbit.three{
-  width:285px;
-  height:285px;
-
-  animation-duration:10s;
-}
-
-.orbit::after{
   content:"";
 
   position:absolute;
 
-  width:8px;
-  height:8px;
+  width:265px;
+  height:265px;
 
   border-radius:50%;
 
-  background:#68b5ff;
-
-  box-shadow:0 0 18px #68b5ff;
-
-  top:0;
-  left:50%;
-
-  transform:translateX(-50%);
+  border:
+    1px solid rgba(150,100,245,.20);
 }
 
-@keyframes orbitRotate{
-  from{
-    transform:rotate(0deg);
-  }
+.hero-circle::after{
 
-  to{
-    transform:rotate(360deg);
-  }
-}
+  content:"";
 
-.center-logo{
-  position:relative;
-  z-index:5;
+  position:absolute;
 
   width:185px;
   height:185px;
 
   border-radius:50%;
 
+  border:
+    1px solid rgba(90,175,250,.22);
+}
+
+.hero-symbol{
+
+  position:relative;
+  z-index:5;
+
+  width:135px;
+  height:135px;
+
+  border-radius:50%;
+
   display:flex;
   align-items:center;
   justify-content:center;
 
-  font-size:72px;
+  font-size:52px;
 
   background:
-    radial-gradient(
-      circle,
-      rgba(50,130,220,.27),
-      rgba(255,255,255,.025) 65%,
-      transparent 70%
-    );
+    rgba(20,65,115,.28);
 
-  border:1px solid rgba(100,185,255,.35);
+  border:
+    1px solid rgba(110,190,255,.35);
 
   box-shadow:
-    0 0 90px rgba(45,130,225,.20),
-    inset 0 0 50px rgba(80,160,240,.12);
+    0 0 55px rgba(45,140,230,.18);
 
-  animation:centerFloat 4s ease-in-out infinite;
+  animation:
+    softFloat 5s ease-in-out infinite;
 }
 
-@keyframes centerFloat{
+@keyframes softFloat{
+
   0%,100%{
     transform:translateY(0);
   }
 
   50%{
-    transform:translateY(-14px);
+    transform:translateY(-8px);
   }
+
 }
 
 
@@ -388,53 +419,66 @@ body::before{
 ========================================================= */
 
 .team-section{
+
   position:relative;
 
-  padding:130px 25px 150px;
+  padding:
+    115px 35px 130px;
 
   background:
     linear-gradient(
       180deg,
-      #020711 0%,
-      #06162c 100%
+      #020711,
+      #06162b
     );
 }
 
 .team-container{
-  max-width:1250px;
+  max-width:1320px;
   margin:auto;
 }
 
 .section-heading{
-  max-width:850px;
-  margin:0 auto 80px;
+
+  max-width:800px;
+
+  margin:
+    0 auto 65px;
 
   text-align:center;
 }
 
 .section-heading small{
-  color:#73b8fb;
 
-  font-size:11px;
+  color:#71b9fb;
+
+  font-size:10px;
+
   font-weight:900;
-  letter-spacing:5px;
+
+  letter-spacing:4px;
 }
 
 .section-heading h2{
-  margin-top:17px;
 
-  font-size:clamp(42px,6vw,72px);
+  margin-top:15px;
+
+  font-size:
+    clamp(43px,5vw,68px);
 
   letter-spacing:-3px;
+
   font-weight:900;
 }
 
 .section-heading p{
-  margin-top:20px;
 
-  color:#9fb3ca;
+  margin-top:18px;
 
-  font-size:16px;
+  color:#9db2c9;
+
+  font-size:15px;
+
   line-height:1.8;
 }
 
@@ -444,12 +488,13 @@ body::before{
 ========================================================= */
 
 .team-grid{
+
   display:grid;
 
   grid-template-columns:
-    repeat(3,1fr);
+    repeat(4,1fr);
 
-  gap:25px;
+  gap:22px;
 }
 
 
@@ -463,34 +508,36 @@ body::before{
 
   overflow:hidden;
 
-  border-radius:30px;
+  border-radius:27px;
 
-  border:1px solid rgba(255,255,255,.11);
+  border:
+    1px solid rgba(255,255,255,.10);
 
   background:
     linear-gradient(
-      145deg,
-      rgba(255,255,255,.085),
+      150deg,
+      rgba(255,255,255,.075),
       rgba(255,255,255,.025)
     );
 
   box-shadow:
-    0 30px 80px rgba(0,0,0,.35);
+    0 25px 70px rgba(0,0,0,.32);
 
   opacity:0;
 
   transform:
-    translateY(120px)
-    scale(.86);
+    translateY(80px)
+    scale(.94);
 
   transition:
-    opacity 1s ease,
-    transform 1.2s cubic-bezier(.16,1,.3,1),
-    box-shadow .5s ease,
-    border-color .5s ease;
+    opacity .8s ease,
+    transform .9s cubic-bezier(.16,1,.3,1),
+    border-color .35s ease,
+    box-shadow .35s ease;
 }
 
-.member-card.show{
+.member-card.visible{
+
   opacity:1;
 
   transform:
@@ -499,24 +546,28 @@ body::before{
 }
 
 .member-card:nth-child(2){
-  transition-delay:.15s;
+  transition-delay:.10s;
 }
 
 .member-card:nth-child(3){
+  transition-delay:.20s;
+}
+
+.member-card:nth-child(4){
   transition-delay:.30s;
 }
 
 .member-card:hover{
+
   transform:
-    translateY(-14px)
-    scale(1.015);
+    translateY(-8px)
+    scale(1.01);
 
   border-color:
-    rgba(90,175,255,.48);
+    rgba(85,175,250,.38);
 
   box-shadow:
-    0 45px 110px rgba(0,0,0,.52),
-    0 0 60px rgba(45,130,220,.12);
+    0 35px 90px rgba(0,0,0,.46);
 }
 
 
@@ -525,75 +576,62 @@ body::before{
 ========================================================= */
 
 .photo-area{
+
   position:relative;
 
-  height:400px;
+  height:350px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
-
-  overflow:hidden;
 
   background:
     radial-gradient(
       circle at center,
-      rgba(40,120,205,.22),
-      transparent 58%
+      rgba(35,115,205,.16),
+      transparent 60%
     );
 }
 
+.photo-number{
 
-/* =========================================================
-   PHOTO GLOW
-========================================================= */
-
-.photo-glow{
   position:absolute;
 
-  width:260px;
-  height:260px;
+  top:19px;
+  right:20px;
 
-  border-radius:50%;
+  color:
+    rgba(255,255,255,.30);
 
-  background:
-    rgba(40,130,235,.20);
+  font-size:11px;
 
-  filter:blur(60px);
+  font-weight:900;
 
-  animation:glowPulse 3s ease-in-out infinite;
-}
+  letter-spacing:3px;
 
-@keyframes glowPulse{
-
-  0%,100%{
-    opacity:.45;
-    transform:scale(.9);
-  }
-
-  50%{
-    opacity:.9;
-    transform:scale(1.12);
-  }
+  z-index:10;
 }
 
 
 /* =========================================================
-   PHOTO RINGS
+   PHOTO RING - STATIC, NO ROTATION
 ========================================================= */
 
 .photo-ring{
+
   position:absolute;
 
-  width:285px;
-  height:285px;
+  width:255px;
+  height:255px;
 
   border-radius:50%;
 
-  border:1px solid rgba(95,180,255,.25);
+  border:
+    1px solid rgba(90,175,250,.22);
 
-  animation:
-    photoRotate 12s linear infinite;
+  box-shadow:
+    0 0 35px rgba(45,130,220,.08);
 }
 
 .photo-ring::before{
@@ -602,58 +640,27 @@ body::before{
 
   position:absolute;
 
-  width:8px;
-  height:8px;
+  inset:12px;
 
   border-radius:50%;
 
-  background:#6bb7ff;
-
-  box-shadow:0 0 18px #6bb7ff;
-
-  top:18px;
-  left:50%;
-
-  transform:translateX(-50%);
-}
-
-.photo-ring.second{
-
-  width:335px;
-  height:335px;
-
-  border-color:
-    rgba(155,95,245,.16);
-
-  animation-duration:17s;
-
-  animation-direction:reverse;
-}
-
-@keyframes photoRotate{
-
-  from{
-    transform:rotate(0deg);
-  }
-
-  to{
-    transform:rotate(360deg);
-  }
+  border:
+    1px solid rgba(255,255,255,.06);
 }
 
 
 /* =========================================================
-   PHOTO
+   MEMBER PHOTO
 ========================================================= */
 
 .member-photo{
 
   position:relative;
 
-  z-index:10;
+  z-index:5;
 
-  width:225px;
-  height:225px;
+  width:205px;
+  height:205px;
 
   display:block;
 
@@ -661,31 +668,31 @@ body::before{
 
   object-fit:cover;
 
-  border:5px solid rgba(255,255,255,.92);
+  border:
+    5px solid rgba(255,255,255,.94);
 
-  background:#07182d;
+  background:#07172b;
 
   box-shadow:
-    0 0 0 9px rgba(80,160,240,.07),
-    0 25px 60px rgba(0,0,0,.5),
-    0 0 60px rgba(50,135,220,.22);
+    0 0 0 8px rgba(70,150,235,.07),
+    0 25px 55px rgba(0,0,0,.45);
 
   opacity:0;
 
   transform:
-    scale(.28);
+    scale(.55);
 
   filter:
-    blur(12px)
-    brightness(.65);
+    blur(8px)
+    brightness(.7);
 
   transition:
-    opacity 1.15s ease,
-    transform 1.3s cubic-bezier(.16,1,.3,1),
-    filter 1.3s ease;
+    opacity .9s ease,
+    transform 1s cubic-bezier(.16,1,.3,1),
+    filter 1s ease;
 }
 
-.member-card.show .member-photo{
+.member-card.visible .member-photo{
 
   opacity:1;
 
@@ -699,45 +706,19 @@ body::before{
 
 
 /* =========================================================
-   NUMBER
-========================================================= */
-
-.member-number{
-
-  position:absolute;
-
-  top:20px;
-  right:22px;
-
-  z-index:20;
-
-  color:rgba(255,255,255,.35);
-
-  font-size:13px;
-
-  font-weight:900;
-
-  letter-spacing:3px;
-}
-
-
-/* =========================================================
    MEMBER INFO
 ========================================================= */
 
 .member-info{
 
-  position:relative;
-  z-index:20;
-
   padding:
-    28px 28px 34px;
+    25px 24px 28px;
 
   background:
     linear-gradient(
       180deg,
-      rgba(3,10,23,.65),
-      rgba(3,10,23,.98)
+      rgba(2,9,22,.62),
+      rgba(2,9,22,.98)
     );
 }
 
@@ -745,57 +726,60 @@ body::before{
 
   display:inline-block;
 
-  padding:7px 11px;
+  padding:
+    6px 9px;
 
-  border-radius:8px;
+  border-radius:7px;
 
-  color:#78bbfb;
+  background:
+    rgba(75,155,235,.09);
 
-  background:rgba(75,155,235,.10);
+  border:
+    1px solid rgba(90,170,245,.20);
 
-  border:1px solid rgba(90,170,245,.20);
+  color:#75baff;
 
-  font-size:9px;
+  font-size:8px;
 
   font-weight:900;
 
-  letter-spacing:2px;
+  letter-spacing:1.7px;
 }
 
 .member-info h3{
 
-  margin-top:13px;
+  margin-top:12px;
 
-  font-size:27px;
+  font-size:22px;
 
-  line-height:1.15;
+  line-height:1.2;
 
   font-weight:900;
-
-  letter-spacing:-.5px;
 }
 
 .member-info p{
 
-  margin-top:12px;
+  margin-top:10px;
 
-  color:#9baec4;
+  color:#91a7bf;
 
-  font-size:13px;
+  font-size:12px;
 
-  line-height:1.75;
+  line-height:1.7;
 }
 
 .member-line{
 
-  height:1px;
+  width:45px;
 
-  margin-top:22px;
+  height:2px;
+
+  margin-top:18px;
 
   background:
     linear-gradient(
       90deg,
-      rgba(80,170,250,.55),
+      #55aaf4,
       transparent
     );
 }
@@ -807,16 +791,18 @@ body::before{
 
 .values-section{
 
-  padding:120px 25px;
+  padding:
+    110px 35px;
 
-  background:#06162c;
+  background:#06162b;
 }
 
 .values-grid{
 
-  max-width:1100px;
+  max-width:1050px;
 
-  margin:55px auto 0;
+  margin:
+    45px auto 0;
 
   display:grid;
 
@@ -828,62 +814,61 @@ body::before{
 
 .value-box{
 
-  padding:35px 25px;
+  padding:32px 25px;
 
   text-align:center;
 
-  border:
-    1px solid rgba(255,255,255,.09);
+  border-radius:21px;
 
-  border-radius:23px;
+  border:
+    1px solid rgba(255,255,255,.08);
 
   background:
     rgba(255,255,255,.035);
 
-  transition:.45s ease;
+  transition:.35s ease;
 }
 
 .value-box:hover{
 
-  transform:translateY(-10px);
+  transform:translateY(-7px);
 
   border-color:
-    rgba(90,170,245,.35);
-
-  background:
-    rgba(255,255,255,.065);
+    rgba(90,170,245,.30);
 }
 
 .value-icon{
 
-  width:65px;
-  height:65px;
+  width:58px;
+  height:58px;
 
-  margin:0 auto 18px;
+  margin:
+    0 auto 16px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
-  border-radius:19px;
+  border-radius:17px;
 
   background:
-    rgba(65,140,220,.11);
+    rgba(60,140,220,.10);
 
-  font-size:29px;
+  font-size:27px;
 }
 
 .value-box h3{
-  font-size:18px;
+  font-size:17px;
 }
 
 .value-box p{
 
-  margin-top:10px;
+  margin-top:9px;
 
-  color:#95a9c0;
+  color:#8fa5bc;
 
-  font-size:13px;
+  font-size:12px;
 
   line-height:1.7;
 }
@@ -895,71 +880,47 @@ body::before{
 
 .mission-section{
 
-  padding:120px 25px;
+  padding:
+    110px 35px;
 
   background:
     linear-gradient(
       145deg,
       #020711,
-      #071b37
+      #071a34
     );
 }
 
 .mission-box{
 
-  position:relative;
-
-  max-width:1050px;
+  max-width:1000px;
 
   margin:auto;
 
-  padding:70px 45px;
+  padding:
+    65px 40px;
 
   text-align:center;
 
-  overflow:hidden;
+  border-radius:30px;
 
   border:
-    1px solid rgba(95,175,250,.18);
-
-  border-radius:32px;
+    1px solid rgba(90,170,245,.16);
 
   background:
     linear-gradient(
       135deg,
-      rgba(25,90,155,.17),
-      rgba(85,40,165,.11)
+      rgba(25,90,155,.14),
+      rgba(85,40,165,.09)
     );
 
   box-shadow:
-    0 35px 100px rgba(0,0,0,.35);
-}
-
-.mission-box::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:250px;
-  height:250px;
-
-  border-radius:50%;
-
-  background:
-    rgba(50,140,240,.12);
-
-  filter:blur(70px);
-
-  top:-100px;
-  left:-80px;
+    0 30px 90px rgba(0,0,0,.30);
 }
 
 .mission-box small{
 
-  position:relative;
-
-  color:#73b8fa;
+  color:#72b9fb;
 
   font-size:10px;
 
@@ -970,26 +931,24 @@ body::before{
 
 .mission-box h2{
 
-  position:relative;
+  margin-top:14px;
 
-  margin-top:16px;
-
-  font-size:clamp(38px,5vw,60px);
+  font-size:
+    clamp(38px,5vw,58px);
 
   font-weight:900;
 }
 
 .mission-box p{
 
-  position:relative;
+  max-width:700px;
 
-  max-width:720px;
+  margin:
+    18px auto 0;
 
-  margin:20px auto 0;
+  color:#9eb3c9;
 
-  color:#a4b7cd;
-
-  font-size:15px;
+  font-size:14px;
 
   line-height:1.8;
 }
@@ -1001,7 +960,8 @@ body::before{
 
 .footer{
 
-  padding:30px 20px;
+  padding:
+    28px 20px;
 
   text-align:center;
 
@@ -1010,9 +970,9 @@ body::before{
   border-top:
     1px solid rgba(255,255,255,.07);
 
-  color:#70849b;
+  color:#6f849b;
 
-  font-size:12px;
+  font-size:11px;
 }
 
 .footer strong{
@@ -1026,45 +986,39 @@ body::before{
 
 @media(min-width:768px) and (max-width:1100px){
 
-  .hero-inner{
-
-    gap:35px;
-
-    padding:
-      80px 30px;
+  .header-inner{
+    padding:0 25px;
   }
 
-  .hero-title{
+  .hero{
+    min-height:auto;
+  }
+
+  .hero-inner{
+
+    grid-template-columns:
+      1fr 1fr;
+
+    gap:30px;
+
+    padding:
+      70px 25px;
+  }
+
+  .hero h1{
 
     font-size:
-      clamp(45px,7vw,66px);
+      clamp(48px,7vw,65px);
   }
 
   .hero-visual{
-    min-height:430px;
+    min-height:360px;
   }
 
-  .orbit.one{
-    width:390px;
-    height:390px;
-  }
+  .hero-circle{
 
-  .orbit.two{
-    width:310px;
-    height:310px;
-  }
-
-  .orbit.three{
-    width:235px;
-    height:235px;
-  }
-
-  .center-logo{
-
-    width:155px;
-    height:155px;
-
-    font-size:60px;
+    width:300px;
+    height:300px;
   }
 
   .team-grid{
@@ -1073,16 +1027,12 @@ body::before{
       repeat(2,1fr);
   }
 
-  .member-card:last-child{
+  .member-card:nth-child(3){
+    transition-delay:.10s;
+  }
 
-    grid-column:
-      1 / -1;
-
-    max-width:550px;
-
-    width:100%;
-
-    margin:auto;
+  .member-card:nth-child(4){
+    transition-delay:.20s;
   }
 
 }
@@ -1102,28 +1052,33 @@ body::before{
       0 15px;
   }
 
+  .brand{
+    gap:9px;
+  }
+
   .brand img{
 
-    width:44px;
-    height:44px;
+    width:43px;
+    height:43px;
   }
 
   .brand-name{
     font-size:16px;
   }
 
-  .home-btn{
+  .home-button{
 
     padding:
-      10px 13px;
+      9px 13px;
 
-    font-size:11px;
+    font-size:10px;
   }
 
 
   /* HERO */
 
-  .about-hero{
+  .hero{
+
     min-height:auto;
   }
 
@@ -1133,10 +1088,10 @@ body::before{
 
     flex-direction:column;
 
-    gap:15px;
+    gap:25px;
 
     padding:
-      75px 20px 85px;
+      70px 20px 80px;
 
     text-align:center;
   }
@@ -1145,42 +1100,44 @@ body::before{
 
     justify-content:center;
 
-    font-size:9px;
+    font-size:8px;
 
     letter-spacing:3px;
   }
 
-  .eyebrow i{
-    width:20px;
+  .eyebrow::before,
+  .eyebrow::after{
+
+    width:18px;
   }
 
-  .hero-title{
+  .hero h1{
 
     margin-top:18px;
 
     font-size:
-      clamp(42px,12vw,56px);
+      clamp(42px,12vw,55px);
 
     letter-spacing:-2.5px;
   }
 
-  .hero-text{
+  .hero-description{
 
     margin-top:20px;
 
-    font-size:14px;
+    font-size:13px;
 
-    line-height:1.75;
+    line-height:1.8;
   }
 
-  .meet-btn{
+  .hero-button{
 
-    margin-top:27px;
+    margin-top:25px;
 
     padding:
       13px 19px;
 
-    font-size:11px;
+    font-size:10px;
   }
 
 
@@ -1188,33 +1145,33 @@ body::before{
 
   .hero-visual{
 
-    min-height:310px;
+    min-height:270px;
   }
 
-  .orbit.one{
+  .hero-circle{
 
-    width:285px;
-    height:285px;
+    width:245px;
+    height:245px;
   }
 
-  .orbit.two{
+  .hero-circle::before{
 
-    width:220px;
-    height:220px;
+    width:185px;
+    height:185px;
   }
 
-  .orbit.three{
+  .hero-circle::after{
 
-    width:160px;
-    height:160px;
+    width:135px;
+    height:135px;
   }
 
-  .center-logo{
+  .hero-symbol{
 
-    width:125px;
-    height:125px;
+    width:105px;
+    height:105px;
 
-    font-size:50px;
+    font-size:40px;
   }
 
 
@@ -1223,24 +1180,24 @@ body::before{
   .team-section{
 
     padding:
-      85px 15px 100px;
+      80px 15px 90px;
   }
 
   .section-heading{
 
-    margin-bottom:52px;
+    margin-bottom:45px;
   }
 
   .section-heading small{
 
-    font-size:9px;
+    font-size:8px;
 
     letter-spacing:3px;
   }
 
   .section-heading h2{
 
-    margin-top:13px;
+    margin-top:12px;
 
     font-size:40px;
 
@@ -1258,28 +1215,17 @@ body::before{
 
     flex-direction:column;
 
-    gap:25px;
+    gap:22px;
   }
 
   .member-card{
 
-    border-radius:25px;
-  }
-
-  .member-card:last-child{
-
-    max-width:none;
+    border-radius:24px;
   }
 
   .photo-area{
 
-    height:370px;
-  }
-
-  .member-photo{
-
-    width:205px;
-    height:205px;
+    height:350px;
   }
 
   .photo-ring{
@@ -1288,21 +1234,26 @@ body::before{
     height:255px;
   }
 
-  .photo-ring.second{
+  .member-photo{
 
-    width:295px;
-    height:295px;
+    width:205px;
+    height:205px;
   }
 
   .member-info{
 
     padding:
-      24px 22px 30px;
+      23px 21px 28px;
   }
 
   .member-info h3{
 
-    font-size:25px;
+    font-size:24px;
+  }
+
+  .member-info p{
+
+    font-size:12px;
   }
 
 
@@ -1318,7 +1269,7 @@ body::before{
 
     grid-template-columns:1fr;
 
-    margin-top:40px;
+    margin-top:35px;
   }
 
 
@@ -1333,19 +1284,14 @@ body::before{
   .mission-box{
 
     padding:
-      50px 22px;
+      50px 20px;
 
     border-radius:25px;
   }
 
   .mission-box h2{
 
-    font-size:36px;
-  }
-
-  .mission-box p{
-
-    font-size:13px;
+    font-size:35px;
   }
 
 }
@@ -1361,18 +1307,24 @@ body::before{
     font-size:14px;
   }
 
-  .home-btn{
-    padding:9px 10px;
+  .hero h1{
+    font-size:40px;
   }
 
   .photo-area{
-    height:340px;
+    height:325px;
   }
 
   .member-photo{
 
-    width:185px;
-    height:185px;
+    width:190px;
+    height:190px;
+  }
+
+  .photo-ring{
+
+    width:240px;
+    height:240px;
   }
 
 }
@@ -1388,18 +1340,16 @@ body::before{
   *::before,
   *::after{
 
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
+    animation:none !important;
+
+    transition:none !important;
 
     scroll-behavior:auto !important;
-
-    transition-duration:.01ms !important;
   }
 
 }
 
 </style>
-
 </head>
 
 
@@ -1410,7 +1360,7 @@ body::before{
      HEADER
 ======================================================= -->
 
-<header class="top-header">
+<header class="site-header">
 
   <div class="header-inner">
 
@@ -1426,10 +1376,9 @@ body::before{
 
     </a>
 
-
     <a
       href="index.html"
-      class="home-btn">
+      class="home-button">
 
       ← Home
 
@@ -1445,45 +1394,42 @@ body::before{
      HERO
 ======================================================= -->
 
-<section class="about-hero">
+<section class="hero">
 
   <div class="hero-inner">
 
 
-    <div>
+    <div class="hero-content">
 
       <div class="eyebrow">
-
-        <i></i>
-
         ABOUT SK KGN TEAM
-
-        <i></i>
-
       </div>
 
 
-      <h1 class="hero-title">
+      <h1>
 
         The People
 
-        <strong>Behind The Mission.</strong>
+        <span>
+          Behind The Mission.
+        </span>
 
       </h1>
 
 
-      <p class="hero-text">
+      <p class="hero-description">
 
-        SK KGN TEAM is built by a dedicated team working
-        together to make complaint assistance more organized,
-        accessible and transparent.
+        SK KGN TEAM is driven by a dedicated group of people
+        working together to build a more organized,
+        accessible and transparent complaint assistance
+        experience.
 
       </p>
 
 
       <a
         href="#our-team"
-        class="meet-btn">
+        class="hero-button">
 
         MEET OUR TEAM ↓
 
@@ -1494,14 +1440,12 @@ body::before{
 
     <div class="hero-visual">
 
-      <div class="orbit one"></div>
+      <div class="hero-circle">
 
-      <div class="orbit two"></div>
+        <div class="hero-symbol">
+          ⚖️
+        </div>
 
-      <div class="orbit three"></div>
-
-      <div class="center-logo">
-        ⚖️
       </div>
 
     </div>
@@ -1535,7 +1479,7 @@ body::before{
       </h2>
 
       <p>
-        Three people. One vision. Working together to build
+        Four people. One vision. Working together to create
         a better complaint assistance experience.
       </p>
 
@@ -1547,23 +1491,18 @@ body::before{
 
 
       <!-- =================================================
-           SHOUKAT
+           01 SHOUKAT
       ================================================== -->
 
       <article class="member-card">
 
         <div class="photo-area">
 
-          <span class="member-number">
+          <span class="photo-number">
             01
           </span>
 
-          <div class="photo-glow"></div>
-
           <div class="photo-ring"></div>
-
-          <div class="photo-ring second"></div>
-
 
           <img
             src="shaukat.jpg"
@@ -1586,8 +1525,8 @@ body::before{
           <p>
             Founder and CEO of SK KGN TEAM. Leads the vision,
             strategy and overall development of the platform,
-            with a focus on building a responsible and
-            user-focused complaint assistance experience.
+            with a focus on responsible and user-focused
+            complaint assistance.
           </p>
 
           <div class="member-line"></div>
@@ -1599,23 +1538,18 @@ body::before{
 
 
       <!-- =================================================
-           SHUBHAM
+           02 SHUBHAM
       ================================================== -->
 
       <article class="member-card">
 
         <div class="photo-area">
 
-          <span class="member-number">
+          <span class="photo-number">
             02
           </span>
 
-          <div class="photo-glow"></div>
-
           <div class="photo-ring"></div>
-
-          <div class="photo-ring second"></div>
-
 
           <img
             src="shubham.jpg"
@@ -1637,8 +1571,8 @@ body::before{
 
           <p>
             Supports team operations, complaint coordination
-            and communication activities, helping maintain an
-            organized and smooth service experience.
+            and communication activities to help maintain a
+            smooth and organized service experience.
           </p>
 
           <div class="member-line"></div>
@@ -1650,23 +1584,18 @@ body::before{
 
 
       <!-- =================================================
-           AAKASH
+           03 AAKASH
       ================================================== -->
 
       <article class="member-card">
 
         <div class="photo-area">
 
-          <span class="member-number">
+          <span class="photo-number">
             03
           </span>
 
-          <div class="photo-glow"></div>
-
           <div class="photo-ring"></div>
-
-          <div class="photo-ring second"></div>
-
 
           <img
             src="aakash.jpg"
@@ -1687,9 +1616,55 @@ body::before{
           </h3>
 
           <p>
-            Supports the digital systems, website and
+            Supports the website, digital systems and
             technology-related activities that help improve
             the team's online experience.
+          </p>
+
+          <div class="member-line"></div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =================================================
+           04 SAURABH
+      ================================================== -->
+
+      <article class="member-card">
+
+        <div class="photo-area">
+
+          <span class="photo-number">
+            04
+          </span>
+
+          <div class="photo-ring"></div>
+
+          <img
+            src="saurabh.jpg"
+            alt="Saurabh Singh Yadav"
+            class="member-photo">
+
+        </div>
+
+
+        <div class="member-info">
+
+          <span class="member-role">
+            MARKETING EXECUTIVE
+          </span>
+
+          <h3>
+            Saurabh Singh Yadav
+          </h3>
+
+          <p>
+            Supports marketing, outreach and communication
+            initiatives, helping SK KGN TEAM connect with
+            people and present its services effectively.
           </p>
 
           <div class="member-line"></div>
@@ -1779,8 +1754,8 @@ body::before{
         </h3>
 
         <p>
-          We aim to make the assistance experience
-          simpler and more accessible.
+          We aim to make the assistance experience simpler,
+          clearer and more accessible.
         </p>
 
       </div>
@@ -1847,7 +1822,7 @@ body::before{
 <script>
 
 /* =========================================================
-   CINEMATIC SCROLL REVEAL
+   PREMIUM SCROLL REVEAL
 ========================================================= */
 
 (function(){
@@ -1867,7 +1842,9 @@ body::before{
 
           if(entry.isIntersecting){
 
-            entry.target.classList.add("show");
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
 
           }
 
@@ -1876,7 +1853,7 @@ body::before{
       },
 
       {
-        threshold:.20
+        threshold:.18
       }
 
     );
@@ -1887,111 +1864,6 @@ body::before{
     observer.observe(card);
 
   });
-
-})();
-
-
-/* =========================================================
-   SCROLL-BASED PHOTO SCALE
-========================================================= */
-
-(function(){
-
-  const cards =
-    document.querySelectorAll(".member-card");
-
-
-  function updatePhotos(){
-
-    const screen =
-      window.innerHeight;
-
-
-    cards.forEach(function(card){
-
-      const photo =
-        card.querySelector(".member-photo");
-
-      if(!photo) return;
-
-
-      const rect =
-        card.getBoundingClientRect();
-
-
-      const center =
-        rect.top +
-        rect.height / 2;
-
-
-      const distance =
-        Math.abs(
-          center -
-          screen / 2
-        );
-
-
-      const range =
-        screen * .80;
-
-
-      let power =
-        1 -
-        distance / range;
-
-
-      power =
-        Math.max(
-          0,
-          Math.min(
-            1,
-            power
-          )
-        );
-
-
-      /*
-        Page ke center ke paas photo
-        thodi badi aur brighter hogi.
-      */
-
-      const scale =
-        .96 +
-        power * .05;
-
-
-      const glow =
-        40 +
-        power * 35;
-
-
-      photo.style.transform =
-        `scale(${scale})`;
-
-      photo.style.boxShadow =
-        `
-        0 0 0 9px rgba(80,160,240,.07),
-        0 25px 60px rgba(0,0,0,.50),
-        0 0 ${glow}px rgba(50,135,220,.25)
-        `;
-
-    });
-
-  }
-
-
-  window.addEventListener(
-    "scroll",
-    updatePhotos,
-    {passive:true}
-  );
-
-  window.addEventListener(
-    "resize",
-    updatePhotos
-  );
-
-  updatePhotos();
 
 })();
 
