@@ -3,53 +3,4582 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Legal & RTI Help | SK KGN TEAM</title>
+
+<title>Legal & RTI Assistance | SK KGN TEAM</title>
+
+<meta name="description"
+content="SK KGN TEAM provides independent assistance for RTI applications, legal documentation, government grievance matters, consumer complaints and representations.">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f5f7fb;color:#101827;line-height:1.6}
-header{background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:10}
-.nav{max-width:1100px;margin:auto;padding:16px 22px;display:flex;align-items:center;justify-content:space-between}
-.logo{display:flex;align-items:center;gap:12px}.logo-circle{width:54px;height:54px;border:2px solid #173f7a;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#173f7a;text-align:center;line-height:1.05}.logo-text{font-size:24px;font-weight:800}.logo-text span{color:#1455a0}
-.back{color:#173f7a;text-decoration:none;font-weight:700;border:1px solid #d7dee9;padding:10px 17px;border-radius:12px}
-.hero{max-width:1100px;margin:auto;padding:65px 22px 35px}.badge{display:inline-block;background:#e9f2ff;color:#174b89;padding:8px 15px;border-radius:30px;font-size:13px;font-weight:800;margin-bottom:20px}.hero h1{font-size:clamp(38px,7vw,68px);line-height:1.05;margin-bottom:22px}.hero h1 span{color:#1455a0}.hero p{color:#667085;font-size:19px;max-width:720px}
-.container{max-width:1100px;margin:auto;padding:20px 22px 70px}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.card{background:#fff;border:1px solid #e1e6ee;border-radius:24px;padding:28px;box-shadow:0 10px 35px rgba(15,23,42,.06)}.icon{width:58px;height:58px;border-radius:17px;background:#eaf2ff;display:flex;align-items:center;justify-content:center;font-size:29px;margin-bottom:20px}.card h2{font-size:24px;margin-bottom:10px}.card p{color:#667085}.list{margin-top:18px;padding-left:20px;color:#475467}.list li{margin-bottom:8px}
-.cta{margin-top:25px;background:#101827;color:#fff;border-radius:28px;padding:35px 28px;text-align:center}.cta h2{font-size:30px;margin-bottom:10px}.cta p{color:#cbd5e1;margin-bottom:22px}.button{display:inline-block;background:#fff;color:#101827;text-decoration:none;padding:14px 24px;border-radius:14px;font-weight:800}
-footer{background:#101827;color:#fff;padding:35px 22px}.footer-inner{max-width:1100px;margin:auto}footer p{color:#b8c1d1;margin:4px 0}
-@media(max-width:700px){.grid{grid-template-columns:1fr}.logo-text{font-size:19px}.logo-circle{width:46px;height:46px;font-size:14px}.back{padding:8px 12px;font-size:14px}.hero{padding-top:45px}}
+
+/* =========================================================
+   SK KGN TEAM
+   PREMIUM LEGAL & RTI ASSISTANCE PAGE
+   ========================================================= */
+
+:root{
+    --blue:#1455a0;
+    --blue2:#1d73d5;
+    --deep:#071426;
+    --deep2:#0b1d36;
+    --text:#101827;
+    --muted:#667085;
+    --line:#e4eaf2;
+    --white:#ffffff;
+    --soft:#f5f8fc;
+    --gold:#d6a84f;
+    --shadow:0 20px 60px rgba(7,20,38,.09);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:
+    Inter,
+    Arial,
+    Helvetica,
+    sans-serif;
+
+    background:
+    linear-gradient(
+        180deg,
+        #f8fafc 0%,
+        #f3f6fb 45%,
+        #ffffff 100%
+    );
+
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+a{
+    color:inherit;
+}
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* =========================================================
+   SCROLL BAR
+   ========================================================= */
+
+::-webkit-scrollbar{
+    width:9px;
+}
+
+::-webkit-scrollbar-track{
+    background:#eef2f7;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#1455a0;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#0d3f7d;
+}
+
+/* =========================================================
+   PAGE PROGRESS
+   ========================================================= */
+
+.progress-line{
+    position:fixed;
+    top:0;
+    left:0;
+    height:3px;
+    width:0%;
+    background:
+    linear-gradient(
+        90deg,
+        #1455a0,
+        #4ea0ff,
+        #d6a84f
+    );
+    z-index:9999;
+    box-shadow:0 0 15px rgba(20,85,160,.5);
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:500;
+
+    background:
+    rgba(255,255,255,.88);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(220,228,239,.8);
+
+    box-shadow:
+    0 8px 30px rgba(15,23,42,.04);
+}
+
+.nav{
+    max-width:1180px;
+    margin:auto;
+
+    padding:
+    12px 22px;
+
+    min-height:82px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    text-decoration:none;
+    white-space:nowrap;
+}
+
+.brand img{
+    width:57px;
+    height:57px;
+
+    object-fit:contain;
+    display:block;
+
+    border-radius:50%;
+
+    filter:
+    drop-shadow(
+        0 5px 12px rgba(20,85,160,.16)
+    );
+
+    transition:
+    transform .35s ease,
+    filter .35s ease;
+}
+
+.brand:hover img{
+    transform:rotate(-4deg) scale(1.06);
+
+    filter:
+    drop-shadow(
+        0 8px 20px rgba(20,85,160,.25)
+    );
+}
+
+.brand-name{
+    font-size:23px;
+    font-weight:900;
+    letter-spacing:-.5px;
+    color:#111827;
+}
+
+.brand-name span{
+    color:var(--blue);
+}
+
+.back-btn{
+    text-decoration:none;
+
+    padding:
+    10px 17px;
+
+    border:
+    1px solid #d7e0ec;
+
+    border-radius:13px;
+
+    color:#173f7a;
+
+    font-weight:800;
+    font-size:14px;
+
+    background:#fff;
+
+    transition:
+    .3s ease;
+}
+
+.back-btn:hover{
+    background:#1455a0;
+    color:#fff;
+    border-color:#1455a0;
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 8px 22px rgba(20,85,160,.2);
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+    position:relative;
+
+    min-height:
+    690px;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at 80% 15%,
+        rgba(38,111,202,.22),
+        transparent 28%
+    ),
+
+    radial-gradient(
+        circle at 15% 80%,
+        rgba(214,168,79,.08),
+        transparent 25%
+    ),
+
+    linear-gradient(
+        135deg,
+        #06101f,
+        #0b1d36 52%,
+        #102d50
+    );
+
+    color:#fff;
+}
+
+/* =========================================================
+   HERO BACKGROUND LIGHT
+   ========================================================= */
+
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+    height:600px;
+
+    right:-190px;
+    top:-220px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(67,151,240,.23),
+        transparent 65%
+    );
+
+    animation:
+    heroGlow 9s ease-in-out infinite alternate;
+}
+
+.hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+    height:450px;
+
+    left:-220px;
+    bottom:-250px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(214,168,79,.12),
+        transparent 70%
+    );
+
+    animation:
+    heroGlow2 11s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow{
+
+    from{
+        transform:
+        scale(1)
+        translate(0,0);
+    }
+
+    to{
+        transform:
+        scale(1.18)
+        translate(-25px,35px);
+    }
+}
+
+@keyframes heroGlow2{
+
+    from{
+        transform:
+        scale(1)
+        translate(0,0);
+    }
+
+    to{
+        transform:
+        scale(1.25)
+        translate(35px,-25px);
+    }
+}
+
+/* =========================================================
+   HERO GRID
+   ========================================================= */
+
+.hero-grid{
+    width:100%;
+    max-width:1180px;
+
+    margin:auto;
+
+    padding:
+    90px 22px;
+
+    display:grid;
+
+    grid-template-columns:
+    1.15fr
+    .85fr;
+
+    align-items:center;
+
+    gap:70px;
+
+    position:relative;
+    z-index:2;
+}
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hero-content{
+    animation:
+    heroEnter .9s ease both;
+}
+
+@keyframes heroEnter{
+
+    from{
+        opacity:0;
+        transform:
+        translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:
+        translateY(0);
+    }
+}
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:
+    8px 14px;
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+    background:
+    rgba(255,255,255,.07);
+
+    border-radius:40px;
+
+    color:#d9eaff;
+
+    font-size:12px;
+    font-weight:900;
+
+    letter-spacing:
+    .8px;
+
+    margin-bottom:24px;
+
+    backdrop-filter:
+    blur(12px);
+}
+
+.hero-badge::before{
+    content:"";
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:#63b3ff;
+
+    box-shadow:
+    0 0 12px #63b3ff;
+}
+
+.hero h1{
+    font-size:
+    clamp(
+        42px,
+        6vw,
+        76px
+    );
+
+    line-height:
+    1.02;
+
+    letter-spacing:
+    -2.5px;
+
+    font-weight:
+    900;
+
+    margin-bottom:
+    24px;
+}
+
+.hero h1 span{
+    background:
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #82bcff,
+        #d6a84f
+    );
+
+    -webkit-background-clip:
+    text;
+
+    background-clip:
+    text;
+
+    color:
+    transparent;
+}
+
+.hero-description{
+    max-width:
+    720px;
+
+    color:
+    #b9c8dc;
+
+    font-size:
+    18px;
+
+    line-height:
+    1.8;
+
+    margin-bottom:
+    32px;
+}
+
+/* =========================================================
+   HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons{
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:13px;
+
+    margin-bottom:
+    34px;
+}
+
+.primary-btn,
+.secondary-btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+
+    min-height:
+    50px;
+
+    padding:
+    13px 20px;
+
+    border-radius:
+    14px;
+
+    text-decoration:none;
+
+    font-weight:
+    900;
+
+    transition:
+    .3s ease;
+}
+
+.primary-btn{
+    background:#fff;
+    color:#0b1d36;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.18);
+}
+
+.primary-btn:hover{
+    transform:
+    translateY(-4px);
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.27);
+}
+
+.secondary-btn{
+    color:#fff;
+
+    border:
+    1px solid rgba(255,255,255,.2);
+
+    background:
+    rgba(255,255,255,.06);
+}
+
+.secondary-btn:hover{
+    background:
+    rgba(255,255,255,.12);
+
+    transform:
+    translateY(-3px);
+}
+
+/* =========================================================
+   HERO TRUST
+   ========================================================= */
+
+.hero-trust{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+
+    color:#c8d4e4;
+
+    font-size:13px;
+}
+
+.trust-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.trust-item strong{
+    color:#fff;
+}
+
+/* =========================================================
+   HERO VISUAL CARD
+   ========================================================= */
+
+.hero-visual{
+    position:relative;
+
+    min-height:
+    430px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.legal-card{
+    width:
+    min(100%,390px);
+
+    min-height:
+    390px;
+
+    border-radius:
+    32px;
+
+    padding:
+    32px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.13),
+        rgba(255,255,255,.04)
+    );
+
+    border:
+    1px solid rgba(255,255,255,.16);
+
+    box-shadow:
+    0 35px 80px rgba(0,0,0,.32);
+
+    backdrop-filter:
+    blur(20px);
+
+    animation:
+    cardFloat 6s ease-in-out infinite;
+}
+
+@keyframes cardFloat{
+
+    0%,
+    100%{
+        transform:
+        translateY(0);
+    }
+
+    50%{
+        transform:
+        translateY(-12px);
+    }
+}
+
+.legal-card::before{
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    right:-90px;
+    top:-90px;
+
+    border-radius:50%;
+
+    border:
+    1px solid rgba(255,255,255,.12);
+}
+
+.legal-symbol{
+    width:100px;
+    height:100px;
+
+    border-radius:30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:28px;
+
+    font-size:53px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    border:
+    1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+    inset 0 0 30px rgba(255,255,255,.04);
+}
+
+.legal-card h2{
+    font-size:
+    31px;
+
+    line-height:
+    1.15;
+
+    margin-bottom:
+    13px;
+}
+
+.legal-card p{
+    color:
+    #b9c8dc;
+
+    line-height:
+    1.7;
+
+    font-size:
+    14px;
+}
+
+.card-line{
+    height:1px;
+
+    background:
+    rgba(255,255,255,.12);
+
+    margin:
+    24px 0;
+}
+
+.card-mini{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    gap:15px;
+
+    font-size:13px;
+
+    color:#d7e2f0;
+}
+
+.card-mini span:last-child{
+    color:#83bdff;
+    font-weight:900;
+}
+
+/* =========================================================
+   SECTION COMMON
+   ========================================================= */
+
+.section{
+    max-width:
+    1180px;
+
+    margin:auto;
+
+    padding:
+    100px 22px;
+}
+
+.section-heading{
+    max-width:
+    760px;
+
+    margin:
+    0 auto 55px;
+
+    text-align:center;
+}
+
+.section-label{
+    display:inline-block;
+
+    color:
+    var(--blue);
+
+    background:
+    #eaf2ff;
+
+    border:
+    1px solid #d7e8ff;
+
+    padding:
+    7px 13px;
+
+    border-radius:
+    30px;
+
+    font-size:
+    11px;
+
+    font-weight:
+    900;
+
+    letter-spacing:
+    1px;
+
+    margin-bottom:
+    15px;
+}
+
+.section-heading h2{
+    font-size:
+    clamp(
+        31px,
+        5vw,
+        48px
+    );
+
+    line-height:
+    1.1;
+
+    letter-spacing:
+    -1.5px;
+
+    margin-bottom:
+    15px;
+}
+
+.section-heading p{
+    color:
+    var(--muted);
+
+    font-size:
+    16px;
+
+    line-height:
+    1.8;
+}
+
+/* =========================================================
+   SERVICE GRID
+   ========================================================= */
+
+.services-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+.service-card{
+    position:relative;
+
+    background:
+    rgba(255,255,255,.95);
+
+    border:
+    1px solid var(--line);
+
+    border-radius:
+    25px;
+
+    padding:
+    28px;
+
+    min-height:
+    300px;
+
+    box-shadow:
+    0 15px 45px rgba(15,23,42,.055);
+
+    overflow:hidden;
+
+    transition:
+    transform .4s ease,
+    box-shadow .4s ease,
+    border-color .4s ease;
+}
+
+.service-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    right:-60px;
+    bottom:-60px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(20,85,160,.09),
+        transparent 70%
+    );
+
+    transition:
+    .4s ease;
+}
+
+.service-card:hover{
+    transform:
+    translateY(-9px);
+
+    border-color:
+    #c9ddf7;
+
+    box-shadow:
+    0 25px 65px rgba(20,85,160,.12);
+}
+
+.service-card:hover::after{
+    transform:
+    scale(1.6);
+}
+
+.service-icon{
+    width:
+    58px;
+    height:
+    58px;
+
+    border-radius:
+    17px;
+
+    background:
+    #edf4ff;
+
+    color:
+    var(--blue);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:
+    27px;
+
+    margin-bottom:
+    20px;
+
+    transition:
+    transform .4s ease;
+}
+
+.service-card:hover .service-icon{
+    transform:
+    rotate(-5deg)
+    scale(1.08);
+}
+
+.service-card h3{
+    font-size:
+    22px;
+
+    margin-bottom:
+    9px;
+}
+
+.service-card p{
+    color:
+    var(--muted);
+
+    font-size:
+    14px;
+
+    line-height:
+    1.7;
+
+    margin-bottom:
+    16px;
+}
+
+.service-card ul{
+    list-style:none;
+}
+
+.service-card li{
+    position:relative;
+
+    padding-left:
+    20px;
+
+    margin-bottom:
+    8px;
+
+    color:#475467;
+
+    font-size:
+    13px;
+}
+
+.service-card li::before{
+    content:"✓";
+
+    position:absolute;
+
+    left:0;
+
+    color:
+    var(--blue);
+
+    font-weight:
+    900;
+}
+
+/* =========================================================
+   FEATURE STRIP
+   ========================================================= */
+
+.feature-strip{
+    background:
+    #071426;
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.feature-strip::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+        circle at 80% 50%,
+        rgba(35,111,207,.22),
+        transparent 30%
+    );
+}
+
+.feature-grid{
+    max-width:
+    1180px;
+
+    margin:auto;
+
+    padding:
+    55px 22px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:20px;
+
+    position:relative;
+}
+
+.feature{
+    padding:
+    10px 15px;
+
+    text-align:center;
+
+    border-right:
+    1px solid rgba(255,255,255,.09);
+}
+
+.feature:last-child{
+    border-right:none;
+}
+
+.feature-number{
+    font-size:
+    30px;
+
+    font-weight:
+    900;
+
+    color:#fff;
+
+    margin-bottom:
+    5px;
+}
+
+.feature-title{
+    color:#aebed2;
+
+    font-size:
+    13px;
+}
+
+/* =========================================================
+   CONSUMER SECTION
+   ========================================================= */
+
+.consumer-section{
+    background:
+    linear-gradient(
+        180deg,
+        #ffffff,
+        #f4f8fd
+    );
+}
+
+.consumer-box{
+    border-radius:
+    34px;
+
+    padding:
+    50px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #0a1c34,
+        #123a68
+    );
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 30px 80px rgba(7,20,38,.18);
+}
+
+.consumer-box::before{
+    content:"⚖";
+
+    position:absolute;
+
+    right:
+    40px;
+
+    top:
+    10px;
+
+    font-size:
+    220px;
+
+    line-height:
+    1;
+
+    color:
+    rgba(255,255,255,.035);
+
+    transform:
+    rotate(-8deg);
+}
+
+.consumer-content{
+    position:relative;
+
+    z-index:2;
+
+    max-width:
+    760px;
+}
+
+.consumer-content .small-label{
+    color:
+    #a9d0ff;
+
+    font-size:
+    12px;
+
+    font-weight:
+    900;
+
+    letter-spacing:
+    1px;
+
+    margin-bottom:
+    12px;
+}
+
+.consumer-content h2{
+    font-size:
+    clamp(30px,5vw,45px);
+
+    line-height:
+    1.1;
+
+    margin-bottom:
+    17px;
+}
+
+.consumer-content p{
+    color:
+    #c4d2e4;
+
+    line-height:
+    1.8;
+
+    margin-bottom:
+    25px;
+}
+
+.consumer-points{
+    display:
+    grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:
+    10px 25px;
+
+    margin-bottom:
+    30px;
+}
+
+.consumer-points div{
+    color:#dbe7f5;
+
+    font-size:
+    14px;
+}
+
+.consumer-points span{
+    color:#7fc0ff;
+
+    font-weight:
+    900;
+
+    margin-right:
+    6px;
+}
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.process-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:18px;
+
+    position:relative;
+}
+
+.process-grid::before{
+    content:"";
+
+    position:absolute;
+
+    top:
+    39px;
+
+    left:
+    11%;
+
+    right:
+    11%;
+
+    height:
+    1px;
+
+    background:
+    #d5dfeb;
+
+    z-index:
+    0;
+}
+
+.process-card{
+    position:relative;
+
+    z-index:1;
+
+    text-align:center;
+}
+
+.process-number{
+    width:
+    78px;
+    height:
+    78px;
+
+    margin:
+    0 auto 20px;
+
+    border-radius:
+    50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#fff;
+
+    border:
+    2px solid #dbe7f4;
+
+    color:
+    var(--blue);
+
+    font-size:
+    22px;
+
+    font-weight:
+    900;
+
+    box-shadow:
+    0 10px 30px rgba(15,23,42,.07);
+
+    transition:
+    .35s ease;
+}
+
+.process-card:hover .process-number{
+    background:
+    var(--blue);
+
+    color:#fff;
+
+    border-color:
+    var(--blue);
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+}
+
+.process-card h3{
+    font-size:
+    18px;
+
+    margin-bottom:
+    8px;
+}
+
+.process-card p{
+    color:
+    var(--muted);
+
+    font-size:
+    13px;
+
+    line-height:
+    1.7;
+}
+
+/* =========================================================
+   DOCUMENTS
+   ========================================================= */
+
+.documents-section{
+    background:
+    #f3f7fc;
+}
+
+.document-grid{
+    display:grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap:
+    22px;
+}
+
+.document-card{
+    background:#fff;
+
+    border:
+    1px solid var(--line);
+
+    border-radius:
+    25px;
+
+    padding:
+    30px;
+
+    box-shadow:
+    0 12px 40px rgba(15,23,42,.05);
+}
+
+.document-card h3{
+    font-size:
+    22px;
+
+    margin-bottom:
+    17px;
+}
+
+.document-item{
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:
+    12px;
+
+    padding:
+    13px 0;
+
+    border-bottom:
+    1px solid #edf1f6;
+
+    color:#475467;
+
+    font-size:
+    14px;
+}
+
+.document-item:last-child{
+    border-bottom:none;
+}
+
+.document-item span{
+    width:
+    25px;
+    height:
+    25px;
+
+    flex:none;
+
+    border-radius:
+    8px;
+
+    background:
+    #eaf2ff;
+
+    color:
+    var(--blue);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:
+    12px;
+
+    font-weight:
+    900;
+}
+
+/* =========================================================
+   PACKAGES
+   ========================================================= */
+
+.package-grid{
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:
+    20px;
+
+    align-items:stretch;
+}
+
+.package{
+    background:#fff;
+
+    border:
+    1px solid var(--line);
+
+    border-radius:
+    27px;
+
+    padding:
+    30px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 15px 45px rgba(15,23,42,.06);
+
+    transition:
+    .4s ease;
+}
+
+.package:hover{
+    transform:
+    translateY(-8px);
+
+    box-shadow:
+    0 25px 65px rgba(20,85,160,.12);
+}
+
+.package.featured{
+    background:
+    linear-gradient(
+        145deg,
+        #0a1c34,
+        #123b6b
+    );
+
+    color:#fff;
+
+    border-color:
+    #123b6b;
+
+    transform:
+    scale(1.035);
+
+    box-shadow:
+    0 28px 75px rgba(7,20,38,.2);
+}
+
+.package.featured:hover{
+    transform:
+    scale(1.045)
+    translateY(-8px);
+}
+
+.package-badge{
+    position:absolute;
+
+    top:
+    18px;
+
+    right:
+    18px;
+
+    padding:
+    6px 10px;
+
+    border-radius:
+    20px;
+
+    background:
+    #e9f2ff;
+
+    color:
+    var(--blue);
+
+    font-size:
+    10px;
+
+    font-weight:
+    900;
+}
+
+.package.featured .package-badge{
+    background:
+    rgba(255,255,255,.12);
+
+    color:#a9d0ff;
+}
+
+.package h3{
+    font-size:
+    23px;
+
+    margin-bottom:
+    10px;
+}
+
+.price{
+    font-size:
+    38px;
+
+    font-weight:
+    900;
+
+    margin-bottom:
+    5px;
+}
+
+.price small{
+    font-size:
+    13px;
+
+    font-weight:
+    500;
+
+    color:
+    var(--muted);
+}
+
+.package.featured .price small{
+    color:#aebed2;
+}
+
+.package-desc{
+    color:
+    var(--muted);
+
+    font-size:
+    13px;
+
+    min-height:
+    44px;
+
+    margin-bottom:
+    20px;
+}
+
+.package.featured .package-desc{
+    color:#b9c8dc;
+}
+
+.package ul{
+    list-style:none;
+
+    margin-bottom:
+    25px;
+}
+
+.package li{
+    margin-bottom:
+    10px;
+
+    font-size:
+    13px;
+
+    color:#475467;
+
+    padding-left:
+    20px;
+
+    position:relative;
+}
+
+.package li::before{
+    content:"✓";
+
+    position:absolute;
+
+    left:0;
+
+    color:
+    var(--blue);
+
+    font-weight:
+    900;
+}
+
+.package.featured li{
+    color:#d6e2f0;
+}
+
+.package.featured li::before{
+    color:#83bdff;
+}
+
+.package-btn{
+    display:block;
+
+    text-align:center;
+
+    padding:
+    12px;
+
+    border-radius:
+    13px;
+
+    text-decoration:none;
+
+    font-weight:
+    900;
+
+    border:
+    1px solid #d8e1ed;
+
+    transition:
+    .3s ease;
+}
+
+.package-btn:hover{
+    background:
+    var(--blue);
+
+    color:#fff;
+
+    border-color:
+    var(--blue);
+}
+
+.package.featured .package-btn{
+    background:#fff;
+
+    color:#0b1d36;
+
+    border-color:#fff;
+}
+
+/* =========================================================
+   INFO BANNER
+   ========================================================= */
+
+.info-banner{
+    max-width:
+    1180px;
+
+    margin:
+    0 auto;
+
+    padding:
+    0 22px 100px;
+}
+
+.info-inner{
+    border:
+    1px solid #dce7f3;
+
+    background:
+    linear-gradient(
+        120deg,
+        #edf5ff,
+        #f8fbff
+    );
+
+    border-radius:
+    28px;
+
+    padding:
+    30px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:30px;
+}
+
+.info-inner h3{
+    font-size:
+    23px;
+
+    margin-bottom:
+    5px;
+}
+
+.info-inner p{
+    color:
+    var(--muted);
+
+    font-size:
+    14px;
+}
+
+.info-action{
+    flex:none;
+
+    text-decoration:none;
+
+    background:
+    var(--blue);
+
+    color:#fff;
+
+    padding:
+    13px 19px;
+
+    border-radius:
+    13px;
+
+    font-weight:
+    900;
+
+    transition:
+    .3s ease;
+}
+
+.info-action:hover{
+    background:
+    #0d4383;
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(20,85,160,.22);
+}
+
+/* =========================================================
+   FAQ
+   ========================================================= */
+
+.faq-section{
+    background:
+    #f7f9fc;
+}
+
+.faq{
+    max-width:
+    850px;
+
+    margin:auto;
+}
+
+.faq-item{
+    background:#fff;
+
+    border:
+    1px solid var(--line);
+
+    border-radius:
+    17px;
+
+    margin-bottom:
+    12px;
+
+    overflow:hidden;
+
+    transition:
+    .3s ease;
+}
+
+.faq-question{
+    width:100%;
+
+    border:none;
+
+    background:transparent;
+
+    padding:
+    20px 22px;
+
+    text-align:left;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    font-size:
+    15px;
+
+    font-weight:
+    800;
+
+    color:
+    var(--text);
+
+    cursor:pointer;
+}
+
+.faq-plus{
+    width:
+    28px;
+    height:
+    28px;
+
+    border-radius:
+    50%;
+
+    background:
+    #edf4ff;
+
+    color:
+    var(--blue);
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    flex:none;
+
+    transition:
+    transform .3s ease;
+}
+
+.faq-answer{
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:
+    max-height .4s ease;
+}
+
+.faq-answer p{
+    padding:
+    0 22px 20px;
+
+    color:
+    var(--muted);
+
+    font-size:
+    14px;
+
+    line-height:
+    1.8;
+}
+
+.faq-item.active{
+    border-color:
+    #cbdff7;
+
+    box-shadow:
+    0 10px 30px rgba(20,85,160,.06);
+}
+
+.faq-item.active .faq-plus{
+    transform:
+    rotate(45deg);
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.final-cta{
+    max-width:
+    1180px;
+
+    margin:auto;
+
+    padding:
+    100px 22px;
+}
+
+.final-box{
+    border-radius:
+    35px;
+
+    padding:
+    65px 30px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        135deg,
+        #06101f,
+        #12385f
+    );
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 30px 90px rgba(7,20,38,.18);
+}
+
+.final-box::before{
+    content:"";
+
+    position:absolute;
+
+    width:
+    420px;
+    height:
+    420px;
+
+    right:
+    -170px;
+    top:
+    -250px;
+
+    border-radius:50%;
+
+    background:
+    rgba(73,154,240,.14);
+}
+
+.final-box h2{
+    position:relative;
+
+    font-size:
+    clamp(31px,5vw,49px);
+
+    line-height:
+    1.1;
+
+    margin-bottom:
+    14px;
+}
+
+.final-box p{
+    position:relative;
+
+    color:
+    #bdcce0;
+
+    max-width:
+    680px;
+
+    margin:
+    0 auto 25px;
+
+    line-height:
+    1.8;
+}
+
+.final-buttons{
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+}
+
+.final-buttons a{
+    text-decoration:none;
+
+    padding:
+    13px 21px;
+
+    border-radius:
+    13px;
+
+    font-weight:
+    900;
+
+    transition:
+    .3s ease;
+}
+
+.call-final{
+    background:#fff;
+
+    color:#0b1d36;
+}
+
+.whatsapp-final{
+    background:
+    rgba(255,255,255,.08);
+
+    color:#fff;
+
+    border:
+    1px solid rgba(255,255,255,.2);
+}
+
+.final-buttons a:hover{
+    transform:
+    translateY(-3px);
+}
+
+/* =========================================================
+   DISCLAIMER
+   ========================================================= */
+
+.disclaimer{
+    max-width:
+    900px;
+
+    margin:
+    0 auto 80px;
+
+    padding:
+    0 22px;
+
+    text-align:center;
+
+    color:
+    #7a8799;
+
+    font-size:
+    12px;
+
+    line-height:
+    1.8;
+}
+
+.disclaimer strong{
+    color:
+    #526174;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer{
+    background:
+    #06101f;
+
+    color:#fff;
+
+    padding:
+    50px 22px 35px;
+}
+
+.footer-inner{
+    max-width:
+    1180px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+    1.3fr
+    1fr
+    1fr;
+
+    gap:
+    45px;
+}
+
+.footer-brand{
+    font-size:
+    25px;
+
+    font-weight:
+    900;
+
+    margin-bottom:
+    10px;
+}
+
+.footer-brand span{
+    color:
+    #69b0ff;
+}
+
+.footer-text{
+    color:
+    #9eafc5;
+
+    max-width:
+    400px;
+
+    font-size:
+    13px;
+
+    line-height:
+    1.8;
+}
+
+.footer-col h4{
+    font-size:
+    14px;
+
+    margin-bottom:
+    15px;
+}
+
+.footer-col p,
+.footer-col a{
+    display:block;
+
+    color:
+    #9eafc5;
+
+    font-size:
+    13px;
+
+    text-decoration:none;
+
+    margin-bottom:
+    8px;
+}
+
+.footer-col a:hover{
+    color:#fff;
+}
+
+.footer-bottom{
+    max-width:
+    1180px;
+
+    margin:
+    40px auto 0;
+
+    padding-top:
+    22px;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+
+    color:
+    #74869e;
+
+    font-size:
+    12px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+/* =========================================================
+   FLOATING CONTACT BUTTON
+   ========================================================= */
+
+.floating-contact{
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    z-index:300;
+
+    width:
+    56px;
+    height:
+    56px;
+
+    border-radius:
+    50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    #1455a0;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:
+    23px;
+
+    box-shadow:
+    0 12px 35px rgba(20,85,160,.3);
+
+    animation:
+    floatPulse 3s ease-in-out infinite;
+}
+
+@keyframes floatPulse{
+
+    0%,
+    100%{
+        box-shadow:
+        0 12px 35px rgba(20,85,160,.3);
+    }
+
+    50%{
+        box-shadow:
+        0 12px 45px rgba(20,85,160,.55);
+    }
+}
+
+.floating-contact:hover{
+    transform:
+    scale(1.08);
+}
+
+/* =========================================================
+   REVEAL ANIMATION
+   ========================================================= */
+
+.reveal{
+    opacity:0;
+
+    transform:
+    translateY(35px)
+    scale(.97);
+
+    filter:
+    blur(3px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.8,.2,1),
+    filter .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:
+    translateY(0)
+    scale(1);
+
+    filter:
+    blur(0);
+}
+
+/* =========================================================
+   IMAGE / CARD SCROLL SCALE
+   ========================================================= */
+
+.scroll-scale{
+    transform:
+    scale(.94);
+
+    transition:
+    transform 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.scroll-scale.show{
+    transform:
+    scale(1);
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:1000px){
+
+    .hero-grid{
+        grid-template-columns:
+        1fr;
+
+        gap:
+        45px;
+
+        padding:
+        75px 22px;
+    }
+
+    .hero-content{
+        max-width:
+        800px;
+    }
+
+    .hero-visual{
+        min-height:
+        350px;
+    }
+
+    .services-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .feature-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .feature{
+        border-right:none;
+        border-bottom:
+        1px solid rgba(255,255,255,.09);
+
+        padding-bottom:
+        22px;
+    }
+
+    .feature:nth-child(3),
+    .feature:nth-child(4){
+        border-bottom:none;
+    }
+
+    .process-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:
+        35px;
+    }
+
+    .process-grid::before{
+        display:none;
+    }
+
+    .package-grid{
+        grid-template-columns:
+        1fr 1fr;
+    }
+
+    .package.featured{
+        transform:none;
+    }
+
+    .package.featured:hover{
+        transform:
+        translateY(-8px);
+    }
+
+    .footer-inner{
+        grid-template-columns:
+        1fr 1fr;
+    }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media(max-width:700px){
+
+    .nav{
+        min-height:
+        70px;
+
+        padding:
+        9px 14px;
+    }
+
+    .brand img{
+        width:
+        48px;
+        height:
+        48px;
+    }
+
+    .brand-name{
+        font-size:
+        18px;
+    }
+
+    .back-btn{
+        padding:
+        8px 11px;
+
+        font-size:
+        12px;
+    }
+
+    .hero{
+        min-height:
+        auto;
+    }
+
+    .hero-grid{
+        padding:
+        65px 18px 70px;
+
+        gap:
+        35px;
+    }
+
+    .hero h1{
+        font-size:
+        45px;
+
+        letter-spacing:
+        -1.8px;
+    }
+
+    .hero-description{
+        font-size:
+        15px;
+
+        line-height:
+        1.75;
+    }
+
+    .hero-buttons{
+        display:
+        grid;
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .primary-btn,
+    .secondary-btn{
+        width:
+        100%;
+    }
+
+    .hero-trust{
+        display:
+        grid;
+
+        grid-template-columns:
+        1fr 1fr;
+
+        gap:
+        12px;
+    }
+
+    .hero-visual{
+        min-height:
+        310px;
+    }
+
+    .legal-card{
+        min-height:
+        330px;
+
+        padding:
+        26px;
+
+        border-radius:
+        26px;
+    }
+
+    .legal-symbol{
+        width:
+        78px;
+        height:
+        78px;
+
+        font-size:
+        40px;
+
+        border-radius:
+        23px;
+    }
+
+    .legal-card h2{
+        font-size:
+        26px;
+    }
+
+    .section{
+        padding:
+        72px 18px;
+    }
+
+    .section-heading{
+        margin-bottom:
+        35px;
+    }
+
+    .section-heading h2{
+        font-size:
+        32px;
+    }
+
+    .section-heading p{
+        font-size:
+        14px;
+    }
+
+    .services-grid{
+        grid-template-columns:
+        1fr;
+
+        gap:
+        15px;
+    }
+
+    .service-card{
+        min-height:
+        auto;
+
+        padding:
+        24px;
+    }
+
+    .feature-grid{
+        grid-template-columns:
+        1fr 1fr;
+
+        padding:
+        40px 18px;
+    }
+
+    .feature{
+        padding:
+        8px;
+    }
+
+    .feature-number{
+        font-size:
+        25px;
+    }
+
+    .consumer-box{
+        padding:
+        32px 23px;
+
+        border-radius:
+        27px;
+    }
+
+    .consumer-points{
+        grid-template-columns:
+        1fr;
+    }
+
+    .document-grid{
+        grid-template-columns:
+        1fr;
+    }
+
+    .document-card{
+        padding:
+        24px;
+    }
+
+    .process-grid{
+        grid-template-columns:
+        1fr;
+
+        gap:
+        30px;
+    }
+
+    .package-grid{
+        grid-template-columns:
+        1fr;
+    }
+
+    .package.featured{
+        transform:none;
+    }
+
+    .info-banner{
+        padding:
+        0 18px 70px;
+    }
+
+    .info-inner{
+        padding:
+        25px;
+
+        flex-direction:
+        column;
+
+        align-items:
+        flex-start;
+    }
+
+    .info-action{
+        width:
+        100%;
+
+        text-align:
+        center;
+    }
+
+    .final-cta{
+        padding:
+        70px 18px;
+    }
+
+    .final-box{
+        padding:
+        50px 20px;
+
+        border-radius:
+        28px;
+    }
+
+    .final-buttons{
+        display:
+        grid;
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .final-buttons a{
+        width:
+        100%;
+    }
+
+    .disclaimer{
+        margin-bottom:
+        55px;
+
+        font-size:
+        11px;
+    }
+
+    .footer-inner{
+        grid-template-columns:
+        1fr;
+
+        gap:
+        30px;
+    }
+
+    .footer-bottom{
+        flex-direction:
+        column;
+    }
+
+    .floating-contact{
+        width:
+        52px;
+        height:
+        52px;
+
+        right:
+        15px;
+
+        bottom:
+        15px;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media(max-width:380px){
+
+    .hero h1{
+        font-size:
+        39px;
+    }
+
+    .brand-name{
+        font-size:
+        16px;
+    }
+
+    .back-btn{
+        font-size:
+        11px;
+
+        padding:
+        7px 9px;
+    }
+
+    .hero-trust{
+        grid-template-columns:
+        1fr;
+    }
+
+    .legal-card{
+        padding:
+        22px;
+    }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:
+        .01ms !important;
+
+        animation-iteration-count:
+        1 !important;
+
+        scroll-behavior:
+        auto !important;
+
+        transition-duration:
+        .01ms !important;
+    }
+}
+
 </style>
 </head>
+
 <body>
+
+<!-- ======================================================
+     PROGRESS
+     ====================================================== -->
+
+<div class="progress-line" id="progressLine"></div>
+
+
+<!-- ======================================================
+     HEADER
+     ====================================================== -->
+
 <header>
+
 <div class="nav">
 
-<a class="brand" href="index.html"
-style="display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap;">
+<a class="brand" href="index.html">
 
-<img src="Logo.jpg"
-alt="SK KGN TEAM"
-style="width:58px;height:58px;object-fit:contain;display:block;">
+<img
+src="Logo.jpg"
+alt="SK KGN TEAM">
 
-<div style="font-size:24px;font-weight:800;color:#111;white-space:nowrap;">
-SK <span style="color:#1455a0;">KGN</span> TEAM
+<div class="brand-name">
+SK <span>KGN</span> TEAM
 </div>
 
 </a>
 
-<a href="index.html" class="back"
-style="white-space:nowrap;">
-← Back</a>
+<a
+href="index.html"
+class="back-btn">
+
+← Back
+
+</a>
 
 </div>
+
 </header>
-</header>
-<section class="hero"><div class="badge">LEGAL & RTI ASSISTANCE</div><h1>Legal Help.<br><span>RTI Assistance.</span><br>Your Rights.</h1><p>Get professional assistance for RTI applications, government-related matters, grievance documentation and important legal information.</p></section>
-<main class="container"><div class="grid">
-<div class="card"><div class="icon">⚖️</div><h2>Legal Assistance</h2><p>Assistance and information for common legal and government-related matters.</p><ul class="list"><li>Legal information and guidance</li><li>Complaint drafting assistance</li><li>Government grievance matters</li><li>Document preparation guidance</li><li>Information about available remedies</li></ul></div>
-<div class="card"><div class="icon">📄</div><h2>RTI Assistance</h2><p>Assistance with understanding and preparing Right to Information applications.</p><ul class="list"><li>RTI application drafting</li><li>Finding the appropriate authority</li><li>Understanding RTI procedures</li><li>First appeal guidance</li><li>RTI-related grievance assistance</li></ul></div>
-<div class="card"><div class="icon">🏛️</div><h2>Government Matters</h2><p>Assistance in preparing information and documentation for government offices.</p><ul class="list"><li>Government office complaints</li><li>Application drafting</li><li>Representation preparation</li><li>Public grievance matters</li></ul></div>
-<div class="card"><div class="icon">📝</div><h2>Document Assistance</h2><p>Help with preparing clear and properly structured applications and representations.</p><ul class="list"><li>Applications</li><li>Representations</li><li>Complaints</li><li>RTI applications</li></ul></div>
+
+
+<!-- ======================================================
+     HERO
+     ====================================================== -->
+
+<section class="hero">
+
+<div class="hero-grid">
+
+<div class="hero-content">
+
+<div class="hero-badge">
+LEGAL & RTI ASSISTANCE
 </div>
-<div class="cta"><h2>Need Assistance?</h2><p>Contact SK KGN TEAM for assistance and enquiries.</p><a href="tel:+917007027158" class="button">Contact Us →</a></div></main>
-<footer><div class="footer-inner"><h3>SK KGN TEAM</h3><p>Public Grievance Assistance</p><p>Phone: +91 70070 27158</p><p>Email: skkgnteam@gmail.com</p><p>Website: skkgnteam.in</p></div></footer>
+
+<h1>
+Legal Help.<br>
+<span>RTI Assistance.</span><br>
+Your Rights.
+</h1>
+
+<p class="hero-description">
+
+Need help preparing an RTI application,
+government representation, complaint,
+consumer complaint or important documentation?
+
+SK KGN TEAM provides independent
+assistance to help you understand,
+organize and prepare your matter properly.
+
+</p>
+
+<div class="hero-buttons">
+
+<a
+href="#services"
+class="primary-btn">
+
+Explore Services
+<span>↓</span>
+
+</a>
+
+<a
+href="tel:+917007027158"
+class="secondary-btn">
+
+📞 Talk to Us
+
+</a>
+
+</div>
+
+<div class="hero-trust">
+
+<div class="trust-item">
+<span>✓</span>
+<strong>Independent Assistance</strong>
+</div>
+
+<div class="trust-item">
+<span>✓</span>
+<strong>Online Process Guidance</strong>
+</div>
+
+<div class="trust-item">
+<span>✓</span>
+<strong>Document Assistance</strong>
+</div>
+
+<div class="trust-item">
+<span>✓</span>
+<strong>Clear Information</strong>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="hero-visual">
+
+<div class="legal-card scroll-scale">
+
+<div class="legal-symbol">
+⚖️
+</div>
+
+<h2>
+Know Your Rights.
+</h2>
+
+<p>
+
+From RTI applications and government
+grievances to consumer complaints and
+formal representations, get structured
+assistance for your documentation and
+online filing process.
+
+</p>
+
+<div class="card-line"></div>
+
+<div class="card-mini">
+
+<span>SK KGN TEAM</span>
+
+<span>ASSISTANCE</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     FEATURE STRIP
+     ====================================================== -->
+
+<section class="feature-strip">
+
+<div class="feature-grid">
+
+<div class="feature reveal">
+
+<div class="feature-number">
+01
+</div>
+
+<div class="feature-title">
+Understand Your Matter
+</div>
+
+</div>
+
+<div class="feature reveal">
+
+<div class="feature-number">
+02
+</div>
+
+<div class="feature-title">
+Organize Documents
+</div>
+
+</div>
+
+<div class="feature reveal">
+
+<div class="feature-number">
+03
+</div>
+
+<div class="feature-title">
+Prepare Application
+</div>
+
+</div>
+
+<div class="feature reveal">
+
+<div class="feature-number">
+04
+</div>
+
+<div class="feature-title">
+Online Filing Guidance
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     SERVICES
+     ====================================================== -->
+
+<section
+class="section"
+id="services">
+
+<div class="section-heading reveal">
+
+<div class="section-label">
+OUR SERVICES
+</div>
+
+<h2>
+Assistance For Important Matters
+</h2>
+
+<p>
+
+Structured assistance for documentation,
+applications, complaints, RTI matters,
+government grievances and consumer-related
+filing processes.
+
+</p>
+
+</div>
+
+
+<div class="services-grid">
+
+
+<!-- CARD 1 -->
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+⚖️
+</div>
+
+<h3>
+Legal Assistance
+</h3>
+
+<p>
+
+General assistance and information for
+common legal and government-related matters.
+
+</p>
+
+<ul>
+
+<li>Legal information and guidance</li>
+
+<li>Complaint drafting assistance</li>
+
+<li>Representation preparation</li>
+
+<li>Government grievance matters</li>
+
+<li>Understanding available remedies</li>
+
+</ul>
+
+</div>
+
+
+<!-- CARD 2 -->
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+📄
+</div>
+
+<h3>
+RTI Assistance
+</h3>
+
+<p>
+
+Assistance in understanding and preparing
+Right to Information applications and
+related processes.
+
+</p>
+
+<ul>
+
+<li>RTI application drafting</li>
+
+<li>Finding appropriate authority</li>
+
+<li>Application documentation</li>
+
+<li>First appeal guidance</li>
+
+<li>RTI-related assistance</li>
+
+</ul>
+
+</div>
+
+
+<!-- CARD 3 -->
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+🏛️
+</div>
+
+<h3>
+Government Matters
+</h3>
+
+<p>
+
+Assistance with preparing applications,
+representations and grievance documents
+for government offices.
+
+</p>
+
+<ul>
+
+<li>Government office complaints</li>
+
+<li>Application drafting</li>
+
+<li>Representation preparation</li>
+
+<li>Public grievance matters</li>
+
+<li>Document organization</li>
+
+</ul>
+
+</div>
+
+
+<!-- CARD 4 -->
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+📝
+</div>
+
+<h3>
+Complaint Drafting
+</h3>
+
+<p>
+
+Clear and structured complaint documentation
+based on the information and evidence provided
+by the customer.
+
+</p>
+
+<ul>
+
+<li>Complaint preparation</li>
+
+<li>Facts organization</li>
+
+<li>Supporting evidence checklist</li>
+
+<li>Representation format</li>
+
+<li>Submission guidance</li>
+
+</ul>
+
+</div>
+
+
+<!-- CARD 5 -->
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+🧾
+</div>
+
+<h3>
+Consumer Complaint Assistance
+</h3>
+
+<p>
+
+Assistance with understanding consumer
+complaint filing procedures and preparing
+information for the appropriate online process.
+
+</p>
+
+<ul>
+
+<li>Consumer complaint information</li>
+
+<li>Document checklist</li>
+
+<li>Complaint drafting assistance</li>
+
+<li>e-Jagriti filing guidance</li>
+
+<li>Case status assistance</li>
+
+</ul>
+
+</div>
+
+
+<!-- CARD 6 -->
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+📂
+</div>
+
+<h3>
+Document Assistance
+</h3>
+
+<p>
+
+Help in arranging information and preparing
+clear, properly structured applications and
+representations.
+
+</p>
+
+<ul>
+
+<li>Applications</li>
+
+<li>Representations</li>
+
+<li>Complaints</li>
+
+<li>RTI applications</li>
+
+<li>Supporting document organization</li>
+
+</ul>
+
+</div>
+
+
+<!-- CARD 7 -->
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+📬
+</div>
+
+<h3>
+Grievance Assistance
+</h3>
+
+<p>
+
+Assistance with preparing formal grievances
+when an issue has not been resolved through
+normal communication.
+
+</p>
+
+<ul>
+
+<li>Grievance drafting</li>
+
+<li>Issue summary preparation</li>
+
+<li>Evidence organization</li>
+
+<li>Submission guidance</li>
+
+</ul>
+
+</div>
+
+
+<!-- CARD 8 -->
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+🔎
+</div>
+
+<h3>
+Information & Procedure Guidance
+</h3>
+
+<p>
+
+Understand what documents may be required,
+where an application may be submitted and
+what the general process involves.
+
+</p>
+
+<ul>
+
+<li>Process explanation</li>
+
+<li>Document checklist</li>
+
+<li>Application guidance</li>
+
+<li>Status checking assistance</li>
+
+</ul>
+
+</div>
+
+
+<!-- CARD 9 -->
+
+<div class="service-card reveal">
+
+<div class="service-icon">
+💻
+</div>
+
+<h3>
+Online Filing Assistance
+</h3>
+
+<p>
+
+Assistance with online forms, document
+uploading and understanding digital filing
+procedures.
+
+</p>
+
+<ul>
+
+<li>Online application assistance</li>
+
+<li>Document upload guidance</li>
+
+<li>Form filling assistance</li>
+
+<li>Status tracking guidance</li>
+
+</ul>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     CONSUMER SECTION
+     ====================================================== -->
+
+<section class="section consumer-section">
+
+<div class="consumer-box reveal">
+
+<div class="consumer-content">
+
+<div class="small-label">
+CONSUMER COMPLAINT ASSISTANCE
+</div>
+
+<h2>
+Problem With A Product,
+Shopkeeper Or Company?
+</h2>
+
+<p>
+
+If a product or service has caused a problem
+and your complaint has not been resolved,
+we can assist you in understanding the
+consumer complaint filing process and
+organizing the required information.
+
+</p>
+
+<div class="consumer-points">
+
+<div>
+<span>✓</span>
+Defective product
+</div>
+
+<div>
+<span>✓</span>
+Warranty/service issue
+</div>
+
+<div>
+<span>✓</span>
+Payment-related dispute
+</div>
+
+<div>
+<span>✓</span>
+Online shopping issue
+</div>
+
+<div>
+<span>✓</span>
+Poor service complaint
+</div>
+
+<div>
+<span>✓</span>
+Unresolved grievance
+</div>
+
+</div>
+
+<a
+href="tel:+917007027158"
+class="primary-btn">
+
+Get Assistance →
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     HOW IT WORKS
+     ====================================================== -->
+
+<section class="section">
+
+<div class="section-heading reveal">
+
+<div class="section-label">
+HOW IT WORKS
+</div>
+
+<h2>
+Simple. Structured. Clear.
+</h2>
+
+<p>
+
+Our assistance process is designed to keep
+your documentation organized and easy to follow.
+
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+01
+</div>
+
+<h3>
+Share Your Matter
+</h3>
+
+<p>
+
+Explain the issue and provide the
+available basic information.
+
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+02
+</div>
+
+<h3>
+Document Review
+</h3>
+
+<p>
+
+Organize bills, payment proofs,
+messages, notices and other documents.
+
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+03
+</div>
+
+<h3>
+Prepare Documents
+</h3>
+
+<p>
+
+Prepare the required application,
+complaint or representation information.
+
+</p>
+
+</div>
+
+
+<div class="process-card reveal">
+
+<div class="process-number">
+04
+</div>
+
+<h3>
+Submission Guidance
+</h3>
+
+<p>
+
+Get guidance regarding the relevant
+online or offline submission process.
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     DOCUMENT CHECKLIST
+     ====================================================== -->
+
+<section class="section documents-section">
+
+<div class="section-heading reveal">
+
+<div class="section-label">
+DOCUMENT CHECKLIST
+</div>
+
+<h2>
+Keep Your Evidence Ready
+</h2>
+
+<p>
+
+The documents required depend on the nature
+of the matter. These are common examples that
+may help organize your case.
+
+</p>
+
+</div>
+
+
+<div class="document-grid">
+
+
+<div class="document-card reveal">
+
+<h3>
+📁 Common Documents
+</h3>
+
+<div class="document-item">
+<span>01</span>
+Purchase bill / invoice
+</div>
+
+<div class="document-item">
+<span>02</span>
+Payment proof
+</div>
+
+<div class="document-item">
+<span>03</span>
+Order details
+</div>
+
+<div class="document-item">
+<span>04</span>
+Photos or videos
+</div>
+
+<div class="document-item">
+<span>05</span>
+WhatsApp / email communication
+</div>
+
+<div class="document-item">
+<span>06</span>
+Previous complaint details
+</div>
+
+</div>
+
+
+<div class="document-card reveal">
+
+<h3>
+📄 Application Documents
+</h3>
+
+<div class="document-item">
+<span>01</span>
+Applicant details
+</div>
+
+<div class="document-item">
+<span>02</span>
+Opposite party / authority details
+</div>
+
+<div class="document-item">
+<span>03</span>
+Complete facts of the matter
+</div>
+
+<div class="document-item">
+<span>04</span>
+Relevant supporting documents
+</div>
+
+<div class="document-item">
+<span>05</span>
+Previous correspondence
+</div>
+
+<div class="document-item">
+<span>06</span>
+Other applicable documents
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     PACKAGES
+     ====================================================== -->
+
+<section class="section">
+
+<div class="section-heading reveal">
+
+<div class="section-label">
+ASSISTANCE PLANS
+</div>
+
+<h2>
+Choose The Assistance You Need
+</h2>
+
+<p>
+
+Simple assistance options for different
+levels of documentation and filing support.
+
+</p>
+
+</div>
+
+
+<div class="package-grid">
+
+
+<div class="package reveal">
+
+<h3>
+Basic
+</h3>
+
+<div class="price">
+₹99
+<small>/ assistance</small>
+</div>
+
+<p class="package-desc">
+For basic information and process guidance.
+</p>
+
+<ul>
+
+<li>Initial matter guidance</li>
+
+<li>Basic document checklist</li>
+
+<li>General process explanation</li>
+
+<li>Submission guidance</li>
+
+</ul>
+
+<a
+href="https://rzp.io/rzp/aCUa2Mtm"
+class="package-btn">
+
+Choose Basic
+
+</a>
+
+</div>
+
+
+<div class="package featured reveal">
+
+<div class="package-badge">
+POPULAR
+</div>
+
+<h3>
+Advance
+</h3>
+
+<div class="price">
+₹199
+<small>/ assistance</small>
+</div>
+
+<p class="package-desc">
+For customers needing drafting and document assistance.
+</p>
+
+<ul>
+
+<li>Initial matter guidance</li>
+
+<li>Document checklist</li>
+
+<li>Drafting assistance</li>
+
+<li>Document organization</li>
+
+<li>Online filing guidance</li>
+
+</ul>
+
+<a
+href="https://rzp.io/rzp/Fc1SXRUZ"
+class="package-btn">
+
+Choose Advance
+
+</a>
+
+</div>
+
+
+<div class="package reveal">
+
+<h3>
+Premium
+</h3>
+
+<div class="price">
+₹299
+<small>/ assistance</small>
+</div>
+
+<p class="package-desc">
+For complete assistance through the available filing process.
+</p>
+
+<ul>
+
+<li>Detailed matter assistance</li>
+
+<li>Drafting assistance</li>
+
+<li>Document organization</li>
+
+<li>Online filing assistance</li>
+
+<li>Status guidance</li>
+
+</ul>
+
+<a
+href="https://rzp.io/rzp/jF1l9F5"
+class="package-btn">
+
+Choose Premium
+
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     INFO BANNER
+     ====================================================== -->
+
+<div class="info-banner">
+
+<div class="info-inner reveal">
+
+<div>
+
+<h3>
+Not Sure Which Service You Need?
+</h3>
+
+<p>
+Contact us first and explain your matter.
+We can help you understand which assistance
+may be appropriate.
+</p>
+
+</div>
+
+<a
+href="https://wa.me/917007027158"
+class="info-action">
+
+WhatsApp Us
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- ======================================================
+     FAQ
+     ====================================================== -->
+
+<section class="section faq-section">
+
+<div class="section-heading reveal">
+
+<div class="section-label">
+FREQUENTLY ASKED QUESTIONS
+</div>
+
+<h2>
+Common Questions
+</h2>
+
+<p>
+Some basic information before you contact us.
+</p>
+
+</div>
+
+
+<div class="faq">
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+<span>
+What type of matters can SK KGN TEAM assist with?
+</span>
+
+<span class="faq-plus">
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+We provide independent assistance for matters
+such as RTI applications, government
+representations, grievance documentation,
+consumer complaint filing assistance and
+general document preparation.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+<span>
+Can the complete process be done online?
+</span>
+
+<span class="faq-plus">
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+Many application and filing processes can be
+completed online, depending on the concerned
+authority and nature of the matter. Some
+documents, notarization or hearings may
+require an offline process.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+<span>
+Can you guarantee the result of my complaint?
+</span>
+
+<span class="faq-plus">
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+No. We provide assistance with documentation
+and filing processes. The decision or outcome
+is determined by the concerned authority,
+department or commission.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+<span>
+Do I need a lawyer for every matter?
+</span>
+
+<span class="faq-plus">
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+Not every documentation or filing matter
+necessarily requires an advocate. Whether
+professional legal representation is required
+depends on the nature and stage of the matter.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+<span>
+What documents should I bring?
+</span>
+
+<span class="faq-plus">
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+Bring whatever relevant documents you have,
+such as invoices, payment proofs, notices,
+emails, messages, photographs, previous
+complaints and other evidence connected
+with your matter.
+
+</p>
+
+</div>
+
+</div>
+
+
+<div class="faq-item reveal">
+
+<button class="faq-question">
+
+<span>
+How can I contact SK KGN TEAM?
+</span>
+
+<span class="faq-plus">
++
+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+
+You can call or WhatsApp us at
++91 70070 27158 or email
+skkgnteam@gmail.com.
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     FINAL CTA
+     ====================================================== -->
+
+<section class="final-cta">
+
+<div class="final-box reveal">
+
+<h2>
+Need Assistance With Your Matter?
+</h2>
+
+<p>
+
+Explain your issue, keep your available
+documents ready and contact SK KGN TEAM
+for independent assistance with the
+documentation and filing process.
+
+</p>
+
+<div class="final-buttons">
+
+<a
+href="tel:+917007027158"
+class="call-final">
+
+📞 Call Now
+
+</a>
+
+<a
+href="https://wa.me/917007027158"
+class="whatsapp-final">
+
+💬 WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ======================================================
+     DISCLAIMER
+     ====================================================== -->
+
+<div class="disclaimer">
+
+<strong>Important:</strong>
+
+SK KGN TEAM is an independent assistance
+service and is not a government authority,
+court, commission or government department.
+
+Our services are limited to assistance with
+information, documentation, drafting and
+available filing procedures.
+
+We do not guarantee any legal, administrative
+or financial outcome.
+
+Where professional legal representation,
+notarization, affidavit or physical appearance
+is required, the customer may need to approach
+the appropriate professional or authority.
+
+</div>
+
+
+<!-- ======================================================
+     FOOTER
+     ====================================================== -->
+
+<footer>
+
+<div class="footer-inner">
+
+
+<div>
+
+<div class="footer-brand">
+SK <span>KGN</span> TEAM
+</div>
+
+<p class="footer-text">
+
+Independent assistance for documentation,
+RTI applications, government grievances,
+consumer complaints and online filing
+processes.
+
+</p>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>
+CONTACT
+</h4>
+
+<a href="tel:+917007027158">
+📞 +91 70070 27158
+</a>
+
+<a href="https://wa.me/917007027158">
+💬 WhatsApp
+</a>
+
+<a href="mailto:skkgnteam@gmail.com">
+✉️ skkgnteam@gmail.com
+</a>
+
+</div>
+
+
+<div class="footer-col">
+
+<h4>
+QUICK ACCESS
+</h4>
+
+<a href="#services">
+Services
+</a>
+
+<a href="#services">
+Consumer Assistance
+</a>
+
+<a href="index.html">
+Home
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+<span>
+© 2026 SK KGN TEAM
+</span>
+
+<span>
+Independent Assistance Service
+</span>
+
+</div>
+
+</footer>
+
+
+<!-- ======================================================
+     FLOATING BUTTON
+     ====================================================== -->
+
+<a
+href="https://wa.me/917007027158"
+class="floating-contact"
+aria-label="WhatsApp">
+
+💬
+
+</a>
+
+
+<!-- ======================================================
+     JAVASCRIPT
+     ====================================================== -->
+
+<script>
+
+/* =========================================================
+   PAGE PROGRESS
+   ========================================================= */
+
+const progressLine =
+document.getElementById("progressLine");
+
+function updateProgress(){
+
+    const scrollTop =
+    window.scrollY;
+
+    const docHeight =
+    document.documentElement.scrollHeight
+    -
+    window.innerHeight;
+
+    const percentage =
+    docHeight > 0
+    ?
+    (scrollTop / docHeight) * 100
+    :
+    0;
+
+    progressLine.style.width =
+    percentage + "%";
+}
+
+window.addEventListener(
+    "scroll",
+    updateProgress,
+    {passive:true}
+);
+
+updateProgress();
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+const revealElements =
+document.querySelectorAll(".reveal");
+
+const revealObserver =
+new IntersectionObserver(
+
+(entries,observer)=>{
+
+    entries.forEach(
+    entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add(
+                "show"
+            );
+
+            observer.unobserve(
+                entry.target
+            );
+        }
+
+    });
+
+},
+
+{
+    threshold:.12,
+    rootMargin:"0px 0px -45px 0px"
+}
+
+);
+
+revealElements.forEach(
+    element=>{
+        revealObserver.observe(element);
+    }
+);
+
+
+/* =========================================================
+   FAQ ACCORDION
+   ========================================================= */
+
+const faqItems =
+document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item=>{
+
+    const question =
+    item.querySelector(
+        ".faq-question"
+    );
+
+    const answer =
+    item.querySelector(
+        ".faq-answer"
+    );
+
+    question.addEventListener(
+    "click",
+    ()=>{
+
+        const isActive =
+        item.classList.contains(
+            "active"
+        );
+
+        faqItems.forEach(
+        other=>{
+
+            other.classList.remove(
+                "active"
+            );
+
+            const otherAnswer =
+            other.querySelector(
+                ".faq-answer"
+            );
+
+            otherAnswer.style.maxHeight =
+            null;
+
+        });
+
+        if(!isActive){
+
+            item.classList.add(
+                "active"
+            );
+
+            answer.style.maxHeight =
+            answer.scrollHeight +
+            "px";
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   SCROLL SCALE EFFECT
+   ========================================================= */
+
+const scaleElements =
+document.querySelectorAll(
+    ".scroll-scale"
+);
+
+function scaleOnScroll(){
+
+    scaleElements.forEach(
+    element=>{
+
+        const rect =
+        element.getBoundingClientRect();
+
+        const viewport =
+        window.innerHeight;
+
+        const center =
+        rect.top +
+        rect.height / 2;
+
+        const distance =
+        Math.abs(
+            viewport / 2 -
+            center
+        );
+
+        const maxDistance =
+        viewport;
+
+        let progress =
+        1 -
+        Math.min(
+            distance /
+            maxDistance,
+            1
+        );
+
+        progress =
+        Math.max(
+            .94,
+            progress
+        );
+
+        if(
+            rect.bottom > 0 &&
+            rect.top < viewport
+        ){
+
+            element.style.transform =
+            "scale(" +
+            progress +
+            ")";
+
+        }
+
+    });
+}
+
+window.addEventListener(
+    "scroll",
+    scaleOnScroll,
+    {passive:true}
+);
+
+scaleOnScroll();
+
+
+/* =========================================================
+   SMOOTH ANCHOR
+   ========================================================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(anchor=>{
+
+    anchor.addEventListener(
+    "click",
+    function(event){
+
+        const id =
+        this.getAttribute("href");
+
+        if(
+            !id ||
+            id === "#"
+        ){
+            return;
+        }
+
+        const target =
+        document.querySelector(id);
+
+        if(target){
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior:"smooth",
+                block:"start"
+            });
+
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   SUBTLE MOUSE TILT
+   DESKTOP ONLY
+   ========================================================= */
+
+const visualCard =
+document.querySelector(
+    ".legal-card"
+);
+
+if(
+    visualCard &&
+    window.matchMedia(
+        "(min-width:1001px)"
+    ).matches
+){
+
+    visualCard.addEventListener(
+    "mousemove",
+    event=>{
+
+        const rect =
+        visualCard.getBoundingClientRect();
+
+        const x =
+        event.clientX -
+        rect.left;
+
+        const y =
+        event.clientY -
+        rect.top;
+
+        const rotateY =
+        ((x / rect.width) - .5)
+        * 6;
+
+        const rotateX =
+        ((y / rect.height) - .5)
+        * -6;
+
+        visualCard.style.transform =
+        "perspective(900px) " +
+        "rotateX(" +
+        rotateX +
+        "deg) " +
+        "rotateY(" +
+        rotateY +
+        "deg)";
+
+    });
+
+    visualCard.addEventListener(
+    "mouseleave",
+    ()=>{
+
+        visualCard.style.transform =
+        "";
+
+    });
+
+}
+
+
+/* =========================================================
+   MOBILE TOUCH SAFETY
+   ========================================================= */
+
+window.addEventListener(
+    "resize",
+    ()=>{
+
+        faqItems.forEach(
+        item=>{
+
+            if(
+                item.classList.contains(
+                    "active"
+                )
+            ){
+
+                const answer =
+                item.querySelector(
+                    ".faq-answer"
+                );
+
+                answer.style.maxHeight =
+                answer.scrollHeight +
+                "px";
+            }
+
+        });
+
+    }
+);
+
+</script>
+
 </body>
 </html>
