@@ -6098,7 +6098,1577 @@ document.getElementById(
 
 </script>
 
+<!-- =========================================================
+     SK KGN TEAM — NEW COMPLAINT → PAYMENT → ID FLOW
+     ========================================================= -->
 
+<script type="module">
+
+import {
+  initializeApp,
+  getApps,
+  getApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+/* =========================================================
+   FIREBASE
+========================================================= */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+
+  authDomain:
+    "sk-kgn-team.firebaseapp.com",
+
+  databaseURL:
+    "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+
+  projectId:
+    "sk-kgn-team",
+
+  storageBucket:
+    "sk-kgn-team.firebasestorage.app",
+
+  messagingSenderId:
+    "228612697498",
+
+  appId:
+    "1:228612697498:web:a304b57bf5a59d2933de23",
+
+  measurementId:
+    "G-BXWT6BPTB6"
+
+};
+
+
+const app =
+  getApps().length
+    ? getApp()
+    : initializeApp(firebaseConfig);
+
+
+const db =
+  getFirestore(app);
+
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+const PENDING_KEY =
+  "SKKGN_PENDING_COMPLAINT";
+
+const PLAN_KEY =
+  "SKKGN_SELECTED_PLAN";
+
+
+/* =========================================================
+   COMPLAINT FORM
+========================================================= */
+
+const complaintForm =
+  document.getElementById("complaintForm");
+
+
+if(complaintForm){
+
+  /*
+     CAPTURE PHASE
+
+     This runs BEFORE the old submit handler.
+     Therefore the old code cannot generate
+     the Complaint ID before payment.
+  */
+
+  complaintForm.addEventListener(
+    "submit",
+    function(e){
+
+      e.preventDefault();
+
+      e.stopImmediatePropagation();
+
+
+      const name =
+        document
+          .getElementById("complaintName")
+          ?.value
+          .trim() || "";
+
+
+      const mobile =
+        document
+          .getElementById("complaintMobile")
+          ?.value
+          .trim() || "";
+
+
+      const subject =
+        document
+          .getElementById("complaintSubject")
+          ?.value
+          .trim() || "";
+
+
+      const details =
+        document
+          .getElementById("complaintDetails")
+          ?.value
+          .trim() || "";
+
+
+      const pendingComplaint = {
+
+        name:
+          name,
+
+        mobile:
+          mobile,
+
+        subject:
+          subject,
+
+        details:
+          details,
+
+        createdAt:
+          new Date().toISOString()
+
+      };
+
+
+      /*
+         Complaint data is temporarily stored.
+
+         NO COMPLAINT ID IS CREATED HERE.
+         NO FIRESTORE COMPLAINT IS CREATED HERE.
+      */
+
+      sessionStorage.setItem(
+        PENDING_KEY,
+        JSON.stringify(
+          pendingComplaint
+        )
+      );
+
+
+      showPlanPopup();
+
+    },
+    true
+  );
+
+}
+
+
+/* =========================================================
+   GENERATE COMPLAINT ID
+========================================================= */
+
+function generateComplaintId(){
+
+  return (
+
+    "SKKGN-" +
+
+    Math.random()
+      .toString(36)
+      .substring(2,8)
+      .toUpperCase()
+
+  );
+
+}
+
+
+/* =========================================================
+   COMMON MODAL
+========================================================= */
+
+function createModal(){
+
+  const old =
+    document.getElementById(
+      "skKgnPaymentModal"
+    );
+
+
+  if(old)
+    old.remove();
+
+
+  const overlay =
+    document.createElement("div");
+
+
+  overlay.id =
+    "skKgnPaymentModal";
+
+
+  overlay.style.cssText = `
+
+    position:fixed;
+    inset:0;
+    z-index:999999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:18px;
+
+    background:
+      rgba(3,10,25,.78);
+
+    backdrop-filter:
+      blur(12px);
+
+  `;
+
+
+  document.body.appendChild(
+    overlay
+  );
+
+
+  return overlay;
+
+}
+
+
+/* =========================================================
+   PLAN POPUP
+========================================================= */
+
+function showPlanPopup(){
+
+  const modal =
+    createModal();
+
+
+  modal.innerHTML = `
+
+    <div
+
+      style="
+        width:min(720px,100%);
+        max-height:92vh;
+        overflow:auto;
+
+        border-radius:30px;
+
+        padding:28px;
+
+        background:
+          linear-gradient(
+            145deg,
+            #06142d,
+            #102f5d 52%,
+            #64228e
+          );
+
+        border:
+          1px solid
+          rgba(246,211,101,.65);
+
+        box-shadow:
+          0 30px 90px
+          rgba(0,0,0,.55);
+
+        color:#fff;
+
+        position:relative;
+      "
+
+    >
+
+      <div
+
+        style="
+          width:58px;
+          height:58px;
+
+          border-radius:18px;
+
+          display:flex;
+          align-items:center;
+          justify-content:center;
+
+          margin-bottom:17px;
+
+          background:
+            rgba(255,255,255,.12);
+
+          border:
+            1px solid
+            rgba(255,255,255,.22);
+
+          font-size:25px;
+        "
+
+      >
+
+        ✓
+
+      </div>
+
+
+      <div
+
+        style="
+          font-size:11px;
+          font-weight:900;
+          letter-spacing:1.1px;
+
+          color:#f6d365;
+
+          margin-bottom:8px;
+        "
+
+      >
+
+        SERVICE PLAN
+
+      </div>
+
+
+      <h2
+
+        style="
+          margin:0 0 10px;
+
+          font-size:30px;
+          line-height:1.15;
+          font-weight:900;
+
+          color:#fff;
+        "
+
+      >
+
+        Choose Your Service Plan
+
+      </h2>
+
+
+      <p
+
+        style="
+          margin:0 auto 24px;
+
+          color:#dbe7f8;
+
+          font-size:15px;
+          line-height:1.65;
+        "
+
+      >
+
+        Select your preferred service plan and complete the payment.
+        Once your payment is successfully completed, a unique
+        Complaint ID will be generated for your complaint.
+        You can use this Complaint ID to check your complaint status,
+        track progress and view future updates.
+
+      </p>
+
+
+      <div
+
+        style="
+          display:grid;
+          gap:14px;
+        "
+
+      >
+
+
+        <!-- BASIC -->
+
+        <button
+          type="button"
+          data-plan="Basic"
+          data-amount="99"
+          data-url="https://rzp.io/rzp/aCUa2Mtm"
+
+          style="
+            width:100%;
+            text-align:left;
+
+            border:1px solid
+              rgba(255,255,255,.15);
+
+            border-radius:20px;
+
+            padding:19px;
+
+            background:
+              linear-gradient(
+                135deg,
+                rgba(255,255,255,.10),
+                rgba(255,255,255,.05)
+              );
+
+            color:#fff;
+
+            cursor:pointer;
+
+            transition:.2s;
+          "
+        >
+
+          <div
+            style="
+              display:flex;
+              justify-content:space-between;
+              align-items:center;
+              gap:12px;
+            "
+          >
+
+            <div>
+
+              <div
+                style="
+                  font-size:18px;
+                  font-weight:900;
+                "
+              >
+                Basic Plan
+              </div>
+
+              <div
+                style="
+                  margin-top:5px;
+                  color:#cbd5e1;
+                  font-size:13px;
+                "
+              >
+                Essential complaint assistance
+              </div>
+
+            </div>
+
+
+            <div
+              style="
+                font-size:25px;
+                font-weight:900;
+                color:#f6d365;
+              "
+            >
+              ₹99
+            </div>
+
+          </div>
+
+
+          <div
+            style="
+              margin-top:12px;
+              color:#e2e8f0;
+              font-size:13px;
+            "
+          >
+            • PDF Format • Draft Ready in 1 Hour
+          </div>
+
+
+          <div
+            style="
+              margin-top:10px;
+              font-size:12px;
+              font-weight:900;
+              color:#f6d365;
+            "
+          >
+            PROCEED TO SECURE PAYMENT →
+          </div>
+
+        </button>
+
+
+        <!-- ADVANCE -->
+
+        <button
+          type="button"
+          data-plan="Advance"
+          data-amount="199"
+          data-url="https://rzp.io/rzp/Fc1SXRUZ"
+
+          style="
+            width:100%;
+            text-align:left;
+
+            border:1px solid
+              rgba(255,255,255,.15);
+
+            border-radius:20px;
+
+            padding:19px;
+
+            background:
+              linear-gradient(
+                135deg,
+                rgba(255,255,255,.10),
+                rgba(255,255,255,.05)
+              );
+
+            color:#fff;
+
+            cursor:pointer;
+
+            transition:.2s;
+          "
+        >
+
+          <div
+            style="
+              display:flex;
+              justify-content:space-between;
+              align-items:center;
+              gap:12px;
+            "
+          >
+
+            <div>
+
+              <div
+                style="
+                  font-size:18px;
+                  font-weight:900;
+                "
+              >
+                Advance Plan
+              </div>
+
+              <div
+                style="
+                  margin-top:5px;
+                  color:#cbd5e1;
+                  font-size:13px;
+                "
+              >
+                Extended complaint assistance
+              </div>
+
+            </div>
+
+
+            <div
+              style="
+                font-size:25px;
+                font-weight:900;
+                color:#f6d365;
+              "
+            >
+              ₹199
+            </div>
+
+          </div>
+
+
+          <div
+            style="
+              margin-top:12px;
+              color:#e2e8f0;
+              font-size:13px;
+            "
+          >
+            • Complaint Submission Copy • Draft Ready in 1 Hour
+          </div>
+
+
+          <div
+            style="
+              margin-top:10px;
+              font-size:12px;
+              font-weight:900;
+              color:#f6d365;
+            "
+          >
+            PROCEED TO SECURE PAYMENT →
+          </div>
+
+        </button>
+
+
+        <!-- PREMIUM -->
+
+        <button
+          type="button"
+          data-plan="Premium"
+          data-amount="299"
+          data-url="https://rzp.io/rzp/jF1l9F5"
+
+          style="
+            width:100%;
+            text-align:left;
+
+            border:
+              2px solid #d6a84f;
+
+            border-radius:22px;
+
+            padding:21px;
+
+            background:
+              linear-gradient(
+                135deg,
+                #07152f,
+                #173f75 50%,
+                #7028a8
+              );
+
+            color:#fff;
+
+            cursor:pointer;
+
+            position:relative;
+            overflow:hidden;
+
+            box-shadow:
+              0 15px 45px
+              rgba(0,0,0,.30);
+
+            transition:.25s;
+          "
+        >
+
+          <div
+            style="
+              position:absolute;
+              top:14px;
+              right:15px;
+
+              padding:6px 10px;
+
+              border-radius:20px;
+
+              background:
+                linear-gradient(
+                  135deg,
+                  #f6d365,
+                  #d99b25
+                );
+
+              color:#111827;
+
+              font-size:10px;
+              font-weight:900;
+              letter-spacing:.6px;
+            "
+          >
+            PREMIUM
+          </div>
+
+
+          <div
+            style="
+              font-size:20px;
+              font-weight:900;
+              padding-right:90px;
+            "
+          >
+            Premium Plan
+          </div>
+
+
+          <div
+            style="
+              margin-top:5px;
+
+              color:#f6d365;
+
+              font-size:28px;
+              font-weight:900;
+            "
+          >
+            ₹299
+          </div>
+
+
+          <div
+            style="
+              margin-top:14px;
+
+              color:#f1f5f9;
+
+              font-size:14px;
+              line-height:1.75;
+
+              font-weight:700;
+            "
+          >
+
+            Draft + Lodge + Feedback + Reminder +
+            Follow-up + 1 Re-Complaint
+
+          </div>
+
+
+          <div
+            style="
+              margin-top:13px;
+
+              font-size:12px;
+              font-weight:900;
+
+              color:#f6d365;
+            "
+          >
+
+            PROCEED TO SECURE PAYMENT →
+
+          </div>
+
+        </button>
+
+
+      </div>
+
+
+      <div
+
+        style="
+          margin-top:18px;
+
+          padding:13px 15px;
+
+          border-radius:14px;
+
+          background:
+            rgba(255,255,255,.07);
+
+          border:
+            1px solid
+            rgba(255,255,255,.10);
+
+          color:#cbd5e1;
+
+          font-size:11px;
+
+          line-height:1.55;
+        "
+
+      >
+
+        🔒 Your Complaint ID will be generated only after
+        the payment step is completed.
+
+      </div>
+
+
+      <button
+        id="skKgnClosePlan"
+
+        type="button"
+
+        style="
+          width:100%;
+
+          margin-top:12px;
+
+          padding:12px;
+
+          border:0;
+
+          border-radius:13px;
+
+          background:
+            rgba(255,255,255,.08);
+
+          color:#cbd5e1;
+
+          font-weight:800;
+
+          cursor:pointer;
+        "
+      >
+
+        Cancel
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  document
+    .getElementById(
+      "skKgnClosePlan"
+    )
+    .onclick = () => {
+
+      modal.remove();
+
+    };
+
+
+  modal
+    .querySelectorAll(
+      "[data-plan]"
+    )
+    .forEach(
+      button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            const plan = {
+
+              name:
+                button.dataset.plan,
+
+              amount:
+                Number(
+                  button.dataset.amount
+                ),
+
+              url:
+                button.dataset.url
+
+            };
+
+
+            sessionStorage.setItem(
+              PLAN_KEY,
+              JSON.stringify(plan)
+            );
+
+
+            /*
+               Open Razorpay Payment Link.
+            */
+
+            window.open(
+              plan.url,
+              "_blank"
+            );
+
+
+            showPaymentConfirmation(
+              plan
+            );
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   PAYMENT CONFIRMATION
+========================================================= */
+
+function showPaymentConfirmation(
+  plan
+){
+
+  const modal =
+    createModal();
+
+
+  modal.innerHTML = `
+
+    <div
+
+      style="
+        width:min(520px,100%);
+
+        border-radius:28px;
+
+        padding:30px;
+
+        background:
+          linear-gradient(
+            145deg,
+            #07152f,
+            #123f73
+          );
+
+        border:
+          1px solid
+          rgba(246,211,101,.55);
+
+        box-shadow:
+          0 30px 80px
+          rgba(0,0,0,.55);
+
+        color:#fff;
+
+        text-align:center;
+      "
+    >
+
+
+      <div
+
+        style="
+          width:64px;
+          height:64px;
+
+          margin:0 auto 17px;
+
+          display:flex;
+          align-items:center;
+          justify-content:center;
+
+          border-radius:50%;
+
+          background:
+            rgba(246,211,101,.15);
+
+          border:
+            1px solid
+            rgba(246,211,101,.40);
+
+          color:#f6d365;
+
+          font-size:28px;
+          font-weight:900;
+        "
+      >
+
+        ₹
+
+      </div>
+
+
+      <div
+        style="
+          font-size:11px;
+          font-weight:900;
+          letter-spacing:1px;
+          color:#f6d365;
+          margin-bottom:8px;
+        "
+      >
+        PAYMENT PROCESS
+      </div>
+
+
+      <h2
+        style="
+          margin:0 0 10px;
+          font-size:27px;
+        "
+      >
+        Complete Your Payment
+      </h2>
+
+
+      <p
+        style="
+          color:#dbe7f8;
+          font-size:14px;
+          line-height:1.65;
+          margin-bottom:20px;
+        "
+      >
+
+        Your ${plan.name} Plan payment page has been opened
+        in a new tab.
+
+        Complete the payment there, then return here and
+        continue to generate your Complaint ID.
+
+      </p>
+
+
+      <div
+        style="
+          padding:14px;
+
+          border-radius:15px;
+
+          background:
+            rgba(255,255,255,.07);
+
+          color:#f1f5f9;
+
+          font-size:14px;
+
+          margin-bottom:17px;
+        "
+      >
+
+        Selected Plan:
+        <strong>
+          ${plan.name} — ₹${plan.amount}
+        </strong>
+
+      </div>
+
+
+      <button
+        id="skKgnPaidButton"
+
+        type="button"
+
+        style="
+          width:100%;
+
+          padding:15px;
+
+          border:0;
+
+          border-radius:14px;
+
+          background:
+            linear-gradient(
+              135deg,
+              #f6d365,
+              #d99b25
+            );
+
+          color:#111827;
+
+          font-size:14px;
+
+          font-weight:900;
+
+          cursor:pointer;
+
+          box-shadow:
+            0 10px 25px
+            rgba(214,168,79,.22);
+        "
+      >
+
+        I HAVE COMPLETED PAYMENT →
+
+      </button>
+
+
+      <button
+        id="skKgnBackPlan"
+
+        type="button"
+
+        style="
+          width:100%;
+
+          margin-top:10px;
+
+          padding:12px;
+
+          border:0;
+
+          border-radius:13px;
+
+          background:
+            rgba(255,255,255,.08);
+
+          color:#cbd5e1;
+
+          font-weight:800;
+
+          cursor:pointer;
+        "
+      >
+
+        ← Back to Plans
+
+      </button>
+
+
+      <div
+        style="
+          margin-top:15px;
+
+          color:#94a3b8;
+
+          font-size:10px;
+
+          line-height:1.5;
+        "
+      >
+
+        Complaint ID is generated only after this payment
+        completion step.
+
+      </div>
+
+    </div>
+
+  `;
+
+
+  document
+    .getElementById(
+      "skKgnPaidButton"
+    )
+    .onclick = async function(){
+
+      await finalizeComplaint();
+
+    };
+
+
+  document
+    .getElementById(
+      "skKgnBackPlan"
+    )
+    .onclick = function(){
+
+      showPlanPopup();
+
+    };
+
+}
+
+
+/* =========================================================
+   FINALIZE COMPLAINT
+========================================================= */
+
+async function finalizeComplaint(){
+
+  const pendingRaw =
+    sessionStorage.getItem(
+      PENDING_KEY
+    );
+
+
+  const planRaw =
+    sessionStorage.getItem(
+      PLAN_KEY
+    );
+
+
+  if(!pendingRaw || !planRaw){
+
+    alert(
+      "Complaint information could not be found. Please submit the complaint again."
+    );
+
+    return;
+
+  }
+
+
+  const pending =
+    JSON.parse(
+      pendingRaw
+    );
+
+
+  const plan =
+    JSON.parse(
+      planRaw
+    );
+
+
+  const complaintId =
+    generateComplaintId();
+
+
+  const button =
+    document.getElementById(
+      "skKgnPaidButton"
+    );
+
+
+  if(button){
+
+    button.disabled =
+      true;
+
+    button.textContent =
+      "PROCESSING...";
+
+  }
+
+
+  try{
+
+
+    await addDoc(
+
+      collection(
+        db,
+        "complaints"
+      ),
+
+      {
+
+        complaintId:
+          complaintId,
+
+        name:
+          pending.name,
+
+        mobile:
+          pending.mobile,
+
+        subject:
+          pending.subject,
+
+        details:
+          pending.details,
+
+        plan:
+          plan.name,
+
+        planAmount:
+          plan.amount,
+
+        paymentStatus:
+          "Completed",
+
+        status:
+          "Submitted",
+
+        createdAt:
+          serverTimestamp()
+
+      }
+
+    );
+
+
+    sessionStorage.removeItem(
+      PENDING_KEY
+    );
+
+
+    sessionStorage.removeItem(
+      PLAN_KEY
+    );
+
+
+    showFinalComplaintId(
+      complaintId
+    );
+
+
+  }
+
+  catch(error){
+
+    console.error(
+      "Complaint save error:",
+      error
+    );
+
+
+    if(button){
+
+      button.disabled =
+        false;
+
+      button.textContent =
+        "TRY AGAIN";
+
+    }
+
+
+    alert(
+      "Complaint could not be completed. Please try again."
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   FINAL COMPLAINT ID POPUP
+========================================================= */
+
+function showFinalComplaintId(
+  complaintId
+){
+
+  const modal =
+    createModal();
+
+
+  modal.innerHTML = `
+
+    <div
+
+      style="
+        width:min(500px,100%);
+
+        border-radius:30px;
+
+        padding:32px;
+
+        background:
+          linear-gradient(
+            145deg,
+            #07152f,
+            #123f73
+          );
+
+        border:
+          1px solid
+          rgba(246,211,101,.65);
+
+        box-shadow:
+          0 30px 90px
+          rgba(0,0,0,.60);
+
+        color:#fff;
+
+        text-align:center;
+      "
+    >
+
+
+      <div
+
+        style="
+          width:70px;
+          height:70px;
+
+          margin:0 auto 18px;
+
+          display:flex;
+          align-items:center;
+          justify-content:center;
+
+          border-radius:50%;
+
+          background:
+            linear-gradient(
+              135deg,
+              #f6d365,
+              #d99b25
+            );
+
+          color:#111827;
+
+          font-size:31px;
+          font-weight:900;
+        "
+      >
+
+        ✓
+
+      </div>
+
+
+      <div
+        style="
+          color:#f6d365;
+          font-size:11px;
+          font-weight:900;
+          letter-spacing:1px;
+          margin-bottom:8px;
+        "
+      >
+        COMPLAINT CONFIRMED
+      </div>
+
+
+      <h2
+        style="
+          margin:0 0 10px;
+          font-size:28px;
+        "
+      >
+
+        Complaint ID Generated
+
+      </h2>
+
+
+      <p
+        style="
+          color:#dbe7f8;
+          font-size:14px;
+          line-height:1.65;
+          margin-bottom:20px;
+        "
+      >
+
+        Your payment has been completed and your
+        complaint has been successfully registered.
+
+        Use the Complaint ID below to check your
+        complaint status, track progress and view
+        future updates.
+
+      </p>
+
+
+      <div
+
+        style="
+          padding:18px;
+
+          border-radius:18px;
+
+          background:
+            rgba(255,255,255,.08);
+
+          border:
+            1px solid
+            rgba(246,211,101,.35);
+
+          margin-bottom:18px;
+        "
+      >
+
+        <div
+          style="
+            font-size:10px;
+            font-weight:900;
+            letter-spacing:1px;
+            color:#94a3b8;
+            margin-bottom:7px;
+          "
+        >
+
+          YOUR COMPLAINT ID
+
+        </div>
+
+
+        <div
+          style="
+            font-size:27px;
+            font-weight:900;
+            letter-spacing:1px;
+            color:#f6d365;
+            word-break:break-all;
+          "
+        >
+
+          ${complaintId}
+
+        </div>
+
+      </div>
+
+
+      <button
+        id="skKgnCopyId"
+
+        type="button"
+
+        style="
+          width:100%;
+
+          padding:14px;
+
+          border:0;
+
+          border-radius:14px;
+
+          background:#fff;
+
+          color:#123f73;
+
+          font-weight:900;
+
+          cursor:pointer;
+
+          margin-bottom:10px;
+        "
+      >
+
+        COPY COMPLAINT ID
+
+      </button>
+
+
+      <button
+        id="skKgnCloseFinal"
+
+        type="button"
+
+        style="
+          width:100%;
+
+          padding:13px;
+
+          border:0;
+
+          border-radius:14px;
+
+          background:
+            rgba(255,255,255,.08);
+
+          color:#cbd5e1;
+
+          font-weight:800;
+
+          cursor:pointer;
+        "
+      >
+
+        CLOSE
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  document
+    .getElementById(
+      "skKgnCopyId"
+    )
+    .onclick = async function(){
+
+      try{
+
+        await navigator.clipboard.writeText(
+          complaintId
+        );
+
+        this.textContent =
+          "COPIED ✓";
+
+      }
+
+      catch{
+
+        this.textContent =
+          complaintId;
+
+      }
+
+    };
+
+
+  document
+    .getElementById(
+      "skKgnCloseFinal"
+    )
+    .onclick = function(){
+
+      modal.remove();
+
+    };
+
+}
+
+</script>
 </body>
 
 </html>
