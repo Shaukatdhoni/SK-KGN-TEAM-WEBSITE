@@ -4188,35 +4188,1506 @@ complaintForm.addEventListener(
         "complaintDetails"
       ).value.trim();
 
+/* =========================================================
+   COMPLAINT SUBMISSION — PAYMENT FIRST
+========================================================= */
 
-    const complaintId =
-      "SKKGN-" +
-      Math.random()
+const complaintForm =
+  document.getElementById(
+    "complaintForm"
+  );
+
+const complaintMessage =
+  document.getElementById(
+    "complaintMessage"
+  );
+
+const BACKEND_URL =
+  "https://skkgn-razorpay-backend.vercel.app";
+
+
+/* =========================================================
+   GENERATE COMPLAINT ID
+   ONLY AFTER VERIFIED PAYMENT
+========================================================= */
+
+function generateComplaintId(){
+
+  return "SKKGN-" +
+    Math.random()
       .toString(36)
       .substring(2,8)
       .toUpperCase();
 
+}
 
-    /* PROCESSING */
 
-    const processing =
+/* =========================================================
+   COMPLAINT FORM SUBMIT
+   DO NOT SAVE TO FIRESTORE HERE
+========================================================= */
+
+complaintForm.addEventListener(
+  "submit",
+  async function(e){
+
+    e.preventDefault();
+
+
+    const name =
+      document.getElementById(
+        "complaintName"
+      ).value.trim();
+
+
+    const mobile =
+      document.getElementById(
+        "complaintMobile"
+      ).value.trim();
+
+
+    const subject =
+      document.getElementById(
+        "complaintSubject"
+      ).value.trim();
+
+
+    const details =
+      document.getElementById(
+        "complaintDetails"
+      ).value.trim();
+
+
+    if(
+      !name ||
+      !mobile ||
+      !subject ||
+      !details
+    ){
+
+      complaintMessage.textContent =
+        "Please fill all complaint details.";
+
+      return;
+
+    }
+
+
+    /*
+      Complaint data is kept temporarily
+      in browser memory only.
+
+      NOTHING is saved to Firestore
+      before successful payment.
+    */
+
+    window.pendingComplaint = {
+
+      name:
+        name,
+
+      mobile:
+        mobile,
+
+      subject:
+        subject,
+
+      details:
+        details
+
+    };
+
+
+    closeComplaintForm();
+
+
+    showPlanPopup(
+      window.pendingComplaint
+    );
+
+  }
+);
+
+
+/* =========================================================
+   PREMIUM SERVICE PLAN POPUP
+========================================================= */
+
+function showPlanPopup(
+  complaint
+){
+
+  const contact =
+    document.createElement("div");
+
+
+  contact.className =
+    "plan-popup";
+
+
+  contact.style.cssText = `
+
+    position:fixed;
+    inset:0;
+
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        rgba(37,99,235,.22),
+        transparent 35%
+      ),
+      rgba(2,7,18,.88);
+
+    backdrop-filter:blur(15px);
+
+    -webkit-backdrop-filter:blur(15px);
+
+    z-index:100000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:18px;
+
+    animation:planOverlayIn .35s ease;
+
+  `;
+
+
+  contact.innerHTML = `
+
+    <style>
+
+      @keyframes planOverlayIn{
+
+        from{
+          opacity:0;
+        }
+
+        to{
+          opacity:1;
+        }
+
+      }
+
+
+      @keyframes planBoxIn{
+
+        0%{
+          opacity:0;
+
+          transform:
+            translateY(55px)
+            scale(.88);
+
+          filter:blur(10px);
+        }
+
+        60%{
+          opacity:1;
+
+          transform:
+            translateY(-5px)
+            scale(1.01);
+
+          filter:blur(0);
+        }
+
+        100%{
+          opacity:1;
+
+          transform:
+            translateY(0)
+            scale(1);
+        }
+
+      }
+
+
+      @keyframes skVipLogoPulse{
+
+        0%,100%{
+
+          transform:scale(1);
+
+          box-shadow:
+            0 0 0 1px
+            rgba(246,211,101,.35),
+
+            0 0 25px
+            rgba(246,211,101,.30),
+
+            0 12px 35px
+            rgba(0,0,0,.35);
+
+        }
+
+        50%{
+
+          transform:scale(1.04);
+
+          box-shadow:
+            0 0 0 1px
+            rgba(246,211,101,.55),
+
+            0 0 38px
+            rgba(246,211,101,.55),
+
+            0 16px 42px
+            rgba(0,0,0,.40);
+
+        }
+
+      }
+
+
+      @keyframes skVipLogoRing{
+
+        0%{
+          transform:rotate(0deg);
+          opacity:.35;
+        }
+
+        50%{
+          opacity:.80;
+        }
+
+        100%{
+          transform:rotate(360deg);
+          opacity:.35;
+        }
+
+      }
+
+
+      @keyframes skVipLogoShine{
+
+        0%,55%{
+          transform:translateX(-130%);
+        }
+
+        75%,100%{
+          transform:translateX(130%);
+        }
+
+      }
+
+
+      .sk-plan-logo{
+
+        width:78px;
+        height:78px;
+
+        margin:0 auto 20px;
+
+        padding:4px;
+
+        border-radius:24px;
+
+        position:relative;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        background:
+          linear-gradient(
+            135deg,
+            #f6d365,
+            #d99b25,
+            #f6d365
+          );
+
+        box-shadow:
+          0 0 0 1px
+          rgba(246,211,101,.35),
+
+          0 0 25px
+          rgba(246,211,101,.30),
+
+          0 12px 35px
+          rgba(0,0,0,.35);
+
+        animation:
+          skVipLogoPulse
+          2.8s
+          ease-in-out
+          infinite;
+
+      }
+
+
+      .sk-plan-logo::before{
+
+        content:"";
+
+        position:absolute;
+
+        inset:-7px;
+
+        border-radius:28px;
+
+        border:
+          1px solid
+          rgba(246,211,101,.35);
+
+        animation:
+          skVipLogoRing
+          3s
+          linear
+          infinite;
+
+      }
+
+
+      .sk-plan-logo::after{
+
+        content:"";
+
+        position:absolute;
+
+        inset:0;
+
+        border-radius:24px;
+
+        background:
+          linear-gradient(
+            120deg,
+            transparent 25%,
+            rgba(255,255,255,.55) 50%,
+            transparent 75%
+          );
+
+        transform:
+          translateX(-130%);
+
+        animation:
+          skVipLogoShine
+          3.2s
+          ease-in-out
+          infinite;
+
+      }
+
+
+      .sk-plan-logo img{
+
+        width:100%;
+        height:100%;
+
+        object-fit:cover;
+
+        border-radius:20px;
+
+        position:relative;
+
+        z-index:2;
+
+        background:#07152f;
+
+      }
+
+
+      .plan-popup-box{
+
+        width:100%;
+
+        max-width:480px;
+
+        max-height:92vh;
+
+        overflow-y:auto;
+
+        position:relative;
+
+        background:
+
+          radial-gradient(
+            circle at 50% 0%,
+            rgba(37,99,235,.08),
+            transparent 38%
+          ),
+
+          #ffffff;
+
+        border-radius:30px;
+
+        padding:28px 22px 22px;
+
+        text-align:center;
+
+        box-shadow:
+
+          0 35px 110px
+          rgba(0,0,0,.55),
+
+          0 0 0 1px
+          rgba(255,255,255,.20);
+
+        animation:
+          planBoxIn
+          .60s
+          cubic-bezier(.16,1,.3,1);
+
+      }
+
+
+      .plan-popup-box h2{
+
+        margin:0 0 8px;
+
+        font-size:28px;
+
+        line-height:1.15;
+
+        color:#101828;
+
+        letter-spacing:-.7px;
+
+      }
+
+
+      .plan-subtitle{
+
+        margin:0 auto 21px;
+
+        max-width:410px;
+
+        color:#667085;
+
+        font-size:14px;
+
+        line-height:1.6;
+
+      }
+
+
+      .plan-list{
+
+        display:grid;
+
+        gap:12px;
+
+        text-align:left;
+
+      }
+
+
+      .plan-card{
+
+        display:block;
+
+        position:relative;
+
+        overflow:hidden;
+
+        padding:17px;
+
+        border-radius:18px;
+
+        color:#111827;
+
+        text-decoration:none;
+
+        cursor:pointer;
+
+        transition:
+
+          transform .28s ease,
+
+          box-shadow .28s ease;
+
+      }
+
+
+      .plan-card:hover{
+
+        transform:
+          translateY(-5px)
+          scale(1.012);
+
+      }
+
+
+      .plan-basic{
+
+        background:
+          linear-gradient(
+            135deg,
+            #f0fdf8,
+            #e5faf3
+          );
+
+        border:
+          1px solid #20b486;
+
+        box-shadow:
+          0 9px 25px
+          rgba(19,184,134,.10);
+
+      }
+
+
+      .plan-advance{
+
+        background:
+          linear-gradient(
+            135deg,
+            #eff6ff,
+            #e8f0ff
+          );
+
+        border:
+          1px solid #3b72df;
+
+        box-shadow:
+          0 9px 25px
+          rgba(40,100,232,.10);
+
+      }
+
+
+      .plan-premium{
+
+        background:
+          linear-gradient(
+            135deg,
+            #fffaf0,
+            #fff3cf
+          );
+
+        border:
+          1px solid #d6a72c;
+
+        box-shadow:
+          0 9px 30px
+          rgba(214,167,44,.18);
+
+      }
+
+
+      .plan-top{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:space-between;
+
+        gap:10px;
+
+      }
+
+
+      .plan-name{
+
+        font-size:17px;
+
+        font-weight:900;
+
+      }
+
+
+      .plan-price{
+
+        font-size:23px;
+
+        font-weight:900;
+
+        white-space:nowrap;
+
+      }
+
+
+      .plan-basic .plan-price{
+        color:#147d64;
+      }
+
+
+      .plan-advance .plan-price{
+        color:#2057bd;
+      }
+
+
+      .plan-premium .plan-price{
+        color:#9a6b00;
+      }
+
+
+      .plan-description{
+
+        margin-top:7px;
+
+        color:#596273;
+
+        font-size:12px;
+
+        line-height:1.55;
+
+      }
+
+
+      .plan-pay{
+
+        display:inline-block;
+
+        margin-top:11px;
+
+        padding:8px 11px;
+
+        border-radius:8px;
+
+        background:
+          rgba(255,255,255,.85);
+
+        font-size:10px;
+
+        font-weight:900;
+
+        letter-spacing:.45px;
+
+      }
+
+
+      .plan-close{
+
+        margin-top:12px;
+
+        width:100%;
+
+        padding:11px;
+
+        border:0;
+
+        border-radius:11px;
+
+        background:#f2f4f7;
+
+        color:#344054;
+
+        font-size:13px;
+
+        font-weight:700;
+
+        cursor:pointer;
+
+      }
+
+
+      .payment-loading{
+
+        position:fixed;
+
+        inset:0;
+
+        z-index:200000;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        background:
+          rgba(2,7,18,.88);
+
+        backdrop-filter:blur(12px);
+
+      }
+
+
+      .payment-loading-box{
+
+        width:90%;
+
+        max-width:390px;
+
+        padding:35px 25px;
+
+        border-radius:25px;
+
+        background:#0f172a;
+
+        color:white;
+
+        text-align:center;
+
+        box-shadow:
+          0 30px 90px
+          rgba(0,0,0,.55);
+
+      }
+
+
+      .payment-spinner{
+
+        width:58px;
+
+        height:58px;
+
+        margin:0 auto 20px;
+
+        border:
+          5px solid
+          rgba(255,255,255,.15);
+
+        border-top-color:#f6d365;
+
+        border-radius:50%;
+
+        animation:
+          paymentSpin
+          1s
+          linear
+          infinite;
+
+      }
+
+
+      @keyframes paymentSpin{
+
+        to{
+          transform:rotate(360deg);
+        }
+
+      }
+
+
+      @media(max-width:430px){
+
+        .plan-popup-box{
+
+          padding:
+            23px 15px 17px;
+
+          border-radius:25px;
+
+        }
+
+        .plan-popup-box h2{
+
+          font-size:24px;
+
+        }
+
+        .plan-card{
+
+          padding:15px;
+
+        }
+
+        .plan-name{
+
+          font-size:16px;
+
+        }
+
+        .plan-price{
+
+          font-size:21px;
+
+        }
+
+      }
+
+    </style>
+
+
+    <div class="plan-popup-box">
+
+
+      <div class="sk-plan-logo">
+
+        <img
+          src="Logo.jpg"
+          alt="SK KGN TEAM"
+        >
+
+      </div>
+
+
+      <h2>
+        SERVICE PLAN
+      </h2>
+
+
+      <p class="plan-subtitle">
+
+        Select your preferred service plan and
+        complete the payment. Once your payment is
+        successfully completed, a unique Complaint ID
+        will be generated for your complaint. You can
+        use this Complaint ID to check your complaint
+        status, track progress and view future updates.
+
+      </p>
+
+
+      <div class="plan-list">
+
+
+        <!-- BASIC -->
+
+        <button
+          type="button"
+          class="plan-card plan-basic"
+          data-plan="Basic"
+        >
+
+          <div class="plan-top">
+
+            <span class="plan-name">
+              BASIC SERVICE
+            </span>
+
+            <span class="plan-price">
+              ₹99
+            </span>
+
+          </div>
+
+
+          <div class="plan-description">
+
+            Professional Complaint Draft •
+            Hindi & English • PDF Format •
+            Draft Ready in 1 Hour
+
+          </div>
+
+
+          <span class="plan-pay">
+
+            PROCEED TO SECURE PAYMENT →
+
+          </span>
+
+        </button>
+
+
+        <!-- ADVANCE -->
+
+        <button
+          type="button"
+          class="plan-card plan-advance"
+          data-plan="Advance"
+        >
+
+          <div class="plan-top">
+
+            <span class="plan-name">
+              ADVANCE SERVICE
+            </span>
+
+            <span class="plan-price">
+              ₹199
+            </span>
+
+          </div>
+
+
+          <div class="plan-description">
+
+            Complete Drafting + Filing Assistance •
+            Complaint Submission Copy •
+            Draft Ready in 1 Hour
+
+          </div>
+
+
+          <span class="plan-pay">
+
+            PROCEED TO SECURE PAYMENT →
+
+          </span>
+
+        </button>
+
+
+        <!-- PREMIUM -->
+
+        <button
+          type="button"
+          class="plan-card plan-premium"
+          data-plan="Premium"
+        >
+
+          <div class="plan-top">
+
+            <span class="plan-name">
+              PREMIUM SERVICE
+            </span>
+
+            <span class="plan-price">
+              ₹299
+            </span>
+
+          </div>
+
+
+          <div class="plan-description">
+
+            Draft + Lodge + Feedback + Reminder +
+            Follow-up + 1 Re-Complaint
+
+          </div>
+
+
+          <span class="plan-pay">
+
+            PROCEED TO SECURE PAYMENT →
+
+          </span>
+
+        </button>
+
+
+      </div>
+
+
+      <button
+        type="button"
+        class="plan-close"
+      >
+
+        Close
+
+      </button>
+
+
+    </div>
+
+  `;
+
+
+  document.body.appendChild(
+    contact
+  );
+
+
+  /* =======================================================
+     PLAN PAYMENT CLICK
+  ======================================================= */
+
+  contact
+    .querySelectorAll(
+      ".plan-card"
+    )
+    .forEach(function(card){
+
+      card.addEventListener(
+        "click",
+        async function(){
+
+          const plan =
+            card.dataset.plan;
+
+
+          if(
+            !window.pendingComplaint
+          ){
+
+            alert(
+              "Complaint details are missing. Please try again."
+            );
+
+            contact.remove();
+
+            return;
+
+          }
+
+
+          /*
+            Disable all plans while
+            Payment Link is being created.
+          */
+
+          contact
+            .querySelectorAll(
+              ".plan-card"
+            )
+            .forEach(
+              item => {
+                item.disabled = true;
+                item.style.opacity = ".55";
+                item.style.pointerEvents = "none";
+              }
+            );
+
+
+          const loading =
+            document.createElement("div");
+
+
+          loading.className =
+            "payment-loading";
+
+
+          loading.innerHTML = `
+
+            <div class="payment-loading-box">
+
+              <div class="payment-spinner"></div>
+
+              <h2 style="
+                margin:0 0 10px;
+                font-size:24px;
+              ">
+
+                Preparing Secure Payment
+
+              </h2>
+
+              <p style="
+                margin:0;
+                color:#aeb7c7;
+                line-height:1.5;
+                font-size:14px;
+              ">
+
+                Please wait while we securely
+                prepare your payment.
+
+              </p>
+
+            </div>
+
+          `;
+
+
+          document.body.appendChild(
+            loading
+          );
+
+
+          try{
+
+            const response =
+              await fetch(
+                BACKEND_URL +
+                "/api/create-payment-link",
+                {
+                  method:"POST",
+
+                  headers:{
+                    "Content-Type":
+                      "application/json"
+                  },
+
+                  body:
+                    JSON.stringify({
+
+                      plan:
+                        plan,
+
+                      name:
+                        window.pendingComplaint.name,
+
+                      mobile:
+                        window.pendingComplaint.mobile,
+
+                      subject:
+                        window.pendingComplaint.subject,
+
+                      details:
+                        window.pendingComplaint.details
+
+                    })
+
+                }
+              );
+
+
+            const data =
+              await response.json();
+
+
+            if(
+              !response.ok ||
+              !data.ok ||
+              !data.shortUrl
+            ){
+
+              throw new Error(
+                data.error ||
+                "Unable to create payment link."
+              );
+
+            }
+
+
+            /*
+              IMPORTANT:
+              Redirect directly to Razorpay.
+
+              No manual payment confirmation button.
+            */
+
+            window.location.href =
+              data.shortUrl;
+
+
+          }catch(error){
+
+            console.error(
+              "Payment Link Error:",
+              error
+            );
+
+
+            loading.remove();
+
+
+            contact
+              .querySelectorAll(
+                ".plan-card"
+              )
+              .forEach(
+                item => {
+                  item.disabled = false;
+                  item.style.opacity = "1";
+                  item.style.pointerEvents = "auto";
+                }
+              );
+
+
+            alert(
+              "Unable to start payment. Please try again."
+            );
+
+          }
+
+        }
+      );
+
+    });
+
+
+  /* =======================================================
+     CLOSE
+  ======================================================= */
+
+  contact
+    .querySelector(
+      ".plan-close"
+    )
+    .onclick = function(){
+
+      contact.remove();
+
+      window.pendingComplaint =
+        null;
+
+    };
+
+
+  contact.addEventListener(
+    "click",
+    function(e){
+
+      if(
+        e.target === contact
+      ){
+
+        contact.remove();
+
+        window.pendingComplaint =
+          null;
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+   SUCCESS POPUP
+   SHOWN ONLY AFTER VERIFIED PAYMENT
+========================================================= */
+
+function showSuccessPopup(
+  complaintId,
+  paymentId,
+  plan
+){
+
+  const popup =
+    document.createElement("div");
+
+
+  popup.style.cssText = `
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+      rgba(0,0,0,.72);
+
+    backdrop-filter:
+      blur(8px);
+
+    z-index:300000;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+  `;
+
+
+  popup.innerHTML = `
+
+    <div style="
+
+      background:white;
+
+      width:100%;
+
+      max-width:430px;
+
+      border-radius:28px;
+
+      padding:35px 25px;
+
+      text-align:center;
+
+      box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.35);
+
+      animation:
+        modalUp .35s ease;
+
+    ">
+
+
+      <div style="
+
+        width:90px;
+
+        height:90px;
+
+        margin:auto;
+
+        border-radius:50%;
+
+        background:#22c55e;
+
+        color:white;
+
+        font-size:58px;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        font-weight:700;
+
+        box-shadow:
+          0 0 0 10px
+          #dcfce7;
+
+      ">
+
+        ✓
+
+      </div>
+
+
+      <h2 style="
+
+        font-size:28px;
+
+        margin:22px 0 10px;
+
+      ">
+
+        Complaint Submitted
+
+      </h2>
+
+
+      <p style="
+
+        color:#666;
+
+        font-size:16px;
+
+        line-height:1.5;
+
+      ">
+
+        Your payment has been successfully verified
+        and your complaint has been submitted.
+
+      </p>
+
+
+      <div style="
+
+        background:#f3f4f6;
+
+        border-radius:14px;
+
+        padding:15px;
+
+        margin:20px 0;
+
+        font-size:15px;
+
+        font-weight:700;
+
+      ">
+
+        Complaint ID
+
+        <br>
+
+        <span style="
+
+          font-size:22px;
+
+          color:#164a9c;
+
+        ">
+
+          ${complaintId}
+
+        </span>
+
+      </div>
+
+
+      <div style="
+
+        color:#667085;
+
+        font-size:12px;
+
+        margin-bottom:20px;
+
+      ">
+
+        Payment Status: Completed
+
+      </div>
+
+
+      <button
+        id="successDone"
+        style="
+
+          width:100%;
+
+          padding:14px;
+
+          border:0;
+
+          border-radius:12px;
+
+          background:#111827;
+
+          color:white;
+
+          font-size:17px;
+
+          font-weight:700;
+
+          cursor:pointer;
+
+        "
+      >
+
+        Done
+
+      </button>
+
+
+    </div>
+
+  `;
+
+
+  document.body.appendChild(
+    popup
+  );
+
+
+  document.getElementById(
+    "successDone"
+  ).onclick = function(){
+
+    popup.remove();
+
+  };
+
+}
+
+
+/* =========================================================
+   PAYMENT VERIFICATION AFTER RAZORPAY CALLBACK
+========================================================= */
+
+async function handleVerifiedPayment(){
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const payment =
+    params.get(
+      "payment"
+    );
+
+
+  const token =
+    params.get(
+      "token"
+    );
+
+
+  /* =======================================================
+     FAILED / CANCELLED PAYMENT
+  ======================================================= */
+
+  if(
+    payment === "failed"
+  ){
+
+    const failed =
       document.createElement("div");
 
 
-    processing.id =
-      "processingPopup";
-
-
-    processing.style.cssText = `
+    failed.style.cssText = `
 
       position:fixed;
+
       inset:0;
 
-      background:rgba(0,0,0,.70);
+      background:
+        rgba(0,0,0,.72);
 
-      backdrop-filter:blur(8px);
+      backdrop-filter:
+        blur(8px);
 
-      z-index:100000;
+      z-index:300000;
 
       display:flex;
 
@@ -4229,69 +5700,79 @@ complaintForm.addEventListener(
     `;
 
 
-    processing.innerHTML = `
+    failed.innerHTML = `
 
       <div style="
 
-        background:#0f172a;
-
-        color:#fff;
+        background:white;
 
         width:100%;
 
-        max-width:430px;
+        max-width:420px;
 
-        border-radius:28px;
+        border-radius:25px;
 
-        padding:45px 25px;
+        padding:30px 22px;
 
         text-align:center;
-
-        box-shadow:
-        0 30px 90px rgba(0,0,0,.45);
-
-        border:
-        1px solid rgba(96,165,250,.20);
 
       ">
 
         <div style="
 
-          width:65px;
-          height:65px;
+          font-size:55px;
 
-          margin:auto;
+          margin-bottom:12px;
 
-          border:5px solid rgba(255,255,255,.15);
-
-          border-top-color:#60a5fa;
-
-          border-radius:50%;
-
-          animation:spin 1s linear infinite;
-
-        "></div>
-
-
-        <h2 style="
-          font-size:27px;
-          margin:25px 0 8px;
         ">
 
-          Processing...
+          ✕
+
+        </div>
+
+        <h2>
+
+          Payment Not Completed
 
         </h2>
 
-
         <p style="
-          color:#aeb7c7;
-          font-size:15px;
+
+          color:#667085;
+
+          line-height:1.5;
+
         ">
 
-          Please wait while we submit
-          your complaint.
+          Your payment was not completed.
+          No Complaint ID has been generated.
 
         </p>
+
+        <button
+          id="paymentFailedDone"
+          style="
+
+            width:100%;
+
+            padding:13px;
+
+            border:0;
+
+            border-radius:11px;
+
+            background:#111827;
+
+            color:white;
+
+            font-weight:700;
+
+          "
+        >
+
+          Close
+
+        </button>
 
       </div>
 
@@ -4299,89 +5780,403 @@ complaintForm.addEventListener(
 
 
     document.body.appendChild(
-      processing
+      failed
     );
 
 
-    try{
+    document.getElementById(
+      "paymentFailedDone"
+    ).onclick = function(){
+
+      failed.remove();
+
+      window.history.replaceState(
+        {},
+        document.title,
+        window.location.pathname
+      );
+
+    };
 
 
-      await addDoc(
-        collection(
-          db,
-          "complaints"
-        ),
-        {
+    return;
 
-          complaintId:
-            complaintId,
+  }
 
-          name:
-            name,
 
-          mobile:
-            mobile,
+  /* =======================================================
+     NOTHING TO VERIFY
+  ======================================================= */
 
-          subject:
-            subject,
+  if(
+    payment !== "verified" ||
+    !token
+  ){
 
-          details:
-            details,
+    return;
 
-          status:
-            "Submitted",
+  }
 
-          createdAt:
-            serverTimestamp()
 
-        }
+  /* =======================================================
+     SHOW VERIFICATION LOADING
+  ======================================================= */
+
+  const loading =
+    document.createElement("div");
+
+
+  loading.className =
+    "payment-loading";
+
+
+  loading.innerHTML = `
+
+    <div class="payment-loading-box">
+
+      <div class="payment-spinner"></div>
+
+      <h2 style="
+        margin:0 0 10px;
+        font-size:24px;
+      ">
+
+        Verifying Payment
+
+      </h2>
+
+      <p style="
+        margin:0;
+        color:#aeb7c7;
+        line-height:1.5;
+        font-size:14px;
+      ">
+
+        Please wait. Your payment is being
+        securely verified.
+
+      </p>
+
+    </div>
+
+  `;
+
+
+  document.body.appendChild(
+    loading
+  );
+
+
+  try{
+
+    /*
+      Backend verifies:
+
+      1. Token signature
+      2. Token expiry
+      3. Razorpay Payment Link
+      4. Payment Link status
+      5. Payment amount
+      6. Reference ID
+      7. Encrypted complaint data
+    */
+
+    const response =
+      await fetch(
+        BACKEND_URL +
+        "/api/verify-payment?token=" +
+        encodeURIComponent(
+          token
+        )
       );
 
 
-      complaintMessage.textContent =
-        "Complaint submitted successfully. Your Complaint ID is " +
-        complaintId;
+    const data =
+      await response.json();
 
 
-      complaintForm.reset();
+    if(
+      !response.ok ||
+      !data.ok ||
+      data.paymentStatus !==
+        "Completed"
+    ){
 
-
-      setTimeout(()=>{
-
-        if(processing)
-          processing.remove();
-
-
-        closeComplaintForm();
-
-
-        showSuccessPopup(
-          complaintId
-        );
-
-      },900);
-
-
-    }catch(error){
-
-      console.error(error);
-
-
-      if(processing)
-        processing.remove();
-
-
-      complaintMessage.textContent =
-        "Complaint could not be submitted. Please try again.";
+      throw new Error(
+        data.error ||
+        "Payment could not be verified."
+      );
 
     }
 
-  }
-);
 
+    /* =====================================================
+       PAYMENT IS NOW GENUINELY VERIFIED
+       ONLY NOW CREATE COMPLAINT ID
+    ===================================================== */
+
+    const complaintId =
+      generateComplaintId();
+
+
+    const complaint =
+      data.complaint;
+
+
+    if(
+      !complaint ||
+      !complaint.name ||
+      !complaint.mobile ||
+      !complaint.subject ||
+      !complaint.details
+    ){
+
+      throw new Error(
+        "Verified complaint data is incomplete."
+      );
+
+    }
+
+
+    /* =====================================================
+       SAVE TO FIRESTORE ONLY AFTER PAYMENT VERIFIED
+    ===================================================== */
+
+    await addDoc(
+      collection(
+        db,
+        "complaints"
+      ),
+      {
+
+        complaintId:
+          complaintId,
+
+        name:
+          complaint.name,
+
+        mobile:
+          complaint.mobile,
+
+        subject:
+          complaint.subject,
+
+        details:
+          complaint.details,
+
+        plan:
+          complaint.plan || "",
+
+        status:
+          "Submitted",
+
+        paymentStatus:
+          "Completed",
+
+        razorpayPaymentId:
+          data.razorpayPaymentId,
+
+        paymentLinkId:
+          data.paymentLinkId,
+
+        referenceId:
+          data.referenceId,
+
+        createdAt:
+          serverTimestamp()
+
+      }
+    );
+
+
+    /* =====================================================
+       CLEAR TEMPORARY DATA
+    ===================================================== */
+
+    window.pendingComplaint =
+      null;
+
+
+    complaintForm.reset();
+
+
+    loading.remove();
+
+
+    /* =====================================================
+       REMOVE TOKEN FROM URL
+    ===================================================== */
+
+    window.history.replaceState(
+      {},
+      document.title,
+      window.location.pathname
+    );
+
+
+    /* =====================================================
+       SHOW FINAL SUCCESS
+    ===================================================== */
+
+    showSuccessPopup(
+      complaintId,
+      data.razorpayPaymentId,
+      complaint.plan
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Payment Verification Error:",
+      error
+    );
+
+
+    loading.remove();
+
+
+    const errorPopup =
+      document.createElement("div");
+
+
+    errorPopup.style.cssText = `
+
+      position:fixed;
+
+      inset:0;
+
+      background:
+        rgba(0,0,0,.72);
+
+      backdrop-filter:
+        blur(8px);
+
+      z-index:300000;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      padding:20px;
+
+    `;
+
+
+    errorPopup.innerHTML = `
+
+      <div style="
+
+        background:white;
+
+        width:100%;
+
+        max-width:430px;
+
+        border-radius:25px;
+
+        padding:30px 22px;
+
+        text-align:center;
+
+      ">
+
+        <div style="
+
+          font-size:50px;
+
+          margin-bottom:12px;
+
+        ">
+
+          ⚠
+
+        </div>
+
+
+        <h2>
+
+          Payment Verification Failed
+
+        </h2>
+
+
+        <p style="
+
+          color:#667085;
+
+          line-height:1.5;
+
+        ">
+
+          We could not verify your payment.
+          No Complaint ID has been generated
+          and the complaint has not been submitted.
+
+        </p>
+
+
+        <button
+          id="verificationErrorDone"
+          style="
+
+            width:100%;
+
+            padding:13px;
+
+            border:0;
+
+            border-radius:11px;
+
+            background:#111827;
+
+            color:white;
+
+            font-weight:700;
+
+          "
+        >
+
+          Close
+
+        </button>
+
+      </div>
+
+    `;
+
+
+    document.body.appendChild(
+      errorPopup
+    );
+
+
+    document.getElementById(
+      "verificationErrorDone"
+    ).onclick = function(){
+
+      errorPopup.remove();
+
+      window.history.replaceState(
+        {},
+        document.title,
+        window.location.pathname
+      );
+
+    };
+
+  }
+
+}
 
 
 /* =========================================================
+   START PAYMENT VERIFICATION
+========================================================= */
+handleVerifiedPayment();
+ =========================================================
    SUCCESS POPUP
 ========================================================= */
 
