@@ -4215,47 +4215,55 @@ showPlanPopup(
   window.pendingComplaint
 );
 
-function showPlanPopup(
-  complaint
-){
+/* =========================================================
+   SERVICE PLAN POPUP + RAZORPAY PAYMENT
+========================================================= */
+
+const BACKEND_URL =
+  "https://skkgn-razorpay-backend.vercel.app";
+
+function generateComplaintId(){
+
+  return "SKKGN-" +
+    Math.random()
+      .toString(36)
+      .substring(2,8)
+      .toUpperCase();
+
+}
+
+
+function showPlanPopup(complaint){
 
   const contact =
     document.createElement("div");
 
-
   contact.className =
     "plan-popup";
 
-
   contact.style.cssText = `
-
     position:fixed;
     inset:0;
-
-    background:
-      radial-gradient(
-        circle at 50% 0%,
-        rgba(37,99,235,.22),
-        transparent 35%
-      ),
-      rgba(2,7,18,.88);
-
-    backdrop-filter:blur(15px);
-
-    -webkit-backdrop-filter:blur(15px);
-
     z-index:100000;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     padding:18px;
 
-    animation:planOverlayIn .35s ease;
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        rgba(37,99,235,.25),
+        transparent 40%
+      ),
+      rgba(2,7,18,.90);
 
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    animation:skPlanOverlay .35s ease;
   `;
 
 
@@ -4263,127 +4271,87 @@ function showPlanPopup(
 
     <style>
 
-      @keyframes planOverlayIn{
-
+      @keyframes skPlanOverlay{
         from{
           opacity:0;
         }
-
         to{
           opacity:1;
         }
-
       }
 
-
-      @keyframes planBoxIn{
-
-        0%{
+      @keyframes skPlanBox{
+        from{
           opacity:0;
-
-          transform:
-            translateY(55px)
-            scale(.88);
-
-          filter:blur(10px);
+          transform:translateY(35px) scale(.94);
         }
-
-        60%{
+        to{
           opacity:1;
-
-          transform:
-            translateY(-5px)
-            scale(1.01);
-
-          filter:blur(0);
+          transform:translateY(0) scale(1);
         }
-
-        100%{
-          opacity:1;
-
-          transform:
-            translateY(0)
-            scale(1);
-        }
-
       }
 
-
-      @keyframes skVipLogoPulse{
-
+      @keyframes skVipPulse{
         0%,100%{
-
           transform:scale(1);
-
           box-shadow:
-            0 0 0 1px
-            rgba(246,211,101,.35),
-
-            0 0 25px
-            rgba(246,211,101,.30),
-
-            0 12px 35px
-            rgba(0,0,0,.35);
-
+            0 0 0 1px rgba(246,211,101,.35),
+            0 0 25px rgba(246,211,101,.30),
+            0 15px 40px rgba(0,0,0,.40);
         }
 
         50%{
-
           transform:scale(1.04);
-
           box-shadow:
-            0 0 0 1px
-            rgba(246,211,101,.55),
-
-            0 0 38px
-            rgba(246,211,101,.55),
-
-            0 16px 42px
-            rgba(0,0,0,.40);
-
+            0 0 0 1px rgba(246,211,101,.60),
+            0 0 42px rgba(246,211,101,.60),
+            0 18px 48px rgba(0,0,0,.45);
         }
-
       }
 
-
-      @keyframes skVipLogoRing{
-
-        0%{
+      @keyframes skVipRing{
+        from{
           transform:rotate(0deg);
           opacity:.35;
         }
 
         50%{
-          opacity:.80;
+          opacity:.85;
         }
 
-        100%{
+        to{
           transform:rotate(360deg);
           opacity:.35;
         }
-
       }
 
-
-      @keyframes skVipLogoShine{
-
+      @keyframes skVipShine{
         0%,55%{
-          transform:translateX(-130%);
+          transform:translateX(-140%);
         }
 
         75%,100%{
-          transform:translateX(130%);
+          transform:translateX(140%);
         }
-
       }
 
+      @keyframes skPlanCard{
+        from{
+          opacity:0;
+          transform:translateY(15px);
+        }
+
+        to{
+          opacity:1;
+          transform:translateY(0);
+        }
+      }
 
       .sk-plan-logo{
-
         width:78px;
         height:78px;
 
-        margin:0 auto 20px;
+        margin:0 auto 18px;
 
         padding:4px;
 
@@ -4392,9 +4360,7 @@ function showPlanPopup(
         position:relative;
 
         display:flex;
-
         align-items:center;
-
         justify-content:center;
 
         background:
@@ -4405,54 +4371,27 @@ function showPlanPopup(
             #f6d365
           );
 
-        box-shadow:
-          0 0 0 1px
-          rgba(246,211,101,.35),
-
-          0 0 25px
-          rgba(246,211,101,.30),
-
-          0 12px 35px
-          rgba(0,0,0,.35);
-
-        animation:
-          skVipLogoPulse
-          2.8s
-          ease-in-out
-          infinite;
-
+        animation:skVipPulse 2.8s ease-in-out infinite;
       }
 
-
       .sk-plan-logo::before{
-
         content:"";
 
         position:absolute;
-
         inset:-7px;
 
         border-radius:28px;
 
-        border:
-          1px solid
-          rgba(246,211,101,.35);
+        border:1px solid
+          rgba(246,211,101,.45);
 
-        animation:
-          skVipLogoRing
-          3s
-          linear
-          infinite;
-
+        animation:skVipRing 3s linear infinite;
       }
 
-
       .sk-plan-logo::after{
-
         content:"";
 
         position:absolute;
-
         inset:0;
 
         border-radius:24px;
@@ -4465,20 +4404,13 @@ function showPlanPopup(
             transparent 75%
           );
 
-        transform:
-          translateX(-130%);
+        transform:translateX(-140%);
 
         animation:
-          skVipLogoShine
-          3.2s
-          ease-in-out
-          infinite;
-
+          skVipShine 3.2s ease-in-out infinite;
       }
 
-
       .sk-plan-logo img{
-
         width:100%;
         height:100%;
 
@@ -4487,599 +4419,324 @@ function showPlanPopup(
         border-radius:20px;
 
         position:relative;
-
         z-index:2;
 
         background:#07152f;
-
       }
 
-
-      .plan-popup-box{
-
+      .sk-plan-box{
         width:100%;
-
-        max-width:480px;
+        max-width:440px;
 
         max-height:92vh;
 
         overflow-y:auto;
 
-        position:relative;
+        box-sizing:border-box;
 
-        background:
+        padding:28px 20px;
 
-          radial-gradient(
-            circle at 50% 0%,
-            rgba(37,99,235,.08),
-            transparent 38%
-          ),
-
-          #ffffff;
-
-        border-radius:30px;
-
-        padding:28px 22px 22px;
-
-        text-align:center;
-
-        box-shadow:
-
-          0 35px 110px
-          rgba(0,0,0,.55),
-
-          0 0 0 1px
-          rgba(255,255,255,.20);
-
-        animation:
-          planBoxIn
-          .60s
-          cubic-bezier(.16,1,.3,1);
-
-      }
-
-
-      .plan-popup-box h2{
-
-        margin:0 0 8px;
-
-        font-size:28px;
-
-        line-height:1.15;
-
-        color:#101828;
-
-        letter-spacing:-.7px;
-
-      }
-
-
-      .plan-subtitle{
-
-        margin:0 auto 21px;
-
-        max-width:410px;
-
-        color:#667085;
-
-        font-size:14px;
-
-        line-height:1.6;
-
-      }
-
-
-      .plan-list{
-
-        display:grid;
-
-        gap:12px;
-
-        text-align:left;
-
-      }
-
-
-      .plan-card{
-
-        display:block;
-
-        position:relative;
-
-        overflow:hidden;
-
-        padding:17px;
-
-        border-radius:18px;
-
-        color:#111827;
-
-        text-decoration:none;
-
-        cursor:pointer;
-
-        transition:
-
-          transform .28s ease,
-
-          box-shadow .28s ease;
-
-      }
-
-
-      .plan-card:hover{
-
-        transform:
-          translateY(-5px)
-          scale(1.012);
-
-      }
-
-
-      .plan-basic{
+        border-radius:28px;
 
         background:
           linear-gradient(
-            135deg,
-            #f0fdf8,
-            #e5faf3
+            145deg,
+            #07152f,
+            #0b1d3d,
+            #061126
           );
 
         border:
-          1px solid #20b486;
+          1px solid
+          rgba(246,211,101,.28);
 
         box-shadow:
-          0 9px 25px
-          rgba(19,184,134,.10);
-
-      }
-
-
-      .plan-advance{
-
-        background:
-          linear-gradient(
-            135deg,
-            #eff6ff,
-            #e8f0ff
-          );
-
-        border:
-          1px solid #3b72df;
-
-        box-shadow:
-          0 9px 25px
-          rgba(40,100,232,.10);
-
-      }
-
-
-      .plan-premium{
-
-        background:
-          linear-gradient(
-            135deg,
-            #fffaf0,
-            #fff3cf
-          );
-
-        border:
-          1px solid #d6a72c;
-
-        box-shadow:
-          0 9px 30px
-          rgba(214,167,44,.18);
-
-      }
-
-
-      .plan-top{
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:space-between;
-
-        gap:10px;
-
-      }
-
-
-      .plan-name{
-
-        font-size:17px;
-
-        font-weight:900;
-
-      }
-
-
-      .plan-price{
-
-        font-size:23px;
-
-        font-weight:900;
-
-        white-space:nowrap;
-
-      }
-
-
-      .plan-basic .plan-price{
-        color:#147d64;
-      }
-
-
-      .plan-advance .plan-price{
-        color:#2057bd;
-      }
-
-
-      .plan-premium .plan-price{
-        color:#9a6b00;
-      }
-
-
-      .plan-description{
-
-        margin-top:7px;
-
-        color:#596273;
-
-        font-size:12px;
-
-        line-height:1.55;
-
-      }
-
-
-      .plan-pay{
-
-        display:inline-block;
-
-        margin-top:11px;
-
-        padding:8px 11px;
-
-        border-radius:8px;
-
-        background:
-          rgba(255,255,255,.85);
-
-        font-size:10px;
-
-        font-weight:900;
-
-        letter-spacing:.45px;
-
-      }
-
-
-      .plan-close{
-
-        margin-top:12px;
-
-        width:100%;
-
-        padding:11px;
-
-        border:0;
-
-        border-radius:11px;
-
-        background:#f2f4f7;
-
-        color:#344054;
-
-        font-size:13px;
-
-        font-weight:700;
-
-        cursor:pointer;
-
-      }
-
-
-      .payment-loading{
-
-        position:fixed;
-
-        inset:0;
-
-        z-index:200000;
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:center;
-
-        background:
-          rgba(2,7,18,.88);
-
-        backdrop-filter:blur(12px);
-
-      }
-
-
-      .payment-loading-box{
-
-        width:90%;
-
-        max-width:390px;
-
-        padding:35px 25px;
-
-        border-radius:25px;
-
-        background:#0f172a;
+          0 30px 90px rgba(0,0,0,.55),
+          0 0 45px rgba(37,99,235,.18);
 
         color:white;
 
         text-align:center;
 
-        box-shadow:
-          0 30px 90px
-          rgba(0,0,0,.55);
-
+        animation:
+          skPlanBox .4s ease;
       }
 
+      .sk-plan-title{
+        margin:0;
 
-      .payment-spinner{
+        font-size:25px;
+        font-weight:800;
 
-        width:58px;
+        letter-spacing:.4px;
 
-        height:58px;
+        color:#f6d365;
+      }
 
-        margin:0 auto 20px;
+      .sk-plan-desc{
+        margin:12px 4px 22px;
+
+        color:#b9c4d8;
+
+        font-size:14px;
+
+        line-height:1.6;
+      }
+
+      .sk-plan-card{
+        width:100%;
+
+        box-sizing:border-box;
+
+        padding:18px;
+
+        margin:12px 0;
+
+        border-radius:18px;
 
         border:
-          5px solid
-          rgba(255,255,255,.15);
+          1px solid
+          rgba(255,255,255,.12);
 
-        border-top-color:#f6d365;
+        background:
+          rgba(255,255,255,.055);
 
-        border-radius:50%;
+        color:white;
+
+        text-align:left;
+
+        cursor:pointer;
+
+        transition:.2s;
 
         animation:
-          paymentSpin
-          1s
-          linear
-          infinite;
-
+          skPlanCard .45s ease both;
       }
 
+      .sk-plan-card:hover{
+        transform:translateY(-2px);
 
-      @keyframes paymentSpin{
+        border-color:
+          rgba(246,211,101,.55);
 
-        to{
-          transform:rotate(360deg);
-        }
-
+        background:
+          rgba(246,211,101,.08);
       }
 
+      .sk-plan-card.premium{
+        border:
+          1px solid
+          rgba(246,211,101,.60);
 
-      @media(max-width:430px){
+        background:
+          linear-gradient(
+            135deg,
+            rgba(246,211,101,.13),
+            rgba(255,255,255,.055)
+          );
 
-        .plan-popup-box{
+        box-shadow:
+          0 0 25px
+          rgba(246,211,101,.12);
+      }
 
-          padding:
-            23px 15px 17px;
+      .sk-plan-head{
+        display:flex;
 
-          border-radius:25px;
+        align-items:center;
+        justify-content:space-between;
 
-        }
+        gap:10px;
+      }
 
-        .plan-popup-box h2{
+      .sk-plan-name{
+        font-size:18px;
+        font-weight:800;
+      }
 
-          font-size:24px;
+      .sk-plan-price{
+        font-size:20px;
+        font-weight:900;
 
-        }
+        color:#f6d365;
+      }
 
-        .plan-card{
+      .sk-plan-text{
+        margin-top:9px;
 
-          padding:15px;
+        color:#b9c4d8;
 
-        }
+        font-size:13px;
 
-        .plan-name{
+        line-height:1.5;
+      }
 
-          font-size:16px;
+      .sk-premium-badge{
+        display:inline-block;
 
-        }
+        margin-top:9px;
 
-        .plan-price{
+        padding:5px 9px;
 
-          font-size:21px;
+        border-radius:20px;
 
-        }
+        font-size:10px;
 
+        font-weight:800;
+
+        letter-spacing:.7px;
+
+        color:#111827;
+
+        background:#f6d365;
+      }
+
+      .sk-plan-close{
+        width:100%;
+
+        margin-top:10px;
+
+        padding:13px;
+
+        border:0;
+
+        border-radius:13px;
+
+        background:
+          rgba(255,255,255,.08);
+
+        color:#d6deeb;
+
+        font-weight:700;
+
+        cursor:pointer;
       }
 
     </style>
 
 
-    <div class="plan-popup-box">
-
+    <div class="sk-plan-box">
 
       <div class="sk-plan-logo">
-
         <img
           src="Logo.jpg"
           alt="SK KGN TEAM"
         >
-
       </div>
 
 
-      <h2>
+      <h2 class="sk-plan-title">
         SERVICE PLAN
       </h2>
 
 
-      <p class="plan-subtitle">
-
-        Select your preferred service plan and
-        complete the payment. Once your payment is
-        successfully completed, a unique Complaint ID
-        will be generated for your complaint. You can
-        use this Complaint ID to check your complaint
-        status, track progress and view future updates.
-
+      <p class="sk-plan-desc">
+        Select your preferred service plan and complete
+        the payment. Once your payment is successfully
+        completed, a unique Complaint ID will be
+        generated for your complaint. You can use this
+        Complaint ID to check your complaint status,
+        track progress and view future updates.
       </p>
 
 
-      <div class="plan-list">
+      <div
+        class="sk-plan-card"
+        data-plan="Basic"
+      >
 
+        <div class="sk-plan-head">
 
-        <!-- BASIC -->
-
-        <button
-          type="button"
-          class="plan-card plan-basic"
-          data-plan="Basic"
-        >
-
-          <div class="plan-top">
-
-            <span class="plan-name">
-              BASIC SERVICE
-            </span>
-
-            <span class="plan-price">
-              ₹99
-            </span>
-
+          <div class="sk-plan-name">
+            Basic
           </div>
 
-
-          <div class="plan-description">
-
-            Professional Complaint Draft •
-            Hindi & English • PDF Format •
-            Draft Ready in 1 Hour
-
+          <div class="sk-plan-price">
+            ₹99
           </div>
 
+        </div>
 
-          <span class="plan-pay">
+        <div class="sk-plan-text">
+          Professional Complaint Draft
+        </div>
 
-            PROCEED TO SECURE PAYMENT →
-
-          </span>
-
-        </button>
+      </div>
 
 
-        <!-- ADVANCE -->
+      <div
+        class="sk-plan-card"
+        data-plan="Advance"
+      >
 
-        <button
-          type="button"
-          class="plan-card plan-advance"
-          data-plan="Advance"
-        >
+        <div class="sk-plan-head">
 
-          <div class="plan-top">
-
-            <span class="plan-name">
-              ADVANCE SERVICE
-            </span>
-
-            <span class="plan-price">
-              ₹199
-            </span>
-
+          <div class="sk-plan-name">
+            Advance
           </div>
 
-
-          <div class="plan-description">
-
-            Complete Drafting + Filing Assistance •
-            Complaint Submission Copy •
-            Draft Ready in 1 Hour
-
+          <div class="sk-plan-price">
+            ₹199
           </div>
 
+        </div>
 
-          <span class="plan-pay">
+        <div class="sk-plan-text">
+          Professional Complaint Draft +
+          Lodge Support
+        </div>
 
-            PROCEED TO SECURE PAYMENT →
-
-          </span>
-
-        </button>
+      </div>
 
 
-        <!-- PREMIUM -->
+      <div
+        class="sk-plan-card premium"
+        data-plan="Premium"
+      >
 
-        <button
-          type="button"
-          class="plan-card plan-premium"
-          data-plan="Premium"
-        >
+        <div class="sk-plan-head">
 
-          <div class="plan-top">
-
-            <span class="plan-name">
-              PREMIUM SERVICE
-            </span>
-
-            <span class="plan-price">
-              ₹299
-            </span>
-
+          <div class="sk-plan-name">
+            Premium
           </div>
 
-
-          <div class="plan-description">
-
-            Draft + Lodge + Feedback + Reminder +
-            Follow-up + 1 Re-Complaint
-
+          <div class="sk-plan-price">
+            ₹299
           </div>
 
+        </div>
 
-          <span class="plan-pay">
+        <div class="sk-plan-text">
 
-            PROCEED TO SECURE PAYMENT →
+          Draft + Lodge + Feedback + Reminder +
+          Follow-up + 1 Re-Complaint
 
-          </span>
+        </div>
 
-        </button>
-
+        <span class="sk-premium-badge">
+          PREMIUM SERVICE
+        </span>
 
       </div>
 
 
       <button
         type="button"
-        class="plan-close"
+        class="sk-plan-close"
       >
-
         Close
-
       </button>
-
 
     </div>
 
   `;
 
 
-  document.body.appendChild(
-    contact
-  );
+  document.body.appendChild(contact);
 
-
-  /* =======================================================
-     PLAN PAYMENT CLICK
-  ======================================================= */
 
   contact
-    .querySelectorAll(
-      ".plan-card"
-    )
+    .querySelectorAll(".sk-plan-card")
     .forEach(function(card){
 
       card.addEventListener(
@@ -5090,9 +4747,7 @@ function showPlanPopup(
             card.dataset.plan;
 
 
-          if(
-            !window.pendingComplaint
-          ){
+          if(!window.pendingComplaint){
 
             alert(
               "Complaint details are missing. Please try again."
@@ -5101,61 +4756,99 @@ function showPlanPopup(
             contact.remove();
 
             return;
-
           }
 
 
-          /*
-            Disable all plans while
-            Payment Link is being created.
-          */
-
           contact
-            .querySelectorAll(
-              ".plan-card"
-            )
-            .forEach(
-              item => {
-                item.disabled = true;
-                item.style.opacity = ".55";
-                item.style.pointerEvents = "none";
-              }
-            );
+            .querySelectorAll(".sk-plan-card")
+            .forEach(function(item){
+
+              item.style.opacity = ".55";
+              item.style.pointerEvents = "none";
+
+            });
 
 
           const loading =
             document.createElement("div");
 
 
-          loading.className =
-            "payment-loading";
+          loading.style.cssText = `
+            position:fixed;
+            inset:0;
+            z-index:200000;
+
+            display:flex;
+            align-items:center;
+            justify-content:center;
+
+            background:rgba(2,7,18,.86);
+            backdrop-filter:blur(10px);
+
+            color:white;
+          `;
 
 
           loading.innerHTML = `
 
-            <div class="payment-loading-box">
+            <div style="
+              width:90%;
+              max-width:360px;
+              padding:28px;
+              border-radius:22px;
 
-              <div class="payment-spinner"></div>
+              text-align:center;
 
-              <h2 style="
-                margin:0 0 10px;
-                font-size:24px;
+              background:#07152f;
+
+              border:
+                1px solid
+                rgba(246,211,101,.25);
+
+              box-shadow:
+                0 25px 70px
+                rgba(0,0,0,.5);
+            ">
+
+              <div style="
+                width:42px;
+                height:42px;
+
+                margin:0 auto 18px;
+
+                border:4px solid
+                  rgba(246,211,101,.25);
+
+                border-top-color:#f6d365;
+
+                border-radius:50%;
+
+                animation:
+                  skSpin 1s linear infinite;
+              "></div>
+
+              <style>
+                @keyframes skSpin{
+                  to{
+                    transform:rotate(360deg);
+                  }
+                }
+              </style>
+
+              <h3 style="
+                margin:0 0 8px;
               ">
-
                 Preparing Secure Payment
-
-              </h2>
+              </h3>
 
               <p style="
                 margin:0;
                 color:#aeb7c7;
+                font-size:13px;
                 line-height:1.5;
-                font-size:14px;
               ">
-
                 Please wait while we securely
-                prepare your payment.
-
+                prepare your Razorpay payment.
               </p>
 
             </div>
@@ -5182,26 +4875,24 @@ function showPlanPopup(
                       "application/json"
                   },
 
-                  body:
-                    JSON.stringify({
+                  body:JSON.stringify({
 
-                      plan:
-                        plan,
+                    plan:
+                      plan,
 
-                      name:
-                        window.pendingComplaint.name,
+                    name:
+                      complaint.name,
 
-                      mobile:
-                        window.pendingComplaint.mobile,
+                    mobile:
+                      complaint.mobile,
 
-                      subject:
-                        window.pendingComplaint.subject,
+                    subject:
+                      complaint.subject,
 
-                      details:
-                        window.pendingComplaint.details
+                    details:
+                      complaint.details
 
-                    })
-
+                  })
                 }
               );
 
@@ -5226,9 +4917,10 @@ function showPlanPopup(
 
             /*
               IMPORTANT:
-              Redirect directly to Razorpay.
+              Payment is handled by Razorpay.
 
-              No manual payment confirmation button.
+              There is NO manual
+              payment confirmation button.
             */
 
             window.location.href =
@@ -5247,19 +4939,17 @@ function showPlanPopup(
 
 
             contact
-              .querySelectorAll(
-                ".plan-card"
-              )
-              .forEach(
-                item => {
-                  item.disabled = false;
-                  item.style.opacity = "1";
-                  item.style.pointerEvents = "auto";
-                }
-              );
+              .querySelectorAll(".sk-plan-card")
+              .forEach(function(item){
+
+                item.style.opacity = "1";
+                item.style.pointerEvents = "auto";
+
+              });
 
 
             alert(
+              error.message ||
               "Unable to start payment. Please try again."
             );
 
@@ -5271,14 +4961,8 @@ function showPlanPopup(
     });
 
 
-  /* =======================================================
-     CLOSE
-  ======================================================= */
-
   contact
-    .querySelector(
-      ".plan-close"
-    )
+    .querySelector(".sk-plan-close")
     .onclick = function(){
 
       contact.remove();
@@ -5293,9 +4977,7 @@ function showPlanPopup(
     "click",
     function(e){
 
-      if(
-        e.target === contact
-      ){
+      if(e.target === contact){
 
         contact.remove();
 
@@ -5306,237 +4988,6 @@ function showPlanPopup(
 
     }
   );
-
-}
-
-
-/* =========================================================
-   SUCCESS POPUP
-   SHOWN ONLY AFTER VERIFIED PAYMENT
-========================================================= */
-
-function showSuccessPopup(
-  complaintId,
-  paymentId,
-  plan
-){
-
-  const popup =
-    document.createElement("div");
-
-
-  popup.style.cssText = `
-
-    position:fixed;
-
-    inset:0;
-
-    background:
-      rgba(0,0,0,.72);
-
-    backdrop-filter:
-      blur(8px);
-
-    z-index:300000;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:20px;
-
-  `;
-
-
-  popup.innerHTML = `
-
-    <div style="
-
-      background:white;
-
-      width:100%;
-
-      max-width:430px;
-
-      border-radius:28px;
-
-      padding:35px 25px;
-
-      text-align:center;
-
-      box-shadow:
-        0 25px 80px
-        rgba(0,0,0,.35);
-
-      animation:
-        modalUp .35s ease;
-
-    ">
-
-
-      <div style="
-
-        width:90px;
-
-        height:90px;
-
-        margin:auto;
-
-        border-radius:50%;
-
-        background:#22c55e;
-
-        color:white;
-
-        font-size:58px;
-
-        display:flex;
-
-        align-items:center;
-
-        justify-content:center;
-
-        font-weight:700;
-
-        box-shadow:
-          0 0 0 10px
-          #dcfce7;
-
-      ">
-
-        ✓
-
-      </div>
-
-
-      <h2 style="
-
-        font-size:28px;
-
-        margin:22px 0 10px;
-
-      ">
-
-        Complaint Submitted
-
-      </h2>
-
-
-      <p style="
-
-        color:#666;
-
-        font-size:16px;
-
-        line-height:1.5;
-
-      ">
-
-        Your payment has been successfully verified
-        and your complaint has been submitted.
-
-      </p>
-
-
-      <div style="
-
-        background:#f3f4f6;
-
-        border-radius:14px;
-
-        padding:15px;
-
-        margin:20px 0;
-
-        font-size:15px;
-
-        font-weight:700;
-
-      ">
-
-        Complaint ID
-
-        <br>
-
-        <span style="
-
-          font-size:22px;
-
-          color:#164a9c;
-
-        ">
-
-          ${complaintId}
-
-        </span>
-
-      </div>
-
-
-      <div style="
-
-        color:#667085;
-
-        font-size:12px;
-
-        margin-bottom:20px;
-
-      ">
-
-        Payment Status: Completed
-
-      </div>
-
-
-      <button
-        id="successDone"
-        style="
-
-          width:100%;
-
-          padding:14px;
-
-          border:0;
-
-          border-radius:12px;
-
-          background:#111827;
-
-          color:white;
-
-          font-size:17px;
-
-          font-weight:700;
-
-          cursor:pointer;
-
-        "
-      >
-
-        Done
-
-      </button>
-
-
-    </div>
-
-  `;
-
-
-  document.body.appendChild(
-    popup
-  );
-
-
-  document.getElementById(
-    "successDone"
-  ).onclick = function(){
-
-    popup.remove();
-
-  };
 
 }
 
