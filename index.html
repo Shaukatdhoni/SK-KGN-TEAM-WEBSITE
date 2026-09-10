@@ -4188,130 +4188,32 @@ complaintForm.addEventListener(
         "complaintDetails"
       ).value.trim();
 
-/* =========================================================
-   COMPLAINT SUBMISSION — PAYMENT FIRST
-========================================================= */
+if(
+  !name ||
+  !mobile ||
+  !subject ||
+  !details
+){
 
-const complaintForm =
-  document.getElementById(
-    "complaintForm"
-  );
+  complaintMessage.textContent =
+    "Please fill all complaint details.";
 
-const complaintMessage =
-  document.getElementById(
-    "complaintMessage"
-  );
-
-const BACKEND_URL =
-  "https://skkgn-razorpay-backend.vercel.app";
-
-
-/* =========================================================
-   GENERATE COMPLAINT ID
-   ONLY AFTER VERIFIED PAYMENT
-========================================================= */
-
-function generateComplaintId(){
-
-  return "SKKGN-" +
-    Math.random()
-      .toString(36)
-      .substring(2,8)
-      .toUpperCase();
+  return;
 
 }
 
+window.pendingComplaint = {
+  name,
+  mobile,
+  subject,
+  details
+};
 
-/* =========================================================
-   COMPLAINT FORM SUBMIT
-   DO NOT SAVE TO FIRESTORE HERE
-========================================================= */
+closeComplaintForm();
 
-complaintForm.addEventListener(
-  "submit",
-  async function(e){
-
-    e.preventDefault();
-
-
-    const name =
-      document.getElementById(
-        "complaintName"
-      ).value.trim();
-
-
-    const mobile =
-      document.getElementById(
-        "complaintMobile"
-      ).value.trim();
-
-
-    const subject =
-      document.getElementById(
-        "complaintSubject"
-      ).value.trim();
-
-
-    const details =
-      document.getElementById(
-        "complaintDetails"
-      ).value.trim();
-
-
-    if(
-      !name ||
-      !mobile ||
-      !subject ||
-      !details
-    ){
-
-      complaintMessage.textContent =
-        "Please fill all complaint details.";
-
-      return;
-
-    }
-
-
-    /*
-      Complaint data is kept temporarily
-      in browser memory only.
-
-      NOTHING is saved to Firestore
-      before successful payment.
-    */
-
-    window.pendingComplaint = {
-
-      name:
-        name,
-
-      mobile:
-        mobile,
-
-      subject:
-        subject,
-
-      details:
-        details
-
-    };
-
-
-    closeComplaintForm();
-
-
-    showPlanPopup(
-      window.pendingComplaint
-    );
-
-  }
+showPlanPopup(
+  window.pendingComplaint
 );
-
-
-/* =========================================================
-   PREMIUM SERVICE PLAN POPUP
-========================================================= */
 
 function showPlanPopup(
   complaint
