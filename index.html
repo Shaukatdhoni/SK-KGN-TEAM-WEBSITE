@@ -1,5 +1,2432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<script async
+src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6233147459809887"
+crossorigin="anonymous"></script>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#07152f">
+
+<title>SK KGN TEAM — Public Grievance Assistance</title>
+
+<meta name="description"
+content="SK KGN TEAM provides professional assistance for complaint drafting, filing assistance and complaint tracking for public grievance and citizen-service matters.">
+
+<meta name="robots" content="index, follow">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Inter,Arial,sans-serif;
+  background:#f5f7fa;
+  color:#10131a;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+button,
+input,
+textarea{
+  font-family:inherit;
+}
+
+.container{
+  width:min(1180px,92%);
+  margin:auto;
+}
+
+
+/* =========================================================
+   VIP STORE
+========================================================= */
+
+.store-vip{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  min-height:230px;
+  padding:28px!important;
+  background:
+    linear-gradient(
+      135deg,
+      #07152f 0%,
+      #123f73 50%,
+      #7028a8 100%
+    )!important;
+  border:2px solid #d6a84f!important;
+  border-radius:28px!important;
+  color:#fff!important;
+  box-shadow:
+    0 12px 35px rgba(20,35,80,.30),
+    0 0 25px rgba(180,120,255,.18);
+  transition:.3s ease;
+}
+
+.store-vip:hover{
+  transform:translateY(-5px);
+}
+
+.store-vip::before{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  right:-90px;
+  top:-90px;
+  border-radius:50%;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.15),
+      transparent 68%
+    );
+  animation:vipGlow 5s ease-in-out infinite;
+}
+
+.store-vip::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:80%;
+  height:100%;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.16),
+      transparent
+    );
+  transform:skewX(-20deg);
+  animation:vipShine 5s infinite;
+}
+
+@keyframes vipShine{
+  0%{left:-120%}
+  45%,100%{left:140%}
+}
+
+@keyframes vipGlow{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.12)}
+}
+
+.vip-badge{
+  display:inline-block;
+  position:relative;
+  z-index:2;
+  padding:8px 15px;
+  border-radius:30px;
+  background:linear-gradient(135deg,#f6d365,#d99b25);
+  color:#111827;
+  font-size:12px;
+  font-weight:800;
+}
+
+.store-content{
+  position:relative;
+  z-index:2;
+  margin-top:22px;
+}
+
+.store-icon{
+  width:58px;
+  height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:18px;
+  font-size:30px;
+}
+
+.store-text h3{
+  margin:0 0 7px;
+  color:#fff!important;
+  font-size:25px;
+  font-weight:800;
+}
+
+.store-text p{
+  margin:0 0 10px;
+  color:#e9e7ff!important;
+  font-size:16px;
+  font-weight:600;
+}
+
+.store-plans{
+  display:block;
+  color:#f6d365;
+  font-size:13px;
+  font-weight:700;
+}
+
+.store-arrow{
+  display:inline-block;
+  margin-top:20px;
+  padding:11px 18px;
+  border-radius:12px;
+  background:#fff;
+  color:#123f73;
+  font-size:13px;
+  font-weight:800;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header{
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid #e7e9ee;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-wrap img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  border-radius:50%;
+}
+
+.nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:-1px;
+}
+
+.logo span{
+  color:#164a9c;
+}
+
+nav{
+  display:flex;
+  gap:25px;
+  align-items:center;
+}
+
+nav a{
+  font-size:14px;
+  font-weight:700;
+  color:#454b57;
+}
+
+nav a:hover{
+  color:#164a9c;
+}
+
+.nav-btn{
+  background:#111827;
+  color:white!important;
+  padding:11px 18px;
+  border-radius:10px;
+}
+
+.menu{
+  display:none;
+  font-size:27px;
+  cursor:pointer;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero{
+  position:relative;
+  padding:78px 0 55px;
+  background:
+    radial-gradient(circle at 85% 20%,#dce8fb 0,transparent 35%),
+    radial-gradient(circle at 15% 80%,#eef4ff 0,transparent 30%),
+    #fff;
+  overflow:hidden;
+}
+
+.hero-grid{
+  position:relative;
+  z-index:2;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:45px;
+  align-items:center;
+}
+
+.badge{
+  display:inline-block;
+  background:#eaf1ff;
+  color:#164a9c;
+  padding:8px 14px;
+  border-radius:30px;
+  font-size:12px;
+  font-weight:800;
+  margin-bottom:18px;
+}
+
+.hero h1{
+  font-size:clamp(38px,5vw,64px);
+  line-height:1.05;
+  letter-spacing:-2.5px;
+  margin-bottom:20px;
+}
+
+.hero h1 span{
+  color:#164a9c;
+}
+
+.hero p{
+  max-width:620px;
+  color:#606875;
+  font-size:17px;
+  margin-bottom:28px;
+}
+
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:14px 21px;
+  border-radius:11px;
+  font-weight:800;
+  border:1px solid #dce0e7;
+  transition:.25s;
+}
+
+.btn:hover{
+  transform:translateY(-3px);
+}
+
+.primary{
+  background:#111827;
+  color:white;
+  border-color:#111827;
+}
+
+.secondary{
+  background:#fff;
+}
+
+.hero-card{
+  background:
+    linear-gradient(
+      rgba(3,10,25,.72),
+      rgba(0,0,0,.82)
+    ),
+    url("justice.png")
+    center/cover no-repeat;
+  border-radius:28px;
+  padding:30px;
+  color:white;
+  min-height:330px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 25px 60px rgba(15,23,42,.20);
+}
+
+.hero-card h3{
+  font-size:26px;
+}
+
+.hero-card p{
+  color:#cbd5e1;
+  margin-top:10px;
+}
+
+.stat{
+  position:absolute;
+  bottom:25px;
+  left:25px;
+  right:25px;
+  background:#fff;
+  color:#111827;
+  border-radius:18px;
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.stat strong{
+  font-size:25px;
+}
+
+.stat small{
+  color:#697180;
+}
+
+
+/* =========================================================
+   SLIDER
+========================================================= */
+
+.slider-section{
+  padding:35px 0;
+}
+
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  background:#111827;
+  aspect-ratio:16/5;
+}
+
+.slides{
+  display:flex;
+  height:100%;
+  transition:transform .7s cubic-bezier(.22,1,.36,1);
+}
+
+.slide{
+  min-width:100%;
+  height:100%;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.dots{
+  position:absolute;
+  bottom:13px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:7px;
+  z-index:5;
+}
+
+.dot{
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#fff8;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.dot.active{
+  background:#fff;
+  width:22px;
+  border-radius:10px;
+}
+
+
+/* =========================================================
+   ASSISTANCE
+========================================================= */
+
+.assistance-section{
+  position:relative;
+  margin:35px auto 10px;
+  padding:48px;
+  border-radius:30px;
+  overflow:hidden;
+  color:#fff;
+  background:
+    radial-gradient(circle at 85% 15%,rgba(59,130,246,.25),transparent 30%),
+    linear-gradient(135deg,#07152f,#0b2347 55%,#101827);
+  border:1px solid rgba(96,165,250,.20);
+  box-shadow:0 25px 70px rgba(7,21,47,.25);
+}
+
+.assistance-content{
+  position:relative;
+  z-index:2;
+  max-width:980px;
+  margin:auto;
+}
+
+.assistance-badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:rgba(96,165,250,.13);
+  border:1px solid rgba(147,197,253,.25);
+  color:#bfdbfe;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.7px;
+  margin-bottom:16px;
+}
+
+.assistance-section h2{
+  font-size:clamp(29px,4vw,44px);
+  line-height:1.1;
+  margin-bottom:18px;
+}
+
+.assistance-intro,
+.assistance-text{
+  color:#cbd5e1;
+  font-size:15px;
+  line-height:1.85;
+}
+
+.assistance-text strong{
+  color:#fff;
+}
+
+.assistance-highlight{
+  margin-top:25px;
+  padding:20px;
+  border-radius:18px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
+}
+
+.assistance-highlight p{
+  color:#fff;
+  font-size:17px;
+  font-weight:800;
+}
+
+.assistance-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:25px;
+}
+
+.assistance-actions a{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 18px;
+  border-radius:12px;
+  background:#fff;
+  color:#111827;
+  font-weight:800;
+}
+
+.assistance-actions a.whatsapp{
+  background:#25D366;
+  color:#fff;
+}
+
+
+/* =========================================================
+   SECTIONS / SERVICES
+========================================================= */
+
+.section{
+  padding:65px 0;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-bottom:28px;
+}
+
+.section-head h2{
+  font-size:32px;
+}
+
+.section-head p{
+  color:#68707d;
+  max-width:520px;
+}
+
+.services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+}
+
+.service{
+  background:#fff;
+  border:1px solid #e4e7ec;
+  border-radius:18px;
+  padding:25px;
+  min-height:190px;
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+
+.service:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 40px rgba(23,32,51,.12);
+}
+
+.service.featured{
+  background:linear-gradient(135deg,#111827,#172d50);
+  color:#fff;
+  border-color:#111827;
+}
+
+.icon{
+  width:45px;
+  height:45px;
+  display:grid;
+  place-items:center;
+  background:#eaf1ff;
+  color:#164a9c;
+  border-radius:13px;
+  font-size:21px;
+  margin-bottom:20px;
+}
+
+.featured .icon{
+  background:#164a9c;
+  color:white;
+}
+
+.service h3{
+  font-size:19px;
+  margin-bottom:7px;
+}
+
+.service p{
+  font-size:13px;
+  color:#6b7280;
+}
+
+.featured p{
+  color:#cbd5e1;
+}
+
+.arrow{
+  position:absolute;
+  right:22px;
+  bottom:20px;
+  font-size:20px;
+}
+
+
+/* =========================================================
+   HOW
+========================================================= */
+
+.how{
+  background:#111827;
+  color:white;
+  padding:55px 0;
+}
+
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:30px;
+}
+
+.step{
+  border:1px solid #ffffff20;
+  border-radius:16px;
+  padding:22px;
+}
+
+.step-number{
+  color:#60a5fa;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:12px;
+}
+
+.step h3{
+  font-size:17px;
+  margin-bottom:6px;
+}
+
+.step p{
+  font-size:13px;
+  color:#aeb7c5;
+}
+
+
+/* =========================================================
+   SCHEMES
+========================================================= */
+
+.scheme-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:25px;
+}
+
+.scheme-item{
+  background:#fff;
+  border:1px solid #e4e7ec;
+  border-radius:18px;
+  padding:22px;
+}
+
+.scheme-item h3{
+  font-size:17px;
+  margin-bottom:6px;
+}
+
+.scheme-item p{
+  color:#68707d;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.scheme-item a,
+.scheme-more a,
+.scheme-help a{
+  color:#164a9c;
+  font-weight:800;
+  font-size:13px;
+}
+
+.scheme-more,
+.scheme-help{
+  margin-top:18px;
+  padding:25px;
+  border-radius:18px;
+  background:#eef4ff;
+  border:1px solid #d9e7ff;
+}
+
+.scheme-more p,
+.scheme-help p{
+  color:#68707d;
+  font-size:13px;
+  margin-bottom:10px;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+  margin:65px auto;
+  background:linear-gradient(120deg,#164a9c,#0e326d);
+  color:white;
+  border-radius:25px;
+  padding:45px;
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+  align-items:center;
+}
+
+.cta h2{
+  font-size:32px;
+}
+
+.cta p{
+  color:#d9e7ff;
+  margin-top:8px;
+}
+
+.cta .btn{
+  background:#fff;
+  color:#111827;
+  border:none;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+  background:#0b0f17;
+  color:white;
+  padding:45px 0 20px;
+}
+
+.footer-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+footer h3{
+  margin-bottom:13px;
+}
+
+footer p,
+footer a{
+  color:#9da6b5;
+  font-size:13px;
+  display:block;
+  margin:7px 0;
+}
+
+.disclaimer{
+  margin-top:30px;
+  padding-top:20px;
+  border-top:1px solid #ffffff15;
+  color:#8d97a7;
+  font-size:12px;
+}
+
+.copyright{
+  border-top:1px solid #ffffff15;
+  margin-top:20px;
+  padding-top:18px;
+  color:#778091;
+  font-size:12px;
+}
+
+
+/* =========================================================
+   COMPLAINT / CONTACT / STATUS
+========================================================= */
+
+.complaint-field{
+  width:100%;
+  padding:14px;
+  margin-bottom:12px;
+  border:1px solid #d9dde5;
+  border-radius:12px;
+  font-size:16px;
+  outline:none;
+}
+
+.complaint-field:focus{
+  border-color:#2563eb;
+}
+
+.complaint-submit{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:12px;
+  background:linear-gradient(135deg,#111827,#1d4ed8);
+  color:white;
+  font-size:17px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.contact-popup-overlay,
+.status-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background:rgba(3,8,18,.78);
+  backdrop-filter:blur(10px);
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+}
+
+.contact-popup{
+  width:min(440px,100%);
+  max-height:90vh;
+  overflow-y:auto;
+  background:#101827;
+  color:#fff;
+  border-radius:30px;
+  padding:28px 22px;
+  position:relative;
+}
+
+.contact-popup-close,
+.status-close{
+  position:absolute;
+  right:15px;
+  top:15px;
+  width:40px;
+  height:40px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  color:#111827;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.contact-popup-badge{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:30px;
+  background:#eaf1ff;
+  color:#164a9c;
+  font-size:11px;
+  font-weight:900;
+}
+
+.contact-popup h2{
+  font-size:32px;
+  margin:12px 0 7px;
+}
+
+.contact-popup-subtitle{
+  color:#aeb7c7;
+  margin-bottom:22px;
+}
+
+.contact-main{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.contact-main a{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:105px;
+  border-radius:20px;
+  color:#fff;
+  font-weight:800;
+}
+
+.contact-call{
+  background:linear-gradient(135deg,#164a9c,#2563eb);
+}
+
+.contact-whatsapp{
+  background:linear-gradient(135deg,#087f45,#16a34a);
+}
+
+.contact-main-icon{
+  font-size:30px;
+}
+
+.contact-details{
+  margin-top:16px;
+  display:grid;
+  gap:10px;
+}
+
+.contact-detail{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:13px;
+  background:#192234;
+  border-radius:16px;
+}
+
+.contact-detail-icon{
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  background:#24314a;
+}
+
+.contact-detail-text small{
+  display:block;
+  color:#8995a9;
+  font-size:10px;
+  font-weight:800;
+}
+
+.contact-detail-text a,
+.contact-detail-text span{
+  color:#fff;
+  font-size:13px;
+  word-break:break-word;
+}
+
+.contact-popup-footer{
+  text-align:center;
+  color:#7f8a9d;
+  font-size:11px;
+  margin-top:18px;
+}
+
+.status-box{
+  width:100%;
+  max-width:500px;
+  background:#fff;
+  border-radius:28px;
+  padding:30px;
+  position:relative;
+}
+
+.status-icon{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  background:#eaf2ff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  margin-bottom:18px;
+}
+
+.status-box h2{
+  font-size:28px;
+}
+
+.status-box>p{
+  color:#667085;
+}
+
+.status-input{
+  display:flex;
+  gap:10px;
+  margin-top:22px;
+}
+
+.status-input input{
+  flex:1;
+  min-width:0;
+  padding:15px;
+  border:1px solid #d0d5dd;
+  border-radius:14px;
+  font-size:15px;
+}
+
+.status-input button{
+  border:0;
+  border-radius:14px;
+  padding:0 18px;
+  background:#111827;
+  color:white;
+  font-weight:700;
+}
+
+.status-loading{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:14px;
+  border-radius:14px;
+  background:#eef4ff;
+  color:#164a9c;
+  font-weight:700;
+}
+
+.status-spinner{
+  width:20px;
+  height:20px;
+  border:3px solid #cfe0ff;
+  border-top-color:#2563eb;
+  border-radius:50%;
+  animation:spin .8s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px){
+
+  nav{
+    display:none;
+  }
+
+  .menu{
+    display:block;
+  }
+
+  .hero-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .steps{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .slider{
+    aspect-ratio:16/8;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .assistance-section{
+    padding:35px 25px;
+  }
+
+}
+
+@media(max-width:600px){
+
+  .nav{
+    height:62px;
+  }
+
+  .logo{
+    font-size:21px;
+  }
+
+  .hero h1{
+    font-size:39px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .hero-grid>:last-child{
+    display:none;
+  }
+
+  .services{
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+  }
+
+  .service{
+    padding:17px;
+    min-height:170px;
+  }
+
+  .service h3{
+    font-size:15px;
+  }
+
+  .service p{
+    font-size:12px;
+  }
+
+  .steps{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .cta{
+    padding:30px 22px;
+    display:block;
+  }
+
+  .cta h2{
+    font-size:27px;
+  }
+
+  .cta .btn{
+    margin-top:20px;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
+
+  .assistance-section{
+    padding:30px 20px;
+    border-radius:24px;
+  }
+
+  .scheme-list{
+    grid-template-columns:1fr;
+  }
+
+  .status-box{
+    padding:24px 20px;
+  }
+
+  .status-input{
+    flex-direction:column;
+  }
+
+  .status-input button{
+    padding:15px;
+  }
+
+  .contact-main{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
 <!-- =======================================================
-     FIREBASE + COMPLAINT PAYMENT SYSTEM
+     HEADER
+======================================================= -->
+
+<header>
+
+<div class="container nav">
+
+<a href="#home" class="logo-wrap">
+
+<img src="Logo.jpg" alt="SK KGN TEAM">
+
+<span class="logo">
+SK <span>KGN TEAM</span>
+</span>
+
+</a>
+
+<nav id="nav">
+
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+<a href="status.html">Check Status</a>
+<a href="#schemes">Schemes</a>
+<a href="#contact">Contact</a>
+<a href="about.html">About Us</a>
+
+<a
+href="#complaint"
+class="nav-btn"
+onclick="openComplaintForm();return false;">
+Lodge Complaint
+</a>
+
+</nav>
+
+<div class="menu" onclick="toggleMenu()">☰</div>
+
+</div>
+
+</header>
+
+
+<!-- =======================================================
+     MAIN
+======================================================= -->
+
+<main id="home">
+
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+<div>
+
+<div class="badge">
+PUBLIC GRIEVANCE ASSISTANCE
+</div>
+
+<h1>
+Your Voice.<br>
+<span>Your Right.</span><br>
+Our Assistance.
+</h1>
+
+<p>
+Get professional assistance for submitting and tracking
+public grievances, government-related matters and important
+citizen services.
+</p>
+
+<div class="buttons">
+
+<a
+href="#complaint"
+class="btn primary"
+onclick="openComplaintForm();return false;">
+Lodge Complaint →
+</a>
+
+<a
+href="status.html"
+class="btn secondary">
+Check Status
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-card">
+
+<h3>SK KGN TEAM</h3>
+
+<p>Public Grievance Assistance</p>
+
+<div class="stat">
+
+<div>
+<strong>01</strong>
+<br>
+<small>Start your complaint</small>
+</div>
+
+<div>
+<strong>→</strong>
+<br>
+<small>Track your progress</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SLIDER -->
+
+<section class="slider-section">
+
+<div class="container">
+
+<div class="slider">
+
+<div class="slides" id="slides">
+
+<div class="slide">
+<img
+src="360_F_1338200747_HApzoFCccSAmUvCTXuJjU7i3GuYIWQYm.jpg"
+alt="SK KGN TEAM Public Grievance Assistance">
+</div>
+
+<div class="slide">
+<img
+src="ai-generated-mother-and-child-in-slum-setting-free-photo.jpg"
+alt="Public Grievance Assistance">
+</div>
+
+<div class="slide">
+<img
+src="pict_original.jpg"
+alt="Citizen Assistance">
+</div>
+
+<div class="slide">
+<img
+src="poor-indian-family-on-the-street-in-allahabad-india.jpg"
+alt="Public Assistance">
+</div>
+
+</div>
+
+<div class="dots">
+
+<span class="dot active" onclick="goSlide(0)"></span>
+<span class="dot" onclick="goSlide(1)"></span>
+<span class="dot" onclick="goSlide(2)"></span>
+<span class="dot" onclick="goSlide(3)"></span>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ASSISTANCE -->
+
+<section class="container">
+
+<div class="assistance-section">
+
+<div class="assistance-content">
+
+<div class="assistance-badge">
+SK KGN TEAM • PUBLIC ASSISTANCE
+</div>
+
+<h2>
+क्या आपका कोई काम महीनों से अटका हुआ है?
+</h2>
+
+<p class="assistance-intro">
+अगर किसी सरकारी कार्यालय, निजी संस्था या सेवा से जुड़ी
+शिकायत में आपको सहायता की आवश्यकता है, तो SK KGN TEAM
+आपको शिकायत तैयार करने और उसे संबंधित स्थान तक पहुंचाने
+की प्रक्रिया में सहायता प्रदान कर सकती है।
+</p>
+
+<div class="assistance-text">
+
+<p>
+<strong>
+चाहे मामला खेत और जमीन के विवाद, अवैध कब्जे या जमीन की
+पैमाइश से जुड़ा हो,
+</strong>
+या किसी कार्यालय में आपका काम लंबे समय से लंबित हो।
+</p>
+
+<br>
+
+<p>
+पुलिस, बिजली, नगर निकाय, सड़क, पानी, सफाई, बैंक,
+स्कूल, अस्पताल, LPG गैस एजेंसी, सोसाइटी, ट्रस्ट,
+मोबाइल नेटवर्क कंपनी या ऑनलाइन शॉपिंग से जुड़ी शिकायतों
+में भी उचित शिकायत तैयार करने और प्रक्रिया संबंधी
+सहायता प्राप्त की जा सकती है।
+</p>
+
+<br>
+
+<p>
+साइबर अपराध, नकली नौकरी, ऑनलाइन धोखाधड़ी या किसी
+निजी कंपनी से जुड़ी शिकायत के मामले में भी हम आपको
+शिकायत की जानकारी व्यवस्थित करने और संबंधित शिकायत
+प्रक्रिया में सहायता प्रदान कर सकते हैं।
+</p>
+
+<br>
+
+<p>
+<strong>
+SK KGN TEAM बड़े से बड़े अधिकारी, सरकारी विभाग,
+जनप्रतिनिधि या निजी संस्था के संबंध में शिकायत के लिए
+औपचारिक ड्राफ्टिंग और शिकायत दर्ज कराने में सहायता
+प्रदान करती है।
+</strong>
+</p>
+
+</div>
+
+<div class="assistance-highlight">
+
+<p>
+आपकी समस्या को सही तरीके से प्रस्तुत करना,
+आपकी शिकायत को व्यवस्थित करना और उसके आगे की प्रक्रिया
+को समझने में सहायता करना — यही हमारा उद्देश्य है।
+</p>
+
+</div>
+
+<div class="assistance-actions">
+
+<a
+href="#complaint"
+onclick="openComplaintForm();return false;">
+📝 Lodge a Complaint →
+</a>
+
+<a href="status.html">
+🔎 Check Complaint Status
+</a>
+
+<a
+href="https://wa.me/917007027158"
+target="_blank"
+class="whatsapp">
+💬 Get Assistance on WhatsApp
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="section" id="services">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<h2>Our Services</h2>
+
+<p>
+Professional assistance for important public grievance
+and citizen-service matters.
+</p>
+
+</div>
+
+</div>
+
+<div class="services">
+
+
+<a
+href="#complaint"
+class="service featured"
+onclick="openComplaintForm();return false;">
+
+<div class="icon">📝</div>
+
+<h3>Lodge Complaint</h3>
+
+<p>
+Submit your grievance through our complaint system.
+</p>
+
+<span class="arrow">→</span>
+
+</a>
+
+
+<a href="status.html" class="service">
+
+<div class="icon">🔎</div>
+
+<h3>Check Status</h3>
+
+<p>
+Track your complaint using your Complaint ID.
+</p>
+
+<span class="arrow">→</span>
+
+</a>
+
+
+<a href="#schemes" class="service">
+
+<div class="icon">🎁</div>
+
+<h3>Schemes & Benefits</h3>
+
+<p>
+Explore useful government schemes and benefits.
+</p>
+
+<span class="arrow">→</span>
+
+</a>
+
+
+<a href="legal.html" class="service">
+
+<div class="icon">⚖️</div>
+
+<h3>Legal & RTI Help</h3>
+
+<p>
+Information and assistance related to RTI and grievances.
+</p>
+
+<span class="arrow">→</span>
+
+</a>
+
+
+<a href="public.html" class="service">
+
+<div class="icon">🏛️</div>
+
+<h3>Public Services</h3>
+
+<p>
+Useful public-service information in one place.
+</p>
+
+<span class="arrow">→</span>
+
+</a>
+
+
+<a
+href="javascript:void(0)"
+class="service"
+onclick="openContactPopup()">
+
+<div class="icon">☎️</div>
+
+<h3>Contact Us</h3>
+
+<p>
+Contact SK KGN TEAM for assistance and enquiries.
+</p>
+
+<span class="arrow">→</span>
+
+</a>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- STORE -->
+
+<section class="container">
+
+<a href="store.html" class="store-vip">
+
+<div style="
+display:flex;
+align-items:center;
+gap:18px;
+min-width:0;
+">
+
+<div class="store-icon">
+🛍️
+</div>
+
+<div class="store-content">
+
+<div class="vip-badge">
+👑 VIP ACCESS
+</div>
+
+<div class="store-text">
+
+<h3>Official Store</h3>
+
+<p>Premium Assistance Plans</p>
+
+<span class="store-plans">
+₹99 • ₹199 • ₹299 • ₹2,999
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="store-arrow">
+EXPLORE<br>
+STORE →
+</div>
+
+</a>
+
+</section>
+
+
+<!-- LODGE -->
+
+<section class="section" id="complaint">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<h2>Lodge a Complaint</h2>
+
+<p>
+Submit your complaint and select your preferred service plan.
+</p>
+
+</div>
+
+</div>
+
+<button
+type="button"
+onclick="openComplaintForm()"
+class="btn primary"
+style="
+display:inline-flex;
+padding:18px 32px;
+min-width:300px;
+border-radius:16px;
+font-size:18px;
+">
+
+📝 Lodge a Complaint →
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- HOW -->
+
+<section class="how" id="how-it-works">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<h2>How It Works</h2>
+
+<p style="color:#aeb7c5">
+A simple process from complaint submission to tracking.
+</p>
+
+</div>
+
+</div>
+
+<div class="steps">
+
+<div class="step">
+<div class="step-number">01</div>
+<h3>Lodge Complaint</h3>
+<p>
+Submit your complaint with the required information.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">02</div>
+<h3>Select Service Plan</h3>
+<p>
+Choose the service plan that suits your requirement.
+</p>
+</div>
+
+<div class="step" id="status">
+<div class="step-number">03</div>
+<h3>Complete Payment</h3>
+<p>
+Complete the secure Razorpay payment.
+</p>
+</div>
+
+<div class="step">
+<div class="step-number">04</div>
+<h3>Get Complaint ID</h3>
+<p>
+Your unique Complaint ID is generated only after successful payment verification.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SCHEMES -->
+
+<section class="section" id="schemes">
+
+<div class="container">
+
+<div class="section-head">
+
+<div>
+
+<h2>Schemes & Benefits</h2>
+
+<p>
+Explore useful government schemes and public-benefit information.
+</p>
+
+</div>
+
+</div>
+
+<div class="scheme-list">
+
+
+<div class="scheme-item">
+<h3>PM-KISAN Samman Nidhi</h3>
+<p>Income support scheme for eligible farmer families.</p>
+<a href="https://pmkisan.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+<div class="scheme-item">
+<h3>Pradhan Mantri Awas Yojana</h3>
+<p>Housing assistance for eligible families.</p>
+<a href="https://pmaymis.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+<div class="scheme-item">
+<h3>Ayushman Bharat PM-JAY</h3>
+<p>Government health coverage scheme for eligible beneficiaries.</p>
+<a href="https://pmjay.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+<div class="scheme-item">
+<h3>Pradhan Mantri Ujjwala Yojana</h3>
+<p>LPG connection assistance for eligible households.</p>
+<a href="https://www.pmuy.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+<div class="scheme-item">
+<h3>e-Shram</h3>
+<p>Government registration and welfare information for unorganised workers.</p>
+<a href="https://eshram.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+<div class="scheme-item">
+<h3>Pradhan Mantri Jan-Dhan Yojana</h3>
+<p>Financial inclusion and access to basic banking services.</p>
+<a href="https://pmjdy.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+<div class="scheme-item">
+<h3>PM Fasal Bima Yojana</h3>
+<p>Crop insurance support for eligible farmers.</p>
+<a href="https://pmfby.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+<div class="scheme-item">
+<h3>National Scholarship Portal</h3>
+<p>Information and application services for government scholarships.</p>
+<a href="https://scholarships.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+<div class="scheme-item">
+<h3>National Food Security / Ration</h3>
+<p>Information related to food security and ration services.</p>
+<a href="https://nfsa.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+<div class="scheme-item">
+<h3>PM Vishwakarma</h3>
+<p>Government support for eligible traditional artisans and craftspeople.</p>
+<a href="https://pmvishwakarma.gov.in/" target="_blank" rel="noopener">
+Official Website →
+</a>
+</div>
+
+
+</div>
+
+
+<div class="scheme-more">
+
+<h3>Find More Government Schemes</h3>
+
+<p>
+Search for Central and State Government schemes based on your
+eligibility and requirements.
+</p>
+
+<a
+href="https://www.myscheme.gov.in/"
+target="_blank"
+rel="noopener">
+Find Government Schemes →
+</a>
+
+</div>
+
+
+<div class="scheme-help">
+
+<h3>Need Assistance?</h3>
+
+<p>
+Have questions about eligibility, required documents,
+application procedures, or a grievance related to a government scheme?
+<strong>Contact SK KGN TEAM for assistance.</strong>
+</p>
+
+<a
+href="#contact"
+onclick="openContactPopup();return false;">
+Contact Us →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<div class="container">
+
+<section class="cta">
+
+<div>
+
+<h2>Need Help With a Complaint?</h2>
+
+<p>
+Start your complaint or contact SK KGN TEAM for assistance.
+</p>
+
+</div>
+
+<a
+href="#complaint"
+class="btn"
+onclick="openComplaintForm();return false;">
+Lodge Complaint →
+</a>
+
+</section>
+
+</div>
+
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>SK KGN TEAM</h3>
+
+<p>Public Grievance Assistance</p>
+
+<p>
+Professional assistance for public grievance and
+citizen-service matters.
+</p>
+
+</div>
+
+
+<div>
+
+<h3>Quick Links</h3>
+
+<a href="#home">Home</a>
+<a href="#services">Services</a>
+
+<a
+href="#complaint"
+onclick="openComplaintForm();return false;">
+Lodge Complaint
+</a>
+
+<a href="status.html">Check Status</a>
+
+<a href="#schemes">Schemes</a>
+
+</div>
+
+
+<div>
+
+<h3>Contact</h3>
+
+<p>Phone: +91 70070 27158</p>
+<p>Email: skkgnteam@gmail.com</p>
+<p>Website: skkgnteam.in</p>
+
+</div>
+
+</div>
+
+
+<p class="disclaimer">
+SK KGN TEAM is an independent private assistance service
+and is not a government department, government website,
+or government authority.
+</p>
+
+<div class="copyright">
+© 2026 SK KGN TEAM. All rights reserved.
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =======================================================
+     COMPLAINT MODAL
+======================================================= -->
+
+<div
+id="complaintModal"
+style="
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.70);
+backdrop-filter:blur(8px);
+z-index:99999;
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+">
+
+<div
+class="complaint-inner"
+style="
+width:100%;
+max-width:520px;
+background:#fff;
+border-radius:24px;
+padding:25px;
+box-shadow:0 25px 70px rgba(0,0,0,.40);
+position:relative;
+max-height:92vh;
+overflow-y:auto;
+">
+
+<button
+type="button"
+onclick="closeComplaintForm()"
+style="
+position:absolute;
+right:18px;
+top:15px;
+border:0;
+background:#f1f1f1;
+width:38px;
+height:38px;
+border-radius:50%;
+font-size:22px;
+cursor:pointer;">
+×
+</button>
+
+<h2 style="
+margin:0 40px 8px 0;
+font-size:28px;">
+Lodge a Complaint
+</h2>
+
+<p style="
+color:#666;
+margin-bottom:22px;">
+Please enter your complaint details below.
+</p>
+
+
+<form id="complaintForm">
+
+<input
+type="text"
+id="complaintName"
+class="complaint-field"
+placeholder="Full Name"
+required>
+
+
+<input
+type="tel"
+id="complaintMobile"
+class="complaint-field"
+placeholder="Mobile Number"
+required>
+
+
+<input
+type="text"
+id="complaintSubject"
+class="complaint-field"
+placeholder="Complaint Subject"
+required>
+
+
+<textarea
+id="complaintDetails"
+class="complaint-field"
+placeholder="Describe your complaint in detail..."
+required
+style="min-height:130px;resize:vertical;"></textarea>
+
+
+<button
+type="submit"
+class="complaint-submit">
+Continue to Service Plans →
+</button>
+
+
+<p
+id="complaintMessage"
+style="
+margin-top:15px;
+font-weight:600;">
+</p>
+
+</form>
+
+</div>
+
+</div>
+
+
+<!-- STATUS MODAL -->
+
+<div id="statusModal" class="status-modal">
+
+<div class="status-box">
+
+<button
+class="status-close"
+onclick="closeStatusModal()">
+×
+</button>
+
+<div class="status-icon">🔍</div>
+
+<h2>Track Your Complaint</h2>
+
+<p>
+Enter your Complaint ID to check the latest status.
+</p>
+
+<div class="status-input">
+
+<input
+id="statusComplaintId"
+type="text"
+placeholder="SKKGN-XXXXXX"
+autocomplete="off">
+
+<button
+id="statusCheckButton"
+onclick="searchComplaintStatus()">
+Check Status →
+</button>
+
+</div>
+
+<div id="statusResult"></div>
+
+</div>
+
+</div>
+
+
+<!-- CONTACT POPUP -->
+
+<div
+class="contact-popup-overlay"
+id="contactPopup">
+
+<div class="contact-popup">
+
+<button
+class="contact-popup-close"
+onclick="closeContactPopup()">
+×
+</button>
+
+<div class="contact-popup-badge">
+SK KGN TEAM
+</div>
+
+<h2>Contact Us</h2>
+
+<p class="contact-popup-subtitle">
+Need assistance with a government scheme,
+grievance, application or citizen service?
+</p>
+
+<div class="contact-main">
+
+<a
+href="tel:+917007027158"
+class="contact-call">
+
+<div class="contact-main-icon">📞</div>
+
+<div>Call Us</div>
+
+<div style="font-size:11px;opacity:.8">
++91 70070 27158
+</div>
+
+</a>
+
+
+<a
+href="https://wa.me/917007027158"
+target="_blank"
+class="contact-whatsapp">
+
+<div class="contact-main-icon">💬</div>
+
+<div>WhatsApp</div>
+
+<div style="font-size:11px;opacity:.8">
+Chat With Us
+</div>
+
+</a>
+
+</div>
+
+
+<div class="contact-details">
+
+<div class="contact-detail">
+
+<div class="contact-detail-icon">✉️</div>
+
+<div class="contact-detail-text">
+
+<small>EMAIL</small>
+
+<a href="mailto:skkgnteam@gmail.com">
+skkgnteam@gmail.com
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-detail">
+
+<div class="contact-detail-icon">🌐</div>
+
+<div class="contact-detail-text">
+
+<small>WEBSITE</small>
+
+<a href="https://skkgnteam.in" target="_blank">
+skkgnteam.in
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-detail">
+
+<div class="contact-detail-icon">📍</div>
+
+<div class="contact-detail-text">
+
+<small>ADDRESS</small>
+
+<span>
+Chouk G-1 F200, Nahar Colony,
+Varanasi, Uttar Pradesh 221106
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="contact-popup-footer">
+SK KGN TEAM • Public Grievance Assistance
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =======================================================
+     BASIC JAVASCRIPT
+======================================================= -->
+
+<script>
+
+let currentSlide = 0;
+
+const slides =
+document.getElementById("slides");
+
+const dots =
+document.querySelectorAll(".dot");
+
+
+function goSlide(index){
+
+  currentSlide=index;
+
+  slides.style.transform =
+    `translateX(-${index*100}%)`;
+
+  dots.forEach((dot,i)=>{
+    dot.classList.toggle(
+      "active",
+      i===index
+    );
+  });
+
+}
+
+
+setInterval(()=>{
+
+  currentSlide =
+    (currentSlide+1)%4;
+
+  goSlide(currentSlide);
+
+},4500);
+
+
+function toggleMenu(){
+
+  const nav =
+    document.getElementById("nav");
+
+  if(nav.style.display==="flex"){
+
+    nav.style.display="none";
+
+  }else{
+
+    nav.style.display="flex";
+    nav.style.position="absolute";
+    nav.style.top="62px";
+    nav.style.left="0";
+    nav.style.right="0";
+    nav.style.padding="20px";
+    nav.style.background="#fff";
+    nav.style.flexDirection="column";
+    nav.style.alignItems="stretch";
+    nav.style.boxShadow=
+      "0 15px 35px rgba(0,0,0,.10)";
+
+  }
+
+}
+
+
+function openComplaintForm(){
+
+  document.getElementById(
+    "complaintModal"
+  ).style.display="flex";
+
+}
+
+
+function closeComplaintForm(){
+
+  document.getElementById(
+    "complaintModal"
+  ).style.display="none";
+
+}
+
+
+function openContactPopup(){
+
+  document.getElementById(
+    "contactPopup"
+  ).classList.add("active");
+
+}
+
+
+function closeContactPopup(){
+
+  document.getElementById(
+    "contactPopup"
+  ).classList.remove("active");
+
+}
+
+
+function openStatusModal(){
+
+  document.getElementById(
+    "statusModal"
+  ).style.display="flex";
+
+}
+
+
+function closeStatusModal(){
+
+  document.getElementById(
+    "statusModal"
+  ).style.display="none";
+
+}
+
+</script>
+
+
+<!-- =======================================================
+     FINAL SINGLE FIREBASE + PAYMENT SYSTEM
 ======================================================= -->
 
 <script type="module">
@@ -16,34 +2443,23 @@ from
 import {
   getFirestore,
   collection,
+  setDoc,
   doc,
   getDoc,
+  serverTimestamp,
   getDocs,
-  setDoc,
   query,
-  where,
-  serverTimestamp
+  where
 }
 from
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
 /* =========================================================
-   CONFIG
-========================================================= */
-
-const BACKEND_URL =
-  "https://skkgn-razorpay-backend.vercel.app";
-
-const PENDING_PAYMENT_KEY =
-  "SKKGN_PENDING_PAYMENT";
-
-
-/* =========================================================
    FIREBASE
 ========================================================= */
 
-const firebaseConfig = {
+const firebaseConfig={
 
   apiKey:
     "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
@@ -83,7 +2499,37 @@ const db =
 
 
 /* =========================================================
-   COMPLAINT ELEMENTS
+   BACKEND
+========================================================= */
+
+const BACKEND_URL =
+  "https://skkgn-razorpay-backend.vercel.app";
+
+
+const ACTIVE_PAYMENT_KEY =
+  "SKKGN_ACTIVE_PAYMENT";
+
+
+let verificationStarted=false;
+
+
+/* =========================================================
+   COMPLAINT ID
+========================================================= */
+
+function generateComplaintId(){
+
+  return "SKKGN-" +
+    Math.random()
+      .toString(36)
+      .substring(2,8)
+      .toUpperCase();
+
+}
+
+
+/* =========================================================
+   FORM
 ========================================================= */
 
 const complaintForm =
@@ -92,171 +2538,117 @@ const complaintForm =
   );
 
 
-const complaintMessage =
-  document.getElementById(
-    "complaintMessage"
-  );
+complaintForm.addEventListener(
+  "submit",
+  async function(e){
+
+    e.preventDefault();
 
 
-/* =========================================================
-   GENERATE COMPLAINT ID
-========================================================= */
-
-function generateComplaintId(){
-
-  return (
-    "SKKGN-" +
-    Math.random()
-      .toString(36)
-      .substring(2,8)
-      .toUpperCase()
-  );
-
-}
+    const name =
+      document
+        .getElementById("complaintName")
+        .value
+        .trim();
 
 
-/* =========================================================
-   COMPLAINT FORM
-   PAYMENT SE PEHLE KUCH SAVE NAHI HOGA
-========================================================= */
-
-if(complaintForm){
-
-  complaintForm.addEventListener(
-    "submit",
-    async function(e){
-
-      e.preventDefault();
+    const mobile =
+      document
+        .getElementById("complaintMobile")
+        .value
+        .trim();
 
 
-      const name =
-        document
-          .getElementById(
-            "complaintName"
-          )
-          .value
-          .trim();
+    const subject =
+      document
+        .getElementById("complaintSubject")
+        .value
+        .trim();
 
 
-      const mobile =
-        document
-          .getElementById(
-            "complaintMobile"
-          )
-          .value
-          .trim();
+    const details =
+      document
+        .getElementById("complaintDetails")
+        .value
+        .trim();
 
 
-      const subject =
-        document
-          .getElementById(
-            "complaintSubject"
-          )
-          .value
-          .trim();
+    const message =
+      document.getElementById(
+        "complaintMessage"
+      );
 
 
-      const details =
-        document
-          .getElementById(
-            "complaintDetails"
-          )
-          .value
-          .trim();
+    if(
+      !name ||
+      !mobile ||
+      !subject ||
+      !details
+    ){
 
+      message.textContent =
+        "Please fill all complaint details.";
 
-      if(
-        !name ||
-        !mobile ||
-        !subject ||
-        !details
-      ){
-
-        complaintMessage.textContent =
-          "Please fill all complaint details.";
-
-        return;
-
-      }
-
-
-      /*
-        IMPORTANT:
-
-        NO Complaint ID here.
-        NO Firestore write here.
-        NO payment confirmation here.
-      */
-
-      window.pendingComplaint = {
-
-        name:
-          name,
-
-        mobile:
-          mobile,
-
-        subject:
-          subject,
-
-        details:
-          details
-
-      };
-
-
-      complaintMessage.textContent = "";
-
-
-      closeComplaintForm();
-
-
-      showPlanPopup();
+      return;
 
     }
-  );
 
-}
+
+    /*
+      IMPORTANT:
+
+      No Complaint ID here.
+      No Firestore write here.
+    */
+
+    window.pendingComplaint={
+
+      name,
+      mobile,
+      subject,
+      details
+
+    };
+
+
+    closeComplaintForm();
+
+
+    showPlanPopup(
+      window.pendingComplaint
+    );
+
+  }
+);
 
 
 /* =========================================================
-   PLAN POPUP
+   SERVICE PLAN POPUP
 ========================================================= */
 
-function showPlanPopup(){
+function showPlanPopup(complaint){
 
   const old =
-    document.getElementById(
-      "skKgnPlanModal"
+    document.querySelector(
+      ".sk-plan-popup"
     );
-
 
   if(old)
     old.remove();
 
 
-  if(
-    !window.pendingComplaint
-  ){
-
-    return;
-
-  }
-
-
-  const modal =
+  const popup =
     document.createElement("div");
 
 
-  modal.id =
-    "skKgnPlanModal";
+  popup.className =
+    "sk-plan-popup";
 
 
-  modal.style.cssText = `
+  popup.style.cssText=`
 
     position:fixed;
     inset:0;
-
     z-index:200000;
 
     display:flex;
@@ -268,22 +2660,21 @@ function showPlanPopup(){
     background:
       radial-gradient(
         circle at 50% 0%,
-        rgba(37,99,235,.28),
-        transparent 42%
+        rgba(37,99,235,.25),
+        transparent 40%
       ),
-      rgba(2,7,18,.92);
+      rgba(2,7,18,.90);
 
     backdrop-filter:blur(15px);
-    -webkit-backdrop-filter:blur(15px);
 
   `;
 
 
-  modal.innerHTML = `
+  popup.innerHTML=`
 
     <style>
 
-      @keyframes skPlanIn{
+      @keyframes skBoxIn{
 
         from{
           opacity:0;
@@ -302,7 +2693,7 @@ function showPlanPopup(){
       }
 
 
-      @keyframes skLogoPulse{
+      @keyframes skVipPulse{
 
         0%,100%{
 
@@ -311,10 +2702,12 @@ function showPlanPopup(){
           box-shadow:
             0 0 0 1px
               rgba(246,211,101,.35),
+
             0 0 25px
               rgba(246,211,101,.30),
-            0 15px 40px
-              rgba(0,0,0,.40);
+
+            0 12px 35px
+              rgba(0,0,0,.35);
 
         }
 
@@ -324,18 +2717,20 @@ function showPlanPopup(){
 
           box-shadow:
             0 0 0 1px
-              rgba(246,211,101,.65),
-            0 0 42px
               rgba(246,211,101,.60),
-            0 18px 48px
-              rgba(0,0,0,.45);
+
+            0 0 40px
+              rgba(246,211,101,.55),
+
+            0 16px 42px
+              rgba(0,0,0,.40);
 
         }
 
       }
 
 
-      @keyframes skLogoRing{
+      @keyframes skVipRing{
 
         from{
           transform:rotate(0deg);
@@ -343,7 +2738,7 @@ function showPlanPopup(){
         }
 
         50%{
-          opacity:.85;
+          opacity:.8;
         }
 
         to{
@@ -354,23 +2749,14 @@ function showPlanPopup(){
       }
 
 
-      @keyframes skLogoShine{
+      @keyframes skVipShine{
 
         0%,55%{
-          transform:translateX(-140%);
+          transform:translateX(-130%);
         }
 
         75%,100%{
-          transform:translateX(140%);
-        }
-
-      }
-
-
-      @keyframes skSpin{
-
-        to{
-          transform:rotate(360deg);
+          transform:translateX(130%);
         }
 
       }
@@ -384,7 +2770,7 @@ function showPlanPopup(){
         max-height:92vh;
         overflow-y:auto;
 
-        padding:28px 20px;
+        padding:28px 20px 20px;
 
         border-radius:30px;
 
@@ -398,20 +2784,18 @@ function showPlanPopup(){
 
         border:
           1px solid
-          rgba(246,211,101,.38);
+          rgba(246,211,101,.40);
 
         box-shadow:
           0 30px 90px
-          rgba(0,0,0,.60),
-          0 0 45px
-          rgba(37,99,235,.20);
+          rgba(0,0,0,.60);
 
         color:white;
 
         text-align:center;
 
         animation:
-          skPlanIn .4s ease;
+          skBoxIn .4s ease;
 
       }
 
@@ -421,7 +2805,8 @@ function showPlanPopup(){
         width:78px;
         height:78px;
 
-        margin:0 auto 20px;
+        margin:
+          0 auto 20px;
 
         padding:4px;
 
@@ -442,8 +2827,18 @@ function showPlanPopup(){
             #f6d365
           );
 
+        box-shadow:
+          0 0 0 1px
+            rgba(246,211,101,.35),
+
+          0 0 25px
+            rgba(246,211,101,.30),
+
+          0 12px 35px
+            rgba(0,0,0,.35);
+
         animation:
-          skLogoPulse
+          skVipPulse
           2.8s
           ease-in-out
           infinite;
@@ -463,10 +2858,10 @@ function showPlanPopup(){
 
         border:
           1px solid
-          rgba(246,211,101,.45);
+          rgba(246,211,101,.35);
 
         animation:
-          skLogoRing
+          skVipRing
           3s
           linear
           infinite;
@@ -493,10 +2888,10 @@ function showPlanPopup(){
           );
 
         transform:
-          translateX(-140%);
+          translateX(-130%);
 
         animation:
-          skLogoShine
+          skVipShine
           3.2s
           ease-in-out
           infinite;
@@ -528,7 +2923,7 @@ function showPlanPopup(){
 
         color:#f6d365;
 
-        font-size:25px;
+        font-size:27px;
 
         font-weight:900;
 
@@ -540,22 +2935,13 @@ function showPlanPopup(){
       .sk-plan-desc{
 
         margin:
-          12px 4px 22px;
+          12px 0 22px;
 
         color:#b9c4d8;
 
         font-size:14px;
 
-        line-height:1.6;
-
-      }
-
-
-      .sk-plan-list{
-
-        display:grid;
-
-        gap:12px;
+        line-height:1.65;
 
       }
 
@@ -566,20 +2952,22 @@ function showPlanPopup(){
 
         padding:18px;
 
-        border-radius:19px;
+        margin:12px 0;
 
-        border:
-          1px solid
-          rgba(255,255,255,.13);
+        border-radius:18px;
+
+        text-align:left;
+
+        color:#fff;
+
+        cursor:pointer;
 
         background:
           rgba(255,255,255,.055);
 
-        color:#fff;
-
-        text-align:left;
-
-        cursor:pointer;
+        border:
+          1px solid
+          rgba(255,255,255,.13);
 
         transition:.25s;
 
@@ -612,19 +3000,19 @@ function showPlanPopup(){
           );
 
         box-shadow:
-          0 15px 45px
-          rgba(0,0,0,.30);
+          0 0 30px
+          rgba(246,211,101,.14);
 
       }
 
 
-      .sk-plan-top{
+      .sk-plan-head{
 
         display:flex;
 
-        align-items:center;
-
         justify-content:space-between;
+
+        align-items:center;
 
         gap:10px;
 
@@ -642,40 +3030,24 @@ function showPlanPopup(){
 
       .sk-plan-price{
 
-        font-size:21px;
-
-        font-weight:900;
-
         color:#f6d365;
 
-        white-space:nowrap;
+        font-size:23px;
+
+        font-weight:900;
 
       }
 
 
       .sk-plan-text{
 
-        margin-top:9px;
+        margin-top:8px;
 
-        color:#b9c4d8;
+        color:#cbd5e1;
 
         font-size:13px;
 
         line-height:1.55;
-
-      }
-
-
-      .sk-plan-card.premium
-      .sk-plan-text{
-
-        color:#f1f5f9;
-
-        font-weight:700;
-
-        font-size:14px;
-
-        line-height:1.7;
 
       }
 
@@ -712,7 +3084,7 @@ function showPlanPopup(){
 
         width:100%;
 
-        margin-top:13px;
+        margin-top:10px;
 
         padding:13px;
 
@@ -731,6 +3103,25 @@ function showPlanPopup(){
 
       }
 
+
+      @media(max-width:500px){
+
+        .sk-plan-box{
+          padding:
+            24px 15px 18px;
+        }
+
+        .sk-plan-logo{
+          width:70px;
+          height:70px;
+        }
+
+        .sk-plan-title{
+          font-size:24px;
+        }
+
+      }
+
     </style>
 
 
@@ -741,8 +3132,7 @@ function showPlanPopup(){
 
         <img
           src="Logo.jpg"
-          alt="SK KGN TEAM"
-        >
+          alt="SK KGN TEAM">
 
       </div>
 
@@ -754,29 +3144,25 @@ function showPlanPopup(){
 
       <p class="sk-plan-desc">
 
-        Select your preferred service plan and complete
-        the payment. Once your payment is successfully
-        completed, a unique Complaint ID will be generated
-        for your complaint. You can use this Complaint ID
-        to check your complaint status, track progress
-        and view future updates.
+        Select your preferred service plan and complete the payment.
+        Once your payment is successfully completed, a unique
+        Complaint ID will be generated for your complaint.
+        You can use this Complaint ID to check your complaint status,
+        track progress and view future updates.
 
       </p>
 
-
-      <!-- BASIC -->
 
       <button
         type="button"
         class="sk-plan-card"
         data-plan="Basic"
-        data-amount="99"
-      >
+        data-amount="99">
 
-        <div class="sk-plan-top">
+        <div class="sk-plan-head">
 
           <span class="sk-plan-name">
-            BASIC PLAN
+            Basic Plan
           </span>
 
           <span class="sk-plan-price">
@@ -785,30 +3171,28 @@ function showPlanPopup(){
 
         </div>
 
-
         <div class="sk-plan-text">
 
           Professional Complaint Draft
+          • Hindi & English
+          • PDF Format
+          • Draft Ready in 1 Hour
 
         </div>
 
-
       </button>
 
-
-      <!-- ADVANCE -->
 
       <button
         type="button"
         class="sk-plan-card"
         data-plan="Advance"
-        data-amount="199"
-      >
+        data-amount="199">
 
-        <div class="sk-plan-top">
+        <div class="sk-plan-head">
 
           <span class="sk-plan-name">
-            ADVANCE PLAN
+            Advance Plan
           </span>
 
           <span class="sk-plan-price">
@@ -817,31 +3201,26 @@ function showPlanPopup(){
 
         </div>
 
-
         <div class="sk-plan-text">
 
-          Professional Complaint Draft +
-          Lodge Support
+          Complete Drafting + Filing Assistance
+          • Complaint Submission Copy
 
         </div>
 
-
       </button>
 
-
-      <!-- PREMIUM -->
 
       <button
         type="button"
         class="sk-plan-card premium"
         data-plan="Premium"
-        data-amount="299"
-      >
+        data-amount="299">
 
-        <div class="sk-plan-top">
+        <div class="sk-plan-head">
 
           <span class="sk-plan-name">
-            PREMIUM PLAN
+            Premium Plan
           </span>
 
           <span class="sk-plan-price">
@@ -850,7 +3229,6 @@ function showPlanPopup(){
 
         </div>
 
-
         <div class="sk-plan-text">
 
           Draft + Lodge + Feedback + Reminder +
@@ -858,25 +3236,36 @@ function showPlanPopup(){
 
         </div>
 
-
         <span class="sk-premium-badge">
           PREMIUM SERVICE
         </span>
 
-
       </button>
+
+
+      <div style="
+        margin-top:16px;
+        padding:13px;
+        border-radius:14px;
+        background:rgba(255,255,255,.06);
+        color:#aebbd0;
+        font-size:11px;
+        line-height:1.55;
+      ">
+
+        🔒 Complaint ID is generated only after
+        successful payment verification.
+
+      </div>
 
 
       <button
         type="button"
-        id="skPlanCancel"
-        class="sk-plan-cancel"
-      >
+        class="sk-plan-cancel">
 
         Cancel
 
       </button>
-
 
     </div>
 
@@ -884,60 +3273,33 @@ function showPlanPopup(){
 
 
   document.body.appendChild(
-    modal
+    popup
   );
 
 
-  modal
-    .querySelectorAll(
-      ".sk-plan-card"
+  popup
+    .querySelector(
+      ".sk-plan-cancel"
     )
-    .forEach(
-      card => {
+    .onclick=()=>{
 
-        card.addEventListener(
-          "click",
-          function(){
+      popup.remove();
 
-            startPayment(
-              card.dataset.plan,
-              Number(
-                card.dataset.amount
-              )
-            );
-
-          }
-        );
-
-      }
-    );
-
-
-  document
-    .getElementById(
-      "skPlanCancel"
-    )
-    .onclick = function(){
-
-      modal.remove();
-
-      window.pendingComplaint =
+      window.pendingComplaint=
         null;
 
     };
 
 
-  modal.addEventListener(
+  popup.addEventListener(
     "click",
-    function(e){
+    e=>{
 
-      if(
-        e.target === modal
-      ){
+      if(e.target===popup){
 
-        modal.remove();
+        popup.remove();
 
-        window.pendingComplaint =
+        window.pendingComplaint=
           null;
 
       }
@@ -945,24 +3307,49 @@ function showPlanPopup(){
     }
   );
 
+
+  popup
+    .querySelectorAll(
+      "[data-plan]"
+    )
+    .forEach(button=>{
+
+      button.addEventListener(
+        "click",
+        ()=>{
+
+          createPayment(
+            complaint,
+            button.dataset.plan,
+            Number(
+              button.dataset.amount
+            ),
+            popup
+          );
+
+        }
+      );
+
+    });
+
 }
 
 
 /* =========================================================
-   START PAYMENT
+   CREATE PAYMENT
 ========================================================= */
 
-async function startPayment(
+async function createPayment(
+  complaint,
   plan,
-  amount
+  amount,
+  planPopup
 ){
 
-  if(
-    !window.pendingComplaint
-  ){
+  if(!complaint){
 
     alert(
-      "Complaint details are missing. Please try again."
+      "Complaint information is missing."
     );
 
     return;
@@ -970,55 +3357,31 @@ async function startPayment(
   }
 
 
-  const modal =
-    document.getElementById(
-      "skKgnPlanModal"
-    );
+  planPopup
+    .querySelectorAll(
+      "[data-plan]"
+    )
+    .forEach(button=>{
 
+      button.disabled=true;
+      button.style.opacity=".55";
 
-  if(modal){
-
-    modal
-      .querySelectorAll(
-        ".sk-plan-card"
-      )
-      .forEach(
-        item => {
-
-          item.disabled = true;
-
-          item.style.opacity =
-            ".55";
-
-          item.style.pointerEvents =
-            "none";
-
-        }
-      );
-
-  }
+    });
 
 
   const loading =
     document.createElement("div");
 
 
-  loading.id =
-    "skKgnPaymentLoading";
-
-
-  loading.style.cssText = `
+  loading.style.cssText=`
 
     position:fixed;
     inset:0;
-
     z-index:300000;
 
     display:flex;
     align-items:center;
     justify-content:center;
-
-    padding:20px;
 
     background:
       rgba(2,7,18,.88);
@@ -1028,74 +3391,46 @@ async function startPayment(
   `;
 
 
-  loading.innerHTML = `
+  loading.innerHTML=`
 
     <div style="
-
-      width:100%;
-      max-width:360px;
-
+      width:min(360px,90%);
       padding:28px;
-
       border-radius:22px;
-
-      text-align:center;
-
       background:#07152f;
-
-      border:
-        1px solid
-        rgba(246,211,101,.30);
-
-      box-shadow:
-        0 25px 70px
-        rgba(0,0,0,.55);
-
       color:#fff;
-
+      text-align:center;
+      border:1px solid rgba(246,211,101,.30);
     ">
 
       <div style="
-
         width:42px;
         height:42px;
-
-        margin:
-          0 auto 18px;
-
-        border:
-          4px solid
-          rgba(246,211,101,.25);
-
-        border-top-color:
-          #f6d365;
-
+        margin:0 auto 18px;
+        border:4px solid rgba(246,211,101,.25);
+        border-top-color:#f6d365;
         border-radius:50%;
-
-        animation:
-          skSpin 1s linear infinite;
-
+        animation:skPaymentSpin 1s linear infinite;
       "></div>
 
+      <style>
+        @keyframes skPaymentSpin{
+          to{transform:rotate(360deg)}
+        }
+      </style>
 
-      <h3 style="
-        margin:0 0 8px;
-      ">
-
+      <h3 style="margin-bottom:8px">
         Preparing Secure Payment
-
       </h3>
 
-
       <p style="
-        margin:0;
         color:#aeb7c7;
         font-size:13px;
         line-height:1.5;
       ">
 
-        Please wait while we securely
-        prepare your Razorpay payment.
+        Please wait while Razorpay payment
+        is being securely prepared.
 
       </p>
 
@@ -1124,25 +3459,22 @@ async function startPayment(
               "application/json"
           },
 
-          body:
-            JSON.stringify({
+          body:JSON.stringify({
 
-              plan:
-                plan,
+            plan,
+            name:
+              complaint.name,
 
-              name:
-                window.pendingComplaint.name,
+            mobile:
+              complaint.mobile,
 
-              mobile:
-                window.pendingComplaint.mobile,
+            subject:
+              complaint.subject,
 
-              subject:
-                window.pendingComplaint.subject,
+            details:
+              complaint.details
 
-              details:
-                window.pendingComplaint.details
-
-            })
+          })
 
         }
       );
@@ -1167,26 +3499,23 @@ async function startPayment(
 
 
     /*
-      Store ONLY the payment-link
-      information needed to return
-      to payment.
+      Store ONLY payment information.
 
-      Complaint itself is NOT saved
-      to Firestore here.
+      Complaint ID is NOT stored/generated.
     */
 
     sessionStorage.setItem(
-      PENDING_PAYMENT_KEY,
+
+      ACTIVE_PAYMENT_KEY,
+
       JSON.stringify({
-
-        plan:
-          plan,
-
-        amount:
-          amount,
 
         shortUrl:
           data.shortUrl,
+
+        plan,
+
+        amount,
 
         paymentLinkId:
           data.paymentLinkId,
@@ -1195,14 +3524,15 @@ async function startPayment(
           data.referenceId
 
       })
+
     );
 
 
     /*
-      Same tab.
+      Same-tab navigation is intentional.
 
-      Razorpay callback will return
-      to skkgnteam.in after payment.
+      Razorpay returns to the callback URL,
+      which then redirects back to this site.
     */
 
     window.location.href =
@@ -1220,28 +3550,16 @@ async function startPayment(
     loading.remove();
 
 
-    if(modal){
+    planPopup
+      .querySelectorAll(
+        "[data-plan]"
+      )
+      .forEach(button=>{
 
-      modal
-        .querySelectorAll(
-          ".sk-plan-card"
-        )
-        .forEach(
-          item => {
+        button.disabled=false;
+        button.style.opacity="1";
 
-            item.disabled =
-              false;
-
-            item.style.opacity =
-              "1";
-
-            item.style.pointerEvents =
-              "auto";
-
-          }
-        );
-
-    }
+      });
 
 
     alert(
@@ -1261,59 +3579,60 @@ async function startPayment(
 
 function showPaymentPendingPopup(){
 
-  const old =
-    document.getElementById(
-      "skKgnPaymentPending"
+  const activeRaw =
+    sessionStorage.getItem(
+      ACTIVE_PAYMENT_KEY
     );
 
 
-  if(old)
-    old.remove();
+  if(!activeRaw)
+    return;
 
 
-  let pending = null;
-
+  let active;
 
   try{
 
-    pending =
-      JSON.parse(
-        sessionStorage.getItem(
-          PENDING_PAYMENT_KEY
-        ) || "null"
-      );
+    active =
+      JSON.parse(activeRaw);
 
   }catch{
 
-    pending = null;
-
-  }
-
-
-  if(
-    !pending ||
-    !pending.shortUrl
-  ){
+    sessionStorage.removeItem(
+      ACTIVE_PAYMENT_KEY
+    );
 
     return;
 
   }
 
 
-  const modal =
+  if(!active.shortUrl)
+    return;
+
+
+  const old =
+    document.querySelector(
+      ".sk-payment-pending"
+    );
+
+  if(old)
+    old.remove();
+
+
+  const popup =
     document.createElement("div");
 
 
-  modal.id =
-    "skKgnPaymentPending";
+  popup.className =
+    "sk-payment-pending";
 
 
-  modal.style.cssText = `
+  popup.style.cssText=`
 
     position:fixed;
     inset:0;
-
-    z-index:400000;
+    z-index:300000;
 
     display:flex;
     align-items:center;
@@ -1322,232 +3641,126 @@ function showPaymentPendingPopup(){
     padding:20px;
 
     background:
-      rgba(2,7,18,.90);
+      rgba(2,7,18,.82);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(10px);
 
   `;
 
 
-  modal.innerHTML = `
+  popup.innerHTML=`
 
     <div style="
 
-      width:100%;
-      max-width:430px;
+      width:min(420px,100%);
 
       padding:30px 22px;
 
-      border-radius:28px;
+      border-radius:26px;
 
-      background:
-        linear-gradient(
-          145deg,
-          #07152f,
-          #123f73
-        );
-
-      border:
-        1px solid
-        rgba(246,211,101,.55);
-
-      box-shadow:
-        0 30px 90px
-        rgba(0,0,0,.60);
-
-      color:#fff;
+      background:#fff;
 
       text-align:center;
 
+      box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.45);
+
     ">
 
-
       <div style="
-
-        width:68px;
-        height:68px;
-
-        margin:
-          0 auto 17px;
-
+        width:65px;
+        height:65px;
+        margin:0 auto 15px;
+        border-radius:50%;
         display:flex;
-
         align-items:center;
         justify-content:center;
-
-        border-radius:50%;
-
-        background:
-          rgba(246,211,101,.12);
-
-        border:
-          1px solid
-          rgba(246,211,101,.40);
-
-        color:#f6d365;
-
+        background:#fff7ed;
+        color:#c2410c;
         font-size:30px;
-
         font-weight:900;
-
       ">
-
-        ₹
-
-      </div>
-
-
-      <div style="
-
-        color:#f6d365;
-
-        font-size:11px;
-
-        font-weight:900;
-
-        letter-spacing:1px;
-
-        margin-bottom:8px;
-
-      ">
-
-        PAYMENT NOT COMPLETED
-
+        !
       </div>
 
 
       <h2 style="
-
         margin:0 0 10px;
-
-        font-size:26px;
-
+        color:#111827;
       ">
 
-        Complete Your Payment
+        Payment Not Completed
 
       </h2>
 
 
       <p style="
-
-        margin:0 0 20px;
-
-        color:#dbe7f8;
-
-        font-size:14px;
-
+        color:#667085;
         line-height:1.6;
-
+        font-size:14px;
       ">
 
         Your payment was not completed.
-        No Complaint ID has been generated
-        and your complaint has not been registered.
+        No Complaint ID has been generated.
 
       </p>
 
 
       <div style="
-
+        margin-top:18px;
         padding:13px;
-
-        margin-bottom:15px;
-
-        border-radius:14px;
-
-        background:
-          rgba(255,255,255,.07);
-
-        color:#f1f5f9;
-
+        border-radius:13px;
+        background:#f5f7fa;
+        color:#475467;
         font-size:13px;
-
+        font-weight:700;
       ">
 
-        Selected Plan:
-
-        <strong>
-
-          ${pending.plan}
-          — ₹${pending.amount}
-
-        </strong>
+        ${active.plan || "Selected Plan"}
+        — ₹${active.amount || ""}
 
       </div>
 
-
-      <!-- OPTION 1 -->
 
       <button
         id="skContinuePayment"
         type="button"
         style="
-
           width:100%;
-
+          margin-top:18px;
           padding:14px;
-
           border:0;
-
           border-radius:13px;
-
-          background:
-            linear-gradient(
-              135deg,
-              #f6d365,
-              #d99b25
-            );
-
-          color:#111827;
-
-          font-size:14px;
-
+          background:#111827;
+          color:#fff;
           font-weight:900;
-
           cursor:pointer;
+        ">
 
-        "
-      >
-
-        CONTINUE PAYMENT →
+        Continue Payment →
 
       </button>
 
-
-      <!-- OPTION 2 -->
 
       <button
         id="skCancelPayment"
         type="button"
         style="
-
           width:100%;
-
           margin-top:10px;
-
           padding:13px;
-
-          border:0;
-
+          border:1px solid #d0d5dd;
           border-radius:13px;
-
-          background:
-            rgba(255,255,255,.08);
-
-          color:#cbd5e1;
-
+          background:#fff;
+          color:#344054;
           font-weight:800;
-
           cursor:pointer;
+        ">
 
-        "
-      >
-
-        CANCEL
+        Cancel
 
       </button>
-
 
     </div>
 
@@ -1555,56 +3768,45 @@ function showPaymentPendingPopup(){
 
 
   document.body.appendChild(
-    modal
+    popup
   );
 
 
-  document
-    .getElementById(
-      "skContinuePayment"
-    )
-    .onclick = function(){
+  document.getElementById(
+    "skContinuePayment"
+  ).onclick=()=>{
 
-      window.location.href =
-        pending.shortUrl;
+    window.location.href =
+      active.shortUrl;
 
-    };
+  };
 
 
-  document
-    .getElementById(
-      "skCancelPayment"
-    )
-    .onclick = function(){
+  document.getElementById(
+    "skCancelPayment"
+  ).onclick=()=>{
 
-      sessionStorage.removeItem(
-        PENDING_PAYMENT_KEY
-      );
+    sessionStorage.removeItem(
+      ACTIVE_PAYMENT_KEY
+    );
 
+    popup.remove();
 
-      window.pendingComplaint =
-        null;
-
-
-      modal.remove();
-
-    };
+  };
 
 }
 
 
 /* =========================================================
-   PAYMENT VERIFICATION
+   VERIFIED PAYMENT
 ========================================================= */
-
-let verificationStarted =
-  false;
-
 
 async function handleVerifiedPayment(){
 
   if(verificationStarted)
     return;
+
+  verificationStarted=true;
 
 
   const params =
@@ -1621,12 +3823,25 @@ async function handleVerifiedPayment(){
     params.get("token");
 
 
-  /* =======================================================
-     SUCCESSFUL RAZORPAY CALLBACK
-  ======================================================= */
+  /* FAILED CALLBACK */
+
+  if(payment==="failed"){
+
+    showPaymentPendingPopup();
+
+    window.history.replaceState(
+      {},
+      document.title,
+      window.location.pathname
+    );
+
+    return;
+
+  }
+
 
   if(
-    payment !== "verified" ||
+    payment!=="verified" ||
     !token
   ){
 
@@ -1635,110 +3850,72 @@ async function handleVerifiedPayment(){
   }
 
 
-  verificationStarted =
-    true;
-
-
   const loading =
     document.createElement("div");
 
 
-  loading.id =
-    "skKgnVerificationLoading";
-
-
-  loading.style.cssText = `
+  loading.style.cssText=`
 
     position:fixed;
     inset:0;
-
-    z-index:500000;
+    z-index:400000;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     padding:20px;
 
     background:
-      rgba(2,7,18,.92);
+      rgba(2,7,18,.90);
 
     backdrop-filter:blur(12px);
 
   `;
 
 
-  loading.innerHTML = `
+  loading.innerHTML=`
 
     <div style="
-
-      width:100%;
-      max-width:380px;
-
-      padding:30px;
-
+      width:min(370px,90%);
+      padding:30px 22px;
       border-radius:24px;
-
       background:#07152f;
-
-      border:
-        1px solid
-        rgba(246,211,101,.30);
-
       color:#fff;
-
       text-align:center;
-
-      box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.55);
-
+      border:1px solid rgba(246,211,101,.30);
     ">
 
-
       <div style="
-
-        width:45px;
-        height:45px;
-
-        margin:
-          0 auto 18px;
-
-        border:
-          4px solid
-          rgba(246,211,101,.25);
-
-        border-top-color:
-          #f6d365;
-
+        width:44px;
+        height:44px;
+        margin:0 auto 18px;
+        border:4px solid rgba(246,211,101,.25);
+        border-top-color:#f6d365;
         border-radius:50%;
-
-        animation:
-          skSpin 1s linear infinite;
-
+        animation:skVerifySpin .8s linear infinite;
       "></div>
 
+      <style>
+        @keyframes skVerifySpin{
+          to{transform:rotate(360deg)}
+        }
+      </style>
 
       <h2 style="
-        margin:0 0 9px;
-        font-size:24px;
+        margin-bottom:9px;
       ">
-
         Verifying Payment
-
       </h2>
 
-
       <p style="
-        margin:0;
         color:#aeb7c7;
         font-size:14px;
         line-height:1.5;
       ">
 
-        Please wait while your payment
-        is securely verified.
+        Please wait while your Razorpay
+        payment is securely verified.
 
       </p>
 
@@ -1759,9 +3936,7 @@ async function handleVerifiedPayment(){
 
         BACKEND_URL +
         "/api/verify-payment?token=" +
-        encodeURIComponent(
-          token
-        )
+        encodeURIComponent(token)
 
       );
 
@@ -1773,8 +3948,7 @@ async function handleVerifiedPayment(){
     if(
       !response.ok ||
       !data.ok ||
-      data.paymentStatus !==
-        "Completed"
+      data.paymentStatus!=="Completed"
     ){
 
       throw new Error(
@@ -1804,50 +3978,54 @@ async function handleVerifiedPayment(){
     }
 
 
-    const paymentId =
-      data.razorpayPaymentId;
-
-
-    if(!paymentId){
+    if(
+      !data.razorpayPaymentId
+    ){
 
       throw new Error(
-        "Razorpay Payment ID is missing."
+        "Verified payment ID is missing."
       );
 
     }
 
 
     /*
-      Use payment ID as Firestore
-      document ID.
-
-      This prevents duplicate complaint
-      creation if the callback is processed
-      more than once.
+      =====================================================
+      PAYMENT IS VERIFIED.
+      ONLY NOW GENERATE COMPLAINT ID.
+      =====================================================
     */
 
-    const complaintRef =
+
+    const paymentDoc =
       doc(
         db,
         "complaints",
-        paymentId
+        data.razorpayPaymentId
       );
 
 
     const existing =
       await getDoc(
-        complaintRef
+        paymentDoc
       );
 
 
     let complaintId;
 
 
+    /*
+      Idempotency:
+
+      If the user refreshes the callback page,
+      the same Razorpay Payment ID gets the same
+      Complaint ID instead of creating another one.
+    */
+
     if(existing.exists()){
 
       complaintId =
-        existing.data()
-          .complaintId;
+        existing.data().complaintId;
 
     }else{
 
@@ -1856,11 +4034,12 @@ async function handleVerifiedPayment(){
 
 
       await setDoc(
-        complaintRef,
+
+        paymentDoc,
+
         {
 
-          complaintId:
-            complaintId,
+          complaintId,
 
           name:
             complaint.name,
@@ -1884,45 +4063,43 @@ async function handleVerifiedPayment(){
             "Completed",
 
           razorpayPaymentId:
-            paymentId,
+            data.razorpayPaymentId,
 
           paymentLinkId:
-            data.paymentLinkId,
+            data.paymentLinkId || "",
 
           referenceId:
-            data.referenceId,
+            data.referenceId || "",
 
           createdAt:
             serverTimestamp()
 
         }
+
       );
 
     }
 
 
+    /*
+      Payment successfully verified
+      and complaint stored.
+    */
+
     sessionStorage.removeItem(
-      PENDING_PAYMENT_KEY
+      ACTIVE_PAYMENT_KEY
     );
 
 
-    window.pendingComplaint =
+    window.pendingComplaint=
       null;
 
 
-    if(complaintForm){
-
-      complaintForm.reset();
-
-    }
+    complaintForm.reset();
 
 
     loading.remove();
 
-
-    /*
-      Remove token/payment from URL.
-    */
 
     window.history.replaceState(
       {},
@@ -1932,7 +4109,9 @@ async function handleVerifiedPayment(){
 
 
     showSuccessPopup(
-      complaintId
+      complaintId,
+      data.razorpayPaymentId,
+      complaint.plan
     );
 
 
@@ -1957,178 +4136,26 @@ async function handleVerifiedPayment(){
 
 
 /* =========================================================
-   PAYMENT VERIFICATION ERROR
-========================================================= */
-
-function showVerificationError(
-  message
-){
-
-  const modal =
-    document.createElement("div");
-
-
-  modal.style.cssText = `
-
-    position:fixed;
-    inset:0;
-
-    z-index:500000;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    background:
-      rgba(0,0,0,.75);
-
-    backdrop-filter:blur(8px);
-
-  `;
-
-
-  modal.innerHTML = `
-
-    <div style="
-
-      width:100%;
-      max-width:430px;
-
-      padding:30px 22px;
-
-      border-radius:25px;
-
-      background:#fff;
-
-      text-align:center;
-
-      box-shadow:
-        0 25px 80px
-        rgba(0,0,0,.40);
-
-    ">
-
-
-      <div style="
-
-        font-size:50px;
-
-        margin-bottom:12px;
-
-      ">
-
-        ⚠️
-
-      </div>
-
-
-      <h2 style="
-        margin:0 0 10px;
-      ">
-
-        Payment Verification Failed
-
-      </h2>
-
-
-      <p style="
-
-        color:#667085;
-
-        line-height:1.5;
-
-        margin-bottom:20px;
-
-      ">
-
-        We could not verify your payment.
-        No Complaint ID has been generated
-        and the complaint has not been registered.
-
-      </p>
-
-
-      <button
-        id="skVerificationClose"
-        style="
-
-          width:100%;
-
-          padding:13px;
-
-          border:0;
-
-          border-radius:12px;
-
-          background:#111827;
-
-          color:#fff;
-
-          font-weight:800;
-
-          cursor:pointer;
-
-        "
-      >
-
-        CLOSE
-
-      </button>
-
-
-    </div>
-
-  `;
-
-
-  document.body.appendChild(
-    modal
-  );
-
-
-  document
-    .getElementById(
-      "skVerificationClose"
-    )
-    .onclick = function(){
-
-      modal.remove();
-
-      window.history.replaceState(
-        {},
-        document.title,
-        window.location.pathname
-      );
-
-    };
-
-}
-
-
-/* =========================================================
    SUCCESS POPUP
 ========================================================= */
 
 function showSuccessPopup(
-  complaintId
+  complaintId,
+  paymentId,
+  plan
 ){
 
   const popup =
     document.createElement("div");
 
 
-  popup.style.cssText = `
+  popup.style.cssText=`
 
     position:fixed;
     inset:0;
-
     z-index:500000;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
@@ -2142,70 +4169,51 @@ function showSuccessPopup(
   `;
 
 
-  popup.innerHTML = `
+  popup.innerHTML=`
 
     <div style="
 
-      width:100%;
-      max-width:470px;
+      width:min(450px,100%);
 
-      padding:32px 24px;
+      background:#fff;
 
-      border-radius:30px;
+      border-radius:28px;
 
-      background:
-        linear-gradient(
-          145deg,
-          #07152f,
-          #123f73
-        );
-
-      border:
-        1px solid
-        rgba(246,211,101,.65);
-
-      box-shadow:
-        0 30px 90px
-        rgba(0,0,0,.60);
-
-      color:#fff;
+      padding:32px 22px;
 
       text-align:center;
 
-    ">
+      box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.45);
 
+    ">
 
       <div style="
 
-        width:90px;
-        height:90px;
+        width:85px;
+        height:85px;
 
-        margin:
-          0 auto 20px;
+        margin:auto;
 
         border-radius:50%;
 
         display:flex;
 
         align-items:center;
+
         justify-content:center;
 
-        background:
-          linear-gradient(
-            135deg,
-            #f6d365,
-            #d99b25
-          );
+        background:#22c55e;
 
-        color:#111827;
+        color:#fff;
 
-        font-size:50px;
+        font-size:52px;
 
         font-weight:900;
 
         box-shadow:
-          0 0 0 9px
-          rgba(246,211,101,.12);
+          0 0 0 10px #dcfce7;
 
       ">
 
@@ -2214,90 +4222,45 @@ function showSuccessPopup(
       </div>
 
 
-      <div style="
-
-        color:#f6d365;
-
-        font-size:11px;
-
-        font-weight:900;
-
-        letter-spacing:1px;
-
-        margin-bottom:9px;
-
-      ">
-
-        COMPLAINT CONFIRMED
-
-      </div>
-
-
       <h2 style="
-
-        margin:0 0 12px;
-
+        margin:22px 0 9px;
         font-size:28px;
-
       ">
 
-        Complaint ID Generated
+        Complaint Submitted
 
       </h2>
 
 
       <p style="
-
-        margin:0 0 20px;
-
-        color:#dbe7f8;
-
-        font-size:14px;
-
-        line-height:1.65;
-
+        color:#667085;
+        line-height:1.6;
       ">
 
-        Your payment has been completed and your
-        complaint has been successfully registered.
-
-        Use the Complaint ID below to check your
-        complaint status, track progress and view
-        future updates.
+        Your payment has been verified and
+        your complaint has been successfully
+        registered.
 
       </p>
 
 
       <div style="
 
+        margin:20px 0;
+
         padding:18px;
 
-        border-radius:18px;
+        border-radius:16px;
 
-        background:
-          rgba(255,255,255,.08);
-
-        border:
-          1px solid
-          rgba(246,211,101,.35);
-
-        margin-bottom:18px;
+        background:#f3f4f6;
 
       ">
 
-
         <div style="
-
-          color:#94a3b8;
-
           font-size:10px;
-
+          color:#667085;
           font-weight:900;
-
           letter-spacing:1px;
-
-          margin-bottom:7px;
-
         ">
 
           YOUR COMPLAINT ID
@@ -2306,23 +4269,32 @@ function showSuccessPopup(
 
 
         <div style="
-
-          color:#f6d365;
-
-          font-size:27px;
-
+          margin-top:7px;
+          font-size:25px;
           font-weight:900;
-
-          letter-spacing:1px;
-
+          color:#164a9c;
           word-break:break-all;
-
         ">
 
           ${complaintId}
 
         </div>
 
+      </div>
+
+
+      <div style="
+        margin-bottom:18px;
+        padding:11px;
+        border-radius:12px;
+        background:#f8fafc;
+        color:#64748b;
+        font-size:11px;
+        word-break:break-all;
+      ">
+
+        Payment ID:
+        ${paymentId || "Verified"}
 
       </div>
 
@@ -2331,27 +4303,15 @@ function showSuccessPopup(
         id="skCopyComplaintId"
         type="button"
         style="
-
           width:100%;
-
           padding:14px;
-
-          margin-bottom:10px;
-
           border:0;
-
-          border-radius:14px;
-
-          background:#fff;
-
-          color:#123f73;
-
+          border-radius:13px;
+          background:#111827;
+          color:#fff;
           font-weight:900;
-
           cursor:pointer;
-
-        "
-      >
+        ">
 
         COPY COMPLAINT ID
 
@@ -2359,34 +4319,23 @@ function showSuccessPopup(
 
 
       <button
-        id="skCloseSuccess"
+        id="skSuccessDone"
         type="button"
         style="
-
           width:100%;
-
+          margin-top:10px;
           padding:13px;
-
-          border:0;
-
-          border-radius:14px;
-
-          background:
-            rgba(255,255,255,.08);
-
-          color:#cbd5e1;
-
+          border:1px solid #d0d5dd;
+          border-radius:13px;
+          background:#fff;
+          color:#344054;
           font-weight:800;
-
           cursor:pointer;
+        ">
 
-        "
-      >
-
-        CLOSE
+        Done
 
       </button>
-
 
     </div>
 
@@ -2398,40 +4347,155 @@ function showSuccessPopup(
   );
 
 
-  document
-    .getElementById(
-      "skCopyComplaintId"
-    )
-    .onclick = async function(){
+  document.getElementById(
+    "skCopyComplaintId"
+  ).onclick=async function(){
 
-      try{
+    try{
 
-        await navigator.clipboard.writeText(
-          complaintId
-        );
+      await navigator.clipboard.writeText(
+        complaintId
+      );
 
-        this.textContent =
-          "COPIED ✓";
+      this.textContent=
+        "COPIED ✓";
 
-      }catch{
+    }catch{
 
-        this.textContent =
-          complaintId;
+      this.textContent=
+        complaintId;
 
-      }
+    }
 
-    };
+  };
 
 
-  document
-    .getElementById(
-      "skCloseSuccess"
-    )
-    .onclick = function(){
+  document.getElementById(
+    "skSuccessDone"
+  ).onclick=()=>{
 
-      popup.remove();
+    popup.remove();
 
-    };
+  };
+
+}
+
+
+/* =========================================================
+   VERIFICATION ERROR
+========================================================= */
+
+function showVerificationError(
+  message
+){
+
+  const popup =
+    document.createElement("div");
+
+
+  popup.style.cssText=`
+
+    position:fixed;
+    inset:0;
+    z-index:500000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+      rgba(0,0,0,.72);
+
+    backdrop-filter:blur(8px);
+
+  `;
+
+
+  popup.innerHTML=`
+
+    <div style="
+
+      width:min(430px,100%);
+
+      background:#fff;
+
+      border-radius:25px;
+
+      padding:30px 22px;
+
+      text-align:center;
+
+    ">
+
+      <div style="
+        font-size:48px;
+        margin-bottom:10px;
+      ">
+        ⚠️
+      </div>
+
+
+      <h2>
+        Payment Verification Failed
+      </h2>
+
+
+      <p style="
+        margin-top:10px;
+        color:#667085;
+        line-height:1.6;
+      ">
+
+        We could not securely verify your payment.
+        No Complaint ID has been generated and
+        no complaint has been registered.
+
+      </p>
+
+
+      <button
+        id="skVerificationClose"
+        type="button"
+        style="
+          width:100%;
+          margin-top:20px;
+          padding:14px;
+          border:0;
+          border-radius:12px;
+          background:#111827;
+          color:#fff;
+          font-weight:800;
+        ">
+
+        Close
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  document.body.appendChild(
+    popup
+  );
+
+
+  document.getElementById(
+    "skVerificationClose"
+  ).onclick=()=>{
+
+    popup.remove();
+
+    window.history.replaceState(
+      {},
+      document.title,
+      window.location.pathname
+    );
+
+  };
 
 }
 
@@ -2469,18 +4533,13 @@ async function(){
 
   if(!complaintId){
 
-    result.innerHTML = `
+    result.innerHTML=`
 
       <div style="
-
         padding:13px;
-
         border-radius:12px;
-
         background:#fef2f2;
-
         color:#b91c1c;
-
       ">
 
         Please enter your Complaint ID.
@@ -2494,15 +4553,13 @@ async function(){
   }
 
 
-  button.disabled =
-    true;
+  button.disabled=true;
 
-
-  button.textContent =
+  button.textContent=
     "Checking...";
 
 
-  result.innerHTML = `
+  result.innerHTML=`
 
     <div class="status-loading">
 
@@ -2545,7 +4602,7 @@ async function(){
           resolve =>
             setTimeout(
               resolve,
-              2500
+              1500
             )
         )
 
@@ -2554,18 +4611,13 @@ async function(){
 
     if(snapshot.empty){
 
-      result.innerHTML = `
+      result.innerHTML=`
 
         <div style="
-
           padding:15px;
-
           border-radius:14px;
-
           background:#fef2f2;
-
           color:#b91c1c;
-
         ">
 
           <strong>
@@ -2595,243 +4647,190 @@ async function(){
       "Submitted";
 
 
+    let color="#2563eb";
+
+    let background="#eff6ff";
+
+
     const normalized =
-      status
-        .toLowerCase()
-        .trim();
-
-
-    let statusColor =
-      "#2563eb";
-
-
-    let statusBackground =
-      "#eff6ff";
+      status.toLowerCase();
 
 
     if(
-      normalized.includes(
-        "resolve"
-      )
+      normalized.includes("resolve")
     ){
 
-      statusColor =
-        "#15803d";
-
-      statusBackground =
-        "#f0fdf4";
+      color="#15803d";
+      background="#f0fdf4";
 
     }
 
 
     if(
-      normalized.includes(
-        "cancel"
-      )
+      normalized.includes("cancel")
     ){
 
-      statusColor =
-        "#b91c1c";
-
-      statusBackground =
-        "#fef2f2";
+      color="#b91c1c";
+      background="#fef2f2";
 
     }
 
 
     if(
-      normalized.includes(
-        "review"
-      )
+      normalized.includes("review")
     ){
 
-      statusColor =
-        "#b45309";
-
-      statusBackground =
-        "#fffbeb";
+      color="#b45309";
+      background="#fffbeb";
 
     }
 
 
-    result.innerHTML = `
+    const remark =
+      data.adminRemark ||
+      data.adminNotes ||
+      data.remark ||
+      "";
+
+
+    result.innerHTML=`
 
       <div style="
-
-        border:
-          1px solid #e4e7ec;
-
+        border:1px solid #e4e7ec;
         border-radius:18px;
-
         overflow:hidden;
-
         box-shadow:
           0 10px 30px
           rgba(16,24,40,.07);
-
       ">
 
 
         <div style="
-
           padding:18px;
-
-          background:
-            ${statusBackground};
-
-          color:
-            ${statusColor};
-
+          background:${background};
+          color:${color};
         ">
-
 
           <small style="
             font-weight:800;
-            opacity:.75;
           ">
-
             COMPLAINT ID
-
           </small>
 
-
           <div style="
-
             font-size:21px;
-
             font-weight:900;
-
           ">
-
-            ${data.complaintId || complaintId}
-
+            ${escapeHTML(
+              data.complaintId ||
+              complaintId
+            )}
           </div>
-
 
           <div style="
-
             display:inline-block;
-
             margin-top:9px;
-
             padding:7px 11px;
-
             border-radius:30px;
-
-            background:white;
-
+            background:#fff;
             font-weight:900;
-
           ">
 
-            ● ${status}
+            ● ${escapeHTML(status)}
 
           </div>
-
 
         </div>
 
 
         <div style="
-
           padding:18px;
-
           background:#fff;
-
         ">
 
 
-          <div style="margin-bottom:13px;">
+          <div style="margin-bottom:13px">
 
             <small style="
-
               color:#667085;
-
               font-weight:800;
-
             ">
-
               NAME
-
             </small>
 
             <br>
 
-            ${data.name || "-"}
+            ${escapeHTML(
+              data.name || "-"
+            )}
 
           </div>
 
 
-          <div style="margin-bottom:13px;">
+          <div style="margin-bottom:13px">
 
             <small style="
-
               color:#667085;
-
               font-weight:800;
-
             ">
-
               SUBJECT
-
             </small>
 
             <br>
 
-            ${data.subject || "-"}
+            ${escapeHTML(
+              data.subject || "-"
+            )}
+
+          </div>
+
+
+          <div>
+
+            <small style="
+              color:#667085;
+              font-weight:800;
+            ">
+              COMPLAINT DETAILS
+            </small>
+
+            <br>
+
+            ${escapeHTML(
+              data.details || "-"
+            )}
 
           </div>
 
 
           ${
-            data.adminRemark ||
-            data.adminNotes ||
-            data.remark
+            remark
             ?
 
             `
 
             <div style="
-
               margin-top:18px;
-
               padding:15px;
-
               border-radius:14px;
-
               background:#eef4ff;
-
-              border:
-                1px solid #bfdbfe;
-
+              border:1px solid #bfdbfe;
             ">
-
 
               <strong style="
                 color:#164a9c;
               ">
-
                 Admin Remark
-
               </strong>
 
-
               <p style="
-
                 margin-top:6px;
-
                 color:#334155;
-
               ">
 
-                ${
-                  data.adminRemark ||
-                  data.adminNotes ||
-                  data.remark
-                }
+                ${escapeHTML(remark)}
 
               </p>
-
 
             </div>
 
@@ -2840,11 +4839,11 @@ async function(){
             :
 
             ""
+
           }
 
 
         </div>
-
 
       </div>
 
@@ -2853,23 +4852,16 @@ async function(){
 
   }catch(error){
 
-    console.error(
-      error
-    );
+    console.error(error);
 
 
-    result.innerHTML = `
+    result.innerHTML=`
 
       <div style="
-
         padding:14px;
-
         border-radius:14px;
-
         background:#fef2f2;
-
         color:#b91c1c;
-
       ">
 
         Unable to check status.
@@ -2881,10 +4873,9 @@ async function(){
 
   }finally{
 
-    button.disabled =
-      false;
+    button.disabled=false;
 
-    button.textContent =
+    button.textContent=
       "Check Status →";
 
   }
@@ -2893,142 +4884,107 @@ async function(){
 
 
 /* =========================================================
-   CHECK STATUS BUTTON
+   ESCAPE HTML
 ========================================================= */
 
-window.checkComplaintStatus =
-function(){
+function escapeHTML(value){
 
-  openStatusModal();
-
-
-  const input =
-    document.getElementById(
-      "statusComplaintId"
-    );
-
-
-  setTimeout(
-    function(){
-
-      input.focus();
-
-    },
-    200
-  );
-
-};
-
-
-/* =========================================================
-   PAYMENT STATE START
-========================================================= */
-
-async function checkPaymentState(){
-
-  const params =
-    new URLSearchParams(
-      window.location.search
-    );
-
-
-  const payment =
-    params.get(
-      "payment"
-    );
-
-
-  const token =
-    params.get(
-      "token"
-    );
-
-
-  /*
-    SUCCESS CALLBACK
-  */
-
-  if(
-    payment === "verified" &&
-    token
-  ){
-
-    await handleVerifiedPayment();
-
-    return;
-
-  }
-
-
-  /*
-    FAILED/CANCELLED CALLBACK
-    OR browser BACK from Razorpay
-  */
-
-  if(
-    payment === "failed"
-  ){
-
-    window.history.replaceState(
-      {},
-      document.title,
-      window.location.pathname
-    );
-
-    showPaymentPendingPopup();
-
-    return;
-
-  }
-
-
-  /*
-    If user presses BACK from
-    Razorpay payment page, sessionStorage
-    remains and this popup appears.
-  */
-
-  const pending =
-    sessionStorage.getItem(
-      PENDING_PAYMENT_KEY
-    );
-
-
-  if(pending){
-
-    showPaymentPendingPopup();
-
-  }
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
 
 /* =========================================================
-   PAGE SHOW
+   STATUS MODAL SUPPORT
+========================================================= */
+
+window.checkComplaintStatus=
+function(){
+
+  openStatusModal();
+
+  setTimeout(()=>{
+
+    document
+      .getElementById(
+        "statusComplaintId"
+      )
+      .focus();
+
+  },200);
+
+};
+
+
+/* =========================================================
+   INITIAL PAYMENT VERIFICATION
+========================================================= */
+
+handleVerifiedPayment();
+
+
+/* =========================================================
+   BACK / RETURN FROM PAYMENT
 ========================================================= */
 
 window.addEventListener(
   "pageshow",
   function(){
 
-    checkPaymentState();
+    const params =
+      new URLSearchParams(
+        window.location.search
+      );
+
+
+    if(
+      params.get("payment")==="verified"
+    ){
+
+      return;
+
+    }
+
+
+    /*
+      If a payment link was created and
+      user came back without completing it,
+      show only:
+
+      Continue Payment
+      Cancel
+    */
+
+    const active =
+      sessionStorage.getItem(
+        ACTIVE_PAYMENT_KEY
+      );
+
+
+    if(
+      active &&
+      !document.querySelector(
+        ".sk-payment-pending"
+      )
+    ){
+
+      showPaymentPendingPopup();
+
+    }
 
   }
 );
-
-
-/*
-  Also run once normally.
-*/
-
-checkPaymentState();
-
 
 </script>
 
 
 <!-- =======================================================
-     EXTRA BUTTON / ESCAPE SUPPORT
+     FINAL UI SUPPORT
 ======================================================= -->
 
 <script>
@@ -3037,9 +4993,7 @@ document.addEventListener(
   "keydown",
   function(e){
 
-    if(
-      e.key === "Escape"
-    ){
+    if(e.key==="Escape"){
 
       closeComplaintForm();
 
@@ -3053,21 +5007,15 @@ document.addEventListener(
 );
 
 
-const statusInput =
-  document.getElementById(
+document
+  .getElementById(
     "statusComplaintId"
-  );
-
-
-if(statusInput){
-
-  statusInput.addEventListener(
+  )
+  .addEventListener(
     "keydown",
     function(e){
 
-      if(
-        e.key === "Enter"
-      ){
+      if(e.key==="Enter"){
 
         searchComplaintStatus();
 
@@ -3076,24 +5024,16 @@ if(statusInput){
     }
   );
 
-}
 
-
-const complaintModal =
-  document.getElementById(
+document
+  .getElementById(
     "complaintModal"
-  );
-
-
-if(complaintModal){
-
-  complaintModal.addEventListener(
+  )
+  .addEventListener(
     "click",
     function(e){
 
-      if(
-        e.target === this
-      ){
+      if(e.target===this){
 
         closeComplaintForm();
 
@@ -3102,24 +5042,16 @@ if(complaintModal){
     }
   );
 
-}
 
-
-const contactPopup =
-  document.getElementById(
+document
+  .getElementById(
     "contactPopup"
-  );
-
-
-if(contactPopup){
-
-  contactPopup.addEventListener(
+  )
+  .addEventListener(
     "click",
     function(e){
 
-      if(
-        e.target === this
-      ){
+      if(e.target===this){
 
         closeContactPopup();
 
@@ -3128,24 +5060,16 @@ if(contactPopup){
     }
   );
 
-}
 
-
-const statusModal =
-  document.getElementById(
+document
+  .getElementById(
     "statusModal"
-  );
-
-
-if(statusModal){
-
-  statusModal.addEventListener(
+  )
+  .addEventListener(
     "click",
     function(e){
 
-      if(
-        e.target === this
-      ){
+      if(e.target===this){
 
         closeStatusModal();
 
@@ -3154,9 +5078,8 @@ if(statusModal){
     }
   );
 
-}
-
 </script>
+
 
 </body>
 
