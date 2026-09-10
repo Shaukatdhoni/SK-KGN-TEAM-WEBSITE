@@ -1,55 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#07152f">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>SK KGN TEAM — VIP Admin Panel</title>
+<title>SK KGN TEAM — Admin Panel</title>
 
 <style>
-
 *{
   box-sizing:border-box;
-}
-
-:root{
-  --navy:#07152f;
-  --navy2:#0b1f45;
-  --navy3:#102b5c;
-
-  --gold:#f6d365;
-  --gold2:#d9a52e;
-
-  --bg:#f3f6fb;
-  --card:#ffffff;
-  --text:#101828;
-  --muted:#667085;
-  --line:#e4e7ec;
-
-  --blue:#2563eb;
-  --green:#16a34a;
-  --orange:#d97706;
-  --red:#dc2626;
-
-  --shadow:0 18px 50px rgba(7,21,47,.10);
+  margin:0;
+  padding:0;
 }
 
 body{
-  margin:0;
-  background:
-    radial-gradient(circle at 10% 0%,rgba(37,99,235,.07),transparent 30%),
-    radial-gradient(circle at 90% 100%,rgba(246,211,101,.08),transparent 30%),
-    var(--bg);
-  color:var(--text);
-  font-family:
-    Inter,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#07152f;
+  color:#111827;
+  min-height:100vh;
 }
 
 button,
@@ -67,1273 +35,824 @@ button{
   display:none!important;
 }
 
-
-/* =========================================================
+/* =========================
    LOGIN
-========================================================= */
+========================= */
 
-.login-wrap{
+#loginPage{
   min-height:100vh;
-  display:grid;
-  place-items:center;
-  padding:24px;
-
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:30px 16px;
   background:
-    radial-gradient(circle at 10% 10%,rgba(37,99,235,.20),transparent 35%),
-    radial-gradient(circle at 90% 90%,rgba(246,211,101,.12),transparent 30%),
-    #07152f;
+    radial-gradient(circle at top,#163b78 0,#07152f 48%,#020817 100%);
 }
 
 .login-card{
-  width:min(450px,100%);
-  background:rgba(255,255,255,.98);
-  border:1px solid rgba(246,211,101,.30);
-  border-radius:30px;
-  padding:36px;
-  box-shadow:
-    0 35px 100px rgba(0,0,0,.35),
-    0 0 45px rgba(246,211,101,.08);
+  width:100%;
+  max-width:650px;
+  background:#fff;
+  border-radius:34px;
+  padding:55px 70px;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
 }
 
-.logo-row{
+.brand{
   display:flex;
   align-items:center;
-  gap:13px;
-  margin-bottom:28px;
+  gap:20px;
+  margin-bottom:45px;
 }
 
-.logo{
-  width:55px;
-  height:55px;
-  border-radius:17px;
+.brand img{
+  width:88px;
+  height:88px;
   object-fit:cover;
-  border:2px solid var(--gold);
-  box-shadow:0 0 22px rgba(246,211,101,.35);
+  border-radius:24px;
+  border:3px solid #f1d36b;
+  box-shadow:0 0 25px rgba(241,211,107,.35);
 }
 
-.logo-row strong{
+.brand-title{
+  font-size:30px;
+  font-weight:800;
+  color:#101827;
+}
+
+.brand-subtitle{
+  margin-top:5px;
+  color:#9ca3af;
   font-size:19px;
 }
 
-.logo-row small{
-  display:block;
-  color:#98a2b3;
-  font-size:11px;
-  margin-top:3px;
+.vip-badge{
+  display:inline-block;
+  padding:10px 20px;
+  border:1px solid #ecd993;
+  border-radius:30px;
+  color:#8b6b21;
+  background:#fffaf0;
+  font-weight:800;
+  letter-spacing:.5px;
+  margin-bottom:30px;
 }
 
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-
-  background:
-    linear-gradient(135deg,#fff7d6,#fff);
-
-  color:#8a6411;
-  border:1px solid rgba(217,165,46,.35);
-
-  border-radius:999px;
-  padding:7px 12px;
-
-  font-size:10px;
-  font-weight:950;
-  letter-spacing:.8px;
+.login-title{
+  font-size:55px;
+  line-height:1.05;
+  margin-bottom:25px;
 }
 
-.login-card h1{
-  margin:15px 0 8px;
-  font-size:31px;
-  letter-spacing:-1px;
-}
-
-.login-card p{
-  color:var(--muted);
-  line-height:1.6;
-  margin:0 0 22px;
+.login-description{
+  font-size:27px;
+  line-height:1.55;
+  color:#687386;
+  margin-bottom:45px;
 }
 
 .field{
-  margin-bottom:15px;
+  margin-bottom:25px;
 }
 
 .field label{
   display:block;
-  font-size:11px;
-  font-weight:950;
-  margin-bottom:7px;
-  color:#344054;
-  letter-spacing:.3px;
+  font-size:18px;
+  font-weight:800;
+  color:#374151;
+  margin-bottom:10px;
 }
 
 .field input,
 .field select,
 .field textarea{
   width:100%;
-  border:1px solid #d0d5dd;
-  background:#fff;
-  border-radius:13px;
-  padding:13px 14px;
+  border:2px solid #d7d9df;
+  border-radius:20px;
+  padding:18px 22px;
   outline:none;
-  transition:.2s;
+  background:#fff;
+  color:#111827;
 }
 
-.field textarea{
-  min-height:110px;
-  resize:vertical;
+.field input{
+  font-size:20px;
 }
 
 .field input:focus,
 .field select:focus,
 .field textarea:focus{
-  border-color:#7aa2f7;
-  box-shadow:0 0 0 4px #eaf1ff;
+  border-color:#173a76;
 }
 
-.primary{
+.login-btn{
   width:100%;
-  border:1px solid rgba(246,211,101,.45);
-
-  background:
-    linear-gradient(135deg,#07152f,#12336d);
-
+  padding:20px;
+  border:2px solid #d8c67a;
+  border-radius:20px;
+  background:#092657;
   color:#fff;
-
-  border-radius:13px;
-  padding:14px 18px;
-
-  font-weight:900;
-
-  box-shadow:
-    0 10px 25px rgba(7,21,47,.20);
-}
-
-.primary:hover{
-  box-shadow:
-    0 12px 30px rgba(7,21,47,.28),
-    0 0 20px rgba(246,211,101,.10);
-}
-
-.error{
-  margin-top:13px;
-  background:#fff1f2;
-  color:#b42318;
-  border:1px solid #fecdd3;
-  padding:11px 13px;
-  border-radius:12px;
-  font-size:13px;
-}
-
-.small-note{
-  font-size:10px!important;
-  margin-top:16px!important;
-  color:#98a2b3!important;
-}
-
-
-/* =========================================================
-   TOPBAR
-========================================================= */
-
-.topbar{
-  height:76px;
-  background:
-    linear-gradient(110deg,#050f24,#0a1d42,#07152f);
-
-  color:#fff;
-
-  display:flex;
-  align-items:center;
-
-  position:sticky;
-  top:0;
-  z-index:50;
-
-  box-shadow:
-    0 5px 25px rgba(0,0,0,.18);
-
-  border-bottom:1px solid rgba(246,211,101,.18);
-}
-
-.topbar-inner{
-  width:min(1480px,calc(100% - 32px));
-  margin:auto;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-}
-
-.brand img{
-  width:43px;
-  height:43px;
-  border-radius:14px;
-  object-fit:cover;
-
-  border:1px solid rgba(246,211,101,.65);
-
-  box-shadow:
-    0 0 20px rgba(246,211,101,.18);
-}
-
-.brand-text strong{
-  display:block;
-  font-size:15px;
-}
-
-.brand-text span{
-  display:block;
-  color:#aab4c3;
-  font-size:10px;
-  margin-top:2px;
-}
-
-.vip-tag{
-  display:inline-flex;
-  margin-left:7px;
-  padding:3px 7px;
-  border-radius:999px;
-
-  background:linear-gradient(135deg,#f6d365,#c78d20);
-  color:#07152f;
-
-  font-size:8px;
-  font-weight:1000;
-  vertical-align:middle;
-}
-
-.top-actions{
-  display:flex;
-  align-items:center;
-  gap:9px;
-}
-
-.ghost{
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.13);
-  color:#fff;
-  border-radius:11px;
-  padding:10px 13px;
+  font-size:22px;
   font-weight:800;
 }
 
-.ghost:hover{
-  background:rgba(255,255,255,.14);
+.login-btn:disabled{
+  opacity:.6;
 }
 
-
-/* =========================================================
-   MAIN
-========================================================= */
-
-.main{
-  width:min(1480px,calc(100% - 32px));
-  margin:auto;
-  padding:30px 0 55px;
+.message{
+  margin-top:22px;
+  padding:16px 20px;
+  border-radius:18px;
+  font-size:16px;
+  line-height:1.4;
 }
 
-.page-head{
+.error{
+  background:#fff0f1;
+  border:1px solid #f3c4ca;
+  color:#a52f35;
+}
+
+.success{
+  background:#effcf4;
+  border:1px solid #b9e6c9;
+  color:#17713a;
+}
+
+/* =========================
+   ADMIN
+========================= */
+
+#adminPage{
+  min-height:100vh;
+  background:#f4f7fb;
+}
+
+.topbar{
+  background:#071a3b;
+  color:#fff;
+  padding:18px 30px;
   display:flex;
-  align-items:flex-end;
+  align-items:center;
   justify-content:space-between;
   gap:20px;
-  margin-bottom:23px;
+  position:sticky;
+  top:0;
+  z-index:20;
+  box-shadow:0 8px 25px rgba(0,0,0,.15);
 }
 
-.page-head h1{
-  font-size:32px;
-  margin:0 0 5px;
-  letter-spacing:-1px;
+.topbar-left{
+  display:flex;
+  align-items:center;
+  gap:15px;
 }
 
-.page-head p{
-  margin:0;
-  color:var(--muted);
+.topbar-logo{
+  width:52px;
+  height:52px;
+  object-fit:cover;
+  border-radius:15px;
+  border:2px solid #f1d36b;
 }
 
-.refresh{
-  border:1px solid var(--line);
-  background:#fff;
+.topbar-title{
+  font-size:22px;
+  font-weight:800;
+}
+
+.topbar-sub{
+  color:#b7c4da;
+  font-size:13px;
+  margin-top:3px;
+}
+
+.logout-btn{
+  border:1px solid #7383a1;
+  background:transparent;
+  color:#fff;
   border-radius:12px;
-  padding:11px 15px;
-  font-weight:850;
+  padding:11px 18px;
+  font-weight:700;
 }
 
-.refresh:hover{
-  border-color:#b9c3d0;
-  background:#f8fafc;
+.logout-btn:hover{
+  background:rgba(255,255,255,.08);
 }
 
-.refresh:disabled{
-  opacity:.55;
-  cursor:wait;
+.container{
+  width:min(1500px,94%);
+  margin:30px auto;
 }
 
+.page-heading{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:20px;
+  margin-bottom:25px;
+}
 
-/* =========================================================
+.page-heading h1{
+  font-size:34px;
+  color:#111827;
+}
+
+.page-heading p{
+  color:#6b7280;
+  margin-top:7px;
+}
+
+.refresh-btn{
+  border:0;
+  background:#092657;
+  color:#fff;
+  padding:13px 20px;
+  border-radius:12px;
+  font-weight:700;
+}
+
+/* =========================
    STATS
-========================================================= */
+========================= */
 
 .stats{
   display:grid;
   grid-template-columns:repeat(6,1fr);
-  gap:13px;
+  gap:15px;
+  margin-bottom:25px;
+}
+
+.stat-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:20px;
+  box-shadow:0 5px 18px rgba(15,23,42,.05);
+}
+
+.stat-label{
+  color:#6b7280;
+  font-size:13px;
+  font-weight:700;
+}
+
+.stat-number{
+  font-size:30px;
+  font-weight:800;
+  margin-top:8px;
+  color:#10254d;
+}
+
+/* =========================
+   FILTERS
+========================= */
+
+.filters{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:18px;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr auto;
+  gap:12px;
   margin-bottom:20px;
 }
 
-.stat{
-  position:relative;
-
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:19px;
-
-  padding:17px;
-
-  box-shadow:
-    0 7px 25px rgba(16,24,40,.045);
-
-  overflow:hidden;
-}
-
-.stat:after{
-  content:"";
-  position:absolute;
-  width:80px;
-  height:80px;
-  right:-30px;
-  top:-30px;
-  border-radius:50%;
-  background:rgba(246,211,101,.08);
-}
-
-.stat-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  color:var(--muted);
-  font-size:10px;
-  font-weight:900;
-}
-
-.stat-num{
-  font-size:27px;
-  font-weight:950;
-  margin-top:8px;
-}
-
-.stat-dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:#98a2b3;
-}
-
-.green{
-  background:#22c55e;
-}
-
-.orange{
-  background:#f59e0b;
-}
-
-.blue{
-  background:#3b82f6;
-}
-
-.gold{
-  background:#d9a52e;
-}
-
-.red{
-  background:#ef4444;
-}
-
-
-/* =========================================================
-   TOOLBAR
-========================================================= */
-
-.toolbar{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:19px;
-  padding:14px;
-
-  display:grid;
-  grid-template-columns:minmax(250px,1fr) 180px 180px 180px;
-
-  gap:10px;
-  margin-bottom:15px;
-
-  box-shadow:
-    0 6px 20px rgba(16,24,40,.035);
-}
-
-.search{
-  position:relative;
-}
-
-.search input{
+.filters input,
+.filters select{
   width:100%;
-  padding:13px 14px 13px 42px;
-
-  border:1px solid #d0d5dd;
+  padding:13px 15px;
+  border:1px solid #d6d9df;
   border-radius:12px;
-
   outline:none;
-}
-
-.search input:focus{
-  border-color:#7aa2f7;
-  box-shadow:0 0 0 4px #eaf1ff;
-}
-
-.search span{
-  position:absolute;
-  left:14px;
-  top:10px;
-  color:#98a2b3;
-  font-size:18px;
-}
-
-.toolbar select{
-  width:100%;
-  padding:12px 13px;
-  border:1px solid #d0d5dd;
-  border-radius:12px;
   background:#fff;
-  outline:none;
 }
 
-.count-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  color:var(--muted);
-  font-size:11px;
-
-  margin:0 2px 10px;
+.clear-btn{
+  border:1px solid #cfd4dc;
+  background:#fff;
+  border-radius:12px;
+  padding:0 18px;
+  font-weight:700;
 }
 
-
-/* =========================================================
+/* =========================
    TABLE
-========================================================= */
+========================= */
 
 .table-card{
   background:#fff;
-  border:1px solid var(--line);
-  border-radius:21px;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
   overflow:hidden;
-  box-shadow:var(--shadow);
+  box-shadow:0 5px 18px rgba(15,23,42,.05);
 }
 
-.table-scroll{
-  overflow:auto;
+.table-wrap{
+  width:100%;
+  overflow-x:auto;
 }
 
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:1120px;
+  min-width:1050px;
+}
+
+thead{
+  background:#091d42;
+  color:#fff;
 }
 
 th{
-  background:
-    linear-gradient(180deg,#fafcff,#f6f8fb);
-
+  padding:15px 14px;
   text-align:left;
-
-  color:#667085;
-
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:.5px;
-
-  padding:14px 16px;
-
-  border-bottom:1px solid var(--line);
-
+  font-size:13px;
   white-space:nowrap;
 }
 
 td{
-  padding:15px 16px;
-  border-bottom:1px solid #f0f2f5;
+  padding:15px 14px;
+  border-bottom:1px solid #edf0f4;
+  font-size:14px;
   vertical-align:middle;
-  font-size:13px;
 }
 
-tr:last-child td{
-  border-bottom:0;
-}
-
-tr:hover td{
-  background:#fbfcfe;
-}
-
-.id{
-  font-weight:950;
-  color:#174ea6;
-  white-space:nowrap;
-}
-
-.name{
-  font-weight:850;
-}
-
-.date{
-  color:var(--muted);
-  white-space:nowrap;
-}
-
-.plan-badge{
-  display:inline-flex;
-  align-items:center;
-
-  padding:5px 9px;
-  border-radius:999px;
-
+tbody tr:hover{
   background:#f8fafc;
-  border:1px solid #e4e7ec;
-
-  font-size:10px;
-  font-weight:900;
-
-  white-space:nowrap;
-}
-
-.plan-premium{
-  background:#fff8df;
-  color:#8a6411;
-  border-color:#efd47b;
-}
-
-.plan-advance{
-  background:#eff8ff;
-  color:#175cd3;
-  border-color:#b2ddff;
-}
-
-.plan-basic{
-  background:#f2f4f7;
-  color:#475467;
-}
-
-.payment-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:5px;
-
-  padding:5px 8px;
-  border-radius:999px;
-
-  font-size:10px;
-  font-weight:900;
-}
-
-.payment-paid{
-  background:#ecfdf3;
-  color:#027a48;
-}
-
-.payment-pending{
-  background:#fff7e6;
-  color:#b54708;
-}
-
-.payment-failed{
-  background:#fff1f2;
-  color:#b42318;
-}
-
-.status{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-
-  border-radius:999px;
-
-  padding:6px 9px;
-
-  font-size:10px;
-  font-weight:950;
-
-  white-space:nowrap;
-}
-
-.status:before{
-  content:"";
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:currentColor;
-}
-
-.s-submitted{
-  background:#f2f4f7;
-  color:#475467;
-}
-
-.s-review{
-  background:#fff7e6;
-  color:#b54708;
-}
-
-.s-progress{
-  background:#eff8ff;
-  color:#175cd3;
-}
-
-.s-resolved{
-  background:#ecfdf3;
-  color:#027a48;
-}
-
-.s-cancelled{
-  background:#fff1f2;
-  color:#b42318;
-}
-
-.view-btn{
-  border:1px solid #d0d5dd;
-  background:#fff;
-  border-radius:9px;
-  padding:7px 10px;
-  font-size:10px;
-  font-weight:900;
-}
-
-.view-btn:hover{
-  background:#f8fafc;
-  border-color:#aab4c3;
 }
 
 .empty{
   text-align:center;
-  padding:60px 20px;
-  color:var(--muted);
+  padding:50px 20px;
+  color:#6b7280;
 }
 
-.empty strong{
-  display:block;
-  color:#344054;
-  font-size:16px;
-  margin-bottom:5px;
+.complaint-id{
+  font-weight:800;
+  color:#0a3575;
+  white-space:nowrap;
 }
 
-.loading{
-  text-align:center;
-  padding:45px;
-  color:var(--muted);
+.customer-name{
+  font-weight:700;
 }
 
+.mobile{
+  white-space:nowrap;
+}
 
-/* =========================================================
+.plan{
+  font-weight:700;
+}
+
+.badge{
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:800;
+  white-space:nowrap;
+}
+
+.badge-paid{
+  background:#eaf9ef;
+  color:#17713a;
+}
+
+.badge-unpaid{
+  background:#fff0f0;
+  color:#a12d32;
+}
+
+.badge-submitted{
+  background:#edf4ff;
+  color:#20529a;
+}
+
+.badge-review{
+  background:#fff7df;
+  color:#8a6616;
+}
+
+.badge-progress{
+  background:#eeeaff;
+  color:#5745a4;
+}
+
+.badge-resolved{
+  background:#e8faf3;
+  color:#16704f;
+}
+
+.badge-cancelled{
+  background:#f1f2f4;
+  color:#5d6470;
+}
+
+.view-btn{
+  border:0;
+  background:#092657;
+  color:#fff;
+  border-radius:9px;
+  padding:9px 13px;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* =========================
    MODAL
-========================================================= */
-
-.modal-backdrop{
-  position:fixed;
-  inset:0;
-
-  background:rgba(4,12,30,.72);
-
-  backdrop-filter:blur(7px);
-
-  z-index:100;
-
-  display:grid;
-  place-items:center;
-
-  padding:18px;
-}
+========================= */
 
 .modal{
-  background:#fff;
-
-  width:min(850px,100%);
-  max-height:min(92vh,950px);
-
-  overflow:auto;
-
-  border-radius:27px;
-
-  box-shadow:
-    0 35px 100px rgba(0,0,0,.30),
-    0 0 45px rgba(246,211,101,.06);
+  position:fixed;
+  inset:0;
+  background:rgba(2,8,23,.72);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:100;
 }
 
-.modal-head{
-  padding:22px 24px;
-
-  border-bottom:1px solid var(--line);
-
+.modal.show{
   display:flex;
-  justify-content:space-between;
-  gap:15px;
-  align-items:flex-start;
+}
 
+.modal-box{
+  width:min(900px,100%);
+  max-height:92vh;
+  overflow:auto;
+  background:#fff;
+  border-radius:24px;
+  box-shadow:0 30px 100px rgba(0,0,0,.4);
+}
+
+.modal-header{
   position:sticky;
   top:0;
-
   background:#fff;
-
   z-index:2;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 25px;
+  border-bottom:1px solid #e8ebef;
 }
 
-.modal-head h2{
-  margin:0;
-  font-size:22px;
+.modal-header h2{
+  font-size:23px;
 }
 
-.modal-head p{
-  margin:5px 0 0;
-  color:var(--muted);
-  font-size:11px;
-}
-
-.close{
-  width:38px;
-  height:38px;
-
+.close-btn{
+  width:40px;
+  height:40px;
   border:0;
   border-radius:50%;
-
-  background:#f2f4f7;
-
+  background:#eef1f5;
   font-size:22px;
-  line-height:1;
-}
-
-.close:hover{
-  background:#e4e7ec;
 }
 
 .modal-body{
-  padding:22px 24px;
+  padding:25px;
 }
 
 .detail-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
 }
 
-.detail-box{
-  border:1px solid var(--line);
+.detail{
+  background:#f7f9fc;
+  border:1px solid #e8ecf2;
   border-radius:14px;
-
-  padding:14px;
-
-  background:#fbfcfe;
+  padding:15px;
 }
 
-.detail-box.full{
+.detail.full{
   grid-column:1/-1;
 }
 
-.detail-box label{
-  display:block;
-
-  color:#98a2b3;
-
-  font-size:9px;
-  text-transform:uppercase;
-  font-weight:950;
-  letter-spacing:.5px;
-
-  margin-bottom:6px;
-}
-
-.detail-box div{
-  font-size:13px;
-  line-height:1.55;
-  word-break:break-word;
-}
-
-.payment-box{
-  background:
-    linear-gradient(135deg,#07152f,#102b5c);
-
-  color:#fff;
-
-  border-color:rgba(246,211,101,.28);
-}
-
-.payment-box label{
-  color:#bfc9da;
-}
-
-.payment-box div{
-  color:#fff;
-}
-
-.payment-id{
-  font-family:
-    ui-monospace,
-    SFMono-Regular,
-    Menlo,
-    Monaco,
-    Consolas,
-    monospace;
-
-  font-size:11px!important;
-}
-
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
-.contact-row{
-  display:flex;
-  gap:8px;
-  margin-top:14px;
-}
-
-.contact-row a{
-  flex:1;
-}
-
-.call,
-.wa{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-
-  text-decoration:none;
-
-  border-radius:11px;
-
-  padding:11px 13px;
-
-  font-weight:900;
+.detail-label{
   font-size:11px;
+  font-weight:800;
+  text-transform:uppercase;
+  color:#7a8392;
+  margin-bottom:7px;
 }
 
-.call{
-  background:var(--navy);
-  color:#fff;
+.detail-value{
+  font-size:15px;
+  font-weight:600;
+  color:#182235;
+  word-break:break-word;
+  white-space:pre-wrap;
 }
 
-.wa{
-  background:#16a34a;
-  color:#fff;
-}
-
-
-/* =========================================================
-   ADMIN ACTIONS
-========================================================= */
-
-.action-panel{
-  margin-top:20px;
-
-  padding-top:20px;
-
-  border-top:1px solid var(--line);
-}
-
-.action-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-}
-
-.action-buttons{
+.actions{
   display:flex;
-  gap:9px;
   flex-wrap:wrap;
-
-  margin-top:15px;
+  gap:10px;
+  margin-top:20px;
 }
 
-.save{
+.action-btn{
   border:0;
-
-  background:
-    linear-gradient(135deg,#2563eb,#1d4ed8);
-
-  color:#fff;
-
-  border-radius:12px;
-
+  border-radius:11px;
   padding:12px 16px;
-
-  font-weight:900;
-
-  box-shadow:0 7px 18px rgba(37,99,235,.18);
+  font-weight:700;
 }
 
-.save:hover{
-  transform:translateY(-1px);
+.call-btn{
+  background:#eaf3ff;
+  color:#15519c;
 }
 
-.save:disabled{
-  opacity:.55;
-  cursor:wait;
+.whatsapp-btn{
+  background:#eaf9ef;
+  color:#17713a;
 }
 
-.save-remark{
-  background:
-    linear-gradient(135deg,#07152f,#12336d);
+.save-btn{
+  background:#092657;
+  color:#fff;
 }
 
 .cancel-btn{
-  border:0;
-  background:#fff4e5;
-  color:#b54708;
-  border:1px solid #fedf89;
-  border-radius:12px;
-  padding:12px 15px;
-  font-weight:900;
+  background:#fff5df;
+  color:#8a6418;
 }
 
 .delete-btn{
-  border:0;
-  background:#fff1f2;
-  color:#b42318;
-  border:1px solid #fecdd3;
-  border-radius:12px;
-  padding:12px 15px;
-  font-weight:900;
+  background:#fff0f0;
+  color:#a12d32;
 }
 
-.delete-btn:hover{
-  background:#ffe4e6;
+.remark-area{
+  margin-top:22px;
 }
 
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-.toast{
-  position:fixed;
-
-  right:20px;
-  bottom:20px;
-
-  z-index:200;
-
-  background:var(--navy);
-  color:#fff;
-
-  padding:13px 16px;
-
-  border-radius:13px;
-
-  box-shadow:var(--shadow);
-
-  font-size:12px;
+.remark-area label{
+  display:block;
+  font-size:13px;
   font-weight:800;
-
-  max-width:360px;
-
-  border:1px solid rgba(246,211,101,.20);
+  margin-bottom:8px;
 }
 
-.toast.bad{
-  background:#b42318;
+.remark-area textarea{
+  width:100%;
+  min-height:130px;
+  border:1px solid #d7dbe2;
+  border-radius:14px;
+  padding:14px;
+  resize:vertical;
+  outline:none;
 }
 
-.toast.good{
-  background:#027a48;
+.status-row{
+  display:flex;
+  gap:10px;
+  margin-top:18px;
 }
 
+.status-row select{
+  flex:1;
+  border:1px solid #d7dbe2;
+  border-radius:12px;
+  padding:12px;
+}
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:1100px){
-
   .stats{
     grid-template-columns:repeat(3,1fr);
   }
 
-  .toolbar{
+  .filters{
     grid-template-columns:1fr 1fr;
   }
 
-  .toolbar .search{
+  .filters input{
     grid-column:1/-1;
   }
-
 }
 
 @media(max-width:700px){
-
-  .topbar{
-    height:66px;
+  .login-card{
+    padding:35px 22px;
+    border-radius:25px;
   }
 
-  .topbar-inner,
-  .main{
-    width:min(100% - 20px,1480px);
+  .brand{
+    gap:12px;
   }
 
   .brand img{
-    width:38px;
-    height:38px;
+    width:65px;
+    height:65px;
   }
 
-  .brand-text strong{
-    font-size:13px;
+  .brand-title{
+    font-size:22px;
   }
 
-  .top-actions .ghost:first-child{
-    display:none;
+  .brand-subtitle{
+    font-size:14px;
   }
 
-  .main{
-    padding-top:20px;
+  .login-title{
+    font-size:40px;
   }
 
-  .page-head{
-    align-items:flex-start;
-  }
-
-  .page-head h1{
-    font-size:26px;
-  }
-
-  .page-head p{
-    font-size:11px;
+  .login-description{
+    font-size:19px;
   }
 
   .stats{
-    grid-template-columns:1fr 1fr;
-    gap:9px;
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .stat{
-    padding:13px;
-  }
-
-  .stat-num{
-    font-size:23px;
-  }
-
-  .toolbar{
+  .filters{
     grid-template-columns:1fr;
   }
 
-  .toolbar .search{
+  .filters input{
     grid-column:auto;
   }
 
-  .modal{
-    border-radius:22px;
-  }
-
-  .modal-head,
-  .modal-body{
-    padding:18px;
+  .page-heading{
+    align-items:flex-start;
+    flex-direction:column;
   }
 
   .detail-grid{
     grid-template-columns:1fr;
   }
 
-  .detail-box.full{
+  .detail.full{
     grid-column:auto;
   }
 
-  .action-grid{
-    grid-template-columns:1fr;
+  .topbar{
+    padding:14px 16px;
   }
 
-  .contact-row{
-    flex-direction:column;
+  .topbar-title{
+    font-size:17px;
   }
 
-  .action-buttons{
-    flex-direction:column;
+  .topbar-logo{
+    width:42px;
+    height:42px;
   }
-
-  .action-buttons button{
-    width:100%;
-  }
-
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- =====================================================
+     LOGIN PAGE
+===================================================== -->
 
-<!-- =========================================================
-     LOGIN
-========================================================= -->
-
-<div id="loginView" class="login-wrap">
+<section id="loginPage">
 
   <div class="login-card">
 
-    <div class="logo-row">
-
-      <img
-        class="logo"
-        src="Logo.jpg"
-        alt="SK KGN TEAM"
-      >
+    <div class="brand">
+      <img src="Logo.jpg" alt="SK KGN TEAM">
 
       <div>
-        <strong>SK KGN TEAM</strong>
-        <small>Secure VIP Administration</small>
+        <div class="brand-title">SK KGN TEAM</div>
+        <div class="brand-subtitle">Secure VIP Administration</div>
       </div>
-
     </div>
 
-    <span class="eyebrow">
-      🔐 VIP ADMIN PANEL
-    </span>
+    <div class="vip-badge">🔐 VIP ADMIN PANEL</div>
 
-    <h1>Complaint Control Center</h1>
+    <h1 class="login-title">
+      Complaint Control Center
+    </h1>
 
-    <p>
+    <p class="login-description">
       Securely manage customer complaints, payments,
       status updates and administrative actions.
     </p>
 
-    <div class="field">
+    <form id="loginForm">
 
-      <label>ADMIN EMAIL</label>
+      <div class="field">
+        <label>ADMIN EMAIL</label>
 
-      <input
-        id="email"
-        type="email"
-        autocomplete="username"
-        placeholder="admin@example.com"
+        <input
+          type="email"
+          id="email"
+          value="Skkgnteam@gmail.com"
+          autocomplete="username"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label>PASSWORD</label>
+
+        <input
+          type="password"
+          id="password"
+          autocomplete="current-password"
+          required
+        >
+      </div>
+
+      <button
+        type="submit"
+        class="login-btn"
+        id="loginButton"
       >
+        Sign In →
+      </button>
 
-    </div>
-
-    <div class="field">
-
-      <label>PASSWORD</label>
-
-      <input
-        id="password"
-        type="password"
-        autocomplete="current-password"
-        placeholder="Enter password"
-      >
-
-    </div>
-
-    <button
-      id="loginBtn"
-      class="primary"
-    >
-      Sign In →
-    </button>
+    </form>
 
     <div
-      id="loginError"
-      class="error hidden"
+      id="loginMessage"
+      class="message hidden"
     ></div>
 
-    <p class="small-note">
+    <p style="
+      margin-top:30px;
+      color:#9ca3af;
+      font-size:13px;
+      line-height:1.6;
+    ">
       Access is controlled through Firebase Authentication.
-      Never store an admin password directly in this HTML file.
+      Never store an admin password directly inside this HTML.
     </p>
 
   </div>
 
-</div>
+</section>
 
 
+<!-- =====================================================
+     ADMIN PAGE
+===================================================== -->
 
-<!-- =========================================================
-     APP
-========================================================= -->
-
-<div id="appView" class="hidden">
+<section id="adminPage" class="hidden">
 
   <header class="topbar">
 
-    <div class="topbar-inner">
+    <div class="topbar-left">
 
-      <div class="brand">
+      <img
+        src="Logo.jpg"
+        class="topbar-logo"
+        alt="SK KGN TEAM"
+      >
 
-        <img
-          src="Logo.jpg"
-          alt="SK KGN TEAM"
-        >
-
-        <div class="brand-text">
-
-          <strong>
-            SK KGN TEAM
-            <span class="vip-tag">VIP</span>
-          </strong>
-
-          <span>
-            Complaint Administration
-          </span>
-
+      <div>
+        <div class="topbar-title">
+          SK KGN TEAM — Complaint Control Center
         </div>
 
-      </div>
-
-      <div class="top-actions">
-
-        <button
-          id="homeBtn"
-          class="ghost"
-        >
-          ← Website
-        </button>
-
-        <button
-          id="logoutBtn"
-          class="ghost"
-        >
-          Logout
-        </button>
-
+        <div class="topbar-sub">
+          Authenticated Administration
+        </div>
       </div>
 
     </div>
 
+    <button
+      class="logout-btn"
+      id="logoutButton"
+    >
+      Sign Out
+    </button>
+
   </header>
 
 
-  <main class="main">
+  <main class="container">
 
-
-    <div class="page-head">
+    <div class="page-heading">
 
       <div>
-
-        <h1>
-          Complaint Dashboard
-        </h1>
+        <h1>Complaint Dashboard</h1>
 
         <p>
-          Manage complaints, customer information,
-          payment records and administrative actions.
+          Manage complaints, payments, status and customer actions.
         </p>
-
       </div>
 
       <button
-        id="refreshBtn"
-        class="refresh"
+        class="refresh-btn"
+        id="refreshButton"
       >
         ↻ Refresh
       </button>
@@ -1341,144 +860,139 @@ tr:hover td{
     </div>
 
 
-    <section class="stats">
+    <!-- STATS -->
 
-      <div class="stat">
-        <div class="stat-top">
-          TOTAL COMPLAINTS
-          <span class="stat-dot blue"></span>
-        </div>
-        <div id="totalStat" class="stat-num">0</div>
+    <div class="stats">
+
+      <div class="stat-card">
+        <div class="stat-label">TOTAL</div>
+        <div class="stat-number" id="totalCount">0</div>
       </div>
 
-
-      <div class="stat">
-        <div class="stat-top">
-          SUBMITTED
-          <span class="stat-dot"></span>
-        </div>
-        <div id="submittedStat" class="stat-num">0</div>
+      <div class="stat-card">
+        <div class="stat-label">SUBMITTED</div>
+        <div class="stat-number" id="submittedCount">0</div>
       </div>
 
-
-      <div class="stat">
-        <div class="stat-top">
-          UNDER REVIEW
-          <span class="stat-dot orange"></span>
-        </div>
-        <div id="reviewStat" class="stat-num">0</div>
+      <div class="stat-card">
+        <div class="stat-label">UNDER REVIEW</div>
+        <div class="stat-number" id="reviewCount">0</div>
       </div>
 
-
-      <div class="stat">
-        <div class="stat-top">
-          IN PROGRESS
-          <span class="stat-dot blue"></span>
-        </div>
-        <div id="progressStat" class="stat-num">0</div>
+      <div class="stat-card">
+        <div class="stat-label">IN PROGRESS</div>
+        <div class="stat-number" id="progressCount">0</div>
       </div>
 
-
-      <div class="stat">
-        <div class="stat-top">
-          RESOLVED
-          <span class="stat-dot green"></span>
-        </div>
-        <div id="resolvedStat" class="stat-num">0</div>
+      <div class="stat-card">
+        <div class="stat-label">RESOLVED</div>
+        <div class="stat-number" id="resolvedCount">0</div>
       </div>
 
-
-      <div class="stat">
-        <div class="stat-top">
-          PAID
-          <span class="stat-dot gold"></span>
-        </div>
-        <div id="paidStat" class="stat-num">0</div>
+      <div class="stat-card">
+        <div class="stat-label">PAID</div>
+        <div class="stat-number" id="paidCount">0</div>
       </div>
-
-    </section>
-
-
-    <section class="toolbar">
-
-      <div class="search">
-
-        <span>⌕</span>
-
-        <input
-          id="search"
-          type="search"
-          placeholder="Search Complaint ID, name, mobile, subject, Payment ID..."
-        >
-
-      </div>
-
-
-      <select id="statusFilter">
-
-        <option value="all">All Statuses</option>
-        <option value="Submitted">Submitted</option>
-        <option value="Under Review">Under Review</option>
-        <option value="In Progress">In Progress</option>
-        <option value="Resolved">Resolved</option>
-        <option value="Cancelled">Cancelled</option>
-
-      </select>
-
-
-      <select id="paymentFilter">
-
-        <option value="all">All Payments</option>
-        <option value="Completed">Paid</option>
-        <option value="Pending">Pending</option>
-        <option value="Failed">Failed</option>
-
-      </select>
-
-
-      <select id="sortBy">
-
-        <option value="newest">Newest First</option>
-        <option value="oldest">Oldest First</option>
-        <option value="name">Name A–Z</option>
-        <option value="status">Status</option>
-        <option value="plan">Plan</option>
-
-      </select>
-
-
-      <button
-        id="clearBtn"
-        class="refresh"
-      >
-        Clear Filters
-      </button>
-
-    </section>
-
-
-    <div class="count-row">
-
-      <span id="resultCount">
-        0 complaints
-      </span>
-
-      <span>
-        Live data from Firestore
-      </span>
 
     </div>
 
 
-    <section class="table-card">
+    <!-- FILTERS -->
 
-      <div class="table-scroll">
+    <div class="filters">
+
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Search Complaint ID, name, mobile, subject, payment ID..."
+      >
+
+      <select id="statusFilter">
+
+        <option value="">All Status</option>
+
+        <option value="Submitted">
+          Submitted
+        </option>
+
+        <option value="Under Review">
+          Under Review
+        </option>
+
+        <option value="In Progress">
+          In Progress
+        </option>
+
+        <option value="Resolved">
+          Resolved
+        </option>
+
+        <option value="Cancelled">
+          Cancelled
+        </option>
+
+      </select>
+
+      <select id="paymentFilter">
+
+        <option value="">All Payments</option>
+
+        <option value="Completed">
+          Paid
+        </option>
+
+        <option value="Pending">
+          Pending
+        </option>
+
+        <option value="Failed">
+          Failed
+        </option>
+
+      </select>
+
+      <select id="sortFilter">
+
+        <option value="newest">
+          Newest First
+        </option>
+
+        <option value="oldest">
+          Oldest First
+        </option>
+
+        <option value="name">
+          Name A-Z
+        </option>
+
+        <option value="status">
+          Status
+        </option>
+
+      </select>
+
+      <button
+        class="clear-btn"
+        id="clearFilters"
+      >
+        Clear
+      </button>
+
+    </div>
+
+
+    <!-- TABLE -->
+
+    <div class="table-card">
+
+      <div class="table-wrap">
 
         <table>
 
           <thead>
 
             <tr>
+
               <th>Complaint ID</th>
               <th>Customer</th>
               <th>Mobile</th>
@@ -1487,22 +1001,20 @@ tr:hover td{
               <th>Status</th>
               <th>Submitted</th>
               <th>Action</th>
+
             </tr>
 
           </thead>
 
-          <tbody id="complaintsBody">
+          <tbody id="complaintTableBody">
 
             <tr>
-
-              <td colspan="8">
-
-                <div class="loading">
-                  Loading complaints…
-                </div>
-
+              <td
+                colspan="8"
+                class="empty"
+              >
+                Loading complaints...
               </td>
-
             </tr>
 
           </tbody>
@@ -1511,45 +1023,31 @@ tr:hover td{
 
       </div>
 
-    </section>
+    </div>
 
   </main>
 
-</div>
+</section>
 
 
-
-<!-- =========================================================
-     COMPLAINT MODAL
-========================================================= -->
+<!-- =====================================================
+     COMPLAINT DETAILS MODAL
+===================================================== -->
 
 <div
-  id="modalBackdrop"
-  class="modal-backdrop hidden"
+  class="modal"
+  id="complaintModal"
 >
 
-  <div
-    class="modal"
-    role="dialog"
-    aria-modal="true"
-  >
+  <div class="modal-box">
 
-    <div class="modal-head">
+    <div class="modal-header">
 
-      <div>
-
-        <h2 id="modalTitle">
-          Complaint
-        </h2>
-
-        <p id="modalSub"></p>
-
-      </div>
+      <h2>Complaint Details</h2>
 
       <button
+        class="close-btn"
         id="closeModal"
-        class="close"
-        aria-label="Close"
       >
         ×
       </button>
@@ -1561,137 +1059,225 @@ tr:hover td{
 
       <div class="detail-grid">
 
+        <div class="detail">
 
-        <div class="detail-box">
-          <label>Complaint ID</label>
-          <div id="dId">-</div>
+          <div class="detail-label">
+            Complaint ID
+          </div>
+
+          <div
+            class="detail-value"
+            id="detailComplaintId"
+          >
+            —
+          </div>
+
         </div>
 
 
-        <div class="detail-box">
-          <label>Submitted On</label>
-          <div id="dDate">-</div>
+        <div class="detail">
+
+          <div class="detail-label">
+            Submitted On
+          </div>
+
+          <div
+            class="detail-value"
+            id="detailSubmitted"
+          >
+            —
+          </div>
+
         </div>
 
 
-        <div class="detail-box">
-          <label>Applicant Name</label>
-          <div id="dName">-</div>
+        <div class="detail">
+
+          <div class="detail-label">
+            Applicant Name
+          </div>
+
+          <div
+            class="detail-value"
+            id="detailName"
+          >
+            —
+          </div>
+
         </div>
 
 
-        <div class="detail-box">
-          <label>Mobile Number</label>
-          <div id="dMobile">-</div>
+        <div class="detail">
+
+          <div class="detail-label">
+            Mobile Number
+          </div>
+
+          <div
+            class="detail-value"
+            id="detailMobile"
+          >
+            —
+          </div>
+
         </div>
 
 
-        <div class="detail-box">
-          <label>Service Plan</label>
-          <div id="dPlan">-</div>
+        <div class="detail">
+
+          <div class="detail-label">
+            Service Plan
+          </div>
+
+          <div
+            class="detail-value"
+            id="detailPlan"
+          >
+            —
+          </div>
+
         </div>
 
 
-        <div class="detail-box">
-          <label>Payment Amount</label>
-          <div id="dAmount">-</div>
+        <div class="detail">
+
+          <div class="detail-label">
+            Payment Amount
+          </div>
+
+          <div
+            class="detail-value"
+            id="detailAmount"
+          >
+            —
+          </div>
+
         </div>
 
 
-        <div class="detail-box">
-          <label>Payment Status</label>
-          <div id="dPaymentStatus">-</div>
+        <div class="detail">
+
+          <div class="detail-label">
+            Payment Status
+          </div>
+
+          <div
+            class="detail-value"
+            id="detailPaymentStatus"
+          >
+            —
+          </div>
+
         </div>
 
 
-        <div class="detail-box">
-          <label>Updated On</label>
-          <div id="dUpdated">-</div>
+        <div class="detail">
+
+          <div class="detail-label">
+            Updated On
+          </div>
+
+          <div
+            class="detail-value"
+            id="detailUpdated"
+          >
+            —
+          </div>
+
         </div>
 
 
-        <div class="detail-box payment-box">
+        <div class="detail">
 
-          <label>
+          <div class="detail-label">
             Razorpay Payment ID
-          </label>
+          </div>
 
           <div
-            id="dRazorpayPaymentId"
-            class="payment-id"
+            class="detail-value"
+            id="detailPaymentId"
           >
-            -
+            —
           </div>
 
         </div>
 
 
-        <div class="detail-box payment-box">
+        <div class="detail">
 
-          <label>
+          <div class="detail-label">
             Payment Link ID
-          </label>
+          </div>
 
           <div
-            id="dPaymentLinkId"
-            class="payment-id"
+            class="detail-value"
+            id="detailPaymentLinkId"
           >
-            -
+            —
           </div>
 
         </div>
 
 
-        <div class="detail-box payment-box full">
+        <div class="detail">
 
-          <label>
+          <div class="detail-label">
             Reference ID
-          </label>
+          </div>
 
           <div
-            id="dReferenceId"
-            class="payment-id"
+            class="detail-value"
+            id="detailReferenceId"
           >
-            -
+            —
           </div>
 
         </div>
 
 
-        <div class="detail-box full">
+        <div class="detail">
 
-          <label>
+          <div class="detail-label">
+            Current Status
+          </div>
+
+          <div
+            class="detail-value"
+            id="detailStatus"
+          >
+            —
+          </div>
+
+        </div>
+
+
+        <div class="detail full">
+
+          <div class="detail-label">
             Complaint Subject
-          </label>
+          </div>
 
-          <div id="dSubject">
-            -
+          <div
+            class="detail-value"
+            id="detailSubject"
+          >
+            —
           </div>
 
         </div>
 
 
-        <div class="detail-box full">
+        <div class="detail full">
 
-          <label>
+          <div class="detail-label">
             Complaint Details
-          </label>
-
-          <div id="dDetails">
-            -
           </div>
 
-        </div>
-
-
-        <div class="detail-box full">
-
-          <label>
-            Admin Remark / Action Taken
-          </label>
-
-          <div id="dRemark">
-            -
+          <div
+            class="detail-value"
+            id="detailDetails"
+          >
+            —
           </div>
 
         </div>
@@ -1699,103 +1285,114 @@ tr:hover td{
       </div>
 
 
-      <div class="contact-row">
+      <!-- CUSTOMER ACTIONS -->
 
-        <a
-          id="callLink"
-          class="call"
-          href="#"
+      <div class="actions">
+
+        <button
+          class="action-btn call-btn"
+          id="callCustomer"
         >
-          📞 Call Customer
-        </a>
+          ☎ Call Customer
+        </button>
 
-        <a
-          id="waLink"
-          class="wa"
-          href="#"
-          target="_blank"
-          rel="noopener"
+        <button
+          class="action-btn whatsapp-btn"
+          id="whatsappCustomer"
         >
-          💬 WhatsApp Customer
-        </a>
+          WhatsApp Customer
+        </button>
 
       </div>
 
 
-      <div class="action-panel">
+      <!-- STATUS -->
 
-        <div class="action-grid">
+      <div class="status-row">
 
+        <select id="newStatus">
 
-          <div class="field">
+          <option value="Submitted">
+            Submitted
+          </option>
 
-            <label>
-              UPDATE COMPLAINT STATUS
-            </label>
+          <option value="Under Review">
+            Under Review
+          </option>
 
-            <select id="statusSelect">
+          <option value="In Progress">
+            In Progress
+          </option>
 
-              <option>Submitted</option>
-              <option>Under Review</option>
-              <option>In Progress</option>
-              <option>Resolved</option>
-              <option>Cancelled</option>
+          <option value="Resolved">
+            Resolved
+          </option>
 
-            </select>
+          <option value="Cancelled">
+            Cancelled
+          </option>
 
-          </div>
+        </select>
 
-
-          <div class="field">
-
-            <label>
-              ADMIN REMARK / ACTION TAKEN
-            </label>
-
-            <textarea
-              id="adminRemark"
-              rows="4"
-              placeholder="Write admin remark or action taken..."
-            ></textarea>
-
-          </div>
-
-        </div>
-
-
-        <div class="action-buttons">
-
-          <button
-            id="saveStatus"
-            class="save"
-          >
-            ✓ Save Status
-          </button>
-
-          <button
-            id="saveRemark"
-            class="save save-remark"
-          >
-            📝 Save Remark
-          </button>
-
-          <button
-            id="cancelComplaint"
-            class="cancel-btn"
-          >
-            ⚠ Cancel Complaint
-          </button>
-
-          <button
-            id="deleteComplaint"
-            class="delete-btn"
-          >
-            🗑 Delete Complaint
-          </button>
-
-        </div>
+        <button
+          class="action-btn save-btn"
+          id="saveStatus"
+        >
+          Save Status
+        </button>
 
       </div>
+
+
+      <!-- ADMIN REMARK -->
+
+      <div class="remark-area">
+
+        <label>
+          ADMIN REMARK / ACTION TAKEN
+        </label>
+
+        <textarea
+          id="adminRemark"
+          placeholder="Write administrative action, update or remark..."
+        ></textarea>
+
+        <button
+          class="action-btn save-btn"
+          id="saveRemark"
+          style="margin-top:10px;"
+        >
+          Save Remark
+        </button>
+
+      </div>
+
+
+      <!-- DANGER ACTIONS -->
+
+      <div class="actions">
+
+        <button
+          class="action-btn cancel-btn"
+          id="cancelComplaint"
+        >
+          Cancel Complaint
+        </button>
+
+        <button
+          class="action-btn delete-btn"
+          id="deleteComplaint"
+        >
+          Delete Complaint
+        </button>
+
+      </div>
+
+
+      <div
+        id="modalMessage"
+        class="message hidden"
+      ></div>
 
     </div>
 
@@ -1804,24 +1401,15 @@ tr:hover td{
 </div>
 
 
-<div
-  id="toast"
-  class="toast hidden"
-></div>
-
-
-
-<!-- =========================================================
-     FIREBASE + ADMIN LOGIC
-========================================================= -->
+<!-- =====================================================
+     FIREBASE
+===================================================== -->
 
 <script type="module">
 
 import {
   initializeApp
-} from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 import {
   getFirestore,
@@ -1832,27 +1420,24 @@ import {
   deleteDoc,
   orderBy,
   query
-} from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
-
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 import {
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut
-} from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 
-/* =========================================================
-   FIREBASE CONFIG — CORRECT
-========================================================= */
+/* =====================================================
+   FIREBASE CONFIG — EXACT WEB APP CONFIG
+===================================================== */
 
 const firebaseConfig = {
 
   apiKey:
-    "AIzaSyAOdyFTVeAoHeVd1TnWjaXrkPTPB8F1Tn1",
+    "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
 
   authDomain:
     "sk-kgn-team.firebaseapp.com",
@@ -1878,37 +1463,120 @@ const firebaseConfig = {
 };
 
 
-/* =========================================================
-   FIREBASE INIT
-========================================================= */
+const app = initializeApp(firebaseConfig);
 
-const app =
-  initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-const db =
-  getFirestore(app);
-
-const auth =
-  getAuth(app);
+const auth = getAuth(app);
 
 
-/* =========================================================
-   HELPERS
-========================================================= */
-
-const $ =
-  id =>
-    document.getElementById(id);
-
+/* =====================================================
+   GLOBAL DATA
+===================================================== */
 
 let complaints = [];
 
-let selectedDocId = null;
+let filteredComplaints = [];
+
+let selectedComplaint = null;
 
 
-function esc(value){
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-  return String(value ?? "-")
+const loginPage =
+  document.getElementById("loginPage");
+
+const adminPage =
+  document.getElementById("adminPage");
+
+const loginForm =
+  document.getElementById("loginForm");
+
+const loginButton =
+  document.getElementById("loginButton");
+
+const loginMessage =
+  document.getElementById("loginMessage");
+
+const logoutButton =
+  document.getElementById("logoutButton");
+
+const refreshButton =
+  document.getElementById("refreshButton");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const statusFilter =
+  document.getElementById("statusFilter");
+
+const paymentFilter =
+  document.getElementById("paymentFilter");
+
+const sortFilter =
+  document.getElementById("sortFilter");
+
+const clearFilters =
+  document.getElementById("clearFilters");
+
+const tableBody =
+  document.getElementById("complaintTableBody");
+
+const complaintModal =
+  document.getElementById("complaintModal");
+
+const closeModal =
+  document.getElementById("closeModal");
+
+const modalMessage =
+  document.getElementById("modalMessage");
+
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function showLoginMessage(text, type="error"){
+
+  loginMessage.textContent = text;
+
+  loginMessage.className =
+    "message " + type;
+
+}
+
+
+function hideLoginMessage(){
+
+  loginMessage.className =
+    "message hidden";
+
+}
+
+
+function showModalMessage(text, type="success"){
+
+  modalMessage.textContent = text;
+
+  modalMessage.className =
+    "message " + type;
+
+}
+
+
+function hideModalMessage(){
+
+  modalMessage.className =
+    "message hidden";
+
+}
+
+
+function escapeHtml(value){
+
+  return String(value ?? "")
     .replace(/&/g,"&amp;")
     .replace(/</g,"&lt;")
     .replace(/>/g,"&gt;")
@@ -1918,346 +1586,508 @@ function esc(value){
 }
 
 
-function dateValue(v){
+function formatDate(value){
 
-  if(!v) return null;
+  if(!value){
+    return "—";
+  }
 
   try{
 
-    return v.toDate
-      ? v.toDate()
-      : new Date(v);
+    let date;
 
-  }catch(e){
+    if(
+      typeof value === "object" &&
+      typeof value.toDate === "function"
+    ){
 
-    return null;
+      date = value.toDate();
 
-  }
+    }else{
 
-}
+      date = new Date(value);
 
-
-function formatDate(v){
-
-  const d =
-    dateValue(v);
-
-  if(
-    !d ||
-    isNaN(d.getTime())
-  ){
-
-    return "-";
-
-  }
-
-  return new Intl.DateTimeFormat(
-    "en-IN",
-    {
-      dateStyle:"medium",
-      timeStyle:"short"
     }
-  ).format(d);
 
-}
+    if(isNaN(date.getTime())){
+      return "—";
+    }
 
-
-function money(value){
-
-  if(
-    value === undefined ||
-    value === null ||
-    value === ""
-  ){
-
-    return "-";
-
-  }
-
-  const number =
-    Number(value);
-
-  if(
-    Number.isNaN(number)
-  ){
-
-    return String(value);
-
-  }
-
-  return "₹" +
-    number.toLocaleString(
-      "en-IN"
+    return date.toLocaleString(
+      "en-IN",
+      {
+        dateStyle:"medium",
+        timeStyle:"short"
+      }
     );
 
-}
+  }catch{
 
-
-function statusClass(s){
-
-  const n =
-    String(
-      s || "Submitted"
-    ).toLowerCase();
-
-  if(
-    n.includes("resolve")
-  ){
-
-    return "s-resolved";
+    return "—";
 
   }
-
-  if(
-    n.includes("cancel")
-  ){
-
-    return "s-cancelled";
-
-  }
-
-  if(
-    n.includes("progress")
-  ){
-
-    return "s-progress";
-
-  }
-
-  if(
-    n.includes("review")
-  ){
-
-    return "s-review";
-
-  }
-
-  return "s-submitted";
 
 }
 
 
-function planClass(plan){
+function getAmount(complaint){
 
-  const n =
-    String(plan || "")
+  if(
+    complaint.amount !== undefined &&
+    complaint.amount !== null &&
+    complaint.amount !== ""
+  ){
+
+    const amount =
+      Number(complaint.amount);
+
+    if(!isNaN(amount)){
+
+      return "₹" +
+        (
+          amount > 1000
+            ? amount / 100
+            : amount
+        ).toFixed(0);
+
+    }
+
+  }
+
+  const plan =
+    String(complaint.plan || "")
       .toLowerCase();
 
-  if(
-    n.includes("premium")
-  ){
-
-    return "plan-premium";
-
+  if(plan === "basic"){
+    return "₹99";
   }
 
-  if(
-    n.includes("advance")
-  ){
-
-    return "plan-advance";
-
+  if(plan === "advance"){
+    return "₹199";
   }
 
-  return "plan-basic";
+  if(plan === "premium"){
+    return "₹299";
+  }
+
+  return "—";
 
 }
 
 
-function paymentClass(status){
+function paymentBadge(status){
 
-  const n =
-    String(status || "")
-      .toLowerCase();
+  const value =
+    String(status || "Pending");
 
-  if(
-    n.includes("complete") ||
-    n.includes("paid")
-  ){
+  const cls =
+    value === "Completed"
+      ? "badge-paid"
+      : value === "Failed"
+        ? "badge-unpaid"
+        : "badge-unpaid";
 
-    return "payment-paid";
-
-  }
-
-  if(
-    n.includes("fail")
-  ){
-
-    return "payment-failed";
-
-  }
-
-  return "payment-pending";
+  return `
+    <span class="badge ${cls}">
+      ${escapeHtml(value)}
+    </span>
+  `;
 
 }
 
 
-function toast(
-  message,
-  bad=false,
-  good=false
-){
+function statusBadge(status){
 
-  const el =
-    $("toast");
+  const value =
+    String(status || "Submitted");
 
-  el.textContent =
-    message;
+  let cls =
+    "badge-submitted";
 
-  el.className =
-    "toast";
-
-  if(bad){
-
-    el.classList.add(
-      "bad"
-    );
-
+  if(value === "Under Review"){
+    cls = "badge-review";
   }
 
-  if(good){
-
-    el.classList.add(
-      "good"
-    );
-
+  if(value === "In Progress"){
+    cls = "badge-progress";
   }
 
-  setTimeout(
-    ()=>{
-      el.classList.add(
-        "hidden"
+  if(value === "Resolved"){
+    cls = "badge-resolved";
+  }
+
+  if(value === "Cancelled"){
+    cls = "badge-cancelled";
+  }
+
+  return `
+    <span class="badge ${cls}">
+      ${escapeHtml(value)}
+    </span>
+  `;
+
+}
+
+
+/* =====================================================
+   LOGIN
+===================================================== */
+
+loginForm.addEventListener(
+  "submit",
+  async function(event){
+
+    event.preventDefault();
+
+    hideLoginMessage();
+
+    const email =
+      document.getElementById("email")
+        .value
+        .trim();
+
+    const password =
+      document.getElementById("password")
+        .value;
+
+    if(!email || !password){
+
+      showLoginMessage(
+        "Please enter admin email and password.",
+        "error"
       );
-    },
-    3000
-  );
+
+      return;
+    }
+
+    loginButton.disabled = true;
+
+    loginButton.textContent =
+      "Signing In...";
+
+    try{
+
+      await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+    }catch(error){
+
+      console.error(error);
+
+      let message =
+        error?.message ||
+        "Login failed.";
+
+      if(
+        error?.code ===
+        "auth/invalid-credential"
+      ){
+
+        message =
+          "Invalid admin email or password.";
+
+      }else if(
+        error?.code ===
+        "auth/user-not-found"
+      ){
+
+        message =
+          "Admin account not found.";
+
+      }else if(
+        error?.code ===
+        "auth/wrong-password"
+      ){
+
+        message =
+          "Incorrect password.";
+
+      }else if(
+        error?.code ===
+        "auth/too-many-requests"
+      ){
+
+        message =
+          "Too many login attempts. Try again later.";
+
+      }else if(
+        error?.code ===
+        "auth/api-key-not-valid"
+      ){
+
+        message =
+          "Firebase API key is invalid. Check the Web App Firebase configuration.";
+
+      }
+
+      showLoginMessage(
+        "Firebase: " + message,
+        "error"
+      );
+
+    }finally{
+
+      loginButton.disabled = false;
+
+      loginButton.textContent =
+        "Sign In →";
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   AUTH STATE
+===================================================== */
+
+onAuthStateChanged(
+  auth,
+  async function(user){
+
+    if(user){
+
+      loginPage.classList.add("hidden");
+
+      adminPage.classList.remove("hidden");
+
+      await loadComplaints();
+
+    }else{
+
+      adminPage.classList.add("hidden");
+
+      loginPage.classList.remove("hidden");
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+logoutButton.addEventListener(
+  "click",
+  async function(){
+
+    try{
+
+      await signOut(auth);
+
+    }catch(error){
+
+      console.error(error);
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   LOAD COMPLAINTS
+===================================================== */
+
+async function loadComplaints(){
+
+  tableBody.innerHTML = `
+    <tr>
+      <td colspan="8" class="empty">
+        Loading complaints...
+      </td>
+    </tr>
+  `;
+
+  try{
+
+    let snapshot;
+
+    try{
+
+      const q =
+        query(
+          collection(db,"complaints"),
+          orderBy("createdAt","desc")
+        );
+
+      snapshot =
+        await getDocs(q);
+
+    }catch(orderError){
+
+      console.warn(
+        "Ordered query failed. Loading without order.",
+        orderError
+      );
+
+      snapshot =
+        await getDocs(
+          collection(db,"complaints")
+        );
+
+    }
+
+    complaints =
+      snapshot.docs.map(
+        item => ({
+          id:item.id,
+          ...item.data()
+        })
+      );
+
+    updateStats();
+
+    applyFilters();
+
+  }catch(error){
+
+    console.error(error);
+
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="8" class="empty">
+          Failed to load complaints.<br><br>
+          ${escapeHtml(error?.message || "Unknown Firebase error")}
+        </td>
+      </tr>
+    `;
+
+  }
 
 }
 
 
-/* =========================================================
+/* =====================================================
    STATS
-========================================================= */
+===================================================== */
 
 function updateStats(){
 
-  let submitted = 0;
-  let review = 0;
-  let progress = 0;
-  let resolved = 0;
-  let paid = 0;
-
-  complaints.forEach(
-    c=>{
-
-      const status =
-        String(
-          c.status || "Submitted"
-        ).toLowerCase();
-
-      const payment =
-        String(
-          c.paymentStatus || ""
-        ).toLowerCase();
-
-
-      if(
-        status.includes("submitted")
-      ){
-
-        submitted++;
-
-      }
-
-
-      if(
-        status.includes("review")
-      ){
-
-        review++;
-
-      }
-
-
-      if(
-        status.includes("progress")
-      ){
-
-        progress++;
-
-      }
-
-
-      if(
-        status.includes("resolve")
-      ){
-
-        resolved++;
-
-      }
-
-
-      if(
-        payment.includes("complete") ||
-        payment.includes("paid")
-      ){
-
-        paid++;
-
-      }
-
-    }
-  );
-
-
-  $("totalStat").textContent =
+  const total =
     complaints.length;
 
-  $("submittedStat").textContent =
-    submitted;
+  const submitted =
+    complaints.filter(
+      c => String(c.status || "Submitted")
+        === "Submitted"
+    ).length;
 
-  $("reviewStat").textContent =
-    review;
+  const review =
+    complaints.filter(
+      c => c.status === "Under Review"
+    ).length;
 
-  $("progressStat").textContent =
-    progress;
+  const progress =
+    complaints.filter(
+      c => c.status === "In Progress"
+    ).length;
 
-  $("resolvedStat").textContent =
-    resolved;
+  const resolved =
+    complaints.filter(
+      c => c.status === "Resolved"
+    ).length;
 
-  $("paidStat").textContent =
-    paid;
+  const paid =
+    complaints.filter(
+      c => c.paymentStatus === "Completed"
+    ).length;
+
+
+  document.getElementById(
+    "totalCount"
+  ).textContent = total;
+
+  document.getElementById(
+    "submittedCount"
+  ).textContent = submitted;
+
+  document.getElementById(
+    "reviewCount"
+  ).textContent = review;
+
+  document.getElementById(
+    "progressCount"
+  ).textContent = progress;
+
+  document.getElementById(
+    "resolvedCount"
+  ).textContent = resolved;
+
+  document.getElementById(
+    "paidCount"
+  ).textContent = paid;
 
 }
 
 
-/* =========================================================
-   FILTER
-========================================================= */
+/* =====================================================
+   FILTERS
+===================================================== */
 
-function filtered(){
+searchInput.addEventListener(
+  "input",
+  applyFilters
+);
+
+statusFilter.addEventListener(
+  "change",
+  applyFilters
+);
+
+paymentFilter.addEventListener(
+  "change",
+  applyFilters
+);
+
+sortFilter.addEventListener(
+  "change",
+  applyFilters
+);
+
+
+clearFilters.addEventListener(
+  "click",
+  function(){
+
+    searchInput.value = "";
+
+    statusFilter.value = "";
+
+    paymentFilter.value = "";
+
+    sortFilter.value = "newest";
+
+    applyFilters();
+
+  }
+);
+
+
+function applyFilters(){
 
   const search =
-    $("search")
-      .value
+    searchInput.value
       .trim()
       .toLowerCase();
 
-  const statusFilter =
-    $("statusFilter").value;
+  const selectedStatus =
+    statusFilter.value;
 
-  const paymentFilter =
-    $("paymentFilter").value;
+  const selectedPayment =
+    paymentFilter.value;
 
-  const sort =
-    $("sortBy").value;
-
-
-  let arr =
+  filteredComplaints =
     complaints.filter(
-      c=>{
+      function(c){
 
-        const text = [
+        const searchable = [
 
           c.complaintId,
           c.name,
@@ -2273,169 +2103,131 @@ function filtered(){
           c.referenceId
 
         ]
+        .map(
+          x => String(x || "")
+        )
         .join(" ")
         .toLowerCase();
 
 
-        const statusOk =
-          statusFilter === "all" ||
-          String(
-            c.status || "Submitted"
-          ).toLowerCase()
-          ===
-          statusFilter.toLowerCase();
+        const searchMatch =
+          !search ||
+          searchable.includes(search);
 
 
-        const paymentOk =
-          paymentFilter === "all" ||
-          String(
-            c.paymentStatus || ""
-          ).toLowerCase()
-          ===
-          paymentFilter.toLowerCase();
+        const statusMatch =
+          !selectedStatus ||
+          String(c.status || "Submitted")
+            === selectedStatus;
+
+
+        const paymentMatch =
+          !selectedPayment ||
+          String(c.paymentStatus || "Pending")
+            === selectedPayment;
 
 
         return (
-          (!search ||
-            text.includes(search))
-          &&
-          statusOk
-          &&
-          paymentOk
+          searchMatch &&
+          statusMatch &&
+          paymentMatch
         );
 
       }
     );
 
 
-  if(
-    sort === "newest"
-  ){
-
-    arr.sort(
-      (a,b)=>
-        (
-          dateValue(b.createdAt)
-            ?.getTime() || 0
-        )
-        -
-        (
-          dateValue(a.createdAt)
-            ?.getTime() || 0
-        )
-    );
-
-  }
+  const sort =
+    sortFilter.value;
 
 
-  if(
-    sort === "oldest"
-  ){
+  filteredComplaints.sort(
+    function(a,b){
 
-    arr.sort(
-      (a,b)=>
-        (
-          dateValue(a.createdAt)
-            ?.getTime() || 0
-        )
-        -
-        (
-          dateValue(b.createdAt)
-            ?.getTime() || 0
-        )
-    );
+      if(sort === "name"){
 
-  }
-
-
-  if(
-    sort === "name"
-  ){
-
-    arr.sort(
-      (a,b)=>
-        String(a.name || "")
+        return String(a.name || "")
           .localeCompare(
             String(b.name || "")
-          )
-    );
+          );
 
-  }
+      }
 
+      if(sort === "status"){
 
-  if(
-    sort === "status"
-  ){
-
-    arr.sort(
-      (a,b)=>
-        String(a.status || "")
+        return String(a.status || "")
           .localeCompare(
             String(b.status || "")
-          )
-    );
+          );
 
-  }
+      }
 
+      const aDate =
+        getDateValue(a.createdAt);
 
-  if(
-    sort === "plan"
-  ){
+      const bDate =
+        getDateValue(b.createdAt);
 
-    arr.sort(
-      (a,b)=>
-        String(a.plan || "")
-          .localeCompare(
-            String(b.plan || "")
-          )
-    );
+      return sort === "oldest"
+        ? aDate - bDate
+        : bDate - aDate;
 
-  }
+    }
+  );
 
 
-  return arr;
+  renderTable();
 
 }
 
 
-/* =========================================================
-   RENDER
-========================================================= */
+function getDateValue(value){
 
-function render(){
+  if(!value){
+    return 0;
+  }
 
-  const arr =
-    filtered();
+  try{
+
+    if(
+      typeof value === "object" &&
+      typeof value.toDate === "function"
+    ){
+
+      return value.toDate().getTime();
+
+    }
+
+    const date =
+      new Date(value);
+
+    return isNaN(date.getTime())
+      ? 0
+      : date.getTime();
+
+  }catch{
+
+    return 0;
+
+  }
+
+}
 
 
-  $("resultCount").textContent =
-    `${arr.length} complaint${arr.length === 1 ? "" : "s"}`;
+/* =====================================================
+   TABLE
+===================================================== */
 
+function renderTable(){
 
-  if(
-    !arr.length
-  ){
+  if(!filteredComplaints.length){
 
-    $("complaintsBody").innerHTML = `
-
+    tableBody.innerHTML = `
       <tr>
-
-        <td colspan="8">
-
-          <div class="empty">
-
-            <strong>
-              No complaints found
-            </strong>
-
-            Try another search or clear the filters.
-
-          </div>
-
+        <td colspan="8" class="empty">
+          No complaints found.
         </td>
-
       </tr>
-
     `;
 
     return;
@@ -2443,155 +2235,105 @@ function render(){
   }
 
 
-  $("complaintsBody").innerHTML =
+  tableBody.innerHTML =
+    filteredComplaints
+      .map(
+        function(c,index){
 
-    arr.map(
-      c=>{
+          const status =
+            c.status || "Submitted";
 
-        const mobile =
-          c.mobile ||
-          c.phone ||
-          "-";
+          const payment =
+            c.paymentStatus || "Pending";
 
+          return `
+            <tr>
 
-        const payment =
-          c.paymentStatus ||
-          "Pending";
+              <td>
+                <div class="complaint-id">
+                  ${escapeHtml(
+                    c.complaintId || c.id
+                  )}
+                </div>
+              </td>
 
+              <td>
+                <div class="customer-name">
+                  ${escapeHtml(
+                    c.name || "—"
+                  )}
+                </div>
+              </td>
 
-        return `
+              <td>
+                <div class="mobile">
+                  ${escapeHtml(
+                    c.mobile ||
+                    c.phone ||
+                    "—"
+                  )}
+                </div>
+              </td>
 
-          <tr>
+              <td>
+                <div class="plan">
+                  ${escapeHtml(
+                    c.plan || "—"
+                  )}
+                </div>
+              </td>
 
-            <td>
+              <td>
+                ${paymentBadge(payment)}
+              </td>
 
-              <span class="id">
+              <td>
+                ${statusBadge(status)}
+              </td>
 
-                ${esc(
-                  c.complaintId ||
-                  c.id ||
-                  "-"
+              <td>
+                ${escapeHtml(
+                  formatDate(c.createdAt)
                 )}
+              </td>
 
-              </span>
+              <td>
 
-            </td>
+                <button
+                  class="view-btn"
+                  data-index="${index}"
+                >
+                  View
+                </button>
 
+              </td>
 
-            <td>
+            </tr>
+          `;
 
-              <span class="name">
-
-                ${esc(
-                  c.name || "-"
-                )}
-
-              </span>
-
-            </td>
-
-
-            <td>
-
-              ${esc(mobile)}
-
-            </td>
+        }
+      )
+      .join("");
 
 
-            <td>
-
-              <span
-                class="plan-badge ${planClass(c.plan)}"
-              >
-
-                ${esc(
-                  c.plan || "-"
-                )}
-
-              </span>
-
-            </td>
-
-
-            <td>
-
-              <span
-                class="payment-badge ${paymentClass(payment)}"
-              >
-
-                ${esc(payment)}
-
-              </span>
-
-            </td>
-
-
-            <td>
-
-              <span
-                class="status ${statusClass(c.status)}"
-              >
-
-                ${esc(
-                  c.status ||
-                  "Submitted"
-                )}
-
-              </span>
-
-            </td>
-
-
-            <td>
-
-              <span class="date">
-
-                ${esc(
-                  formatDate(
-                    c.createdAt
-                  )
-                )}
-
-              </span>
-
-            </td>
-
-
-            <td>
-
-              <button
-                class="view-btn"
-                data-id="${esc(c._docId)}"
-              >
-
-                View / Update
-
-              </button>
-
-            </td>
-
-          </tr>
-
-        `;
-
-      }
-    )
-    .join("");
-
-
-  document
-    .querySelectorAll(
-      ".view-btn"
-    )
+  tableBody
+    .querySelectorAll(".view-btn")
     .forEach(
-      btn=>{
+      button => {
 
-        btn.addEventListener(
+        button.addEventListener(
           "click",
-          ()=>{
+          function(){
+
+            const index =
+              Number(
+                button.dataset.index
+              );
+
             openComplaint(
-              btn.dataset.id
+              filteredComplaints[index]
             );
+
           }
         );
 
@@ -2601,1073 +2343,608 @@ function render(){
 }
 
 
-/* =========================================================
-   LOAD COMPLAINTS
-========================================================= */
+/* =====================================================
+   OPEN COMPLAINT
+===================================================== */
 
-async function loadComplaints(){
+function openComplaint(c){
 
-  $("refreshBtn").disabled =
-    true;
+  selectedComplaint = c;
 
-  $("refreshBtn").textContent =
-    "Loading…";
+  hideModalMessage();
+
+  document.getElementById(
+    "detailComplaintId"
+  ).textContent =
+    c.complaintId || c.id || "—";
+
+  document.getElementById(
+    "detailSubmitted"
+  ).textContent =
+    formatDate(c.createdAt);
+
+  document.getElementById(
+    "detailName"
+  ).textContent =
+    c.name || "—";
+
+  document.getElementById(
+    "detailMobile"
+  ).textContent =
+    c.mobile ||
+    c.phone ||
+    "—";
+
+  document.getElementById(
+    "detailPlan"
+  ).textContent =
+    c.plan || "—";
+
+  document.getElementById(
+    "detailAmount"
+  ).textContent =
+    getAmount(c);
+
+  document.getElementById(
+    "detailPaymentStatus"
+  ).textContent =
+    c.paymentStatus || "Pending";
+
+  document.getElementById(
+    "detailUpdated"
+  ).textContent =
+    formatDate(c.updatedAt);
+
+  document.getElementById(
+    "detailPaymentId"
+  ).textContent =
+    c.razorpayPaymentId || "—";
+
+  document.getElementById(
+    "detailPaymentLinkId"
+  ).textContent =
+    c.paymentLinkId || "—";
+
+  document.getElementById(
+    "detailReferenceId"
+  ).textContent =
+    c.referenceId || "—";
+
+  document.getElementById(
+    "detailStatus"
+  ).textContent =
+    c.status || "Submitted";
+
+  document.getElementById(
+    "detailSubject"
+  ).textContent =
+    c.subject || "—";
+
+  document.getElementById(
+    "detailDetails"
+  ).textContent =
+    c.details || "—";
+
+  document.getElementById(
+    "adminRemark"
+  ).value =
+    c.adminRemark || "";
+
+  document.getElementById(
+    "newStatus"
+  ).value =
+    c.status || "Submitted";
 
 
-  $("complaintsBody").innerHTML = `
+  complaintModal.classList.add("show");
 
-    <tr>
-
-      <td colspan="8">
-
-        <div class="loading">
-          Loading complaints…
-        </div>
-
-      </td>
-
-    </tr>
-
-  `;
+}
 
 
-  try{
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
 
-    const snap =
-      await getDocs(
-        query(
-          collection(
-            db,
-            "complaints"
-          ),
-          orderBy(
-            "createdAt",
-            "desc"
-          )
-        )
-      );
+function closeComplaintModal(){
+
+  complaintModal.classList.remove("show");
+
+  selectedComplaint = null;
+
+  hideModalMessage();
+
+}
 
 
-    complaints =
-      snap.docs.map(
-        d=>({
-
-          _docId:d.id,
-
-          ...d.data()
-
-        })
-      );
+closeModal.addEventListener(
+  "click",
+  closeComplaintModal
+);
 
 
-  }catch(error){
+complaintModal.addEventListener(
+  "click",
+  function(event){
 
-    console.warn(
-      "Ordered query failed:",
-      error
+    if(
+      event.target === complaintModal
+    ){
+
+      closeComplaintModal();
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   CALL CUSTOMER
+===================================================== */
+
+document.getElementById(
+  "callCustomer"
+).addEventListener(
+  "click",
+  function(){
+
+    if(!selectedComplaint){
+      return;
+    }
+
+    const mobile =
+      selectedComplaint.mobile ||
+      selectedComplaint.phone;
+
+    if(!mobile){
+      alert("Customer mobile number is not available.");
+      return;
+    }
+
+    window.location.href =
+      "tel:" + mobile;
+
+  }
+);
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+document.getElementById(
+  "whatsappCustomer"
+).addEventListener(
+  "click",
+  function(){
+
+    if(!selectedComplaint){
+      return;
+    }
+
+    const mobile =
+      selectedComplaint.mobile ||
+      selectedComplaint.phone;
+
+    if(!mobile){
+      alert("Customer mobile number is not available.");
+      return;
+    }
+
+    const cleanMobile =
+      String(mobile)
+        .replace(/\D/g,"");
+
+    const finalMobile =
+      cleanMobile.length === 10
+        ? "91" + cleanMobile
+        : cleanMobile;
+
+    const complaintId =
+      selectedComplaint.complaintId ||
+      selectedComplaint.id;
+
+    const text =
+      "Hello " +
+      (selectedComplaint.name || "Customer") +
+      ", your SK KGN TEAM complaint " +
+      complaintId +
+      " is currently " +
+      (selectedComplaint.status || "Submitted") +
+      ".";
+
+    window.open(
+      "https://wa.me/" +
+      finalMobile +
+      "?text=" +
+      encodeURIComponent(text),
+      "_blank"
     );
+
+  }
+);
+
+
+/* =====================================================
+   SAVE STATUS
+===================================================== */
+
+document.getElementById(
+  "saveStatus"
+).addEventListener(
+  "click",
+  async function(){
+
+    if(!selectedComplaint){
+      return;
+    }
+
+    const value =
+      document.getElementById(
+        "newStatus"
+      ).value;
+
+    try{
+
+      await updateDoc(
+        doc(
+          db,
+          "complaints",
+          selectedComplaint.id
+        ),
+        {
+          status:value,
+          updatedAt:new Date()
+        }
+      );
+
+
+      selectedComplaint.status =
+        value;
+
+      selectedComplaint.updatedAt =
+        new Date();
+
+
+      const found =
+        complaints.find(
+          c => c.id === selectedComplaint.id
+        );
+
+      if(found){
+
+        found.status =
+          value;
+
+        found.updatedAt =
+          new Date();
+
+      }
+
+
+      updateStats();
+
+      applyFilters();
+
+      document.getElementById(
+        "detailStatus"
+      ).textContent =
+        value;
+
+      document.getElementById(
+        "detailUpdated"
+      ).textContent =
+        formatDate(
+          selectedComplaint.updatedAt
+        );
+
+
+      showModalMessage(
+        "Status updated successfully.",
+        "success"
+      );
+
+    }catch(error){
+
+      console.error(error);
+
+      showModalMessage(
+        "Failed to update status: " +
+        (error?.message || ""),
+        "error"
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   SAVE REMARK
+===================================================== */
+
+document.getElementById(
+  "saveRemark"
+).addEventListener(
+  "click",
+  async function(){
+
+    if(!selectedComplaint){
+      return;
+    }
+
+    const remark =
+      document.getElementById(
+        "adminRemark"
+      ).value;
 
 
     try{
 
-      const snap =
-        await getDocs(
-          collection(
-            db,
-            "complaints"
-          )
+      await updateDoc(
+        doc(
+          db,
+          "complaints",
+          selectedComplaint.id
+        ),
+        {
+          adminRemark:remark,
+          updatedAt:new Date()
+        }
+      );
+
+
+      selectedComplaint.adminRemark =
+        remark;
+
+      selectedComplaint.updatedAt =
+        new Date();
+
+
+      const found =
+        complaints.find(
+          c => c.id === selectedComplaint.id
         );
+
+      if(found){
+
+        found.adminRemark =
+          remark;
+
+        found.updatedAt =
+          new Date();
+
+      }
+
+
+      showModalMessage(
+        "Admin remark saved successfully.",
+        "success"
+      );
+
+    }catch(error){
+
+      console.error(error);
+
+      showModalMessage(
+        "Failed to save remark: " +
+        (error?.message || ""),
+        "error"
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   CANCEL COMPLAINT
+===================================================== */
+
+document.getElementById(
+  "cancelComplaint"
+).addEventListener(
+  "click",
+  async function(){
+
+    if(!selectedComplaint){
+      return;
+    }
+
+    const confirmed =
+      confirm(
+        "Are you sure you want to cancel this complaint?"
+      );
+
+    if(!confirmed){
+      return;
+    }
+
+
+    try{
+
+      await updateDoc(
+        doc(
+          db,
+          "complaints",
+          selectedComplaint.id
+        ),
+        {
+          status:"Cancelled",
+          updatedAt:new Date()
+        }
+      );
+
+
+      selectedComplaint.status =
+        "Cancelled";
+
+      selectedComplaint.updatedAt =
+        new Date();
+
+
+      const found =
+        complaints.find(
+          c => c.id === selectedComplaint.id
+        );
+
+      if(found){
+
+        found.status =
+          "Cancelled";
+
+        found.updatedAt =
+          new Date();
+
+      }
+
+
+      updateStats();
+
+      applyFilters();
+
+      document.getElementById(
+        "detailStatus"
+      ).textContent =
+        "Cancelled";
+
+      showModalMessage(
+        "Complaint cancelled successfully.",
+        "success"
+      );
+
+    }catch(error){
+
+      console.error(error);
+
+      showModalMessage(
+        "Failed to cancel complaint: " +
+        (error?.message || ""),
+        "error"
+      );
+
+    }
+
+  }
+);
+
+
+/* =====================================================
+   DELETE COMPLAINT
+===================================================== */
+
+document.getElementById(
+  "deleteComplaint"
+).addEventListener(
+  "click",
+  async function(){
+
+    if(!selectedComplaint){
+      return;
+    }
+
+    const confirmed =
+      confirm(
+        "WARNING: This will permanently delete this complaint from Firestore. Continue?"
+      );
+
+    if(!confirmed){
+      return;
+    }
+
+
+    const secondConfirm =
+      confirm(
+        "Confirm permanent deletion?"
+      );
+
+    if(!secondConfirm){
+      return;
+    }
+
+
+    try{
+
+      await deleteDoc(
+        doc(
+          db,
+          "complaints",
+          selectedComplaint.id
+        )
+      );
 
 
       complaints =
-        snap.docs.map(
-          d=>({
-
-            _docId:d.id,
-
-            ...d.data()
-
-          })
+        complaints.filter(
+          c => c.id !== selectedComplaint.id
         );
 
 
-      toast(
-        "Complaints loaded without date sorting.",
-        true
-      );
+      updateStats();
 
+      applyFilters();
 
-    }catch(error2){
+      closeComplaintModal();
 
-      console.error(
-        error2
-      );
+    }catch(error){
 
+      console.error(error);
 
-      $("complaintsBody").innerHTML = `
-
-        <tr>
-
-          <td colspan="8">
-
-            <div class="empty">
-
-              <strong>
-                Unable to load complaints
-              </strong>
-
-              Check Firebase Authentication
-              and Firestore rules.
-
-            </div>
-
-          </td>
-
-        </tr>
-
-      `;
-
-
-      toast(
-        error2.message ||
-        "Unable to load complaints.",
-        true
+      showModalMessage(
+        "Failed to delete complaint: " +
+        (error?.message || ""),
+        "error"
       );
 
     }
 
   }
+);
 
 
-  updateStats();
+/* =====================================================
+   REFRESH
+===================================================== */
 
-  render();
+refreshButton.addEventListener(
+  "click",
+  async function(){
 
+    refreshButton.disabled = true;
 
-  $("refreshBtn").disabled =
-    false;
+    refreshButton.textContent =
+      "Refreshing...";
 
-  $("refreshBtn").textContent =
-    "↻ Refresh";
+    await loadComplaints();
 
-}
+    refreshButton.disabled = false;
 
-
-/* =========================================================
-   OPEN COMPLAINT
-========================================================= */
-
-function openComplaint(id){
-
-  const c =
-    complaints.find(
-      x =>
-        x._docId === id
-    );
-
-
-  if(!c){
-
-    return;
+    refreshButton.textContent =
+      "↻ Refresh";
 
   }
+);
 
 
-  selectedDocId =
-    id;
+/* =====================================================
+   ESC KEY
+===================================================== */
 
+document.addEventListener(
+  "keydown",
+  function(event){
 
-  const mobile =
-    c.mobile ||
-    c.phone ||
-    "";
-
-
-  $("modalTitle").textContent =
-    c.complaintId ||
-    "Complaint";
-
-
-  $("modalSub").textContent =
-    c.subject ||
-    "Complaint details";
-
-
-  $("dId").textContent =
-    c.complaintId ||
-    "-";
-
-
-  $("dDate").textContent =
-    formatDate(
-      c.createdAt
-    );
-
-
-  $("dName").textContent =
-    c.name ||
-    "-";
-
-
-  $("dMobile").textContent =
-    mobile ||
-    "-";
-
-
-  $("dPlan").textContent =
-    c.plan ||
-    "-";
-
-
-  $("dAmount").textContent =
-    c.amount
-      ? money(c.amount)
-      : (
-          c.plan === "Basic"
-            ? "₹99"
-            : c.plan === "Advance"
-              ? "₹199"
-              : c.plan === "Premium"
-                ? "₹299"
-                : "-"
-        );
-
-
-  $("dPaymentStatus").textContent =
-    c.paymentStatus ||
-    "-";
-
-
-  $("dUpdated").textContent =
-    formatDate(
-      c.updatedAt
-    );
-
-
-  $("dRazorpayPaymentId").textContent =
-    c.razorpayPaymentId ||
-    "-";
-
-
-  $("dPaymentLinkId").textContent =
-    c.paymentLinkId ||
-    "-";
-
-
-  $("dReferenceId").textContent =
-    c.referenceId ||
-    "-";
-
-
-  $("dSubject").textContent =
-    c.subject ||
-    "-";
-
-
-  $("dDetails").textContent =
-    c.details ||
-    "-";
-
-
-  $("dRemark").textContent =
-    c.adminRemark ||
-    c.remark ||
-    "-";
-
-
-  $("adminRemark").value =
-    c.adminRemark ||
-    c.remark ||
-    "";
-
-
-  const allowedStatuses = [
-
-    "Submitted",
-    "Under Review",
-    "In Progress",
-    "Resolved",
-    "Cancelled"
-
-  ];
-
-
-  $("statusSelect").value =
-    allowedStatuses.includes(
-      c.status
-    )
-      ? c.status
-      : "Submitted";
-
-
-  $("callLink").href =
-    mobile
-      ? `tel:${mobile}`
-      : "#";
-
-
-  const clean =
-    String(mobile)
-      .replace(/\D/g,"");
-
-
-  $("waLink").href =
-    clean
-      ? `https://wa.me/${
-          clean.startsWith("91")
-            ? clean
-            : "91" + clean
-        }`
-      : "#";
-
-
-  $("modalBackdrop")
-    .classList
-    .remove("hidden");
-
-}
-
-
-/* =========================================================
-   CLOSE MODAL
-========================================================= */
-
-function closeModal(){
-
-  $("modalBackdrop")
-    .classList
-    .add("hidden");
-
-  selectedDocId =
-    null;
-
-}
-
-
-/* =========================================================
-   SAVE STATUS
-========================================================= */
-
-async function saveStatus(){
-
-  if(!selectedDocId){
-
-    return;
-
-  }
-
-
-  const value =
-    $("statusSelect").value;
-
-
-  const btn =
-    $("saveStatus");
-
-
-  btn.disabled =
-    true;
-
-  btn.textContent =
-    "Saving…";
-
-
-  try{
-
-    await updateDoc(
-      doc(
-        db,
-        "complaints",
-        selectedDocId
-      ),
-      {
-
-        status:value,
-
-        updatedAt:new Date()
-
-      }
-    );
-
-
-    const c =
-      complaints.find(
-        x =>
-          x._docId ===
-          selectedDocId
-      );
-
-
-    if(c){
-
-      c.status =
-        value;
-
-      c.updatedAt =
-        new Date();
-
-    }
-
-
-    updateStats();
-
-    render();
-
-    $("dUpdated").textContent =
-      formatDate(
-        new Date()
-      );
-
-
-    toast(
-      `Status updated to "${value}".`,
-      false,
-      true
-    );
-
-
-  }catch(error){
-
-    console.error(
-      error
-    );
-
-
-    toast(
-      error.message ||
-      "Status update failed.",
-      true
-    );
-
-  }finally{
-
-    btn.disabled =
-      false;
-
-    btn.textContent =
-      "✓ Save Status";
-
-  }
-
-}
-
-
-/* =========================================================
-   SAVE REMARK
-========================================================= */
-
-async function saveRemark(){
-
-  if(!selectedDocId){
-
-    return;
-
-  }
-
-
-  const remark =
-    $("adminRemark")
-      .value
-      .trim();
-
-
-  const btn =
-    $("saveRemark");
-
-
-  btn.disabled =
-    true;
-
-  btn.textContent =
-    "Saving…";
-
-
-  try{
-
-    await updateDoc(
-      doc(
-        db,
-        "complaints",
-        selectedDocId
-      ),
-      {
-
-        adminRemark:
-          remark,
-
-        updatedAt:
-          new Date()
-
-      }
-    );
-
-
-    const c =
-      complaints.find(
-        x =>
-          x._docId ===
-          selectedDocId
-      );
-
-
-    if(c){
-
-      c.adminRemark =
-        remark;
-
-      c.updatedAt =
-        new Date();
-
-    }
-
-
-    $("dRemark").textContent =
-      remark ||
-      "-";
-
-
-    $("dUpdated").textContent =
-      formatDate(
-        new Date()
-      );
-
-
-    render();
-
-
-    toast(
-      "Admin remark saved successfully.",
-      false,
-      true
-    );
-
-
-  }catch(error){
-
-    console.error(
-      error
-    );
-
-
-    toast(
-      error.message ||
-      "Remark save failed.",
-      true
-    );
-
-  }finally{
-
-    btn.disabled =
-      false;
-
-    btn.textContent =
-      "📝 Save Remark";
-
-  }
-
-}
-
-
-/* =========================================================
-   CANCEL COMPLAINT
-========================================================= */
-
-async function cancelComplaint(){
-
-  if(!selectedDocId){
-
-    return;
-
-  }
-
-
-  const confirmed =
-    confirm(
-      "Are you sure you want to cancel this complaint?"
-    );
-
-
-  if(!confirmed){
-
-    return;
-
-  }
-
-
-  try{
-
-    await updateDoc(
-      doc(
-        db,
-        "complaints",
-        selectedDocId
-      ),
-      {
-
-        status:
-          "Cancelled",
-
-        updatedAt:
-          new Date()
-
-      }
-    );
-
-
-    const c =
-      complaints.find(
-        x =>
-          x._docId ===
-          selectedDocId
-      );
-
-
-    if(c){
-
-      c.status =
-        "Cancelled";
-
-      c.updatedAt =
-        new Date();
-
-    }
-
-
-    $("statusSelect").value =
-      "Cancelled";
-
-
-    $("dUpdated").textContent =
-      formatDate(
-        new Date()
-      );
-
-
-    updateStats();
-
-    render();
-
-
-    toast(
-      "Complaint cancelled.",
-      false,
-      true
-    );
-
-
-  }catch(error){
-
-    console.error(
-      error
-    );
-
-
-    toast(
-      error.message ||
-      "Unable to cancel complaint.",
-      true
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   DELETE COMPLAINT
-========================================================= */
-
-async function deleteComplaint(){
-
-  if(!selectedDocId){
-
-    return;
-
-  }
-
-
-  const c =
-    complaints.find(
-      x =>
-        x._docId ===
-        selectedDocId
-    );
-
-
-  const confirmed =
-    confirm(
-      "WARNING:\n\n" +
-      "This will permanently delete this complaint record from Firestore.\n\n" +
-      "Complaint ID: " +
-      (
-        c?.complaintId ||
-        "-"
-      ) +
-      "\n\n" +
-      "Continue?"
-    );
-
-
-  if(!confirmed){
-
-    return;
-
-  }
-
-
-  try{
-
-    await deleteDoc(
-      doc(
-        db,
-        "complaints",
-        selectedDocId
-      )
-    );
-
-
-    complaints =
-      complaints.filter(
-        x =>
-          x._docId !==
-          selectedDocId
-      );
-
-
-    updateStats();
-
-    render();
-
-    closeModal();
-
-
-    toast(
-      "Complaint deleted permanently.",
-      false,
-      true
-    );
-
-
-  }catch(error){
-
-    console.error(
-      error
-    );
-
-
-    toast(
-      error.message ||
-      "Delete failed. Check Firestore rules.",
-      true
-    );
-
-  }
-
-}
-
-
-/* =========================================================
-   LOGIN
-========================================================= */
-
-$("loginBtn")
-  .addEventListener(
-    "click",
-    async ()=>{
-
-      const email =
-        $("email")
-          .value
-          .trim();
-
-      const password =
-        $("password")
-          .value;
-
-
-      $("loginError")
-        .classList
-        .add("hidden");
-
+    if(event.key === "Escape"){
 
       if(
-        !email ||
-        !password
+        complaintModal.classList.contains("show")
       ){
 
-        $("loginError")
-          .textContent =
-          "Enter admin email and password.";
-
-        $("loginError")
-          .classList
-          .remove("hidden");
-
-        return;
+        closeComplaintModal();
 
       }
-
-
-      const btn =
-        $("loginBtn");
-
-
-      btn.disabled =
-        true;
-
-      btn.textContent =
-        "Signing in…";
-
-
-      try{
-
-        await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
-        );
-
-
-      }catch(error){
-
-        console.error(
-          error
-        );
-
-
-        $("loginError")
-          .textContent =
-          error.message ||
-          "Login failed.";
-
-
-        $("loginError")
-          .classList
-          .remove("hidden");
-
-
-      }finally{
-
-        btn.disabled =
-          false;
-
-        btn.textContent =
-          "Sign In →";
-
-      }
-
-    }
-  );
-
-
-$("password")
-  .addEventListener(
-    "keydown",
-    e=>{
-
-      if(
-        e.key ===
-        "Enter"
-      ){
-
-        $("loginBtn")
-          .click();
-
-      }
-
-    }
-  );
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-$("logoutBtn")
-  .addEventListener(
-    "click",
-    ()=>{
-      signOut(auth);
-    }
-  );
-
-
-$("homeBtn")
-  .addEventListener(
-    "click",
-    ()=>{
-      location.href =
-        "index.html";
-    }
-  );
-
-
-$("refreshBtn")
-  .addEventListener(
-    "click",
-    loadComplaints
-  );
-
-
-/* =========================================================
-   FILTER EVENTS
-========================================================= */
-
-$("search")
-  .addEventListener(
-    "input",
-    render
-  );
-
-
-$("statusFilter")
-  .addEventListener(
-    "change",
-    render
-  );
-
-
-$("paymentFilter")
-  .addEventListener(
-    "change",
-    render
-  );
-
-
-$("sortBy")
-  .addEventListener(
-    "change",
-    render
-  );
-
-
-$("clearBtn")
-  .addEventListener(
-    "click",
-    ()=>{
-
-      $("search").value =
-        "";
-
-      $("statusFilter").value =
-        "all";
-
-      $("paymentFilter").value =
-        "all";
-
-      $("sortBy").value =
-        "newest";
-
-      render();
-
-    }
-  );
-
-
-/* =========================================================
-   MODAL EVENTS
-========================================================= */
-
-$("closeModal")
-  .addEventListener(
-    "click",
-    closeModal
-  );
-
-
-$("modalBackdrop")
-  .addEventListener(
-    "click",
-    e=>{
-
-      if(
-        e.target ===
-        $("modalBackdrop")
-      ){
-
-        closeModal();
-
-      }
-
-    }
-  );
-
-
-$("saveStatus")
-  .addEventListener(
-    "click",
-    saveStatus
-  );
-
-
-$("saveRemark")
-  .addEventListener(
-    "click",
-    saveRemark
-  );
-
-
-$("cancelComplaint")
-  .addEventListener(
-    "click",
-    cancelComplaint
-  );
-
-
-$("deleteComplaint")
-  .addEventListener(
-    "click",
-    deleteComplaint
-  );
-
-
-document
-  .addEventListener(
-    "keydown",
-    e=>{
-
-      if(
-        e.key ===
-        "Escape"
-      ){
-
-        closeModal();
-
-      }
-
-    }
-  );
-
-
-/* =========================================================
-   AUTH STATE
-========================================================= */
-
-onAuthStateChanged(
-  auth,
-  user=>{
-
-    if(user){
-
-      $("loginView")
-        .classList
-        .add("hidden");
-
-      $("appView")
-        .classList
-        .remove("hidden");
-
-      loadComplaints();
-
-    }else{
-
-      $("appView")
-        .classList
-        .add("hidden");
-
-      $("loginView")
-        .classList
-        .remove("hidden");
 
     }
 
