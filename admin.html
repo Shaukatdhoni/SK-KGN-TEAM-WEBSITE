@@ -592,13 +592,6 @@ tr:hover td{
   font-weight:850;
 }
 
-.subject{
-  max-width:250px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
 .date{
   color:var(--muted);
   white-space:nowrap;
@@ -1323,8 +1316,6 @@ tr:hover td{
   <main class="main">
 
 
-    <!-- PAGE HEAD -->
-
     <div class="page-head">
 
       <div>
@@ -1350,119 +1341,63 @@ tr:hover td{
     </div>
 
 
-    <!-- =====================================================
-         STATS
-    ====================================================== -->
-
     <section class="stats">
 
       <div class="stat">
-
         <div class="stat-top">
           TOTAL COMPLAINTS
           <span class="stat-dot blue"></span>
         </div>
-
-        <div
-          id="totalStat"
-          class="stat-num"
-        >
-          0
-        </div>
-
+        <div id="totalStat" class="stat-num">0</div>
       </div>
 
 
       <div class="stat">
-
         <div class="stat-top">
           SUBMITTED
           <span class="stat-dot"></span>
         </div>
-
-        <div
-          id="submittedStat"
-          class="stat-num"
-        >
-          0
-        </div>
-
+        <div id="submittedStat" class="stat-num">0</div>
       </div>
 
 
       <div class="stat">
-
         <div class="stat-top">
           UNDER REVIEW
           <span class="stat-dot orange"></span>
         </div>
-
-        <div
-          id="reviewStat"
-          class="stat-num"
-        >
-          0
-        </div>
-
+        <div id="reviewStat" class="stat-num">0</div>
       </div>
 
 
       <div class="stat">
-
         <div class="stat-top">
           IN PROGRESS
           <span class="stat-dot blue"></span>
         </div>
-
-        <div
-          id="progressStat"
-          class="stat-num"
-        >
-          0
-        </div>
-
+        <div id="progressStat" class="stat-num">0</div>
       </div>
 
 
       <div class="stat">
-
         <div class="stat-top">
           RESOLVED
           <span class="stat-dot green"></span>
         </div>
-
-        <div
-          id="resolvedStat"
-          class="stat-num"
-        >
-          0
-        </div>
-
+        <div id="resolvedStat" class="stat-num">0</div>
       </div>
 
 
       <div class="stat">
-
         <div class="stat-top">
           PAID
           <span class="stat-dot gold"></span>
         </div>
-
-        <div
-          id="paidStat"
-          class="stat-num"
-        >
-          0
-        </div>
-
+        <div id="paidStat" class="stat-num">0</div>
       </div>
 
     </section>
 
-
-    <!-- =====================================================
-         TOOLBAR
-    ====================================================== -->
 
     <section class="toolbar">
 
@@ -1481,75 +1416,33 @@ tr:hover td{
 
       <select id="statusFilter">
 
-        <option value="all">
-          All Statuses
-        </option>
-
-        <option value="Submitted">
-          Submitted
-        </option>
-
-        <option value="Under Review">
-          Under Review
-        </option>
-
-        <option value="In Progress">
-          In Progress
-        </option>
-
-        <option value="Resolved">
-          Resolved
-        </option>
-
-        <option value="Cancelled">
-          Cancelled
-        </option>
+        <option value="all">All Statuses</option>
+        <option value="Submitted">Submitted</option>
+        <option value="Under Review">Under Review</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Resolved">Resolved</option>
+        <option value="Cancelled">Cancelled</option>
 
       </select>
 
 
       <select id="paymentFilter">
 
-        <option value="all">
-          All Payments
-        </option>
-
-        <option value="Completed">
-          Paid
-        </option>
-
-        <option value="Pending">
-          Pending
-        </option>
-
-        <option value="Failed">
-          Failed
-        </option>
+        <option value="all">All Payments</option>
+        <option value="Completed">Paid</option>
+        <option value="Pending">Pending</option>
+        <option value="Failed">Failed</option>
 
       </select>
 
 
       <select id="sortBy">
 
-        <option value="newest">
-          Newest First
-        </option>
-
-        <option value="oldest">
-          Oldest First
-        </option>
-
-        <option value="name">
-          Name A–Z
-        </option>
-
-        <option value="status">
-          Status
-        </option>
-
-        <option value="plan">
-          Plan
-        </option>
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="name">Name A–Z</option>
+        <option value="status">Status</option>
+        <option value="plan">Plan</option>
 
       </select>
 
@@ -1577,10 +1470,6 @@ tr:hover td{
     </div>
 
 
-    <!-- =====================================================
-         TABLE
-    ====================================================== -->
-
     <section class="table-card">
 
       <div class="table-scroll">
@@ -1590,23 +1479,14 @@ tr:hover td{
           <thead>
 
             <tr>
-
               <th>Complaint ID</th>
-
               <th>Customer</th>
-
               <th>Mobile</th>
-
               <th>Plan</th>
-
               <th>Payment</th>
-
               <th>Status</th>
-
               <th>Submitted</th>
-
               <th>Action</th>
-
             </tr>
 
           </thead>
@@ -1679,119 +1559,56 @@ tr:hover td{
 
     <div class="modal-body">
 
-
-      <!-- ===================================================
-           BASIC INFORMATION
-      ==================================================== -->
-
       <div class="detail-grid">
 
 
         <div class="detail-box">
-
-          <label>
-            Complaint ID
-          </label>
-
-          <div id="dId">
-            -
-          </div>
-
+          <label>Complaint ID</label>
+          <div id="dId">-</div>
         </div>
 
 
         <div class="detail-box">
-
-          <label>
-            Submitted On
-          </label>
-
-          <div id="dDate">
-            -
-          </div>
-
+          <label>Submitted On</label>
+          <div id="dDate">-</div>
         </div>
 
 
         <div class="detail-box">
-
-          <label>
-            Applicant Name
-          </label>
-
-          <div id="dName">
-            -
-          </div>
-
+          <label>Applicant Name</label>
+          <div id="dName">-</div>
         </div>
 
 
         <div class="detail-box">
-
-          <label>
-            Mobile Number
-          </label>
-
-          <div id="dMobile">
-            -
-          </div>
-
+          <label>Mobile Number</label>
+          <div id="dMobile">-</div>
         </div>
 
 
         <div class="detail-box">
-
-          <label>
-            Service Plan
-          </label>
-
-          <div id="dPlan">
-            -
-          </div>
-
+          <label>Service Plan</label>
+          <div id="dPlan">-</div>
         </div>
 
 
         <div class="detail-box">
-
-          <label>
-            Payment Amount
-          </label>
-
-          <div id="dAmount">
-            -
-          </div>
-
+          <label>Payment Amount</label>
+          <div id="dAmount">-</div>
         </div>
 
 
         <div class="detail-box">
-
-          <label>
-            Payment Status
-          </label>
-
-          <div id="dPaymentStatus">
-            -
-          </div>
-
+          <label>Payment Status</label>
+          <div id="dPaymentStatus">-</div>
         </div>
 
 
         <div class="detail-box">
-
-          <label>
-            Updated On
-          </label>
-
-          <div id="dUpdated">
-            -
-          </div>
-
+          <label>Updated On</label>
+          <div id="dUpdated">-</div>
         </div>
 
-
-        <!-- PAYMENT INFORMATION -->
 
         <div class="detail-box payment-box">
 
@@ -1882,10 +1699,6 @@ tr:hover td{
       </div>
 
 
-      <!-- ===================================================
-           CONTACT
-      ==================================================== -->
-
       <div class="contact-row">
 
         <a
@@ -1909,12 +1722,7 @@ tr:hover td{
       </div>
 
 
-      <!-- ===================================================
-           ADMIN ACTIONS
-      ==================================================== -->
-
       <div class="action-panel">
-
 
         <div class="action-grid">
 
@@ -1927,25 +1735,11 @@ tr:hover td{
 
             <select id="statusSelect">
 
-              <option>
-                Submitted
-              </option>
-
-              <option>
-                Under Review
-              </option>
-
-              <option>
-                In Progress
-              </option>
-
-              <option>
-                Resolved
-              </option>
-
-              <option>
-                Cancelled
-              </option>
+              <option>Submitted</option>
+              <option>Under Review</option>
+              <option>In Progress</option>
+              <option>Resolved</option>
+              <option>Cancelled</option>
 
             </select>
 
@@ -2052,13 +1846,13 @@ import {
 
 
 /* =========================================================
-   FIREBASE CONFIG
+   FIREBASE CONFIG — CORRECT
 ========================================================= */
 
 const firebaseConfig = {
 
   apiKey:
-    "AIzaSyAOdyFTVeAoHeVd1TnWjaXrkPTB8F1Tn1",
+    "AIzaSyAOdyFTVeAoHeVd1TnWjaXrkPTPB8F1Tn1",
 
   authDomain:
     "sk-kgn-team.firebaseapp.com",
