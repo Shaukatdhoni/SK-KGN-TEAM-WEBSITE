@@ -941,12 +941,12 @@ nav a:hover{
 
 
 /* =========================================================
-   SLIDER — LARGER + CLICKABLE
+   SLIDER — ORIGINAL SIZE + CLICKABLE
 ========================================================= */
 
 .slider-section{
 
-  padding:42px 0;
+  padding:35px 0;
 
 }
 
@@ -961,16 +961,16 @@ nav a:hover{
   background:#111827;
 
   /*
-    Slightly larger visual area
-    while remaining responsive.
+    RESTORED TO THE ORIGINAL SIZE.
+    Do not make this larger.
   */
 
-  aspect-ratio:16/6.2;
+  aspect-ratio:16/5;
 
-  min-height:300px;
+  min-height:0;
 
   box-shadow:
-    0 22px 55px
+    0 18px 45px
     rgba(15,23,42,.15);
 
 }
@@ -983,7 +983,7 @@ nav a:hover{
 
   inset:0;
 
-  z-index:3;
+  z-index:5;
 
   pointer-events:none;
 
@@ -1009,14 +1009,14 @@ nav a:hover{
 
   pointer-events:none;
 
-  z-index:2;
+  z-index:4;
 
   background:
     linear-gradient(
       180deg,
       rgba(0,0,0,.02),
       transparent 55%,
-      rgba(0,0,0,.20)
+      rgba(0,0,0,.18)
     );
 
 }
@@ -1045,6 +1045,8 @@ nav a:hover{
 
   position:relative;
 
+  background:#111827;
+
 }
 
 .slide::after{
@@ -1070,12 +1072,59 @@ nav a:hover{
 
   pointer-events:none;
 
+  z-index:2;
+
 }
 
 .slide:hover::after{
 
   transform:
     translateX(130%);
+
+}
+
+
+/*
+  IMPORTANT:
+  This button fills the complete photo area.
+  Clicking anywhere on the photo opens the complaint form.
+*/
+
+.photo-slide-btn{
+
+  display:block;
+
+  width:100%;
+  height:100%;
+
+  padding:0;
+  margin:0;
+
+  border:0;
+
+  outline:none;
+
+  background:transparent;
+
+  cursor:pointer;
+
+  position:relative;
+
+  overflow:hidden;
+
+  appearance:none;
+
+  -webkit-appearance:none;
+
+}
+
+.photo-slide-btn:focus-visible{
+
+  outline:
+    3px solid
+    rgba(246,211,101,.95);
+
+  outline-offset:-4px;
 
 }
 
@@ -1087,28 +1136,91 @@ nav a:hover{
 
   object-fit:cover;
 
+  object-position:center;
+
   display:block;
 
-  transform:scale(1.035);
+  transform:none;
 
   transition:
-    transform 1s
+    transform .85s
     cubic-bezier(.22,1,.36,1),
-    filter .7s;
+    filter .6s;
 
 }
 
 .slide.active img{
 
-  transform:scale(1.075);
+  transform:scale(1.025);
 
 }
 
 .slide:hover img{
 
-  transform:scale(1.10);
+  transform:scale(1.045);
 
-  filter:saturate(1.05);
+  filter:saturate(1.03);
+
+}
+
+
+/*
+  Small premium complaint hint.
+  It stays subtle and does not cover the photo.
+*/
+
+.photo-slide-btn::before{
+
+  content:"Lodge Complaint →";
+
+  position:absolute;
+
+  left:18px;
+
+  bottom:18px;
+
+  z-index:6;
+
+  padding:8px 12px;
+
+  border-radius:30px;
+
+  background:
+    rgba(7,21,47,.78);
+
+  color:#fff;
+
+  border:
+    1px solid
+    rgba(246,211,101,.35);
+
+  backdrop-filter:blur(8px);
+
+  -webkit-backdrop-filter:blur(8px);
+
+  font-size:11px;
+
+  font-weight:800;
+
+  letter-spacing:.2px;
+
+  opacity:0;
+
+  transform:translateY(7px);
+
+  transition:
+    opacity .3s ease,
+    transform .3s ease;
+
+  pointer-events:none;
+
+}
+
+.photo-slide-btn:hover::before{
+
+  opacity:1;
+
+  transform:none;
 
 }
 
@@ -1135,6 +1247,10 @@ nav a:hover{
   width:8px;
 
   height:8px;
+
+  border:0;
+
+  padding:0;
 
   border-radius:50%;
 
@@ -3072,9 +3188,13 @@ footer a:hover{
       repeat(2,1fr);
   }
 
+  /*
+    Original responsive slider size.
+  */
+
   .slider{
     aspect-ratio:16/8;
-    min-height:260px;
+    min-height:0;
   }
 
   .footer-grid{
@@ -3118,14 +3238,34 @@ footer a:hover{
     padding:30px 0;
   }
 
+  /*
+    Controlled mobile size.
+    Not oversized.
+  */
+
   .slider{
     aspect-ratio:16/9;
-    min-height:220px;
+    min-height:0;
     border-radius:20px;
   }
 
   .slider::before{
     border-radius:20px;
+  }
+
+  .photo-slide-btn::before{
+
+    left:12px;
+    bottom:12px;
+
+    font-size:10px;
+
+    padding:7px 10px;
+
+    opacity:.88;
+
+    transform:none;
+
   }
 
   .services{
@@ -3469,12 +3609,20 @@ id="slides">
 <!-- PHOTO 1 -->
 
 <div
-class="slide active"
-onclick="openComplaintForm()">
+class="slide active">
+
+<button
+type="button"
+class="photo-slide-btn"
+onclick="openComplaintForm()"
+aria-label="Lodge a complaint">
 
 <img
-src="360_F_1338200747_HApzoFCccSAmUvCTXuJjU7i3GuYIWQYm.jpg"
-alt="SK KGN TEAM Public Grievance Assistance">
+src="./360_F_1338200747_HApzoFCccSAmUvCTXuJjU7i3GuYIWQYm.jpg"
+alt="SK KGN TEAM Public Grievance Assistance"
+onerror="console.error('Slider image not found: 360_F_1338200747_HApzoFCccSAmUvCTXuJjU7i3GuYIWQYm.jpg');">
+
+</button>
 
 </div>
 
@@ -3482,12 +3630,20 @@ alt="SK KGN TEAM Public Grievance Assistance">
 <!-- PHOTO 2 — garbage.jpg -->
 
 <div
-class="slide"
-onclick="openComplaintForm()">
+class="slide">
+
+<button
+type="button"
+class="photo-slide-btn"
+onclick="openComplaintForm()"
+aria-label="Lodge a complaint">
 
 <img
-src="garbage.jpg"
-alt="Public Grievance Assistance">
+src="./garbage.jpg"
+alt="Public Grievance Assistance"
+onerror="console.error('Slider image not found: garbage.jpg');">
+
+</button>
 
 </div>
 
@@ -3495,12 +3651,20 @@ alt="Public Grievance Assistance">
 <!-- PHOTO 3 -->
 
 <div
-class="slide"
-onclick="openComplaintForm()">
+class="slide">
+
+<button
+type="button"
+class="photo-slide-btn"
+onclick="openComplaintForm()"
+aria-label="Lodge a complaint">
 
 <img
-src="pict_original.jpg"
-alt="Citizen Assistance">
+src="./pict_original.jpg"
+alt="Citizen Assistance"
+onerror="console.error('Slider image not found: pict_original.jpg');">
+
+</button>
 
 </div>
 
@@ -3508,12 +3672,20 @@ alt="Citizen Assistance">
 <!-- PHOTO 4 — opinion.jpg -->
 
 <div
-class="slide"
-onclick="openComplaintForm()">
+class="slide">
+
+<button
+type="button"
+class="photo-slide-btn"
+onclick="openComplaintForm()"
+aria-label="Lodge a complaint">
 
 <img
-src="opinion.jpg"
-alt="Public Assistance">
+src="./opinion.jpg"
+alt="Public Assistance"
+onerror="console.error('Slider image not found: opinion.jpg');">
+
+</button>
 
 </div>
 
@@ -3523,25 +3695,33 @@ alt="Public Assistance">
 
 <div class="dots">
 
-<span
+<button
+type="button"
 class="dot active"
-onclick="goSlide(0)">
-</span>
+onclick="goSlide(0)"
+aria-label="Slide 1">
+</button>
 
-<span
+<button
+type="button"
 class="dot"
-onclick="goSlide(1)">
-</span>
+onclick="goSlide(1)"
+aria-label="Slide 2">
+</button>
 
-<span
+<button
+type="button"
 class="dot"
-onclick="goSlide(2)">
-</span>
+onclick="goSlide(2)"
+aria-label="Slide 3">
+</button>
 
-<span
+<button
+type="button"
 class="dot"
-onclick="goSlide(3)">
-</span>
+onclick="goSlide(3)"
+aria-label="Slide 4">
+</button>
 
 </div>
 
@@ -3944,6 +4124,7 @@ Premium Assistance Plans
 </div>
 
 </div>
+
 
 </div>
 
@@ -5065,7 +5246,7 @@ setInterval(
   ()=>{
 
     goSlide(
-      (currentSlide+1)%4
+      (currentSlide+1)%slideItems.length
     );
 
   },
@@ -5090,7 +5271,7 @@ document.addEventListener(
           ()=>{
 
             goSlide(
-              (currentSlide+1)%4
+              (currentSlide+1)%slideItems.length
             );
 
           },
@@ -6288,7 +6469,7 @@ function showPlanPopup(
 <div class="sk-plan-logo">
 
 <img
-src="Logo.jpg"
+src="./Logo.jpg"
 alt="SK KGN TEAM">
 
 </div>
@@ -6891,7 +7072,7 @@ rgba(0,0,0,.45);
 
 animation:
 modalIn .4s
-var(--ease);
+cubic-bezier(.22,1,.36,1);
 
 ">
 
