@@ -16,18 +16,17 @@ content="width=device-width, initial-scale=1.0">
 
 <meta name="theme-color" content="#07152f">
 
-<title>SK KGN TEAM — Public Grievance Assistance</title>
+<title>SK KGN TEAM — Private Complaint Consultancy</title>
 
 <meta name="description"
-content="SK KGN TEAM provides professional assistance for complaint drafting, filing assistance and complaint tracking for public grievance and citizen-service matters.">
+content="SK KGN TEAM is an independent private complaint consultancy providing assistance with complaint drafting, submission procedures, tracking and citizen-service matters.">
 
 <meta name="robots" content="index, follow">
-
 
 <style>
 
 /* =========================================================
-   PREMIUM GLOBAL SYSTEM
+   GLOBAL
 ========================================================= */
 
 *{
@@ -111,23 +110,19 @@ button{
       #8b5cf6,
       #f6d365
     );
-  box-shadow:
-    0 0 14px rgba(37,99,235,.65);
 }
 
 
 /* =========================================================
-   ANIMATION SYSTEM
+   ANIMATIONS
 ========================================================= */
 
 [data-reveal]{
   opacity:0;
-  transform:
-    translateY(38px)
-    scale(.985);
+  transform:translateY(35px) scale(.985);
   transition:
-    opacity .85s cubic-bezier(.22,1,.36,1),
-    transform .85s cubic-bezier(.22,1,.36,1);
+    opacity .75s cubic-bezier(.22,1,.36,1),
+    transform .75s cubic-bezier(.22,1,.36,1);
 }
 
 [data-reveal].revealed{
@@ -147,88 +142,50 @@ button{
   transition-delay:.24s;
 }
 
-[data-reveal="delay4"]{
-  transition-delay:.32s;
-}
-
-
 @keyframes floatSoft{
-
   0%,100%{
     transform:translateY(0);
   }
-
   50%{
-    transform:translateY(-9px);
+    transform:translateY(-8px);
   }
-
 }
 
-
 @keyframes pulseGlow{
-
   0%,100%{
     opacity:.35;
     transform:scale(1);
   }
-
   50%{
-    opacity:.78;
+    opacity:.75;
     transform:scale(1.12);
   }
-
 }
 
-
 @keyframes gradientMove{
-
   0%,100%{
     background-position:0% 50%;
   }
-
   50%{
     background-position:100% 50%;
   }
-
 }
-
-
-@keyframes shine{
-
-  0%,55%{
-    transform:translateX(-130%);
-  }
-
-  75%,100%{
-    transform:translateX(130%);
-  }
-
-}
-
 
 @keyframes modalIn{
-
   from{
     opacity:0;
-    transform:
-      translateY(30px)
-      scale(.94);
+    transform:translateY(25px) scale(.95);
   }
-
   to{
     opacity:1;
     transform:none;
   }
-
 }
 
-
 @keyframes spin{
-
   to{
     transform:rotate(360deg);
   }
-
 }
 
 
@@ -237,184 +194,100 @@ button{
 ========================================================= */
 
 header{
-
-  background:
-    rgba(255,255,255,.86);
-
+  background:rgba(255,255,255,.88);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
-
   border-bottom:1px solid #e7e9ee;
-
   position:sticky;
   top:0;
-
   z-index:1000;
-
   transition:.35s ease;
-
 }
 
 header.scrolled{
-
-  background:
-    rgba(255,255,255,.97);
-
-  box-shadow:
-    0 10px 35px
-    rgba(15,23,42,.09);
-
+  background:rgba(255,255,255,.97);
+  box-shadow:0 10px 35px rgba(15,23,42,.09);
 }
 
 .nav{
-
   height:72px;
-
   display:flex;
   align-items:center;
   justify-content:space-between;
-
 }
 
 .logo-wrap{
-
   display:flex;
   align-items:center;
-
   gap:10px;
-
 }
 
 .logo-wrap img{
-
   width:42px;
   height:42px;
-
   object-fit:contain;
-
   border-radius:50%;
-
-  transition:.4s
-    cubic-bezier(.22,1,.36,1);
-
-}
-
-.logo-wrap:hover img{
-
-  transform:
-    rotate(-8deg)
-    scale(1.08);
-
 }
 
 .logo{
-
   font-size:25px;
   font-weight:900;
   letter-spacing:-1px;
-
 }
 
 .logo span{
-
   color:#164a9c;
-
 }
 
 nav{
-
   display:flex;
   gap:25px;
   align-items:center;
-
 }
 
 nav a{
-
   position:relative;
-
   font-size:14px;
   font-weight:700;
-
   color:#454b57;
-
 }
 
 nav a:not(.nav-btn)::after{
-
   content:"";
-
   position:absolute;
-
   left:0;
   bottom:-7px;
-
   width:0;
   height:2px;
-
   border-radius:10px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #164a9c,
-      #7c3aed
-    );
-
-  transition:.3s
-    cubic-bezier(.22,1,.36,1);
-
+  background:linear-gradient(90deg,#164a9c,#7c3aed);
+  transition:.3s;
 }
 
 nav a:not(.nav-btn):hover::after{
-
   width:100%;
-
 }
 
 nav a:hover{
-
   color:#164a9c;
-
 }
 
 .nav-btn{
-
   background:#111827;
-
-  color:white!important;
-
+  color:#fff!important;
   padding:11px 18px;
-
   border-radius:10px;
-
-  box-shadow:
-    0 8px 20px
-    rgba(17,24,39,.18);
-
-  transition:.3s
-    cubic-bezier(.22,1,.36,1);
-
+  box-shadow:0 8px 20px rgba(17,24,39,.18);
 }
 
 .nav-btn:hover{
-
   transform:translateY(-2px);
-
-  box-shadow:
-    0 13px 28px
-    rgba(17,24,39,.25);
-
 }
 
 .menu{
-
   display:none;
-
   font-size:27px;
-
   cursor:pointer;
-
 }
 
 
@@ -423,217 +296,71 @@ nav a:hover{
 ========================================================= */
 
 .hero{
-
   position:relative;
-
   padding:78px 0 55px;
-
   background:
-
-    radial-gradient(
-      circle at 85% 20%,
-      #dce8fb 0,
-      transparent 35%
-    ),
-
-    radial-gradient(
-      circle at 15% 80%,
-      #eef4ff 0,
-      transparent 30%
-    ),
-
+    radial-gradient(circle at 85% 20%,#dce8fb 0,transparent 35%),
+    radial-gradient(circle at 15% 80%,#eef4ff 0,transparent 30%),
     #fff;
-
   overflow:hidden;
-
 }
 
 .hero::before{
-
   content:"";
-
   position:absolute;
-
   width:300px;
   height:300px;
-
   right:-100px;
   top:-100px;
-
   border-radius:50%;
-
   background:
-    radial-gradient(
-      circle,
-      rgba(37,99,235,.13),
-      transparent 70%
-    );
-
-  animation:
-    pulseGlow 6s
-    ease-in-out
-    infinite;
-
+    radial-gradient(circle,rgba(37,99,235,.13),transparent 70%);
+  animation:pulseGlow 6s ease-in-out infinite;
 }
 
 .hero::after{
-
   content:"";
-
   position:absolute;
-
   width:220px;
   height:220px;
-
   left:-90px;
   bottom:-100px;
-
   border-radius:50%;
-
   background:
-    radial-gradient(
-      circle,
-      rgba(124,58,237,.08),
-      transparent 70%
-    );
-
-  animation:
-    pulseGlow 7s
-    ease-in-out
-    infinite reverse;
-
+    radial-gradient(circle,rgba(124,58,237,.08),transparent 70%);
+  animation:pulseGlow 7s ease-in-out infinite reverse;
 }
 
 .hero-grid{
-
   position:relative;
-
   z-index:2;
-
   display:grid;
-
-  grid-template-columns:
-    1.1fr .9fr;
-
+  grid-template-columns:1.1fr .9fr;
   gap:45px;
-
   align-items:center;
-
-}
-
-.hero-grid>div:first-child{
-
-  animation:
-    heroIn .9s
-    cubic-bezier(.22,1,.36,1)
-    both;
-
-}
-
-@keyframes heroIn{
-
-  from{
-
-    opacity:0;
-
-    transform:
-      translateY(25px);
-
-  }
-
-  to{
-
-    opacity:1;
-
-    transform:none;
-
-  }
-
 }
 
 .badge{
-
   display:inline-block;
-
   position:relative;
-
   overflow:hidden;
-
   background:#eaf1ff;
-
   color:#164a9c;
-
   padding:8px 14px;
-
   border-radius:30px;
-
   font-size:12px;
-
   font-weight:800;
-
   margin-bottom:18px;
-
-  box-shadow:
-    0 5px 18px
-    rgba(22,74,156,.08);
-
-}
-
-.badge::after{
-
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:-120%;
-
-  width:70%;
-  height:100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.75),
-      transparent
-    );
-
-  transform:skewX(-20deg);
-
-  animation:
-    badgeShine 4s
-    infinite;
-
-}
-
-@keyframes badgeShine{
-
-  0%,60%{
-    left:-120%;
-  }
-
-  80%,100%{
-    left:150%;
-  }
-
 }
 
 .hero h1{
-
-  font-size:
-    clamp(38px,5vw,64px);
-
+  font-size:clamp(38px,5vw,64px);
   line-height:1.05;
-
   letter-spacing:-2.5px;
-
   margin-bottom:20px;
-
 }
 
 .hero h1 span{
-
   background:
     linear-gradient(
       110deg,
@@ -642,132 +369,52 @@ nav a:hover{
       #7c3aed,
       #164a9c
     );
-
   background-size:250% 100%;
-
   -webkit-background-clip:text;
   background-clip:text;
-
   color:transparent;
-
-  animation:
-    gradientMove 5s
-    ease
-    infinite;
-
+  animation:gradientMove 5s ease infinite;
 }
 
 .hero p{
-
   max-width:620px;
-
   color:#606875;
-
   font-size:17px;
-
   margin-bottom:28px;
-
 }
 
 .buttons{
-
   display:flex;
-
   gap:12px;
-
   flex-wrap:wrap;
-
 }
 
 .btn{
-
   position:relative;
-
   overflow:hidden;
-
   display:inline-flex;
-
   align-items:center;
-
   justify-content:center;
-
   padding:14px 21px;
-
   border-radius:11px;
-
   font-weight:800;
-
   border:1px solid #dce0e7;
-
-  transition:.3s
-    cubic-bezier(.22,1,.36,1);
-
-}
-
-.btn::after{
-
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:-120%;
-
-  width:60%;
-  height:100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.28),
-      transparent
-    );
-
-  transform:skewX(-20deg);
-
-  transition:.5s;
-
-}
-
-.btn:hover::after{
-
-  left:150%;
-
+  transition:.3s;
 }
 
 .btn:hover{
-
-  transform:translateY(-4px);
-
+  transform:translateY(-3px);
 }
 
 .primary{
-
   background:#111827;
-
-  color:white;
-
+  color:#fff;
   border-color:#111827;
-
-  box-shadow:
-    0 10px 25px
-    rgba(17,24,39,.15);
-
-}
-
-.primary:hover{
-
-  box-shadow:
-    0 16px 35px
-    rgba(17,24,39,.25);
-
+  box-shadow:0 10px 25px rgba(17,24,39,.15);
 }
 
 .secondary{
-
   background:#fff;
-
 }
 
 
@@ -776,374 +423,129 @@ nav a:hover{
 ========================================================= */
 
 .hero-card{
-
   background:
-
     linear-gradient(
       rgba(3,10,25,.65),
       rgba(0,0,0,.84)
     ),
-
-    url("justice.png")
-    center/cover
-    no-repeat;
+    url("justice.png") center/cover no-repeat;
 
   border-radius:28px;
-
   padding:30px;
-
-  color:white;
-
+  color:#fff;
   min-height:350px;
-
   position:relative;
-
   overflow:hidden;
-
-  box-shadow:
-    0 25px 60px
-    rgba(15,23,42,.20);
-
-  animation:
-    floatSoft 5s
-    ease-in-out
-    infinite;
-
-  transition:.5s
-    cubic-bezier(.22,1,.36,1);
-
-}
-
-.hero-card::before{
-
-  content:"";
-
-  position:absolute;
-
-  inset:-50%;
-
-  background:
-    linear-gradient(
-      115deg,
-      transparent 35%,
-      rgba(255,255,255,.08) 50%,
-      transparent 65%
-    );
-
-  animation:
-    scan 7s
-    linear
-    infinite;
-
-}
-
-@keyframes scan{
-
-  0%{
-    transform:translateY(-120%);
-  }
-
-  100%{
-    transform:translateY(120%);
-  }
-
-}
-
-.hero-card::after{
-
-  content:"";
-
-  position:absolute;
-
-  width:180px;
-  height:180px;
-
-  right:-70px;
-  top:-70px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(96,165,250,.30),
-      transparent 70%
-    );
-
-  animation:
-    pulseGlow 4s
-    infinite;
-
+  box-shadow:0 25px 60px rgba(15,23,42,.20);
+  animation:floatSoft 5s ease-in-out infinite;
 }
 
 .hero-card h3,
 .hero-card p,
 .stat{
-
   position:relative;
-
   z-index:2;
-
 }
 
 .hero-card h3{
-
   font-size:27px;
-
 }
 
 .hero-card p{
-
   color:#cbd5e1;
-
   margin-top:10px;
-
 }
 
 .stat{
-
   position:absolute;
-
   bottom:25px;
   left:25px;
   right:25px;
-
-  background:
-    rgba(255,255,255,.96);
-
+  background:rgba(255,255,255,.96);
   color:#111827;
-
   border-radius:18px;
-
   padding:20px;
-
   display:flex;
-
   justify-content:space-between;
-
-  box-shadow:
-    0 15px 35px
-    rgba(0,0,0,.18);
-
+  box-shadow:0 15px 35px rgba(0,0,0,.18);
 }
 
 .stat strong{
-
   font-size:25px;
-
 }
 
 .stat small{
-
   color:#697180;
-
 }
 
 
 /* =========================================================
-   SLIDER — OLD SIZE + CLICKABLE
+   SLIDER
 ========================================================= */
 
 .slider-section{
-
   padding:35px 0;
-
 }
 
 .slider{
-
   position:relative;
-
   overflow:hidden;
-
   border-radius:22px;
-
   background:#111827;
-
   aspect-ratio:16/5;
-
-  box-shadow:
-    0 18px 45px
-    rgba(15,23,42,.12);
-
-}
-
-.slider::before{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  z-index:3;
-
-  pointer-events:none;
-
-  border-radius:22px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.18);
-
-}
-
-.slider::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  top:0;
-
-  width:100%;
-  height:100%;
-
-  pointer-events:none;
-
-  z-index:2;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.02),
-      transparent 55%,
-      rgba(0,0,0,.20)
-    );
-
+  box-shadow:0 18px 45px rgba(15,23,42,.12);
 }
 
 .slides{
-
   display:flex;
-
   height:100%;
-
-  transition:
-    transform .85s
-    cubic-bezier(.22,1,.36,1);
-
+  transition:transform .85s cubic-bezier(.22,1,.36,1);
 }
 
 .slide{
-
   min-width:100%;
-
   height:100%;
-
   overflow:hidden;
-
   cursor:pointer;
-
   position:relative;
-
-}
-
-.slide::after{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-    linear-gradient(
-      120deg,
-      transparent 35%,
-      rgba(255,255,255,.10) 50%,
-      transparent 65%
-    );
-
-  transform:
-    translateX(-130%);
-
-  transition:.7s;
-
-  pointer-events:none;
-
-}
-
-.slide:hover::after{
-
-  transform:
-    translateX(130%);
-
 }
 
 .slide img{
-
   width:100%;
-
   height:100%;
-
   object-fit:cover;
-
   display:block;
-
   transform:scale(1.02);
-
-  transition:
-    transform 5s
-    var(--ease),
-    filter .7s;
-
+  transition:transform 5s ease;
 }
 
 .slide.active img{
-
   transform:scale(1.08);
-
 }
 
 .dots{
-
   position:absolute;
-
   bottom:15px;
-
   left:50%;
-
   transform:translateX(-50%);
-
   display:flex;
-
   gap:7px;
-
   z-index:10;
-
 }
 
 .dot{
-
   width:8px;
-
   height:8px;
-
   border-radius:50%;
-
   background:#fff8;
-
   cursor:pointer;
-
-  transition:.35s
-    cubic-bezier(.22,1,.36,1);
-
+  transition:.35s;
 }
 
 .dot.active{
-
   background:#fff;
-
   width:24px;
-
   border-radius:10px;
-
-  box-shadow:
-    0 0 13px
-    rgba(255,255,255,.60);
-
 }
 
 
@@ -1152,330 +554,129 @@ nav a:hover{
 ========================================================= */
 
 .assistance-section{
-
   position:relative;
-
   margin:35px auto 10px;
-
   padding:50px;
-
   border-radius:30px;
-
   overflow:hidden;
-
   color:#fff;
 
   background:
+    radial-gradient(circle at 85% 15%,rgba(59,130,246,.25),transparent 30%),
+    radial-gradient(circle at 15% 100%,rgba(124,58,237,.15),transparent 28%),
+    linear-gradient(135deg,#07152f,#0b2347 55%,#101827);
 
-    radial-gradient(
-      circle at 85% 15%,
-      rgba(59,130,246,.25),
-      transparent 30%
-    ),
-
-    radial-gradient(
-      circle at 15% 100%,
-      rgba(124,58,237,.15),
-      transparent 28%
-    ),
-
-    linear-gradient(
-      135deg,
-      #07152f,
-      #0b2347 55%,
-      #101827
-    );
-
-  border:
-    1px solid
-    rgba(96,165,250,.20);
-
-  box-shadow:
-    0 25px 70px
-    rgba(7,21,47,.25);
-
-}
-
-.assistance-section::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:350px;
-  height:350px;
-
-  right:-180px;
-  bottom:-190px;
-
-  border-radius:50%;
-
-  border:
-    1px solid
-    rgba(96,165,250,.16);
-
-  box-shadow:
-    0 0 0 35px
-      rgba(96,165,250,.025),
-
-    0 0 0 70px
-      rgba(96,165,250,.02);
-
-  animation:
-    pulseGlow 6s
-    infinite;
-
-}
-
-.assistance-section::after{
-
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:-100%;
-
-  width:60%;
-  height:100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.035),
-      transparent
-    );
-
-  transform:skewX(-20deg);
-
-  animation:
-    assistanceShine 8s
-    infinite;
-
-}
-
-@keyframes assistanceShine{
-
-  0%,55%{
-    left:-100%;
-  }
-
-  75%,100%{
-    left:150%;
-  }
-
+  border:1px solid rgba(96,165,250,.20);
+  box-shadow:0 25px 70px rgba(7,21,47,.25);
 }
 
 .assistance-content{
-
   position:relative;
-
   z-index:2;
-
   max-width:980px;
-
   margin:auto;
-
 }
 
 .assistance-badge{
-
   display:inline-block;
-
   padding:7px 13px;
-
   border-radius:30px;
-
-  background:
-    rgba(96,165,250,.13);
-
-  border:
-    1px solid
-    rgba(147,197,253,.25);
-
+  background:rgba(96,165,250,.13);
+  border:1px solid rgba(147,197,253,.25);
   color:#bfdbfe;
-
   font-size:11px;
-
   font-weight:900;
-
   letter-spacing:.7px;
-
   margin-bottom:16px;
-
 }
 
 .assistance-section h2{
-
-  font-size:
-    clamp(29px,4vw,44px);
-
+  font-size:clamp(29px,4vw,44px);
   line-height:1.1;
-
   margin-bottom:18px;
-
 }
 
 .assistance-intro,
 .assistance-text{
-
   color:#cbd5e1;
-
   font-size:15px;
-
   line-height:1.85;
-
 }
 
 .assistance-text strong{
-
   color:#fff;
-
 }
 
 .assistance-highlight{
-
   margin-top:25px;
-
   padding:20px;
-
   border-radius:18px;
-
-  background:
-    rgba(255,255,255,.06);
-
-  border:
-    1px solid
-    rgba(255,255,255,.10);
-
-  box-shadow:
-    inset 0 1px
-    rgba(255,255,255,.05);
-
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.10);
 }
 
 .assistance-highlight p{
-
   color:#fff;
-
   font-size:17px;
-
   font-weight:800;
-
 }
 
 .assistance-actions{
-
   display:flex;
-
   flex-wrap:wrap;
-
   gap:12px;
-
   margin-top:25px;
-
 }
 
 .assistance-actions a{
-
   display:inline-flex;
-
   align-items:center;
-
   justify-content:center;
-
   padding:13px 18px;
-
   border-radius:12px;
-
   background:#fff;
-
   color:#111827;
-
   font-weight:800;
-
-  transition:.3s
-    cubic-bezier(.22,1,.36,1);
-
-}
-
-.assistance-actions a:hover{
-
-  transform:translateY(-3px);
-
-  box-shadow:
-    0 10px 25px
-    rgba(0,0,0,.20);
-
 }
 
 .assistance-actions a.whatsapp{
-
   background:#25D366;
-
   color:#fff;
-
 }
 
 
 /* =========================================================
-   SECTION HEAD
+   SECTIONS
 ========================================================= */
 
 .section{
-
   padding:70px 0;
-
 }
 
 .section-head{
-
   display:flex;
-
   justify-content:space-between;
-
   align-items:end;
-
   margin-bottom:30px;
-
 }
 
 .section-head h2{
-
   font-size:32px;
-
 }
 
 .section-head h2::after{
-
   content:"";
-
   display:block;
-
   width:45px;
-
   height:3px;
-
   margin-top:9px;
-
   border-radius:5px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #164a9c,
-      #7c3aed
-    );
-
+  background:linear-gradient(90deg,#164a9c,#7c3aed);
 }
 
 .section-head p{
-
   color:#68707d;
-
   max-width:520px;
-
 }
 
 
@@ -1484,258 +685,94 @@ nav a:hover{
 ========================================================= */
 
 .services{
-
   display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
+  grid-template-columns:repeat(3,1fr);
   gap:17px;
-
 }
 
 .service{
-
   background:#fff;
-
-  border:
-    1px solid
-    #e4e7ec;
-
+  border:1px solid #e4e7ec;
   border-radius:18px;
-
   padding:25px;
-
   min-height:190px;
-
-  transition:.4s
-    cubic-bezier(.22,1,.36,1);
-
-  position:relative;
-
-  overflow:hidden;
-
-}
-
-.service::before{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  background:
-    radial-gradient(
-      circle at 10% 10%,
-      rgba(37,99,235,.12),
-      transparent 35%
-    );
-
-  opacity:0;
-
   transition:.4s;
-
-}
-
-.service::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  top:0;
-
-  width:0;
-  height:2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #164a9c,
-      #7c3aed
-    );
-
-  transition:.5s
-    cubic-bezier(.22,1,.36,1);
-
+  position:relative;
+  overflow:hidden;
 }
 
 .service:hover{
-
-  transform:
-    translateY(-8px);
-
-  box-shadow:
-    0 20px 45px
-    rgba(23,32,51,.13);
-
+  transform:translateY(-7px);
+  box-shadow:0 20px 45px rgba(23,32,51,.13);
   border-color:#d5def0;
-
-}
-
-.service:hover::before{
-
-  opacity:1;
-
-}
-
-.service:hover::after{
-
-  width:100%;
-
 }
 
 .service.featured{
-
-  background:
-    linear-gradient(
-      135deg,
-      #111827,
-      #172d50
-    );
-
+  background:linear-gradient(135deg,#111827,#172d50);
   color:#fff;
-
   border-color:#111827;
-
-  box-shadow:
-    0 14px 35px
-    rgba(17,24,39,.18);
-
-}
-
-.service.featured::before{
-
-  background:
-    radial-gradient(
-      circle at 10% 10%,
-      rgba(96,165,250,.22),
-      transparent 38%
-    );
-
+  box-shadow:0 14px 35px rgba(17,24,39,.18);
 }
 
 .icon{
-
   position:relative;
-
   z-index:2;
-
   width:45px;
   height:45px;
-
   display:grid;
-
   place-items:center;
-
   background:#eaf1ff;
-
   color:#164a9c;
-
   border-radius:13px;
-
   font-size:21px;
-
   margin-bottom:20px;
-
-  transition:.4s
-    cubic-bezier(.22,1,.36,1);
-
-}
-
-.service:hover .icon{
-
-  transform:
-    translateY(-4px)
-    rotate(-3deg)
-    scale(1.08);
-
-  box-shadow:
-    0 8px 20px
-    rgba(37,99,235,.15);
-
 }
 
 .featured .icon{
-
   background:#164a9c;
-
-  color:white;
-
+  color:#fff;
 }
 
 .service h3,
 .service p{
-
   position:relative;
-
   z-index:2;
-
 }
 
 .service h3{
-
   font-size:19px;
-
   margin-bottom:7px;
-
 }
 
 .service p{
-
   font-size:13px;
-
   color:#6b7280;
-
 }
 
 .featured p{
-
   color:#cbd5e1;
-
 }
 
 .arrow{
-
   position:absolute;
-
   right:22px;
   bottom:20px;
-
   font-size:20px;
-
-  transition:.35s;
-
-}
-
-.service:hover .arrow{
-
-  transform:
-    translateX(6px);
-
 }
 
 
 /* =========================================================
-   VIP STORE
+   SERVICE PLANS
 ========================================================= */
 
 .store-vip{
-
   position:relative;
-
   display:block;
-
   overflow:hidden;
-
   min-height:230px;
-
   padding:28px!important;
 
   background:
-
     linear-gradient(
       135deg,
       #07152f 0%,
@@ -1743,268 +780,82 @@ nav a:hover{
       #7028a8 100%
     )!important;
 
-  background-size:
-    180% 180%!important;
+  background-size:180% 180%!important;
+  animation:gradientMove 8s ease infinite;
 
-  animation:
-    gradientMove 8s
-    ease
-    infinite;
-
-  border:
-    2px solid
-    #d6a84f!important;
-
-  border-radius:
-    28px!important;
-
+  border:2px solid #d6a84f!important;
+  border-radius:28px!important;
   color:#fff!important;
 
   box-shadow:
-
-    0 12px 35px
-      rgba(20,35,80,.30),
-
-    0 0 25px
-      rgba(180,120,255,.18);
-
-  transition:.4s
-    cubic-bezier(.22,1,.36,1);
-
+    0 12px 35px rgba(20,35,80,.30),
+    0 0 25px rgba(180,120,255,.18);
 }
 
 .store-vip:hover{
-
-  transform:
-    translateY(-7px);
-
-  box-shadow:
-
-    0 25px 60px
-      rgba(20,35,80,.34),
-
-    0 0 35px
-      rgba(180,120,255,.25);
-
+  transform:translateY(-5px);
 }
 
-.store-vip::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:220px;
-  height:220px;
-
-  right:-90px;
-  top:-90px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,255,255,.15),
-      transparent 68%
-    );
-
-  animation:
-    vipGlow 5s
-    ease-in-out
-    infinite;
-
-}
-
-.store-vip::after{
-
-  content:"";
-
-  position:absolute;
-
-  top:0;
-  left:-120%;
-
-  width:80%;
-  height:100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.16),
-      transparent
-    );
-
-  transform:skewX(-20deg);
-
-  animation:
-    vipShine 5s
-    infinite;
-
-}
-
-@keyframes vipShine{
-
-  0%{
-    left:-120%;
-  }
-
-  45%,100%{
-    left:140%;
-  }
-
-}
-
-@keyframes vipGlow{
-
-  0%,100%{
-    transform:scale(1);
-  }
-
-  50%{
-    transform:scale(1.12);
-  }
-
-}
-
-.vip-badge{
-
+.service-badge{
   display:inline-block;
-
   position:relative;
-
   z-index:2;
-
   padding:8px 15px;
-
   border-radius:30px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #f6d365,
-      #d99b25
-    );
-
+  background:linear-gradient(135deg,#f6d365,#d99b25);
   color:#111827;
-
   font-size:12px;
-
   font-weight:800;
-
-  box-shadow:
-    0 5px 18px
-    rgba(0,0,0,.18);
-
 }
 
 .store-content{
-
   position:relative;
-
   z-index:2;
-
   margin-top:22px;
-
 }
 
 .store-icon{
-
   width:58px;
   height:58px;
-
   display:flex;
-
   align-items:center;
   justify-content:center;
-
-  background:
-    rgba(255,255,255,.14);
-
-  border:
-    1px solid
-    rgba(255,255,255,.25);
-
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.25);
   border-radius:18px;
-
   font-size:30px;
-
-  transition:.4s;
-
-}
-
-.store-vip:hover .store-icon{
-
-  transform:
-    rotate(-6deg)
-    scale(1.08);
-
 }
 
 .store-text h3{
-
   margin:0 0 7px;
-
   color:#fff!important;
-
   font-size:25px;
-
   font-weight:800;
-
 }
 
 .store-text p{
-
   margin:0 0 10px;
-
   color:#e9e7ff!important;
-
   font-size:16px;
-
   font-weight:600;
-
 }
 
 .store-plans{
-
   display:block;
-
   color:#f6d365;
-
   font-size:13px;
-
   font-weight:700;
-
 }
 
 .store-arrow{
-
   display:inline-block;
-
   margin-top:20px;
-
   padding:11px 18px;
-
   border-radius:12px;
-
   background:#fff;
-
   color:#123f73;
-
   font-size:13px;
-
   font-weight:800;
-
-  transition:.3s;
-
-}
-
-.store-vip:hover .store-arrow{
-
-  transform:
-    translateX(5px);
-
 }
 
 
@@ -2013,159 +864,55 @@ nav a:hover{
 ========================================================= */
 
 .how{
-
   position:relative;
-
   background:#111827;
-
-  color:white;
-
+  color:#fff;
   padding:65px 0;
-
   overflow:hidden;
-
-}
-
-.how::before{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  pointer-events:none;
-
-  background:
-
-    linear-gradient(
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    ),
-
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    );
-
-  background-size:45px 45px;
-
 }
 
 .how .container{
-
   position:relative;
-
   z-index:2;
-
 }
 
 .steps{
-
   display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
+  grid-template-columns:repeat(4,1fr);
   gap:18px;
-
   margin-top:30px;
-
 }
 
 .step{
-
   position:relative;
-
-  border:
-    1px solid
-    #ffffff20;
-
+  border:1px solid #ffffff20;
   border-radius:16px;
-
   padding:22px;
-
-  transition:.4s
-    cubic-bezier(.22,1,.36,1);
-
-  overflow:hidden;
-
-  background:
-    rgba(255,255,255,.02);
-
-}
-
-.step::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  top:0;
-
-  width:0;
-  height:2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #60a5fa,
-      #a78bfa
-    );
-
-  transition:.5s;
-
+  transition:.4s;
+  background:rgba(255,255,255,.02);
 }
 
 .step:hover{
-
-  transform:
-    translateY(-7px);
-
-  background:
-    rgba(255,255,255,.045);
-
-  border-color:
-    #ffffff35;
-
-}
-
-.step:hover::after{
-
-  width:100%;
-
+  transform:translateY(-5px);
+  background:rgba(255,255,255,.045);
 }
 
 .step-number{
-
   color:#60a5fa;
-
   font-size:13px;
-
   font-weight:900;
-
   margin-bottom:12px;
-
   letter-spacing:1px;
-
 }
 
 .step h3{
-
   font-size:17px;
-
   margin-bottom:6px;
-
 }
 
 .step p{
-
   font-size:13px;
-
   color:#aeb7c5;
-
 }
 
 
@@ -2174,150 +921,58 @@ nav a:hover{
 ========================================================= */
 
 .scheme-list{
-
   display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
+  grid-template-columns:repeat(2,1fr);
   gap:15px;
-
   margin-top:25px;
-
 }
 
 .scheme-item{
-
   background:#fff;
-
-  border:
-    1px solid
-    #e4e7ec;
-
+  border:1px solid #e4e7ec;
   border-radius:18px;
-
   padding:22px;
-
-  transition:.4s
-    cubic-bezier(.22,1,.36,1);
-
-  position:relative;
-
-  overflow:hidden;
-
-}
-
-.scheme-item::before{
-
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  top:0;
-
-  width:3px;
-  height:0;
-
-  background:
-    linear-gradient(
-      #164a9c,
-      #7c3aed
-    );
-
-  transition:.5s;
-
+  transition:.4s;
 }
 
 .scheme-item:hover{
-
-  transform:
-    translateY(-5px);
-
-  box-shadow:
-    0 15px 35px
-    rgba(16,24,40,.09);
-
-  border-color:#d5def0;
-
-}
-
-.scheme-item:hover::before{
-
-  height:100%;
-
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px rgba(16,24,40,.09);
 }
 
 .scheme-item h3{
-
   font-size:17px;
-
   margin-bottom:6px;
-
 }
 
 .scheme-item p{
-
   color:#68707d;
-
   font-size:13px;
-
   margin-bottom:12px;
-
 }
 
 .scheme-item a,
 .scheme-more a,
 .scheme-help a{
-
   color:#164a9c;
-
   font-weight:800;
-
   font-size:13px;
-
 }
 
 .scheme-more,
 .scheme-help{
-
   margin-top:18px;
-
   padding:25px;
-
   border-radius:18px;
-
   background:#eef4ff;
-
-  border:
-    1px solid
-    #d9e7ff;
-
-  transition:.3s;
-
-}
-
-.scheme-more:hover,
-.scheme-help:hover{
-
-  transform:
-    translateY(-3px);
-
-  box-shadow:
-    0 12px 30px
-    rgba(37,99,235,.08);
-
+  border:1px solid #d9e7ff;
 }
 
 .scheme-more p,
 .scheme-help p{
-
   color:#68707d;
-
   font-size:13px;
-
   margin-bottom:10px;
-
 }
 
 
@@ -2326,97 +981,33 @@ nav a:hover{
 ========================================================= */
 
 .cta{
-
   position:relative;
-
   overflow:hidden;
-
   margin:65px auto;
-
-  background:
-    linear-gradient(
-      120deg,
-      #164a9c,
-      #0e326d
-    );
-
-  color:white;
-
+  background:linear-gradient(120deg,#164a9c,#0e326d);
+  color:#fff;
   border-radius:25px;
-
   padding:45px;
-
   display:flex;
-
   justify-content:space-between;
-
   gap:25px;
-
   align-items:center;
-
-  box-shadow:
-    0 20px 50px
-    rgba(22,74,156,.20);
-
-}
-
-.cta::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:300px;
-  height:300px;
-
-  right:-120px;
-  top:-150px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,255,255,.15),
-      transparent 70%
-    );
-
-  animation:
-    pulseGlow 5s
-    infinite;
-
-}
-
-.cta>*{
-
-  position:relative;
-
-  z-index:2;
-
+  box-shadow:0 20px 50px rgba(22,74,156,.20);
 }
 
 .cta h2{
-
   font-size:32px;
-
 }
 
 .cta p{
-
   color:#d9e7ff;
-
   margin-top:8px;
-
 }
 
 .cta .btn{
-
   background:#fff;
-
   color:#111827;
-
   border:none;
-
 }
 
 
@@ -2425,86 +1016,55 @@ nav a:hover{
 ========================================================= */
 
 footer{
-
   background:#0b0f17;
-
-  color:white;
-
+  color:#fff;
   padding:45px 0 20px;
-
 }
 
 .footer-grid{
-
   display:grid;
-
-  grid-template-columns:
-    2fr 1fr 1fr;
-
-  gap:40px;
-
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:35px;
 }
 
 footer h3{
-
   margin-bottom:13px;
-
 }
 
 footer p,
 footer a{
-
   color:#9da6b5;
-
   font-size:13px;
-
   display:block;
-
   margin:7px 0;
-
   transition:.25s;
-
 }
 
 footer a:hover{
-
   color:#fff;
+}
 
-  transform:
-    translateX(3px);
-
+.footer-about a{
+  color:#bfdbfe;
+  font-weight:800;
+  margin-top:12px;
 }
 
 .disclaimer{
-
   margin-top:30px;
-
   padding-top:20px;
-
-  border-top:
-    1px solid
-    #ffffff15;
-
+  border-top:1px solid #ffffff15;
   color:#8d97a7;
-
   font-size:12px;
-
+  line-height:1.7;
 }
 
 .copyright{
-
-  border-top:
-    1px solid
-    #ffffff15;
-
+  border-top:1px solid #ffffff15;
   margin-top:20px;
-
   padding-top:18px;
-
   color:#778091;
-
   font-size:12px;
-
 }
 
 
@@ -2513,75 +1073,30 @@ footer a:hover{
 ========================================================= */
 
 .complaint-field{
-
   width:100%;
-
   padding:14px;
-
   margin-bottom:12px;
-
-  border:
-    1px solid
-    #d9dde5;
-
+  border:1px solid #d9dde5;
   border-radius:12px;
-
   font-size:16px;
-
   outline:none;
-
-  transition:.25s;
-
 }
 
 .complaint-field:focus{
-
   border-color:#2563eb;
-
-  box-shadow:
-    0 0 0 4px
-    rgba(37,99,235,.08);
-
+  box-shadow:0 0 0 4px rgba(37,99,235,.08);
 }
 
 .complaint-submit{
-
   width:100%;
-
   padding:15px;
-
   border:0;
-
   border-radius:12px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #111827,
-      #1d4ed8
-    );
-
-  color:white;
-
+  background:linear-gradient(135deg,#111827,#1d4ed8);
+  color:#fff;
   font-size:17px;
-
   font-weight:800;
-
   cursor:pointer;
-
-  transition:.3s;
-
-}
-
-.complaint-submit:hover{
-
-  transform:
-    translateY(-2px);
-
-  box-shadow:
-    0 12px 28px
-    rgba(29,78,216,.20);
-
 }
 
 
@@ -2592,440 +1107,231 @@ footer a:hover{
 #complaintModal,
 .contact-popup-overlay,
 .status-modal{
-
   display:none;
-
   position:fixed;
-
   inset:0;
-
   z-index:99999;
-
-  background:
-    rgba(3,8,18,.78);
-
-  backdrop-filter:
-    blur(10px);
-
+  background:rgba(3,8,18,.78);
+  backdrop-filter:blur(10px);
   align-items:center;
-
   justify-content:center;
-
   padding:18px;
-
 }
 
 #complaintModal.is-open,
 .contact-popup-overlay.active,
 .status-modal.is-open{
-
   display:flex;
-
 }
 
 #complaintModal.is-open .complaint-inner,
 .contact-popup-overlay.active .contact-popup,
 .status-modal.is-open .status-box{
-
-  animation:
-    modalIn .4s
-    cubic-bezier(.22,1,.36,1)
-    both;
-
+  animation:modalIn .4s cubic-bezier(.22,1,.36,1) both;
 }
 
 .contact-popup{
-
   width:min(440px,100%);
-
   max-height:90vh;
-
   overflow-y:auto;
-
   background:#101827;
-
   color:#fff;
-
   border-radius:30px;
-
   padding:28px 22px;
-
   position:relative;
-
 }
 
 .contact-popup-close,
 .status-close{
-
   position:absolute;
-
   right:15px;
-
   top:15px;
-
   width:40px;
-
   height:40px;
-
   border:0;
-
   border-radius:50%;
-
   background:#fff;
-
   color:#111827;
-
   font-size:25px;
-
   cursor:pointer;
-
-  transition:.3s;
-
-}
-
-.contact-popup-close:hover,
-.status-close:hover{
-
-  transform:
-    rotate(90deg)
-    scale(1.05);
-
 }
 
 .contact-popup-badge{
-
   display:inline-block;
-
   padding:7px 13px;
-
   border-radius:30px;
-
   background:#eaf1ff;
-
   color:#164a9c;
-
   font-size:11px;
-
   font-weight:900;
-
 }
 
 .contact-popup h2{
-
   font-size:32px;
-
   margin:12px 0 7px;
-
 }
 
 .contact-popup-subtitle{
-
   color:#aeb7c7;
-
   margin-bottom:22px;
-
 }
 
 .contact-main{
-
   display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
+  grid-template-columns:1fr 1fr;
   gap:12px;
-
 }
 
 .contact-main a{
-
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
-
   min-height:105px;
-
   border-radius:20px;
-
   color:#fff;
-
   font-weight:800;
-
-  transition:.35s;
-
-}
-
-.contact-main a:hover{
-
-  transform:
-    translateY(-4px);
-
 }
 
 .contact-call{
-
-  background:
-    linear-gradient(
-      135deg,
-      #164a9c,
-      #2563eb
-    );
-
+  background:linear-gradient(135deg,#164a9c,#2563eb);
 }
 
 .contact-whatsapp{
-
-  background:
-    linear-gradient(
-      135deg,
-      #087f45,
-      #16a34a
-    );
-
+  background:linear-gradient(135deg,#087f45,#16a34a);
 }
 
 .contact-main-icon{
-
   font-size:30px;
-
 }
 
 .contact-details{
-
   margin-top:16px;
-
   display:grid;
-
   gap:10px;
-
 }
 
 .contact-detail{
-
   display:flex;
-
   align-items:center;
-
   gap:13px;
-
   padding:13px;
-
   background:#192234;
-
   border-radius:16px;
-
 }
 
 .contact-detail-icon{
-
   width:40px;
-
   height:40px;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   border-radius:12px;
-
   background:#24314a;
-
 }
 
 .contact-detail-text small{
-
   display:block;
-
   color:#8995a9;
-
   font-size:10px;
-
   font-weight:800;
-
 }
 
 .contact-detail-text a,
 .contact-detail-text span{
-
   color:#fff;
-
   font-size:13px;
-
   word-break:break-word;
-
 }
 
 .contact-popup-footer{
-
   text-align:center;
-
   color:#7f8a9d;
-
   font-size:11px;
-
   margin-top:18px;
-
 }
 
+
+/* =========================================================
+   STATUS
+========================================================= */
+
 .status-box{
-
   width:100%;
-
   max-width:500px;
-
   background:#fff;
-
   border-radius:28px;
-
   padding:30px;
-
   position:relative;
-
 }
 
 .status-icon{
-
   width:58px;
-
   height:58px;
-
   border-radius:18px;
-
   background:#eaf2ff;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
   font-size:28px;
-
   margin-bottom:18px;
-
 }
 
 .status-box h2{
-
   font-size:28px;
-
 }
 
 .status-box>p{
-
   color:#667085;
-
 }
 
 .status-input{
-
   display:flex;
-
   gap:10px;
-
   margin-top:22px;
-
 }
 
 .status-input input{
-
   flex:1;
-
   min-width:0;
-
   padding:15px;
-
-  border:
-    1px solid
-    #d0d5dd;
-
+  border:1px solid #d0d5dd;
   border-radius:14px;
-
   font-size:15px;
-
 }
 
 .status-input input:focus{
-
   outline:none;
-
   border-color:#2563eb;
-
-  box-shadow:
-    0 0 0 4px
-    rgba(37,99,235,.08);
-
 }
 
 .status-input button{
-
   border:0;
-
   border-radius:14px;
-
   padding:0 18px;
-
   background:#111827;
-
-  color:white;
-
+  color:#fff;
   font-weight:700;
-
-  transition:.3s;
-
-}
-
-.status-input button:hover{
-
-  background:#164a9c;
-
 }
 
 .status-loading{
-
   display:flex;
-
   align-items:center;
-
   gap:10px;
-
   padding:14px;
-
   border-radius:14px;
-
   background:#eef4ff;
-
   color:#164a9c;
-
   font-weight:700;
-
 }
 
 .status-spinner{
-
   width:20px;
-
   height:20px;
-
-  border:
-    3px solid
-    #cfe0ff;
-
+  border:3px solid #cfe0ff;
   border-top-color:#2563eb;
-
   border-radius:50%;
-
-  animation:
-    spin .8s
-    linear
-    infinite;
-
+  animation:spin .8s linear infinite;
 }
 
 
@@ -3048,13 +1354,11 @@ footer a:hover{
   }
 
   .services{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .steps{
-    grid-template-columns:
-      repeat(2,1fr);
+    grid-template-columns:repeat(2,1fr);
   }
 
   .slider{
@@ -3062,8 +1366,7 @@ footer a:hover{
   }
 
   .footer-grid{
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
   .assistance-section{
@@ -3102,18 +1405,8 @@ footer a:hover{
     padding:30px 0;
   }
 
-  .slider{
-    border-radius:20px;
-  }
-
-  .slider::before{
-    border-radius:20px;
-  }
-
   .services{
-    grid-template-columns:
-      1fr 1fr;
-
+    grid-template-columns:1fr 1fr;
     gap:10px;
   }
 
@@ -3131,8 +1424,7 @@ footer a:hover{
   }
 
   .steps{
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
   .cta{
@@ -3174,8 +1466,7 @@ footer a:hover{
   }
 
   .contact-main{
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
   .section{
@@ -3192,33 +1483,20 @@ footer a:hover{
 
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
 @media(prefers-reduced-motion:reduce){
 
   *,
   *::before,
   *::after{
-
     animation-duration:.01ms!important;
-
     animation-iteration-count:1!important;
-
     scroll-behavior:auto!important;
-
     transition-duration:.01ms!important;
-
   }
 
   [data-reveal]{
-
     opacity:1;
-
     transform:none;
-
   }
 
 }
@@ -3251,9 +1529,7 @@ src="Logo.jpg"
 alt="SK KGN TEAM">
 
 <span class="logo">
-
 SK <span>KGN TEAM</span>
-
 </span>
 
 </a>
@@ -3330,7 +1606,7 @@ onclick="toggleMenu()">
 
 <div class="badge">
 
-PUBLIC GRIEVANCE ASSISTANCE
+PRIVATE COMPLAINT CONSULTANCY
 
 </div>
 
@@ -3348,9 +1624,9 @@ Our Assistance.
 
 <p>
 
-Get professional assistance for submitting and tracking
-public grievances, government-related matters and important
-citizen services.
+SK KGN TEAM provides private assistance with complaint
+drafting, submission procedures, tracking and selected
+citizen-service matters.
 
 </p>
 
@@ -3387,7 +1663,7 @@ SK KGN TEAM
 </h3>
 
 <p>
-Public Grievance Assistance
+Private Complaint Consultancy
 </p>
 
 
@@ -3432,7 +1708,7 @@ Track your progress
 
 
 <!-- =======================================================
-     CLICKABLE SLIDER
+     SLIDER
 ======================================================= -->
 
 <section
@@ -3448,20 +1724,16 @@ class="slides"
 id="slides">
 
 
-<!-- PHOTO 1 -->
-
 <div
 class="slide active"
 onclick="openComplaintForm()">
 
 <img
 src="360_F_1338200747_HApzoFCccSAmUvCTXuJjU7i3GuYIWQYm.jpg"
-alt="SK KGN TEAM Public Grievance Assistance">
+alt="SK KGN TEAM private complaint consultancy">
 
 </div>
 
-
-<!-- PHOTO 2 -->
 
 <div
 class="slide"
@@ -3469,12 +1741,10 @@ onclick="openComplaintForm()">
 
 <img
 src="Garbage.jpg"
-alt="Public Grievance Assistance">
+alt="Complaint assistance">
 
 </div>
 
-
-<!-- PHOTO 3 -->
 
 <div
 class="slide"
@@ -3482,12 +1752,10 @@ onclick="openComplaintForm()">
 
 <img
 src="pict_original.jpg"
-alt="Citizen Assistance">
+alt="Citizen assistance">
 
 </div>
 
-
-<!-- PHOTO 4 -->
 
 <div
 class="slide"
@@ -3495,7 +1763,7 @@ onclick="openComplaintForm()">
 
 <img
 src="Opinion.jpg"
-alt="Public Assistance">
+alt="Private assistance service">
 
 </div>
 
@@ -3535,7 +1803,7 @@ onclick="goSlide(3)">
 
 
 <!-- =======================================================
-     ASSISTANCE
+     PRIVATE COMPLAINT CONSULTANCY
 ======================================================= -->
 
 <section
@@ -3548,7 +1816,7 @@ data-reveal>
 
 <div class="assistance-badge">
 
-SK KGN TEAM • PUBLIC ASSISTANCE
+SK KGN TEAM • PRIVATE ASSISTANCE
 
 </div>
 
@@ -3564,8 +1832,9 @@ SK KGN TEAM • PUBLIC ASSISTANCE
 
 अगर किसी सरकारी कार्यालय, निजी संस्था या सेवा से जुड़ी
 शिकायत में आपको सहायता की आवश्यकता है, तो SK KGN TEAM
-आपको शिकायत तैयार करने और उसे संबंधित स्थान तक पहुंचाने
-की प्रक्रिया में सहायता प्रदान कर सकती है।
+एक स्वतंत्र निजी सेवा के रूप में शिकायत तैयार करने,
+जानकारी व्यवस्थित करने और उपलब्ध शिकायत प्रक्रिया को
+समझने में सहायता प्रदान करती है।
 
 </p>
 
@@ -3576,12 +1845,11 @@ SK KGN TEAM • PUBLIC ASSISTANCE
 
 <strong>
 
-चाहे मामला खेत और जमीन के विवाद, अवैध कब्जे या जमीन की
-पैमाइश से जुड़ा हो,
+खेत और जमीन के विवाद, अवैध कब्जे या जमीन की पैमाइश
+जैसे मामलों में शिकायत संबंधी दस्तावेज तैयार करने में
+सहायता प्राप्त की जा सकती है।
 
 </strong>
-
-या किसी कार्यालय में आपका काम लंबे समय से लंबित हो।
 
 </p>
 
@@ -3594,8 +1862,8 @@ SK KGN TEAM • PUBLIC ASSISTANCE
 पुलिस, बिजली, नगर निकाय, सड़क, पानी, सफाई, बैंक,
 स्कूल, अस्पताल, LPG गैस एजेंसी, सोसाइटी, ट्रस्ट,
 मोबाइल नेटवर्क कंपनी या ऑनलाइन शॉपिंग से जुड़ी शिकायतों
-में भी उचित शिकायत तैयार करने और प्रक्रिया संबंधी
-सहायता प्राप्त की जा सकती है।
+में भी उचित शिकायत तैयार करने और उपलब्ध प्रक्रिया को
+समझने में सहायता प्राप्त की जा सकती है।
 
 </p>
 
@@ -3606,9 +1874,9 @@ SK KGN TEAM • PUBLIC ASSISTANCE
 <p>
 
 साइबर अपराध, नकली नौकरी, ऑनलाइन धोखाधड़ी या किसी
-निजी कंपनी से जुड़ी शिकायत के मामले में भी हम आपको
-शिकायत की जानकारी व्यवस्थित करने और संबंधित शिकायत
-प्रक्रिया में सहायता प्रदान कर सकते हैं।
+निजी कंपनी से जुड़ी शिकायत के मामले में हम जानकारी
+व्यवस्थित करने और संबंधित शिकायत प्रक्रिया के लिए
+दस्तावेज तैयार करने में सहायता कर सकते हैं।
 
 </p>
 
@@ -3620,10 +1888,10 @@ SK KGN TEAM • PUBLIC ASSISTANCE
 
 <strong>
 
-SK KGN TEAM बड़े से बड़े अधिकारी, सरकारी विभाग,
-जनप्रतिनिधि या निजी संस्था के संबंध में शिकायत के लिए
-औपचारिक ड्राफ्टिंग और शिकायत दर्ज कराने में सहायता
-प्रदान करती है।
+SK KGN TEAM किसी सरकारी अधिकारी, विभाग, न्यायालय,
+पुलिस या अन्य प्राधिकरण की ओर से निर्णय या कार्रवाई
+की गारंटी नहीं देती। हमारी भूमिका निजी सहायता,
+ड्राफ्टिंग और प्रक्रिया संबंधी सहायता तक सीमित है।
 
 </strong>
 
@@ -3636,9 +1904,9 @@ SK KGN TEAM बड़े से बड़े अधिकारी, सरका
 
 <p>
 
-आपकी समस्या को सही तरीके से प्रस्तुत करना,
-आपकी शिकायत को व्यवस्थित करना और उसके आगे की प्रक्रिया
-को समझने में सहायता करना — यही हमारा उद्देश्य है।
+आपकी समस्या को स्पष्ट रूप से प्रस्तुत करना, शिकायत को
+व्यवस्थित करना और उपलब्ध प्रक्रिया को समझने में सहायता
+करना — यही हमारी सेवा का उद्देश्य है।
 
 </p>
 
@@ -3666,6 +1934,7 @@ onclick="openComplaintForm();return false;">
 <a
 href="https://wa.me/917007027158"
 target="_blank"
+rel="noopener"
 class="whatsapp">
 
 💬 Get Assistance on WhatsApp
@@ -3704,8 +1973,8 @@ Our Services
 
 <p>
 
-Professional assistance for important public grievance
-and citizen-service matters.
+Private assistance for complaint drafting, submission
+procedures, tracking and selected citizen-service matters.
 
 </p>
 
@@ -3732,7 +2001,7 @@ Lodge Complaint
 </h3>
 
 <p>
-Submit your grievance through our complaint system.
+Submit your complaint details and select a service plan.
 </p>
 
 <span class="arrow">
@@ -3780,7 +2049,7 @@ Schemes & Benefits
 </h3>
 
 <p>
-Explore useful government schemes and benefits.
+Find information and links to selected government schemes.
 </p>
 
 <span class="arrow">
@@ -3800,11 +2069,11 @@ data-reveal="delay1">
 </div>
 
 <h3>
-Legal & RTI Help
+Legal & RTI Information
 </h3>
 
 <p>
-Information and assistance related to RTI and grievances.
+Information and private assistance related to RTI and grievances.
 </p>
 
 <span class="arrow">
@@ -3871,7 +2140,7 @@ Contact SK KGN TEAM for assistance and enquiries.
 
 
 <!-- =======================================================
-     VIP STORE
+     SERVICE PLANS
 ======================================================= -->
 
 <section
@@ -3900,9 +2169,9 @@ min-width:0;
 <div class="store-content">
 
 
-<div class="vip-badge">
+<div class="service-badge">
 
-👑 VIP ACCESS
+PROFESSIONAL ASSISTANCE
 
 </div>
 
@@ -3910,11 +2179,11 @@ min-width:0;
 <div class="store-text">
 
 <h3>
-Official Store
+SK KGN TEAM SERVICES
 </h3>
 
 <p>
-Premium Assistance Plans
+Private Assistance Plans
 </p>
 
 <span class="store-plans">
@@ -3933,7 +2202,7 @@ Premium Assistance Plans
 <div class="store-arrow">
 
 EXPLORE<br>
-STORE →
+SERVICES →
 
 </div>
 
@@ -3966,7 +2235,8 @@ Lodge a Complaint
 
 <p>
 
-Submit your complaint and select your preferred service plan.
+Submit your complaint details and select the private
+assistance service plan that suits your requirement.
 
 </p>
 
@@ -4040,11 +2310,11 @@ data-reveal>
 </div>
 
 <h3>
-Lodge Complaint
+Submit Details
 </h3>
 
 <p>
-Submit your complaint with the required information.
+Provide the basic information about your complaint.
 </p>
 
 </div>
@@ -4063,7 +2333,7 @@ Select Service Plan
 </h3>
 
 <p>
-Choose the service plan that suits your requirement.
+Choose the private assistance service that suits your requirement.
 </p>
 
 </div>
@@ -4071,8 +2341,7 @@ Choose the service plan that suits your requirement.
 
 <div
 class="step"
-data-reveal="delay2"
-id="status">
+data-reveal="delay2">
 
 <div class="step-number">
 03
@@ -4083,7 +2352,7 @@ Complete Payment
 </h3>
 
 <p>
-Complete the secure Razorpay payment.
+Complete the secure Razorpay payment for the selected service.
 </p>
 
 </div>
@@ -4103,8 +2372,8 @@ Get Complaint ID
 
 <p>
 
-Your unique Complaint ID is generated only after
-successful payment verification.
+After successful payment verification, your unique
+Complaint ID is generated for tracking.
 
 </p>
 
@@ -4141,7 +2410,8 @@ Schemes & Benefits
 
 <p>
 
-Explore useful government schemes and public-benefit information.
+Information and links to selected government schemes
+and public-benefit services.
 
 </p>
 
@@ -4170,7 +2440,7 @@ href="https://pmkisan.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4186,7 +2456,7 @@ Pradhan Mantri Awas Yojana
 </h3>
 
 <p>
-Housing assistance for eligible families.
+Housing assistance information for eligible families.
 </p>
 
 <a
@@ -4194,7 +2464,7 @@ href="https://pmaymis.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4210,7 +2480,7 @@ Ayushman Bharat PM-JAY
 </h3>
 
 <p>
-Government health coverage scheme for eligible beneficiaries.
+Government health coverage information for eligible beneficiaries.
 </p>
 
 <a
@@ -4218,7 +2488,7 @@ href="https://pmjay.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4234,7 +2504,7 @@ Pradhan Mantri Ujjwala Yojana
 </h3>
 
 <p>
-LPG connection assistance for eligible households.
+LPG connection assistance information for eligible households.
 </p>
 
 <a
@@ -4242,7 +2512,7 @@ href="https://www.pmuy.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4254,8 +2524,7 @@ class="scheme-item"
 data-reveal>
 
 <h3>
-e-Shram
-</h3>
+e-Shram</h3>
 
 <p>
 Government registration and welfare information for unorganised workers.
@@ -4266,7 +2535,7 @@ href="https://eshram.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4282,7 +2551,7 @@ Pradhan Mantri Jan-Dhan Yojana
 </h3>
 
 <p>
-Financial inclusion and access to basic banking services.
+Financial inclusion and basic banking information.
 </p>
 
 <a
@@ -4290,7 +2559,7 @@ href="https://pmjdy.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4306,7 +2575,7 @@ PM Fasal Bima Yojana
 </h3>
 
 <p>
-Crop insurance support for eligible farmers.
+Crop insurance information for eligible farmers.
 </p>
 
 <a
@@ -4314,7 +2583,7 @@ href="https://pmfby.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4330,7 +2599,7 @@ National Scholarship Portal
 </h3>
 
 <p>
-Information and application services for government scholarships.
+Information about government scholarship services.
 </p>
 
 <a
@@ -4338,7 +2607,7 @@ href="https://scholarships.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4362,7 +2631,7 @@ href="https://nfsa.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4378,7 +2647,7 @@ PM Vishwakarma
 </h3>
 
 <p>
-Government support for eligible traditional artisans and craftspeople.
+Government support information for eligible traditional artisans.
 </p>
 
 <a
@@ -4386,7 +2655,7 @@ href="https://pmvishwakarma.gov.in/"
 target="_blank"
 rel="noopener">
 
-Official Website →
+Government Website →
 
 </a>
 
@@ -4406,8 +2675,8 @@ Find More Government Schemes
 
 <p>
 
-Search for Central and State Government schemes based on your
-eligibility and requirements.
+Search Central and State Government schemes according
+to eligibility and requirements.
 
 </p>
 
@@ -4433,11 +2702,12 @@ Need Assistance?
 
 <p>
 
-Have questions about eligibility, required documents,
-application procedures, or a grievance related to a government scheme?
+Have questions about eligibility, documents, application
+procedures or a grievance related to a government scheme?
 
 <strong>
-Contact SK KGN TEAM for assistance.
+SK KGN TEAM can provide private assistance with information
+organisation and complaint/application procedures.
 </strong>
 
 </p>
@@ -4476,7 +2746,7 @@ Need Help With a Complaint?
 
 <p>
 
-Start your complaint or contact SK KGN TEAM for assistance.
+Start your complaint or contact SK KGN TEAM for private assistance.
 
 </p>
 
@@ -4502,6 +2772,7 @@ Lodge Complaint →
 
 <!-- =======================================================
      FOOTER
+     ABOUT US IS LAST
 ======================================================= -->
 
 <footer id="contact">
@@ -4512,6 +2783,8 @@ Lodge Complaint →
 <div class="footer-grid">
 
 
+<!-- COMPANY -->
+
 <div>
 
 <h3>
@@ -4519,18 +2792,20 @@ SK KGN TEAM
 </h3>
 
 <p>
-Public Grievance Assistance
+Private Complaint Consultancy
 </p>
 
 <p>
 
-Professional assistance for public grievance and
-citizen-service matters.
+Independent private assistance for complaint drafting,
+submission procedures, tracking and selected citizen-service matters.
 
 </p>
 
 </div>
 
+
+<!-- QUICK LINKS -->
 
 <div>
 
@@ -4551,7 +2826,6 @@ href="#complaint"
 onclick="openComplaintForm();return false;">
 
 Lodge Complaint
-
 </a>
 
 <a href="status.html">
@@ -4564,6 +2838,8 @@ Schemes
 
 </div>
 
+
+<!-- CONTACT -->
 
 <div>
 
@@ -4586,14 +2862,53 @@ Website: skkgnteam.in
 </div>
 
 
+<!-- ABOUT US — LAST SECTION -->
+
+<div class="footer-about">
+
+<h3>
+About Us
+</h3>
+
+<p>
+
+Learn about SK KGN TEAM, our services,
+role and operating principles.
+
+</p>
+
+<a href="about.html">
+
+Read About Us →
+
+</a>
+
 </div>
 
 
+</div>
+
+
+<!-- =======================================================
+     LEGAL DISCLAIMER
+======================================================= -->
+
 <p class="disclaimer">
 
-SK KGN TEAM is an independent private assistance service
-and is not a government department, government website,
-or government authority.
+<strong>Important:</strong>
+SK KGN TEAM is an independent private complaint consultancy
+and assistance service. It is not a government department,
+government website, government authority, court, police
+authority or official representative of any government
+department or public authority.
+
+SK KGN TEAM does not guarantee that a government department,
+private organisation or any other authority will accept,
+process, resolve or act upon a complaint. Government schemes,
+portals and official services mentioned on this website are
+provided for informational/navigation purposes, and users
+should verify information through the relevant official
+government sources.
 
 </p>
 
@@ -4835,8 +3150,8 @@ Contact Us
 
 <p class="contact-popup-subtitle">
 
-Need assistance with a government scheme,
-grievance, application or citizen service?
+Need private assistance with a complaint,
+government scheme, application or citizen service?
 
 </p>
 
@@ -4872,6 +3187,7 @@ opacity:.8;
 <a
 href="https://wa.me/917007027158"
 target="_blank"
+rel="noopener"
 class="contact-whatsapp">
 
 <div class="contact-main-icon">
@@ -4938,7 +3254,8 @@ WEBSITE
 
 <a
 href="https://skkgnteam.in"
-target="_blank">
+target="_blank"
+rel="noopener">
 
 skkgnteam.in
 
@@ -4978,7 +3295,7 @@ Varanasi, Uttar Pradesh 221106
 
 <div class="contact-popup-footer">
 
-SK KGN TEAM • Public Grievance Assistance
+SK KGN TEAM • Independent Private Assistance Service
 
 </div>
 
@@ -4989,7 +3306,7 @@ SK KGN TEAM • Public Grievance Assistance
 
 
 <!-- =======================================================
-     PREMIUM UI JAVASCRIPT
+     MAIN JAVASCRIPT
 ======================================================= -->
 
 <script>
@@ -5061,9 +3378,7 @@ document.addEventListener(
 
     if(document.hidden){
 
-      clearInterval(
-        sliderTimer
-      );
+      clearInterval(sliderTimer);
 
     }else{
 
@@ -5092,46 +3407,34 @@ document.addEventListener(
 function toggleMenu(){
 
   const nav=
-    document.getElementById(
-      "nav"
-    );
+    document.getElementById("nav");
 
 
   if(
     nav.style.display==="flex"
   ){
 
-    nav.style.display=
-      "none";
+    nav.style.display="none";
 
   }else{
 
-    nav.style.display=
-      "flex";
+    nav.style.display="flex";
 
-    nav.style.position=
-      "absolute";
+    nav.style.position="absolute";
 
-    nav.style.top=
-      "62px";
+    nav.style.top="62px";
 
-    nav.style.left=
-      "0";
+    nav.style.left="0";
 
-    nav.style.right=
-      "0";
+    nav.style.right="0";
 
-    nav.style.padding=
-      "20px";
+    nav.style.padding="20px";
 
-    nav.style.background=
-      "#fff";
+    nav.style.background="#fff";
 
-    nav.style.flexDirection=
-      "column";
+    nav.style.flexDirection="column";
 
-    nav.style.alignItems=
-      "stretch";
+    nav.style.alignItems="stretch";
 
     nav.style.boxShadow=
       "0 15px 35px rgba(0,0,0,.10)";
@@ -5142,32 +3445,27 @@ function toggleMenu(){
 
 
 document
-  .querySelectorAll(
-    "#nav a"
-  )
-  .forEach(
-    a=>{
+.querySelectorAll("#nav a")
+.forEach(
+  a=>{
 
-      a.addEventListener(
-        "click",
-        ()=>{
+    a.addEventListener(
+      "click",
+      ()=>{
 
-          if(
-            window.innerWidth<=850
-          ){
+        if(window.innerWidth<=850){
 
-            document
-              .getElementById("nav")
-              .style.display=
-                "none";
-
-          }
+          document
+          .getElementById("nav")
+          .style.display="none";
 
         }
-      );
 
-    }
-  );
+      }
+    );
+
+  }
+);
 
 
 /* =========================================================
@@ -5181,15 +3479,12 @@ function openComplaintForm(){
       "complaintModal"
     );
 
-  modal.style.display=
-    "flex";
+  modal.style.display="flex";
 
   requestAnimationFrame(
     ()=>{
 
-      modal.classList.add(
-        "is-open"
-      );
+      modal.classList.add("is-open");
 
     }
   );
@@ -5204,12 +3499,9 @@ function closeComplaintForm(){
       "complaintModal"
     );
 
-  modal.classList.remove(
-    "is-open"
-  );
+  modal.classList.remove("is-open");
 
-  modal.style.display=
-    "none";
+  modal.style.display="none";
 
 }
 
@@ -5221,12 +3513,8 @@ function closeComplaintForm(){
 function openContactPopup(){
 
   document
-    .getElementById(
-      "contactPopup"
-    )
-    .classList.add(
-      "active"
-    );
+    .getElementById("contactPopup")
+    .classList.add("active");
 
 }
 
@@ -5234,12 +3522,8 @@ function openContactPopup(){
 function closeContactPopup(){
 
   document
-    .getElementById(
-      "contactPopup"
-    )
-    .classList.remove(
-      "active"
-    );
+    .getElementById("contactPopup")
+    .classList.remove("active");
 
 }
 
@@ -5255,15 +3539,12 @@ function openStatusModal(){
       "statusModal"
     );
 
-  modal.style.display=
-    "flex";
+  modal.style.display="flex";
 
   requestAnimationFrame(
     ()=>{
 
-      modal.classList.add(
-        "is-open"
-      );
+      modal.classList.add("is-open");
 
     }
   );
@@ -5278,12 +3559,9 @@ function closeStatusModal(){
       "statusModal"
     );
 
-  modal.classList.remove(
-    "is-open"
-  );
+  modal.classList.remove("is-open");
 
-  modal.style.display=
-    "none";
+  modal.style.display="none";
 
 }
 
@@ -5293,14 +3571,10 @@ function closeStatusModal(){
 ========================================================= */
 
 const header=
-  document.getElementById(
-    "siteHeader"
-  );
+  document.getElementById("siteHeader");
 
 const progress=
-  document.getElementById(
-    "skProgress"
-  );
+  document.getElementById("skProgress");
 
 
 function updateScrollUI(){
@@ -5315,8 +3589,7 @@ function updateScrollUI(){
 
 
   const max=
-    document.documentElement
-      .scrollHeight -
+    document.documentElement.scrollHeight -
     window.innerHeight;
 
 
@@ -5353,8 +3626,7 @@ const revealItems=
 
 
 if(
-  "IntersectionObserver"
-  in window
+  "IntersectionObserver" in window
 ){
 
   const observer=
@@ -5370,9 +3642,7 @@ if(
 
               entry.target
                 .classList
-                .add(
-                  "revealed"
-                );
+                .add("revealed");
 
               observer.unobserve(
                 entry.target
@@ -5386,24 +3656,19 @@ if(
       },
       {
         threshold:.12,
-        rootMargin:
-          "0px 0px -45px 0px"
+        rootMargin:"0px 0px -45px 0px"
       }
     );
 
 
   revealItems.forEach(
-    el=>
-      observer.observe(el)
+    el=>observer.observe(el)
   );
 
 }else{
 
   revealItems.forEach(
-    el=>
-      el.classList.add(
-        "revealed"
-      )
+    el=>el.classList.add("revealed")
   );
 
 }
@@ -5417,9 +3682,7 @@ document.addEventListener(
   "keydown",
   e=>{
 
-    if(
-      e.key==="Escape"
-    ){
+    if(e.key==="Escape"){
 
       closeComplaintForm();
 
@@ -5438,91 +3701,80 @@ document.addEventListener(
 ========================================================= */
 
 document
-  .getElementById(
-    "complaintModal"
-  )
-  .addEventListener(
-    "click",
-    e=>{
+.getElementById("complaintModal")
+.addEventListener(
+  "click",
+  e=>{
 
-      if(
-        e.target===
-        e.currentTarget
-      ){
+    if(
+      e.target===
+      e.currentTarget
+    ){
 
-        closeComplaintForm();
-
-      }
+      closeComplaintForm();
 
     }
-  );
+
+  }
+);
 
 
 document
-  .getElementById(
-    "contactPopup"
-  )
-  .addEventListener(
-    "click",
-    e=>{
+.getElementById("contactPopup")
+.addEventListener(
+  "click",
+  e=>{
 
-      if(
-        e.target===
-        e.currentTarget
-      ){
+    if(
+      e.target===
+      e.currentTarget
+    ){
 
-        closeContactPopup();
-
-      }
+      closeContactPopup();
 
     }
-  );
+
+  }
+);
 
 
 document
-  .getElementById(
-    "statusModal"
-  )
-  .addEventListener(
-    "click",
-    e=>{
+.getElementById("statusModal")
+.addEventListener(
+  "click",
+  e=>{
 
-      if(
-        e.target===
-        e.currentTarget
-      ){
+    if(
+      e.target===
+      e.currentTarget
+    ){
 
-        closeStatusModal();
-
-      }
+      closeStatusModal();
 
     }
-  );
+
+  }
+);
 
 </script>
 
 
 <!-- =======================================================
-     FIREBASE + RAZORPAY PAYMENT SYSTEM
+     FIREBASE + PAYMENT
 ======================================================= -->
 
 <script type="module">
 
 import{
-
   initializeApp,
   getApps,
   getApp
-
 }
-
 from
-
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 
 import{
-
   getFirestore,
   collection,
   setDoc,
@@ -5532,11 +3784,8 @@ import{
   getDocs,
   query,
   where
-
 }
-
 from
-
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
@@ -5576,12 +3825,8 @@ const firebaseConfig={
 const app=
 
   getApps().length
-
   ? getApp()
-
-  : initializeApp(
-      firebaseConfig
-    );
+  : initializeApp(firebaseConfig);
 
 
 const db=
@@ -5600,8 +3845,7 @@ const ACTIVE_PAYMENT_KEY=
   "SKKGN_ACTIVE_PAYMENT";
 
 
-let verificationStarted=
-  false;
+let verificationStarted=false;
 
 
 /* =========================================================
@@ -5621,7 +3865,7 @@ function generateComplaintId(){
 
 
 /* =========================================================
-   FORM
+   COMPLAINT FORM
 ========================================================= */
 
 const complaintForm=
@@ -5639,38 +3883,30 @@ complaintForm.addEventListener(
 
     const name=
       document
-        .getElementById(
-          "complaintName"
-        )
-        .value
-        .trim();
+      .getElementById("complaintName")
+      .value
+      .trim();
 
 
     const mobile=
       document
-        .getElementById(
-          "complaintMobile"
-        )
-        .value
-        .trim();
+      .getElementById("complaintMobile")
+      .value
+      .trim();
 
 
     const subject=
       document
-        .getElementById(
-          "complaintSubject"
-        )
-        .value
-        .trim();
+      .getElementById("complaintSubject")
+      .value
+      .trim();
 
 
     const details=
       document
-        .getElementById(
-          "complaintDetails"
-        )
-        .value
-        .trim();
+      .getElementById("complaintDetails")
+      .value
+      .trim();
 
 
     const message=
@@ -5719,9 +3955,7 @@ complaintForm.addEventListener(
    SERVICE PLAN POPUP
 ========================================================= */
 
-function showPlanPopup(
-  complaint
-){
+function showPlanPopup(complaint){
 
   const old=
     document.querySelector(
@@ -5734,9 +3968,7 @@ function showPlanPopup(
 
 
   const popup=
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
 
   popup.className=
@@ -5775,117 +4007,22 @@ function showPlanPopup(
 @keyframes skBoxIn{
 
   from{
-
     opacity:0;
-
-    transform:
-      translateY(35px)
-      scale(.94);
-
+    transform:translateY(35px) scale(.94);
   }
 
   to{
-
     opacity:1;
-
     transform:none;
-
   }
 
 }
-
-
-@keyframes skVipPulse{
-
-  0%,100%{
-
-    transform:scale(1);
-
-    box-shadow:
-      0 0 0 1px
-      rgba(246,211,101,.35),
-
-      0 0 25px
-      rgba(246,211,101,.30),
-
-      0 12px 35px
-      rgba(0,0,0,.35);
-
-  }
-
-  50%{
-
-    transform:scale(1.04);
-
-    box-shadow:
-      0 0 0 1px
-      rgba(246,211,101,.60),
-
-      0 0 40px
-      rgba(246,211,101,.55),
-
-      0 16px 42px
-      rgba(0,0,0,.40);
-
-  }
-
-}
-
-
-@keyframes skVipRing{
-
-  from{
-
-    transform:rotate(0deg);
-
-    opacity:.35;
-
-  }
-
-  50%{
-
-    opacity:.8;
-
-  }
-
-  to{
-
-    transform:rotate(360deg);
-
-    opacity:.35;
-
-  }
-
-}
-
-
-@keyframes skVipShine{
-
-  0%,55%{
-
-    transform:
-      translateX(-130%);
-
-  }
-
-  75%,100%{
-
-    transform:
-      translateX(130%);
-
-  }
-
-}
-
 
 .sk-plan-box{
 
   width:100%;
-
   max-width:470px;
-
   max-height:92vh;
-
   overflow-y:auto;
 
   padding:28px 20px 20px;
@@ -5917,26 +4054,19 @@ function showPlanPopup(
 
 }
 
-
 .sk-plan-logo{
 
   width:78px;
-
   height:78px;
 
-  margin:
-    0 auto 20px;
+  margin:0 auto 20px;
 
   padding:4px;
 
   border-radius:24px;
 
-  position:relative;
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   background:
@@ -5947,96 +4077,18 @@ function showPlanPopup(
       #f6d365
     );
 
-  box-shadow:
-    0 0 0 1px
-      rgba(246,211,101,.35),
-
-    0 0 25px
-      rgba(246,211,101,.30),
-
-    0 12px 35px
-      rgba(0,0,0,.35);
-
-  animation:
-    skVipPulse
-    2.8s
-    ease-in-out
-    infinite;
-
 }
-
-
-.sk-plan-logo::before{
-
-  content:"";
-
-  position:absolute;
-
-  inset:-7px;
-
-  border-radius:28px;
-
-  border:
-    1px solid
-    rgba(246,211,101,.35);
-
-  animation:
-    skVipRing
-    3s
-    linear
-    infinite;
-
-}
-
-
-.sk-plan-logo::after{
-
-  content:"";
-
-  position:absolute;
-
-  inset:0;
-
-  border-radius:24px;
-
-  background:
-    linear-gradient(
-      120deg,
-      transparent 25%,
-      rgba(255,255,255,.55) 50%,
-      transparent 75%
-    );
-
-  transform:
-    translateX(-130%);
-
-  animation:
-    skVipShine
-    3.2s
-    ease-in-out
-    infinite;
-
-}
-
 
 .sk-plan-logo img{
 
   width:100%;
-
   height:100%;
 
   object-fit:cover;
 
   border-radius:20px;
 
-  position:relative;
-
-  z-index:2;
-
-  background:#07152f;
-
 }
-
 
 .sk-plan-title{
 
@@ -6052,11 +4104,9 @@ function showPlanPopup(
 
 }
 
-
 .sk-plan-desc{
 
-  margin:
-    12px 0 22px;
+  margin:12px 0 22px;
 
   color:#b9c4d8;
 
@@ -6065,7 +4115,6 @@ function showPlanPopup(
   line-height:1.65;
 
 }
-
 
 .sk-plan-card{
 
@@ -6094,21 +4143,14 @@ function showPlanPopup(
 
 }
 
-
 .sk-plan-card:hover{
 
-  transform:
-    translateY(-3px);
+  transform:translateY(-3px);
 
   border-color:
     rgba(246,211,101,.55);
 
-  box-shadow:
-    0 12px 28px
-    rgba(0,0,0,.22);
-
 }
-
 
 .sk-plan-card.premium{
 
@@ -6124,12 +4166,7 @@ function showPlanPopup(
       #7028a8
     );
 
-  box-shadow:
-    0 0 30px
-    rgba(246,211,101,.14);
-
 }
-
 
 .sk-plan-head{
 
@@ -6143,7 +4180,6 @@ function showPlanPopup(
 
 }
 
-
 .sk-plan-name{
 
   font-size:18px;
@@ -6151,7 +4187,6 @@ function showPlanPopup(
   font-weight:900;
 
 }
-
 
 .sk-plan-price{
 
@@ -6162,7 +4197,6 @@ function showPlanPopup(
   font-weight:900;
 
 }
-
 
 .sk-plan-text{
 
@@ -6175,7 +4209,6 @@ function showPlanPopup(
   line-height:1.55;
 
 }
-
 
 .sk-premium-badge{
 
@@ -6200,10 +4233,7 @@ function showPlanPopup(
 
   font-weight:900;
 
-  letter-spacing:.6px;
-
 }
-
 
 .sk-plan-cancel{
 
@@ -6228,32 +4258,6 @@ function showPlanPopup(
 
 }
 
-
-@media(max-width:500px){
-
-  .sk-plan-box{
-
-    padding:
-      24px 15px 18px;
-
-  }
-
-  .sk-plan-logo{
-
-    width:70px;
-
-    height:70px;
-
-  }
-
-  .sk-plan-title{
-
-    font-size:24px;
-
-  }
-
-}
-
 </style>
 
 
@@ -6271,18 +4275,18 @@ alt="SK KGN TEAM">
 
 <h2 class="sk-plan-title">
 
-SERVICE PLAN
+PRIVATE ASSISTANCE PLANS
 
 </h2>
 
 
 <p class="sk-plan-desc">
 
-Select your preferred service plan and complete the payment.
-Once your payment is successfully completed, a unique
-Complaint ID will be generated for your complaint.
-You can use this Complaint ID to check your complaint status,
-track progress and view future updates.
+Select the service plan that suits your requirement
+and complete the payment. After successful payment
+verification, a unique Complaint ID will be generated
+for your complaint. You can use the Complaint ID to
+check available status updates.
 
 </p>
 
@@ -6297,16 +4301,11 @@ data-amount="99">
 <div class="sk-plan-head">
 
 <span class="sk-plan-name">
-
 Basic Plan
-
 </span>
 
-
 <span class="sk-plan-price">
-
 ₹99
-
 </span>
 
 </div>
@@ -6334,16 +4333,11 @@ data-amount="199">
 <div class="sk-plan-head">
 
 <span class="sk-plan-name">
-
 Advance Plan
-
 </span>
 
-
 <span class="sk-plan-price">
-
 ₹199
-
 </span>
 
 </div>
@@ -6369,16 +4363,11 @@ data-amount="299">
 <div class="sk-plan-head">
 
 <span class="sk-plan-name">
-
 Premium Plan
-
 </span>
 
-
 <span class="sk-plan-price">
-
 ₹299
-
 </span>
 
 </div>
@@ -6397,7 +4386,6 @@ Follow-up + 1 Re-Complaint
 PREMIUM SERVICE
 
 </span>
-
 
 </button>
 
@@ -6433,37 +4421,29 @@ Cancel
 `;
 
 
-  document.body.appendChild(
-    popup
-  );
+  document.body.appendChild(popup);
 
 
   popup
-    .querySelector(
-      ".sk-plan-cancel"
-    )
-    .onclick=()=>{
+  .querySelector(".sk-plan-cancel")
+  .onclick=()=>{
 
-      popup.remove();
+    popup.remove();
 
-      window.pendingComplaint=
-        null;
+    window.pendingComplaint=null;
 
-    };
+  };
 
 
   popup.addEventListener(
     "click",
     e=>{
 
-      if(
-        e.target===popup
-      ){
+      if(e.target===popup){
 
         popup.remove();
 
-        window.pendingComplaint=
-          null;
+        window.pendingComplaint=null;
 
       }
 
@@ -6472,35 +4452,31 @@ Cancel
 
 
   popup
-    .querySelectorAll(
-      "[data-plan]"
-    )
-    .forEach(
-      button=>{
+  .querySelectorAll("[data-plan]")
+  .forEach(
+    button=>{
 
-        button.addEventListener(
-          "click",
-          ()=>{
+      button.addEventListener(
+        "click",
+        ()=>{
 
-            createPayment(
+          createPayment(
 
-              complaint,
+            complaint,
 
-              button.dataset.plan,
+            button.dataset.plan,
 
-              Number(
-                button.dataset.amount
-              ),
+            Number(button.dataset.amount),
 
-              popup
+            popup
 
-            );
+          );
 
-          }
-        );
+        }
+      );
 
-      }
-    );
+    }
+  );
 
 }
 
@@ -6528,26 +4504,20 @@ async function createPayment(
 
 
   planPopup
-    .querySelectorAll(
-      "[data-plan]"
-    )
+    .querySelectorAll("[data-plan]")
     .forEach(
       button=>{
 
-        button.disabled=
-          true;
+        button.disabled=true;
 
-        button.style.opacity=
-          ".55";
+        button.style.opacity=".55";
 
       }
     );
 
 
   const loading=
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
 
   loading.style.cssText=`
@@ -6590,7 +4560,6 @@ border-radius:50%;
 animation:skPaymentSpin 1s linear infinite;
 "></div>
 
-
 <style>
 
 @keyframes skPaymentSpin{
@@ -6604,9 +4573,7 @@ transform:rotate(360deg)
 </style>
 
 
-<h3 style="
-margin-bottom:8px
-">
+<h3 style="margin-bottom:8px">
 
 Preparing Secure Payment
 
@@ -6619,20 +4586,17 @@ font-size:13px;
 line-height:1.5;
 ">
 
-Please wait while Razorpay payment
-is being securely prepared.
+Please wait while the secure payment
+is being prepared.
 
 </p>
-
 
 </div>
 
 `;
 
 
-  document.body.appendChild(
-    loading
-  );
+  document.body.appendChild(loading);
 
 
   try{
@@ -6656,17 +4620,13 @@ is being securely prepared.
 
             plan,
 
-            name:
-              complaint.name,
+            name:complaint.name,
 
-            mobile:
-              complaint.mobile,
+            mobile:complaint.mobile,
 
-            subject:
-              complaint.subject,
+            subject:complaint.subject,
 
-            details:
-              complaint.details
+            details:complaint.details
 
           })
 
@@ -6680,18 +4640,14 @@ is being securely prepared.
 
 
     if(
-
       !response.ok||
       !data.ok||
       !data.shortUrl
-
     ){
 
       throw new Error(
-
         data.error||
         "Unable to create payment link."
-
       );
 
     }
@@ -6703,8 +4659,7 @@ is being securely prepared.
 
       JSON.stringify({
 
-        shortUrl:
-          data.shortUrl,
+        shortUrl:data.shortUrl,
 
         plan,
 
@@ -6737,27 +4692,21 @@ is being securely prepared.
 
 
     planPopup
-      .querySelectorAll(
-        "[data-plan]"
-      )
+      .querySelectorAll("[data-plan]")
       .forEach(
         button=>{
 
-          button.disabled=
-            false;
+          button.disabled=false;
 
-          button.style.opacity=
-            "1";
+          button.style.opacity="1";
 
         }
       );
 
 
     alert(
-
       error.message||
       "Unable to start payment. Please try again."
-
     );
 
   }
@@ -6787,9 +4736,7 @@ function showPaymentPendingPopup(){
   try{
 
     active=
-      JSON.parse(
-        activeRaw
-      );
+      JSON.parse(activeRaw);
 
   }catch{
 
@@ -6817,9 +4764,7 @@ function showPaymentPendingPopup(){
 
 
   const popup=
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
 
   popup.className=
@@ -6865,8 +4810,7 @@ box-shadow:
 rgba(0,0,0,.45);
 
 animation:
-modalIn .4s
-var(--ease);
+modalIn .4s;
 
 ">
 
@@ -6973,9 +4917,7 @@ Cancel
 `;
 
 
-  document.body.appendChild(
-    popup
-  );
+  document.body.appendChild(popup);
 
 
   document.getElementById(
@@ -7009,14 +4951,11 @@ Cancel
 
 async function handleVerifiedPayment(){
 
-  if(
-    verificationStarted
-  )
+  if(verificationStarted)
     return;
 
 
-  verificationStarted=
-    true;
+  verificationStarted=true;
 
 
   const params=
@@ -7026,20 +4965,14 @@ async function handleVerifiedPayment(){
 
 
   const payment=
-    params.get(
-      "payment"
-    );
+    params.get("payment");
 
 
   const token=
-    params.get(
-      "token"
-    );
+    params.get("token");
 
 
-  if(
-    payment==="failed"
-  ){
+  if(payment==="failed"){
 
     showPaymentPendingPopup();
 
@@ -7067,9 +5000,7 @@ async function handleVerifiedPayment(){
 
 
   const loading=
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
 
   loading.style.cssText=`
@@ -7128,9 +5059,7 @@ transform:rotate(360deg)
 </style>
 
 
-<h2 style="
-margin-bottom:9px;
-">
+<h2 style="margin-bottom:9px">
 
 Verifying Payment
 
@@ -7143,20 +5072,17 @@ font-size:14px;
 line-height:1.5;
 ">
 
-Please wait while your Razorpay
-payment is securely verified.
+Please wait while your payment
+is securely verified.
 
 </p>
-
 
 </div>
 
 `;
 
 
-  document.body.appendChild(
-    loading
-  );
+  document.body.appendChild(loading);
 
 
   try{
@@ -7166,9 +5092,7 @@ payment is securely verified.
 
         BACKEND_URL+
         "/api/verify-payment?token="+
-        encodeURIComponent(
-          token
-        )
+        encodeURIComponent(token)
 
       );
 
@@ -7178,18 +5102,14 @@ payment is securely verified.
 
 
     if(
-
       !response.ok||
       !data.ok||
       data.paymentStatus!=="Completed"
-
     ){
 
       throw new Error(
-
         data.error||
         "Payment could not be verified."
-
       );
 
     }
@@ -7200,13 +5120,11 @@ payment is securely verified.
 
 
     if(
-
       !complaint||
       !complaint.name||
       !complaint.mobile||
       !complaint.subject||
       !complaint.details
-
     ){
 
       throw new Error(
@@ -7216,21 +5134,13 @@ payment is securely verified.
     }
 
 
-    if(
-      !data.razorpayPaymentId
-    ){
+    if(!data.razorpayPaymentId){
 
       throw new Error(
         "Verified payment ID is missing."
       );
 
     }
-
-
-    /*
-      PAYMENT VERIFIED.
-      ONLY NOW GENERATE COMPLAINT ID.
-    */
 
 
     const paymentDoc=
@@ -7242,21 +5152,16 @@ payment is securely verified.
 
 
     const existing=
-      await getDoc(
-        paymentDoc
-      );
+      await getDoc(paymentDoc);
 
 
     let complaintId;
 
 
-    if(
-      existing.exists()
-    ){
+    if(existing.exists()){
 
       complaintId=
-        existing.data()
-          .complaintId;
+        existing.data().complaintId;
 
     }else{
 
@@ -7317,8 +5222,7 @@ payment is securely verified.
     );
 
 
-    window.pendingComplaint=
-      null;
+    window.pendingComplaint=null;
 
 
     complaintForm.reset();
@@ -7376,9 +5280,7 @@ function showSuccessPopup(
 ){
 
   const popup=
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
 
   popup.style.cssText=`
@@ -7420,8 +5322,7 @@ box-shadow:
 rgba(0,0,0,.45);
 
 animation:
-modalIn .45s
-cubic-bezier(.22,1,.36,1);
+modalIn .45s;
 
 ">
 
@@ -7476,22 +5377,17 @@ line-height:1.6;
 ">
 
 Your payment has been verified and
-your complaint has been successfully
-registered.
+your complaint has been registered
+in the SK KGN TEAM system.
 
 </p>
 
 
 <div style="
-
 margin:20px 0;
-
 padding:18px;
-
 border-radius:16px;
-
 background:#f3f4f6;
-
 ">
 
 
@@ -7515,9 +5411,7 @@ color:#164a9c;
 word-break:break-all;
 ">
 
-${escapeHTML(
-  complaintId
-)}
+${escapeHTML(complaintId)}
 
 </div>
 
@@ -7536,10 +5430,7 @@ word-break:break-all;
 ">
 
 Payment ID:
-${escapeHTML(
-  paymentId||
-  "Verified"
-)}
+${escapeHTML(paymentId||"Verified")}
 
 </div>
 
@@ -7588,9 +5479,7 @@ Done
 `;
 
 
-  document.body.appendChild(
-    popup
-  );
+  document.body.appendChild(popup);
 
 
   document.getElementById(
@@ -7604,8 +5493,7 @@ Done
           complaintId
         );
 
-        this.textContent=
-          "COPIED ✓";
+        this.textContent="COPIED ✓";
 
       }catch{
 
@@ -7632,14 +5520,10 @@ Done
    VERIFICATION ERROR
 ========================================================= */
 
-function showVerificationError(
-  message
-){
+function showVerificationError(message){
 
   const popup=
-    document.createElement(
-      "div"
-    );
+    document.createElement("div");
 
 
   popup.style.cssText=`
@@ -7677,8 +5561,7 @@ padding:30px 22px;
 text-align:center;
 
 animation:
-modalIn .4s
-cubic-bezier(.22,1,.36,1);
+modalIn .4s;
 
 ">
 
@@ -7735,9 +5618,7 @@ Close
 `;
 
 
-  document.body.appendChild(
-    popup
-  );
+  document.body.appendChild(popup);
 
 
   document.getElementById(
@@ -7811,12 +5692,9 @@ Please enter your Complaint ID.
   }
 
 
-  button.disabled=
-    true;
+  button.disabled=true;
 
-
-  button.textContent=
-    "Checking...";
+  button.textContent="Checking...";
 
 
   result.innerHTML=`
@@ -7862,16 +5740,14 @@ Checking your complaint...
           resolve=>
             setTimeout(
               resolve,
-              1500
+              800
             )
         )
 
       ]);
 
 
-    if(
-      snapshot.empty
-    ){
+    if(snapshot.empty){
 
       result.innerHTML=`
 
@@ -7902,8 +5778,8 @@ and try again.
 
     const data=
       snapshot
-        .docs[0]
-        .data();
+      .docs[0]
+      .data();
 
 
     const status=
@@ -7911,12 +5787,9 @@ and try again.
       "Submitted";
 
 
-    let color=
-      "#2563eb";
+    let color="#2563eb";
 
-
-    let background=
-      "#eff6ff";
+    let background="#eff6ff";
 
 
     const normalized=
@@ -7924,46 +5797,34 @@ and try again.
 
 
     if(
-      normalized.includes(
-        "resolve"
-      )
+      normalized.includes("resolve")
     ){
 
-      color=
-        "#15803d";
+      color="#15803d";
 
-      background=
-        "#f0fdf4";
+      background="#f0fdf4";
 
     }
 
 
     if(
-      normalized.includes(
-        "cancel"
-      )
+      normalized.includes("cancel")
     ){
 
-      color=
-        "#b91c1c";
+      color="#b91c1c";
 
-      background=
-        "#fef2f2";
+      background="#fef2f2";
 
     }
 
 
     if(
-      normalized.includes(
-        "review"
-      )
+      normalized.includes("review")
     ){
 
-      color=
-        "#b45309";
+      color="#b45309";
 
-      background=
-        "#fffbeb";
+      background="#fffbeb";
 
     }
 
@@ -8026,9 +5887,7 @@ font-weight:900;
 ">
 
 ●
-${escapeHTML(
-  status
-)}
+${escapeHTML(status)}
 
 </div>
 
@@ -8057,9 +5916,7 @@ NAME
 
 <br>
 
-${escapeHTML(
-  data.name||"-"
-)}
+${escapeHTML(data.name||"-")}
 
 </div>
 
@@ -8079,9 +5936,7 @@ SUBJECT
 
 <br>
 
-${escapeHTML(
-  data.subject||"-"
-)}
+${escapeHTML(data.subject||"-")}
 
 </div>
 
@@ -8099,18 +5954,14 @@ COMPLAINT DETAILS
 
 <br>
 
-${escapeHTML(
-  data.details||"-"
-)}
+${escapeHTML(data.details||"-")}
 
 </div>
 
 
 ${
   remark
-
   ?
-
 `
 
 <div style="
@@ -8134,20 +5985,15 @@ margin-top:6px;
 color:#334155;
 ">
 
-${escapeHTML(
-  remark
-)}
+${escapeHTML(remark)}
 
 </p>
 
 </div>
 
 `
-
   :
-
   ""
-
 }
 
 
@@ -8160,9 +6006,7 @@ ${escapeHTML(
 
   }catch(error){
 
-    console.error(
-      error
-    );
+    console.error(error);
 
 
     result.innerHTML=`
@@ -8183,8 +6027,7 @@ Please try again.
 
   }finally{
 
-    button.disabled=
-      false;
+    button.disabled=false;
 
     button.textContent=
       "Check Status →";
@@ -8198,36 +6041,19 @@ Please try again.
    ESCAPE HTML
 ========================================================= */
 
-function escapeHTML(
-  value
-){
+function escapeHTML(value){
 
   return String(value)
 
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
+    .replaceAll("&","&amp;")
 
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
+    .replaceAll("<","&lt;")
 
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
+    .replaceAll(">","&gt;")
 
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
+    .replaceAll('"',"&quot;")
 
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+    .replaceAll("'","&#039;");
 
 }
 
@@ -8246,10 +6072,10 @@ function(){
     ()=>{
 
       document
-        .getElementById(
-          "statusComplaintId"
-        )
-        .focus();
+      .getElementById(
+        "statusComplaintId"
+      )
+      .focus();
 
     },
     200
@@ -8280,9 +6106,7 @@ window.addEventListener(
 
 
     if(
-      params.get(
-        "payment"
-      )==="verified"
+      params.get("payment")==="verified"
     ){
 
       return;
@@ -8297,12 +6121,10 @@ window.addEventListener(
 
 
     if(
-
       active&&
       !document.querySelector(
         ".sk-payment-pending"
       )
-
     ){
 
       showPaymentPendingPopup();
@@ -8318,23 +6140,19 @@ window.addEventListener(
 ========================================================= */
 
 document
-  .getElementById(
-    "statusComplaintId"
-  )
-  .addEventListener(
-    "keydown",
-    function(e){
+.getElementById("statusComplaintId")
+.addEventListener(
+  "keydown",
+  function(e){
 
-      if(
-        e.key==="Enter"
-      ){
+    if(e.key==="Enter"){
 
-        searchComplaintStatus();
-
-      }
+      searchComplaintStatus();
 
     }
-  );
+
+  }
+);
 
 </script>
 
