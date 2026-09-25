@@ -1,1070 +1,1293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>SK KGN TEAM | Maintenance Mode</title>
+<meta charset="UTF-8">
 
-  <meta name="description" content="SK KGN TEAM is temporarily unavailable while we perform scheduled maintenance and improvements.">
-  <meta name="robots" content="noindex,nofollow">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root{
-      --bg:#050811;
-      --bg2:#091020;
-      --card:rgba(14,22,40,.72);
-      --border:rgba(255,255,255,.10);
-      --blue:#3f7cff;
-      --blue2:#65a0ff;
-      --text:#f7f9ff;
-      --muted:#9ca9c2;
-      --green:#37d39b;
-    }
+<title>SK KGN TEAM | Official Launch</title>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+<meta name="description"
+content="SK KGN TEAM official website launching on 2 October 2026.">
 
-    html,body{
-      width:100%;
-      min-height:100%;
-    }
+<meta name="theme-color"
+content="#040914">
 
-    body{
-      font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
+<style>
 
-      background:
-        radial-gradient(circle at 50% 20%,rgba(63,124,255,.16),transparent 32%),
-        radial-gradient(circle at 15% 85%,rgba(37,91,190,.12),transparent 28%),
-        var(--bg);
+/* =========================
+   RESET
+========================= */
 
-      color:var(--text);
-      overflow-x:hidden;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-    /* BACKGROUND */
+html{
+    width:100%;
+    min-height:100%;
+}
 
-    .background{
-      position:fixed;
-      inset:0;
-      overflow:hidden;
-      pointer-events:none;
-      z-index:0;
-    }
+body{
+    width:100%;
+    min-height:100vh;
 
-    .orb{
-      position:absolute;
-      border-radius:50%;
-      filter:blur(70px);
-      opacity:.32;
-      animation:floatOrb 12s ease-in-out infinite alternate;
-    }
+    font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
 
-    .orb.one{
-      width:280px;
-      height:280px;
-      background:#175cff;
-      top:-100px;
-      left:-80px;
-    }
+    color:#fff;
 
-    .orb.two{
-      width:240px;
-      height:240px;
-      background:#146bff;
-      right:-80px;
-      bottom:-80px;
-      animation-delay:2s;
-    }
+    background:
+    radial-gradient(
+        circle at 50% -15%,
+        rgba(37,112,255,.22),
+        transparent 36%
+    ),
+    radial-gradient(
+        circle at 100% 100%,
+        rgba(0,180,255,.08),
+        transparent 32%
+    ),
+    #040914;
 
-    .orb.three{
-      width:160px;
-      height:160px;
-      background:#7a4dff;
-      left:45%;
-      top:45%;
-      opacity:.12;
-      animation-delay:4s;
-    }
+    overflow-x:hidden;
+}
 
-    @keyframes floatOrb{
-      from{
-        transform:translate(0,0) scale(1);
-      }
-      to{
-        transform:translate(40px,25px) scale(1.12);
-      }
-    }
 
-    .grid{
-      position:absolute;
-      inset:0;
+/* =========================
+   BACKGROUND
+========================= */
 
-      background-image:
-        linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+.bg-glow{
+    position:fixed;
 
-      background-size:55px 55px;
+    width:500px;
+    height:500px;
 
-      mask-image:linear-gradient(
+    left:50%;
+    top:10%;
+
+    transform:translateX(-50%);
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(31,116,255,.10),
+        transparent 68%
+    );
+
+    filter:blur(30px);
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+.bg-grid{
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.13;
+
+    background-image:
+    linear-gradient(
+        rgba(255,255,255,.028) 1px,
+        transparent 1px
+    ),
+    linear-gradient(
+        90deg,
+        rgba(255,255,255,.028) 1px,
+        transparent 1px
+    );
+
+    background-size:55px 55px;
+
+    mask-image:
+    linear-gradient(
         to bottom,
         black,
-        transparent 90%
-      );
+        transparent 82%
+    );
+
+    z-index:0;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+    position:relative;
+
+    z-index:2;
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    width:100%;
+
+    padding:
+    18px 0 0;
+}
+
+.header-inner{
+    width:
+    min(1120px,92%);
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.brand{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+
+/*
+   logo.html is loaded here.
+   Keep logo.html in the same folder
+   as index.html.
+*/
+
+.logo-box{
+
+    width:48px;
+    height:48px;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    background:transparent;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.logo-box iframe{
+
+    width:100%;
+    height:100%;
+
+    border:0;
+
+    display:block;
+
+    background:transparent;
+
+    overflow:hidden;
+}
+
+.brand-name{
+
+    font-size:17px;
+
+    font-weight:750;
+
+    letter-spacing:.3px;
+
+    color:#f5f8ff;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:
+    8px 12px;
+
+    border:
+    1px solid
+    rgba(255,255,255,.10);
+
+    border-radius:100px;
+
+    background:
+    rgba(255,255,255,.035);
+
+    color:#91a4c1;
+
+    font-size:10px;
+
+    backdrop-filter:blur(20px);
+
+    white-space:nowrap;
+}
+
+.status-dot{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#55dfad;
+
+    box-shadow:
+    0 0 12px
+    rgba(85,223,173,.85);
+
+    animation:
+    pulse 2s infinite;
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        opacity:1;
     }
 
-    /* PARTICLES */
-
-    .particle{
-      position:absolute;
-      width:3px;
-      height:3px;
-      background:#79a8ff;
-      border-radius:50%;
-      opacity:.5;
-      animation:particleMove linear infinite;
+    50%{
+        opacity:.35;
     }
+}
 
-    .p1{left:8%;top:22%;animation-duration:9s}
-    .p2{left:17%;top:70%;animation-duration:12s}
-    .p3{left:28%;top:30%;animation-duration:10s}
-    .p4{left:72%;top:25%;animation-duration:11s}
-    .p5{left:83%;top:68%;animation-duration:8s}
-    .p6{left:92%;top:35%;animation-duration:13s}
-    .p7{left:58%;top:82%;animation-duration:10s}
 
-    @keyframes particleMove{
-      0%{
-        transform:translateY(0);
-        opacity:.1;
-      }
-      50%{
-        opacity:.7;
-      }
-      100%{
-        transform:translateY(-100px);
+/* =========================
+   HERO
+========================= */
+
+.hero{
+
+    flex:1;
+
+    width:100%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:
+    48px 0 45px;
+}
+
+.hero-inner{
+
+    width:
+    min(900px,92%);
+
+    margin:auto;
+
+    text-align:center;
+
+    animation:
+    fadeIn .8s ease both;
+}
+
+@keyframes fadeIn{
+
+    from{
         opacity:0;
-      }
+        transform:translateY(15px);
     }
 
-    /* MAIN */
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-    .page{
-      position:relative;
-      z-index:2;
 
-      min-height:100vh;
+/* =========================
+   LAUNCH BADGE
+========================= */
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+.launch-badge{
 
-      padding:35px 18px;
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:
+    8px 14px;
+
+    border:
+    1px solid
+    rgba(91,155,255,.18);
+
+    border-radius:100px;
+
+    background:
+    rgba(43,101,188,.07);
+
+    color:#94add0;
+
+    font-size:10px;
+
+    margin-bottom:23px;
+
+    backdrop-filter:blur(15px);
+}
+
+.badge-dot{
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#67b4ff;
+
+    box-shadow:
+    0 0 10px
+    #67b4ff;
+}
+
+
+/* =========================
+   MAIN TITLE
+========================= */
+
+h1{
+
+    font-size:
+    clamp(
+        46px,
+        8vw,
+        88px
+    );
+
+    line-height:.94;
+
+    letter-spacing:-4px;
+
+    font-weight:850;
+
+    color:#fff;
+
+    margin-bottom:20px;
+}
+
+.title-blue{
+
+    background:
+    linear-gradient(
+        100deg,
+        #c2e1ff,
+        #5caaff
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description{
+
+    width:
+    min(600px,100%);
+
+    margin:auto;
+
+    color:#8195b3;
+
+    font-size:14px;
+
+    line-height:1.7;
+}
+
+.description strong{
+
+    color:#b8cce5;
+
+    font-weight:650;
+}
+
+
+/* =========================
+   COUNTDOWN CARD
+========================= */
+
+.launch-card{
+
+    width:
+    min(670px,100%);
+
+    margin:
+    31px auto 0;
+
+    padding:
+    22px 22px 18px;
+
+    border:
+    1px solid
+    rgba(255,255,255,.10);
+
+    border-radius:22px;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.060),
+        rgba(255,255,255,.018)
+    );
+
+    box-shadow:
+
+    0 25px 70px
+    rgba(0,0,0,.28),
+
+    inset 0 1px
+    rgba(255,255,255,.045);
+
+    backdrop-filter:
+    blur(24px);
+
+    animation:
+    cardIn 1s .1s ease both;
+}
+
+@keyframes cardIn{
+
+    from{
+        opacity:0;
+        transform:translateY(12px) scale(.99);
     }
 
-    .container{
-      width:min(760px,100%);
-      text-align:center;
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+
+/* DATE */
+
+.date-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:9px;
+
+    margin-bottom:17px;
+}
+
+.date-label{
+
+    color:#657b9b;
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2.7px;
+}
+
+.date-value{
+
+    color:#edf4ff;
+
+    font-size:15px;
+
+    font-weight:750;
+}
+
+.date-value span{
+
+    color:#67b5ff;
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+.countdown{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    width:100%;
+
+    border:
+    1px solid
+    rgba(255,255,255,.065);
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    background:
+    rgba(0,0,0,.13);
+}
+
+.time-box{
+
+    position:relative;
+
+    padding:
+    16px 5px;
+}
+
+.time-box:not(:last-child)::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+
+    top:25%;
+
+    width:1px;
+
+    height:50%;
+
+    background:
+    rgba(255,255,255,.07);
+}
+
+.number{
+
+    font-size:
+    clamp(28px,5vw,42px);
+
+    line-height:1;
+
+    font-weight:800;
+
+    color:#f8fbff;
+}
+
+.unit{
+
+    margin-top:8px;
+
+    color:#5e7595;
+
+    font-size:8px;
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================
+   NOTE
+========================= */
+
+.note{
+
+    margin-top:14px;
+
+    color:#607694;
+
+    font-size:9px;
+
+    line-height:1.5;
+}
+
+.note strong{
+
+    color:#8ba5c8;
+
+    font-weight:650;
+}
+
+
+/* =========================
+   BOTTOM LINE
+========================= */
+
+.launch-line{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:14px;
+
+    margin-top:20px;
+
+    color:#526a89;
+
+    font-size:9px;
+}
+
+.launch-line span{
+
+    display:block;
+
+    width:34px;
+
+    height:1px;
+
+    background:
+    rgba(255,255,255,.08);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    width:100%;
+
+    text-align:center;
+
+    padding:
+    18px 0
+    30px;
+
+    color:#3f5571;
+
+    font-size:9px;
+}
+
+footer strong{
+
+    color:#7089aa;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:650px){
+
+    header{
+
+        padding-top:16px;
     }
 
-    /* BRAND */
+    .header-inner{
+
+        width:90%;
+    }
+
+    .logo-box{
+
+        width:42px;
+        height:42px;
+
+        border-radius:12px;
+    }
 
     .brand{
-      display:inline-flex;
-      align-items:center;
-      gap:12px;
 
-      margin-bottom:38px;
-
-      animation:fadeDown .8s ease both;
-    }
-
-    .logo{
-      width:52px;
-      height:52px;
-
-      border-radius:17px;
-
-      display:grid;
-      place-items:center;
-
-      font-weight:900;
-      font-size:15px;
-
-      color:white;
-
-      background:
-        linear-gradient(135deg,#316cff,#75a8ff);
-
-      box-shadow:
-        0 0 0 1px rgba(255,255,255,.10),
-        0 15px 45px rgba(42,104,255,.35);
-
-      position:relative;
-      overflow:hidden;
-    }
-
-    .logo::after{
-      content:"";
-      position:absolute;
-      width:80px;
-      height:20px;
-      background:rgba(255,255,255,.35);
-      transform:rotate(-45deg);
-      left:-70px;
-      top:15px;
-      animation:shine 3.5s infinite;
-    }
-
-    @keyframes shine{
-      0%{left:-90px}
-      35%,100%{left:100px}
+        gap:10px;
     }
 
     .brand-name{
-      text-align:left;
-    }
 
-    .brand-name strong{
-      display:block;
-      font-size:18px;
-      letter-spacing:.2px;
-    }
-
-    .brand-name span{
-      display:block;
-      color:#8190aa;
-      font-size:11px;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      margin-top:2px;
-    }
-
-    /* CARD */
-
-    .card{
-      position:relative;
-
-      padding:55px 45px 42px;
-
-      background:
-        linear-gradient(
-          145deg,
-          rgba(17,28,51,.86),
-          rgba(7,13,26,.78)
-        );
-
-      border:1px solid var(--border);
-
-      border-radius:34px;
-
-      box-shadow:
-        0 35px 100px rgba(0,0,0,.45),
-        inset 0 1px 0 rgba(255,255,255,.06);
-
-      backdrop-filter:blur(22px);
-
-      animation:
-        cardIn 1s cubic-bezier(.2,.8,.2,1) both;
-    }
-
-    .card::before{
-      content:"";
-
-      position:absolute;
-      inset:-1px;
-
-      border-radius:35px;
-
-      background:
-        linear-gradient(
-          120deg,
-          rgba(69,125,255,.35),
-          transparent 35%,
-          transparent 65%,
-          rgba(69,125,255,.16)
-        );
-
-      pointer-events:none;
-
-      mask:
-        linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
-
-      mask-composite:exclude;
-
-      padding:1px;
-    }
-
-    @keyframes cardIn{
-      from{
-        opacity:0;
-        transform:translateY(35px) scale(.97);
-      }
-      to{
-        opacity:1;
-        transform:none;
-      }
+        font-size:14px;
     }
 
     .status{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
 
-      padding:8px 13px;
+        padding:
+        7px 9px;
 
-      border-radius:999px;
-
-      background:rgba(55,211,155,.08);
-      border:1px solid rgba(55,211,155,.20);
-
-      color:#71e5ba;
-
-      font-size:11px;
-      font-weight:800;
-      letter-spacing:1px;
-      text-transform:uppercase;
-
-      margin-bottom:25px;
+        font-size:8px;
     }
 
-    .status-dot{
-      width:7px;
-      height:7px;
-      background:var(--green);
-      border-radius:50%;
-      box-shadow:0 0 14px rgba(55,211,155,.8);
-      animation:pulse 1.8s infinite;
+    .hero{
+
+        padding:
+        37px 0 30px;
     }
 
-    @keyframes pulse{
-      0%,100%{
-        transform:scale(1);
-        opacity:1;
-      }
-      50%{
-        transform:scale(1.55);
-        opacity:.55;
-      }
+    .hero-inner{
+
+        width:90%;
     }
 
-    /* ICON */
+    .launch-badge{
 
-    .maintenance-icon{
-      width:104px;
-      height:104px;
+        padding:
+        7px 12px;
 
-      margin:0 auto 27px;
+        font-size:9px;
 
-      border-radius:31px;
-
-      display:grid;
-      place-items:center;
-
-      background:
-        radial-gradient(
-          circle at 35% 30%,
-          #588fff,
-          #1d4fc7 65%,
-          #122b69
-        );
-
-      border:1px solid rgba(255,255,255,.15);
-
-      box-shadow:
-        0 20px 55px rgba(38,95,230,.34),
-        inset 0 1px 1px rgba(255,255,255,.25);
-
-      animation:iconFloat 4s ease-in-out infinite;
+        margin-bottom:20px;
     }
-
-    .maintenance-icon svg{
-      width:48px;
-      height:48px;
-
-      fill:none;
-      stroke:white;
-      stroke-width:1.8;
-      stroke-linecap:round;
-      stroke-linejoin:round;
-    }
-
-    @keyframes iconFloat{
-      0%,100%{
-        transform:translateY(0) rotate(0deg);
-      }
-      50%{
-        transform:translateY(-7px) rotate(2deg);
-      }
-    }
-
-    /* TEXT */
 
     h1{
-      font-size:clamp(36px,7vw,60px);
 
-      line-height:1.05;
-
-      letter-spacing:-2.8px;
-
-      margin-bottom:19px;
-    }
-
-    h1 span{
-      background:
-        linear-gradient(
-          90deg,
-          #fff,
-          #73a5ff,
-          #fff
+        font-size:
+        clamp(
+            45px,
+            13vw,
+            65px
         );
 
-      background-size:200% auto;
+        letter-spacing:-3px;
 
-      -webkit-background-clip:text;
-      background-clip:text;
+        line-height:.95;
 
-      color:transparent;
-
-      animation:textShine 4s linear infinite;
-    }
-
-    @keyframes textShine{
-      to{
-        background-position:200% center;
-      }
+        margin-bottom:18px;
     }
 
     .description{
-      max-width:590px;
 
-      margin:0 auto;
+        font-size:12.5px;
 
-      color:var(--muted);
-
-      font-size:15px;
-
-      line-height:1.8;
+        line-height:1.65;
     }
 
-    /* PROGRESS */
+    .launch-card{
 
-    .progress-area{
-      margin:34px auto 0;
+        margin-top:26px;
 
-      max-width:520px;
+        padding:
+        18px 16px 15px;
 
-      text-align:left;
+        border-radius:20px;
     }
 
-    .progress-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
+    .date-row{
 
-      margin-bottom:10px;
+        margin-bottom:14px;
 
-      color:#aab6cb;
-
-      font-size:12px;
-      font-weight:700;
+        gap:6px;
     }
 
-    .progress-head strong{
-      color:#dbe5ff;
+    .date-label{
+
+        font-size:7px;
     }
 
-    .progress{
-      height:7px;
+    .date-value{
 
-      background:#18233a;
-
-      border-radius:99px;
-
-      overflow:hidden;
-
-      box-shadow:
-        inset 0 1px 3px rgba(0,0,0,.4);
+        font-size:13px;
     }
 
-    .progress-bar{
-      height:100%;
-      width:72%;
+    .countdown{
 
-      border-radius:99px;
-
-      background:
-        linear-gradient(
-          90deg,
-          #316cff,
-          #73a6ff
-        );
-
-      box-shadow:
-        0 0 20px rgba(63,124,255,.55);
-
-      position:relative;
-
-      animation:progressGlow 2.5s ease-in-out infinite alternate;
+        border-radius:14px;
     }
 
-    .progress-bar::after{
-      content:"";
+    .time-box{
 
-      position:absolute;
-
-      right:0;
-      top:0;
-
-      width:100px;
-      height:100%;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(255,255,255,.5),
-          transparent
-        );
-
-      animation:progressShine 2.2s linear infinite;
+        padding:
+        15px 3px;
     }
 
-    @keyframes progressGlow{
-      from{filter:brightness(.9)}
-      to{filter:brightness(1.15)}
+    .number{
+
+        font-size:27px;
     }
 
-    @keyframes progressShine{
-      from{transform:translateX(-120px)}
-      to{transform:translateX(120px)}
+    .unit{
+
+        font-size:7px;
+
+        letter-spacing:1.2px;
     }
 
-    /* INFO */
+    .note{
 
-    .info{
-      display:grid;
+        font-size:8px;
 
-      grid-template-columns:repeat(3,1fr);
-
-      gap:10px;
-
-      margin-top:30px;
+        margin-top:12px;
     }
 
-    .info-item{
-      padding:14px 10px;
+    .launch-line{
 
-      background:rgba(255,255,255,.035);
+        margin-top:17px;
 
-      border:1px solid rgba(255,255,255,.065);
+        font-size:8px;
 
-      border-radius:15px;
+        gap:11px;
     }
 
-    .info-item strong{
-      display:block;
+    footer{
 
-      font-size:13px;
+        padding:
+        10px 0
+        42px;
+    }
+}
 
-      color:#e7ecf8;
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media(max-width:380px){
+
+    .status{
+
+        display:none;
     }
 
-    .info-item span{
-      display:block;
+    h1{
 
-      color:#77849d;
-
-      font-size:11px;
-
-      margin-top:2px;
+        font-size:46px;
     }
 
-    /* BUTTONS */
+    .number{
 
-    .actions{
-      display:flex;
-
-      justify-content:center;
-
-      flex-wrap:wrap;
-
-      gap:10px;
-
-      margin-top:32px;
+        font-size:25px;
     }
 
-    .btn{
-      display:inline-flex;
+    .date-value{
 
-      align-items:center;
-      justify-content:center;
-
-      gap:8px;
-
-      min-height:46px;
-
-      padding:0 19px;
-
-      border-radius:13px;
-
-      font-size:13px;
-
-      font-weight:800;
-
-      transition:.25s;
-
-      cursor:pointer;
+        font-size:12px;
     }
+}
 
-    .btn-primary{
-      color:white;
+</style>
 
-      background:
-        linear-gradient(
-          135deg,
-          #376fff,
-          #2856ce
-        );
-
-      border:1px solid rgba(255,255,255,.12);
-
-      box-shadow:
-        0 10px 30px rgba(42,91,220,.28);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-3px);
-
-      box-shadow:
-        0 16px 38px rgba(42,91,220,.40);
-    }
-
-    .btn-secondary{
-      color:#c9d3e6;
-
-      background:rgba(255,255,255,.045);
-
-      border:1px solid rgba(255,255,255,.10);
-    }
-
-    .btn-secondary:hover{
-      background:rgba(255,255,255,.08);
-
-      transform:translateY(-3px);
-    }
-
-    /* FOOTER */
-
-    .footer{
-      margin-top:25px;
-
-      color:#69768e;
-
-      font-size:11px;
-
-      line-height:1.7;
-
-      animation:fadeUp 1.2s ease both;
-    }
-
-    .footer strong{
-      color:#8f9bb0;
-    }
-
-    .footer a{
-      color:#7fa6ff;
-    }
-
-    /* ANIMATIONS */
-
-    @keyframes fadeDown{
-      from{
-        opacity:0;
-        transform:translateY(-15px);
-      }
-      to{
-        opacity:1;
-        transform:none;
-      }
-    }
-
-    @keyframes fadeUp{
-      from{
-        opacity:0;
-        transform:translateY(15px);
-      }
-      to{
-        opacity:1;
-        transform:none;
-      }
-    }
-
-    /* MOBILE */
-
-    @media(max-width:600px){
-
-      .page{
-        padding:22px 13px;
-      }
-
-      .brand{
-        margin-bottom:25px;
-      }
-
-      .card{
-        padding:38px 20px 28px;
-        border-radius:27px;
-      }
-
-      .maintenance-icon{
-        width:86px;
-        height:86px;
-        border-radius:25px;
-      }
-
-      .maintenance-icon svg{
-        width:41px;
-        height:41px;
-      }
-
-      h1{
-        font-size:38px;
-        letter-spacing:-2px;
-      }
-
-      .description{
-        font-size:14px;
-      }
-
-      .info{
-        gap:7px;
-      }
-
-      .info-item{
-        padding:12px 6px;
-      }
-
-      .info-item strong{
-        font-size:11px;
-      }
-
-      .info-item span{
-        font-size:9px;
-      }
-
-      .actions{
-        flex-direction:column;
-      }
-
-      .btn{
-        width:100%;
-      }
-
-      .orb.one{
-        width:190px;
-        height:190px;
-      }
-
-      .orb.two{
-        width:170px;
-        height:170px;
-      }
-    }
-
-    @media(prefers-reduced-motion:reduce){
-
-      *,
-      *::before,
-      *::after{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        scroll-behavior:auto!important;
-      }
-    }
-  </style>
 </head>
+
 
 <body>
 
-  <!-- BACKGROUND -->
 
-  <div class="background">
+<div class="bg-glow"></div>
 
-    <div class="grid"></div>
+<div class="bg-grid"></div>
 
-    <div class="orb one"></div>
-    <div class="orb two"></div>
-    <div class="orb three"></div>
 
-    <div class="particle p1"></div>
-    <div class="particle p2"></div>
-    <div class="particle p3"></div>
-    <div class="particle p4"></div>
-    <div class="particle p5"></div>
-    <div class="particle p6"></div>
-    <div class="particle p7"></div>
+<div class="page">
 
-  </div>
 
+<!-- =========================
+     HEADER
+========================= -->
 
-  <!-- MAIN -->
+<header>
 
-  <main class="page">
+<div class="header-inner">
 
-    <div class="container">
 
-      <!-- BRAND -->
+<div class="brand">
 
-      <div class="brand">
 
-        <div class="logo">
-          SK
-        </div>
+<div class="logo-box">
 
-        <div class="brand-name">
-          <strong>SK KGN TEAM</strong>
-          <span>Independent Assistance Service</span>
-        </div>
+<iframe
+src="logo.html"
+title="SK KGN TEAM Logo"
+scrolling="no">
+</iframe>
 
-      </div>
+</div>
 
 
-      <!-- CARD -->
+<div class="brand-name">
+SK KGN TEAM
+</div>
 
-      <section class="card">
 
-        <div class="status">
-          <span class="status-dot"></span>
-          Scheduled Maintenance
-        </div>
+</div>
 
 
-        <!-- MAINTENANCE ICON -->
+<div class="status">
 
-        <div class="maintenance-icon">
+<span class="status-dot"></span>
 
-          <svg viewBox="0 0 24 24">
+Preparing for launch
 
-            <path d="M14.7 6.3a4.5 4.5 0 0 0-5.9 5.9L3.5 17.5a2.12 2.12 0 0 0 3 3l5.3-5.3a4.5 4.5 0 0 0 5.9-5.9l-2.5 2.5-3-3z"/>
+</div>
 
-            <path d="M18 3l3 3"/>
-            <path d="M20 2l2 2"/>
 
-          </svg>
+</div>
 
-        </div>
+</header>
 
 
-        <h1>
-          We'll be back
-          <span>shortly.</span>
-        </h1>
 
+<!-- =========================
+     HERO
+========================= -->
 
-        <p class="description">
+<main class="hero">
 
-          SK KGN TEAM is currently undergoing scheduled maintenance
-          and system improvements. We're working on the website to make
-          your next experience faster, smoother and more reliable.
 
-        </p>
+<div class="hero-inner">
 
 
-        <!-- PROGRESS -->
+<div class="launch-badge">
 
-        <div class="progress-area">
+<span class="badge-dot"></span>
 
-          <div class="progress-head">
+Official Website Launch
 
-            <span>Maintenance progress</span>
+<span>•</span>
 
-            <strong id="percent">72%</strong>
+02.10.2026
 
-          </div>
+</div>
 
-          <div class="progress">
 
-            <div
-              class="progress-bar"
-              id="progressBar">
-            </div>
 
-          </div>
+<h1>
 
-        </div>
+A New Chapter<br>
 
+<span class="title-blue">
+Begins Soon.
+</span>
 
-        <!-- INFO -->
+</h1>
 
-        <div class="info">
 
-          <div class="info-item">
 
-            <strong>System</strong>
-            <span>Updating</span>
+<p class="description">
 
-          </div>
+SK KGN TEAM is preparing its official platform.
+The website will open to the public on
+<strong>2 October 2026</strong>.
 
-          <div class="info-item">
+</p>
 
-            <strong>Security</strong>
-            <span>Protected</span>
 
-          </div>
 
-          <div class="info-item">
+<!-- =========================
+     COUNTDOWN
+========================= -->
 
-            <strong>Status</strong>
-            <span>Maintenance</span>
+<div class="launch-card">
 
-          </div>
 
-        </div>
+<div class="date-row">
 
+<div class="date-label">
+Launch Date
+</div>
 
-        <!-- ACTIONS -->
+<div class="date-value">
 
-        <div class="actions">
+<span>02 October 2026</span>
 
-          <a
-            href="https://wa.me/917007027158"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-primary">
+&nbsp;·&nbsp;
 
-            💬 Contact Support
+Gandhi Jayanti
 
-          </a>
+</div>
 
+</div>
 
-          <a
-            href="mailto:skkgnteam@gmail.com"
-            class="btn btn-secondary">
 
-            ✉️ Email Us
 
-          </a>
+<div class="countdown">
 
-        </div>
 
-      </section>
+<div class="time-box">
 
+<div
+class="number"
+id="days">
+00
+</div>
 
-      <!-- FOOTER -->
+<div class="unit">
+Days
+</div>
 
-      <div class="footer">
+</div>
 
-        <strong>SK KGN TEAM</strong>
-        &nbsp;•&nbsp;
-        Website temporarily unavailable during maintenance.
 
-        <br>
 
-        For assistance:
-        <a href="mailto:skkgnteam@gmail.com">
-          skkgnteam@gmail.com
-        </a>
+<div class="time-box">
 
-        &nbsp;•&nbsp;
+<div
+class="number"
+id="hours">
+00
+</div>
 
-        <a href="https://wa.me/917007027158"
-           target="_blank"
-           rel="noopener">
-          WhatsApp
-        </a>
+<div class="unit">
+Hours
+</div>
 
-      </div>
+</div>
 
-    </div>
 
-  </main>
 
+<div class="time-box">
 
-  <script>
+<div
+class="number"
+id="minutes">
+00
+</div>
 
-    /*
-      Maintenance progress animation.
-      This is only a visual indicator.
-    */
+<div class="unit">
+Minutes
+</div>
 
-    let progress = 72;
+</div>
 
-    const progressBar =
-      document.getElementById("progressBar");
 
-    const percent =
-      document.getElementById("percent");
 
+<div class="time-box">
 
-    setInterval(() => {
+<div
+class="number"
+id="seconds">
+00
+</div>
 
-      /*
-        Keep the maintenance indicator
-        within a realistic visual range.
-      */
+<div class="unit">
+Seconds
+</div>
 
-      if(progress < 94){
+</div>
 
-        progress += Math.random() > .65 ? 1 : 0;
 
-        progressBar.style.width =
-          progress + "%";
+</div>
 
-        percent.textContent =
-          progress + "%";
 
-      }
 
-    }, 4500);
+<div class="note">
 
+Countdown ends at
+<strong>12:00 AM IST</strong>
+on launch day.
 
-    /*
-      Subtle mouse interaction on desktop.
-    */
+</div>
 
-    const card =
-      document.querySelector(".card");
 
+</div>
 
-    document.addEventListener("mousemove", (event) => {
 
-      if(window.innerWidth < 800) return;
 
-      const x =
-        (event.clientX / window.innerWidth - .5) * 2;
+<div class="launch-line">
 
-      const y =
-        (event.clientY / window.innerHeight - .5) * 2;
+<span></span>
 
-      card.style.transform =
-        `perspective(1200px)
-         rotateY(${x * 1.2}deg)
-         rotateX(${y * -1.2}deg)`;
+Official Launch
 
-    });
+<span></span>
 
+</div>
 
-    document.addEventListener("mouseleave", () => {
 
-      card.style.transform =
-        "perspective(1200px) rotateY(0deg) rotateX(0deg)";
+</div>
 
-    });
+</main>
 
-  </script>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+© 2026
+<strong>SK KGN TEAM</strong>
+&nbsp;·&nbsp;
+All Rights Reserved.
+
+</footer>
+
+
+</div>
+
+
+
+<script>
+
+
+/* =========================
+   LAUNCH DATE
+========================= */
+
+/*
+   2 October 2026
+   12:00 AM IST
+*/
+
+const launchDate =
+new Date(
+"2026-10-02T00:00:00+05:30"
+).getTime();
+
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+function updateCountdown(){
+
+    const now =
+    new Date().getTime();
+
+    const difference =
+    launchDate - now;
+
+
+    if(difference <= 0){
+
+        document.getElementById("days")
+        .textContent="00";
+
+        document.getElementById("hours")
+        .textContent="00";
+
+        document.getElementById("minutes")
+        .textContent="00";
+
+        document.getElementById("seconds")
+        .textContent="00";
+
+
+        document.querySelector(
+            ".launch-badge"
+        ).innerHTML =
+        '<span class="badge-dot"></span> Official Website Is Live';
+
+
+        document.querySelector(
+            ".description"
+        ).innerHTML =
+        "Welcome to the official SK KGN TEAM platform.";
+
+
+        return;
+    }
+
+
+    const days =
+    Math.floor(
+        difference /
+        (1000 * 60 * 60 * 24)
+    );
+
+
+    const hours =
+    Math.floor(
+        (difference /
+        (1000 * 60 * 60)) % 24
+    );
+
+
+    const minutes =
+    Math.floor(
+        (difference /
+        (1000 * 60)) % 60
+    );
+
+
+    const seconds =
+    Math.floor(
+        (difference /
+        1000) % 60
+    );
+
+
+    document.getElementById("days")
+    .textContent =
+    String(days)
+    .padStart(2,"0");
+
+
+    document.getElementById("hours")
+    .textContent =
+    String(hours)
+    .padStart(2,"0");
+
+
+    document.getElementById("minutes")
+    .textContent =
+    String(minutes)
+    .padStart(2,"0");
+
+
+    document.getElementById("seconds")
+    .textContent =
+    String(seconds)
+    .padStart(2,"0");
+
+}
+
+
+updateCountdown();
+
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+
+</script>
+
 
 </body>
 </html>
