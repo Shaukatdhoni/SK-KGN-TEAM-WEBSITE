@@ -176,13 +176,15 @@ const applicationIdBox = document.getElementById("applicationId");
 const mobileInput = document.getElementById("mobile");
 const errorMessage = document.getElementById("errorMessage");
 
-let db;
+let db = null;
 
 try {
   const app = initializeApp(firebaseConfig);
   db = getFirestore(app);
 } catch (error) {
   console.error("Firebase initialization error:", error);
+  errorMessage.textContent = "Firebase could not start. Please reload the page and try again.";
+  errorMessage.classList.add("show");
 }
 
 mobileInput.addEventListener("input", function () {
@@ -216,7 +218,7 @@ form.addEventListener("submit", async function (event) {
   }
 
   if (!db) {
-    errorMessage.textContent = "Firebase could not be initialized. Please try again later.";
+    errorMessage.textContent = "Firebase could not be initialized. Please reload the page and try again.";
     errorMessage.classList.add("show");
     return;
   }
@@ -238,7 +240,6 @@ form.addEventListener("submit", async function (event) {
 
   try {
     await addDoc(collection(db, "careerApplications"), application);
-
     applicationIdBox.textContent = id;
     form.style.display = "none";
     successBox.classList.add("show");
@@ -246,7 +247,7 @@ form.addEventListener("submit", async function (event) {
   } catch (error) {
     console.error("Career application submission failed:", error);
     if (error && (error.code === "permission-denied" || error.code === "firestore/permission-denied")) {
-      errorMessage.textContent = ." The application could not be saved. Please check your internet connection and try again. ;
+      errorMessage.textContent = "The application could not be saved because Firestore permissions denied the request. Please check the published Firestore Rules.";
     } else {
       errorMessage.textContent = "The application could not be saved. Please check your internet connection and try again.";
     }
