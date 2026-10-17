@@ -6187,6 +6187,200 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const stateSelect = document.getElementById("complaintState");
+    const districtSelect = document.getElementById("complaintDistrict");
+    const typeSelect = document.getElementById("complaintType");
+    const categorySelect = document.getElementById("complaintCategory");
+    const info = document.getElementById("complaintTypeInfo");
+
+    if (!stateSelect || !districtSelect || !typeSelect || !categorySelect) {
+        console.error("Complaint form dropdown elements not found.");
+        return;
+    }
+
+    // State-wise district list
+    const districts = {
+        "Uttar Pradesh": [
+            "Agra", "Aligarh", "Ambedkar Nagar", "Amethi", "Amroha",
+            "Auraiya", "Ayodhya", "Azamgarh", "Baghpat", "Bahraich",
+            "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly",
+            "Basti", "Bhadohi", "Bijnor", "Budaun", "Bulandshahr",
+            "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah",
+            "Farrukhabad", "Fatehpur", "Firozabad", "Gautam Buddha Nagar",
+            "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur",
+            "Hapur", "Hardoi", "Hathras", "Jalaun", "Jaunpur",
+            "Jhansi", "Kannauj", "Kanpur Dehat", "Kanpur Nagar",
+            "Kasganj", "Kaushambi", "Kheri", "Kushinagar", "Lalitpur",
+            "Lucknow", "Maharajganj", "Mahoba", "Mainpuri", "Mathura",
+            "Mau", "Meerut", "Mirzapur", "Moradabad", "Muzaffarnagar",
+            "Pilibhit", "Pratapgarh", "Prayagraj", "Raebareli",
+            "Rampur", "Saharanpur", "Sambhal", "Sant Kabir Nagar",
+            "Shahjahanpur", "Shamli", "Shravasti", "Siddharthnagar",
+            "Sitapur", "Sonbhadra", "Sultanpur", "Unnao", "Varanasi"
+        ],
+
+        "Bihar": [
+            "Araria", "Arwal", "Aurangabad", "Banka", "Begusarai",
+            "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga", "East Champaran",
+            "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur",
+            "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura",
+            "Madhubani", "Munger", "Muzaffarpur", "Nalanda", "Nawada",
+            "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur",
+            "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan",
+            "Supaul", "Vaishali", "West Champaran"
+        ],
+
+        "Delhi": [
+            "Central Delhi", "East Delhi", "New Delhi", "North Delhi",
+            "North East Delhi", "North West Delhi", "Shahdara",
+            "South Delhi", "South East Delhi", "South West Delhi",
+            "West Delhi"
+        ],
+
+        "Madhya Pradesh": [
+            "Agar Malwa", "Alirajpur", "Anuppur", "Ashoknagar", "Balaghat",
+            "Barwani", "Betul", "Bhind", "Bhopal", "Burhanpur",
+            "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas",
+            "Dhar", "Dindori", "Guna", "Gwalior", "Harda", "Indore",
+            "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone",
+            "Maihar", "Mandla", "Mandsaur", "Mauganj", "Morena",
+            "Narmadapuram", "Narsinghpur", "Neemuch", "Niwari",
+            "Panna", "Pandhurna", "Raisen", "Rajgarh", "Ratlam",
+            "Rewa", "Sagar", "Satna", "Sehore", "Seoni", "Shahdol",
+            "Shajapur", "Sheopur", "Shivpuri", "Sidhi", "Singrauli",
+            "Tikamgarh", "Ujjain", "Umaria", "Vidisha"
+        ],
+
+        "Maharashtra": [
+            "Ahmednagar", "Akola", "Amravati", "Beed", "Bhandara",
+            "Buldhana", "Chandrapur", "Chhatrapati Sambhajinagar",
+            "Dhule", "Gadchiroli", "Gondia", "Hingoli", "Jalgaon",
+            "Jalna", "Kolhapur", "Latur", "Mumbai City",
+            "Mumbai Suburban", "Nagpur", "Nanded", "Nandurbar",
+            "Nashik", "Osmanabad", "Palghar", "Parbhani", "Pune",
+            "Raigad", "Ratnagiri", "Sangli", "Satara", "Sindhudurg",
+            "Solapur", "Thane", "Wardha", "Washim", "Yavatmal"
+        ],
+
+        "Rajasthan": [
+            "Ajmer", "Alwar", "Balotra", "Banswara", "Baran",
+            "Barmer", "Beawar", "Bharatpur", "Bhilwara", "Bikaner",
+            "Bundi", "Chittorgarh", "Churu", "Dausa", "Deeg",
+            "Dholpur", "Didwana-Kuchaman", "Dungarpur", "Hanumangarh",
+            "Jaipur", "Jaisalmer", "Jalore", "Jhalawar", "Jhunjhunu",
+            "Jodhpur", "Karauli", "Kekri", "Khairthal-Tijara",
+            "Kota", "Kotputli-Behror", "Nagaur", "Pali", "Phalodi",
+            "Pratapgarh", "Rajsamand", "Salumbar", "Sawai Madhopur",
+            "Sikar", "Sirohi", "Sri Ganganagar", "Tonk", "Udaipur"
+        ],
+
+        "West Bengal": [
+            "Alipurduar", "Bankura", "Birbhum", "Cooch Behar",
+            "Dakshin Dinajpur", "Darjeeling", "Hooghly", "Howrah",
+            "Jalpaiguri", "Jhargram", "Kalimpong", "Kolkata",
+            "Malda", "Murshidabad", "Nadia", "North 24 Parganas",
+            "Paschim Bardhaman", "Paschim Medinipur", "Purba Bardhaman",
+            "Purba Medinipur", "Purulia", "South 24 Parganas",
+            "Uttar Dinajpur"
+        ]
+    };
+
+    function resetDistricts(message) {
+        districtSelect.innerHTML = "";
+        districtSelect.add(new Option(message, ""));
+        districtSelect.disabled = true;
+    }
+
+    // State selection -> District selection
+    stateSelect.addEventListener("change", function () {
+        const state = stateSelect.value;
+
+        resetDistricts("Select District *");
+
+        if (!state) {
+            districtSelect.options[0].text = "Select State First";
+            return;
+        }
+
+        const list = districts[state];
+
+        if (!list) {
+            districtSelect.disabled = false;
+            districtSelect.options[0].text =
+                "District list unavailable — enter district in complaint details";
+            return;
+        }
+
+        list.forEach(function (district) {
+            districtSelect.add(new Option(district, district));
+        });
+
+        districtSelect.disabled = false;
+    });
+
+    // Complaint type -> Category selection
+    const categories = {
+        public: [
+            "Roads and Public Works",
+            "Electricity",
+            "Water Supply",
+            "Sanitation and Cleanliness",
+            "Government Office",
+            "Public Distribution System (Ration)",
+            "Public Health Services",
+            "Education",
+            "Police and Law and Order",
+            "Municipal Services",
+            "Government Scheme",
+            "Other Public Issue"
+        ],
+
+        personal: [
+            "Banking and Finance",
+            "Consumer Complaint",
+            "Insurance",
+            "Pension and Benefits",
+            "Passport Services",
+            "Land and Property",
+            "Police Complaint",
+            "Government Department",
+            "Electricity Bill",
+            "Telecom and Internet",
+            "Employment and Recruitment",
+            "Other Personal Issue"
+        ]
+    };
+
+    typeSelect.addEventListener("change", function () {
+        const type = typeSelect.value;
+
+        categorySelect.innerHTML = "";
+        categorySelect.add(new Option("Select Category *", ""));
+        categorySelect.disabled = true;
+
+        if (!type || !categories[type]) {
+            if (info) info.textContent = "";
+            return;
+        }
+
+        categories[type].forEach(function (category) {
+            categorySelect.add(new Option(category, category));
+        });
+
+        categorySelect.disabled = false;
+
+        if (info) {
+            info.textContent = type === "public"
+                ? "Public complaints are free. Please note that submission and processing depend on the selected service."
+                : "Personal complaint assistance is paid. Available plans and charges will be shown in the next step.";
+        }
+    });
+
+});
+</script>
 </body>
 
 </html>
