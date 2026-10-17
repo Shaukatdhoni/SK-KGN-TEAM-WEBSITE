@@ -2937,63 +2937,102 @@ Please enter your complaint details below.
 
 <form id="complaintForm">
 
+  <input
+    type="text"
+    id="complaintName"
+    class="complaint-field"
+    placeholder="Full Name *"
+    maxlength="100"
+    autocomplete="name"
+    required
+  >
 
-<input
-type="text"
-id="complaintName"
-class="complaint-field"
-placeholder="Full Name"
-required>
+  <input
+    type="tel"
+    id="complaintMobile"
+    class="complaint-field"
+    placeholder="10-Digit Mobile Number *"
+    inputmode="numeric"
+    pattern="[6-9][0-9]{9}"
+    maxlength="10"
+    autocomplete="tel"
+    required
+  >
 
+  <select
+    id="complaintState"
+    class="complaint-field"
+    required
+  >
+    <option value="">Select State / Union Territory *</option>
+  </select>
 
-<input
-type="tel"
-id="complaintMobile"
-class="complaint-field"
-placeholder="Mobile Number"
-required>
+  <select
+    id="complaintDistrict"
+    class="complaint-field"
+    required
+    disabled
+  >
+    <option value="">Select State First</option>
+  </select>
 
+  <select
+    id="complaintType"
+    class="complaint-field"
+    required
+  >
+    <option value="">Select Complaint Type *</option>
+    <option value="public">Public Complaint — Free</option>
+    <option value="personal">Personal Complaint — Paid</option>
+  </select>
 
-<input
-type="text"
-id="complaintSubject"
-class="complaint-field"
-placeholder="Complaint Subject"
-required>
+  <select
+    id="complaintCategory"
+    class="complaint-field"
+    required
+    disabled
+  >
+    <option value="">Select Complaint Type First</option>
+  </select>
 
+  <input
+    type="text"
+    id="complaintSubject"
+    class="complaint-field"
+    placeholder="Complaint Subject *"
+    maxlength="200"
+    required
+  >
 
-<textarea
-id="complaintDetails"
-class="complaint-field"
-placeholder="Describe your complaint in detail..."
-required
-style="
-min-height:130px;
-resize:vertical;
-"></textarea>
+  <textarea
+    id="complaintDetails"
+    class="complaint-field"
+    placeholder="Describe your complaint in detail... *"
+    maxlength="10000"
+    required
+    style="min-height:130px;resize:vertical;"
+  ></textarea>
 
+  <p
+    id="complaintTypeInfo"
+    style="margin:0 0 12px;color:#475467;font-size:13px;line-height:1.7;"
+  ></p>
 
-<button
-type="submit"
-class="complaint-submit">
+  <button
+    type="submit"
+    class="complaint-submit"
+    id="complaintContinueButton"
+  >
+    Continue →
+  </button>
 
-Continue to Service Plans →
-
-</button>
-
-
-<p
-id="complaintMessage"
-style="
-margin-top:15px;
-font-weight:600;
-">
-
-</p>
-
+  <p
+    id="complaintMessage"
+    role="alert"
+    style="margin-top:15px;font-weight:600;"
+  ></p>
 
 </form>
-
 </div>
 
 </div>
