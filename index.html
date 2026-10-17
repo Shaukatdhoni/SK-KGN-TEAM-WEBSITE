@@ -3003,15 +3003,15 @@ Please enter your complaint details below.
     <option value="Puducherry">Puducherry</option>
 </select>
 
-  <select
+ <input
+    type="text"
     id="complaintDistrict"
+    name="district"
     class="complaint-field"
-    required
-    disabled
-  >
-    <option value="">Select State First</option>
-  </select>
-
+    placeholder="District (Optional — enter if known)"
+    maxlength="100"
+    autocomplete="address-level2"
+>
   <select
     id="complaintType"
     class="complaint-field"
