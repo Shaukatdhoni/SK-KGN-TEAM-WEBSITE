@@ -292,7 +292,68 @@ nav a:hover{
   font-size:27px;
   cursor:pointer;
 }
+/* HEADER BRAND FIX */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.brand-sub {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #6b7280;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .nav {
+    gap: 8px;
+  }
+
+  .logo-wrap {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .logo-wrap img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .logo {
+    font-size: 22px;
+    white-space: nowrap;
+  }
+
+  .brand-sub {
+    font-size: 9px;
+    letter-spacing: 0.7px;
+  }
+
+  .menu {
+    display: block;
+    flex-shrink: 0;
+  }
+}
 
 /* =========================================================
    HERO
