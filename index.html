@@ -6610,271 +6610,244 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <style>
 <!-- ==========================================
-     SK KGN TEAM — CINEMATIC INTRO
-     Blue + White Premium Theme
-     Auto Scenes + Tap to Continue
+     SK KGN TEAM — CINEMATIC INTRO POPUP
+     Isolated overlay; existing layout untouched
 ========================================== -->
 
 <style>
-#sk-intro {
+#skkg-intro-popup,
+#skkg-intro-popup * {
+    box-sizing: border-box;
+}
+
+#skkg-intro-popup {
     position: fixed;
     inset: 0;
-    z-index: 999999;
+    z-index: 2147483000;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
     overflow: hidden;
-    background: radial-gradient(ellipse at 50% 40%, #123d78 0%, #071a38 48%, #020817 100%);
+    background:
+        radial-gradient(ellipse at 50% 35%,
+        rgba(24, 91, 173, .65),
+        transparent 55%),
+        linear-gradient(135deg, #071a38, #020817 75%);
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
     transition: opacity .8s ease, visibility .8s ease;
+    isolation: isolate;
     -webkit-tap-highlight-color: transparent;
 }
 
-#sk-intro.sk-intro-hidden {
+#skkg-intro-popup.skkg-closing {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 }
 
-#sk-intro *,
-#sk-intro *::before,
-#sk-intro *::after {
-    box-sizing: border-box;
-}
-
-#sk-intro .sk-light {
+#skkg-intro-popup .skkg-glow {
     position: absolute;
-    width: 280px;
-    height: 280px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
     background: #1685ff;
     filter: blur(100px);
-    opacity: .18;
+    opacity: .2;
     pointer-events: none;
-    animation: sk-light-move 8s ease-in-out infinite alternate;
 }
 
-#sk-intro .sk-light-one {
+#skkg-intro-popup .skkg-glow-left {
     top: -100px;
     left: -80px;
 }
 
-#sk-intro .sk-light-two {
-    right: -100px;
+#skkg-intro-popup .skkg-glow-right {
+    right: -90px;
     bottom: -100px;
-    background: #54b9ff;
-    animation-delay: 2s;
+    background: #58b7ff;
 }
 
-#sk-intro .sk-grid {
+#skkg-intro-popup .skkg-skip {
     position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: .12;
-    background-image:
-        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
-    background-size: 45px 45px;
-}
-
-#sk-intro .sk-skip {
-    position: absolute;
-    top: 22px;
-    right: 22px;
-    z-index: 10;
-    padding: 11px 17px;
-    border: 1px solid rgba(255,255,255,.35);
+    top: 18px;
+    right: 18px;
+    z-index: 5;
+    padding: 11px 16px;
+    border: 1px solid rgba(255,255,255,.4);
     border-radius: 30px;
-    background: rgba(255,255,255,.07);
+    background: rgba(255,255,255,.08);
     color: #fff;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
-    backdrop-filter: blur(10px);
 }
 
-#sk-intro .sk-skip:hover {
+#skkg-intro-popup .skkg-skip:hover {
     background: #1769d2;
 }
 
-#sk-intro .sk-main {
+#skkg-intro-popup .skkg-content {
     position: relative;
     z-index: 2;
-    width: min(850px, 92%);
-    max-height: 100%;
+    width: min(760px, 100%);
+    max-height: calc(100dvh - 100px);
     overflow-y: auto;
-    padding: 35px 20px 75px;
+    padding: 15px 10px;
     text-align: center;
-    scrollbar-width: none;
+    scrollbar-width: thin;
     cursor: pointer;
 }
 
-#sk-intro .sk-main::-webkit-scrollbar {
-    display: none;
-}
-
-#sk-intro .sk-logo-wrap {
-    width: 100px;
-    height: 100px;
-    margin: 0 auto 22px;
+#skkg-intro-popup .skkg-logo-frame {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(123,190,255,.65);
+    width: 94px;
+    height: 94px;
+    margin: 0 auto 22px;
+    border: 1px solid rgba(128,193,255,.8);
     border-radius: 50%;
     background: #fff;
-    box-shadow:
-        0 0 0 9px rgba(56,140,255,.07),
-        0 0 45px rgba(38,135,255,.32);
-    animation: sk-logo-pulse 3s ease-in-out infinite;
+    box-shadow: 0 0 35px rgba(36,130,255,.3);
+    animation: skkg-logo-glow 3s ease-in-out infinite;
 }
 
-#sk-intro .sk-logo {
+#skkg-intro-popup .skkg-logo {
     display: block;
     width: 100%;
     height: 100%;
-    padding: 7px;
+    padding: 6px;
     object-fit: contain;
     border-radius: 50%;
 }
 
-#sk-intro .sk-eyebrow {
-    margin-bottom: 13px;
-    color: #80c5ff;
-    font-size: 12px;
+#skkg-intro-popup .skkg-eyebrow {
+    margin-bottom: 12px;
+    color: #8ccaff;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 3px;
-    text-transform: uppercase;
 }
 
-#sk-intro .sk-scene {
+#skkg-intro-popup .skkg-scene {
     display: none;
-    min-height: 205px;
+    min-height: 210px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    animation: sk-scene-in 1s ease both;
+    animation: skkg-scene-in .8s ease both;
 }
 
-#sk-intro .sk-scene.sk-active {
+#skkg-intro-popup .skkg-scene.skkg-current {
     display: flex;
 }
 
-#sk-intro .sk-title {
-    max-width: 800px;
+#skkg-intro-popup .skkg-heading {
     margin: 0 0 18px;
     color: #fff;
-    font-size: clamp(27px, 5vw, 47px);
+    font-size: clamp(27px, 5vw, 46px);
     font-weight: 800;
     line-height: 1.25;
-    letter-spacing: -.5px;
     overflow-wrap: anywhere;
 }
 
-#sk-intro .sk-blue {
-    color: #70baff;
+#skkg-intro-popup .skkg-blue {
+    color: #7fc2ff;
 }
 
-#sk-intro .sk-description {
-    max-width: 680px;
-    margin: 0 auto;
-    color: #d3e4f7;
-    font-size: clamp(15px, 2.2vw, 19px);
-    line-height: 1.85;
-    font-weight: 400;
-}
-
-#sk-intro .sk-divider {
-    width: 75px;
+#skkg-intro-popup .skkg-divider {
+    width: 70px;
     height: 3px;
-    margin: 3px auto 22px;
+    margin: 0 auto 20px;
     border-radius: 5px;
-    background: linear-gradient(90deg, #1685ff, #b8e0ff);
+    background: linear-gradient(90deg, #1685ff, #b9e1ff);
 }
 
-#sk-intro .sk-service-list {
+#skkg-intro-popup .skkg-description {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #d6e7fa;
+    font-size: clamp(14px, 2vw, 18px);
+    line-height: 1.85;
+}
+
+#skkg-intro-popup .skkg-services {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 9px;
-    width: min(700px, 100%);
-    margin-top: 5px;
+    width: min(680px, 100%);
+    margin: 5px auto 0;
     text-align: left;
 }
 
-#sk-intro .sk-service-item {
+#skkg-intro-popup .skkg-service {
     display: flex;
-    align-items: flex-start;
     gap: 9px;
+    align-items: flex-start;
     padding: 11px 12px;
-    border: 1px solid rgba(151,199,255,.19);
-    border-radius: 10px;
-    background: rgba(255,255,255,.055);
-    color: #e9f4ff;
+    border: 1px solid rgba(149,199,255,.2);
+    border-radius: 9px;
+    background: rgba(255,255,255,.06);
+    color: #eef6ff;
     font-size: 13px;
     line-height: 1.55;
 }
 
-#sk-intro .sk-check {
+#skkg-intro-popup .skkg-tick {
     flex-shrink: 0;
-    color: #75beff;
+    color: #81c4ff;
     font-weight: 800;
 }
 
-#sk-intro .sk-footer {
-    position: absolute;
-    right: 20px;
-    bottom: 18px;
-    left: 20px;
-    z-index: 3;
-    text-align: center;
-    pointer-events: none;
+#skkg-intro-popup .skkg-tap {
+    margin-top: 19px;
+    color: #8fc8ff;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    animation: skkg-hint 2s ease-in-out infinite;
 }
 
-#sk-intro .sk-footer-text {
-    color: #91a9c8;
-    font-size: 10px;
-    letter-spacing: 2px;
-}
-
-#sk-intro .sk-website {
-    margin-top: 10px;
+#skkg-intro-popup .skkg-final-site {
+    margin-top: 13px;
     color: #fff;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
-#sk-intro .sk-counter {
-    margin-top: 7px;
-    color: #86bfff;
-    font-size: 11px;
-    letter-spacing: 1px;
+#skkg-intro-popup .skkg-bottom {
+    position: absolute;
+    bottom: 16px;
+    left: 10px;
+    right: 10px;
+    z-index: 2;
+    text-align: center;
+    pointer-events: none;
 }
 
-#sk-intro .sk-tap-hint {
-    margin-top: 18px;
-    color: #8fc8ff;
-    font-size: 11px;
+#skkg-intro-popup .skkg-tagline {
+    color: #8da9cb;
+    font-size: 10px;
     letter-spacing: 1.5px;
-    animation: sk-hint-pulse 2s ease-in-out infinite;
 }
 
-#sk-intro .sk-final-note {
-    margin-top: 13px;
-    color: #a8c5e7;
-    font-size: 12px;
-    line-height: 1.7;
+#skkg-intro-popup .skkg-count {
+    margin-top: 7px;
+    color: #83bfff;
+    font-size: 11px;
 }
 
-@keyframes sk-scene-in {
+@keyframes skkg-scene-in {
     from {
         opacity: 0;
-        transform: translateY(18px);
-        filter: blur(4px);
+        transform: translateY(15px);
+        filter: blur(3px);
     }
     to {
         opacity: 1;
@@ -6883,252 +6856,232 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 }
 
-@keyframes sk-logo-pulse {
+@keyframes skkg-logo-glow {
     0%, 100% {
-        box-shadow: 0 0 0 9px rgba(56,140,255,.07),
-                    0 0 35px rgba(38,135,255,.25);
+        box-shadow: 0 0 25px rgba(36,130,255,.22);
     }
     50% {
-        box-shadow: 0 0 0 15px rgba(56,140,255,.04),
-                    0 0 55px rgba(38,135,255,.4);
+        box-shadow: 0 0 45px rgba(36,130,255,.45);
     }
 }
 
-@keyframes sk-light-move {
-    from {
-        transform: translate(0, 0) scale(1);
-    }
-    to {
-        transform: translate(70px, 40px) scale(1.25);
-    }
-}
-
-@keyframes sk-hint-pulse {
+@keyframes skkg-hint {
     0%, 100% { opacity: .55; }
     50% { opacity: 1; }
 }
 
 @media (max-width: 600px) {
-    #sk-intro .sk-main {
-        width: 94%;
-        padding: 20px 7px 75px;
+    #skkg-intro-popup {
+        padding: 12px;
     }
 
-    #sk-intro .sk-logo-wrap {
-        width: 76px;
-        height: 76px;
-        margin-bottom: 16px;
+    #skkg-intro-popup .skkg-content {
+        padding: 18px 3px 12px;
+        max-height: calc(100dvh - 85px);
     }
 
-    #sk-intro .sk-eyebrow {
-        font-size: 10px;
-        letter-spacing: 1.8px;
+    #skkg-intro-popup .skkg-logo-frame {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 15px;
     }
 
-    #sk-intro .sk-scene {
-        min-height: 230px;
+    #skkg-intro-popup .skkg-eyebrow {
+        font-size: 9px;
+        letter-spacing: 1.7px;
     }
 
-    #sk-intro .sk-title {
-        font-size: clamp(24px, 7vw, 34px);
+    #skkg-intro-popup .skkg-scene {
+        min-height: 210px;
     }
 
-    #sk-intro .sk-description {
-        font-size: 14px;
+    #skkg-intro-popup .skkg-heading {
+        font-size: clamp(23px, 7vw, 33px);
+    }
+
+    #skkg-intro-popup .skkg-description {
+        font-size: 13px;
         line-height: 1.75;
     }
 
-    #sk-intro .sk-service-list {
+    #skkg-intro-popup .skkg-services {
         grid-template-columns: 1fr;
-        gap: 7px;
+        gap: 6px;
     }
 
-    #sk-intro .sk-service-item {
+    #skkg-intro-popup .skkg-service {
         padding: 8px 10px;
         font-size: 12px;
     }
 
-    #sk-intro .sk-skip {
-        top: 11px;
-        right: 11px;
+    #skkg-intro-popup .skkg-skip {
+        top: 10px;
+        right: 10px;
         padding: 9px 12px;
         font-size: 10px;
     }
 
-    #sk-intro .sk-footer {
-        bottom: 10px;
+    #skkg-intro-popup .skkg-bottom {
+        bottom: 9px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    #sk-intro *,
-    #sk-intro *::before,
-    #sk-intro *::after {
+    #skkg-intro-popup *,
+    #skkg-intro-popup *::before,
+    #skkg-intro-popup *::after {
         animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
     }
 }
 </style>
 
-<div id="sk-intro" role="dialog"
+<div id="skkg-intro-popup" role="dialog"
      aria-label="SK KGN TEAM Introduction"
      aria-modal="true">
 
-    <div class="sk-light sk-light-one"></div>
-    <div class="sk-light sk-light-two"></div>
-    <div class="sk-grid"></div>
+    <div class="skkg-glow skkg-glow-left"></div>
+    <div class="skkg-glow skkg-glow-right"></div>
 
-    <button type="button" class="sk-skip" id="sk-intro-skip">
-        SKIP INTRO &nbsp; ×
+    <button type="button" class="skkg-skip" id="skkg-intro-skip">
+        SKIP INTRO ×
     </button>
 
-    <main class="sk-main" id="sk-intro-main">
+    <div class="skkg-content" id="skkg-intro-content">
 
-        <div class="sk-logo-wrap">
-            <img
-                class="sk-logo"
-                src="/Logo.jpg"
-                alt="SK KGN TEAM Logo"
-                onerror="this.style.display='none';">
+        <div class="skkg-logo-frame">
+            <img class="skkg-logo"
+                 src="/Logo.jpg"
+                 alt="SK KGN TEAM Logo"
+                 onerror="this.style.display='none';">
         </div>
 
-        <div class="sk-eyebrow">PRIVATE COMPLAINT CONSULTANCY</div>
+        <div class="skkg-eyebrow">PRIVATE COMPLAINT CONSULTANCY</div>
 
-        <!-- SCENE 1 -->
-        <section class="sk-scene sk-active" data-duration="6">
-            <h1 class="sk-title">
-                SK KGN <span class="sk-blue">TEAM</span>
+        <section class="skkg-scene skkg-current" data-seconds="6">
+            <h1 class="skkg-heading">
+                SK KGN <span class="skkg-blue">TEAM</span>
             </h1>
-            <div class="sk-divider"></div>
-            <p class="sk-description">
+            <div class="skkg-divider"></div>
+            <p class="skkg-description">
                 आपकी आवाज़, हमारी ज़िम्मेदारी।<br>
                 शिकायत लिखने से लेकर उचित प्रक्रिया समझने तक।
             </p>
-            <div class="sk-tap-hint">TAP ANYWHERE TO CONTINUE ↓</div>
+            <div class="skkg-tap">TAP ANYWHERE TO CONTINUE ↓</div>
         </section>
 
-        <!-- SCENE 2 -->
-        <section class="sk-scene" data-duration="7">
-            <h2 class="sk-title">
+        <section class="skkg-scene" data-seconds="7">
+            <h2 class="skkg-heading">
                 क्या आपका कोई काम<br>
-                <span class="sk-blue">महीनों से अटका है?</span>
+                <span class="skkg-blue">महीनों से अटका है?</span>
             </h2>
-            <p class="sk-description">
+            <p class="skkg-description">
                 सरकारी आवेदन, विभागीय शिकायत या दस्तावेज़ संबंधी समस्या?
                 अपनी समस्या के अनुसार प्रक्रिया और उपलब्ध सहायता की जानकारी प्राप्त करें।
             </p>
-            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
         </section>
 
-        <!-- SCENE 3 -->
-        <section class="sk-scene" data-duration="8">
-            <h2 class="sk-title">
+        <section class="skkg-scene" data-seconds="8">
+            <h2 class="skkg-heading">
                 शिकायत एवं आवेदन<br>
-                <span class="sk-blue">सहायता सेवाएँ</span>
+                <span class="skkg-blue">सहायता सेवाएँ</span>
             </h2>
-            <div class="sk-service-list">
-                <div class="sk-service-item"><span class="sk-check">✓</span>शिकायत ड्राफ्ट तैयार करना</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>संबंधित विभाग तक शिकायत पहुँचाने की प्रक्रिया में सहायता</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>आवेदन एवं प्रार्थना पत्र तैयार करना</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>फॉलो-अप एवं पुनः शिकायत में सहायता</div>
+            <div class="skkg-services">
+                <div class="skkg-service"><span class="skkg-tick">✓</span>शिकायत ड्राफ्ट तैयार करना</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>संबंधित विभाग तक शिकायत पहुँचाने की प्रक्रिया में सहायता</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>आवेदन एवं प्रार्थना पत्र तैयार करना</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>फॉलो-अप एवं पुनः शिकायत में सहायता</div>
             </div>
-            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
         </section>
 
-        <!-- SCENE 4 -->
-        <section class="sk-scene" data-duration="9">
-            <h2 class="sk-title">
+        <section class="skkg-scene" data-seconds="9">
+            <h2 class="skkg-heading">
                 सरकारी योजनाएँ एवं<br>
-                <span class="sk-blue">दस्तावेज़ सहायता</span>
+                <span class="skkg-blue">दस्तावेज़ सहायता</span>
             </h2>
-            <div class="sk-service-list">
-                <div class="sk-service-item"><span class="sk-check">✓</span>किसान सम्मान निधि एवं आवास योजना</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>पेंशन एवं छात्रवृत्ति आवेदन और स्टेटस</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>आयुष्मान कार्ड सहायता</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>सरकारी प्रमाणपत्र आवेदन एवं सुधार</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>जमीन रिकॉर्ड एवं खतौनी</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>जमीन पैमाइश आवेदन</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>आवेदन रिजेक्शन एवं अपील सहायता</div>
+            <div class="skkg-services">
+                <div class="skkg-service"><span class="skkg-tick">✓</span>किसान सम्मान निधि एवं आवास योजना</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>पेंशन एवं छात्रवृत्ति आवेदन और स्टेटस</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>आयुष्मान कार्ड सहायता</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>सरकारी प्रमाणपत्र आवेदन एवं सुधार</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>जमीन रिकॉर्ड एवं खतौनी</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>जमीन पैमाइश आवेदन</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>आवेदन रिजेक्शन एवं अपील सहायता</div>
             </div>
-            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
         </section>
 
-        <!-- SCENE 5 -->
-        <section class="sk-scene" data-duration="9">
-            <h2 class="sk-title">
+        <section class="skkg-scene" data-seconds="9">
+            <h2 class="skkg-heading">
                 शिकायत एवं जनसमस्या<br>
-                <span class="sk-blue">संबंधी सहायता</span>
+                <span class="skkg-blue">संबंधी सहायता</span>
             </h2>
-            <div class="sk-service-list">
-                <div class="sk-service-item"><span class="sk-check">✓</span>बैंक शिकायत एवं भूली हुई राशि की खोज</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>सूचना का अधिकार (RTI)</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>साइबर फ्रॉड शिकायत</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>पुलिस शिकायत सहायता</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>गैस सब्सिडी एवं गैस शिकायत</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>उपभोक्ता शिकायत एवं ई-फाइलिंग सहायता</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>ट्रैफिक चालान सहायता</div>
+            <div class="skkg-services">
+                <div class="skkg-service"><span class="skkg-tick">✓</span>बैंक शिकायत एवं भूली हुई राशि की खोज</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>सूचना का अधिकार (RTI)</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>साइबर फ्रॉड शिकायत</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>पुलिस शिकायत सहायता</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>गैस सब्सिडी एवं गैस शिकायत</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>उपभोक्ता शिकायत एवं ई-फाइलिंग सहायता</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>ट्रैफिक चालान सहायता</div>
             </div>
-            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
         </section>
 
-        <!-- SCENE 6 -->
-        <section class="sk-scene" data-duration="8">
-            <h2 class="sk-title">
+        <section class="skkg-scene" data-seconds="8">
+            <h2 class="skkg-heading">
                 अन्य उपयोगी<br>
-                <span class="sk-blue">सेवाएँ</span>
+                <span class="skkg-blue">सेवाएँ</span>
             </h2>
-            <div class="sk-service-list">
-                <div class="sk-service-item"><span class="sk-check">✓</span>कोर्ट स्टेटस एवं आदेश संबंधी जानकारी</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>कानूनी सहायता आवेदन</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>सरकारी अस्पताल OPD अपॉइंटमेंट</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>जमीन विवाद एवं संबंधित शिकायतें</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>उत्पाद, सामान एवं दुकानदार संबंधी शिकायतें</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>सरकारी एवं निजी संस्थानों से जुड़ी शिकायतें</div>
-                <div class="sk-service-item"><span class="sk-check">✓</span>रिश्वत/घूस संबंधी शिकायतों में प्रक्रिया की जानकारी</div>
+            <div class="skkg-services">
+                <div class="skkg-service"><span class="skkg-tick">✓</span>कोर्ट स्टेटस एवं आदेश संबंधी जानकारी</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>कानूनी सहायता आवेदन</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>सरकारी अस्पताल OPD अपॉइंटमेंट</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>जमीन विवाद एवं संबंधित शिकायतें</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>उत्पाद एवं दुकानदार संबंधी शिकायतें</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>सरकारी एवं निजी संस्थानों से जुड़ी शिकायतें</div>
+                <div class="skkg-service"><span class="skkg-tick">✓</span>रिश्वत/घूस संबंधी शिकायतों में प्रक्रिया की जानकारी</div>
             </div>
-            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
         </section>
 
-        <!-- SCENE 7 -->
-        <section class="sk-scene" data-duration="7">
-            <h2 class="sk-title">
+        <section class="skkg-scene" data-seconds="7">
+            <h2 class="skkg-heading">
                 आपकी समस्या के अनुसार<br>
-                <span class="sk-blue">सही प्रक्रिया की जानकारी</span>
+                <span class="skkg-blue">सही प्रक्रिया की जानकारी</span>
             </h2>
-            <div class="sk-divider"></div>
-            <p class="sk-description">
+            <div class="skkg-divider"></div>
+            <p class="skkg-description">
                 अपनी समस्या साझा करें। उपलब्ध सेवाओं को समझें।
                 आवेदन तैयार करने और संबंधित प्रक्रिया में सहायता प्राप्त करें।
                 <br><br>
                 <strong>स्पष्ट जानकारी • व्यवस्थित प्रक्रिया • जिम्मेदार मार्गदर्शन</strong>
             </p>
-            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
         </section>
 
-        <!-- SCENE 8: FINAL -->
-        <section class="sk-scene" data-duration="6">
-            <h2 class="sk-title">
+        <section class="skkg-scene" data-seconds="6">
+            <h2 class="skkg-heading">
                 WELCOME TO<br>
-                <span class="sk-blue">SK KGN TEAM</span>
+                <span class="skkg-blue">SK KGN TEAM</span>
             </h2>
-            <div class="sk-divider"></div>
-            <p class="sk-description">
+            <div class="skkg-divider"></div>
+            <p class="skkg-description">
                 YOUR VOICE. YOUR RIGHT. OUR ASSISTANCE.
             </p>
-            <div class="sk-website">www.skkgnteam.in</div>
-            <p class="sk-final-note">
-                अपनी समस्या के लिए उपलब्ध सहायता सेवाएँ देखें।
-            </p>
-            <div class="sk-tap-hint">TAP TO ENTER WEBSITE →</div>
+            <div class="skkg-final-site">www.skkgnteam.in</div>
+            <div class="skkg-tap">TAP TO ENTER WEBSITE →</div>
         </section>
 
-    </main>
+    </div>
 
-    <div class="sk-footer">
-        <div class="sk-footer-text">
+    <div class="skkg-bottom">
+        <div class="skkg-tagline">
             YOUR VOICE. YOUR RIGHT. OUR ASSISTANCE.
         </div>
-        <div class="sk-counter" id="sk-intro-counter">01 / 08</div>
+        <div class="skkg-count" id="skkg-intro-count">01 / 08</div>
     </div>
 </div>
 
@@ -7136,113 +7089,108 @@ document.addEventListener("DOMContentLoaded", function () {
 (function () {
     "use strict";
 
-    const intro = document.getElementById("sk-intro");
-    if (!intro) return;
+    const overlay = document.getElementById("skkg-intro-popup");
+    if (!overlay) return;
 
-    const skipButton = document.getElementById("sk-intro-skip");
-    const main = document.getElementById("sk-intro-main");
-    const scenes = Array.from(intro.querySelectorAll(".sk-scene"));
-    const counter = document.getElementById("sk-intro-counter");
+    const content = document.getElementById("skkg-intro-content");
+    const skip = document.getElementById("skkg-intro-skip");
+    const counter = document.getElementById("skkg-intro-count");
+    const scenes = Array.from(overlay.querySelectorAll(".skkg-scene"));
 
-    const SESSION_KEY = "skKgnIntroSeen";
+    const STORAGE_KEY = "skkg_intro_seen_session";
 
-    let currentScene = 0;
-    let sceneTimer = null;
-    let closeTimer = null;
+    let current = 0;
+    let timer = null;
     let closed = false;
 
     function closeIntro() {
         if (closed) return;
         closed = true;
-
-        clearTimeout(sceneTimer);
-        clearTimeout(closeTimer);
+        clearTimeout(timer);
 
         try {
-            sessionStorage.setItem(SESSION_KEY, "1");
+            sessionStorage.setItem(STORAGE_KEY, "yes");
         } catch (e) {}
 
-        intro.classList.add("sk-intro-hidden");
+        overlay.classList.add("skkg-closing");
 
-        window.setTimeout(function () {
-            if (intro.parentNode) {
-                intro.parentNode.removeChild(intro);
+        setTimeout(function () {
+            if (overlay.parentNode) {
+                overlay.parentNode.removeChild(overlay);
             }
         }, 850);
     }
 
-    function showScene(index) {
+    function nextScene() {
         if (closed) return;
 
-        clearTimeout(sceneTimer);
+        clearTimeout(timer);
 
-        if (index >= scenes.length) {
+        if (current >= scenes.length - 1) {
             closeIntro();
             return;
         }
 
+        current++;
+        displayScene(current);
+    }
+
+    function displayScene(index) {
+        if (closed) return;
+
         scenes.forEach(function (scene) {
-            scene.classList.remove("sk-active");
+            scene.classList.remove("skkg-current");
         });
 
-        currentScene = index;
-        scenes[index].classList.add("sk-active");
+        current = index;
+        scenes[current].classList.add("skkg-current");
 
         if (counter) {
             counter.textContent =
-                String(index + 1).padStart(2, "0") +
+                String(current + 1).padStart(2, "0") +
                 " / " +
                 String(scenes.length).padStart(2, "0");
         }
 
-        /* Naye scene par scroll ko top par rakho */
-        if (main) {
-            main.scrollTop = 0;
+        if (content) {
+            content.scrollTop = 0;
         }
 
-        const duration =
-            Number(scenes[index].dataset.duration) || 7;
+        const seconds =
+            Number(scenes[current].dataset.seconds) || 7;
 
-        sceneTimer = window.setTimeout(function () {
-            if (currentScene >= scenes.length - 1) {
+        timer = setTimeout(function () {
+            if (current === scenes.length - 1) {
                 closeIntro();
             } else {
-                showScene(currentScene + 1);
+                nextScene();
             }
-        }, duration * 1000);
-    }
-
-    function handleScreenTap(event) {
-        if (closed) return;
-
-        if (event.target.closest("#sk-intro-skip")) {
-            return;
-        }
-
-        if (currentScene >= scenes.length - 1) {
-            closeIntro();
-        } else {
-            showScene(currentScene + 1);
-        }
+        }, seconds * 1000);
     }
 
     let alreadySeen = false;
 
     try {
-        alreadySeen = sessionStorage.getItem(SESSION_KEY) === "1";
+        alreadySeen = sessionStorage.getItem(STORAGE_KEY) === "yes";
     } catch (e) {}
 
     if (alreadySeen) {
-        intro.remove();
+        overlay.remove();
         return;
     }
 
-    skipButton.addEventListener("click", function (event) {
+    skip.addEventListener("click", function (event) {
         event.stopPropagation();
         closeIntro();
     });
 
-    intro.addEventListener("click", handleScreenTap);
+    overlay.addEventListener("click", function (event) {
+        if (closed || event.target.closest("#skkg-intro-skip")) {
+            return;
+        }
+
+        nextScene();
+    });
 
     document.addEventListener("keydown", function (event) {
         if (closed) return;
@@ -7251,20 +7199,15 @@ document.addEventListener("DOMContentLoaded", function () {
             closeIntro();
         } else if (event.key === "ArrowRight" || event.key === " ") {
             event.preventDefault();
-
-            if (currentScene >= scenes.length - 1) {
-                closeIntro();
-            } else {
-                showScene(currentScene + 1);
-            }
+            nextScene();
         }
     });
 
-    showScene(0);
+    displayScene(0);
 })();
 </script>
 
-<!-- ===== END SK KGN TEAM INTRO ===== -->
+<!-- ===== END SK KGN TEAM INTRO POPUP ===== -->
 </body>
 
 </html>
