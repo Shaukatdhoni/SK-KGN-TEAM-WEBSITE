@@ -354,7 +354,34 @@ nav a:hover{
     flex-shrink: 0;
   }
 }
+/* FINAL MOBILE HEADER ADJUSTMENT */
+@media (max-width: 600px) {
 
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .menu {
+    display: block;
+    margin-left: auto;
+    flex-shrink: 0;
+    font-size: 27px;
+  }
+
+  .brand-text {
+    gap: 0px;
+    transform: translateY(-3px);
+  }
+
+  .brand-sub {
+    margin-top: 0px;
+    line-height: 1.2;
+  }
+
+}
 /* =========================================================
    HERO
 ========================================================= */
