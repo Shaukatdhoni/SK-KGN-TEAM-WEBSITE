@@ -6549,6 +6549,462 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+<!-- ========== SK KGN TEAM CINEMATIC INTRO ========== -->
+<div class="sk-intro-overlay" id="sk-intro-overlay" aria-label="Welcome to SK KGN TEAM">
+
+  <button type="button" class="sk-intro-skip" id="sk-intro-skip">
+    SKIP INTRO <span>×</span>
+  </button>
+
+  <div class="sk-intro-glow"></div>
+
+  <div class="sk-intro-content">
+
+    <div class="sk-intro-logo-wrap">
+      <div class="sk-intro-orbit"></div>
+      <div class="sk-intro-logo-frame">
+        <img src="Logo.jpg" alt="SK KGN TEAM Logo" class="sk-intro-logo"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <div class="sk-intro-logo-fallback">SK</div>
+      </div>
+    </div>
+
+    <div class="sk-intro-eyebrow">
+      PRIVATE COMPLAINT CONSULTANCY
+    </div>
+
+    <h1 class="sk-intro-brand">
+      SK <span>KGN TEAM</span>
+    </h1>
+
+    <div class="sk-intro-divider">
+      <span></span>
+    </div>
+
+    <div class="sk-intro-tagline">
+      <div>YOUR VOICE.</div>
+      <div class="sk-intro-highlight">YOUR RIGHT.</div>
+      <div>OUR ASSISTANCE.</div>
+    </div>
+
+    <p class="sk-intro-description">
+      Professional Assistance. Clear Process.
+    </p>
+
+    <div class="sk-intro-welcome">
+      <span class="sk-intro-dot"></span>
+      WELCOME TO SK KGN TEAM
+    </div>
+
+    <div class="sk-intro-progress">
+      <div class="sk-intro-progress-bar" id="sk-intro-progress-bar"></div>
+    </div>
+
+  </div>
+
+  <div class="sk-intro-footer">
+    SK KGN TEAM <span>•</span> PRIVATE CONSULTANCY
+  </div>
+
+</div>
+
+<style>
+/* ===== SK KGN TEAM SIGNATURE INTRO ===== */
+
+.sk-intro-overlay,
+.sk-intro-overlay * {
+  box-sizing: border-box;
+}
+
+.sk-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 24px 18px;
+  background: #07152d;
+  color: #fff;
+  font-family: inherit;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .65s ease, visibility .65s ease;
+  isolation: isolate;
+}
+
+.sk-intro-overlay.sk-intro-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.sk-intro-glow {
+  position: absolute;
+  z-index: -1;
+  width: min(90vw, 650px);
+  aspect-ratio: 1;
+  left: 50%;
+  top: 44%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(216,177,90,.13) 0%,
+    rgba(22,74,156,.10) 34%,
+    rgba(7,21,45,0) 70%
+  );
+  pointer-events: none;
+  animation: sk-intro-glow-pulse 4s ease-in-out infinite alternate;
+}
+
+.sk-intro-skip {
+  position: absolute;
+  top: max(22px, env(safe-area-inset-top));
+  right: max(20px, env(safe-area-inset-right));
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 15px;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 30px;
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.9);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.sk-intro-skip span {
+  color: #e4c477;
+  font-size: 19px;
+  line-height: 12px;
+}
+
+.sk-intro-skip:hover {
+  background: rgba(255,255,255,.13);
+  border-color: #d8b15a;
+}
+
+.sk-intro-content {
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  animation: sk-intro-enter .9s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.sk-intro-logo-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 112px;
+  height: 112px;
+  margin-bottom: 27px;
+}
+
+.sk-intro-orbit {
+  position: absolute;
+  inset: -7px;
+  border: 1px solid rgba(216,177,90,.55);
+  border-radius: 50%;
+  animation: sk-intro-orbit-in 1.3s ease-out both;
+}
+
+.sk-intro-orbit::before {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  top: 15px;
+  right: 17px;
+  border-radius: 50%;
+  background: #e4c477;
+  box-shadow: 0 0 12px rgba(228,196,119,.55);
+}
+
+.sk-intro-logo-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  overflow: hidden;
+  border: 2px solid rgba(216,177,90,.85);
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 35px rgba(216,177,90,.12);
+}
+
+.sk-intro-logo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 3px;
+}
+
+.sk-intro-logo-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: #164a9c;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.sk-intro-eyebrow {
+  margin-bottom: 12px;
+  color: #d8b15a;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  line-height: 1.7;
+  animation: sk-intro-rise .7s .25s both;
+}
+
+.sk-intro-brand {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(27px, 7vw, 43px);
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  animation: sk-intro-rise .7s .4s both;
+}
+
+.sk-intro-brand span {
+  color: #e1c078;
+}
+
+.sk-intro-divider {
+  position: relative;
+  width: 130px;
+  height: 1px;
+  margin: 23px auto 25px;
+  overflow: hidden;
+  background: rgba(255,255,255,.12);
+}
+
+.sk-intro-divider span {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, #e1c078, transparent);
+  transform: translateX(-100%);
+  animation: sk-intro-sweep 1.2s .7s ease forwards;
+}
+
+.sk-intro-tagline {
+  color: #f6f7fa;
+  font-size: clamp(23px, 6.2vw, 35px);
+  font-weight: 850;
+  letter-spacing: -1px;
+  line-height: 1.35;
+  animation: sk-intro-rise .8s .65s both;
+}
+
+.sk-intro-highlight {
+  color: #e1c078;
+}
+
+.sk-intro-description {
+  margin: 17px 0 0;
+  color: #b7c2d4;
+  font-size: 13px;
+  line-height: 1.7;
+  letter-spacing: .2px;
+  animation: sk-intro-rise .7s .85s both;
+}
+
+.sk-intro-welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 27px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  animation: sk-intro-rise .7s 1s both;
+}
+
+.sk-intro-dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #d8b15a;
+  box-shadow: 0 0 10px rgba(216,177,90,.6);
+}
+
+.sk-intro-progress {
+  width: 140px;
+  height: 2px;
+  margin-top: 23px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: rgba(255,255,255,.13);
+}
+
+.sk-intro-progress-bar {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #b78c3d, #f1d997);
+  animation: sk-intro-progress-fill 5s linear forwards;
+}
+
+.sk-intro-footer {
+  position: absolute;
+  bottom: max(22px, env(safe-area-inset-bottom));
+  left: 12px;
+  right: 12px;
+  text-align: center;
+  color: #8492a8;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.sk-intro-footer span {
+  padding: 0 7px;
+  color: #d8b15a;
+}
+
+@keyframes sk-intro-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sk-intro-rise {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes sk-intro-sweep {
+  to { transform: translateX(100%); }
+}
+
+@keyframes sk-intro-orbit-in {
+  from { opacity: 0; transform: rotate(-35deg) scale(.85); }
+  to { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+@keyframes sk-intro-glow-pulse {
+  from { opacity: .55; }
+  to { opacity: 1; }
+}
+
+@keyframes sk-intro-progress-fill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@media (max-width: 380px) {
+  .sk-intro-logo-wrap {
+    width: 94px;
+    height: 94px;
+    margin-bottom: 23px;
+  }
+
+  .sk-intro-logo-frame {
+    width: 80px;
+    height: 80px;
+  }
+
+  .sk-intro-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .sk-intro-tagline {
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sk-intro-overlay,
+  .sk-intro-overlay *,
+  .sk-intro-overlay *::before,
+  .sk-intro-overlay *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+
+<script>
+(function () {
+  "use strict";
+
+  const overlay = document.getElementById("sk-intro-overlay");
+  const skipButton = document.getElementById("sk-intro-skip");
+  const progressBar = document.getElementById("sk-intro-progress-bar");
+
+  if (!overlay || !skipButton) return;
+
+  let timer = null;
+  let closed = false;
+  let previousOverflow = "";
+
+  function closeIntro() {
+    if (closed) return;
+    closed = true;
+
+    if (timer !== null) {
+      clearTimeout(timer);
+    }
+
+    overlay.classList.add("sk-intro-hidden");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = previousOverflow;
+
+    try {
+      sessionStorage.setItem("skIntroSeen", "1");
+    } catch (error) {
+      /* Continue even if browser storage is unavailable. */
+    }
+
+    window.setTimeout(function () {
+      if (overlay.parentNode) {
+        overlay.parentNode.removeChild(overlay);
+      }
+    }, 700);
+  }
+
+  try {
+    if (sessionStorage.getItem("skIntroSeen") === "1") {
+      overlay.remove();
+      return;
+    }
+  } catch (error) {
+    /* Storage may be disabled; show the intro normally. */
+  }
+
+  previousOverflow = document.body.style.overflow;
+  document.body.style.overflow = "hidden";
+
+  skipButton.addEventListener("click", closeIntro);
+
+  timer = window.setTimeout(closeIntro, 5000);
+
+  if (window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (progressBar) progressBar.style.animation = "none";
+  }
+})();
+</script>
+<!-- ========== END SK KGN TEAM CINEMATIC INTRO ========== -->
 </body>
 
 </html>
