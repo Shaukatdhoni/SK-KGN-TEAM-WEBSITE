@@ -382,6 +382,41 @@ nav a:hover{
   }
 
 }
+@media (max-width: 600px) {
+
+  header#siteHeader .container.nav {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    position: relative;
+  }
+
+  header#siteHeader .menu {
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    flex-shrink: 0 !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  header#siteHeader .logo-wrap {
+    margin-right: 40px !important;
+  }
+
+  header#siteHeader .brand-text {
+    gap: 0 !important;
+    transform: translateY(-6px) !important;
+  }
+
+  header#siteHeader .brand-sub {
+    margin-top: 0 !important;
+    line-height: 1.2 !important;
+  }
+
+}
 /* =========================================================
    HERO
 ========================================================= */
