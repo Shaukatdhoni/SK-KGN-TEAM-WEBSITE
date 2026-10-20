@@ -441,6 +441,31 @@ nav a:hover{
     transform: translateY(-6px) !important;
   }
 }
+/* DESKTOP HEADER RESTORE */
+@media (min-width: 601px) {
+  header#siteHeader .container.nav {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+  }
+
+  header#siteHeader .menu {
+    position: static !important;
+    display: none;
+    transform: none !important;
+    margin: 0 !important;
+  }
+
+  header#siteHeader .brand-text {
+    transform: none !important;
+  }
+
+  header#siteHeader .brand-sub {
+    margin-top: 0;
+  }
+}
 /* =========================================================
    HERO
 ========================================================= */
