@@ -6609,402 +6609,662 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 
 <style>
-/* ===== SK KGN TEAM SIGNATURE INTRO ===== */
+<!-- ==========================================
+     SK KGN TEAM — CINEMATIC INTRO
+     Blue + White Premium Theme
+     Auto Scenes + Tap to Continue
+========================================== -->
 
-.sk-intro-overlay,
-.sk-intro-overlay * {
-  box-sizing: border-box;
+<style>
+#sk-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 40%, #123d78 0%, #071a38 48%, #020817 100%);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .8s ease, visibility .8s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.sk-intro-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 2147483647;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: 24px 18px;
-  background: #07152d;
-  color: #fff;
-  font-family: inherit;
-  opacity: 1;
-  visibility: visible;
-  transition: opacity .65s ease, visibility .65s ease;
-  isolation: isolate;
+#sk-intro.sk-intro-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
-.sk-intro-overlay.sk-intro-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+#sk-intro *,
+#sk-intro *::before,
+#sk-intro *::after {
+    box-sizing: border-box;
 }
 
-.sk-intro-glow {
-  position: absolute;
-  z-index: -1;
-  width: min(90vw, 650px);
-  aspect-ratio: 1;
-  left: 50%;
-  top: 44%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(216,177,90,.13) 0%,
-    rgba(22,74,156,.10) 34%,
-    rgba(7,21,45,0) 70%
-  );
-  pointer-events: none;
-  animation: sk-intro-glow-pulse 4s ease-in-out infinite alternate;
+#sk-intro .sk-light {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: #1685ff;
+    filter: blur(100px);
+    opacity: .18;
+    pointer-events: none;
+    animation: sk-light-move 8s ease-in-out infinite alternate;
 }
 
-.sk-intro-skip {
-  position: absolute;
-  top: max(22px, env(safe-area-inset-top));
-  right: max(20px, env(safe-area-inset-right));
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 15px;
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 30px;
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.9);
-  font-family: inherit;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  cursor: pointer;
-  transition: background .2s ease, border-color .2s ease;
+#sk-intro .sk-light-one {
+    top: -100px;
+    left: -80px;
 }
 
-.sk-intro-skip span {
-  color: #e4c477;
-  font-size: 19px;
-  line-height: 12px;
+#sk-intro .sk-light-two {
+    right: -100px;
+    bottom: -100px;
+    background: #54b9ff;
+    animation-delay: 2s;
 }
 
-.sk-intro-skip:hover {
-  background: rgba(255,255,255,.13);
-  border-color: #d8b15a;
+#sk-intro .sk-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: .12;
+    background-image:
+        linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
+    background-size: 45px 45px;
 }
 
-.sk-intro-content {
-  width: 100%;
-  max-width: 460px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  animation: sk-intro-enter .9s cubic-bezier(.2,.75,.25,1) both;
+#sk-intro .sk-skip {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    z-index: 10;
+    padding: 11px 17px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 30px;
+    background: rgba(255,255,255,.07);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
 }
 
-.sk-intro-logo-wrap {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 112px;
-  height: 112px;
-  margin-bottom: 27px;
+#sk-intro .sk-skip:hover {
+    background: #1769d2;
 }
 
-.sk-intro-orbit {
-  position: absolute;
-  inset: -7px;
-  border: 1px solid rgba(216,177,90,.55);
-  border-radius: 50%;
-  animation: sk-intro-orbit-in 1.3s ease-out both;
+#sk-intro .sk-main {
+    position: relative;
+    z-index: 2;
+    width: min(850px, 92%);
+    max-height: 100%;
+    overflow-y: auto;
+    padding: 35px 20px 75px;
+    text-align: center;
+    scrollbar-width: none;
+    cursor: pointer;
 }
 
-.sk-intro-orbit::before {
-  content: "";
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  top: 15px;
-  right: 17px;
-  border-radius: 50%;
-  background: #e4c477;
-  box-shadow: 0 0 12px rgba(228,196,119,.55);
+#sk-intro .sk-main::-webkit-scrollbar {
+    display: none;
 }
 
-.sk-intro-logo-frame {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 96px;
-  height: 96px;
-  overflow: hidden;
-  border: 2px solid rgba(216,177,90,.85);
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 35px rgba(216,177,90,.12);
+#sk-intro .sk-logo-wrap {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(123,190,255,.65);
+    border-radius: 50%;
+    background: #fff;
+    box-shadow:
+        0 0 0 9px rgba(56,140,255,.07),
+        0 0 45px rgba(38,135,255,.32);
+    animation: sk-logo-pulse 3s ease-in-out infinite;
 }
 
-.sk-intro-logo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 3px;
+#sk-intro .sk-logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 7px;
+    object-fit: contain;
+    border-radius: 50%;
 }
 
-.sk-intro-logo-fallback {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  color: #164a9c;
-  font-size: 32px;
-  font-weight: 900;
+#sk-intro .sk-eyebrow {
+    margin-bottom: 13px;
+    color: #80c5ff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
-.sk-intro-eyebrow {
-  margin-bottom: 12px;
-  color: #d8b15a;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 2.5px;
-  line-height: 1.7;
-  animation: sk-intro-rise .7s .25s both;
+#sk-intro .sk-scene {
+    display: none;
+    min-height: 205px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    animation: sk-scene-in 1s ease both;
 }
 
-.sk-intro-brand {
-  margin: 0;
-  color: #fff;
-  font-size: clamp(27px, 7vw, 43px);
-  font-weight: 850;
-  line-height: 1.15;
-  letter-spacing: -1.5px;
-  animation: sk-intro-rise .7s .4s both;
+#sk-intro .sk-scene.sk-active {
+    display: flex;
 }
 
-.sk-intro-brand span {
-  color: #e1c078;
+#sk-intro .sk-title {
+    max-width: 800px;
+    margin: 0 0 18px;
+    color: #fff;
+    font-size: clamp(27px, 5vw, 47px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -.5px;
+    overflow-wrap: anywhere;
 }
 
-.sk-intro-divider {
-  position: relative;
-  width: 130px;
-  height: 1px;
-  margin: 23px auto 25px;
-  overflow: hidden;
-  background: rgba(255,255,255,.12);
+#sk-intro .sk-blue {
+    color: #70baff;
 }
 
-.sk-intro-divider span {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent, #e1c078, transparent);
-  transform: translateX(-100%);
-  animation: sk-intro-sweep 1.2s .7s ease forwards;
+#sk-intro .sk-description {
+    max-width: 680px;
+    margin: 0 auto;
+    color: #d3e4f7;
+    font-size: clamp(15px, 2.2vw, 19px);
+    line-height: 1.85;
+    font-weight: 400;
 }
 
-.sk-intro-tagline {
-  color: #f6f7fa;
-  font-size: clamp(23px, 6.2vw, 35px);
-  font-weight: 850;
-  letter-spacing: -1px;
-  line-height: 1.35;
-  animation: sk-intro-rise .8s .65s both;
+#sk-intro .sk-divider {
+    width: 75px;
+    height: 3px;
+    margin: 3px auto 22px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #1685ff, #b8e0ff);
 }
 
-.sk-intro-highlight {
-  color: #e1c078;
+#sk-intro .sk-service-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+    width: min(700px, 100%);
+    margin-top: 5px;
+    text-align: left;
 }
 
-.sk-intro-description {
-  margin: 17px 0 0;
-  color: #b7c2d4;
-  font-size: 13px;
-  line-height: 1.7;
-  letter-spacing: .2px;
-  animation: sk-intro-rise .7s .85s both;
+#sk-intro .sk-service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 11px 12px;
+    border: 1px solid rgba(151,199,255,.19);
+    border-radius: 10px;
+    background: rgba(255,255,255,.055);
+    color: #e9f4ff;
+    font-size: 13px;
+    line-height: 1.55;
 }
 
-.sk-intro-welcome {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  margin-top: 27px;
-  color: #fff;
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  animation: sk-intro-rise .7s 1s both;
+#sk-intro .sk-check {
+    flex-shrink: 0;
+    color: #75beff;
+    font-weight: 800;
 }
 
-.sk-intro-dot {
-  width: 6px;
-  height: 6px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: #d8b15a;
-  box-shadow: 0 0 10px rgba(216,177,90,.6);
+#sk-intro .sk-footer {
+    position: absolute;
+    right: 20px;
+    bottom: 18px;
+    left: 20px;
+    z-index: 3;
+    text-align: center;
+    pointer-events: none;
 }
 
-.sk-intro-progress {
-  width: 140px;
-  height: 2px;
-  margin-top: 23px;
-  overflow: hidden;
-  border-radius: 5px;
-  background: rgba(255,255,255,.13);
+#sk-intro .sk-footer-text {
+    color: #91a9c8;
+    font-size: 10px;
+    letter-spacing: 2px;
 }
 
-.sk-intro-progress-bar {
-  width: 0;
-  height: 100%;
-  background: linear-gradient(90deg, #b78c3d, #f1d997);
-  animation: sk-intro-progress-fill 5s linear forwards;
+#sk-intro .sk-website {
+    margin-top: 10px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-.sk-intro-footer {
-  position: absolute;
-  bottom: max(22px, env(safe-area-inset-bottom));
-  left: 12px;
-  right: 12px;
-  text-align: center;
-  color: #8492a8;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+#sk-intro .sk-counter {
+    margin-top: 7px;
+    color: #86bfff;
+    font-size: 11px;
+    letter-spacing: 1px;
 }
 
-.sk-intro-footer span {
-  padding: 0 7px;
-  color: #d8b15a;
-}
-
-@keyframes sk-intro-enter {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes sk-intro-rise {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes sk-intro-sweep {
-  to { transform: translateX(100%); }
-}
-
-@keyframes sk-intro-orbit-in {
-  from { opacity: 0; transform: rotate(-35deg) scale(.85); }
-  to { opacity: 1; transform: rotate(0) scale(1); }
-}
-
-@keyframes sk-intro-glow-pulse {
-  from { opacity: .55; }
-  to { opacity: 1; }
-}
-
-@keyframes sk-intro-progress-fill {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-@media (max-width: 380px) {
-  .sk-intro-logo-wrap {
-    width: 94px;
-    height: 94px;
-    margin-bottom: 23px;
-  }
-
-  .sk-intro-logo-frame {
-    width: 80px;
-    height: 80px;
-  }
-
-  .sk-intro-eyebrow {
-    font-size: 9px;
+#sk-intro .sk-tap-hint {
+    margin-top: 18px;
+    color: #8fc8ff;
+    font-size: 11px;
     letter-spacing: 1.5px;
-  }
+    animation: sk-hint-pulse 2s ease-in-out infinite;
+}
 
-  .sk-intro-tagline {
-    font-size: 25px;
-  }
+#sk-intro .sk-final-note {
+    margin-top: 13px;
+    color: #a8c5e7;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+@keyframes sk-scene-in {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+        filter: blur(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes sk-logo-pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 9px rgba(56,140,255,.07),
+                    0 0 35px rgba(38,135,255,.25);
+    }
+    50% {
+        box-shadow: 0 0 0 15px rgba(56,140,255,.04),
+                    0 0 55px rgba(38,135,255,.4);
+    }
+}
+
+@keyframes sk-light-move {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
+    to {
+        transform: translate(70px, 40px) scale(1.25);
+    }
+}
+
+@keyframes sk-hint-pulse {
+    0%, 100% { opacity: .55; }
+    50% { opacity: 1; }
+}
+
+@media (max-width: 600px) {
+    #sk-intro .sk-main {
+        width: 94%;
+        padding: 20px 7px 75px;
+    }
+
+    #sk-intro .sk-logo-wrap {
+        width: 76px;
+        height: 76px;
+        margin-bottom: 16px;
+    }
+
+    #sk-intro .sk-eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.8px;
+    }
+
+    #sk-intro .sk-scene {
+        min-height: 230px;
+    }
+
+    #sk-intro .sk-title {
+        font-size: clamp(24px, 7vw, 34px);
+    }
+
+    #sk-intro .sk-description {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    #sk-intro .sk-service-list {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    #sk-intro .sk-service-item {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    #sk-intro .sk-skip {
+        top: 11px;
+        right: 11px;
+        padding: 9px 12px;
+        font-size: 10px;
+    }
+
+    #sk-intro .sk-footer {
+        bottom: 10px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sk-intro-overlay,
-  .sk-intro-overlay *,
-  .sk-intro-overlay *::before,
-  .sk-intro-overlay *::after {
-    animation: none !important;
-    transition: none !important;
-  }
+    #sk-intro *,
+    #sk-intro *::before,
+    #sk-intro *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+    }
 }
 </style>
 
+<div id="sk-intro" role="dialog"
+     aria-label="SK KGN TEAM Introduction"
+     aria-modal="true">
+
+    <div class="sk-light sk-light-one"></div>
+    <div class="sk-light sk-light-two"></div>
+    <div class="sk-grid"></div>
+
+    <button type="button" class="sk-skip" id="sk-intro-skip">
+        SKIP INTRO &nbsp; ×
+    </button>
+
+    <main class="sk-main" id="sk-intro-main">
+
+        <div class="sk-logo-wrap">
+            <img
+                class="sk-logo"
+                src="/Logo.jpg"
+                alt="SK KGN TEAM Logo"
+                onerror="this.style.display='none';">
+        </div>
+
+        <div class="sk-eyebrow">PRIVATE COMPLAINT CONSULTANCY</div>
+
+        <!-- SCENE 1 -->
+        <section class="sk-scene sk-active" data-duration="6">
+            <h1 class="sk-title">
+                SK KGN <span class="sk-blue">TEAM</span>
+            </h1>
+            <div class="sk-divider"></div>
+            <p class="sk-description">
+                आपकी आवाज़, हमारी ज़िम्मेदारी।<br>
+                शिकायत लिखने से लेकर उचित प्रक्रिया समझने तक।
+            </p>
+            <div class="sk-tap-hint">TAP ANYWHERE TO CONTINUE ↓</div>
+        </section>
+
+        <!-- SCENE 2 -->
+        <section class="sk-scene" data-duration="7">
+            <h2 class="sk-title">
+                क्या आपका कोई काम<br>
+                <span class="sk-blue">महीनों से अटका है?</span>
+            </h2>
+            <p class="sk-description">
+                सरकारी आवेदन, विभागीय शिकायत या दस्तावेज़ संबंधी समस्या?
+                अपनी समस्या के अनुसार प्रक्रिया और उपलब्ध सहायता की जानकारी प्राप्त करें।
+            </p>
+            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <!-- SCENE 3 -->
+        <section class="sk-scene" data-duration="8">
+            <h2 class="sk-title">
+                शिकायत एवं आवेदन<br>
+                <span class="sk-blue">सहायता सेवाएँ</span>
+            </h2>
+            <div class="sk-service-list">
+                <div class="sk-service-item"><span class="sk-check">✓</span>शिकायत ड्राफ्ट तैयार करना</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>संबंधित विभाग तक शिकायत पहुँचाने की प्रक्रिया में सहायता</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>आवेदन एवं प्रार्थना पत्र तैयार करना</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>फॉलो-अप एवं पुनः शिकायत में सहायता</div>
+            </div>
+            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <!-- SCENE 4 -->
+        <section class="sk-scene" data-duration="9">
+            <h2 class="sk-title">
+                सरकारी योजनाएँ एवं<br>
+                <span class="sk-blue">दस्तावेज़ सहायता</span>
+            </h2>
+            <div class="sk-service-list">
+                <div class="sk-service-item"><span class="sk-check">✓</span>किसान सम्मान निधि एवं आवास योजना</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>पेंशन एवं छात्रवृत्ति आवेदन और स्टेटस</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>आयुष्मान कार्ड सहायता</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>सरकारी प्रमाणपत्र आवेदन एवं सुधार</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>जमीन रिकॉर्ड एवं खतौनी</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>जमीन पैमाइश आवेदन</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>आवेदन रिजेक्शन एवं अपील सहायता</div>
+            </div>
+            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <!-- SCENE 5 -->
+        <section class="sk-scene" data-duration="9">
+            <h2 class="sk-title">
+                शिकायत एवं जनसमस्या<br>
+                <span class="sk-blue">संबंधी सहायता</span>
+            </h2>
+            <div class="sk-service-list">
+                <div class="sk-service-item"><span class="sk-check">✓</span>बैंक शिकायत एवं भूली हुई राशि की खोज</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>सूचना का अधिकार (RTI)</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>साइबर फ्रॉड शिकायत</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>पुलिस शिकायत सहायता</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>गैस सब्सिडी एवं गैस शिकायत</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>उपभोक्ता शिकायत एवं ई-फाइलिंग सहायता</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>ट्रैफिक चालान सहायता</div>
+            </div>
+            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <!-- SCENE 6 -->
+        <section class="sk-scene" data-duration="8">
+            <h2 class="sk-title">
+                अन्य उपयोगी<br>
+                <span class="sk-blue">सेवाएँ</span>
+            </h2>
+            <div class="sk-service-list">
+                <div class="sk-service-item"><span class="sk-check">✓</span>कोर्ट स्टेटस एवं आदेश संबंधी जानकारी</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>कानूनी सहायता आवेदन</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>सरकारी अस्पताल OPD अपॉइंटमेंट</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>जमीन विवाद एवं संबंधित शिकायतें</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>उत्पाद, सामान एवं दुकानदार संबंधी शिकायतें</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>सरकारी एवं निजी संस्थानों से जुड़ी शिकायतें</div>
+                <div class="sk-service-item"><span class="sk-check">✓</span>रिश्वत/घूस संबंधी शिकायतों में प्रक्रिया की जानकारी</div>
+            </div>
+            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <!-- SCENE 7 -->
+        <section class="sk-scene" data-duration="7">
+            <h2 class="sk-title">
+                आपकी समस्या के अनुसार<br>
+                <span class="sk-blue">सही प्रक्रिया की जानकारी</span>
+            </h2>
+            <div class="sk-divider"></div>
+            <p class="sk-description">
+                अपनी समस्या साझा करें। उपलब्ध सेवाओं को समझें।
+                आवेदन तैयार करने और संबंधित प्रक्रिया में सहायता प्राप्त करें।
+                <br><br>
+                <strong>स्पष्ट जानकारी • व्यवस्थित प्रक्रिया • जिम्मेदार मार्गदर्शन</strong>
+            </p>
+            <div class="sk-tap-hint">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <!-- SCENE 8: FINAL -->
+        <section class="sk-scene" data-duration="6">
+            <h2 class="sk-title">
+                WELCOME TO<br>
+                <span class="sk-blue">SK KGN TEAM</span>
+            </h2>
+            <div class="sk-divider"></div>
+            <p class="sk-description">
+                YOUR VOICE. YOUR RIGHT. OUR ASSISTANCE.
+            </p>
+            <div class="sk-website">www.skkgnteam.in</div>
+            <p class="sk-final-note">
+                अपनी समस्या के लिए उपलब्ध सहायता सेवाएँ देखें।
+            </p>
+            <div class="sk-tap-hint">TAP TO ENTER WEBSITE →</div>
+        </section>
+
+    </main>
+
+    <div class="sk-footer">
+        <div class="sk-footer-text">
+            YOUR VOICE. YOUR RIGHT. OUR ASSISTANCE.
+        </div>
+        <div class="sk-counter" id="sk-intro-counter">01 / 08</div>
+    </div>
+</div>
+
 <script>
 (function () {
-  "use strict";
+    "use strict";
 
-  const overlay = document.getElementById("sk-intro-overlay");
-  const skipButton = document.getElementById("sk-intro-skip");
-  const progressBar = document.getElementById("sk-intro-progress-bar");
+    const intro = document.getElementById("sk-intro");
+    if (!intro) return;
 
-  if (!overlay || !skipButton) return;
+    const skipButton = document.getElementById("sk-intro-skip");
+    const main = document.getElementById("sk-intro-main");
+    const scenes = Array.from(intro.querySelectorAll(".sk-scene"));
+    const counter = document.getElementById("sk-intro-counter");
 
-  let timer = null;
-  let closed = false;
-  let previousOverflow = "";
+    const SESSION_KEY = "skKgnIntroSeen";
 
-  function closeIntro() {
-    if (closed) return;
-    closed = true;
+    let currentScene = 0;
+    let sceneTimer = null;
+    let closeTimer = null;
+    let closed = false;
 
-    if (timer !== null) {
-      clearTimeout(timer);
+    function closeIntro() {
+        if (closed) return;
+        closed = true;
+
+        clearTimeout(sceneTimer);
+        clearTimeout(closeTimer);
+
+        try {
+            sessionStorage.setItem(SESSION_KEY, "1");
+        } catch (e) {}
+
+        intro.classList.add("sk-intro-hidden");
+
+        window.setTimeout(function () {
+            if (intro.parentNode) {
+                intro.parentNode.removeChild(intro);
+            }
+        }, 850);
     }
 
-    overlay.classList.add("sk-intro-hidden");
-    overlay.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = previousOverflow;
+    function showScene(index) {
+        if (closed) return;
+
+        clearTimeout(sceneTimer);
+
+        if (index >= scenes.length) {
+            closeIntro();
+            return;
+        }
+
+        scenes.forEach(function (scene) {
+            scene.classList.remove("sk-active");
+        });
+
+        currentScene = index;
+        scenes[index].classList.add("sk-active");
+
+        if (counter) {
+            counter.textContent =
+                String(index + 1).padStart(2, "0") +
+                " / " +
+                String(scenes.length).padStart(2, "0");
+        }
+
+        /* Naye scene par scroll ko top par rakho */
+        if (main) {
+            main.scrollTop = 0;
+        }
+
+        const duration =
+            Number(scenes[index].dataset.duration) || 7;
+
+        sceneTimer = window.setTimeout(function () {
+            if (currentScene >= scenes.length - 1) {
+                closeIntro();
+            } else {
+                showScene(currentScene + 1);
+            }
+        }, duration * 1000);
+    }
+
+    function handleScreenTap(event) {
+        if (closed) return;
+
+        if (event.target.closest("#sk-intro-skip")) {
+            return;
+        }
+
+        if (currentScene >= scenes.length - 1) {
+            closeIntro();
+        } else {
+            showScene(currentScene + 1);
+        }
+    }
+
+    let alreadySeen = false;
 
     try {
-      sessionStorage.setItem("skIntroSeen", "1");
-    } catch (error) {
-      /* Continue even if browser storage is unavailable. */
+        alreadySeen = sessionStorage.getItem(SESSION_KEY) === "1";
+    } catch (e) {}
+
+    if (alreadySeen) {
+        intro.remove();
+        return;
     }
 
-    window.setTimeout(function () {
-      if (overlay.parentNode) {
-        overlay.parentNode.removeChild(overlay);
-      }
-    }, 700);
-  }
+    skipButton.addEventListener("click", function (event) {
+        event.stopPropagation();
+        closeIntro();
+    });
 
-  try {
-    if (sessionStorage.getItem("skIntroSeen") === "1") {
-      overlay.remove();
-      return;
-    }
-  } catch (error) {
-    /* Storage may be disabled; show the intro normally. */
-  }
+    intro.addEventListener("click", handleScreenTap);
 
-  previousOverflow = document.body.style.overflow;
-  document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", function (event) {
+        if (closed) return;
 
-  skipButton.addEventListener("click", closeIntro);
+        if (event.key === "Escape") {
+            closeIntro();
+        } else if (event.key === "ArrowRight" || event.key === " ") {
+            event.preventDefault();
 
-  timer = window.setTimeout(closeIntro, 5000);
+            if (currentScene >= scenes.length - 1) {
+                closeIntro();
+            } else {
+                showScene(currentScene + 1);
+            }
+        }
+    });
 
-  if (window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    if (progressBar) progressBar.style.animation = "none";
-  }
+    showScene(0);
 })();
 </script>
-<!-- ========== END SK KGN TEAM CINEMATIC INTRO ========== -->
+
+<!-- ===== END SK KGN TEAM INTRO ===== -->
 </body>
 
 </html>
