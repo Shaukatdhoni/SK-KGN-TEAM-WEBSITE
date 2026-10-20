@@ -6553,6 +6553,562 @@ document.addEventListener("DOMContentLoaded", function () {
 </div>
 
 <style>
+<!-- SK KGN TEAM INTRO POPUP ONLY -->
+<style>
+#skkg-popup,
+#skkg-popup * {
+    box-sizing: border-box;
+}
+
+#skkg-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background:
+        radial-gradient(ellipse at 50% 30%, #153e75 0%, transparent 55%),
+        linear-gradient(140deg, #071a38, #020817);
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .7s ease, visibility .7s ease;
+    isolation: isolate;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+#skkg-popup.skkg-hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#skkg-popup .skkg-glow {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: #1685ff;
+    filter: blur(95px);
+    opacity: .20;
+    pointer-events: none;
+}
+
+#skkg-popup .skkg-glow-a {
+    top: -100px;
+    left: -70px;
+}
+
+#skkg-popup .skkg-glow-b {
+    right: -90px;
+    bottom: -100px;
+    background: #58b7ff;
+}
+
+#skkg-popup .skkg-skip {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 5;
+    padding: 10px 15px;
+    border: 1px solid rgba(255,255,255,.35);
+    border-radius: 25px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+#skkg-popup .skkg-skip:hover {
+    background: #1769d2;
+}
+
+#skkg-popup .skkg-panel {
+    position: relative;
+    z-index: 2;
+    width: min(760px, 100%);
+    max-height: calc(100dvh - 90px);
+    overflow-y: auto;
+    padding: 15px 12px 20px;
+    text-align: center;
+    cursor: pointer;
+    scrollbar-width: thin;
+}
+
+#skkg-popup .skkg-logo-frame {
+    width: 84px;
+    height: 84px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid #86c7ff;
+    background: #fff;
+    box-shadow: 0 0 35px rgba(40,130,255,.3);
+}
+
+#skkg-popup .skkg-logo {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+#skkg-popup .skkg-label {
+    color: #8bc9ff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+#skkg-popup .skkg-scene {
+    display: none;
+    min-height: 205px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: skkg-fade-in .8s ease both;
+}
+
+#skkg-popup .skkg-scene.skkg-active {
+    display: flex;
+}
+
+#skkg-popup .skkg-title {
+    margin: 0 0 17px;
+    color: #fff;
+    font-size: clamp(25px, 5vw, 44px);
+    font-weight: 800;
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+}
+
+#skkg-popup .skkg-blue {
+    color: #80c4ff;
+}
+
+#skkg-popup .skkg-rule {
+    width: 65px;
+    height: 3px;
+    margin: 0 auto 19px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, #1685ff, #c0e6ff);
+}
+
+#skkg-popup .skkg-desc {
+    max-width: 640px;
+    margin: 0 auto;
+    color: #d9e8fa;
+    font-size: clamp(14px, 2.2vw, 17px);
+    line-height: 1.8;
+}
+
+#skkg-popup .skkg-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: min(660px, 100%);
+    margin: 5px auto 0;
+    text-align: left;
+}
+
+#skkg-popup .skkg-item {
+    padding: 10px 12px;
+    border: 1px solid rgba(145,198,255,.2);
+    border-radius: 9px;
+    background: rgba(255,255,255,.06);
+    color: #eef6ff;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+#skkg-popup .skkg-item span {
+    color: #80c4ff;
+    font-weight: 800;
+    margin-right: 7px;
+}
+
+#skkg-popup .skkg-tap {
+    margin-top: 19px;
+    color: #8bc9ff;
+    font-size: 11px;
+    letter-spacing: 1.4px;
+}
+
+#skkg-popup .skkg-site {
+    margin-top: 12px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+#skkg-popup .skkg-bottom {
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    right: 10px;
+    z-index: 3;
+    text-align: center;
+    pointer-events: none;
+    color: #90a9ca;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+}
+
+#skkg-popup .skkg-count {
+    margin-top: 6px;
+    color: #85c2ff;
+    font-size: 11px;
+}
+
+@keyframes skkg-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+        filter: blur(3px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@media (max-width: 600px) {
+    #skkg-popup {
+        padding: 10px;
+    }
+
+    #skkg-popup .skkg-panel {
+        padding: 18px 3px 25px;
+        max-height: calc(100dvh - 78px);
+    }
+
+    #skkg-popup .skkg-logo-frame {
+        width: 68px;
+        height: 68px;
+        margin-bottom: 14px;
+    }
+
+    #skkg-popup .skkg-label {
+        font-size: 9px;
+        letter-spacing: 1.4px;
+    }
+
+    #skkg-popup .skkg-scene {
+        min-height: 200px;
+    }
+
+    #skkg-popup .skkg-title {
+        font-size: clamp(23px, 7vw, 32px);
+    }
+
+    #skkg-popup .skkg-desc {
+        font-size: 13px;
+    }
+
+    #skkg-popup .skkg-list {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    #skkg-popup .skkg-item {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+
+    #skkg-popup .skkg-skip {
+        top: 9px;
+        right: 9px;
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    #skkg-popup .skkg-bottom {
+        bottom: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #skkg-popup .skkg-scene {
+        animation: none;
+    }
+}
+</style>
+
+<div id="skkg-popup" role="dialog"
+     aria-modal="true"
+     aria-label="SK KGN TEAM Introduction">
+
+    <div class="skkg-glow skkg-glow-a"></div>
+    <div class="skkg-glow skkg-glow-b"></div>
+
+    <button type="button" class="skkg-skip" id="skkg-popup-skip">
+        SKIP INTRO ×
+    </button>
+
+    <div class="skkg-panel" id="skkg-popup-panel">
+
+        <div class="skkg-logo-frame">
+            <img
+                class="skkg-logo"
+                src="/Logo.jpg"
+                alt="SK KGN TEAM Logo"
+                onerror="this.style.display='none';">
+        </div>
+
+        <div class="skkg-label">PRIVATE COMPLAINT CONSULTANCY</div>
+
+        <section class="skkg-scene skkg-active" data-seconds="6">
+            <h1 class="skkg-title">
+                SK KGN <span class="skkg-blue">TEAM</span>
+            </h1>
+            <div class="skkg-rule"></div>
+            <p class="skkg-desc">
+                आपकी आवाज़, हमारी ज़िम्मेदारी।<br>
+                शिकायत लिखने से लेकर उचित प्रक्रिया समझने तक।
+            </p>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <section class="skkg-scene" data-seconds="7">
+            <h2 class="skkg-title">
+                क्या आपका कोई काम<br>
+                <span class="skkg-blue">महीनों से अटका है?</span>
+            </h2>
+            <p class="skkg-desc">
+                सरकारी आवेदन, विभागीय शिकायत या दस्तावेज़ संबंधी समस्या?
+                अपनी समस्या के अनुसार उपलब्ध सहायता और उचित प्रक्रिया की जानकारी प्राप्त करें।
+            </p>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <section class="skkg-scene" data-seconds="8">
+            <h2 class="skkg-title">
+                शिकायत एवं आवेदन<br>
+                <span class="skkg-blue">सहायता</span>
+            </h2>
+            <div class="skkg-list">
+                <div class="skkg-item"><span>✓</span>शिकायत ड्राफ्ट तैयार करना</div>
+                <div class="skkg-item"><span>✓</span>शिकायत जमा करने की प्रक्रिया में सहायता</div>
+                <div class="skkg-item"><span>✓</span>आवेदन एवं प्रार्थना पत्र तैयार करना</div>
+                <div class="skkg-item"><span>✓</span>फॉलो-अप एवं पुनः शिकायत सहायता</div>
+            </div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <section class="skkg-scene" data-seconds="9">
+            <h2 class="skkg-title">
+                सरकारी योजनाएँ एवं<br>
+                <span class="skkg-blue">दस्तावेज़ सहायता</span>
+            </h2>
+            <div class="skkg-list">
+                <div class="skkg-item"><span>✓</span>किसान सम्मान निधि एवं आवास योजना</div>
+                <div class="skkg-item"><span>✓</span>पेंशन एवं छात्रवृत्ति आवेदन और स्टेटस</div>
+                <div class="skkg-item"><span>✓</span>आयुष्मान कार्ड सहायता</div>
+                <div class="skkg-item"><span>✓</span>सरकारी प्रमाणपत्र आवेदन एवं सुधार</div>
+                <div class="skkg-item"><span>✓</span>जमीन रिकॉर्ड एवं खतौनी</div>
+                <div class="skkg-item"><span>✓</span>जमीन पैमाइश आवेदन</div>
+                <div class="skkg-item"><span>✓</span>सरकारी आवेदन रिजेक्शन एवं अपील</div>
+            </div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <section class="skkg-scene" data-seconds="9">
+            <h2 class="skkg-title">
+                शिकायत संबंधी<br>
+                <span class="skkg-blue">सेवाएँ</span>
+            </h2>
+            <div class="skkg-list">
+                <div class="skkg-item"><span>✓</span>बैंक शिकायत एवं भूली हुई राशि की खोज</div>
+                <div class="skkg-item"><span>✓</span>सूचना का अधिकार (RTI)</div>
+                <div class="skkg-item"><span>✓</span>साइबर फ्रॉड शिकायत</div>
+                <div class="skkg-item"><span>✓</span>पुलिस शिकायत सहायता</div>
+                <div class="skkg-item"><span>✓</span>गैस सब्सिडी एवं गैस शिकायत</div>
+                <div class="skkg-item"><span>✓</span>उपभोक्ता शिकायत एवं ई-फाइलिंग</div>
+                <div class="skkg-item"><span>✓</span>ट्रैफिक चालान सहायता</div>
+            </div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <section class="skkg-scene" data-seconds="8">
+            <h2 class="skkg-title">
+                अन्य उपयोगी<br>
+                <span class="skkg-blue">सेवाएँ</span>
+            </h2>
+            <div class="skkg-list">
+                <div class="skkg-item"><span>✓</span>कोर्ट स्टेटस एवं आदेश संबंधी जानकारी</div>
+                <div class="skkg-item"><span>✓</span>कानूनी सहायता आवेदन</div>
+                <div class="skkg-item"><span>✓</span>सरकारी अस्पताल OPD अपॉइंटमेंट</div>
+                <div class="skkg-item"><span>✓</span>जमीन विवाद संबंधी शिकायत सहायता</div>
+                <div class="skkg-item"><span>✓</span>उत्पाद एवं दुकानदार संबंधी शिकायत</div>
+                <div class="skkg-item"><span>✓</span>सरकारी एवं निजी संस्थानों की शिकायत</div>
+                <div class="skkg-item"><span>✓</span>रिश्वत संबंधी शिकायत प्रक्रिया की जानकारी</div>
+            </div>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <section class="skkg-scene" data-seconds="7">
+            <h2 class="skkg-title">
+                सही प्रक्रिया की जानकारी<br>
+                <span class="skkg-blue">आपकी आवश्यकता के अनुसार</span>
+            </h2>
+            <div class="skkg-rule"></div>
+            <p class="skkg-desc">
+                अपनी समस्या साझा करें, उपलब्ध सेवाएँ देखें और आवेदन तैयार करने
+                तथा संबंधित प्रक्रिया में सहायता प्राप्त करें।
+                <br><br>
+                <strong>स्पष्ट जानकारी • व्यवस्थित प्रक्रिया • जिम्मेदार मार्गदर्शन</strong>
+            </p>
+            <div class="skkg-tap">TAP TO CONTINUE ↓</div>
+        </section>
+
+        <section class="skkg-scene" data-seconds="6">
+            <h2 class="skkg-title">
+                WELCOME TO<br>
+                <span class="skkg-blue">SK KGN TEAM</span>
+            </h2>
+            <div class="skkg-rule"></div>
+            <p class="skkg-desc">
+                YOUR VOICE. YOUR RIGHT. OUR ASSISTANCE.
+            </p>
+            <div class="skkg-site">www.skkgnteam.in</div>
+            <div class="skkg-tap">TAP TO ENTER WEBSITE →</div>
+        </section>
+
+    </div>
+
+    <div class="skkg-bottom">
+        YOUR VOICE. YOUR RIGHT. OUR ASSISTANCE.
+        <div class="skkg-count" id="skkg-popup-count">01 / 08</div>
+    </div>
+</div>
+
+<script>
+(function () {
+    "use strict";
+
+    const popup = document.getElementById("skkg-popup");
+    if (!popup) return;
+
+    const panel = document.getElementById("skkg-popup-panel");
+    const skip = document.getElementById("skkg-popup-skip");
+    const counter = document.getElementById("skkg-popup-count");
+    const scenes = Array.from(popup.querySelectorAll(".skkg-scene"));
+    const key = "skkgIntroShown";
+
+    let current = 0;
+    let timer = null;
+    let closed = false;
+
+    function closePopup() {
+        if (closed) return;
+        closed = true;
+        clearTimeout(timer);
+
+        try {
+            sessionStorage.setItem(key, "1");
+        } catch (e) {}
+
+        popup.classList.add("skkg-hide");
+
+        setTimeout(function () {
+            if (popup.parentNode) popup.remove();
+        }, 750);
+    }
+
+    function showScene(index) {
+        if (closed) return;
+        clearTimeout(timer);
+
+        if (index >= scenes.length) {
+            closePopup();
+            return;
+        }
+
+        scenes.forEach(function (scene) {
+            scene.classList.remove("skkg-active");
+        });
+
+        current = index;
+        scenes[current].classList.add("skkg-active");
+
+        if (counter) {
+            counter.textContent =
+                String(current + 1).padStart(2, "0") +
+                " / " +
+                String(scenes.length).padStart(2, "0");
+        }
+
+        if (panel) panel.scrollTop = 0;
+
+        const seconds =
+            Number(scenes[current].dataset.seconds) || 7;
+
+        timer = setTimeout(function () {
+            if (current === scenes.length - 1) {
+                closePopup();
+            } else {
+                showScene(current + 1);
+            }
+        }, seconds * 1000);
+    }
+
+    function nextScene() {
+        if (closed) return;
+
+        if (current >= scenes.length - 1) {
+            closePopup();
+        } else {
+            showScene(current + 1);
+        }
+    }
+
+    let seen = false;
+
+    try {
+        seen = sessionStorage.getItem(key) === "1";
+    } catch (e) {}
+
+    if (seen) {
+        popup.remove();
+        return;
+    }
+
+    skip.addEventListener("click", function (event) {
+        event.stopPropagation();
+        closePopup();
+    });
+
+    popup.addEventListener("click", function (event) {
+        if (event.target.closest("#skkg-popup-skip")) return;
+        nextScene();
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (closed) return;
+
+        if (event.key === "Escape") {
+            closePopup();
+        } else if (event.key === "ArrowRight" || event.key === " ") {
+            event.preventDefault();
+            nextScene();
+        }
+    });
+
+    showScene(0);
+})();
+</script>
+<!-- END SK KGN TEAM INTRO POPUP -->
 </body>
 
 </html>
