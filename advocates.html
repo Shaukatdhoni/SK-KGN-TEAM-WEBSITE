@@ -206,7 +206,21 @@ function createAdvocateCard(advocate) {
     addTextElement(mobileRow, "span", "mobile-number", maskedMobile);
     card.appendChild(mobileRow);
   }
-  /* Direct contact links/buttons are intentionally not shown. */
+  const contactUrl = safeText(advocate.publicContactUrl);
+  if (contactUrl) {
+    try {
+      const parsed = new URL(contactUrl);
+      if (["https:", "http:"].includes(parsed.protocol)) {
+        const link = document.createElement("a");
+        link.className = "contact-button";
+        link.textContent = "Contact Now →";
+        link.href = parsed.href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        card.appendChild(link);
+      }
+    } catch { /* Ignore malformed URLs. */ }
+  }
   return card;
 }
 async function getApprovedAdvocates() {
