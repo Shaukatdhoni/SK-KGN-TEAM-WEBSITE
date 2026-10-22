@@ -1759,7 +1759,11 @@ $("saveCareer").addEventListener("click", () => {
     adminRemark: $("careerRemark").value.trim()  
   });  
 });  
-  
+  $("saveAdvocate").addEventListener("click", () => {
+  saveSelected("advocateApplications", {
+    status: $("advocateStatus").value
+  });
+});
 /* STARTUP STATUS */  
   
 window.addEventListener("online", () => {  
