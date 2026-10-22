@@ -1272,8 +1272,12 @@ async function loadCurrentView() {
     '<tr><td class="empty" colspan="8">Loading records…</td></tr>';  
   
   try {  
-    const collectionName =  
-      view === "complaints" ? "complaints" : "careerApplications";  
+    const collectionName =
+  view === "complaints"
+    ? "complaints"
+    : view === "careers"
+    ? "careerApplications"
+    : "advocateApplications";  
   
     const snapshot = await getDocs(collection(db, collectionName));  
   
