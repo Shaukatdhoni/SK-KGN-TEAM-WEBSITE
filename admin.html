@@ -1214,10 +1214,12 @@ document.querySelectorAll(".tab").forEach(button => {
     ? "Career Applications"
     : "Advocate Applications";  
   
-    $("pageSubtitle").textContent =  
-      view === "complaints"  
-        ? "Review submissions, update status and record administrative remarks."  
-        : "Review submitted applications and update recruitment status.";  
+    $("pageSubtitle").textContent =
+  view === "complaints"
+    ? "Review submissions, update status and record administrative remarks."
+    : view === "careers"
+    ? "Review submitted applications and update recruitment status."
+    : "Review advocate registrations and manage approval status.";  
   
     $("paymentFilter").classList.toggle("hidden", view === "careers");  
     $("stats").classList.toggle("hidden", view === "careers");  
