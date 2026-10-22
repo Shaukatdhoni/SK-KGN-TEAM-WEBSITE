@@ -45,6 +45,12 @@ const firebaseConfig={
   measurementId:"G-BXWT6BPTB6"
 };
 const app=initializeApp(firebaseConfig),db=getFirestore(app),auth=getAuth(app);
+console.log("Firebase Project:", app.options.projectId);
+console.log("Firebase Auth Domain:", app.options.authDomain);
+console.log(
+  "Firebase API Key Present:",
+  Boolean(app.options.apiKey && app.options.apiKey.startsWith("AIza"))
+);
 let view="complaints",complaints=[],careers=[],advocates=[],filtered=[],selected=null,busy=false;
 const $=id=>document.getElementById(id),loginPage=$("loginPage"),adminPage=$("adminPage"),loginForm=$("loginForm"),loginButton=$("loginButton"),loginMessage=$("loginMessage"),tableHead=$("tableHead"),tableBody=$("tableBody"),pageMessage=$("pageMessage"),modalMessage=$("modalMessage"),recordModal=$("recordModal");
 function message(el,text,type="info"){el.textContent=text;el.className="message "+type}function clearMessage(el){el.textContent="";el.className="message hidden"}
