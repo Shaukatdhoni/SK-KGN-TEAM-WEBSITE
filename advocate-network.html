@@ -4,583 +4,549 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#071a3b">
-<meta name="description" content="Apply to join the SK KGN TEAM Advocate Network for professional coordination and collaboration.">
 <title>Advocate Network | SK KGN TEAM</title>
-<link rel="icon" type="image/jpeg" href="Logo.jpg">
 
 <style>
 :root{
   --navy:#071a3b;
-  --navy2:#102e60;
+  --navy-light:#102e60;
   --blue:#175fce;
-  --gold:#c9a85b;
-  --ink:#18243a;
-  --muted:#647187;
-  --line:#e1e7ef;
-  --paper:#f5f7fb;
+  --blue-light:#eaf2ff;
   --white:#fff;
-  --green:#176b45;
-  --red:#aa3027;
+  --bg:#f4f7fc;
+  --text:#15243d;
+  --muted:#6b7890;
+  --border:#e2e8f2;
+  --green:#168354;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:Inter,"Segoe UI",Arial,sans-serif;
-  color:var(--ink);
-  background:var(--paper);
-  line-height:1.55;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
 }
-body.modal-open{overflow:hidden}
-a{color:inherit}
-button,input,select,textarea{font:inherit}
-.container{width:min(1120px,92%);margin-inline:auto}
+a{text-decoration:none;color:inherit}
+button{font:inherit;cursor:pointer}
+.container{width:min(1120px,92%);margin:auto}
 
-.topbar{
+/* NAVIGATION */
+header{
   background:var(--navy);
-  color:#fff;
-  border-bottom:3px solid var(--gold);
+  color:white;
+  position:sticky;
+  top:0;
+  z-index:10;
+  border-bottom:1px solid #ffffff20;
 }
 .nav{
-  min-height:78px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px;
+  min-height:76px;
+  gap:20px;
 }
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  min-width:0;
-}
-.brand img{
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
   height:45px;
   width:45px;
   object-fit:contain;
-  background:#fff;
-  border:1px solid #e4d3a3;
-  border-radius:10px;
-  padding:2px;
+  background:white;
+  border-radius:12px;
+  padding:3px;
 }
-.brand-name{font-size:17px;font-weight:800;display:block}
+.brand-name{font-size:16px;font-weight:850;display:block}
 .brand-sub{
+  color:#aebed8;
   font-size:10px;
-  color:#cad4e3;
-  letter-spacing:1.3px;
-  text-transform:uppercase;
+  letter-spacing:1.5px;
   display:block;
-  margin-top:2px;
 }
 .nav-link{
-  color:#fff;
-  text-decoration:none;
-  border:1px solid #71809a;
-  border-radius:8px;
-  padding:9px 13px;
-  font-size:13px;
-  font-weight:700;
-  white-space:nowrap;
-}
-.hero{
-  background:linear-gradient(115deg,#071a3b,#102e60 68%,#173e75);
-  color:#fff;
-  padding:68px 0 62px;
-}
-.eyebrow{
-  font-size:11px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:#e5cb88;
-  font-weight:800;
-  margin:0 0 15px;
-}
-.hero h1{
-  font-size:clamp(32px,5vw,54px);
-  line-height:1.1;
-  letter-spacing:-1.4px;
-  max-width:760px;
-  margin:0 0 18px;
-}
-.hero p{
-  max-width:680px;
-  font-size:16px;
-  line-height:1.7;
-  color:#d5deeb;
-}
-.hero .hero-note{font-size:12px;color:#d5deeb}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.button{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
+  border:1px solid #7185a7;
+  padding:9px 14px;
   border-radius:9px;
-  border:1px solid transparent;
-  padding:12px 17px;
-  font-weight:800;
-  font-size:13px;
-  text-decoration:none;
-  cursor:pointer;
+  font-size:12px;
+  font-weight:750;
 }
-.button-primary{background:#fff;color:var(--navy)}
-.button-ghost{border-color:#7286a4;color:#fff;background:transparent}
 
-.section{padding:57px 0}
-.section-white{background:#fff;border-block:1px solid var(--line)}
-.section-heading{max-width:720px;margin-bottom:28px}
-.section-kicker{
-  font-size:11px;
-  letter-spacing:1.7px;
+/* HERO */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(125deg,#071a3b,#0d2d61 70%,#174e91);
+  color:white;
+  padding:80px 0 74px;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:340px;
+  height:340px;
+  border:1px solid #ffffff17;
+  border-radius:50%;
+  right:-100px;
+  top:-100px;
+  box-shadow:0 0 0 45px #ffffff06,0 0 0 90px #ffffff04;
+  pointer-events:none;
+}
+.hero-content{max-width:790px;position:relative;z-index:1}
+.eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  color:#bcd5ff;
+  background:#ffffff0d;
+  border:1px solid #ffffff20;
+  padding:7px 12px;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:1.5px;
   text-transform:uppercase;
-  color:#8d6e2b;
-  font-weight:800;
-  margin:0 0 8px;
 }
-h2{
-  font-size:clamp(25px,3.2vw,35px);
-  line-height:1.2;
-  margin:0 0 10px;
-  color:var(--navy);
+.eyebrow-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#62a0ff;
 }
-.section-heading>p:last-child{
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.75;
+h1{
+  font-size:clamp(36px,6vw,65px);
+  letter-spacing:-2px;
+  line-height:1.08;
+  margin:23px 0 20px;
+  max-width:750px;
 }
-.process-grid,.benefit-grid{
+.hero h1 span{color:#8db8ff}
+.hero-copy{
+  color:#d0dced;
+  font-size:16px;
+  max-width:610px;
+  line-height:1.85;
+}
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:28px;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:13px 19px;
+  border-radius:10px;
+  font-size:13px;
+  font-weight:850;
+  border:1px solid transparent;
+  transition:transform .2s,background .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-white{background:white;color:var(--navy)}
+.btn-outline{border-color:#8195b5;color:white}
+.hero-note{
+  font-size:11px;
+  color:#b8c8df;
+  margin-top:22px;
+}
+
+/* QUICK INFO */
+.quick-info{margin-top:-25px;position:relative;z-index:2}
+.info-grid{
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-template-columns:repeat(3,1fr);
   gap:14px;
 }
-.process-card,.benefit-card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:12px;
+.info-card{
+  background:white;
+  border:1px solid var(--border);
   padding:21px;
-  min-width:0;
+  border-radius:15px;
+  box-shadow:0 12px 35px #071a3b0b;
 }
-.process-no{
-  display:grid;
-  place-items:center;
-  width:35px;
-  height:35px;
-  border-radius:9px;
-  background:#edf3fc;
-  color:var(--navy2);
-  font-size:12px;
+.info-number{
+  font-size:11px;
+  color:var(--blue);
   font-weight:900;
-  margin-bottom:15px;
+  letter-spacing:1px;
 }
-.process-card h3,.benefit-card h3{
+.info-card h3{
   font-size:15px;
-  margin:0 0 8px;
+  margin:8px 0 4px;
   color:var(--navy);
 }
-.process-card p,.benefit-card p{
-  font-size:13px;
-  line-height:1.7;
+.info-card p{
   color:var(--muted);
+  font-size:12px;
   margin:0;
-}
-.benefit-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.benefit-card{background:#f9fafc}
-.benefit-card .bar{
-  height:3px;
-  width:34px;
-  background:var(--gold);
-  margin-bottom:16px;
 }
 
-.application-layout{
-  display:grid;
-  grid-template-columns:minmax(250px,.8fr) minmax(0,1.5fr);
-  gap:26px;
-  align-items:start;
-}
-.side-panel{
-  background:var(--navy);
-  color:#fff;
-  border-radius:14px;
-  padding:25px;
-  position:sticky;
-  top:16px;
-}
-.side-panel h3{font-size:20px;margin:0 0 12px}
-.side-panel p{
-  font-size:13px;
-  line-height:1.75;
-  color:#d2dbea;
-  margin:0 0 18px;
-}
-.side-panel ul{list-style:none;padding:0;margin:0}
-.side-panel li{
-  padding:10px 0;
-  border-top:1px solid #ffffff1c;
-  color:#e0e6f0;
-  font-size:12px;
-}
-.side-panel li:before{
-  content:"✓";
-  color:#e5cb88;
+/* GENERAL SECTIONS */
+section.content-section{padding:76px 0}
+.section-header{max-width:680px;margin-bottom:30px}
+.kicker{
+  color:var(--blue);
+  font-size:10px;
+  letter-spacing:1.8px;
   font-weight:900;
-  margin-right:9px;
+  text-transform:uppercase;
 }
-.form-card{
-  background:#fff;
-  border:1px solid var(--line);
+h2{
+  color:var(--navy);
+  font-size:clamp(27px,4vw,39px);
+  line-height:1.2;
+  letter-spacing:-.8px;
+  margin:10px 0;
+}
+.section-desc{color:var(--muted);font-size:14px;line-height:1.8}
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:15px;
+}
+.process-card{
+  background:white;
+  border:1px solid var(--border);
+  padding:23px 20px;
   border-radius:14px;
-  padding:clamp(18px,3.2vw,30px);
-  box-shadow:0 8px 28px #14284808;
+  transition:transform .2s,box-shadow .2s;
 }
-.form-top{
-  padding-bottom:17px;
-  border-bottom:1px solid var(--line);
-  margin-bottom:18px;
+.process-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 15px 35px #071a3b0b;
 }
-.form-top h3{font-size:21px;color:var(--navy);margin:0 0 5px}
-.form-top p{font-size:12px;color:var(--muted);margin:0}
-fieldset{
+.process-icon{
+  display:grid;
+  place-items:center;
+  width:42px;height:42px;
+  border-radius:12px;
+  background:var(--blue-light);
+  color:var(--blue);
+  font-weight:900;
+  font-size:13px;
+}
+.process-card h3{font-size:15px;color:var(--navy);margin:18px 0 8px}
+.process-card p{font-size:12px;color:var(--muted);line-height:1.8;margin:0}
+
+/* COLLABORATION */
+.collab-section{
+  background:white;
+  border-block:1px solid var(--border);
+}
+.collab-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:center;
+}
+.collab-visual{
+  background:linear-gradient(145deg,#071a3b,#154a91);
+  border-radius:20px;
+  padding:28px;
+  color:white;
+  min-height:300px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+.visual-tag{
+  display:inline-block;
+  width:max-content;
+  padding:7px 10px;
+  background:#ffffff12;
+  border:1px solid #ffffff25;
+  border-radius:7px;
+  font-size:10px;
+  letter-spacing:1px;
+}
+.visual-title{
+  font-size:29px;
+  font-weight:850;
+  line-height:1.25;
+  max-width:300px;
+}
+.visual-bottom{font-size:12px;color:#c7d8f0}
+.feature-list{display:grid;gap:19px;margin-top:25px}
+.feature{
+  display:flex;align-items:flex-start;gap:13px;
+}
+.feature-check{
+  display:grid;place-items:center;
+  flex:0 0 28px;height:28px;
+  border-radius:8px;
+  background:var(--blue-light);
+  color:var(--blue);
+  font-weight:900;
+}
+.feature h3{font-size:14px;margin:0 0 4px;color:var(--navy)}
+.feature p{font-size:12px;color:var(--muted);margin:0;line-height:1.7}
+
+/* APPLICATION PREVIEW */
+.application-section{background:var(--bg)}
+.application-card{
+  max-width:760px;
+  margin:auto;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:clamp(22px,5vw,38px);
+  box-shadow:0 15px 50px #071a3b0a;
+}
+.application-heading{
+  padding-bottom:20px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:24px;
+}
+.application-heading h2{font-size:27px;margin:0 0 8px}
+.application-heading p{font-size:12px;color:var(--muted);margin:0}
+.preview-label{
+  font-size:11px;
+  font-weight:800;
+  color:#34445e;
+  display:block;
+  margin-bottom:7px;
+}
+.preview-input{
+  width:100%;
+  min-height:45px;
+  border:1px solid #d7dfeb;
+  background:white;
+  padding:11px 12px;
+  border-radius:9px;
+  color:var(--text);
+  font:inherit;
+  font-size:13px;
+}
+.preview-input:focus{
+  outline:3px solid #175fce20;
+  border-color:var(--blue);
+}
+.preview-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:17px;
+}
+.preview-field{min-width:0}
+.preview-field.full{grid-column:1/-1}
+.preview-hint{font-size:10px;color:var(--muted);margin-top:5px}
+.preview-areas{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+}
+.area-option{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  background:#f8fafd;
+  border:1px solid var(--border);
+  padding:10px;
+  border-radius:9px;
+  font-size:12px;
+  cursor:pointer;
+}
+.area-option input{accent-color:var(--blue)}
+.consent{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.7;
+  margin:18px 0;
+}
+.consent input{margin-top:4px;accent-color:var(--blue)}
+.submit-demo{
+  width:100%;
   border:0;
-  border-bottom:1px solid var(--line);
-  padding:0 0 21px;
-  margin:0 0 20px;
-  min-width:0;
+  background:var(--navy);
+  color:white;
+  border-radius:10px;
+  padding:15px;
+  font-size:13px;
+  font-weight:850;
 }
-legend{
+.submit-demo:hover{background:var(--blue)}
+.demo-note{
+  font-size:11px;
+  color:#78869a;
+  text-align:center;
+  margin-top:13px;
+}
+
+/* SUCCESS MODAL DEMO */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:100;
+  background:#06142dc9;
+  backdrop-filter:blur(6px);
+  padding:18px;
+  align-items:center;
+  justify-content:center;
+}
+.modal.open{display:flex}
+.modal-card{
+  width:min(440px,100%);
+  background:white;
+  border:1px solid #dfe7f2;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 30px 100px #0004;
+  animation:appear .22s ease-out;
+}
+@keyframes appear{
+  from{opacity:0;transform:translateY(12px) scale(.98)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.modal-header{
+  padding:26px 22px 23px;
+  text-align:center;
+  background:linear-gradient(135deg,#071a3b,#175fce);
+  color:white;
+}
+.modal-check{
+  width:65px;height:65px;
+  border-radius:50%;
+  margin:0 auto 15px;
+  display:grid;
+  place-items:center;
+  background:#ffffff18;
+  border:2px solid #ffffff80;
+  font-size:32px;
+  font-weight:900;
+}
+.modal-header small{
+  font-size:9px;
+  letter-spacing:1.6px;
+  color:#cfe0ff;
+  font-weight:900;
+}
+.modal-header h2{
+  color:white;
+  font-size:28px;
+  margin:8px 0;
+}
+.modal-header p{color:#dce8ff;font-size:12px;margin:0}
+.modal-body{padding:23px}
+.modal-body h3{font-size:17px;color:var(--navy);margin:0 0 7px}
+.modal-body>p{font-size:12px;color:var(--muted);margin:0 0 18px}
+.reference-box{
+  padding:14px;
+  border:1px solid #c9d9f3;
+  border-radius:12px;
+  background:#f3f7ff;
+}
+.reference-label{
+  color:#54709b;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+.reference-id{
+  display:block;
   font-size:13px;
   font-weight:900;
   color:var(--navy);
-  padding:0;
-  margin:0 0 14px;
+  overflow-wrap:anywhere;
+  margin:8px 0 12px;
 }
-.form-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:15px;
-}
-.field{min-width:0}
-.field.full{grid-column:1/-1}
-label,.field-label{
-  display:block;
-  font-size:11px;
-  font-weight:800;
-  color:#354158;
-  margin:0 0 7px;
-}
-.required{color:#b42318}
-input,select,textarea{
-  font:inherit;
+.copy-id{
   width:100%;
-  border:1px solid #d5dce7;
-  border-radius:8px;
-  background:#fff;
-  padding:11px 12px;
-  color:var(--ink);
-  outline:none;
-  font-size:13px;
-  min-height:43px;
-}
-input:focus,select:focus,textarea:focus{
-  border-color:var(--blue);
-  box-shadow:0 0 0 3px #175fce16;
-}
-textarea{min-height:105px;resize:vertical}
-.hint{font-size:10px;color:#7b8799;margin-top:5px;line-height:1.5}
-.checks{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:9px;
-}
-.check{
-  display:flex;
-  align-items:flex-start;
-  gap:9px;
-  background:#f8fafd;
-  border:1px solid var(--line);
+  border:1px solid #c6d6ef;
   border-radius:8px;
   padding:10px;
-  font-size:12px;
-  color:#354158;
-  cursor:pointer;
-  margin:0;
-}
-.check:has(input:checked){
-  border-color:#175fce;
-  background:#edf4ff;
-}
-.check input,.consent input{
-  width:16px;
-  min-height:16px;
-  height:16px;
-  margin:2px 0 0;
-  flex:0 0 auto;
-  accent-color:var(--navy2);
-}
-.consent{
-  display:flex;
-  align-items:flex-start;
-  gap:10px;
+  background:white;
+  color:var(--navy);
   font-size:11px;
-  color:#4e5a6d;
+  font-weight:850;
+}
+.status{
+  display:block;
+  width:max-content;
+  max-width:100%;
+  margin:15px auto 0;
+  padding:8px 12px;
+  border-radius:30px;
+  background:#eaf2ff;
+  color:#1754aa;
+  font-size:10px;
+  font-weight:900;
+}
+.modal-note{
+  text-align:center;
+  font-size:10px!important;
   line-height:1.7;
-  margin:4px 0 12px;
+  margin:15px 0 0!important;
 }
-.consent span{display:block}
-.consent input{width:16px;min-height:16px;height:16px}
-.form-submit{
+.modal-close{
+  margin-top:18px;
   width:100%;
+  border:0;
   background:var(--navy);
-  color:#fff;
-  min-height:46px;
-}
-.form-submit:hover{background:#10316a}
-.form-submit:disabled{opacity:.6;cursor:wait}
-.form-message{
-  padding:12px 14px;
-  border-radius:8px;
+  color:white;
+  padding:13px;
+  border-radius:9px;
   font-size:12px;
-  line-height:1.6;
-  margin-bottom:14px;
-  overflow-wrap:anywhere;
+  font-weight:900;
 }
-.form-message[hidden]{display:none}
-.form-message.error{
-  background:#fff0ef;
-  color:#9b2c24;
-  border:1px solid #f5c6c2;
+
+/* FOOTER */
+footer{
+  background:#06142d;
+  color:#c3cfe0;
+  padding:28px 0;
 }
-.form-message.info{
-  background:#eef4ff;
-  color:#174a8b;
-  border:1px solid #cdddf7;
-}
-.policy{font-size:11px;color:#7d8796;line-height:1.7;margin:15px 0 0}
-.footer{background:#06142d;color:#c5d0e0;padding:25px 0}
 .footer-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:15px;
   flex-wrap:wrap;
+  gap:15px;
 }
-.footer-brand{font-size:12px;font-weight:800;color:#fff}
-.footer small{font-size:10px;line-height:1.6}
+.footer-brand{color:white;font-size:13px;font-weight:850}
+footer small{font-size:10px}
 
-/* PROFESSIONAL SUCCESS / ERROR POPUP */
-.modal-backdrop{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:18px;
-  background:rgba(3,12,29,.76);
-  backdrop-filter:blur(7px);
-  -webkit-backdrop-filter:blur(7px);
-}
-.modal-backdrop.show{display:flex}
-.modal-card{
-  width:min(460px,100%);
-  max-height:90vh;
-  overflow-y:auto;
-  background:#fff;
-  border:1px solid #e3d2a0;
-  border-radius:20px;
-  box-shadow:0 24px 90px #0005;
-  text-align:center;
-  position:relative;
-  animation:modalEnter .28s ease-out;
-}
-@keyframes modalEnter{
-  from{opacity:0;transform:translateY(18px) scale(.97)}
-  to{opacity:1;transform:translateY(0) scale(1)}
-}
-.modal-top{
-  padding:26px 24px 22px;
-  color:#fff;
-  background:linear-gradient(135deg,#071a3b,#12376e);
-  border-bottom:4px solid var(--gold);
-}
-.modal-emblem{
-  width:72px;
-  height:72px;
-  border-radius:50%;
-  margin:0 auto 13px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(145deg,#f6e7b6,#c9a85b);
-  color:#071a3b;
-  font-size:35px;
-  font-weight:900;
-  box-shadow:0 0 0 7px #ffffff14;
-}
-.modal-top .modal-eyebrow{
-  margin:0 0 5px;
-  font-size:10px;
-  letter-spacing:2px;
-  font-weight:900;
-  color:#f2d991;
-}
-.modal-top h2{
-  margin:0;
-  color:#fff;
-  font-size:clamp(25px,6vw,32px);
-  line-height:1.2;
-}
-.modal-top p{
-  margin:9px 0 0;
-  color:#dbe5f3;
-  font-size:13px;
-}
-.modal-body{padding:23px 24px 25px}
-.modal-success-title{
-  color:var(--navy);
-  font-size:18px;
-  font-weight:900;
-  margin:0 0 7px;
-}
-.modal-description{
-  color:var(--muted);
-  font-size:12px;
-  margin:0 0 18px;
-}
-.application-id-box{
-  border:1px dashed #c9a85b;
-  background:#fbf8ef;
-  border-radius:12px;
-  padding:13px;
-  text-align:left;
-}
-.application-id-label{
-  display:block;
-  color:#75602b;
-  font-size:10px;
-  font-weight:900;
-  letter-spacing:1.1px;
-  text-transform:uppercase;
-  margin-bottom:7px;
-}
-.application-id-value{
-  display:block;
-  color:var(--navy);
-  font-size:14px;
-  font-weight:900;
-  line-height:1.6;
-  overflow-wrap:anywhere;
-  user-select:text;
-}
-.copy-button{
-  width:100%;
-  margin-top:10px;
-  border:1px solid #c9a85b;
-  border-radius:8px;
-  background:#fff;
-  color:var(--navy);
-  padding:10px;
-  font-size:12px;
-  font-weight:900;
-  cursor:pointer;
-}
-.copy-button:hover{background:#f6efd9}
-.status-pill{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  margin:16px 0 0;
-  border-radius:30px;
-  padding:8px 13px;
-  background:#fff4d6;
-  color:#785817;
-  font-size:11px;
-  font-weight:900;
-  border:1px solid #f0d58d;
-}
-.status-dot{
-  height:7px;
-  width:7px;
-  border-radius:50%;
-  background:#d49b19;
-}
-.modal-note{
-  margin:14px 0 0;
-  color:#69758a;
-  font-size:11px;
-  line-height:1.65;
-}
-.modal-action{
-  width:100%;
-  margin-top:20px;
-  border:0;
-  border-radius:10px;
-  padding:13px 18px;
-  min-height:47px;
-  background:var(--navy);
-  color:#fff;
-  font-size:12px;
-  font-weight:900;
-  cursor:pointer;
-}
-.modal-action:hover{background:#12376e}
-.modal-action:focus-visible,.copy-button:focus-visible{
-  outline:3px solid #175fce;
-  outline-offset:3px;
-}
-.modal-card.error-modal .modal-emblem{
-  background:#fde2df;
-  color:#a32d24;
-}
-.modal-card.error-modal .modal-top{border-bottom-color:#eaa19b}
-.modal-card.error-modal .modal-top .modal-eyebrow{color:#ffd1cc}
-
+/* RESPONSIVE */
 @media(max-width:850px){
   .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .application-layout{grid-template-columns:1fr}
-  .side-panel{position:static}
-  .benefit-grid{grid-template-columns:1fr}
+  .collab-layout{grid-template-columns:1fr;gap:25px}
+  .collab-visual{min-height:240px}
 }
 @media(max-width:560px){
   .nav{min-height:68px}
-  .brand img{height:39px;width:39px}
+  .logo{width:39px;height:39px}
   .brand-name{font-size:14px}
   .brand-sub{font-size:9px;letter-spacing:.7px}
-  .nav-link{font-size:11px;padding:8px 10px}
-  .hero{padding:49px 0 46px}
-  .hero p{font-size:15px}
-  .section{padding:42px 0}
-  .process-grid,.form-grid,.checks{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
-  .process-card{padding:17px}
-  .form-card{padding:18px 14px}
-  .modal-backdrop{padding:12px}
-  .modal-card{border-radius:16px}
-  .modal-top{padding:24px 18px 20px}
-  .modal-body{padding:20px 17px 22px}
-  .modal-emblem{width:64px;height:64px;font-size:31px}
-  .application-id-value{font-size:13px}
-}
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    scroll-behavior:auto!important;
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
-    transition-duration:.01ms!important;
-  }
+  .nav-link{font-size:10px;padding:8px}
+  .hero{padding:54px 0 53px}
+  h1{letter-spacing:-1.2px}
+  .hero-copy{font-size:14px}
+  .info-grid{grid-template-columns:1fr;gap:10px}
+  .info-card{padding:16px}
+  section.content-section{padding:52px 0}
+  .process-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .process-card{padding:16px}
+  .preview-grid{grid-template-columns:1fr}
+  .preview-field.full{grid-column:auto}
+  .preview-areas{grid-template-columns:1fr}
+  .application-card{padding:20px 15px}
+  .footer-inner{align-items:flex-start;flex-direction:column}
 }
 </style>
 </head>
 
 <body>
-<header class="topbar">
+
+<header>
   <div class="container nav">
-    <a class="brand" href="index.html" aria-label="SK KGN TEAM home">
-      <img src="Logo.jpg" alt="SK KGN TEAM logo">
+    <a href="#" class="brand">
+      <img class="logo" src="Logo.jpg" alt="SK KGN TEAM logo">
       <span>
         <span class="brand-name">SK KGN TEAM</span>
-        <span class="brand-sub">Advocate Network</span>
+        <span class="brand-sub">ADVOCATE NETWORK</span>
       </span>
     </a>
     <a class="nav-link" href="index.html">← Main Website</a>
@@ -588,546 +554,305 @@ textarea{min-height:105px;resize:vertical}
 </header>
 
 <main>
+
 <section class="hero">
-  <div class="container">
-    <p class="eyebrow">Professional Network</p>
-    <h1>Advocate Network &amp; Professional Collaboration</h1>
-    <p>SK KGN TEAM is developing a professional network for advocates interested in structured coordination, professional connections and suitable legal-assistance enquiries.</p>
-    <div class="actions">
-      <a class="button button-primary" href="#application">Apply to Join →</a>
-      <a class="button button-ghost" href="#process">Review the Process</a>
+  <div class="container hero-content">
+    <div class="eyebrow"><span class="eyebrow-dot"></span> PROFESSIONAL NETWORK</div>
+    <h1>Professional connections.<br><span>Built on trust.</span></h1>
+    <p class="hero-copy">
+      A structured network for advocates to share professional information,
+      connect across practice areas and explore appropriate collaboration opportunities.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-white" href="#application">Apply to Join →</a>
+      <a class="btn btn-outline" href="#process">Explore the Process</a>
     </div>
-    <p class="hero-note">Applications are reviewed individually. Submission does not guarantee approval, referrals, clients, income or a particular volume of work.</p>
+    <p class="hero-note">
+      Applications are reviewed individually. Submission does not guarantee acceptance,
+      referrals, clients, income or a particular volume of work.
+    </p>
   </div>
 </section>
 
-<section class="section" id="process">
+<div class="container quick-info">
+  <div class="info-grid">
+    <article class="info-card">
+      <div class="info-number">01 / APPLY</div>
+      <h3>Submit Your Details</h3>
+      <p>Provide accurate contact, location and professional enrolment information.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-number">02 / REVIEW</div>
+      <h3>Application Assessment</h3>
+      <p>Submitted information is reviewed before a participation decision is made.</p>
+    </article>
+    <article class="info-card">
+      <div class="info-number">03 / CONNECT</div>
+      <h3>Professional Coordination</h3>
+      <p>Approved profiles may be considered for suitable network enquiries.</p>
+    </article>
+  </div>
+</div>
+
+<section class="content-section" id="process">
   <div class="container">
-    <div class="section-heading">
-      <p class="section-kicker">Application Process</p>
-      <h2>A clear and documented onboarding process</h2>
-      <p>Each application is reviewed in stages so professional details can be checked before any network participation is confirmed.</p>
+    <div class="section-header">
+      <span class="kicker">A CLEAR PROCESS</span>
+      <h2>Every step has a purpose.</h2>
+      <p class="section-desc">
+        The application process is designed to keep professional information organized
+        and ensure that network participation is considered carefully.
+      </p>
     </div>
+
     <div class="process-grid">
-      <article class="process-card"><div class="process-no">01</div><h3>Application</h3><p>Submit contact details, practice location and professional enrolment information.</p></article>
-      <article class="process-card"><div class="process-no">02</div><h3>Verification</h3><p>Submitted details may be checked, and supporting documents may be requested securely.</p></article>
-      <article class="process-card"><div class="process-no">03</div><h3>Review</h3><p>The application is reviewed against the network's onboarding criteria.</p></article>
-      <article class="process-card"><div class="process-no">04</div><h3>Onboarding</h3><p>Applicants receive an update once the review is complete and the next steps are decided.</p></article>
+      <article class="process-card">
+        <div class="process-icon">01</div>
+        <h3>Application</h3>
+        <p>Submit your contact details, practice location and enrolment information.</p>
+      </article>
+      <article class="process-card">
+        <div class="process-icon">02</div>
+        <h3>Verification</h3>
+        <p>Details may be checked and additional information may be requested securely.</p>
+      </article>
+      <article class="process-card">
+        <div class="process-icon">03</div>
+        <h3>Administrative Review</h3>
+        <p>The application is reviewed against relevant onboarding criteria.</p>
+      </article>
+      <article class="process-card">
+        <div class="process-icon">04</div>
+        <h3>Next Steps</h3>
+        <p>Applicants receive an update after a decision has been made.</p>
+      </article>
     </div>
   </div>
 </section>
 
-<section class="section section-white">
-  <div class="container">
-    <div class="section-heading">
-      <p class="section-kicker">Professional Collaboration</p>
-      <h2>Built around clarity and professional independence</h2>
-      <p>The network is intended to support appropriate coordination while respecting each advocate's independent professional judgment and obligations.</p>
+<section class="content-section collab-section">
+  <div class="container collab-layout">
+    <div class="collab-visual">
+      <span class="visual-tag">SK KGN TEAM / NETWORK</span>
+      <div class="visual-title">Independent practice.<br>Structured coordination.</div>
+      <div class="visual-bottom">Designed for clarity, professional respect and responsible communication.</div>
     </div>
-    <div class="benefit-grid">
-      <article class="benefit-card"><div class="bar"></div><h3>Professional Connections</h3><p>Connect with professionals across practice areas and locations where appropriate.</p></article>
-      <article class="benefit-card"><div class="bar"></div><h3>Structured Coordination</h3><p>Use a documented process for application review and professional communication.</p></article>
-      <article class="benefit-card"><div class="bar"></div><h3>Practice Information</h3><p>Record practice areas and location details to help assess suitable coordination requests.</p></article>
+
+    <div>
+      <span class="kicker">PROFESSIONAL COLLABORATION</span>
+      <h2>Designed around professional independence.</h2>
+      <p class="section-desc">
+        Network participation does not replace an advocate's independent professional
+        judgment, obligations or relationship with their clients.
+      </p>
+
+      <div class="feature-list">
+        <div class="feature">
+          <span class="feature-check">✓</span>
+          <div>
+            <h3>Professional Information</h3>
+            <p>Record relevant practice areas and locations in one structured application.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-check">✓</span>
+          <div>
+            <h3>Documented Review</h3>
+            <p>Applications follow a review process before approval is considered.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <span class="feature-check">✓</span>
+          <div>
+            <h3>Privacy-Aware Profiles</h3>
+            <p>Public professional information should only be published with appropriate consent.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="application">
+<section class="content-section application-section" id="application">
   <div class="container">
-    <div class="section-heading">
-      <p class="section-kicker">Network Application</p>
-      <h2>Apply to join the advocate network</h2>
-      <p>Complete the form accurately. Please do not submit confidential client details or case documents in this application.</p>
+    <div class="section-header">
+      <span class="kicker">NETWORK APPLICATION</span>
+      <h2>Start your application.</h2>
+      <p class="section-desc">
+        This is a visual UI preview. The sample form does not submit information to Firebase.
+      </p>
     </div>
 
-    <div class="application-layout">
-      <aside class="side-panel">
-        <h3>Before you apply</h3>
-        <p>Keep your enrolment information accurate. SK KGN TEAM may contact you for clarification or request supporting documents through a suitable channel during verification.</p>
-        <ul>
-          <li>Applications are subject to review.</li>
-          <li>Professional details may be verified.</li>
-          <li>Membership does not guarantee work or referrals.</li>
-          <li>Advocates retain their professional independence.</li>
-        </ul>
-      </aside>
+    <div class="application-card">
+      <div class="application-heading">
+        <h2>Advocate Details</h2>
+        <p>Fields marked with * are required.</p>
+      </div>
 
-      <form class="form-card" id="advocateForm">
-        <div class="form-top">
-          <h3>Advocate Details</h3>
-          <p>Fields marked with <span class="required">*</span> are required.</p>
+      <form id="demoForm">
+        <div class="preview-grid">
+          <div class="preview-field">
+            <label class="preview-label" for="demoName">Full name *</label>
+            <input class="preview-input" id="demoName" required placeholder="Enter full name">
+          </div>
+          <div class="preview-field">
+            <label class="preview-label" for="demoMobile">Mobile number *</label>
+            <input class="preview-input" id="demoMobile" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" required placeholder="10-digit mobile number">
+          </div>
+          <div class="preview-field">
+            <label class="preview-label" for="demoEmail">Professional email *</label>
+            <input class="preview-input" id="demoEmail" type="email" required placeholder="name@example.com">
+          </div>
+          <div class="preview-field">
+            <label class="preview-label" for="demoLocation">City / practice location *</label>
+            <input class="preview-input" id="demoLocation" required placeholder="Enter practice location">
+          </div>
+          <div class="preview-field">
+            <label class="preview-label" for="demoYear">Year of enrolment *</label>
+            <select class="preview-input" id="demoYear" required>
+              <option value="">Select year</option>
+            </select>
+          </div>
+          <div class="preview-field">
+            <label class="preview-label" for="demoExperience">Years in practice *</label>
+            <select class="preview-input" id="demoExperience" required>
+              <option value="">Select experience</option>
+              <option>Under 1 year</option>
+              <option>1–3 years</option>
+              <option>4–7 years</option>
+              <option>8–15 years</option>
+              <option>16+ years</option>
+            </select>
+          </div>
+
+          <div class="preview-field full">
+            <span class="preview-label">Practice areas *</span>
+            <div class="preview-areas">
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Civil Law"> Civil Law</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Criminal Law"> Criminal Law</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Consumer Matters"> Consumer Matters</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Family Law"> Family Law</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Property / Land Disputes"> Property / Land Disputes</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Service Matters"> Service Matters</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Corporate / Commercial Law"> Corporate / Commercial Law</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Constitutional Law"> Constitutional Law</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Labour & Employment Law"> Labour &amp; Employment Law</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Cyber Crime"> Cyber Crime</label>
+              <label class="area-option"><input type="checkbox" name="demoArea" value="Other"> Other</label>
+            </div>
+            <p class="preview-hint">Select one or more practice areas.</p>
+          </div>
         </div>
 
-        <div class="form-message" id="formMessage" role="status" aria-live="polite" hidden></div>
+        <label class="consent">
+          <input type="checkbox" id="demoConsent" required>
+          <span>I authorize publication of selected professional details in a public directory if my application is approved.</span>
+        </label>
 
-        <fieldset>
-          <legend>01 — Contact Information</legend>
-          <div class="form-grid">
-            <div class="field">
-              <label for="fullName">Full name <span class="required">*</span></label>
-              <input id="fullName" name="fullName" autocomplete="name" maxlength="100" required>
-            </div>
-            <div class="field">
-              <label for="mobile">Mobile number <span class="required">*</span></label>
-              <input id="mobile" name="mobile" type="tel" inputmode="numeric" autocomplete="tel" pattern="[0-9]{10}" minlength="10" maxlength="10" placeholder="10-digit mobile number" required>
-              <div class="hint">Enter 10 digits without spaces or country code.</div>
-            </div>
-            <div class="field">
-              <label for="email">Professional email <span class="required">*</span></label>
-              <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
-            </div>
-            <div class="field">
-              <label for="state">State / Union Territory <span class="required">*</span></label>
-              <input id="state" name="state" maxlength="80" required>
-            </div>
-            <div class="field">
-              <label for="district">District <span class="required">*</span></label>
-              <input id="district" name="district" maxlength="80" required>
-            </div>
-            <div class="field">
-              <label for="city">City / practice location <span class="required">*</span></label>
-              <input id="city" name="city" maxlength="100" required>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>02 — Professional Information</legend>
-          <div class="form-grid">
-            <div class="field">
-              <label for="barCouncil">Bar Council <span class="required">*</span></label>
-              <input id="barCouncil" name="barCouncil" maxlength="150" placeholder="e.g. Bar Council of Uttar Pradesh" required>
-            </div>
-            <div class="field">
-              <label for="enrolmentNumber">Enrolment number <span class="required">*</span></label>
-              <input id="enrolmentNumber" name="enrolmentNumber" maxlength="80" required>
-            </div>
-
-            <div class="field">
-              <label for="enrolmentYear">Year of enrolment <span class="required">*</span></label>
-              <select id="enrolmentYear" name="enrolmentYear" required>
-                <option value="">Select enrolment year</option>
-              </select>
-              <div class="hint">Select the year shown on your professional enrolment record.</div>
-            </div>
-
-            <div class="field">
-              <label for="yearsOfPractice">Years in practice <span class="required">*</span></label>
-              <select id="yearsOfPractice" name="yearsOfPractice" required>
-                <option value="">Select experience</option>
-                <option value="Under 1 year">Under 1 year</option>
-                <option value="1–3 years">1–3 years</option>
-                <option value="4–7 years">4–7 years</option>
-                <option value="8–15 years">8–15 years</option>
-                <option value="16+ years">16+ years</option>
-              </select>
-            </div>
-
-            <div class="field full">
-              <span class="field-label">Practice areas <span class="required">*</span></span>
-              <div class="checks">
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Civil Law"> Civil Law</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Criminal Law"> Criminal Law</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Consumer Matters"> Consumer Matters</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Family Law"> Family Law</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Property / Land Disputes"> Property / Land Disputes</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Service Matters"> Service Matters</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Corporate / Commercial Law"> Corporate / Commercial Law</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Constitutional Law"> Constitutional Law</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Labour & Employment Law"> Labour &amp; Employment Law</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Cyber Crime"> Cyber Crime</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Other"> Other</label>
-              </div>
-              <div class="hint">Select all areas in which you practise. At least one is required.</div>
-            </div>
-
-            <div class="field full">
-              <label for="officeAddress">Office address (optional)</label>
-              <textarea id="officeAddress" name="officeAddress" maxlength="500" rows="2"></textarea>
-            </div>
-
-            <div class="field full">
-              <label for="introduction">Professional introduction (optional)</label>
-              <textarea id="introduction" name="introduction" maxlength="1200"></textarea>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>03 — Public Profile Consent</legend>
-          <label class="consent">
-            <input type="checkbox" id="publicConsent" required>
-            <span>I authorize SK KGN TEAM to publish selected professional details on its public advocate directory after approval. I understand that my private contact details and enrolment information will not be published by default.</span>
-          </label>
-          <label class="consent">
-            <input type="checkbox" id="declaration" required>
-            <span>I confirm that the information supplied is accurate and consent to its review for this application. Submission does not guarantee acceptance, referrals, clients or income.</span>
-          </label>
-        </fieldset>
-
-        <button class="button form-submit" type="submit" id="submitButton">
-          Submit Application →
-        </button>
-
-        <p class="policy">
-          Application data is intended for authorized review and related communication.
-          Do not include confidential client or case details. Submission does not create
-          an advocate-client relationship.
-        </p>
+        <button class="submit-demo" type="submit">Preview Submission Popup →</button>
+        <p class="demo-note">UI demonstration only — no application will be saved.</p>
       </form>
     </div>
   </div>
 </section>
+
 </main>
 
-<footer class="footer">
+<footer>
   <div class="container footer-inner">
     <div>
       <div class="footer-brand">SK KGN TEAM</div>
       <small>Advocate Network &amp; Professional Collaboration</small>
     </div>
-    <small>© <span id="year"></span> SK KGN TEAM. All rights reserved.</small>
+    <small>© <span id="footerYear"></span> SK KGN TEAM. All rights reserved.</small>
   </div>
 </footer>
 
-<!-- SUCCESS / ERROR POPUP -->
-<div class="modal-backdrop" id="resultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
-  <div class="modal-card" id="modalCard">
-    <div class="modal-top">
-      <div class="modal-emblem" id="modalEmblem">✓</div>
-      <p class="modal-eyebrow" id="modalEyebrow">SK KGN TEAM • ADVOCATE NETWORK</p>
-      <h2 id="modalTitle">CONGRATULATIONS!</h2>
-      <p id="modalSubtitle">Your application has been submitted.</p>
+<div class="modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-check">✓</div>
+      <small>SK KGN TEAM / ADVOCATE NETWORK</small>
+      <h2 id="successTitle">Congratulations!</h2>
+      <p>Your demo application has been completed.</p>
     </div>
     <div class="modal-body">
-      <p class="modal-success-title" id="modalSuccessTitle">Application Submitted Successfully</p>
-      <p class="modal-description" id="modalDescription">Your details have been received for administrative review.</p>
-
-      <div class="application-id-box" id="applicationIdBox">
-        <span class="application-id-label">Your Application Reference ID</span>
-        <span class="application-id-value" id="applicationIdValue"></span>
-        <button class="copy-button" type="button" id="copyIdButton">▣ &nbsp; COPY APPLICATION ID</button>
+      <h3>Application Preview Successful</h3>
+      <p>This is only a visual preview. No information was sent or saved.</p>
+      <div class="reference-box">
+        <span class="reference-label">SAMPLE REFERENCE ID</span>
+        <span class="reference-id" id="sampleId">DEMO-ADV-000001</span>
+        <button class="copy-id" type="button" id="copyDemoId">▣ &nbsp; COPY SAMPLE ID</button>
       </div>
-
-      <div class="status-pill" id="statusPill">
-        <span class="status-dot"></span>
-        PENDING ADMINISTRATIVE REVIEW
-      </div>
-
-      <p class="modal-note" id="modalNote">Please save your Application ID for future reference. Submission does not guarantee approval or referrals.</p>
-      <button class="modal-action" type="button" id="modalAction">OK, GOT IT</button>
+      <span class="status">● DEMO STATUS: PENDING REVIEW</span>
+      <p class="modal-note">This sample popup does not create an actual application or application ID.</p>
+      <button class="modal-close" type="button" id="closeModal">CLOSE PREVIEW</button>
     </div>
   </div>
 </div>
 
-<script type="module">
-import {
-  initializeApp,
-  getApp,
-  getApps
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+<script>
+document.getElementById("footerYear").textContent = new Date().getFullYear();
 
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+const yearSelect = document.getElementById("demoYear");
+const latestYear = Math.max(2026, new Date().getFullYear());
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
-  authDomain: "sk-kgn-team.firebaseapp.com",
-  databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "sk-kgn-team",
-  storageBucket: "sk-kgn-team.firebasestorage.app",
-  messagingSenderId: "228612697498",
-  appId: "1:228612697498:web:a304b57bf5a59d2933de23",
-  measurementId: "G-BXWT6BPTB6"
-};
-
-const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const form = document.getElementById("advocateForm");
-const messageBox = document.getElementById("formMessage");
-const submitButton = document.getElementById("submitButton");
-const enrolmentYearSelect = document.getElementById("enrolmentYear");
-
-const resultModal = document.getElementById("resultModal");
-const modalCard = document.getElementById("modalCard");
-const modalEmblem = document.getElementById("modalEmblem");
-const modalEyebrow = document.getElementById("modalEyebrow");
-const modalTitle = document.getElementById("modalTitle");
-const modalSubtitle = document.getElementById("modalSubtitle");
-const modalSuccessTitle = document.getElementById("modalSuccessTitle");
-const modalDescription = document.getElementById("modalDescription");
-const applicationIdBox = document.getElementById("applicationIdBox");
-const applicationIdValue = document.getElementById("applicationIdValue");
-const copyIdButton = document.getElementById("copyIdButton");
-const statusPill = document.getElementById("statusPill");
-const modalNote = document.getElementById("modalNote");
-const modalAction = document.getElementById("modalAction");
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-/* Populate years from 2026 down to 1950.
-   Also supports later years if the page is used in a future year. */
-const currentYear = new Date().getFullYear();
-const latestAllowedYear = Math.max(2026, currentYear);
-
-for (let year = latestAllowedYear; year >= 1950; year--) {
+for(let year = latestYear; year >= 1950; year--){
   const option = document.createElement("option");
-  option.value = String(year);
-  option.textContent = String(year);
-  enrolmentYearSelect.appendChild(option);
+  option.value = year;
+  option.textContent = year;
+  yearSelect.appendChild(option);
 }
 
-function showInlineMessage(text, type) {
-  messageBox.textContent = text;
-  messageBox.className = "form-message " + type;
-  messageBox.hidden = false;
-  messageBox.scrollIntoView({behavior:"smooth", block:"center"});
-}
+const demoForm = document.getElementById("demoForm");
+const modal = document.getElementById("successModal");
+const sampleId = document.getElementById("sampleId");
 
-function makeApplicationId() {
-  const bytes = new Uint8Array(4);
-  crypto.getRandomValues(bytes);
-
-  const suffix = Array.from(
-    bytes,
-    n => n.toString(16).padStart(2, "0")
-  ).join("").toUpperCase();
-
-  return "SKKGN-ADV-" +
-    Date.now().toString(36).toUpperCase() +
-    "-" + suffix;
-}
-
-function openModal() {
-  resultModal.classList.add("show");
-  document.body.classList.add("modal-open");
-  modalAction.focus();
-}
-
-function closeModal() {
-  resultModal.classList.remove("show");
-  document.body.classList.remove("modal-open");
-}
-
-function showSuccessPopup(applicationId) {
-  modalCard.classList.remove("error-modal");
-  modalEmblem.textContent = "✓";
-  modalEyebrow.textContent = "SK KGN TEAM • ADVOCATE NETWORK";
-  modalTitle.textContent = "CONGRATULATIONS!";
-  modalSubtitle.textContent = "Your application has been submitted.";
-  modalSuccessTitle.textContent = "Application Submitted Successfully";
-  modalDescription.textContent =
-    "Your details have been received and are awaiting administrative review.";
-
-  applicationIdBox.hidden = false;
-  applicationIdValue.textContent = applicationId;
-  copyIdButton.textContent = "▣  COPY APPLICATION ID";
-  statusPill.hidden = false;
-
-  modalNote.textContent =
-    "Please save your Application ID for future reference. Submission does not guarantee approval, referrals, clients or income.";
-
-  modalAction.textContent = "OK, GOT IT";
-  openModal();
-}
-
-function showErrorPopup(title, description) {
-  modalCard.classList.add("error-modal");
-  modalEmblem.textContent = "!";
-  modalEyebrow.textContent = "SK KGN TEAM • NOTICE";
-  modalTitle.textContent = "APPLICATION NOT SUBMITTED";
-  modalSubtitle.textContent = "Please review the message below.";
-  modalSuccessTitle.textContent = title;
-  modalDescription.textContent = description;
-
-  applicationIdBox.hidden = true;
-  statusPill.hidden = true;
-
-  modalNote.textContent =
-    "No success confirmation is shown unless Firebase confirms the application was saved.";
-
-  modalAction.textContent = "CLOSE";
-  openModal();
-}
-
-modalAction.addEventListener("click", closeModal);
-
-resultModal.addEventListener("click", event => {
-  if (event.target === resultModal) closeModal();
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && resultModal.classList.contains("show")) {
-    closeModal();
-  }
-});
-
-copyIdButton.addEventListener("click", async () => {
-  const id = applicationIdValue.textContent;
-  if (!id) return;
-
-  try {
-    await navigator.clipboard.writeText(id);
-    copyIdButton.textContent = "✓  APPLICATION ID COPIED";
-  } catch (error) {
-    /* Fallback for browsers where Clipboard API is unavailable. */
-    const temporaryInput = document.createElement("textarea");
-    temporaryInput.value = id;
-    temporaryInput.style.position = "fixed";
-    temporaryInput.style.opacity = "0";
-    document.body.appendChild(temporaryInput);
-    temporaryInput.select();
-
-    const copied = document.execCommand("copy");
-    temporaryInput.remove();
-
-    copyIdButton.textContent = copied
-      ? "✓  APPLICATION ID COPIED"
-      : "Please select and copy the ID above";
-  }
-});
-
-form.addEventListener("submit", async event => {
+demoForm.addEventListener("submit", event => {
   event.preventDefault();
-  messageBox.hidden = true;
 
-  /* Let the browser identify missing/invalid fields first. */
-  if (!form.reportValidity()) return;
-
-  const practiceAreas = Array.from(
-    form.querySelectorAll('input[name="practiceAreas"]:checked')
-  ).map(input => input.value);
-
-  if (!practiceAreas.length) {
-    showInlineMessage(
-      "Please select at least one practice area.",
-      "error"
-    );
-    return;
-  }
-
-  if (!document.getElementById("publicConsent").checked) {
-    showInlineMessage(
-      "Please confirm consent for the public profile.",
-      "error"
-    );
-    return;
-  }
-
-  if (!document.getElementById("declaration").checked) {
-    showInlineMessage(
-      "Please accept the declaration.",
-      "error"
-    );
-    return;
-  }
-
-  const mobile = form.elements["mobile"].value.trim();
-
-  if (!/^[0-9]{10}$/.test(mobile)) {
-    showInlineMessage(
-      "Enter a valid 10-digit mobile number.",
-      "error"
-    );
-    form.elements["mobile"].focus();
-    return;
-  }
-
-  const enrolmentYear = Number(
-    form.elements["enrolmentYear"].value
+  const selectedAreas = demoForm.querySelectorAll(
+    'input[name="demoArea"]:checked'
   );
 
-  const currentYearNow = new Date().getFullYear();
-
-  if (
-    !Number.isInteger(enrolmentYear) ||
-    enrolmentYear < 1950 ||
-    enrolmentYear > Math.max(2026, currentYearNow)
-  ) {
-    showInlineMessage(
-      "Please select a valid year of enrolment.",
-      "error"
-    );
-    enrolmentYearSelect.focus();
+  if(!selectedAreas.length){
+    alert("Please select at least one practice area.");
     return;
   }
 
-  const applicationId = makeApplicationId();
+  const random = Math.random().toString(36).slice(2,8).toUpperCase();
+  sampleId.textContent = "DEMO-ADV-" + random;
 
-  /* Keep Firestore field names compatible with the current rules. */
-  const payload = {
-    applicationId,
-    name: form.elements["fullName"].value.trim(),
-    mobile,
-    email: form.elements["email"].value.trim().toLowerCase(),
-    state: form.elements["state"].value.trim(),
-    district: form.elements["district"].value.trim(),
-    practiceLocation: form.elements["city"].value.trim(),
-    barCouncil: form.elements["barCouncil"].value.trim(),
-    enrolmentNumber: form.elements["enrolmentNumber"].value.trim(),
-    enrolmentYear,
-    experience: form.elements["yearsOfPractice"].value,
-    practiceAreas,
-    practiceArea: practiceAreas[0],
-    officeAddress: form.elements["officeAddress"].value.trim(),
-    introduction: form.elements["introduction"].value.trim(),
-    status: "Pending",
-    publicConsent: true,
-    declarationAccepted: true,
-    submittedAt: serverTimestamp()
-  };
+  modal.classList.add("open");
+  document.body.style.overflow = "hidden";
+});
 
-  submitButton.disabled = true;
-  submitButton.textContent = "Submitting Application…";
+function closePreview(){
+  modal.classList.remove("open");
+  document.body.style.overflow = "";
+}
 
-  try {
-    await addDoc(
-      collection(db, "advocateApplications"),
-      payload
-    );
+document.getElementById("closeModal").addEventListener("click",closePreview);
 
-    /*
-      Show the success popup only after Firestore confirms
-      that the document has been saved.
-    */
-    form.reset();
-    messageBox.hidden = true;
-    showSuccessPopup(applicationId);
+modal.addEventListener("click",event=>{
+  if(event.target === modal) closePreview();
+});
 
-  } catch (error) {
-    console.error(
-      "Advocate application error:",
-      error.code,
-      error.message
-    );
+document.addEventListener("keydown",event=>{
+  if(event.key === "Escape") closePreview();
+});
 
-    if (error.code === "permission-denied") {
-      showErrorPopup(
-        "Firebase Permission Denied",
-        "The application could not be saved because Firestore Rules rejected it. Check the published rules for the advocateApplications collection."
-      );
-    } else if (error.code === "unavailable") {
-      showErrorPopup(
-        "Connection Problem",
-        "Firebase is temporarily unavailable. Check your internet connection and try again."
-      );
-    } else {
-      showErrorPopup(
-        "Submission Failed",
-        "The application could not be confirmed as saved. Please check your connection and try again. If the problem continues, check the browser console for the Firebase error."
-      );
-    }
+document.getElementById("copyDemoId").addEventListener("click",async()=>{
+  const button = document.getElementById("copyDemoId");
 
-  } finally {
-    submitButton.disabled = false;
-    submitButton.textContent = "Submit Application →";
+  try{
+    await navigator.clipboard.writeText(sampleId.textContent);
+    button.textContent = "✓ SAMPLE ID COPIED";
+  }catch(error){
+    button.textContent = "Select the sample ID to copy";
   }
 });
 </script>
+
 </body>
 </html>
