@@ -1617,7 +1617,10 @@ function openRecord(record) {
   
   $("complaintControls").classList.toggle("hidden", !isComplaint);  
   $("careerControls").classList.toggle("hidden", isComplaint);  
-  
+  $("advocateControls").classList.toggle(
+  "hidden",
+  view !== "advocates"
+);
   const number = mobile(record);  
   const digits = number.replace(/\D/g, "");  
   
