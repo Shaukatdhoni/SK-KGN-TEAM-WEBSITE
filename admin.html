@@ -20,983 +20,287 @@
   --red:#b42318;
   --amber:#946200;
 }
-
-* {
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-body {
-  font-family:Inter,"Segoe UI",Arial,sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-  min-height:100vh;
-}
-
-button,input,select,textarea {
-  font:inherit;
-}
-
-button {
-  cursor:pointer;
-}
-
-button:disabled {
-  opacity:.6;
-  cursor:not-allowed;
-}
-
-.hidden {
-  display:none!important;
-}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:Inter,"Segoe UI",Arial,sans-serif; background:var(--bg); color:var(--ink); min-height:100vh; }
+button,input,select,textarea { font:inherit; }
+button { cursor:pointer; }
+button:disabled { opacity:.6; cursor:not-allowed; }
+.hidden { display:none!important; }
 
 /* LOGIN */
-
-#loginPage {
-  min-height:100vh;
-  display:grid;
-  place-items:center;
-  padding:22px;
-  background:
-    radial-gradient(circle at 20% 10%,#204c8c 0,transparent 35%),
-    linear-gradient(135deg,#020817,#071a3b 60%,#061126);
-}
-
-.login-card {
-  width:min(520px,100%);
-  background:#fff;
-  border-radius:26px;
-  padding:32px;
-  box-shadow:0 25px 80px #0005;
-}
-
-.brand {
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:27px;
-}
-
-.brand img {
-  width:60px;
-  height:60px;
-  object-fit:cover;
-  border-radius:15px;
-  border:2px solid #e8d18a;
-}
-
-.brand strong {
-  display:block;
-  font-size:21px;
-}
-
-.brand small {
-  display:block;
-  color:#7b8495;
-  margin-top:5px;
-}
-
-.pill {
-  display:inline-block;
-  padding:8px 13px;
-  border-radius:99px;
-  background:#fff8e5;
-  border:1px solid #f0dfab;
-  color:#805d11;
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:.6px;
-}
-
-.login-card h1 {
-  font-size:clamp(28px,5vw,38px);
-  line-height:1.2;
-  margin:18px 0 10px;
-}
-
-.login-card p {
-  color:var(--muted);
-  line-height:1.6;
-  font-size:15px;
-  margin-bottom:25px;
-}
-
-.label {
-  display:block;
-  font-size:13px;
-  font-weight:800;
-  margin-bottom:9px;
-  color:#394357;
-}
-
-.login-card input {
-  width:100%;
-  padding:15px;
-  border:1px solid #d6dce6;
-  border-radius:12px;
-  margin-bottom:18px;
-  outline:none;
-  background:#fff;
-}
-
-.login-card input:focus {
-  border-color:var(--blue);
-  box-shadow:0 0 0 3px #1769ff1c;
-}
-
-.primary {
-  border:0;
-  background:linear-gradient(110deg,#0b3b88,#1769ff);
-  color:#fff;
-  font-weight:800;
-  padding:14px 16px;
-  border-radius:12px;
-}
-
-.login-card .primary {
-  width:100%;
-  padding:16px;
-  font-size:17px;
-}
-
-.message {
-  margin-top:14px;
-  padding:12px 14px;
-  border-radius:11px;
-  font-size:13px;
-  line-height:1.5;
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-}
-
-.message.error {
-  background:#fff0ef;
-  color:var(--red);
-  border:1px solid #ffd0cc;
-}
-
-.message.ok {
-  background:#ecfdf3;
-  color:var(--green);
-  border:1px solid #b7ebca;
-}
-
-.message.info {
-  background:#eef5ff;
-  color:#174ea6;
-  border:1px solid #cfe0ff;
-}
+#loginPage { min-height:100vh; display:grid; place-items:center; padding:22px; background:radial-gradient(circle at 20% 10%,#204c8c 0,transparent 35%),linear-gradient(135deg,#020817,#071a3b 60%,#061126); }
+.login-card { width:min(520px,100%); background:#fff; border-radius:26px; padding:32px; box-shadow:0 25px 80px #0005; }
+.brand { display:flex; align-items:center; gap:14px; margin-bottom:27px; }
+.brand img { width:60px; height:60px; object-fit:cover; border-radius:15px; border:2px solid #e8d18a; }
+.brand strong { display:block; font-size:21px; }
+.brand small { display:block; color:#7b8495; margin-top:5px; }
+.pill { display:inline-block; padding:8px 13px; border-radius:99px; background:#fff8e5; border:1px solid #f0dfab; color:#805d11; font-size:12px; font-weight:800; letter-spacing:.6px; }
+.login-card h1 { font-size:clamp(28px,5vw,38px); line-height:1.2; margin:18px 0 10px; }
+.login-card p { color:var(--muted); line-height:1.6; font-size:15px; margin-bottom:25px; }
+.label { display:block; font-size:13px; font-weight:800; margin-bottom:9px; color:#394357; }
+.login-card input { width:100%; padding:15px; border:1px solid #d6dce6; border-radius:12px; margin-bottom:18px; outline:none; background:#fff; }
+.login-card input:focus { border-color:var(--blue); box-shadow:0 0 0 3px #1769ff1c; }
+.primary { border:0; background:linear-gradient(110deg,#0b3b88,#1769ff); color:#fff; font-weight:800; padding:14px 16px; border-radius:12px; }
+.login-card .primary { width:100%; padding:16px; font-size:17px; }
+.message { margin-top:14px; padding:12px 14px; border-radius:11px; font-size:13px; line-height:1.5; white-space:pre-wrap; overflow-wrap:anywhere; }
+.message.error { background:#fff0ef; color:var(--red); border:1px solid #ffd0cc; }
+.message.ok { background:#ecfdf3; color:var(--green); border:1px solid #b7ebca; }
+.message.info { background:#eef5ff; color:#174ea6; border:1px solid #cfe0ff; }
 
 /* HEADER */
-
-header {
-  position:sticky;
-  top:0;
-  z-index:10;
-  background:var(--navy);
-  color:#fff;
-  box-shadow:0 5px 20px #071a3b20;
-}
-
-.topbar {
-  width:min(1500px,96%);
-  margin:auto;
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  padding:12px 0;
-}
-
-.topbrand {
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-width:0;
-}
-
-.topbrand img {
-  width:44px;
-  height:44px;
-  object-fit:cover;
-  border-radius:12px;
-  border:1px solid #e8d18a;
-}
-
-.topbrand strong {
-  display:block;
-  font-size:17px;
-}
-
-.topbrand small {
-  display:block;
-  color:#bdcbe1;
-  font-size:11px;
-  margin-top:3px;
-}
-
-.header-actions {
-  display:flex;
-  gap:9px;
-  align-items:center;
-}
-
-.user-email {
-  font-size:12px;
-  color:#c7d5e9;
-  max-width:220px;
-  overflow-wrap:anywhere;
-}
-
-.btn-outline {
-  border:1px solid #617493;
-  color:#fff;
-  background:transparent;
-  border-radius:10px;
-  padding:10px 13px;
-  font-weight:700;
-}
-
-.btn-outline:hover {
-  background:#ffffff12;
-}
+header { position:sticky; top:0; z-index:10; background:var(--navy); color:#fff; box-shadow:0 5px 20px #071a3b20; }
+.topbar { width:min(1500px,96%); margin:auto; min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:15px; padding:12px 0; }
+.topbrand { display:flex; align-items:center; gap:12px; min-width:0; }
+.topbrand img { width:44px; height:44px; object-fit:cover; border-radius:12px; border:1px solid #e8d18a; }
+.topbrand strong { display:block; font-size:17px; }
+.topbrand small { display:block; color:#bdcbe1; font-size:11px; margin-top:3px; }
+.header-actions { display:flex; gap:9px; align-items:center; }
+.user-email { font-size:12px; color:#c7d5e9; max-width:220px; overflow-wrap:anywhere; }
+.btn-outline { border:1px solid #617493; color:#fff; background:transparent; border-radius:10px; padding:10px 13px; font-weight:700; }
+.btn-outline:hover { background:#ffffff12; }
 
 /* DASHBOARD */
-
-main {
-  width:min(1500px,94%);
-  margin:25px auto 50px;
-}
-
-.heading {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  margin-bottom:20px;
-}
-
-.heading h1 {
-  font-size:clamp(24px,3vw,33px);
-}
-
-.heading p {
-  font-size:13px;
-  color:var(--muted);
-  margin-top:6px;
-}
-
-.tabs {
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-bottom:18px;
-}
-
-.tab {
-  border:1px solid #d9e0eb;
-  background:#fff;
-  color:#536076;
-  padding:11px 15px;
-  border-radius:12px;
-  font-weight:800;
-}
-
-.tab.active {
-  background:var(--navy);
-  border-color:var(--navy);
-  color:#fff;
-}
-
-.stats {
-  display:grid;
-  grid-template-columns:repeat(6,minmax(0,1fr));
-  gap:12px;
-  margin-bottom:18px;
-}
-
-.stat {
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:15px;
-  padding:16px;
-}
-
-.stat span {
-  display:block;
-  color:var(--muted);
-  font-size:11px;
-  font-weight:800;
-}
-
-.stat strong {
-  display:block;
-  font-size:28px;
-  color:#10254d;
-  margin-top:7px;
-}
-
-.filters {
-  display:grid;
-  grid-template-columns:minmax(200px,2fr) repeat(3,minmax(130px,1fr)) auto;
-  gap:9px;
-  background:#fff;
-  border:1px solid var(--line);
-  padding:13px;
-  border-radius:15px;
-  margin-bottom:15px;
-}
-
-.filters input,
-.filters select {
-  width:100%;
-  min-width:0;
-  padding:11px 12px;
-  border:1px solid #d8deea;
-  border-radius:10px;
-  background:#fff;
-  outline:none;
-  color:#273247;
-}
-
-.secondary {
-  border:1px solid #d8deea;
-  background:#fff;
-  color:#273247;
-  padding:10px 13px;
-  border-radius:10px;
-  font-weight:700;
-}
-
-.card {
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  overflow:hidden;
-}
-
-.table-scroll {
-  overflow:auto;
-}
-
-table {
-  border-collapse:collapse;
-  width:100%;
-  min-width:930px;
-}
-
-thead {
-  background:#0a214b;
-  color:#fff;
-}
-
-th {
-  font-size:11px;
-  text-align:left;
-  padding:14px 13px;
-  white-space:nowrap;
-}
-
-td {
-  padding:13px;
-  border-bottom:1px solid #edf0f5;
-  font-size:13px;
-  vertical-align:middle;
-}
-
-tbody tr:hover {
-  background:#f8fbff;
-}
-
-.id {
-  font-weight:800;
-  color:#16437e;
-  overflow-wrap:anywhere;
-}
-
-.badge {
-  display:inline-block;
-  padding:5px 9px;
-  border-radius:99px;
-  font-size:10px;
-  font-weight:800;
-  white-space:nowrap;
-  background:#edf2f7;
-  color:#526071;
-}
-
-.b-blue {
-  background:#eaf2ff;
-  color:#1c4f9b;
-}
-
-.b-amber {
-  background:#fff6dc;
-  color:#8a6500;
-}
-
-.b-green {
-  background:#e7f8ee;
-  color:#137344;
-}
-
-.b-red {
-  background:#ffefee;
-  color:#a42c25;
-}
-
-.row-btn {
-  border:0;
-  background:#0b3475;
-  color:#fff;
-  border-radius:8px;
-  padding:8px 11px;
-  font-size:11px;
-  font-weight:800;
-  white-space:nowrap;
-}
-
-.empty {
-  text-align:center;
-  padding:42px 18px;
-  color:var(--muted);
-  line-height:1.6;
-}
+main { width:min(1500px,94%); margin:25px auto 50px; }
+.heading { display:flex; align-items:center; justify-content:space-between; gap:15px; margin-bottom:20px; }
+.heading h1 { font-size:clamp(24px,3vw,33px); }
+.heading p { font-size:13px; color:var(--muted); margin-top:6px; }
+.tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+.tab { border:1px solid #d9e0eb; background:#fff; color:#536076; padding:11px 15px; border-radius:12px; font-weight:800; }
+.tab.active { background:var(--navy); border-color:var(--navy); color:#fff; }
+.stats { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:12px; margin-bottom:18px; }
+.stat { background:#fff; border:1px solid var(--line); border-radius:15px; padding:16px; }
+.stat span { display:block; color:var(--muted); font-size:11px; font-weight:800; }
+.stat strong { display:block; font-size:28px; color:#10254d; margin-top:7px; }
+.filters { display:grid; grid-template-columns:minmax(200px,2fr) repeat(3,minmax(130px,1fr)) auto; gap:9px; background:#fff; border:1px solid var(--line); padding:13px; border-radius:15px; margin-bottom:15px; }
+.filters input,.filters select { width:100%; min-width:0; padding:11px 12px; border:1px solid #d8deea; border-radius:10px; background:#fff; outline:none; color:#273247; }
+.secondary { border:1px solid #d8deea; background:#fff; color:#273247; padding:10px 13px; border-radius:10px; font-weight:700; }
+.card { background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+.table-scroll { overflow:auto; }
+table { border-collapse:collapse; width:100%; min-width:930px; }
+thead { background:#0a214b; color:#fff; }
+th { font-size:11px; text-align:left; padding:14px 13px; white-space:nowrap; }
+td { padding:13px; border-bottom:1px solid #edf0f5; font-size:13px; vertical-align:middle; }
+tbody tr:hover { background:#f8fbff; }
+.id { font-weight:800; color:#16437e; overflow-wrap:anywhere; }
+.badge { display:inline-block; padding:5px 9px; border-radius:99px; font-size:10px; font-weight:800; white-space:nowrap; background:#edf2f7; color:#526071; }
+.b-blue { background:#eaf2ff; color:#1c4f9b; }
+.b-amber { background:#fff6dc; color:#8a6500; }
+.b-green { background:#e7f8ee; color:#137344; }
+.b-red { background:#ffefee; color:#a42c25; }
+.row-btn { border:0; background:#0b3475; color:#fff; border-radius:8px; padding:8px 11px; font-size:11px; font-weight:800; white-space:nowrap; }
+.empty { text-align:center; padding:42px 18px; color:var(--muted); line-height:1.6; }
 
 /* RECORD MODAL */
-
-.modal {
-  display:none;
-  position:fixed;
-  inset:0;
-  background:#061329b8;
-  z-index:50;
-  padding:18px;
-  align-items:center;
-  justify-content:center;
-}
-
-.modal.show {
-  display:flex;
-}
-
-.modal-box {
-  background:#fff;
-  width:min(760px,100%);
-  max-height:92vh;
-  overflow:auto;
-  border-radius:19px;
-}
-
-.modal-head {
-  position:sticky;
-  top:0;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  padding:17px 20px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-
-.modal-head h2 {
-  font-size:20px;
-}
-
-.x {
-  width:35px;
-  height:35px;
-  border:0;
-  border-radius:50%;
-  background:#edf1f6;
-  font-size:23px;
-}
-
-.modal-body {
-  padding:20px;
-}
-
-.detail-grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-
-.detail {
-  background:#f7f9fc;
-  border:1px solid #e7ebf2;
-  border-radius:11px;
-  padding:12px;
-  min-width:0;
-}
-
-.detail.full {
-  grid-column:1/-1;
-}
-
-.detail label {
-  display:block;
-  color:#778196;
-  font-size:10px;
-  font-weight:800;
-  margin-bottom:6px;
-}
-
-.detail div {
-  font-size:13px;
-  line-height:1.5;
-  overflow-wrap:anywhere;
-  white-space:pre-wrap;
-}
-
-.form-label {
-  display:block;
-  font-size:12px;
-  font-weight:800;
-  margin:17px 0 7px;
-}
-
-.modal select,
-.modal textarea {
-  width:100%;
-  padding:11px 12px;
-  border:1px solid #d8deea;
-  border-radius:10px;
-  background:#fff;
-}
-
-.modal textarea {
-  min-height:95px;
-  resize:vertical;
-}
-
-.modal-actions {
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:17px;
-}
-
-.modal-actions a,
-.modal-actions button {
-  display:inline-block;
-  text-decoration:none;
-  border:0;
-  border-radius:9px;
-  padding:10px 13px;
-  font-size:12px;
-  font-weight:800;
-}
-
-.call {
-  background:#eaf2ff;
-  color:#1c4f9b;
-}
-
-.wa {
-  background:#e7f8ee;
-  color:#137344;
-}
-
-.save {
-  background:#0b3475;
-  color:#fff;
-}
-
-.footer-note {
-  text-align:center;
-  color:#8993a4;
-  font-size:11px;
-  padding:25px;
-}
-
+.modal { display:none; position:fixed; inset:0; background:#061329b8; z-index:50; padding:18px; align-items:center; justify-content:center; }
+.modal.show { display:flex; }
+.modal-box { background:#fff; width:min(760px,100%); max-height:92vh; overflow:auto; border-radius:19px; }
+.modal-head { position:sticky; top:0; background:#fff; border-bottom:1px solid var(--line); padding:17px 20px; display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.modal-head h2 { font-size:20px; }
+.x { width:35px; height:35px; border:0; border-radius:50%; background:#edf1f6; font-size:23px; }
+.modal-body { padding:20px; }
+.detail-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.detail { background:#f7f9fc; border:1px solid #e7ebf2; border-radius:11px; padding:12px; min-width:0; }
+.detail.full { grid-column:1/-1; }
+.detail label { display:block; color:#778196; font-size:10px; font-weight:800; margin-bottom:6px; }
+.detail div { font-size:13px; line-height:1.5; overflow-wrap:anywhere; white-space:pre-wrap; }
+.form-label { display:block; font-size:12px; font-weight:800; margin:17px 0 7px; }
+.modal select,.modal textarea { width:100%; padding:11px 12px; border:1px solid #d8deea; border-radius:10px; background:#fff; }
+.modal textarea { min-height:95px; resize:vertical; }
+.modal-actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:17px; }
+.modal-actions a,.modal-actions button { display:inline-block; text-decoration:none; border:0; border-radius:9px; padding:10px 13px; font-size:12px; font-weight:800; }
+.call { background:#eaf2ff; color:#1c4f9b; }
+.wa { background:#e7f8ee; color:#137344; }
+.save { background:#0b3475; color:#fff; }
+.footer-note { text-align:center; color:#8993a4; font-size:11px; padding:25px; }
 @media(max-width:1050px) {
-  .stats {
-    grid-template-columns:repeat(3,minmax(0,1fr));
-  }
-
-  .filters {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-  }
-
-  .filters input {
-    grid-column:1/-1;
-  }
+  .stats { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .filters { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .filters input { grid-column:1/-1; }
 }
-
 @media(max-width:650px) {
-  .topbar {
-    width:92%;
-    align-items:flex-start;
-  }
-
-  .topbrand small,
-  .user-email {
-    display:none;
-  }
-
-  .topbrand strong {
-    font-size:14px;
-  }
-
-  .topbrand img {
-    width:38px;
-    height:38px;
-  }
-
-  .header-actions {
-    gap:5px;
-  }
-
-  .btn-outline {
-    padding:9px 8px;
-    font-size:12px;
-  }
-
-  .heading {
-    align-items:flex-start;
-    flex-direction:column;
-  }
-
-  .stats {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:9px;
-  }
-
-  .stat {
-    padding:13px;
-  }
-
-  .stat strong {
-    font-size:24px;
-  }
-
-  .filters {
-    grid-template-columns:1fr;
-  }
-
-  .filters input {
-    grid-column:auto;
-  }
-
-  .detail-grid {
-    grid-template-columns:1fr;
-  }
-
-  .detail.full {
-    grid-column:auto;
-  }
-
-  .login-card {
-    padding:25px 21px;
-  }
-
-  .modal {
-    padding:9px;
-  }
-
-  .modal-body {
-    padding:14px;
-  }
+  .topbar { width:92%; align-items:flex-start; }
+  .topbrand small,.user-email { display:none; }
+  .topbrand strong { font-size:14px; }
+  .topbrand img { width:38px; height:38px; }
+  .header-actions { gap:5px; }
+  .btn-outline { padding:9px 8px; font-size:12px; }
+  .heading { align-items:flex-start; flex-direction:column; }
+  .stats { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+  .stat { padding:13px; }
+  .stat strong { font-size:24px; }
+  .filters { grid-template-columns:1fr; }
+  .filters input { grid-column:auto; }
+  .detail-grid { grid-template-columns:1fr; }
+  .detail.full { grid-column:auto; }
+  .login-card { padding:25px 21px; }
+  .modal { padding:9px; }
+  .modal-body { padding:14px; }
 }
 </style>
 </head>
-
 <body>
-
-<!-- LOGIN PAGE -->
 <section id="loginPage">
   <form class="login-card" id="loginForm">
     <div class="brand">
       <img src="Logo.jpg" alt="SK KGN TEAM logo">
-      <div>
-        <strong>SK KGN TEAM</strong>
-        <small>Secure Administration</small>
-      </div>
+      <div><strong>SK KGN TEAM</strong><small>Secure Administration</small></div>
     </div>
-
     <span class="pill">ADMIN ACCESS</span>
-
     <h1>Admin Dashboard</h1>
-
-    <p>
-      Sign in with your authorized Firebase administrator account
-      to manage complaints and career applications.
-    </p>
-
+    <p>Sign in with your authorized Firebase administrator account to manage complaints, career applications and advocate applications.</p>
     <label class="label" for="email">ADMIN EMAIL</label>
-    <input
-      type="email"
-      id="email"
-      autocomplete="username"
-      placeholder="Enter admin email"
-      required
-    >
-
+    <input type="email" id="email" autocomplete="username" placeholder="Enter admin email" required>
     <label class="label" for="password">PASSWORD</label>
-    <input
-      type="password"
-      id="password"
-      autocomplete="current-password"
-      placeholder="Enter password"
-      required
-    >
-
-    <button class="primary" id="loginButton" type="submit">
-      Sign In →
-    </button>
-
+    <input type="password" id="password" autocomplete="current-password" placeholder="Enter password" required>
+    <button class="primary" id="loginButton" type="submit">Sign In →</button>
     <div id="loginMessage" class="message hidden" role="alert"></div>
   </form>
 </section>
 
-<!-- ADMIN DASHBOARD -->
 <section id="adminPage" class="hidden">
-
   <header>
     <div class="topbar">
-
       <div class="topbrand">
         <img src="Logo.jpg" alt="SK KGN TEAM logo">
-        <div>
-          <strong>SK KGN TEAM</strong>
-          <small>Administration Dashboard</small>
-        </div>
+        <div><strong>SK KGN TEAM</strong><small>Administration Dashboard</small></div>
       </div>
-
       <div class="header-actions">
         <span class="user-email" id="userEmail"></span>
-        <button class="btn-outline" id="refreshButton" type="button">
-          ↻ Refresh
-        </button>
-        <button class="btn-outline" id="logoutButton" type="button">
-          Sign Out
-        </button>
+        <button class="btn-outline" id="refreshButton" type="button">↻ Refresh</button>
+        <button class="btn-outline" id="logoutButton" type="button">Sign Out</button>
       </div>
-
     </div>
   </header>
 
   <main>
-
     <div class="heading">
       <div>
         <h1 id="pageTitle">Complaint Dashboard</h1>
-        <p id="pageSubtitle">
-          Review submissions, update status and record administrative remarks.
-        </p>
+        <p id="pageSubtitle">Review submissions, update status and record administrative remarks.</p>
       </div>
     </div>
 
     <div class="tabs">
-      <button class="tab active" data-view="complaints" type="button">
-        Complaints
-      </button>
-      <button class="tab" data-view="careers" type="button">
-        Career Applications
-      </button>
+      <button class="tab active" data-view="complaints" type="button">Complaints</button>
+      <button class="tab" data-view="careers" type="button">Career Applications</button>
+      <button class="tab" data-view="advocates" type="button">Advocate Applications</button>
     </div>
 
     <div class="stats" id="stats">
-      <div class="stat">
-        <span>TOTAL</span>
-        <strong id="statTotal">0</strong>
-      </div>
-      <div class="stat">
-        <span>SUBMITTED</span>
-        <strong id="statSubmitted">0</strong>
-      </div>
-      <div class="stat">
-        <span>UNDER REVIEW</span>
-        <strong id="statReview">0</strong>
-      </div>
-      <div class="stat">
-        <span>IN PROGRESS</span>
-        <strong id="statProgress">0</strong>
-      </div>
-      <div class="stat">
-        <span>RESOLVED</span>
-        <strong id="statResolved">0</strong>
-      </div>
-      <div class="stat">
-        <span>PAID</span>
-        <strong id="statPaid">0</strong>
-      </div>
+      <div class="stat"><span>TOTAL</span><strong id="statTotal">0</strong></div>
+      <div class="stat"><span>SUBMITTED</span><strong id="statSubmitted">0</strong></div>
+      <div class="stat"><span>UNDER REVIEW</span><strong id="statReview">0</strong></div>
+      <div class="stat"><span>IN PROGRESS</span><strong id="statProgress">0</strong></div>
+      <div class="stat"><span>RESOLVED</span><strong id="statResolved">0</strong></div>
+      <div class="stat"><span>PAID</span><strong id="statPaid">0</strong></div>
     </div>
 
     <div class="filters">
-      <input
-        type="search"
-        id="searchInput"
-        placeholder="Search ID, name, mobile, email..."
-      >
-
+      <input type="search" id="searchInput" placeholder="Search ID, name, mobile, email...">
       <select id="statusFilter">
         <option value="">All statuses</option>
-        <option>Submitted</option>
-        <option>Under Review</option>
-        <option>In Progress</option>
-        <option>Resolved</option>
-        <option>Cancelled</option>
-        <option>Received</option>
-        <option>Shortlisted</option>
-        <option>Rejected</option>
-        <option>Contacted</option>
-        <option>Selected</option>
+        <option>Submitted</option><option>Under Review</option><option>In Progress</option>
+        <option>Resolved</option><option>Cancelled</option><option>Received</option>
+        <option>Shortlisted</option><option>Rejected</option><option>Contacted</option>
+        <option>Selected</option><option>Pending</option><option>Approved</option>
       </select>
-
       <select id="paymentFilter">
-        <option value="">All payments</option>
-        <option value="Completed">Paid</option>
-        <option value="Pending">Pending</option>
-        <option value="Failed">Failed</option>
+        <option value="">All payments</option><option value="Completed">Paid</option>
+        <option value="Pending">Pending</option><option value="Failed">Failed</option>
       </select>
-
       <select id="sortFilter">
-        <option value="newest">Newest first</option>
-        <option value="oldest">Oldest first</option>
-        <option value="name">Name A–Z</option>
-        <option value="status">Status</option>
+        <option value="newest">Newest first</option><option value="oldest">Oldest first</option>
+        <option value="name">Name A–Z</option><option value="status">Status</option>
       </select>
-
-      <button class="secondary" id="clearFilters" type="button">
-        Clear
-      </button>
+      <button class="secondary" id="clearFilters" type="button">Clear</button>
     </div>
 
     <div class="card">
       <div class="table-scroll">
         <table>
           <thead id="tableHead"></thead>
-          <tbody id="tableBody">
-            <tr>
-              <td class="empty" colspan="8">Sign in to load records.</td>
-            </tr>
-          </tbody>
+          <tbody id="tableBody"><tr><td class="empty" colspan="8">Sign in to load records.</td></tr></tbody>
         </table>
       </div>
     </div>
-
     <div id="pageMessage" class="message hidden" role="status"></div>
   </main>
-
-  <div class="footer-note">
-    © 2026 SK KGN TEAM · Authorized administration only
-  </div>
-
+  <div class="footer-note">© 2026 SK KGN TEAM · Authorized administration only</div>
 </section>
 
-<!-- RECORD MODAL -->
-<div class="modal" id="recordModal" role="dialog"
-     aria-modal="true" aria-labelledby="modalTitle">
-
+<div class="modal" id="recordModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-box">
-
     <div class="modal-head">
       <h2 id="modalTitle">Record Details</h2>
-      <button class="x" id="closeModal" type="button" aria-label="Close">
-        ×
-      </button>
+      <button class="x" id="closeModal" type="button" aria-label="Close">×</button>
     </div>
-
     <div class="modal-body">
-
       <div class="detail-grid" id="detailGrid"></div>
 
       <div id="complaintControls">
-
         <label class="form-label" for="recordStatus">Update status</label>
         <select id="recordStatus">
-          <option>Submitted</option>
-          <option>Under Review</option>
-          <option>In Progress</option>
-          <option>Resolved</option>
-          <option>Cancelled</option>
+          <option>Submitted</option><option>Under Review</option><option>In Progress</option>
+          <option>Resolved</option><option>Cancelled</option>
         </select>
-
-        <label class="form-label" for="recordRemark">
-          Admin remark / action taken
-        </label>
-        <textarea id="recordRemark" maxlength="3000"
-          placeholder="Write an internal update..."></textarea>
-
+        <label class="form-label" for="recordRemark">Admin remark / action taken</label>
+        <textarea id="recordRemark" maxlength="3000" placeholder="Write an internal update..."></textarea>
         <div class="modal-actions">
-          <button class="save" id="saveComplaint" type="button">
-            Save changes
-          </button>
+          <button class="save" id="saveComplaint" type="button">Save changes</button>
           <a class="call" id="callCustomer" href="#">☎ Call</a>
-          <a class="wa" id="whatsappCustomer" href="#"
-             target="_blank" rel="noopener">WhatsApp</a>
+          <a class="wa" id="whatsappCustomer" href="#" target="_blank" rel="noopener">WhatsApp</a>
         </div>
-
       </div>
 
       <div id="careerControls" class="hidden">
-
-        <label class="form-label" for="careerStatus">
-          Application status
-        </label>
+        <label class="form-label" for="careerStatus">Application status</label>
         <select id="careerStatus">
-          <option>Received</option>
-          <option>Under Review</option>
-          <option>Shortlisted</option>
-          <option>Contacted</option>
-          <option>Rejected</option>
-          <option>Selected</option>
+          <option>Received</option><option>Under Review</option><option>Shortlisted</option>
+          <option>Contacted</option><option>Rejected</option><option>Selected</option>
         </select>
-
         <label class="form-label" for="careerRemark">Admin remark</label>
-        <textarea id="careerRemark" maxlength="3000"
-          placeholder="Add an internal recruitment note..."></textarea>
-
+        <textarea id="careerRemark" maxlength="3000" placeholder="Add an internal recruitment note..."></textarea>
         <div class="modal-actions">
-          <button class="save" id="saveCareer" type="button">
-            Save application update
-          </button>
+          <button class="save" id="saveCareer" type="button">Save application update</button>
           <a class="call" id="callApplicant" href="#">☎ Call applicant</a>
-          <a class="wa" id="whatsappApplicant" href="#"
-             target="_blank" rel="noopener">WhatsApp applicant</a>
+          <a class="wa" id="whatsappApplicant" href="#" target="_blank" rel="noopener">WhatsApp applicant</a>
         </div>
+      </div>
 
+      <div id="advocateControls" class="hidden">
+        <label class="form-label" for="advocateStatus">Advocate application status</label>
+        <select id="advocateStatus">
+          <option>Pending</option><option>Under Review</option><option>Approved</option><option>Rejected</option>
+        </select>
+        <label class="form-label" for="advocateRemark">Internal admin remark</label>
+        <textarea id="advocateRemark" maxlength="3000" placeholder="Internal note (not shown publicly)..."></textarea>
+        <p style="font-size:12px;color:#667085;line-height:1.5;margin-top:10px">
+          Approval publishes the advocate's public profile to the Advocate Search page.
+          Mobile, email, enrolment number and office address are not published.
+        </p>
+        <div class="modal-actions">
+          <button class="save" id="saveAdvocate" type="button">Save advocate decision</button>
+          <a class="call" id="callAdvocate" href="#">☎ Call applicant</a>
+          <a class="wa" id="whatsappAdvocate" href="#" target="_blank" rel="noopener">WhatsApp applicant</a>
+        </div>
       </div>
 
       <div id="modalMessage" class="message hidden" role="status"></div>
-
     </div>
   </div>
 </div>
 
 <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  doc,
-  updateDoc,
-  serverTimestamp
+  getFirestore, collection, getDocs, doc, updateDoc, setDoc, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-
 import {
-  getAuth,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut
+  getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-/*
-  Keep your existing Firebase web configuration here.
-  These values identify the Firebase project; Firestore Rules
-  and Firebase Authentication must still be configured securely.
-*/
 const firebaseConfig = {
-  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTZ9oHKVQ",
   authDomain: "sk-kgn-team.firebaseapp.com",
   databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "sk-kgn-team",
@@ -1013,13 +317,13 @@ const auth = getAuth(app);
 let view = "complaints";
 let complaints = [];
 let careers = [];
+let advocates = [];
 let filtered = [];
 let selected = null;
 let busy = false;
 let authReady = false;
 
 const $ = id => document.getElementById(id);
-
 const loginPage = $("loginPage");
 const adminPage = $("adminPage");
 const loginForm = $("loginForm");
@@ -1035,139 +339,82 @@ function message(el, text, type = "info") {
   el.textContent = text;
   el.className = "message " + type;
 }
-
 function clearMessage(el) {
   el.textContent = "";
   el.className = "message hidden";
 }
-
 function esc(value) {
   return String(value ?? "").replace(/[&<>"']/g, char => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
   })[char]);
 }
-
 function dateValue(value) {
   try {
-    if (value && typeof value.toDate === "function") {
-      return value.toDate();
-    }
-
+    if (value && typeof value.toDate === "function") return value.toDate();
     const date = value ? new Date(value) : null;
     return date && !Number.isNaN(date.getTime()) ? date : null;
-  } catch {
-    return null;
-  }
+  } catch { return null; }
 }
-
 function fmt(value) {
   const date = dateValue(value);
-
-  return date
-    ? date.toLocaleString("en-IN", {
-        dateStyle: "medium",
-        timeStyle: "short"
-      })
-    : "—";
+  return date ? date.toLocaleString("en-IN",{dateStyle:"medium",timeStyle:"short"}) : "—";
 }
-
 function when(record) {
-  return view === "careers"
-    ? (record.submittedAt || record.createdAt)
-    : (record.createdAt || record.submittedAt);
+  if (view === "careers") return record.submittedAt || record.createdAt;
+  if (view === "advocates") return record.submittedAt || record.createdAt;
+  return record.createdAt || record.submittedAt;
 }
-
 function recordId(record) {
-  return record.complaintId ||
-         record.applicationId ||
-         record.id ||
-         "—";
+  return record.complaintId || record.applicationId || record.id || "—";
 }
-
-function personName(record) {
-  return record.name || record.fullName || "—";
-}
-
-function mobile(record) {
-  return String(record.mobile || record.phone || "")
-    .replace(/\s+/g, "");
-}
-
+function personName(record) { return record.name || record.fullName || "—"; }
+function mobile(record) { return String(record.mobile || record.phone || "").replace(/\s+/g,""); }
 function badge(value) {
   const status = String(value || "Pending");
   let cls = "";
-
-  if (["Resolved", "Selected", "Shortlisted", "Completed"].includes(status)) {
-    cls = "b-green";
-  } else if (["Under Review", "In Progress", "Contacted"].includes(status)) {
-    cls = "b-amber";
-  } else if (["Rejected", "Cancelled", "Failed"].includes(status)) {
-    cls = "b-red";
-  } else {
-    cls = "b-blue";
-  }
-
+  if (["Resolved","Selected","Shortlisted","Completed","Approved"].includes(status)) cls = "b-green";
+  else if (["Under Review","In Progress","Contacted"].includes(status)) cls = "b-amber";
+  else if (["Rejected","Cancelled","Failed"].includes(status)) cls = "b-red";
+  else cls = "b-blue";
   return `<span class="badge ${cls}">${esc(status)}</span>`;
 }
-
 function friendlyAuthError(error) {
   const code = error?.code || "unknown";
-
   const explanations = {
-    "auth/invalid-email": "Email address ka format galat hai.",
-    "auth/user-not-found": "Is email ka Firebase account nahi mila.",
-    "auth/wrong-password": "Password galat hai.",
-    "auth/invalid-credential": "Email ya password galat hai, ya credentials valid nahi hain.",
-    "auth/invalid-login-credentials": "Email ya password verify nahi ho saka.",
-    "auth/user-disabled": "Yeh Firebase account disabled hai.",
-    "auth/too-many-requests": "Bahut zyada login attempts hue. Kuch der baad try karein.",
-    "auth/network-request-failed": "Internet connection ya network request mein problem hai.",
-    "auth/operation-not-allowed": "Firebase Console mein Email/Password sign-in enable karein.",
-    "auth/unauthorized-domain": "Website ka domain Firebase Authentication ke authorized domains mein add karein.",
-    "auth/invalid-api-key": "Firebase API key ya project configuration check karein."
+    "auth/invalid-email":"Email address ka format galat hai.",
+    "auth/user-not-found":"Is email ka Firebase account nahi mila.",
+    "auth/wrong-password":"Password galat hai.",
+    "auth/invalid-credential":"Email ya password galat hai, ya credentials valid nahi hain.",
+    "auth/invalid-login-credentials":"Email ya password verify nahi ho saka.",
+    "auth/user-disabled":"Yeh Firebase account disabled hai.",
+    "auth/too-many-requests":"Bahut zyada login attempts hue. Kuch der baad try karein.",
+    "auth/network-request-failed":"Internet connection ya network request mein problem hai.",
+    "auth/operation-not-allowed":"Firebase Console mein Email/Password sign-in enable karein.",
+    "auth/unauthorized-domain":"Website ka domain Firebase Authentication ke authorized domains mein add karein.",
+    "auth/invalid-api-key":"Firebase API key ya project configuration check karein."
   };
-
   return `${explanations[code] || "Login fail hua. Neeche diya gaya error code check karein."}\n\nError Code: ${code}\nDetails: ${error?.message || "No additional details"}`;
 }
 
 /* LOGIN */
-
 loginForm.addEventListener("submit", async event => {
   event.preventDefault();
-
   if (loginButton.disabled) return;
-
   clearMessage(loginMessage);
-
   const email = $("email").value.trim();
   const password = $("password").value;
-
   if (!email || !password) {
-    message(loginMessage, "Email aur password dono bharein.", "error");
+    message(loginMessage,"Email aur password dono bharein.","error");
     return;
   }
-
   loginButton.disabled = true;
   loginButton.textContent = "Signing in…";
-
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-
-    /*
-      The authentication listener below switches to the dashboard.
-      Do not manually clear the form or reload the page here.
-    */
-    message(loginMessage, "Login successful. Dashboard khul raha hai…", "ok");
-
+    await signInWithEmailAndPassword(auth,email,password);
+    message(loginMessage,"Login successful. Dashboard khul raha hai…","ok");
   } catch (error) {
-    console.error("Firebase login error:", error);
-
-    message(loginMessage, friendlyAuthError(error), "error");
-
+    console.error("Firebase login error:",error);
+    message(loginMessage,friendlyAuthError(error),"error");
   } finally {
     loginButton.disabled = false;
     loginButton.textContent = "Sign In →";
@@ -1175,173 +422,101 @@ loginForm.addEventListener("submit", async event => {
 });
 
 /* AUTH STATE */
-
-onAuthStateChanged(auth, async user => {
+onAuthStateChanged(auth,async user => {
   authReady = true;
-
   if (user) {
     loginPage.classList.add("hidden");
     adminPage.classList.remove("hidden");
-
     $("userEmail").textContent = user.email || "Authenticated user";
-
     await loadCurrentView();
   } else {
     adminPage.classList.add("hidden");
     loginPage.classList.remove("hidden");
-
     $("userEmail").textContent = "";
   }
 });
-
-/* SIGN OUT */
-
-$("logoutButton").addEventListener("click", async () => {
+$("logoutButton").addEventListener("click",async () => {
   const button = $("logoutButton");
   button.disabled = true;
-
   try {
     await signOut(auth);
     clearMessage(loginMessage);
     $("password").value = "";
   } catch (error) {
-    console.error("Sign-out error:", error);
-
-    message(
-      pageMessage,
-      "Could not sign out: " + (error.message || "Unknown error"),
-      "error"
-    );
-  } finally {
-    button.disabled = false;
-  }
+    console.error("Sign-out error:",error);
+    message(pageMessage,"Could not sign out: " + (error.message || "Unknown error"),"error");
+  } finally { button.disabled = false; }
 });
-
-/* REFRESH */
-
-$("refreshButton").addEventListener("click", async () => {
-  await loadCurrentView();
-});
+$("refreshButton").addEventListener("click",async () => loadCurrentView());
 
 /* TABS */
-
 document.querySelectorAll(".tab").forEach(button => {
-  button.addEventListener("click", async () => {
+  button.addEventListener("click",async () => {
     if (view === button.dataset.view) return;
-
     view = button.dataset.view;
-
-    document.querySelectorAll(".tab").forEach(tab => {
-      tab.classList.toggle("active", tab === button);
-    });
-
-    $("pageTitle").textContent =
-      view === "complaints" ? "Complaint Dashboard" : "Career Applications";
-
-    $("pageSubtitle").textContent =
-      view === "complaints"
-        ? "Review submissions, update status and record administrative remarks."
-        : "Review submitted applications and update recruitment status.";
-
-    $("paymentFilter").classList.toggle("hidden", view === "careers");
-    $("stats").classList.toggle("hidden", view === "careers");
-
+    document.querySelectorAll(".tab").forEach(tab => tab.classList.toggle("active",tab === button));
+    const titles = {
+      complaints:["Complaint Dashboard","Review submissions, update status and record administrative remarks."],
+      careers:["Career Applications","Review submitted applications and update recruitment status."],
+      advocates:["Advocate Applications","Review advocate registrations, approve/reject applications and publish approved public profiles."]
+    };
+    $("pageTitle").textContent = titles[view][0];
+    $("pageSubtitle").textContent = titles[view][1];
+    $("paymentFilter").classList.toggle("hidden",view !== "complaints");
+    $("stats").classList.toggle("hidden",view !== "complaints");
     $("statusFilter").value = "";
     $("searchInput").value = "";
-
     clearMessage(pageMessage);
-
     await loadCurrentView();
   });
 });
 
 /* FILTERS */
-
-$("searchInput").addEventListener("input", renderFiltered);
-$("statusFilter").addEventListener("change", renderFiltered);
-$("paymentFilter").addEventListener("change", renderFiltered);
-$("sortFilter").addEventListener("change", renderFiltered);
-
-$("clearFilters").addEventListener("click", () => {
+$("searchInput").addEventListener("input",renderFiltered);
+$("statusFilter").addEventListener("change",renderFiltered);
+$("paymentFilter").addEventListener("change",renderFiltered);
+$("sortFilter").addEventListener("change",renderFiltered);
+$("clearFilters").addEventListener("click",() => {
   $("searchInput").value = "";
   $("statusFilter").value = "";
   $("paymentFilter").value = "";
   $("sortFilter").value = "newest";
-
   renderFiltered();
 });
 
 /* LOAD RECORDS */
-
 async function loadCurrentView() {
   if (busy) return;
-
   if (!auth.currentUser) {
-    message(pageMessage, "Records load karne ke liye pehle sign in karein.", "info");
+    message(pageMessage,"Records load karne ke liye pehle sign in karein.","info");
     return;
   }
-
   busy = true;
-
   const refreshButton = $("refreshButton");
   refreshButton.disabled = true;
   refreshButton.textContent = "Loading…";
-
   clearMessage(pageMessage);
-
   tableHead.innerHTML = "";
-  tableBody.innerHTML =
-    '<tr><td class="empty" colspan="8">Loading records…</td></tr>';
-
+  tableBody.innerHTML = '<tr><td class="empty" colspan="8">Loading records…</td></tr>';
+  const collectionName = view === "complaints" ? "complaints" :
+    view === "careers" ? "careerApplications" : "advocateApplications";
   try {
-    const collectionName =
-      view === "complaints" ? "complaints" : "careerApplications";
-
-    const snapshot = await getDocs(collection(db, collectionName));
-
-    const records = snapshot.docs.map(item => ({
-      id: item.id,
-      ...item.data()
-    }));
-
-    if (view === "complaints") {
-      complaints = records;
-    } else {
-      careers = records;
-    }
-
+    const snapshot = await getDocs(collection(db,collectionName));
+    const records = snapshot.docs.map(item => ({id:item.id,...item.data()}));
+    if (view === "complaints") complaints = records;
+    else if (view === "careers") careers = records;
+    else advocates = records;
     renderStats();
     renderFiltered();
-
   } catch (error) {
-    console.error("Firestore load error:", error);
-
-    const collectionName =
-      view === "complaints" ? "complaints" : "careerApplications";
-
+    console.error("Firestore load error:",error);
     tableHead.innerHTML = "";
-
-    tableBody.innerHTML = `
-      <tr>
-        <td class="empty" colspan="8">
-          Could not load ${esc(collectionName)}.
-          <br><br>
-          Error: ${esc(error.code || "unknown")}
-          <br>
-          ${esc(error.message || "Firebase error")}
-          <br><br>
-          Check Firebase Authentication, Firestore Rules,
-          and the collection name.
-        </td>
-      </tr>
-    `;
-
-    message(
-      pageMessage,
-      "Dashboard load nahi hua. Error details table mein dikh rahi hain.",
-      "error"
-    );
-
+    tableBody.innerHTML = `<tr><td class="empty" colspan="8">
+      Could not load ${esc(collectionName)}.<br><br>
+      Error: ${esc(error.code || "unknown")}<br>${esc(error.message || "Firebase error")}<br><br>
+      Check Firebase Authentication, Firestore Rules, and the collection name.
+    </td></tr>`;
+    message(pageMessage,"Dashboard load nahi hua. Error details table mein dikh rahi hain.","error");
   } finally {
     busy = false;
     refreshButton.disabled = false;
@@ -1349,288 +524,189 @@ async function loadCurrentView() {
   }
 }
 
-/* STATISTICS */
-
+/* STATISTICS — unchanged complaint statistics */
 function renderStats() {
   const records = complaints;
-
   $("statTotal").textContent = records.length;
-
-  $("statSubmitted").textContent =
-    records.filter(record => (record.status || "Submitted") === "Submitted").length;
-
-  $("statReview").textContent =
-    records.filter(record => record.status === "Under Review").length;
-
-  $("statProgress").textContent =
-    records.filter(record => record.status === "In Progress").length;
-
-  $("statResolved").textContent =
-    records.filter(record => record.status === "Resolved").length;
-
-  $("statPaid").textContent =
-    records.filter(record => record.paymentStatus === "Completed").length;
+  $("statSubmitted").textContent = records.filter(r => (r.status || "Submitted") === "Submitted").length;
+  $("statReview").textContent = records.filter(r => r.status === "Under Review").length;
+  $("statProgress").textContent = records.filter(r => r.status === "In Progress").length;
+  $("statResolved").textContent = records.filter(r => r.status === "Resolved").length;
+  $("statPaid").textContent = records.filter(r => r.paymentStatus === "Completed").length;
 }
 
 /* SEARCH, FILTER, SORT */
-
 function renderFiltered() {
-  const all = view === "complaints" ? complaints : careers;
-
+  const all = view === "complaints" ? complaints : view === "careers" ? careers : advocates;
   const query = $("searchInput").value.trim().toLowerCase();
   const status = $("statusFilter").value;
   const payment = $("paymentFilter").value;
   const sort = $("sortFilter").value;
-
   filtered = all.filter(record => {
     const searchable = [
-      record.id,
-      recordId(record),
-      personName(record),
-      record.mobile,
-      record.phone,
-      record.email,
-      record.subject,
-      record.details,
-      record.plan,
-      record.workType,
-      record.status,
-      record.paymentStatus,
-      record.razorpayPaymentId,
-      record.referenceId
+      record.id,recordId(record),personName(record),record.mobile,record.phone,record.email,
+      record.subject,record.details,record.plan,record.workType,record.status,
+      record.paymentStatus,record.razorpayPaymentId,record.referenceId,
+      record.state,record.district,record.practiceLocation,record.practiceArea,
+      Array.isArray(record.practiceAreas) ? record.practiceAreas.join(" ") : "",
+      record.enrolmentNumber,record.barCouncil,record.introduction
     ].join(" ").toLowerCase();
-
-    const currentStatus =
-      record.status || (view === "careers" ? "Received" : "Submitted");
-
+    const defaultStatus = view === "complaints" ? "Submitted" : view === "careers" ? "Received" : "Pending";
+    const currentStatus = record.status || defaultStatus;
     return (!query || searchable.includes(query)) &&
       (!status || currentStatus === status) &&
-      (view === "careers" ||
-       !payment ||
-       String(record.paymentStatus || "Pending") === payment);
+      (view !== "complaints" || !payment || String(record.paymentStatus || "Pending") === payment);
   });
-
-  filtered.sort((a, b) => {
-    if (sort === "name") {
-      return personName(a).localeCompare(personName(b));
-    }
-
-    if (sort === "status") {
-      return String(a.status || "").localeCompare(String(b.status || ""));
-    }
-
+  filtered.sort((a,b) => {
+    if (sort === "name") return personName(a).localeCompare(personName(b));
+    if (sort === "status") return String(a.status || "").localeCompare(String(b.status || ""));
     const dateA = dateValue(when(a))?.getTime() || 0;
     const dateB = dateValue(when(b))?.getTime() || 0;
-
-    return sort === "oldest" ? dateA - dateB : dateB - dateA;
+    return sort === "oldest" ? dateA-dateB : dateB-dateA;
   });
-
   renderTable();
 }
 
 /* TABLE */
-
 function renderTable() {
   if (view === "complaints") {
-    tableHead.innerHTML = `
-      <tr>
-        <th>COMPLAINT ID</th>
-        <th>CUSTOMER</th>
-        <th>MOBILE</th>
-        <th>PLAN</th>
-        <th>PAYMENT</th>
-        <th>STATUS</th>
-        <th>SUBMITTED</th>
-        <th>ACTION</th>
-      </tr>
-    `;
+    tableHead.innerHTML = `<tr><th>COMPLAINT ID</th><th>CUSTOMER</th><th>MOBILE</th><th>PLAN</th><th>PAYMENT</th><th>STATUS</th><th>SUBMITTED</th><th>ACTION</th></tr>`;
+  } else if (view === "careers") {
+    tableHead.innerHTML = `<tr><th>APPLICATION ID</th><th>APPLICANT</th><th>MOBILE</th><th>EMAIL</th><th>WORK TYPE</th><th>STATUS</th><th>SUBMITTED</th><th>ACTION</th></tr>`;
   } else {
-    tableHead.innerHTML = `
-      <tr>
-        <th>APPLICATION ID</th>
-        <th>APPLICANT</th>
-        <th>MOBILE</th>
-        <th>EMAIL</th>
-        <th>WORK TYPE</th>
-        <th>STATUS</th>
-        <th>SUBMITTED</th>
-        <th>ACTION</th>
-      </tr>
-    `;
+    tableHead.innerHTML = `<tr><th>APPLICATION ID</th><th>ADVOCATE</th><th>STATE / DISTRICT</th><th>PRACTICE AREA</th><th>EXPERIENCE</th><th>STATUS</th><th>SUBMITTED</th><th>ACTION</th></tr>`;
   }
-
   if (!filtered.length) {
-    tableBody.innerHTML = `
-      <tr>
-        <td colspan="8" class="empty">
-          ${view === "complaints"
-            ? "No complaints found."
-            : "No career applications found."}
-        </td>
-      </tr>
-    `;
-
+    const emptyText = view === "complaints" ? "No complaints found." :
+      view === "careers" ? "No career applications found." : "No advocate applications found.";
+    tableBody.innerHTML = `<tr><td colspan="8" class="empty">${emptyText}</td></tr>`;
     return;
   }
-
   if (view === "complaints") {
-    tableBody.innerHTML = filtered.map((record, index) => `
-      <tr>
-        <td class="id">${esc(recordId(record))}</td>
-        <td>${esc(personName(record))}</td>
-        <td>${esc(record.mobile || record.phone || "—")}</td>
-        <td>${esc(record.plan || "—")}</td>
-        <td>${badge(record.paymentStatus || "Pending")}</td>
-        <td>${badge(record.status || "Submitted")}</td>
-        <td>${esc(fmt(when(record)))}</td>
-        <td>
-          <button class="row-btn" data-index="${index}" type="button">
-            View / Manage
-          </button>
-        </td>
-      </tr>
-    `).join("");
+    tableBody.innerHTML = filtered.map((record,index) => `<tr>
+      <td class="id">${esc(recordId(record))}</td><td>${esc(personName(record))}</td>
+      <td>${esc(record.mobile || record.phone || "—")}</td><td>${esc(record.plan || "—")}</td>
+      <td>${badge(record.paymentStatus || "Pending")}</td><td>${badge(record.status || "Submitted")}</td>
+      <td>${esc(fmt(when(record)))}</td><td><button class="row-btn" data-index="${index}" type="button">View / Manage</button></td>
+    </tr>`).join("");
+  } else if (view === "careers") {
+    tableBody.innerHTML = filtered.map((record,index) => `<tr>
+      <td class="id">${esc(recordId(record))}</td><td>${esc(personName(record))}</td>
+      <td>${esc(record.mobile || record.phone || "—")}</td><td>${esc(record.email || "—")}</td>
+      <td>${esc(record.workType || "—")}</td><td>${badge(record.status || "Received")}</td>
+      <td>${esc(fmt(when(record)))}</td><td><button class="row-btn" data-index="${index}" type="button">View / Manage</button></td>
+    </tr>`).join("");
   } else {
-    tableBody.innerHTML = filtered.map((record, index) => `
-      <tr>
-        <td class="id">${esc(recordId(record))}</td>
-        <td>${esc(personName(record))}</td>
-        <td>${esc(record.mobile || record.phone || "—")}</td>
-        <td>${esc(record.email || "—")}</td>
-        <td>${esc(record.workType || "—")}</td>
-        <td>${badge(record.status || "Received")}</td>
-        <td>${esc(fmt(when(record)))}</td>
-        <td>
-          <button class="row-btn" data-index="${index}" type="button">
-            View / Manage
-          </button>
-        </td>
-      </tr>
-    `).join("");
+    tableBody.innerHTML = filtered.map((record,index) => `<tr>
+      <td class="id">${esc(recordId(record))}</td><td>${esc(personName(record))}</td>
+      <td>${esc([record.state,record.district].filter(Boolean).join(" / ") || record.practiceLocation || "—")}</td>
+      <td>${esc(record.practiceArea || (Array.isArray(record.practiceAreas) ? record.practiceAreas.join(", ") : "—"))}</td>
+      <td>${esc(record.experience ? record.experience + " years" : "—")}</td>
+      <td>${badge(record.status || "Pending")}</td><td>${esc(fmt(when(record)))}</td>
+      <td><button class="row-btn" data-index="${index}" type="button">View / Manage</button></td>
+    </tr>`).join("");
   }
-
   tableBody.querySelectorAll("[data-index]").forEach(button => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click",() => {
       const record = filtered[Number(button.dataset.index)];
-
       if (record) openRecord(record);
     });
   });
 }
 
 /* RECORD DETAILS */
-
-function addDetail(label, value, full = false) {
-  return `
-    <div class="detail ${full ? "full" : ""}">
-      <label>${esc(label)}</label>
-      <div>${esc(value ?? "—")}</div>
-    </div>
-  `;
+function addDetail(label,value,full=false) {
+  return `<div class="detail ${full ? "full" : ""}"><label>${esc(label)}</label><div>${esc(value ?? "—")}</div></div>`;
 }
-
-function detailMarkup(record, type) {
+function detailMarkup(record,type) {
+  if (type === "advocates") {
+    const areas = record.practiceArea || (Array.isArray(record.practiceAreas) ? record.practiceAreas.join(", ") : "—");
+    return [
+      addDetail("Application ID",recordId(record)),
+      addDetail("Submitted",fmt(record.submittedAt || record.createdAt)),
+      addDetail("Name",personName(record)),
+      addDetail("Mobile",record.mobile || "—"),
+      addDetail("Email",record.email || "—"),
+      addDetail("State",record.state || "—"),
+      addDetail("District",record.district || "—"),
+      addDetail("Practice location",record.practiceLocation || "—"),
+      addDetail("Bar Council",record.barCouncil || "—"),
+      addDetail("Enrolment number",record.enrolmentNumber || "—"),
+      addDetail("Enrolment year",record.enrolmentYear || "—"),
+      addDetail("Experience",record.experience ? record.experience + " years" : "—"),
+      addDetail("Practice area",areas,true),
+      addDetail("Office address (private)",record.officeAddress || "—",true),
+      addDetail("Introduction",record.introduction || "—",true),
+      addDetail("Public consent",record.publicConsent === true ? "Yes" : "Not confirmed"),
+      addDetail("Declaration accepted",record.declarationAccepted === true ? "Yes" : "Not confirmed"),
+      addDetail("Status",record.status || "Pending"),
+      addDetail("Internal admin remark",record.adminRemark || "—",true)
+    ].join("");
+  }
   const isComplaint = type === "complaints";
-
   const cells = [
-    addDetail(isComplaint ? "Complaint ID" : "Application ID", recordId(record)),
-    addDetail("Submitted", fmt(when(record))),
-    addDetail("Name", personName(record)),
-    addDetail("Mobile", record.mobile || record.phone || "—"),
-    addDetail("Email", record.email || "—"),
-    addDetail(
-      isComplaint ? "Service plan" : "Preferred work type",
-      record.plan || record.workType || "—"
-    ),
-    addDetail(
-      "Status",
-      record.status || (isComplaint ? "Submitted" : "Received")
-    )
+    addDetail(isComplaint ? "Complaint ID" : "Application ID",recordId(record)),
+    addDetail("Submitted",fmt(when(record))),
+    addDetail("Name",personName(record)),
+    addDetail("Mobile",record.mobile || record.phone || "—"),
+    addDetail("Email",record.email || "—"),
+    addDetail(isComplaint ? "Service plan" : "Preferred work type",record.plan || record.workType || "—"),
+    addDetail("Status",record.status || (isComplaint ? "Submitted" : "Received"))
   ];
-
   if (isComplaint) {
     cells.push(
-      addDetail("Payment status", record.paymentStatus || "Pending"),
-      addDetail("Amount", record.amount != null ? "₹" + record.amount : "—"),
-      addDetail("Razorpay payment ID", record.razorpayPaymentId || "—"),
-      addDetail("Payment link ID", record.paymentLinkId || "—"),
-      addDetail("Reference ID", record.referenceId || "—"),
-      addDetail("Updated", fmt(record.updatedAt)),
-      addDetail("Subject", record.subject || "—", true),
-      addDetail("Details", record.details || "—", true)
+      addDetail("Payment status",record.paymentStatus || "Pending"),
+      addDetail("Amount",record.amount != null ? "₹" + record.amount : "—"),
+      addDetail("Razorpay payment ID",record.razorpayPaymentId || "—"),
+      addDetail("Payment link ID",record.paymentLinkId || "—"),
+      addDetail("Reference ID",record.referenceId || "—"),
+      addDetail("Updated",fmt(record.updatedAt)),
+      addDetail("Subject",record.subject || "—",true),
+      addDetail("Details",record.details || "—",true)
     );
   }
-
-  cells.push(addDetail("Admin remark", record.adminRemark || "—", true));
-
+  cells.push(addDetail("Admin remark",record.adminRemark || "—",true));
   return cells.join("");
 }
 
 function openRecord(record) {
   selected = record;
-
   clearMessage(modalMessage);
-
   const isComplaint = view === "complaints";
-
-  $("modalTitle").textContent =
-    isComplaint ? "Complaint Details" : "Career Application Details";
-
-  $("detailGrid").innerHTML = detailMarkup(record, view);
-
-  $("complaintControls").classList.toggle("hidden", !isComplaint);
-  $("careerControls").classList.toggle("hidden", isComplaint);
+  const isCareer = view === "careers";
+  $("modalTitle").textContent = isComplaint ? "Complaint Details" :
+    isCareer ? "Career Application Details" : "Advocate Application Details";
+  $("detailGrid").innerHTML = detailMarkup(record,view);
+  $("complaintControls").classList.toggle("hidden",!isComplaint);
+  $("careerControls").classList.toggle("hidden",!isCareer);
+  $("advocateControls").classList.toggle("hidden",view !== "advocates");
 
   const number = mobile(record);
-  const digits = number.replace(/\D/g, "");
-
+  const digits = number.replace(/\D/g,"");
   $("callCustomer").href = number ? "tel:" + number : "#";
   $("callApplicant").href = number ? "tel:" + number : "#";
-
+  $("callAdvocate").href = number ? "tel:" + number : "#";
   let whatsappNumber = digits;
-
-  if (digits.length === 10) {
-    whatsappNumber = "91" + digits;
-  }
-
-  const status =
-    record.status || (isComplaint ? "Submitted" : "Received");
-
-  const whatsappText = encodeURIComponent(
-    `Hello ${personName(record)}, your SK KGN TEAM ${
-      isComplaint ? "complaint" : "career application"
-    } ${recordId(record)} status is ${status}.`
-  );
-
-  $("whatsappCustomer").href = whatsappNumber
-    ? `https://wa.me/${whatsappNumber}?text=${whatsappText}`
-    : "#";
-
-  $("whatsappApplicant").href = whatsappNumber
-    ? `https://wa.me/${whatsappNumber}?text=${whatsappText}`
-    : "#";
-
+  if (digits.length === 10) whatsappNumber = "91" + digits;
+  const currentStatus = record.status || (isComplaint ? "Submitted" : isCareer ? "Received" : "Pending");
+  const typeText = isComplaint ? "complaint" : isCareer ? "career application" : "advocate application";
+  const whatsappText = encodeURIComponent(`Hello ${personName(record)}, your SK KGN TEAM ${typeText} ${recordId(record)} status is ${currentStatus}.`);
+  $("whatsappCustomer").href = whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${whatsappText}` : "#";
+  $("whatsappApplicant").href = whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${whatsappText}` : "#";
+  $("whatsappAdvocate").href = whatsappNumber ? `https://wa.me/${whatsappNumber}?text=${whatsappText}` : "#";
   $("recordStatus").value = record.status || "Submitted";
   $("recordRemark").value = record.adminRemark || "";
-
   $("careerStatus").value = record.status || "Received";
   $("careerRemark").value = record.adminRemark || "";
-
+  $("advocateStatus").value = record.status || "Pending";
+  $("advocateRemark").value = record.adminRemark || "";
   recordModal.classList.add("show");
 }
 
 /* CLOSE MODAL */
-
-$("closeModal").addEventListener("click", closeModal);
-
-recordModal.addEventListener("click", event => {
-  if (event.target === recordModal) closeModal();
-});
-
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") closeModal();
-});
-
+$("closeModal").addEventListener("click",closeModal);
+recordModal.addEventListener("click",event => { if (event.target === recordModal) closeModal(); });
+document.addEventListener("keydown",event => { if (event.key === "Escape") closeModal(); });
 function closeModal() {
   recordModal.classList.remove("show");
   selected = null;
@@ -1638,104 +714,96 @@ function closeModal() {
 }
 
 /* SAVE CHANGES */
-
-async function saveSelected(collectionName, fields) {
+async function saveSelected(collectionName,fields) {
   if (!selected || !auth.currentUser) {
-    message(modalMessage, "Session expire ho gaya. Dobara sign in karein.", "error");
+    message(modalMessage,"Session expire ho gaya. Dobara sign in karein.","error");
     return;
   }
-
-  const saveButton =
-    collectionName === "complaints"
-      ? $("saveComplaint")
-      : $("saveCareer");
-
+  const saveButton = collectionName === "complaints" ? $("saveComplaint") :
+    collectionName === "careerApplications" ? $("saveCareer") : $("saveAdvocate");
   saveButton.disabled = true;
+  const oldButtonText = saveButton.textContent;
   saveButton.textContent = "Saving…";
-
   try {
-    await updateDoc(doc(db, collectionName, selected.id), {
-      ...fields,
-      updatedAt: serverTimestamp()
-    });
+    if (collectionName === "advocateApplications") {
+      const newStatus = fields.status || selected.status || "Pending";
+      const profile = {
+        applicationId: recordId(selected),
+        name: selected.name || selected.fullName || "",
+        state: selected.state || "",
+        district: selected.district || "",
+        practiceLocation: selected.practiceLocation || "",
+        practiceArea: selected.practiceArea || (Array.isArray(selected.practiceAreas) ? selected.practiceAreas.join(", ") : ""),
+        practiceAreas: Array.isArray(selected.practiceAreas) ? selected.practiceAreas : String(selected.practiceArea || "").split(",").map(v => v.trim()).filter(Boolean),
+        experience: selected.experience || "",
+        introduction: selected.introduction || "",
+        publicConsent: selected.publicConsent === true,
+        status: newStatus,
+        updatedAt: serverTimestamp()
+      };
 
-    Object.assign(selected, fields, {
-      updatedAt: new Date()
-    });
+      if (newStatus === "Approved") {
+        if (selected.publicConsent !== true || selected.declarationAccepted !== true) {
+          throw new Error("Approval blocked: public consent and declaration acceptance must both be confirmed.");
+        }
+        await setDoc(doc(db,"publicAdvocates",selected.id),{
+          ...profile,
+          approvedAt: serverTimestamp()
+        },{merge:true});
+      } else {
+        // Keep the public document but remove it from the public Approved-only query.
+        // This also prevents a previously approved profile remaining publicly visible.
+        await setDoc(doc(db,"publicAdvocates",selected.id),profile,{merge:true});
+      }
 
-    const records =
-      collectionName === "complaints" ? complaints : careers;
-
-    const existing = records.find(record => record.id === selected.id);
-
-    if (existing) {
-      Object.assign(existing, fields, {
-        updatedAt: new Date()
+      await updateDoc(doc(db,collectionName,selected.id),{
+        ...fields,
+        updatedAt: serverTimestamp()
+      });
+    } else {
+      await updateDoc(doc(db,collectionName,selected.id),{
+        ...fields,
+        updatedAt: serverTimestamp()
       });
     }
 
+    Object.assign(selected,fields,{updatedAt:new Date()});
+    const records = collectionName === "complaints" ? complaints :
+      collectionName === "careerApplications" ? careers : advocates;
+    const existing = records.find(record => record.id === selected.id);
+    if (existing) Object.assign(existing,fields,{updatedAt:new Date()});
     renderStats();
     renderFiltered();
-
-    $("detailGrid").innerHTML = detailMarkup(
-      selected,
-      collectionName
-    );
-
-    message(modalMessage, "Changes saved successfully.", "ok");
-
+    $("detailGrid").innerHTML = detailMarkup(selected,collectionName === "advocateApplications" ? "advocates" : collectionName);
+    message(modalMessage,collectionName === "advocateApplications" && fields.status === "Approved"
+      ? "Advocate approved and public profile published successfully."
+      : "Changes saved successfully.","ok");
   } catch (error) {
-    console.error("Firestore save error:", error);
-
-    message(
-      modalMessage,
-      "Could not save changes.\nError Code: " +
-      (error.code || "unknown") +
-      "\nDetails: " +
-      (error.message || "Check Firestore Rules and try again."),
-      "error"
-    );
-
+    console.error("Firestore save error:",error);
+    message(modalMessage,"Could not save changes.\nError Code: " + (error.code || "unknown") +
+      "\nDetails: " + (error.message || "Check Firestore Rules and try again."),"error");
   } finally {
     saveButton.disabled = false;
-
-    saveButton.textContent =
-      collectionName === "complaints"
-        ? "Save changes"
-        : "Save application update";
+    saveButton.textContent = oldButtonText;
   }
 }
 
-$("saveComplaint").addEventListener("click", () => {
-  saveSelected("complaints", {
-    status: $("recordStatus").value,
-    adminRemark: $("recordRemark").value.trim()
-  });
+$("saveComplaint").addEventListener("click",() => saveSelected("complaints",{
+  status:$("recordStatus").value,adminRemark:$("recordRemark").value.trim()
+}));
+$("saveCareer").addEventListener("click",() => saveSelected("careerApplications",{
+  status:$("careerStatus").value,adminRemark:$("careerRemark").value.trim()
+}));
+$("saveAdvocate").addEventListener("click",() => saveSelected("advocateApplications",{
+  status:$("advocateStatus").value,adminRemark:$("advocateRemark").value.trim()
+}));
+
+window.addEventListener("online",() => {
+  if (authReady && auth.currentUser) message(pageMessage,"Internet connection restored.","ok");
 });
-
-$("saveCareer").addEventListener("click", () => {
-  saveSelected("careerApplications", {
-    status: $("careerStatus").value,
-    adminRemark: $("careerRemark").value.trim()
-  });
+window.addEventListener("offline",() => {
+  message(loginMessage,"Internet connection nahi hai. Connection check karke dobara try karein.","error");
 });
-
-/* STARTUP STATUS */
-
-window.addEventListener("online", () => {
-  if (authReady && auth.currentUser) {
-    message(pageMessage, "Internet connection restored.", "ok");
-  }
-});
-
-window.addEventListener("offline", () => {
-  message(
-    loginMessage,
-    "Internet connection nahi hai. Connection check karke dobara try karein.",
-    "error"
-  );
-});
-
 </script>
 </body>
 </html>
