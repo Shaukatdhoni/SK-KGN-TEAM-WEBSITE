@@ -1207,8 +1207,12 @@ document.querySelectorAll(".tab").forEach(button => {
       tab.classList.toggle("active", tab === button);  
     });  
   
-    $("pageTitle").textContent =  
-      view === "complaints" ? "Complaint Dashboard" : "Career Applications";  
+    $("pageTitle").textContent =
+  view === "complaints"
+    ? "Complaint Dashboard"
+    : view === "careers"
+    ? "Career Applications"
+    : "Advocate Applications";  
   
     $("pageSubtitle").textContent =  
       view === "complaints"  
