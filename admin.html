@@ -1588,7 +1588,11 @@ function openRecord(record) {
   const isComplaint = view === "complaints";  
   
   $("modalTitle").textContent =  
-    isComplaint ? "Complaint Details" : "Career Application Details";  
+    isComplaint
+  ? "Complaint Details"
+  : view === "advocates"
+    ? "Advocate Application Details"
+    : "Career Application Details"; 
   
   $("detailGrid").innerHTML = detailMarkup(record, view);  
   
