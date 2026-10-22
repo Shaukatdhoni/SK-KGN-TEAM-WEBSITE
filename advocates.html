@@ -20,13 +20,9 @@
   --green: #167447;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
@@ -36,20 +32,12 @@ body {
   line-height: 1.6;
 }
 
-button, input, select {
-  font: inherit;
-}
-
-button {
-  -webkit-tap-highlight-color: transparent;
-}
+button, input, select { font: inherit; }
 
 .container {
   width: min(1120px, 92%);
   margin: auto;
 }
-
-/* NAVIGATION */
 
 .topbar {
   background: var(--navy);
@@ -86,7 +74,6 @@ button {
   display: block;
   font-size: 16px;
   font-weight: 850;
-  letter-spacing: .2px;
 }
 
 .brand-sub {
@@ -105,30 +92,16 @@ button {
   padding: 8px 12px;
   font-size: 12px;
   font-weight: 750;
-  transition: background .2s ease;
 }
 
-.nav-link:hover {
-  background: #ffffff12;
-}
-
-/* HERO */
+.nav-link:hover { background: #ffffff12; }
 
 .hero {
   padding: 54px 0;
   color: white;
   background:
-    radial-gradient(
-      circle at 85% 15%,
-      #3578d333,
-      transparent 35%
-    ),
-    linear-gradient(
-      120deg,
-      #071a3b,
-      #102e60 70%,
-      #174b91
-    );
+    radial-gradient(circle at 85% 15%, #3578d333, transparent 35%),
+    linear-gradient(120deg, #071a3b, #102e60 70%, #174b91);
 }
 
 .eyebrow {
@@ -154,17 +127,12 @@ button {
   margin-bottom: 0;
 }
 
-/* MAIN SECTION */
-
-.section {
-  padding: 38px 0 48px;
-}
+.section { padding: 38px 0 48px; }
 
 .heading h2 {
   margin: 0 0 7px;
   color: var(--navy);
   font-size: clamp(25px, 3vw, 33px);
-  letter-spacing: -.4px;
 }
 
 .heading p {
@@ -172,8 +140,6 @@ button {
   margin: 0 0 22px;
   font-size: 13px;
 }
-
-/* SEARCH PANEL */
 
 .search-panel {
   background: white;
@@ -204,8 +170,7 @@ button {
   color: #354158;
 }
 
-.field select,
-.field input {
+.field select, .field input {
   width: 100%;
   min-height: 46px;
   border: 1px solid #d5dce7;
@@ -215,11 +180,9 @@ button {
   color: var(--ink);
   outline: none;
   font-size: 13px;
-  transition: border-color .2s, box-shadow .2s;
 }
 
-.field select:focus,
-.field input:focus {
+.field select:focus, .field input:focus {
   border-color: var(--blue);
   box-shadow: 0 0 0 3px #175fce18;
 }
@@ -241,34 +204,12 @@ button {
   font-size: 13px;
   font-weight: 850;
   cursor: pointer;
-  transition: transform .2s, background .2s;
 }
 
-.button:hover {
-  transform: translateY(-1px);
-}
-
-.button-primary {
-  background: var(--navy);
-  color: white;
-}
-
-.button-primary:hover {
-  background: #10316a;
-}
-
-.button-secondary {
-  background: #edf2f9;
-  color: var(--navy);
-}
-
-.button:disabled {
-  opacity: .6;
-  cursor: wait;
-  transform: none;
-}
-
-/* SEARCH RESULTS */
+.button-primary { background: var(--navy); color: white; }
+.button-primary:hover { background: #10316a; }
+.button-secondary { background: #edf2f9; color: var(--navy); }
+.button:disabled { opacity: .6; cursor: wait; }
 
 .results-header {
   display: flex;
@@ -300,26 +241,19 @@ button {
   gap: 17px;
 }
 
-/* ADVOCATE CARD */
-
 .advocate-card {
-  position: relative;
   background: white;
   border: 1px solid var(--line);
   border-radius: 17px;
   padding: 21px;
   min-width: 0;
   box-shadow: 0 7px 25px #102e6008;
-  transition:
-    transform .22s ease,
-    box-shadow .22s ease,
-    border-color .22s ease;
+  transition: transform .2s, box-shadow .2s;
   overflow-wrap: anywhere;
 }
 
 .advocate-card:hover {
   transform: translateY(-3px);
-  border-color: #cbd9ed;
   box-shadow: 0 14px 34px #102e6012;
 }
 
@@ -343,10 +277,7 @@ button {
   font-weight: 900;
 }
 
-.identity {
-  min-width: 0;
-  flex: 1;
-}
+.identity { min-width: 0; flex: 1; }
 
 .advocate-name {
   color: var(--navy);
@@ -363,13 +294,10 @@ button {
   gap: 6px;
   color: #53627a;
   font-size: 12px;
-  line-height: 1.6;
   overflow-wrap: anywhere;
 }
 
-.location-icon {
-  flex-shrink: 0;
-}
+.location-icon { flex-shrink: 0; }
 
 .approved-label {
   display: inline-flex;
@@ -383,7 +311,6 @@ button {
   border-radius: 30px;
   font-size: 10px;
   font-weight: 850;
-  letter-spacing: .2px;
 }
 
 .card-divider {
@@ -427,10 +354,6 @@ button {
   margin: 12px 0;
 }
 
-.experience-icon {
-  flex-shrink: 0;
-}
-
 .introduction {
   color: #5d687a;
   font-size: 13px;
@@ -439,8 +362,6 @@ button {
   white-space: pre-line;
   margin: 12px 0;
 }
-
-/* MASKED MOBILE */
 
 .mobile-info {
   display: flex;
@@ -455,18 +376,11 @@ button {
   font-size: 12px;
 }
 
-.mobile-icon {
-  font-size: 16px;
-  flex-shrink: 0;
-}
-
 .mobile-number {
   font-weight: 850;
   color: var(--navy);
   letter-spacing: .7px;
 }
-
-/* CONTACT BUTTON */
 
 .contact-button {
   display: inline-flex;
@@ -480,14 +394,9 @@ button {
   font-size: 12px;
   font-weight: 850;
   margin-top: 14px;
-  transition: background .2s;
 }
 
-.contact-button:hover {
-  background: var(--blue);
-}
-
-/* EMPTY AND STATUS */
+.contact-button:hover { background: var(--blue); }
 
 .empty-state {
   background: white;
@@ -504,15 +413,8 @@ button {
   font-size: 18px;
 }
 
-.empty-state p {
-  margin-bottom: 0;
-  font-size: 13px;
-}
-
-.empty-icon {
-  font-size: 32px;
-  margin-bottom: 8px;
-}
+.empty-state p { margin-bottom: 0; font-size: 13px; }
+.empty-icon { font-size: 32px; margin-bottom: 8px; }
 
 .status-message {
   padding: 13px 15px;
@@ -523,18 +425,12 @@ button {
   color: #174a8b;
 }
 
-.status-message.error {
-  background: #fff0ef;
-  color: #a62d27;
-}
-
-/* FEATURED ADVOCATES */
+.status-message.error { background: #fff0ef; color: #a62d27; }
 
 .featured-section {
   margin-top: 39px;
   padding: clamp(16px, 3vw, 25px);
-  background:
-    linear-gradient(145deg, #ffffff, #fbfcff);
+  background: linear-gradient(145deg, #fff, #fbfcff);
   border: 1px solid var(--line);
   border-radius: 19px;
   box-shadow: 0 10px 32px #102e6009;
@@ -561,20 +457,11 @@ button {
   font-size: clamp(21px, 3vw, 27px);
   line-height: 1.3;
   margin: 5px 0 6px;
-  letter-spacing: -.4px;
 }
 
-.featured-heading p {
-  color: var(--muted);
-  font-size: 12px;
-  margin: 0;
-}
+.featured-heading p { color: var(--muted); font-size: 12px; margin: 0; }
 
-.slider-controls {
-  display: flex;
-  gap: 8px;
-  flex-shrink: 0;
-}
+.slider-controls { display: flex; gap: 8px; flex-shrink: 0; }
 
 .slider-controls button {
   width: 40px;
@@ -585,26 +472,9 @@ button {
   border-radius: 50%;
   font-size: 19px;
   cursor: pointer;
-  display: grid;
-  place-items: center;
-  transition:
-    background .2s,
-    color .2s,
-    border-color .2s;
 }
 
-.slider-controls button:hover {
-  background: var(--navy);
-  color: white;
-  border-color: var(--navy);
-}
-
-.slider-controls button:focus-visible,
-.button:focus-visible,
-.nav-link:focus-visible {
-  outline: 3px solid #5b9cff;
-  outline-offset: 3px;
-}
+.slider-controls button:hover { background: var(--navy); color: white; }
 
 .featured-slider {
   display: flex;
@@ -613,18 +483,12 @@ button {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   padding: 3px 2px 15px;
-  scrollbar-width: thin;
-  scrollbar-color: #b7c7df #f1f4f8;
   -webkit-overflow-scrolling: touch;
 }
 
 .featured-slider .advocate-card {
   flex: 0 0 calc((100% - 32px) / 3);
   scroll-snap-align: start;
-}
-
-.featured-slider .advocate-card:hover {
-  transform: translateY(-2px);
 }
 
 .featured-loading {
@@ -645,8 +509,6 @@ button {
   line-height: 1.8;
 }
 
-/* FOOTER */
-
 .footer {
   background: #06142d;
   color: #c6d1e0;
@@ -661,21 +523,10 @@ button {
   flex-wrap: wrap;
 }
 
-.footer-brand {
-  font-size: 13px;
-  color: white;
-  font-weight: 800;
-}
+.footer-brand { font-size: 13px; color: white; font-weight: 800; }
+.footer small { font-size: 10px; }
 
-.footer small {
-  font-size: 10px;
-}
-
-[hidden] {
-  display: none !important;
-}
-
-/* TABLET */
+[hidden] { display: none !important; }
 
 @media (max-width: 1000px) {
   .featured-slider .advocate-card {
@@ -683,109 +534,34 @@ button {
   }
 }
 
-/* MOBILE */
-
 @media (max-width: 760px) {
-  .search-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .results-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    padding: 39px 0;
-  }
-
-  .featured-section {
-    padding: 16px;
-    border-radius: 15px;
-  }
-
-  .featured-slider .advocate-card {
-    flex-basis: 88%;
-  }
-
-  .featured-heading h2 {
-    font-size: 21px;
-  }
-
-  .advocate-card {
-    padding: 18px;
-  }
+  .search-grid, .results-grid { grid-template-columns: 1fr; }
+  .hero { padding: 39px 0; }
+  .featured-section { padding: 16px; border-radius: 15px; }
+  .featured-slider .advocate-card { flex-basis: 88%; }
+  .featured-heading h2 { font-size: 21px; }
+  .advocate-card { padding: 18px; }
 }
 
 @media (max-width: 450px) {
-  .nav {
-    min-height: 66px;
-  }
-
-  .brand {
-    gap: 8px;
-  }
-
-  .brand img {
-    width: 38px;
-    height: 38px;
-  }
-
-  .brand-name {
-    font-size: 13px;
-  }
-
-  .brand-sub {
-    font-size: 8px;
-    letter-spacing: .7px;
-  }
-
-  .nav-link {
-    font-size: 10px;
-    padding: 8px;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .advocate-card {
-    padding: 16px;
-  }
-
-  .avatar {
-    width: 47px;
-    height: 47px;
-    flex-basis: 47px;
-    font-size: 20px;
-  }
-
-  .advocate-name {
-    font-size: 16px;
-  }
-
-  .featured-heading {
-    align-items: flex-start;
-  }
-
-  .slider-controls {
-    gap: 5px;
-  }
-
-  .slider-controls button {
-    width: 34px;
-    height: 34px;
-    font-size: 17px;
-  }
+  .nav { min-height: 66px; }
+  .brand { gap: 8px; }
+  .brand img { width: 38px; height: 38px; }
+  .brand-name { font-size: 13px; }
+  .brand-sub { font-size: 8px; letter-spacing: .7px; }
+  .nav-link { font-size: 10px; padding: 8px; }
+  .hero h1 { font-size: 32px; }
+  .advocate-card { padding: 16px; }
+  .avatar { width: 47px; height: 47px; flex-basis: 47px; font-size: 20px; }
+  .advocate-name { font-size: 16px; }
+  .featured-heading { align-items: flex-start; }
+  .slider-controls { gap: 5px; }
+  .slider-controls button { width: 34px; height: 34px; font-size: 17px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   }
@@ -804,7 +580,6 @@ button {
         <span class="brand-sub">Find an Advocate</span>
       </span>
     </a>
-
     <a class="nav-link" href="index.html">← Main Website</a>
   </div>
 </header>
@@ -813,9 +588,7 @@ button {
   <section class="hero">
     <div class="container">
       <div class="eyebrow">Advocate Directory</div>
-
       <h1>Find an Advocate Near You</h1>
-
       <p>
         Search approved advocate profiles by state, district and legal sector.
         Choose your location to explore available professional profiles.
@@ -825,7 +598,6 @@ button {
 
   <section class="section">
     <div class="container">
-
       <div class="heading">
         <h2>Search Advocate Directory</h2>
         <p>Select a state and district. Legal Sector is optional.</p>
@@ -835,10 +607,8 @@ button {
         <h3 class="search-title">Find Advocates in Your Area</h3>
 
         <div class="search-grid">
-
           <div class="field">
             <label for="stateFilter">State / Union Territory</label>
-
             <select id="stateFilter" required>
               <option value="">Select State</option>
               <option>Andhra Pradesh</option>
@@ -882,19 +652,12 @@ button {
 
           <div class="field">
             <label for="districtFilter">District</label>
-
-            <input
-              id="districtFilter"
-              type="text"
-              maxlength="80"
-              placeholder="Enter district name"
-              required
-            >
+            <input id="districtFilter" type="text" maxlength="80"
+              placeholder="Enter district name" required>
           </div>
 
           <div class="field">
             <label for="sectorFilter">Legal Sector (Optional)</label>
-
             <select id="sectorFilter">
               <option value="">All Legal Sectors</option>
               <option value="Civil">Civil</option>
@@ -910,23 +673,13 @@ button {
               <option value="Other">Other</option>
             </select>
           </div>
-
         </div>
 
         <div class="search-actions">
-          <button
-            class="button button-primary"
-            type="submit"
-            id="searchButton"
-          >
+          <button class="button button-primary" type="submit" id="searchButton">
             Search Advocates →
           </button>
-
-          <button
-            class="button button-secondary"
-            type="button"
-            id="resetButton"
-          >
+          <button class="button button-secondary" type="button" id="resetButton">
             Reset Filters
           </button>
         </div>
@@ -937,12 +690,7 @@ button {
         <span class="result-count" id="resultCount">Not searched yet</span>
       </div>
 
-      <div
-        id="statusMessage"
-        class="status-message"
-        role="status"
-        hidden
-      ></div>
+      <div id="statusMessage" class="status-message" role="status" hidden></div>
 
       <div id="emptyState" class="empty-state">
         <div class="empty-icon">⚖️</div>
@@ -952,46 +700,30 @@ button {
 
       <div class="results-grid" id="resultsGrid"></div>
 
-      <section
-        class="featured-section"
-        aria-label="Featured approved advocates"
-      >
+      <section class="featured-section" aria-label="Featured approved advocates">
         <div class="featured-heading">
           <div>
             <span class="featured-label">OUR NETWORK</span>
             <h2>Featured Advocates</h2>
-            <p>Explore approved advocate profiles across the network.</p>
+            <p>Latest approved profiles across the network.</p>
           </div>
-
           <div class="slider-controls">
-            <button
-              type="button"
-              id="featuredPrev"
-              aria-label="Previous advocates"
-            >&#8592;</button>
-
-            <button
-              type="button"
-              id="featuredNext"
-              aria-label="Next advocates"
-            >&#8594;</button>
+            <button type="button" id="featuredPrev" aria-label="Previous advocates">←</button>
+            <button type="button" id="featuredNext" aria-label="Next advocates">→</button>
           </div>
         </div>
 
         <div class="featured-slider" id="featuredSlider">
-          <div class="featured-loading">
-            Loading approved profiles...
-          </div>
+          <div class="featured-loading">Loading approved profiles...</div>
         </div>
       </section>
 
       <div class="notice">
         <strong>Note:</strong>
-        Profiles are displayed based on information provided and the
-        network's approval process. Approval does not guarantee independent
-        verification of professional credentials.
+        Profiles are displayed based on information provided and the network's
+        approval process. Approval does not guarantee independent verification
+        of professional credentials.
       </div>
-
     </div>
   </section>
 </main>
@@ -1002,18 +734,12 @@ button {
       <div class="footer-brand">SK KGN TEAM</div>
       <small>Advocate Network &amp; Professional Collaboration</small>
     </div>
-
-    <small>
-      © <span id="year"></span> SK KGN TEAM. All rights reserved.
-    </small>
+    <small>© <span id="year"></span> SK KGN TEAM. All rights reserved.</small>
   </div>
 </footer>
 
 <script type="module">
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import {
   getFirestore,
   collection,
@@ -1022,11 +748,7 @@ import {
   where
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/*
-  FIREBASE CONFIGURATION
-  Existing configuration preserved.
-*/
-
+/* Existing Firebase configuration: unchanged. */
 const firebaseConfig = {
   apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaYXRkPBPTZ9oHKVQ",
   authDomain: "sk-kgn-team.firebaseapp.com",
@@ -1041,43 +763,39 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-/* DOM ELEMENTS */
+const $ = id => document.getElementById(id);
 
-const searchForm = document.getElementById("searchForm");
-const stateFilter = document.getElementById("stateFilter");
-const districtFilter = document.getElementById("districtFilter");
-const sectorFilter = document.getElementById("sectorFilter");
-const searchButton = document.getElementById("searchButton");
-const resetButton = document.getElementById("resetButton");
-const resultsGrid = document.getElementById("resultsGrid");
-const resultCount = document.getElementById("resultCount");
-const emptyState = document.getElementById("emptyState");
-const statusMessage = document.getElementById("statusMessage");
-const featuredSlider = document.getElementById("featuredSlider");
+const searchForm = $("searchForm");
+const stateFilter = $("stateFilter");
+const districtFilter = $("districtFilter");
+const sectorFilter = $("sectorFilter");
+const searchButton = $("searchButton");
+const resetButton = $("resetButton");
+const resultsGrid = $("resultsGrid");
+const resultCount = $("resultCount");
+const emptyState = $("emptyState");
+const statusMessage = $("statusMessage");
+const featuredSlider = $("featuredSlider");
 
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-/* HELPERS */
+$("year").textContent = new Date().getFullYear();
 
 function normalize(value) {
   return String(value ?? "")
     .trim()
-    .toLocaleLowerCase();
+    .toLocaleLowerCase()
+    .replace(/\s+/g, " ");
 }
 
 function safeText(value, fallback = "") {
-  const result = String(value ?? "").trim();
-  return result || fallback;
+  const text = String(value ?? "").trim();
+  return text || fallback;
 }
 
 function showStatus(message, isError = false) {
   statusMessage.textContent = message;
-
   statusMessage.className = isError
     ? "status-message error"
     : "status-message";
-
   statusMessage.hidden = false;
 }
 
@@ -1088,66 +806,92 @@ function clearStatus() {
 
 function addTextElement(parent, tag, className, value) {
   const element = document.createElement(tag);
-
-  if (className) {
-    element.className = className;
-  }
-
+  if (className) element.className = className;
   element.textContent = value;
   parent.appendChild(element);
-
   return element;
 }
 
-/* LEGAL SECTORS */
-
 function getSectors(advocate) {
-  if (Array.isArray(advocate.practiceAreas)) {
-    return advocate.practiceAreas
-      .map(item => String(item).trim())
-      .filter(Boolean);
-  }
+  const values = [
+    advocate.practiceAreas,
+    advocate.legalSectors
+  ];
 
-  if (Array.isArray(advocate.legalSectors)) {
-    return advocate.legalSectors
-      .map(item => String(item).trim())
-      .filter(Boolean);
+  for (const value of values) {
+    if (Array.isArray(value)) {
+      const result = value.map(x => String(x).trim()).filter(Boolean);
+      if (result.length) return result;
+    }
   }
 
   const single = safeText(
-    advocate.practiceArea || advocate.legalSector
+    advocate.practiceArea ||
+    advocate.legalSector ||
+    advocate.specialization
   );
 
-  if (!single) {
-    return [];
-  }
-
   return single
-    .split(",")
-    .map(item => item.trim())
-    .filter(Boolean);
+    ? single.split(",").map(x => x.trim()).filter(Boolean)
+    : [];
 }
 
 function matchesSector(advocate, selectedSector) {
-  if (!selectedSector) {
-    return true;
-  }
+  if (!selectedSector) return true;
 
   return getSectors(advocate).some(
     sector => normalize(sector) === normalize(selectedSector)
   );
 }
 
+/* Handle Firestore Timestamp, Date, string and numeric dates. */
+function timestampValue(value) {
+  if (!value) return 0;
+
+  if (typeof value.toMillis === "function") {
+    return value.toMillis();
+  }
+
+  if (typeof value.toDate === "function") {
+    return value.toDate().getTime();
+  }
+
+  if (typeof value.seconds === "number") {
+    return value.seconds * 1000;
+  }
+
+  if (typeof value === "number") return value;
+
+  const parsed = Date.parse(value);
+  return Number.isNaN(parsed) ? 0 : parsed;
+}
+
 /*
-  MOBILE NUMBER MASKING
-
-  Supports common possible field names.
-  If your registration form uses another field name,
-  verify that field before relying on this display.
-
-  The stored Firestore value is not modified.
+  Newest-first sorting.
+  Prefer updatedAt, then reviewedAt, then submittedAt/createdAt.
 */
+function advocateDate(advocate) {
+  return Math.max(
+    timestampValue(advocate.updatedAt),
+    timestampValue(advocate.reviewedAt),
+    timestampValue(advocate.submittedAt),
+    timestampValue(advocate.createdAt),
+    timestampValue(advocate.applicationDate)
+  );
+}
 
+function sortNewestFirst(list) {
+  return [...list].sort((a, b) => {
+    const dateDifference = advocateDate(b) - advocateDate(a);
+    if (dateDifference !== 0) return dateDifference;
+
+    return safeText(a.name || a.fullName).localeCompare(
+      safeText(b.name || b.fullName)
+    );
+  });
+}
+
+/* Mask phone numbers; never show the complete number in the card. */
 function getMaskedMobile(advocate) {
   const possibleFields = [
     advocate.mobile,
@@ -1158,49 +902,32 @@ function getMaskedMobile(advocate) {
     advocate.telephone
   ];
 
-  const rawNumber = possibleFields.find(
+  const raw = possibleFields.find(
     value => value !== undefined &&
-             value !== null &&
-             String(value).trim() !== ""
+      value !== null &&
+      String(value).trim() !== ""
   );
 
-  if (rawNumber === undefined) {
-    return "";
+  if (raw === undefined) return "";
+
+  let digits = String(raw).replace(/\D/g, "");
+
+  if (digits.length === 12 && digits.startsWith("91")) {
+    digits = digits.slice(2);
+  } else if (digits.length === 11 && digits.startsWith("0")) {
+    digits = digits.slice(1);
   }
 
-  const digits = String(rawNumber).replace(/\D/g, "");
-
-  /*
-    Display only the last four digits for a 10-digit
-    Indian mobile number. Also support a country code.
-  */
-
-  let indianMobile = digits;
-
-  if (indianMobile.length === 12 && indianMobile.startsWith("91")) {
-    indianMobile = indianMobile.slice(2);
-  } else if (
-    indianMobile.length === 11 &&
-    indianMobile.startsWith("0")
-  ) {
-    indianMobile = indianMobile.slice(1);
-  }
-
-  if (!/^[6-9]\d{9}$/.test(indianMobile)) {
-    return "";
-  }
-
-  return "XXXXXX" + indianMobile.slice(-4);
+  if (!/^[6-9]\d{9}$/.test(digits)) return "";
+  return "XXXXXX" + digits.slice(-4);
 }
-
-/* CREATE ADVOCATE CARD */
 
 function createAdvocateCard(advocate) {
   const card = document.createElement("article");
   card.className = "advocate-card";
 
   const name = safeText(
-    advocate.name || advocate.fullName,
+    advocate.name || advocate.fullName || advocate.advocateName,
     "Advocate"
   );
 
@@ -1208,49 +935,29 @@ function createAdvocateCard(advocate) {
   top.className = "card-top";
 
   const avatar = addTextElement(
-    top,
-    "div",
-    "avatar",
-    name.charAt(0).toUpperCase()
+    top, "div", "avatar", name.charAt(0).toUpperCase()
   );
-
   avatar.setAttribute("aria-hidden", "true");
 
   const identity = document.createElement("div");
   identity.className = "identity";
 
-  addTextElement(
-    identity,
-    "h3",
-    "advocate-name",
-    name
-  );
+  addTextElement(identity, "h3", "advocate-name", name);
 
-  /*
-    Only District and State are displayed.
-    Village and City are intentionally excluded.
-  */
-
+  /* Display District + State only. */
   const district = safeText(advocate.district);
   const state = safeText(advocate.state);
-
-  const location = [district, state]
-    .filter(Boolean)
-    .join(", ");
+  const location = [district, state].filter(Boolean).join(", ");
 
   const locationRow = document.createElement("div");
   locationRow.className = "location";
 
+  addTextElement(locationRow, "span", "location-icon", "📍");
+
+  /* FIX: tag must be a valid HTML tag; empty string caused a crash. */
   addTextElement(
     locationRow,
     "span",
-    "location-icon",
-    "📍"
-  );
-
-  addTextElement(
-    locationRow,
-    "",
     "",
     location || "Location not provided"
   );
@@ -1258,10 +965,7 @@ function createAdvocateCard(advocate) {
   identity.appendChild(locationRow);
 
   addTextElement(
-    identity,
-    "span",
-    "approved-label",
-    "✓ APPROVED PROFILE"
+    identity, "span", "approved-label", "✓ APPROVED PROFILE"
   );
 
   top.appendChild(identity);
@@ -1271,12 +975,7 @@ function createAdvocateCard(advocate) {
   divider.className = "card-divider";
   card.appendChild(divider);
 
-  addTextElement(
-    card,
-    "div",
-    "detail-label",
-    "Legal Sector"
-  );
+  addTextElement(card, "div", "detail-label", "Legal Sector");
 
   const sectorList = document.createElement("div");
   sectorList.className = "sector-list";
@@ -1284,63 +983,38 @@ function createAdvocateCard(advocate) {
   const sectors = getSectors(advocate);
 
   if (sectors.length) {
-    sectors.forEach(sector => {
-      addTextElement(
-        sectorList,
-        "span",
-        "sector-tag",
-        sector
-      );
-    });
-  } else {
-    addTextElement(
-      sectorList,
-      "span",
-      "sector-tag",
-      "Not specified"
+    sectors.forEach(sector =>
+      addTextElement(sectorList, "span", "sector-tag", sector)
     );
+  } else {
+    addTextElement(sectorList, "span", "sector-tag", "Not specified");
   }
 
   card.appendChild(sectorList);
 
-  const experience = safeText(advocate.experience);
+  const experience = safeText(
+    advocate.experience || advocate.experienceYears
+  );
 
   if (experience) {
-    const experienceRow = document.createElement("div");
-    experienceRow.className = "experience";
-
-    addTextElement(
-      experienceRow,
-      "span",
-      "experience-icon",
-      "💼"
-    );
-
-    addTextElement(
-      experienceRow,
-      "span",
-      "",
-      "Experience: " + experience
-    );
-
-    card.appendChild(experienceRow);
+    const row = document.createElement("div");
+    row.className = "experience";
+    addTextElement(row, "span", "", "💼");
+    addTextElement(row, "span", "", "Experience: " + experience);
+    card.appendChild(row);
   }
 
-  const introduction = safeText(advocate.introduction);
+  /* Admin Panel publishes bio; registration uses introduction. */
+  const introduction = safeText(
+    advocate.introduction ||
+    advocate.bio ||
+    advocate.about ||
+    advocate.description
+  );
 
   if (introduction) {
-    addTextElement(
-      card,
-      "p",
-      "introduction",
-      introduction
-    );
+    addTextElement(card, "p", "introduction", introduction);
   }
-
-  /*
-    Display masked mobile digits only.
-    The complete number is never inserted into the card.
-  */
 
   const maskedMobile = getMaskedMobile(advocate);
 
@@ -1348,57 +1022,32 @@ function createAdvocateCard(advocate) {
     const mobileRow = document.createElement("div");
     mobileRow.className = "mobile-info";
 
+    addTextElement(mobileRow, "span", "", "📱");
+    addTextElement(mobileRow, "span", "", "Mobile:");
     addTextElement(
-      mobileRow,
-      "span",
-      "mobile-icon",
-      "📱"
-    );
-
-    addTextElement(
-      mobileRow,
-      "span",
-      "",
-      "Mobile: "
-    );
-
-    addTextElement(
-      mobileRow,
-      "span",
-      "mobile-number",
-      maskedMobile
+      mobileRow, "span", "mobile-number", maskedMobile
     );
 
     card.appendChild(mobileRow);
   }
 
-  /*
-    Contact button appears only if an administrator has saved
-    a valid, explicitly public contact URL.
-  */
-
   const contactUrl = safeText(advocate.publicContactUrl);
 
   if (contactUrl) {
     try {
-      const parsedUrl = new URL(contactUrl);
+      const parsed = new URL(contactUrl);
 
-      if (
-        parsedUrl.protocol === "https:" ||
-        parsedUrl.protocol === "http:"
-      ) {
-        const contactButton = document.createElement("a");
-
-        contactButton.className = "contact-button";
-        contactButton.textContent = "Contact Now →";
-        contactButton.href = parsedUrl.href;
-        contactButton.target = "_blank";
-        contactButton.rel = "noopener noreferrer";
-
-        card.appendChild(contactButton);
+      if (["https:", "http:"].includes(parsed.protocol)) {
+        const link = document.createElement("a");
+        link.className = "contact-button";
+        link.textContent = "Contact Now →";
+        link.href = parsed.href;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        card.appendChild(link);
       }
     } catch {
-      // Invalid contact URLs are not displayed.
+      /* Ignore invalid URLs. */
     }
   }
 
@@ -1406,12 +1055,9 @@ function createAdvocateCard(advocate) {
 }
 
 /*
-  APPROVED ADVOCATES QUERY
-
-  Existing Firestore collection and approval condition
-  preserved: publicAdvocates / status == Approved.
+  Keep the existing public collection and Approved condition.
+  No Firebase configuration, collection or rules are changed.
 */
-
 async function getApprovedAdvocates() {
   const approvedQuery = query(
     collection(db, "publicAdvocates"),
@@ -1421,67 +1067,50 @@ async function getApprovedAdvocates() {
   const snapshot = await getDocs(approvedQuery);
 
   return snapshot.docs
-    .map(documentSnapshot => ({
-      id: documentSnapshot.id,
-      ...documentSnapshot.data()
+    .map(docSnapshot => ({
+      id: docSnapshot.id,
+      ...docSnapshot.data()
     }))
     .filter(advocate =>
-      safeText(advocate.name || advocate.fullName)
+      safeText(advocate.name || advocate.fullName || advocate.advocateName)
     );
 }
 
-/* FEATURED ADVOCATES */
-
+/* FEATURED: show the 10 most recently updated approved profiles. */
 async function loadFeaturedAdvocates() {
   try {
-    const advocates = await getApprovedAdvocates();
-
-    advocates.sort((a, b) =>
-      safeText(a.name || a.fullName).localeCompare(
-        safeText(b.name || b.fullName)
-      )
-    );
-
+    const advocates = sortNewestFirst(await getApprovedAdvocates());
     const featured = advocates.slice(0, 10);
 
     featuredSlider.replaceChildren();
 
-    if (featured.length === 0) {
+    if (!featured.length) {
       addTextElement(
         featuredSlider,
         "div",
         "featured-loading",
-        "Sorry, no approved advocate profiles are currently available."
+        "No approved advocate profiles are currently available."
       );
-
       return;
     }
 
     featured.forEach(advocate => {
-      featuredSlider.appendChild(
-        createAdvocateCard(advocate)
-      );
+      featuredSlider.appendChild(createAdvocateCard(advocate));
     });
-
   } catch (error) {
-    console.error(
-      "Featured advocates loading failed:",
-      error
-    );
-
+    console.error("Featured advocates loading failed:", error);
     featuredSlider.replaceChildren();
 
     addTextElement(
       featuredSlider,
       "div",
       "featured-loading",
-      "Sorry, advocate profiles are temporarily unavailable. Please try again later."
+      "Advocate profiles could not be loaded. Please refresh and try again."
     );
   }
 }
 
-/* ADVOCATE SEARCH */
-
+/* SEARCH */
 async function searchAdvocates(event) {
   event.preventDefault();
 
@@ -1490,137 +1119,94 @@ async function searchAdvocates(event) {
   const sector = sectorFilter.value.trim();
 
   if (!state || !district) {
-    showStatus(
-      "Please select a state and enter a district.",
-      true
-    );
-
+    showStatus("Please select a state and enter a district.", true);
     return;
   }
 
   searchButton.disabled = true;
   searchButton.textContent = "Searching…";
-
   resultsGrid.replaceChildren();
   emptyState.hidden = true;
-
   clearStatus();
-
   resultCount.textContent = "Searching…";
 
   try {
     const advocates = await getApprovedAdvocates();
 
-    const matched = advocates
-      .filter(advocate =>
+    const matched = sortNewestFirst(
+      advocates.filter(advocate =>
         normalize(advocate.state) === normalize(state) &&
         normalize(advocate.district) === normalize(district) &&
         matchesSector(advocate, sector)
       )
-      .sort((a, b) =>
-        safeText(a.name || a.fullName).localeCompare(
-          safeText(b.name || b.fullName)
-        )
-      );
+    );
 
     resultCount.textContent =
-      matched.length +
-      (matched.length === 1
-        ? " advocate"
-        : " advocates");
+      matched.length + (matched.length === 1 ? " advocate" : " advocates");
 
-    if (matched.length === 0) {
+    if (!matched.length) {
       emptyState.hidden = false;
-
       emptyState.querySelector("h3").textContent =
         "No Approved Advocates Found";
-
       emptyState.querySelector("p").textContent =
-        "Sorry, no approved advocates are currently available in your selected area. Please try another district or legal sector.";
-
+        "No approved profiles match this state, district and legal sector. Check the spelling or try another area.";
       return;
     }
 
     matched.forEach(advocate => {
-      resultsGrid.appendChild(
-        createAdvocateCard(advocate)
-      );
+      resultsGrid.appendChild(createAdvocateCard(advocate));
     });
-
   } catch (error) {
-    console.error(
-      "Advocate search failed:",
-      error
-    );
-
+    console.error("Advocate search failed:", error);
     resultCount.textContent = "Search unavailable";
-
     showStatus(
-      "Sorry, we could not load advocate profiles right now. Please try again later.",
+      "We could not load advocate profiles. Check your connection and try again.",
       true
     );
 
     emptyState.hidden = false;
-
-    emptyState.querySelector("h3").textContent =
-      "Unable to Load Profiles";
-
+    emptyState.querySelector("h3").textContent = "Unable to Load Profiles";
     emptyState.querySelector("p").textContent =
-      "Please check your internet connection and try again.";
-
+      "Please refresh the page and try again.";
   } finally {
     searchButton.disabled = false;
     searchButton.textContent = "Search Advocates →";
   }
 }
 
-searchForm.addEventListener(
-  "submit",
-  searchAdvocates
-);
+searchForm.addEventListener("submit", searchAdvocates);
 
-/* RESET FILTERS */
-
+/* RESET */
 resetButton.addEventListener("click", () => {
   searchForm.reset();
-
   resultsGrid.replaceChildren();
-
   resultCount.textContent = "Not searched yet";
-
   emptyState.hidden = false;
 
   emptyState.querySelector("h3").textContent =
     "Find Advocates in Your District";
-
   emptyState.querySelector("p").textContent =
     "Select a state and district, then tap Search Advocates.";
 
   clearStatus();
 });
 
-/* FEATURED CAROUSEL NAVIGATION */
-
-document
-  .getElementById("featuredPrev")
-  .addEventListener("click", () => {
-    featuredSlider.scrollBy({
-      left: -featuredSlider.clientWidth * 0.8,
-      behavior: "smooth"
-    });
+/* CAROUSEL */
+$("featuredPrev").addEventListener("click", () => {
+  featuredSlider.scrollBy({
+    left: -featuredSlider.clientWidth * 0.8,
+    behavior: "smooth"
   });
+});
 
-document
-  .getElementById("featuredNext")
-  .addEventListener("click", () => {
-    featuredSlider.scrollBy({
-      left: featuredSlider.clientWidth * 0.8,
-      behavior: "smooth"
-    });
+$("featuredNext").addEventListener("click", () => {
+  featuredSlider.scrollBy({
+    left: featuredSlider.clientWidth * 0.8,
+    behavior: "smooth"
   });
+});
 
 /* INITIAL LOAD */
-
 loadFeaturedAdvocates();
 </script>
 
