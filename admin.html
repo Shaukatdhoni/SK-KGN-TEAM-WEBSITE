@@ -1685,11 +1685,12 @@ async function saveSelected(collectionName, fields) {
     return;  
   }  
   
-  const saveButton =  
-    collectionName === "complaints"  
-      ? $("saveComplaint")  
-      : $("saveCareer");  
-  
+ const saveButton =
+  collectionName === "complaints"
+    ? $("saveComplaint")
+    : collectionName === "advocateApplications"
+      ? $("saveAdvocate")
+      : $("saveCareer");
   saveButton.disabled = true;  
   saveButton.textContent = "Saving…";  
   
