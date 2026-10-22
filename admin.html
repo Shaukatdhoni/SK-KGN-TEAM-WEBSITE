@@ -1704,8 +1704,12 @@ async function saveSelected(collectionName, fields) {
       updatedAt: new Date()  
     });  
   
-    const records =  
-      collectionName === "complaints" ? complaints : careers;  
+    const records =
+  collectionName === "complaints"
+    ? complaints
+    : collectionName === "advocateApplications"
+      ? advocates
+      : careers;  
   
     const existing = records.find(record => record.id === selected.id);  
   
