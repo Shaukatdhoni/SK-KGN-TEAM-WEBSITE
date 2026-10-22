@@ -1360,8 +1360,11 @@ function renderStats() {
 /* SEARCH, FILTER, SORT */  
   
 function renderFiltered() {  
-  const all = view === "complaints" ? complaints : careers;  
-  
+ const all = view === "complaints"
+  ? complaints
+  : view === "careers"
+  ? careers
+  : advocates;
   const query = $("searchInput").value.trim().toLowerCase();  
   const status = $("statusFilter").value;  
   const payment = $("paymentFilter").value;  
