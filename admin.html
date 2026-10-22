@@ -1416,106 +1416,128 @@ function renderFiltered() {
   renderTable();  
 }  
   
-/* TABLE */  
-  
-function renderTable() {  
-  if (view === "complaints") {  
-    tableHead.innerHTML = `  
-      <tr>  
-        <th>COMPLAINT ID</th>  
-        <th>CUSTOMER</th>  
-        <th>MOBILE</th>  
-        <th>PLAN</th>  
-        <th>PAYMENT</th>  
-        <th>STATUS</th>  
-        <th>SUBMITTED</th>  
-        <th>ACTION</th>  
-      </tr>  
-    `;  
-  } else {  
-    tableHead.innerHTML = `  
-      <tr>  
-        <th>APPLICATION ID</th>  
-        <th>APPLICANT</th>  
-        <th>MOBILE</th>  
-        <th>EMAIL</th>  
-        <th>WORK TYPE</th>  
-        <th>STATUS</th>  
-        <th>SUBMITTED</th>  
-        <th>ACTION</th>  
-      </tr>  
-    `;  
-  }  
-  
-  if (!filtered.length) {  
-    tableBody.innerHTML = `  
-      <tr>  
-        <td colspan="8" class="empty">  
-          ${view === "complaints"  
-            ? "No complaints found."  
-            : "No career applications found."}  
-        </td>  
-      </tr>  
-    `;  
-  
-    return;  
-  }  
-  
-  if (view === "complaints") {  
-    tableBody.innerHTML = filtered.map((record, index) => `  
-      <tr>  
-        <td class="id">${esc(recordId(record))}</td>  
-        <td>${esc(personName(record))}</td>  
-        <td>${esc(record.mobile || record.phone || "—")}</td>  
-        <td>${esc(record.plan || "—")}</td>  
-        <td>${badge(record.paymentStatus || "Pending")}</td>  
-        <td>${badge(record.status || "Submitted")}</td>  
-        <td>${esc(fmt(when(record)))}</td>  
-        <td>  
-          <button class="row-btn" data-index="${index}" type="button">  
-            View / Manage  
-          </button>  
-        </td>  
-      </tr>  
-    `).join("");  
-  } else {  
-    tableBody.innerHTML = filtered.map((record, index) => `  
-      <tr>  
-        <td class="id">${esc(recordId(record))}</td>  
-        <td>${esc(personName(record))}</td>  
-        <td>${esc(record.mobile || record.phone || "—")}</td>  
-        <td>${esc(record.email || "—")}</td>  
-        <td>${esc(record.workType || "—")}</td>  
-        <td>${badge(record.status || "Received")}</td>  
-        <td>${esc(fmt(when(record)))}</td>  
-        <td>  
-          <button class="row-btn" data-index="${index}" type="button">  
-            View / Manage  
-          </button>  
-        </td>  
-      </tr>  
-    `).join("");  
-  }  
-  
-  tableBody.querySelectorAll("[data-index]").forEach(button => {  
-    button.addEventListener("click", () => {  
-      const record = filtered[Number(button.dataset.index)];  
-  
-      if (record) openRecord(record);  
-    });  
-  });  
+/* TABLE */
+
+function renderTable() {
+  if (view === "complaints") {
+    tableHead.innerHTML = `
+      <tr>
+        <th>COMPLAINT ID</th>
+        <th>CUSTOMER</th>
+        <th>MOBILE</th>
+        <th>PLAN</th>
+        <th>PAYMENT</th>
+        <th>STATUS</th>
+        <th>SUBMITTED</th>
+        <th>ACTION</th>
+      </tr>
+    `;
+  } else if (view === "careers") {
+    tableHead.innerHTML = `
+      <tr>
+        <th>APPLICATION ID</th>
+        <th>APPLICANT</th>
+        <th>MOBILE</th>
+        <th>EMAIL</th>
+        <th>WORK TYPE</th>
+        <th>STATUS</th>
+        <th>SUBMITTED</th>
+        <th>ACTION</th>
+      </tr>
+    `;
+  } else {
+    tableHead.innerHTML = `
+      <tr>
+        <th>APPLICATION ID</th>
+        <th>ADVOCATE NAME</th>
+        <th>MOBILE</th>
+        <th>EMAIL</th>
+        <th>LOCATION</th>
+        <th>EXPERIENCE</th>
+        <th>STATUS</th>
+        <th>ACTION</th>
+      </tr>
+    `;
+  }
+
+  if (!filtered.length) {
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="8" class="empty">
+          ${view === "complaints"
+            ? "No complaints found."
+            : view === "careers"
+            ? "No career applications found."
+            : "No advocate applications found."}
+        </td>
+      </tr>
+    `;
+    return;
+  }
+
+  if (view === "complaints") {
+    tableBody.innerHTML = filtered.map((record, index) => `
+      <tr>
+        <td class="id">${esc(recordId(record))}</td>
+        <td>${esc(personName(record))}</td>
+        <td>${esc(record.mobile || record.phone || "—")}</td>
+        <td>${esc(record.plan || "—")}</td>
+        <td>${badge(record.paymentStatus || "Pending")}</td>
+        <td>${badge(record.status || "Submitted")}</td>
+        <td>${esc(fmt(when(record)))}</td>
+        <td>
+          <button class="row-btn" data-index="${index}" type="button">
+            View / Manage
+          </button>
+        </td>
+      </tr>
+    `).join("");
+  } else if (view === "careers") {
+    tableBody.innerHTML = filtered.map((record, index) => `
+      <tr>
+        <td class="id">${esc(recordId(record))}</td>
+        <td>${esc(personName(record))}</td>
+        <td>${esc(record.mobile || record.phone || "—")}</td>
+        <td>${esc(record.email || "—")}</td>
+        <td>${esc(record.workType || "—")}</td>
+        <td>${badge(record.status || "Received")}</td>
+        <td>${esc(fmt(when(record)))}</td>
+        <td>
+          <button class="row-btn" data-index="${index}" type="button">
+            View / Manage
+          </button>
+        </td>
+      </tr>
+    `).join("");
+  } else {
+    tableBody.innerHTML = filtered.map((record, index) => `
+      <tr>
+        <td class="id">${esc(record.applicationId || recordId(record))}</td>
+        <td>${esc(record.name || "—")}</td>
+        <td>${esc(record.mobile || "—")}</td>
+        <td>${esc(record.email || "—")}</td>
+        <td>${esc([record.district, record.state].filter(Boolean).join(", ") || record.practiceLocation || "—")}</td>
+        <td>${esc(record.experience || "—")}</td>
+        <td>${badge(record.status || "Pending")}</td>
+        <td>
+          <button class="row-btn" data-index="${index}" type="button">
+            View / Manage
+          </button>
+        </td>
+      </tr>
+    `).join("");
+  }
+
+  tableBody.querySelectorAll("[data-index]").forEach(button => {
+    button.addEventListener("click", () => {
+      const record = filtered[Number(button.dataset.index)];
+
+      if (record) openRecord(record);
+    });
+  });
 }  
-  
-/* RECORD DETAILS */  
-  
-function addDetail(label, value, full = false) {  
-  return `  
-    <div class="detail ${full ? "full" : ""}">  
-      <label>${esc(label)}</label>  
-      <div>${esc(value ?? "—")}</div>  
-    </div>  
-  `;  
-}  
+
+ RECORD DETAILS 
   
 function detailMarkup(record, type) {  
   const isComplaint = type === "complaints";  
