@@ -20,7 +20,7 @@
   --paper:#f5f7fb;
   --white:#fff;
   --green:#176b45;
-  --red:#aa3027
+  --red:#aa3027;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -29,29 +29,31 @@ body{
   font-family:Inter,"Segoe UI",Arial,sans-serif;
   color:var(--ink);
   background:var(--paper);
-  line-height:1.55
+  line-height:1.55;
 }
+body.modal-open{overflow:hidden}
 a{color:inherit}
 button,input,select,textarea{font:inherit}
 .container{width:min(1120px,92%);margin-inline:auto}
+
 .topbar{
   background:var(--navy);
   color:#fff;
-  border-bottom:3px solid var(--gold)
+  border-bottom:3px solid var(--gold);
 }
 .nav{
   min-height:78px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:18px
+  gap:18px;
 }
 .brand{
   display:flex;
   align-items:center;
   gap:12px;
   text-decoration:none;
-  min-width:0
+  min-width:0;
 }
 .brand img{
   height:45px;
@@ -60,7 +62,7 @@ button,input,select,textarea{font:inherit}
   background:#fff;
   border:1px solid #e4d3a3;
   border-radius:10px;
-  padding:2px
+  padding:2px;
 }
 .brand-name{font-size:17px;font-weight:800;display:block}
 .brand-sub{
@@ -69,7 +71,7 @@ button,input,select,textarea{font:inherit}
   letter-spacing:1.3px;
   text-transform:uppercase;
   display:block;
-  margin-top:2px
+  margin-top:2px;
 }
 .nav-link{
   color:#fff;
@@ -79,12 +81,12 @@ button,input,select,textarea{font:inherit}
   padding:9px 13px;
   font-size:13px;
   font-weight:700;
-  white-space:nowrap
+  white-space:nowrap;
 }
 .hero{
   background:linear-gradient(115deg,#071a3b,#102e60 68%,#173e75);
   color:#fff;
-  padding:68px 0 62px
+  padding:68px 0 62px;
 }
 .eyebrow{
   font-size:11px;
@@ -92,21 +94,22 @@ button,input,select,textarea{font:inherit}
   text-transform:uppercase;
   color:#e5cb88;
   font-weight:800;
-  margin:0 0 15px
+  margin:0 0 15px;
 }
 .hero h1{
   font-size:clamp(32px,5vw,54px);
   line-height:1.1;
   letter-spacing:-1.4px;
   max-width:760px;
-  margin:0 0 18px
+  margin:0 0 18px;
 }
 .hero p{
   max-width:680px;
   font-size:16px;
   line-height:1.7;
-  color:#d5deeb
+  color:#d5deeb;
 }
+.hero .hero-note{font-size:12px;color:#d5deeb}
 .actions{display:flex;gap:12px;flex-wrap:wrap}
 .button{
   display:inline-flex;
@@ -119,10 +122,11 @@ button,input,select,textarea{font:inherit}
   font-weight:800;
   font-size:13px;
   text-decoration:none;
-  cursor:pointer
+  cursor:pointer;
 }
 .button-primary{background:#fff;color:var(--navy)}
 .button-ghost{border-color:#7286a4;color:#fff;background:transparent}
+
 .section{padding:57px 0}
 .section-white{background:#fff;border-block:1px solid var(--line)}
 .section-heading{max-width:720px;margin-bottom:28px}
@@ -132,26 +136,30 @@ button,input,select,textarea{font:inherit}
   text-transform:uppercase;
   color:#8d6e2b;
   font-weight:800;
-  margin:0 0 8px
+  margin:0 0 8px;
 }
 h2{
   font-size:clamp(25px,3.2vw,35px);
   line-height:1.2;
   margin:0 0 10px;
-  color:var(--navy)
+  color:var(--navy);
 }
-.section-heading>p:last-child{color:var(--muted);font-size:15px;line-height:1.75}
+.section-heading>p:last-child{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.75;
+}
 .process-grid,.benefit-grid{
   display:grid;
   grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:14px
+  gap:14px;
 }
 .process-card,.benefit-card{
   background:#fff;
   border:1px solid var(--line);
   border-radius:12px;
   padding:21px;
-  min-width:0
+  min-width:0;
 }
 .process-no{
   display:grid;
@@ -163,18 +171,33 @@ h2{
   color:var(--navy2);
   font-size:12px;
   font-weight:900;
-  margin-bottom:15px
+  margin-bottom:15px;
 }
-.process-card h3,.benefit-card h3{font-size:15px;margin:0 0 8px;color:var(--navy)}
-.process-card p,.benefit-card p{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
+.process-card h3,.benefit-card h3{
+  font-size:15px;
+  margin:0 0 8px;
+  color:var(--navy);
+}
+.process-card p,.benefit-card p{
+  font-size:13px;
+  line-height:1.7;
+  color:var(--muted);
+  margin:0;
+}
 .benefit-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .benefit-card{background:#f9fafc}
-.benefit-card .bar{height:3px;width:34px;background:var(--gold);margin-bottom:16px}
+.benefit-card .bar{
+  height:3px;
+  width:34px;
+  background:var(--gold);
+  margin-bottom:16px;
+}
+
 .application-layout{
   display:grid;
   grid-template-columns:minmax(250px,.8fr) minmax(0,1.5fr);
   gap:26px;
-  align-items:start
+  align-items:start;
 }
 .side-panel{
   background:var(--navy);
@@ -182,29 +205,70 @@ h2{
   border-radius:14px;
   padding:25px;
   position:sticky;
-  top:16px
+  top:16px;
 }
 .side-panel h3{font-size:20px;margin:0 0 12px}
-.side-panel p{font-size:13px;line-height:1.75;color:#d2dbea;margin:0 0 18px}
+.side-panel p{
+  font-size:13px;
+  line-height:1.75;
+  color:#d2dbea;
+  margin:0 0 18px;
+}
 .side-panel ul{list-style:none;padding:0;margin:0}
-.side-panel li{padding:10px 0;border-top:1px solid #ffffff1c;color:#e0e6f0;font-size:12px}
-.side-panel li:before{content:"✓";color:#e5cb88;font-weight:900;margin-right:9px}
+.side-panel li{
+  padding:10px 0;
+  border-top:1px solid #ffffff1c;
+  color:#e0e6f0;
+  font-size:12px;
+}
+.side-panel li:before{
+  content:"✓";
+  color:#e5cb88;
+  font-weight:900;
+  margin-right:9px;
+}
 .form-card{
   background:#fff;
   border:1px solid var(--line);
   border-radius:14px;
   padding:clamp(18px,3.2vw,30px);
-  box-shadow:0 8px 28px #14284808
+  box-shadow:0 8px 28px #14284808;
 }
-.form-top{padding-bottom:17px;border-bottom:1px solid var(--line);margin-bottom:18px}
+.form-top{
+  padding-bottom:17px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:18px;
+}
 .form-top h3{font-size:21px;color:var(--navy);margin:0 0 5px}
 .form-top p{font-size:12px;color:var(--muted);margin:0}
-fieldset{border:0;border-bottom:1px solid var(--line);padding:0 0 21px;margin:0 0 20px;min-width:0}
-legend{font-size:13px;font-weight:900;color:var(--navy);padding:0;margin:0 0 14px}
-.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+fieldset{
+  border:0;
+  border-bottom:1px solid var(--line);
+  padding:0 0 21px;
+  margin:0 0 20px;
+  min-width:0;
+}
+legend{
+  font-size:13px;
+  font-weight:900;
+  color:var(--navy);
+  padding:0;
+  margin:0 0 14px;
+}
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+}
 .field{min-width:0}
 .field.full{grid-column:1/-1}
-label,.field-label{display:block;font-size:11px;font-weight:800;color:#354158;margin:0 0 7px}
+label,.field-label{
+  display:block;
+  font-size:11px;
+  font-weight:800;
+  color:#354158;
+  margin:0 0 7px;
+}
 .required{color:#b42318}
 input,select,textarea{
   font:inherit;
@@ -216,12 +280,19 @@ input,select,textarea{
   color:var(--ink);
   outline:none;
   font-size:13px;
-  min-height:43px
+  min-height:43px;
 }
-input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #175fce16}
+input:focus,select:focus,textarea:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px #175fce16;
+}
 textarea{min-height:105px;resize:vertical}
 .hint{font-size:10px;color:#7b8799;margin-top:5px;line-height:1.5}
-.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.checks{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
 .check{
   display:flex;
   align-items:flex-start;
@@ -232,7 +303,12 @@ textarea{min-height:105px;resize:vertical}
   padding:10px;
   font-size:12px;
   color:#354158;
-  cursor:pointer
+  cursor:pointer;
+  margin:0;
+}
+.check:has(input:checked){
+  border-color:#175fce;
+  background:#edf4ff;
 }
 .check input,.consent input{
   width:16px;
@@ -240,7 +316,7 @@ textarea{min-height:105px;resize:vertical}
   height:16px;
   margin:2px 0 0;
   flex:0 0 auto;
-  accent-color:var(--navy2)
+  accent-color:var(--navy2);
 }
 .consent{
   display:flex;
@@ -249,11 +325,16 @@ textarea{min-height:105px;resize:vertical}
   font-size:11px;
   color:#4e5a6d;
   line-height:1.7;
-  margin:4px 0 12px
+  margin:4px 0 12px;
 }
 .consent span{display:block}
 .consent input{width:16px;min-height:16px;height:16px}
-.form-submit{width:100%;background:var(--navy);color:#fff;min-height:46px}
+.form-submit{
+  width:100%;
+  background:var(--navy);
+  color:#fff;
+  min-height:46px;
+}
 .form-submit:hover{background:#10316a}
 .form-submit:disabled{opacity:.6;cursor:wait}
 .form-message{
@@ -262,17 +343,199 @@ textarea{min-height:105px;resize:vertical}
   font-size:12px;
   line-height:1.6;
   margin-bottom:14px;
-  overflow-wrap:anywhere
+  overflow-wrap:anywhere;
 }
 .form-message[hidden]{display:none}
-.form-message.ok{background:#eaf7ef;color:#155e3a;border:1px solid #b9e3c9}
-.form-message.error{background:#fff0ef;color:#9b2c24;border:1px solid #f5c6c2}
-.form-message.info{background:#eef4ff;color:#174a8b;border:1px solid #cdddf7}
+.form-message.error{
+  background:#fff0ef;
+  color:#9b2c24;
+  border:1px solid #f5c6c2;
+}
+.form-message.info{
+  background:#eef4ff;
+  color:#174a8b;
+  border:1px solid #cdddf7;
+}
 .policy{font-size:11px;color:#7d8796;line-height:1.7;margin:15px 0 0}
 .footer{background:#06142d;color:#c5d0e0;padding:25px 0}
-.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.footer-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  flex-wrap:wrap;
+}
 .footer-brand{font-size:12px;font-weight:800;color:#fff}
 .footer small{font-size:10px;line-height:1.6}
+
+/* PROFESSIONAL SUCCESS / ERROR POPUP */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(3,12,29,.76);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+}
+.modal-backdrop.show{display:flex}
+.modal-card{
+  width:min(460px,100%);
+  max-height:90vh;
+  overflow-y:auto;
+  background:#fff;
+  border:1px solid #e3d2a0;
+  border-radius:20px;
+  box-shadow:0 24px 90px #0005;
+  text-align:center;
+  position:relative;
+  animation:modalEnter .28s ease-out;
+}
+@keyframes modalEnter{
+  from{opacity:0;transform:translateY(18px) scale(.97)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.modal-top{
+  padding:26px 24px 22px;
+  color:#fff;
+  background:linear-gradient(135deg,#071a3b,#12376e);
+  border-bottom:4px solid var(--gold);
+}
+.modal-emblem{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  margin:0 auto 13px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(145deg,#f6e7b6,#c9a85b);
+  color:#071a3b;
+  font-size:35px;
+  font-weight:900;
+  box-shadow:0 0 0 7px #ffffff14;
+}
+.modal-top .modal-eyebrow{
+  margin:0 0 5px;
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:900;
+  color:#f2d991;
+}
+.modal-top h2{
+  margin:0;
+  color:#fff;
+  font-size:clamp(25px,6vw,32px);
+  line-height:1.2;
+}
+.modal-top p{
+  margin:9px 0 0;
+  color:#dbe5f3;
+  font-size:13px;
+}
+.modal-body{padding:23px 24px 25px}
+.modal-success-title{
+  color:var(--navy);
+  font-size:18px;
+  font-weight:900;
+  margin:0 0 7px;
+}
+.modal-description{
+  color:var(--muted);
+  font-size:12px;
+  margin:0 0 18px;
+}
+.application-id-box{
+  border:1px dashed #c9a85b;
+  background:#fbf8ef;
+  border-radius:12px;
+  padding:13px;
+  text-align:left;
+}
+.application-id-label{
+  display:block;
+  color:#75602b;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.1px;
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+.application-id-value{
+  display:block;
+  color:var(--navy);
+  font-size:14px;
+  font-weight:900;
+  line-height:1.6;
+  overflow-wrap:anywhere;
+  user-select:text;
+}
+.copy-button{
+  width:100%;
+  margin-top:10px;
+  border:1px solid #c9a85b;
+  border-radius:8px;
+  background:#fff;
+  color:var(--navy);
+  padding:10px;
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.copy-button:hover{background:#f6efd9}
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin:16px 0 0;
+  border-radius:30px;
+  padding:8px 13px;
+  background:#fff4d6;
+  color:#785817;
+  font-size:11px;
+  font-weight:900;
+  border:1px solid #f0d58d;
+}
+.status-dot{
+  height:7px;
+  width:7px;
+  border-radius:50%;
+  background:#d49b19;
+}
+.modal-note{
+  margin:14px 0 0;
+  color:#69758a;
+  font-size:11px;
+  line-height:1.65;
+}
+.modal-action{
+  width:100%;
+  margin-top:20px;
+  border:0;
+  border-radius:10px;
+  padding:13px 18px;
+  min-height:47px;
+  background:var(--navy);
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+  cursor:pointer;
+}
+.modal-action:hover{background:#12376e}
+.modal-action:focus-visible,.copy-button:focus-visible{
+  outline:3px solid #175fce;
+  outline-offset:3px;
+}
+.modal-card.error-modal .modal-emblem{
+  background:#fde2df;
+  color:#a32d24;
+}
+.modal-card.error-modal .modal-top{border-bottom-color:#eaa19b}
+.modal-card.error-modal .modal-top .modal-eyebrow{color:#ffd1cc}
+
 @media(max-width:850px){
   .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .application-layout{grid-template-columns:1fr}
@@ -292,6 +555,20 @@ textarea{min-height:105px;resize:vertical}
   .field.full{grid-column:auto}
   .process-card{padding:17px}
   .form-card{padding:18px 14px}
+  .modal-backdrop{padding:12px}
+  .modal-card{border-radius:16px}
+  .modal-top{padding:24px 18px 20px}
+  .modal-body{padding:20px 17px 22px}
+  .modal-emblem{width:64px;height:64px;font-size:31px}
+  .application-id-value{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    scroll-behavior:auto!important;
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+  }
 }
 </style>
 </head>
@@ -425,10 +702,15 @@ textarea{min-height:105px;resize:vertical}
               <label for="enrolmentNumber">Enrolment number <span class="required">*</span></label>
               <input id="enrolmentNumber" name="enrolmentNumber" maxlength="80" required>
             </div>
+
             <div class="field">
               <label for="enrolmentYear">Year of enrolment <span class="required">*</span></label>
-              <input id="enrolmentYear" name="enrolmentYear" type="number" min="1950" required>
+              <select id="enrolmentYear" name="enrolmentYear" required>
+                <option value="">Select enrolment year</option>
+              </select>
+              <div class="hint">Select the year shown on your professional enrolment record.</div>
             </div>
+
             <div class="field">
               <label for="yearsOfPractice">Years in practice <span class="required">*</span></label>
               <select id="yearsOfPractice" name="yearsOfPractice" required>
@@ -440,24 +722,30 @@ textarea{min-height:105px;resize:vertical}
                 <option value="16+ years">16+ years</option>
               </select>
             </div>
+
             <div class="field full">
               <span class="field-label">Practice areas <span class="required">*</span></span>
               <div class="checks">
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Civil"> Civil</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Criminal"> Criminal</label>
+                <label class="check"><input type="checkbox" name="practiceAreas" value="Civil Law"> Civil Law</label>
+                <label class="check"><input type="checkbox" name="practiceAreas" value="Criminal Law"> Criminal Law</label>
                 <label class="check"><input type="checkbox" name="practiceAreas" value="Consumer Matters"> Consumer Matters</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Family Matters"> Family Matters</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Property / Land"> Property / Land</label>
+                <label class="check"><input type="checkbox" name="practiceAreas" value="Family Law"> Family Law</label>
+                <label class="check"><input type="checkbox" name="practiceAreas" value="Property / Land Disputes"> Property / Land Disputes</label>
                 <label class="check"><input type="checkbox" name="practiceAreas" value="Service Matters"> Service Matters</label>
-                <label class="check"><input type="checkbox" name="practiceAreas" value="Corporate / Commercial"> Corporate / Commercial</label>
+                <label class="check"><input type="checkbox" name="practiceAreas" value="Corporate / Commercial Law"> Corporate / Commercial Law</label>
+                <label class="check"><input type="checkbox" name="practiceAreas" value="Constitutional Law"> Constitutional Law</label>
+                <label class="check"><input type="checkbox" name="practiceAreas" value="Labour & Employment Law"> Labour &amp; Employment Law</label>
+                <label class="check"><input type="checkbox" name="practiceAreas" value="Cyber Crime"> Cyber Crime</label>
                 <label class="check"><input type="checkbox" name="practiceAreas" value="Other"> Other</label>
               </div>
-              <div class="hint">Select one or more areas in which you practise.</div>
+              <div class="hint">Select all areas in which you practise. At least one is required.</div>
             </div>
+
             <div class="field full">
               <label for="officeAddress">Office address (optional)</label>
               <textarea id="officeAddress" name="officeAddress" maxlength="500" rows="2"></textarea>
             </div>
+
             <div class="field full">
               <label for="introduction">Professional introduction (optional)</label>
               <textarea id="introduction" name="introduction" maxlength="1200"></textarea>
@@ -502,9 +790,49 @@ textarea{min-height:105px;resize:vertical}
   </div>
 </footer>
 
+<!-- SUCCESS / ERROR POPUP -->
+<div class="modal-backdrop" id="resultModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+  <div class="modal-card" id="modalCard">
+    <div class="modal-top">
+      <div class="modal-emblem" id="modalEmblem">✓</div>
+      <p class="modal-eyebrow" id="modalEyebrow">SK KGN TEAM • ADVOCATE NETWORK</p>
+      <h2 id="modalTitle">CONGRATULATIONS!</h2>
+      <p id="modalSubtitle">Your application has been submitted.</p>
+    </div>
+    <div class="modal-body">
+      <p class="modal-success-title" id="modalSuccessTitle">Application Submitted Successfully</p>
+      <p class="modal-description" id="modalDescription">Your details have been received for administrative review.</p>
+
+      <div class="application-id-box" id="applicationIdBox">
+        <span class="application-id-label">Your Application Reference ID</span>
+        <span class="application-id-value" id="applicationIdValue"></span>
+        <button class="copy-button" type="button" id="copyIdButton">▣ &nbsp; COPY APPLICATION ID</button>
+      </div>
+
+      <div class="status-pill" id="statusPill">
+        <span class="status-dot"></span>
+        PENDING ADMINISTRATIVE REVIEW
+      </div>
+
+      <p class="modal-note" id="modalNote">Please save your Application ID for future reference. Submission does not guarantee approval or referrals.</p>
+      <button class="modal-action" type="button" id="modalAction">OK, GOT IT</button>
+    </div>
+  </div>
+</div>
+
 <script type="module">
-import { initializeApp, getApp, getApps } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  initializeApp,
+  getApp,
+  getApps
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
@@ -523,28 +851,152 @@ const db = getFirestore(app);
 const form = document.getElementById("advocateForm");
 const messageBox = document.getElementById("formMessage");
 const submitButton = document.getElementById("submitButton");
+const enrolmentYearSelect = document.getElementById("enrolmentYear");
+
+const resultModal = document.getElementById("resultModal");
+const modalCard = document.getElementById("modalCard");
+const modalEmblem = document.getElementById("modalEmblem");
+const modalEyebrow = document.getElementById("modalEyebrow");
+const modalTitle = document.getElementById("modalTitle");
+const modalSubtitle = document.getElementById("modalSubtitle");
+const modalSuccessTitle = document.getElementById("modalSuccessTitle");
+const modalDescription = document.getElementById("modalDescription");
+const applicationIdBox = document.getElementById("applicationIdBox");
+const applicationIdValue = document.getElementById("applicationIdValue");
+const copyIdButton = document.getElementById("copyIdButton");
+const statusPill = document.getElementById("statusPill");
+const modalNote = document.getElementById("modalNote");
+const modalAction = document.getElementById("modalAction");
 
 document.getElementById("year").textContent = new Date().getFullYear();
-document.getElementById("enrolmentYear").max = String(new Date().getFullYear());
 
-function showMessage(text, type) {
+/* Populate years from 2026 down to 1950.
+   Also supports later years if the page is used in a future year. */
+const currentYear = new Date().getFullYear();
+const latestAllowedYear = Math.max(2026, currentYear);
+
+for (let year = latestAllowedYear; year >= 1950; year--) {
+  const option = document.createElement("option");
+  option.value = String(year);
+  option.textContent = String(year);
+  enrolmentYearSelect.appendChild(option);
+}
+
+function showInlineMessage(text, type) {
   messageBox.textContent = text;
   messageBox.className = "form-message " + type;
   messageBox.hidden = false;
-  messageBox.scrollIntoView({ behavior: "smooth", block: "center" });
+  messageBox.scrollIntoView({behavior:"smooth", block:"center"});
 }
 
 function makeApplicationId() {
   const bytes = new Uint8Array(4);
   crypto.getRandomValues(bytes);
-  const suffix = Array.from(bytes, n => n.toString(16).padStart(2, "0")).join("").toUpperCase();
-  return "SKKGN-ADV-" + Date.now().toString(36).toUpperCase() + "-" + suffix;
+
+  const suffix = Array.from(
+    bytes,
+    n => n.toString(16).padStart(2, "0")
+  ).join("").toUpperCase();
+
+  return "SKKGN-ADV-" +
+    Date.now().toString(36).toUpperCase() +
+    "-" + suffix;
 }
+
+function openModal() {
+  resultModal.classList.add("show");
+  document.body.classList.add("modal-open");
+  modalAction.focus();
+}
+
+function closeModal() {
+  resultModal.classList.remove("show");
+  document.body.classList.remove("modal-open");
+}
+
+function showSuccessPopup(applicationId) {
+  modalCard.classList.remove("error-modal");
+  modalEmblem.textContent = "✓";
+  modalEyebrow.textContent = "SK KGN TEAM • ADVOCATE NETWORK";
+  modalTitle.textContent = "CONGRATULATIONS!";
+  modalSubtitle.textContent = "Your application has been submitted.";
+  modalSuccessTitle.textContent = "Application Submitted Successfully";
+  modalDescription.textContent =
+    "Your details have been received and are awaiting administrative review.";
+
+  applicationIdBox.hidden = false;
+  applicationIdValue.textContent = applicationId;
+  copyIdButton.textContent = "▣  COPY APPLICATION ID";
+  statusPill.hidden = false;
+
+  modalNote.textContent =
+    "Please save your Application ID for future reference. Submission does not guarantee approval, referrals, clients or income.";
+
+  modalAction.textContent = "OK, GOT IT";
+  openModal();
+}
+
+function showErrorPopup(title, description) {
+  modalCard.classList.add("error-modal");
+  modalEmblem.textContent = "!";
+  modalEyebrow.textContent = "SK KGN TEAM • NOTICE";
+  modalTitle.textContent = "APPLICATION NOT SUBMITTED";
+  modalSubtitle.textContent = "Please review the message below.";
+  modalSuccessTitle.textContent = title;
+  modalDescription.textContent = description;
+
+  applicationIdBox.hidden = true;
+  statusPill.hidden = true;
+
+  modalNote.textContent =
+    "No success confirmation is shown unless Firebase confirms the application was saved.";
+
+  modalAction.textContent = "CLOSE";
+  openModal();
+}
+
+modalAction.addEventListener("click", closeModal);
+
+resultModal.addEventListener("click", event => {
+  if (event.target === resultModal) closeModal();
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && resultModal.classList.contains("show")) {
+    closeModal();
+  }
+});
+
+copyIdButton.addEventListener("click", async () => {
+  const id = applicationIdValue.textContent;
+  if (!id) return;
+
+  try {
+    await navigator.clipboard.writeText(id);
+    copyIdButton.textContent = "✓  APPLICATION ID COPIED";
+  } catch (error) {
+    /* Fallback for browsers where Clipboard API is unavailable. */
+    const temporaryInput = document.createElement("textarea");
+    temporaryInput.value = id;
+    temporaryInput.style.position = "fixed";
+    temporaryInput.style.opacity = "0";
+    document.body.appendChild(temporaryInput);
+    temporaryInput.select();
+
+    const copied = document.execCommand("copy");
+    temporaryInput.remove();
+
+    copyIdButton.textContent = copied
+      ? "✓  APPLICATION ID COPIED"
+      : "Please select and copy the ID above";
+  }
+});
 
 form.addEventListener("submit", async event => {
   event.preventDefault();
   messageBox.hidden = true;
 
+  /* Let the browser identify missing/invalid fields first. */
   if (!form.reportValidity()) return;
 
   const practiceAreas = Array.from(
@@ -552,38 +1004,62 @@ form.addEventListener("submit", async event => {
   ).map(input => input.value);
 
   if (!practiceAreas.length) {
-    showMessage("Please select at least one practice area.", "error");
+    showInlineMessage(
+      "Please select at least one practice area.",
+      "error"
+    );
     return;
   }
 
   if (!document.getElementById("publicConsent").checked) {
-    showMessage("Please confirm consent for the public profile.", "error");
+    showInlineMessage(
+      "Please confirm consent for the public profile.",
+      "error"
+    );
     return;
   }
 
   if (!document.getElementById("declaration").checked) {
-    showMessage("Please accept the declaration.", "error");
+    showInlineMessage(
+      "Please accept the declaration.",
+      "error"
+    );
     return;
   }
 
   const mobile = form.elements["mobile"].value.trim();
 
   if (!/^[0-9]{10}$/.test(mobile)) {
-    showMessage("Enter a valid 10-digit mobile number.", "error");
+    showInlineMessage(
+      "Enter a valid 10-digit mobile number.",
+      "error"
+    );
+    form.elements["mobile"].focus();
     return;
   }
 
-  const enrolmentYear = Number(form.elements["enrolmentYear"].value);
-  const currentYear = new Date().getFullYear();
+  const enrolmentYear = Number(
+    form.elements["enrolmentYear"].value
+  );
 
-  if (!Number.isInteger(enrolmentYear) || enrolmentYear < 1950 || enrolmentYear > currentYear) {
-    showMessage("Enter a valid year of enrolment.", "error");
+  const currentYearNow = new Date().getFullYear();
+
+  if (
+    !Number.isInteger(enrolmentYear) ||
+    enrolmentYear < 1950 ||
+    enrolmentYear > Math.max(2026, currentYearNow)
+  ) {
+    showInlineMessage(
+      "Please select a valid year of enrolment.",
+      "error"
+    );
+    enrolmentYearSelect.focus();
     return;
   }
 
   const applicationId = makeApplicationId();
 
-  // Field names match the current Firestore rules.
+  /* Keep Firestore field names compatible with the current rules. */
   const payload = {
     applicationId,
     name: form.elements["fullName"].value.trim(),
@@ -607,36 +1083,49 @@ form.addEventListener("submit", async event => {
   };
 
   submitButton.disabled = true;
-  submitButton.textContent = "Submitting…";
+  submitButton.textContent = "Submitting Application…";
 
   try {
-    await addDoc(collection(db, "advocateApplications"), payload);
-
-    form.reset();
-
-    showMessage(
-      "Application submitted successfully. Reference ID: " +
-      applicationId +
-      ". Your application is pending administrative review.",
-      "ok"
+    await addDoc(
+      collection(db, "advocateApplications"),
+      payload
     );
+
+    /*
+      Show the success popup only after Firestore confirms
+      that the document has been saved.
+    */
+    form.reset();
+    messageBox.hidden = true;
+    showSuccessPopup(applicationId);
+
   } catch (error) {
-    console.error("Advocate application error:", error.code, error.message);
+    console.error(
+      "Advocate application error:",
+      error.code,
+      error.message
+    );
 
     if (error.code === "permission-denied") {
-      showMessage(
-        "Firebase denied the application. Check that the published Firestore rules match this form and that the rules have propagated.",
-        "error"
+      showErrorPopup(
+        "Firebase Permission Denied",
+        "The application could not be saved because Firestore Rules rejected it. Check the published rules for the advocateApplications collection."
+      );
+    } else if (error.code === "unavailable") {
+      showErrorPopup(
+        "Connection Problem",
+        "Firebase is temporarily unavailable. Check your internet connection and try again."
       );
     } else {
-      showMessage(
-        "Application could not be submitted. Check your internet connection and try again.",
-        "error"
+      showErrorPopup(
+        "Submission Failed",
+        "The application could not be confirmed as saved. Please check your connection and try again. If the problem continues, check the browser console for the Firebase error."
       );
     }
+
   } finally {
     submitButton.disabled = false;
-    submitButton.innerHTML = "Submit Application →";
+    submitButton.textContent = "Submit Application →";
   }
 });
 </script>
