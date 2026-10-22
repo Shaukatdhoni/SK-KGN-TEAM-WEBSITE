@@ -1286,11 +1286,13 @@ async function loadCurrentView() {
       ...item.data()  
     }));  
   
-    if (view === "complaints") {  
-      complaints = records;  
-    } else {  
-      careers = records;  
-    }  
+    if (view === "complaints") {
+  complaints = records;
+} else if (view === "careers") {
+  careers = records;
+} else {
+  advocates = records;
+}  
   
     renderStats();  
     renderFiltered();  
