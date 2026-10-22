@@ -1301,8 +1301,12 @@ async function loadCurrentView() {
   } catch (error) {  
     console.error("Firestore load error:", error);  
   
-    const collectionName =  
-      view === "complaints" ? "complaints" : "careerApplications";  
+    const collectionName =
+  view === "complaints"
+    ? "complaints"
+    : view === "careers"
+    ? "careerApplications"
+    : "advocateApplications";  
   
     tableHead.innerHTML = "";  
   
