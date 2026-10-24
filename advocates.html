@@ -218,13 +218,13 @@ function createAdvocateCard(advocate) {
     card.appendChild(mobileRow);
   }
 
-  /* ₹199 payment CTA. This static page cannot independently verify payment. */
+  /* ₹1 payment CTA. This static page cannot independently verify payment. */
   const payLink = document.createElement("a");
   payLink.className = "pay-contact-button";
-  payLink.href = "https://rzp.io/rzp/lHZptcI7";
+  payLink.href = "https://rzp.io/rzp/UTfN9e27";
   payLink.target = "_blank";
   payLink.rel = "noopener noreferrer";
-  payLink.textContent = "🔒 Contact Us — Pay ₹199";
+  payLink.textContent = " Contact Us ";
   payLink.setAttribute("aria-label", "Open Razorpay payment page to request advocate contact details for ₹199");
   card.appendChild(payLink);
   addTextElement(card, "p", "payment-caption",
