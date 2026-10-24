@@ -218,18 +218,145 @@ function createAdvocateCard(advocate) {
     card.appendChild(mobileRow);
   }
 
-  /* ₹1 payment CTA. This static page cannot independently verify payment. */
-  const payLink = document.createElement("a");
-  payLink.className = "pay-contact-button";
-  payLink.href = "https://rzp.io/rzp/UTfN9e27";
-  payLink.target = "_blank";
-  payLink.rel = "noopener noreferrer";
-  payLink.textContent = " Contact Us ";
-  payLink.setAttribute("aria-label", "Open Razorpay payment page to request advocate contact details for ₹199");
-  card.appendChild(payLink);
-  addTextElement(card, "p", "payment-caption",
-    "Full contact details are shared only after payment is verified.");
+  <!-- ADVOCATE PROFILE POPUP -->
+<div id="advocateProfilePopup"
+     style="display:none;position:fixed;inset:0;z-index:99999;
+     background:rgba(0,0,0,.75);align-items:center;
+     justify-content:center;padding:16px;">
 
+  <div style="background:#fff;width:100%;max-width:430px;
+       max-height:85vh;overflow-y:auto;border-radius:18px;
+       box-shadow:0 20px 60px #0005;">
+
+    <div style="background:linear-gradient(135deg,#071a3b,#175fce);
+         color:white;padding:22px;position:relative;">
+
+      <button type="button" onclick="closeAdvocateProfile()"
+              aria-label="Close"
+              style="position:absolute;right:14px;top:12px;
+              border:0;background:#ffffff25;color:white;
+              font-size:25px;border-radius:8px;cursor:pointer;">
+        &times;
+      </button>
+
+      <div style="font-size:10px;letter-spacing:2px;color:#d4e3ff;">
+        SK KGN TEAM
+      </div>
+
+      <h2 id="popupAdvocateName"
+          style="font-size:23px;margin:8px 35px 0 0;">
+        Advocate Profile
+      </h2>
+
+      <div style="font-size:11px;margin-top:8px;color:#d4e3ff;">
+        ✓ ADVOCATE DIRECTORY
+      </div>
+    </div>
+
+    <div id="popupAdvocateDetails" style="padding:22px;"></div>
+
+    <div style="padding:0 22px 22px;">
+      <button type="button" onclick="closeAdvocateProfile()"
+              style="width:100%;padding:13px;border:0;
+              border-radius:10px;background:#071a3b;
+              color:white;font-weight:bold;cursor:pointer;">
+        Close Profile
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function openAdvocateProfile(button) {
+  const advocate = JSON.parse(
+    decodeURIComponent(button.dataset.advocate)
+  );
+
+  document.getElementById("popupAdvocateName").textContent =
+    advocate.name || advocate.fullName || advocate.advocateName || "Advocate Profile";
+
+  const details = document.getElementById("popupAdvocateDetails");
+  details.replaceChildren();
+
+  function addDetail(label, value) {
+    if (value === undefined || value === null ||
+        String(value).trim() === "") return;
+
+    const row = document.createElement("div");
+    row.style.cssText =
+      "padding:12px 0;border-bottom:1px solid #edf0f5;";
+
+    const heading = document.createElement("div");
+    heading.textContent = label;
+    heading.style.cssText =
+      "font-size:10px;color:#788397;font-weight:bold;" +
+      "text-transform:uppercase;letter-spacing:1px;margin-bottom:5px;";
+
+    const valueElement = document.createElement("div");
+    valueElement.style.cssText =
+      "font-size:14px;color:#102e60;font-weight:700;overflow-wrap:anywhere;";
+
+    valueElement.textContent = value;
+    row.append(heading, valueElement);
+    details.appendChild(row);
+  }
+
+  const sectors = advocate.practiceAreas || advocate.legalSectors ||
+    advocate.practiceArea || advocate.legalSector ||
+    advocate.specialization;
+
+  const sectorText = Array.isArray(sectors)
+    ? sectors.join(", ")
+    : sectors;
+
+  const rawMobile = [
+    advocate.mobile, advocate.mobileNumber, advocate.phone,
+    advocate.phoneNumber, advocate.contactNumber, advocate.telephone
+  ].find(value => value !== undefined && value !== null &&
+                  String(value).trim() !== "");
+
+  let maskedMobile = "";
+  if (rawMobile) {
+    let digits = String(rawMobile).replace(/\D/g, "");
+    if (digits.length === 12 && digits.startsWith("91")) digits = digits.slice(2);
+    else if (digits.length === 11 && digits.startsWith("0")) digits = digits.slice(1);
+
+    if (/^[6-9]\d{9}$/.test(digits)) {
+      maskedMobile = "XXXXXX" + digits.slice(-4);
+    }
+  }
+
+  addDetail("Full Name", advocate.name || advocate.fullName || advocate.advocateName);
+  addDetail("State", advocate.state);
+  addDetail("District", advocate.district);
+  addDetail("Mobile Number", maskedMobile);
+  addDetail("Legal Expertise", sectorText);
+  addDetail("Experience", advocate.experience || advocate.experienceYears);
+  addDetail("Bar Council Enrollment", advocate.enrollmentNumber ||
+    advocate.barCouncilNumber || advocate.enrollmentNo);
+  addDetail("About Advocate", advocate.introduction ||
+    advocate.bio || advocate.about || advocate.description);
+
+  const popup = document.getElementById("advocateProfilePopup");
+  popup.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeAdvocateProfile() {
+  document.getElementById("advocateProfilePopup").style.display = "none";
+  document.body.style.overflow = "";
+}
+
+document.getElementById("advocateProfilePopup")
+  .addEventListener("click", function(event) {
+    if (event.target === this) closeAdvocateProfile();
+  });
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") closeAdvocateProfile();
+});
+</script>
   /* Direct advocate phone/WhatsApp links are intentionally not shown. */
   return card;
 }
