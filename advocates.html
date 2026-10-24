@@ -4,65 +4,204 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#071a3b">
-<meta name="description" content="Find approved advocate profiles by state, district and legal sector through SK KGN TEAM.">
 <title>Find an Advocate | SK KGN TEAM</title>
-<link rel="icon" type="image/jpeg" href="Logo.jpg">
-<style>
-:root{--navy:#071a3b;--navy2:#102e60;--blue:#175fce;--ink:#18243a;--muted:#6b7688;--line:#e1e7ef;--paper:#f3f6fb;--green:#167447}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}button,input,select{font:inherit}.container{width:min(1120px,92%);margin:auto}
-.topbar{background:var(--navy);color:white;box-shadow:0 4px 18px #071a3b20}.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:14px}.brand{display:flex;align-items:center;gap:11px;color:white;text-decoration:none}.brand img{width:44px;height:44px;object-fit:contain;background:white;padding:3px;border-radius:11px}.brand-name{display:block;font-size:16px;font-weight:850}.brand-sub{display:block;font-size:10px;letter-spacing:1px;color:#c1cfe3;text-transform:uppercase}.nav-link{color:white;text-decoration:none;border:1px solid #7185a5;border-radius:9px;padding:8px 12px;font-size:12px;font-weight:750}.nav-link:hover{background:#ffffff12}
-.hero{padding:54px 0;color:white;background:radial-gradient(circle at 85% 15%,#3578d333,transparent 35%),linear-gradient(120deg,#071a3b,#102e60 70%,#174b91)}.eyebrow{color:#c7daf6;font-size:11px;font-weight:850;text-transform:uppercase;letter-spacing:2px}.hero h1{font-size:clamp(32px,5vw,48px);line-height:1.15;max-width:740px;margin:12px 0;letter-spacing:-.7px}.hero p{max-width:680px;font-size:15px;color:#d8e2f1;margin-bottom:0}
-.section{padding:38px 0 48px}.heading h2{margin:0 0 7px;color:var(--navy);font-size:clamp(25px,3vw,33px)}.heading p{color:var(--muted);margin:0 0 22px;font-size:13px}.search-panel{background:white;border:1px solid var(--line);border-radius:17px;padding:clamp(17px,3vw,27px);box-shadow:0 10px 32px #102e6009}.search-title{color:var(--navy);font-size:17px;font-weight:850;margin:0 0 18px}.search-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px;color:#354158}.field select,.field input{width:100%;min-height:46px;border:1px solid #d5dce7;border-radius:10px;padding:10px 12px;background:white;color:var(--ink);outline:none;font-size:13px}.field select:focus,.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #175fce18}.search-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:19px}.button{display:inline-flex;justify-content:center;align-items:center;border:0;border-radius:10px;padding:12px 18px;font-size:13px;font-weight:850;cursor:pointer}.button-primary{background:var(--navy);color:white}.button-primary:hover{background:#10316a}.button-secondary{background:#edf2f9;color:var(--navy)}.button:disabled{opacity:.6;cursor:wait}
-.results-header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:32px 0 17px}.results-header h2{font-size:22px;color:var(--navy);margin:0}.result-count{font-size:12px;font-weight:800;background:#e7eef9;color:var(--navy2);padding:7px 12px;border-radius:30px}.results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}.advocate-card{background:white;border:1px solid var(--line);border-radius:17px;padding:21px;min-width:0;box-shadow:0 7px 25px #102e6008;transition:transform .2s,box-shadow .2s;overflow-wrap:anywhere}.advocate-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px #102e6012}.card-top{display:flex;align-items:flex-start;gap:14px}.avatar{width:54px;height:54px;flex:0 0 54px;display:grid;place-items:center;background:linear-gradient(145deg,#eaf1fc,#dce8fa);color:var(--navy);border:1px solid #d9e5f7;border-radius:15px;font-size:22px;font-weight:900}.identity{min-width:0;flex:1}.advocate-name{color:var(--navy);font-size:18px;font-weight:850;line-height:1.35;margin:0 0 7px;overflow-wrap:anywhere}.location{display:flex;align-items:flex-start;gap:6px;color:#53627a;font-size:12px;overflow-wrap:anywhere}.location-icon{flex-shrink:0}.approved-label{display:inline-flex;align-items:center;gap:5px;margin-top:9px;background:#e8f6ee;color:var(--green);border:1px solid #d2eddd;padding:5px 9px;border-radius:30px;font-size:10px;font-weight:850}.card-divider{border:0;border-top:1px solid #e9edf4;margin:18px 0}.detail-label{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:1.2px;font-weight:850;margin-bottom:8px}.sector-list{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:13px}.sector-tag{font-size:11px;font-weight:750;color:#174a8b;background:#edf4ff;border:1px solid #d9e7fb;border-radius:8px;padding:6px 10px}.experience{display:flex;align-items:flex-start;gap:7px;font-size:12px;color:#354158;margin:12px 0}.introduction{color:#5d687a;font-size:13px;line-height:1.7;overflow-wrap:anywhere;white-space:pre-line;margin:12px 0}.mobile-info{display:flex;align-items:center;gap:9px;padding:11px 12px;margin-top:14px;border-radius:10px;background:#f5f8fd;border:1px solid #e6edf7;color:#42516a;font-size:12px}.mobile-number{font-weight:850;color:var(--navy);letter-spacing:.7px}.contact-button{display:inline-flex;align-items:center;justify-content:center;background:var(--navy);color:white;text-decoration:none;padding:11px 15px;border-radius:9px;font-size:12px;font-weight:850;margin-top:14px}.contact-button:hover{background:var(--blue)}
-.pay-contact-button{display:flex;width:100%;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,#175fce,#102e60);color:#fff;text-decoration:none;padding:13px 16px;border:0;border-radius:11px;font-size:13px;font-weight:850;margin-top:16px;cursor:pointer;box-shadow:0 7px 18px #175fce20}
-.pay-contact-button:hover{filter:brightness(1.08)}
-.payment-caption{font-size:11px;color:var(--muted);margin:8px 0 0;line-height:1.6}
-.need-help{margin-top:24px;padding:22px;background:#fff;border:1px solid var(--line);border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.need-help h2{margin:0;color:var(--navy);font-size:20px}.need-help p{margin:4px 0 0;color:var(--muted);font-size:13px}
-.help-call{display:inline-flex;align-items:center;justify-content:center;background:#e8f6ee;color:#167447;text-decoration:none;padding:11px 15px;border-radius:10px;font-size:13px;font-weight:850}
+<link rel="icon" href="Logo.jpg">
 
-.empty-state{background:white;border:1px dashed #cbd5e3;border-radius:15px;padding:32px 18px;text-align:center;color:var(--muted)}.empty-state h3{color:var(--navy);margin:0 0 8px;font-size:18px}.empty-state p{margin-bottom:0;font-size:13px}.empty-icon{font-size:32px;margin-bottom:8px}.status-message{padding:13px 15px;border-radius:10px;margin:14px 0;font-size:13px;background:#edf3fc;color:#174a8b}.status-message.error{background:#fff0ef;color:#a62d27}
-.featured-section{margin-top:39px;padding:clamp(16px,3vw,25px);background:linear-gradient(145deg,#fff,#fbfcff);border:1px solid var(--line);border-radius:19px;box-shadow:0 10px 32px #102e6009}.featured-heading{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:20px}.featured-label{display:inline-block;color:var(--blue);font-size:10px;font-weight:850;letter-spacing:1.7px}.featured-heading h2{color:var(--navy);font-size:clamp(21px,3vw,27px);line-height:1.3;margin:5px 0 6px}.featured-heading p{color:var(--muted);font-size:12px;margin:0}.slider-controls{display:flex;gap:8px;flex-shrink:0}.slider-controls button{width:40px;height:40px;border:1px solid #dce4ef;background:white;color:var(--navy);border-radius:50%;font-size:19px;cursor:pointer}.slider-controls button:hover{background:var(--navy);color:white}.featured-slider{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:3px 2px 15px;-webkit-overflow-scrolling:touch}.featured-slider .advocate-card{flex:0 0 calc((100% - 32px)/3);scroll-snap-align:start}.featured-loading{width:100%;padding:23px 5px;color:var(--muted);font-size:13px}.notice{margin-top:23px;padding:14px 16px;background:#edf3fc;color:#40526e;border:1px solid #e0e9f8;border-radius:11px;font-size:11px;line-height:1.8}.footer{background:#06142d;color:#c6d1e0;padding:24px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.footer-brand{font-size:13px;color:white;font-weight:800}.footer small{font-size:10px}[hidden]{display:none!important}
-@media(max-width:1000px){.featured-slider .advocate-card{flex-basis:calc((100% - 16px)/2)}}@media(max-width:760px){.search-grid,.results-grid{grid-template-columns:1fr}.hero{padding:39px 0}.featured-section{padding:16px;border-radius:15px}.featured-slider .advocate-card{flex-basis:88%}.featured-heading h2{font-size:21px}.advocate-card{padding:18px}}@media(max-width:450px){.nav{min-height:66px}.brand{gap:8px}.brand img{width:38px;height:38px}.brand-name{font-size:13px}.brand-sub{font-size:8px;letter-spacing:.7px}.nav-link{font-size:10px;padding:8px}.hero h1{font-size:32px}.advocate-card{padding:16px}.avatar{width:47px;height:47px;flex-basis:47px;font-size:20px}.advocate-name{font-size:16px}.featured-heading{align-items:flex-start}.slider-controls{gap:5px}.slider-controls button{width:34px;height:34px;font-size:17px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;scroll-behavior:auto!important}}
+<style>
+:root{--navy:#071a3b;--blue:#175fce;--ink:#18243a;--muted:#6b7688;--line:#e1e7ef;--paper:#f3f6fb;--green:#167447}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.6}
+button,input,select{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+.topbar{background:var(--navy);color:white}
+.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;color:white;text-decoration:none;font-weight:bold}
+.brand img{width:42px;height:42px;object-fit:contain;background:white;padding:3px;border-radius:9px}
+.nav-link{color:white;text-decoration:none;border:1px solid #7185a5;border-radius:8px;padding:8px 12px;font-size:12px}
+.hero{padding:48px 0;color:white;background:linear-gradient(120deg,#071a3b,#174b91)}
+.eyebrow{font-size:11px;letter-spacing:2px;color:#c7daf6;font-weight:bold}
+h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:12px 0}
+.hero p{max-width:650px;color:#d8e2f1}
+.section{padding:35px 0 45px}
+.heading h2{color:var(--navy);margin-bottom:4px}
+.heading p{color:var(--muted);font-size:13px}
+.search-panel,.featured-section{background:white;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 25px #102e6009}
+.search-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.field label{display:block;font-size:12px;font-weight:bold;margin-bottom:6px}
+.field input,.field select{width:100%;min-height:45px;padding:10px;border:1px solid #d5dce7;border-radius:9px;background:white}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}
+.button{border:0;border-radius:9px;padding:12px 17px;font-size:13px;font-weight:bold;cursor:pointer}
+.primary{background:var(--navy);color:white}
+.secondary{background:#edf2f9;color:var(--navy)}
+.results-header,.featured-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:28px 0 15px}
+.results-header h2,.featured-heading h2{color:var(--navy);margin:0}
+.result-count{background:#e7eef9;color:var(--navy);border-radius:25px;padding:6px 11px;font-size:12px}
+.results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.advocate-card{background:white;border:1px solid var(--line);border-radius:15px;padding:19px;overflow-wrap:anywhere}
+.card-top{display:flex;gap:12px;align-items:flex-start}
+.avatar{width:50px;height:50px;flex-shrink:0;display:grid;place-items:center;background:#eaf1fc;color:var(--navy);border-radius:13px;font-size:21px;font-weight:bold}
+.identity{min-width:0}
+.advocate-name{font-size:17px;color:var(--navy);margin:0 0 5px}
+.location{font-size:12px;color:#53627a}
+.approved-label{display:inline-block;background:#e8f6ee;color:var(--green);border-radius:20px;padding:4px 8px;font-size:10px;font-weight:bold;margin-top:7px}
+.divider{border:0;border-top:1px solid #e9edf4;margin:16px 0}
+.detail-label{font-size:10px;letter-spacing:1px;font-weight:bold;color:var(--muted);margin-bottom:8px}
+.sector-list{display:flex;gap:7px;flex-wrap:wrap}
+.sector-tag{font-size:11px;background:#edf4ff;color:#174a8b;padding:5px 9px;border-radius:7px}
+.experience,.mobile-info{font-size:12px;margin-top:12px}
+.mobile-info{background:#f5f8fd;padding:10px;border-radius:8px}
+.mobile-number{font-weight:bold;letter-spacing:.5px;color:var(--navy)}
+.introduction{font-size:13px;color:#5d687a;white-space:pre-line}
+.contact-button{display:inline-block;margin-top:14px;border:0;border-radius:8px;background:var(--navy);color:white;padding:10px 15px;font-size:12px;font-weight:bold;cursor:pointer}
+.empty-state,.status-message{padding:24px;text-align:center;background:white;border:1px solid var(--line);border-radius:12px;color:var(--muted);margin:15px 0}
+.status-message{background:#edf3fc;text-align:left}
+.status-message.error{background:#fff0ef;color:#a62d27}
+.featured-section{margin-top:35px}
+.featured-slider{display:flex;gap:14px;overflow-x:auto;padding:5px 2px 14px;scroll-snap-type:x mandatory}
+.featured-slider .advocate-card{flex:0 0 32%;scroll-snap-align:start}
+.slider-controls button{width:36px;height:36px;border:1px solid var(--line);background:white;border-radius:50%;cursor:pointer}
+.notice{font-size:11px;background:#edf3fc;padding:13px;border-radius:9px;margin-top:22px;color:#40526e}
+.footer{background:#06142d;color:#c6d1e0;padding:22px 0;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.footer strong{color:white}
+[hidden]{display:none!important}
+.modal-backdrop{display:none;position:fixed;inset:0;z-index:9999;background:#06142ddd;padding:18px;align-items:center;justify-content:center}
+.modal-backdrop.open{display:flex}
+.modal{background:white;border-radius:16px;padding:22px;width:min(550px,100%);max-height:90vh;overflow:auto;box-shadow:0 20px 60px #0005}
+.modal-head{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:12px}
+.modal-head h2{margin:0;color:var(--navy);overflow-wrap:anywhere}
+.modal-close{border:0;background:#edf2f9;border-radius:8px;width:36px;height:36px;font-size:22px;cursor:pointer;flex-shrink:0}
+.profile-row{padding:10px 0;border-bottom:1px solid #edf0f5;overflow-wrap:anywhere;font-size:13px}
+.profile-row strong{display:block;font-size:10px;color:var(--muted);letter-spacing:1px;margin-bottom:3px}
+@media(max-width:760px){.search-grid,.results-grid{grid-template-columns:1fr}.featured-slider .advocate-card{flex-basis:88%}.hero{padding:35px 0}}
 </style>
 </head>
+
 <body>
-<header class="topbar"><div class="container nav">
-<a class="brand" href="index.html" aria-label="SK KGN TEAM home"><img src="Logo.jpg" alt="SK KGN TEAM logo"><span><span class="brand-name">SK KGN TEAM</span><span class="brand-sub">Find an Advocate</span></span></a>
-<a class="nav-link" href="index.html">← Main Website</a>
-</div></header>
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="index.html">
+      <img src="Logo.jpg" alt="SK KGN TEAM Logo">
+      <span>SK KGN TEAM<br><small>Find an Advocate</small></span>
+    </a>
+    <a class="nav-link" href="index.html">← Main Website</a>
+  </div>
+</header>
+
 <main>
-<section class="hero"><div class="container"><div class="eyebrow">Advocate Directory</div><h1>Find an Advocate Near You</h1><p>Search approved advocate profiles by state, district and legal sector. Choose your location to explore available professional profiles.</p></div></section>
-<section class="section"><div class="container">
-<div class="heading"><h2>Search Advocate Directory</h2><p>Select a state and district. Legal Sector is optional.</p></div>
-<form class="search-panel" id="searchForm">
-<h3 class="search-title">Find Advocates in Your Area</h3>
-<div class="search-grid">
-<div class="field"><label for="stateFilter">State / Union Territory</label><select id="stateFilter" required>
-<option value="">Select State</option><option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option>
-</select></div>
-<div class="field"><label for="districtFilter">District</label><input id="districtFilter" type="text" maxlength="80" placeholder="Enter district name" required></div>
-<div class="field"><label for="sectorFilter">Legal Sector (Optional)</label><select id="sectorFilter"><option value="">All Legal Sectors</option><option value="Civil">Civil</option><option value="Criminal">Criminal</option><option value="Consumer Matters">Consumer Matters</option><option value="Family Matters">Family Matters</option><option value="Property / Land">Property / Land</option><option value="Service Matters">Service Matters</option><option value="Corporate / Commercial Law">Corporate / Commercial Law</option><option value="Constitutional Law">Constitutional Law</option><option value="Labour & Employment Law">Labour &amp; Employment Law</option><option value="Cyber Crime">Cyber Crime</option><option value="Other">Other</option></select></div>
-</div><div class="search-actions"><button class="button button-primary" type="submit" id="searchButton">Search Advocates →</button><button class="button button-secondary" type="button" id="resetButton">Reset Filters</button></div>
-</form>
-<div class="results-header"><h2>Advocates in Your Area</h2><span class="result-count" id="resultCount">Not searched yet</span></div>
-<div id="statusMessage" class="status-message" role="status" hidden></div>
-<div id="emptyState" class="empty-state"><div class="empty-icon">⚖️</div><h3>Find Advocates in Your District</h3><p>Select a state and district, then tap Search Advocates.</p></div>
-<div class="results-grid" id="resultsGrid"></div>
-<section class="featured-section" aria-label="Featured approved advocates"><div class="featured-heading"><div><span class="featured-label">OUR NETWORK</span><h2>Featured Advocates</h2><p>Latest approved profiles across the network.</p></div><div class="slider-controls"><button type="button" id="featuredPrev" aria-label="Previous advocates">←</button><button type="button" id="featuredNext" aria-label="Next advocates">→</button></div></div><div class="featured-slider" id="featuredSlider"><div class="featured-loading">Loading approved profiles...</div></div></section>
-<section class="need-help" aria-label="Need help with payment">
-  <div><h2>Need Help?</h2><p>Payment or advocate-directory assistance</p></div>
-  <a class="help-call" href="tel:7007027158">📞 Call 7007027158</a>
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">ADVOCATE DIRECTORY</div>
+    <h1>Find an Advocate Near You</h1>
+    <p>Search approved advocate profiles by state, district and legal sector.</p>
+  </div>
 </section>
-<div class="notice"><strong>Note:</strong> Profiles are displayed based on information provided and the network's approval process. Approval does not guarantee independent verification of professional credentials.</div>
-</div></section>
+
+<section class="section">
+<div class="container">
+  <div class="heading">
+    <h2>Search Advocate Directory</h2>
+    <p>Select your state and district. Legal Sector is optional.</p>
+  </div>
+
+  <form class="search-panel" id="searchForm">
+    <h3>Find Advocates in Your Area</h3>
+    <div class="search-grid">
+      <div class="field">
+        <label for="stateFilter">State / Union Territory</label>
+        <select id="stateFilter" required>
+          <option value="">Select State</option>
+          <option>Andhra Pradesh</option><option>Arunachal Pradesh</option>
+          <option>Assam</option><option>Bihar</option><option>Chhattisgarh</option>
+          <option>Goa</option><option>Gujarat</option><option>Haryana</option>
+          <option>Himachal Pradesh</option><option>Jharkhand</option>
+          <option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option>
+          <option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option>
+          <option>Mizoram</option><option>Nagaland</option><option>Odisha</option>
+          <option>Punjab</option><option>Rajasthan</option><option>Sikkim</option>
+          <option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option>
+          <option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option>
+          <option>Andaman and Nicobar Islands</option><option>Chandigarh</option>
+          <option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option>
+          <option>Jammu and Kashmir</option><option>Ladakh</option>
+          <option>Lakshadweep</option><option>Puducherry</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="districtFilter">District</label>
+        <input id="districtFilter" maxlength="80" placeholder="Enter district name" required>
+      </div>
+      <div class="field">
+        <label for="sectorFilter">Legal Sector (Optional)</label>
+        <select id="sectorFilter">
+          <option value="">All Legal Sectors</option>
+          <option>Civil</option><option>Criminal</option><option>Consumer Matters</option>
+          <option>Family Matters</option><option>Property / Land</option>
+          <option>Service Matters</option><option>Corporate / Commercial Law</option>
+          <option>Constitutional Law</option><option>Labour &amp; Employment Law</option>
+          <option>Cyber Crime</option><option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="button primary" id="searchButton" type="submit">Search Advocates →</button>
+      <button class="button secondary" id="resetButton" type="button">Reset Filters</button>
+    </div>
+  </form>
+
+  <div class="results-header">
+    <h2>Advocates in Your Area</h2>
+    <span class="result-count" id="resultCount">Not searched yet</span>
+  </div>
+  <div id="statusMessage" class="status-message" role="status" hidden></div>
+  <div id="emptyState" class="empty-state">
+    <h3>⚖️ Find Advocates in Your District</h3>
+    <p>Select a state and district, then tap Search Advocates.</p>
+  </div>
+  <div class="results-grid" id="resultsGrid"></div>
+
+  <section class="featured-section">
+    <div class="featured-heading">
+      <div><h2>Featured Advocates</h2><small>Latest approved profiles across the network.</small></div>
+      <div class="slider-controls">
+        <button id="featuredPrev" type="button" aria-label="Previous advocates">←</button>
+        <button id="featuredNext" type="button" aria-label="Next advocates">→</button>
+      </div>
+    </div>
+    <div class="featured-slider" id="featuredSlider">
+      <p>Loading approved profiles...</p>
+    </div>
+  </section>
+
+  <div class="notice"><strong>Note:</strong> Profiles are displayed based on information provided and the network's approval process. Approval does not guarantee independent verification of professional credentials.</div>
+</div>
+</section>
 </main>
-<footer class="footer"><div class="container footer-inner"><div><div class="footer-brand">SK KGN TEAM</div><small>Advocate Network &amp; Professional Collaboration</small></div><small>© <span id="year"></span> SK KGN TEAM. All rights reserved.</small></div></footer>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div><strong>SK KGN TEAM</strong><br>Advocate Network &amp; Professional Collaboration</div>
+    <div>© <span id="year"></span> SK KGN TEAM. All rights reserved.</div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="profileModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="profileModalName">
+  <div class="modal">
+    <div class="modal-head">
+      <div><div class="detail-label">ADVOCATE PROFILE</div><h2 id="profileModalName">Advocate</h2></div>
+      <button class="modal-close" id="profileModalClose" type="button" aria-label="Close">×</button>
+    </div>
+    <div id="profileModalDetails"></div>
+  </div>
+</div>
+
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+  getFirestore, collection, getDocs, query, where
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* Existing Firebase configuration kept unchanged. */
+/* EXISTING FIREBASE CONFIGURATION — UNCHANGED */
 const firebaseConfig = {
   apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaYXRkPBPTZ9oHKVQ",
   authDomain: "sk-kgn-team.firebaseapp.com",
@@ -77,266 +216,258 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const $ = id => document.getElementById(id);
+
 const searchForm = $("searchForm");
 const stateFilter = $("stateFilter");
 const districtFilter = $("districtFilter");
 const sectorFilter = $("sectorFilter");
 const searchButton = $("searchButton");
-const resetButton = $("resetButton");
 const resultsGrid = $("resultsGrid");
 const resultCount = $("resultCount");
 const emptyState = $("emptyState");
 const statusMessage = $("statusMessage");
 const featuredSlider = $("featuredSlider");
+
 $("year").textContent = new Date().getFullYear();
 
+function text(value, fallback = "") {
+  const result = String(value ?? "").trim();
+  return result || fallback;
+}
 function normalize(value) {
-  return String(value ?? "").trim().toLocaleLowerCase().replace(/\s+/g, " ");
+  return text(value).toLocaleLowerCase().replace(/\s+/g, " ");
 }
-function safeText(value, fallback = "") {
-  const text = String(value ?? "").trim();
-  return text || fallback;
-}
-function showStatus(message, isError = false) {
-  statusMessage.textContent = message;
-  statusMessage.className = isError ? "status-message error" : "status-message";
-  statusMessage.hidden = false;
-}
-function clearStatus() {
-  statusMessage.hidden = true;
-  statusMessage.textContent = "";
-}
-function addTextElement(parent, tag, className, value) {
+function addText(parent, tag, className, value) {
   const element = document.createElement(tag);
   if (className) element.className = className;
   element.textContent = value;
   parent.appendChild(element);
   return element;
 }
-function getSectors(advocate) {
-  for (const value of [advocate.practiceAreas, advocate.legalSectors]) {
-    if (Array.isArray(value)) {
-      const result = value.map(x => String(x).trim()).filter(Boolean);
-      if (result.length) return result;
+function showStatus(message, error = false) {
+  statusMessage.textContent = message;
+  statusMessage.className = error ? "status-message error" : "status-message";
+  statusMessage.hidden = false;
+}
+function clearStatus() {
+  statusMessage.hidden = true;
+  statusMessage.textContent = "";
+}
+function getSectors(a) {
+  for (const value of [a.practiceAreas, a.legalSectors]) {
+    if (Array.isArray(value) && value.length) {
+      return value.map(x => String(x).trim()).filter(Boolean);
     }
   }
-  const single = safeText(advocate.practiceArea || advocate.legalSector || advocate.specialization);
+  const single = text(a.practiceArea || a.legalSector || a.specialization);
   return single ? single.split(",").map(x => x.trim()).filter(Boolean) : [];
 }
-function matchesSector(advocate, selectedSector) {
-  if (!selectedSector) return true;
-  return getSectors(advocate).some(sector => normalize(sector) === normalize(selectedSector));
+function matchesSector(a, sector) {
+  return !sector || getSectors(a).some(s => normalize(s) === normalize(sector));
 }
-function timestampValue(value) {
-  if (!value) return 0;
-  if (typeof value.toMillis === "function") return value.toMillis();
-  if (typeof value.toDate === "function") return value.toDate().getTime();
-  if (typeof value.seconds === "number") return value.seconds * 1000;
-  if (typeof value === "number") return value;
-  const parsed = Date.parse(value);
-  return Number.isNaN(parsed) ? 0 : parsed;
+function dateValue(v) {
+  if (!v) return 0;
+  if (typeof v.toMillis === "function") return v.toMillis();
+  if (typeof v.toDate === "function") return v.toDate().getTime();
+  if (typeof v.seconds === "number") return v.seconds * 1000;
+  if (typeof v === "number") return v;
+  const d = Date.parse(v);
+  return Number.isNaN(d) ? 0 : d;
 }
-function advocateDate(advocate) {
-  return Math.max(
-    timestampValue(advocate.updatedAt),
-    timestampValue(advocate.reviewedAt),
-    timestampValue(advocate.submittedAt),
-    timestampValue(advocate.createdAt),
-    timestampValue(advocate.applicationDate)
-  );
-}
-function sortNewestFirst(list) {
-  return [...list].sort((a, b) => {
-    const difference = advocateDate(b) - advocateDate(a);
-    if (difference) return difference;
-    return safeText(a.name || a.fullName || a.advocateName).localeCompare(
-      safeText(b.name || b.fullName || b.advocateName)
-    );
+function sortNewest(list) {
+  return [...list].sort((a,b) => {
+    const da = Math.max(dateValue(a.updatedAt), dateValue(a.reviewedAt), dateValue(a.submittedAt), dateValue(a.createdAt));
+    const db = Math.max(dateValue(b.updatedAt), dateValue(b.reviewedAt), dateValue(b.submittedAt), dateValue(b.createdAt));
+    return db - da;
   });
 }
-/* Only a masked phone is ever rendered. Public profiles may omit phone data. */
-function getMaskedMobile(advocate) {
-  const raw = [
-    advocate.mobile, advocate.mobileNumber, advocate.phone,
-    advocate.phoneNumber, advocate.contactNumber, advocate.telephone
-  ].find(value => value !== undefined && value !== null && String(value).trim() !== "");
+
+/* Full mobile numbers are never displayed. */
+function getMaskedMobile(a) {
+  const raw = [a.mobile, a.mobileNumber, a.phone, a.phoneNumber, a.contactNumber, a.telephone]
+    .find(v => v !== undefined && v !== null && String(v).trim() !== "");
   if (raw === undefined) return "";
   let digits = String(raw).replace(/\D/g, "");
   if (digits.length === 12 && digits.startsWith("91")) digits = digits.slice(2);
   else if (digits.length === 11 && digits.startsWith("0")) digits = digits.slice(1);
   return /^[6-9]\d{9}$/.test(digits) ? "XXXXXX" + digits.slice(-4) : "";
 }
-function createAdvocateCard(advocate) {
+
+function openAdvocateProfile(a) {
+  $("profileModalName").textContent = text(a.name || a.fullName || a.advocateName, "Advocate");
+  const details = $("profileModalDetails");
+  details.replaceChildren();
+
+  const row = (label, value) => {
+    const v = text(value);
+    if (!v) return;
+    const item = document.createElement("div");
+    item.className = "profile-row";
+    addText(item, "strong", "", label);
+    addText(item, "span", "", v);
+    details.appendChild(item);
+  };
+
+  row("State", a.state);
+  row("District", a.district);
+  row("Legal Expertise", getSectors(a).join(", "));
+  row("Experience", a.experience || a.experienceYears);
+  row("Enrollment Number", a.enrollmentNumber || a.enrollmentNo || a.barCouncilEnrollmentNumber);
+  row("Introduction", a.introduction || a.bio || a.about || a.description);
+  row("Mobile", getMaskedMobile(a));
+
+  $("profileModalBackdrop").classList.add("open");
+  $("profileModalClose").focus();
+}
+function closeProfile() {
+  $("profileModalBackdrop").classList.remove("open");
+}
+$("profileModalClose").addEventListener("click", closeProfile);
+$("profileModalBackdrop").addEventListener("click", e => {
+  if (e.target === $("profileModalBackdrop")) closeProfile();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeProfile();
+});
+
+function createAdvocateCard(a) {
   const card = document.createElement("article");
   card.className = "advocate-card";
-  const name = safeText(advocate.name || advocate.fullName || advocate.advocateName, "Advocate");
+  const name = text(a.name || a.fullName || a.advocateName, "Advocate");
+
   const top = document.createElement("div");
   top.className = "card-top";
-  const avatar = addTextElement(top, "div", "avatar", name.charAt(0).toUpperCase());
-  avatar.setAttribute("aria-hidden", "true");
+  addText(top, "div", "avatar", name.charAt(0).toUpperCase());
   const identity = document.createElement("div");
   identity.className = "identity";
-  addTextElement(identity, "h3", "advocate-name", name);
-  const district = safeText(advocate.district);
-  const state = safeText(advocate.state);
-  const location = [district, state].filter(Boolean).join(", ");
-  const locationRow = document.createElement("div");
-  locationRow.className = "location";
-  addTextElement(locationRow, "span", "location-icon", "📍");
-  addTextElement(locationRow, "span", "", location || "Location not provided");
-  identity.appendChild(locationRow);
-  addTextElement(identity, "span", "approved-label", "✓ APPROVED PROFILE");
+  addText(identity, "h3", "advocate-name", name);
+  addText(identity, "div", "location", "📍 " + [text(a.district), text(a.state)].filter(Boolean).join(", "));
+  addText(identity, "span", "approved-label", "✓ APPROVED PROFILE");
   top.appendChild(identity);
   card.appendChild(top);
+
   const divider = document.createElement("hr");
-  divider.className = "card-divider";
+  divider.className = "divider";
   card.appendChild(divider);
-  addTextElement(card, "div", "detail-label", "Legal Sector");
-  const sectorList = document.createElement("div");
-  sectorList.className = "sector-list";
-  const sectors = getSectors(advocate);
-  if (sectors.length) sectors.forEach(sector => addTextElement(sectorList, "span", "sector-tag", sector));
-  else addTextElement(sectorList, "span", "sector-tag", "Not specified");
-  card.appendChild(sectorList);
-  const experience = safeText(advocate.experience || advocate.experienceYears);
-  if (experience) {
+
+  addText(card, "div", "detail-label", "LEGAL SECTOR");
+  const sectors = document.createElement("div");
+  sectors.className = "sector-list";
+  const list = getSectors(a);
+  (list.length ? list : ["Not specified"]).forEach(s => addText(sectors, "span", "sector-tag", s));
+  card.appendChild(sectors);
+
+  const experience = text(a.experience || a.experienceYears);
+  if (experience) addText(card, "div", "experience", "💼 Experience: " + experience);
+
+  const intro = text(a.introduction || a.bio || a.about || a.description);
+  if (intro) addText(card, "p", "introduction", intro);
+
+  const mobile = getMaskedMobile(a);
+  if (mobile) {
     const row = document.createElement("div");
-    row.className = "experience";
-    addTextElement(row, "span", "", "💼");
-    addTextElement(row, "span", "", "Experience: " + experience);
+    row.className = "mobile-info";
+    addText(row, "span", "", "📱 Mobile: ");
+    addText(row, "span", "mobile-number", mobile);
     card.appendChild(row);
   }
-  const introduction = safeText(advocate.introduction || advocate.bio || advocate.about || advocate.description);
-  if (introduction) addTextElement(card, "p", "introduction", introduction);
-  const maskedMobile = getMaskedMobile(advocate);
-  if (maskedMobile) {
-    const mobileRow = document.createElement("div");
-    mobileRow.className = "mobile-info";
-    addTextElement(mobileRow, "span", "", "📱");
-    addTextElement(mobileRow, "span", "", "Mobile:");
-    addTextElement(mobileRow, "span", "mobile-number", maskedMobile);
-    card.appendChild(mobileRow);
-  }
 
-function openAdvocateProfile(button) {
-  let advocate;
+  const button = addText(card, "button", "contact-button", "Contact Us →");
+  button.type = "button";
+  button.addEventListener("click", () => openAdvocateProfile(a));
+  return card;
+}
 
+/* Uses the existing publicAdvocates collection and Approved status. */
+async function getApprovedAdvocates() {
+  const q = query(collection(db, "publicAdvocates"), where("status", "==", "Approved"));
+  const snapshot = await getDocs(q);
+  return snapshot.docs.map(d => ({ id: d.id, ...d.data() }))
+    .filter(a => text(a.name || a.fullName || a.advocateName));
+}
+
+async function loadFeaturedAdvocates() {
   try {
-    advocate = JSON.parse(
-      decodeURIComponent(button.dataset.advocate)
-    );
+    const advocates = sortNewest(await getApprovedAdvocates()).slice(0, 10);
+    featuredSlider.replaceChildren();
+    if (!advocates.length) {
+      addText(featuredSlider, "p", "", "No approved advocate profiles are currently available.");
+      return;
+    }
+    advocates.forEach(a => featuredSlider.appendChild(createAdvocateCard(a)));
   } catch (error) {
-    alert("Advocate details could not be loaded.");
+    console.error("Featured advocates loading failed:", error);
+    featuredSlider.replaceChildren();
+    addText(featuredSlider, "p", "", "Could not load profiles. Please refresh and try again.");
+  }
+}
+
+searchForm.addEventListener("submit", async event => {
+  event.preventDefault();
+  const state = stateFilter.value.trim();
+  const district = districtFilter.value.trim();
+  const sector = sectorFilter.value.trim();
+
+  if (!state || !district) {
+    showStatus("Please select a state and enter a district.", true);
     return;
   }
 
-  const name = advocate.name || advocate.fullName ||
-               advocate.advocateName || "Advocate Profile";
+  searchButton.disabled = true;
+  searchButton.textContent = "Searching…";
+  resultsGrid.replaceChildren();
+  emptyState.hidden = true;
+  clearStatus();
+  resultCount.textContent = "Searching…";
 
-  document.getElementById("popupAdvocateName").textContent = name;
+  try {
+    const advocates = await getApprovedAdvocates();
+    const matched = sortNewest(advocates.filter(a =>
+      normalize(a.state) === normalize(state) &&
+      normalize(a.district) === normalize(district) &&
+      matchesSector(a, sector)
+    ));
 
-  const details = document.getElementById("popupAdvocateDetails");
-  details.replaceChildren();
+    resultCount.textContent = matched.length + (matched.length === 1 ? " advocate" : " advocates");
 
-  function addDetail(label, value) {
-    if (value === undefined || value === null ||
-        String(value).trim() === "") return;
-
-    const row = document.createElement("div");
-    row.style.cssText =
-      "padding:12px 0;border-bottom:1px solid #edf0f5;";
-
-    const heading = document.createElement("div");
-    heading.textContent = label;
-    heading.style.cssText =
-      "font-size:10px;color:#788397;font-weight:bold;" +
-      "text-transform:uppercase;margin-bottom:5px;";
-
-    const content = document.createElement("div");
-    content.textContent = value;
-    content.style.cssText =
-      "font-size:14px;color:#102e60;font-weight:700;overflow-wrap:anywhere;";
-
-    row.append(heading, content);
-    details.appendChild(row);
-  }
-
-  const mobile = [
-    advocate.mobile, advocate.mobileNumber, advocate.phone,
-    advocate.phoneNumber, advocate.contactNumber, advocate.telephone
-  ].find(value => value !== undefined && value !== null &&
-                  String(value).trim() !== "");
-
-  let maskedMobile = "";
-
-  if (mobile) {
-    let digits = String(mobile).replace(/\D/g, "");
-
-    if (digits.length === 12 && digits.startsWith("91")) {
-      digits = digits.slice(2);
-    } else if (digits.length === 11 && digits.startsWith("0")) {
-      digits = digits.slice(1);
+    if (!matched.length) {
+      emptyState.hidden = false;
+      emptyState.querySelector("h3").textContent = "No Approved Advocates Found";
+      emptyState.querySelector("p").textContent = "No approved profiles match these filters. Check the spelling or try another area.";
+      return;
     }
-
-    if (/^[6-9]\d{9}$/.test(digits)) {
-      maskedMobile = "XXXXXX" + digits.slice(-4);
-    }
+    matched.forEach(a => resultsGrid.appendChild(createAdvocateCard(a)));
+  } catch (error) {
+    console.error("Advocate search failed:", error);
+    resultCount.textContent = "Search unavailable";
+    showStatus("Could not load advocate profiles. Check your connection and try again.", true);
+    emptyState.hidden = false;
+    emptyState.querySelector("h3").textContent = "Unable to Load Profiles";
+    emptyState.querySelector("p").textContent = "Please refresh the page and try again.";
+  } finally {
+    searchButton.disabled = false;
+    searchButton.textContent = "Search Advocates →";
   }
-
-  const sectors = advocate.practiceAreas ||
-                  advocate.legalSectors ||
-                  advocate.practiceArea ||
-                  advocate.legalSector ||
-                  advocate.specialization;
-
-  addDetail("Full Name", name);
-  addDetail("State", advocate.state);
-  addDetail("District", advocate.district);
-  addDetail("Mobile Number", maskedMobile);
-
-  addDetail(
-    "Legal Expertise",
-    Array.isArray(sectors) ? sectors.join(", ") : sectors
-  );
-
-  addDetail(
-    "Experience",
-    advocate.experience || advocate.experienceYears
-  );
-
-  addDetail(
-    "Bar Council Enrollment",
-    advocate.enrollmentNumber ||
-    advocate.barCouncilNumber ||
-    advocate.enrollmentNo
-  );
-
-  addDetail(
-    "About Advocate",
-    advocate.introduction ||
-    advocate.bio ||
-    advocate.about ||
-    advocate.description
-  );
-
-  const popup = document.getElementById("advocateProfilePopup");
-  popup.style.display = "flex";
-  document.body.style.overflow = "hidden";
-}
-
-function closeAdvocateProfile() {
-  document.getElementById("advocateProfilePopup").style.display = "none";
-  document.body.style.overflow = "";
-}
-
-document.getElementById("advocateProfilePopup")
-  .addEventListener("click", function(event) {
-    if (event.target === this) closeAdvocateProfile();
-  });
-
-document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape") closeAdvocateProfile();
 });
+
+$("resetButton").addEventListener("click", () => {
+  searchForm.reset();
+  resultsGrid.replaceChildren();
+  resultCount.textContent = "Not searched yet";
+  emptyState.hidden = false;
+  emptyState.querySelector("h3").textContent = "⚖️ Find Advocates in Your District";
+  emptyState.querySelector("p").textContent = "Select a state and district, then tap Search Advocates.";
+  clearStatus();
+});
+
+$("featuredPrev").addEventListener("click", () => {
+  featuredSlider.scrollBy({left:-featuredSlider.clientWidth * .8,behavior:"smooth"});
+});
+$("featuredNext").addEventListener("click", () => {
+  featuredSlider.scrollBy({left:featuredSlider.clientWidth * .8,behavior:"smooth"});
+});
+
+loadFeaturedAdvocates();
 </script>
 </body>
 </html>
