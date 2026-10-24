@@ -207,7 +207,522 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:12px 0}
   </div>
 </footer>
 
-<div class="modal-backdrop" id="profileModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="profileModalName">
+<div
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+  getFirestore, collection, getDocs, query, where
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* Firebase configuration */
+const firebaseConfig = {
+  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaYXRkPBPTZ9oHKVQ",
+  authDomain: "sk-kgn-team.firebaseapp.com",
+  databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "sk-kgn-team",
+  storageBucket: "sk-kgn-team.firebasestorage.app",
+  messagingSenderId: "228612697498",
+  appId: "1:228612697498:web:a304b57bf5a59d2933de23",
+  measurementId: "G-BXWT6BPTB6"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const $ = id => document.getElementById(id);
+
+$("year").textContent = new Date().getFullYear();
+
+function text(value, fallback = "") {
+  if (value === undefined || value === null) return fallback;
+  if (typeof value === "string" || typeof value === "number") {
+    const result = String(value).trim();
+    return result || fallback;
+  }
+  return fallback;
+}
+
+function normalize(value) {
+  return text(value).toLocaleLowerCase().replace(/\s+/g, " ");
+}
+
+function addText(parent, tag, className, value) {
+  const el = document.createElement(tag);
+  if (className) el.className = className;
+  el.textContent = value;
+  parent.appendChild(el);
+  return el;
+}
+
+function showStatus(message, error = false) {
+  $("statusMessage").textContent = message;
+  $("statusMessage").className = error ? "status-message error" : "status-message";
+  $("statusMessage").hidden = false;
+}
+
+function clearStatus() {
+  $("statusMessage").hidden = true;
+  $("statusMessage").textContent = "";
+}
+
+function getSectors(a) {
+  for (const value of [a.practiceAreas, a.legalSectors]) {
+    if (Array.isArray(value) && value.length) {
+      return value.map(x => String(x).trim()).filter(Boolean);
+    }
+  }
+
+  const single = text(a.practiceArea || a.legalSector || a.specialization);
+  return single ? single.split(",").map(x => x.trim()).filter(Boolean) : [];
+}
+
+function matchesSector(a, sector) {
+  if (!sector) return true;
+
+  const wanted = normalize(sector);
+
+  return getSectors(a).some(s =>
+    normalize(s) === wanted ||
+    (wanted === "property / land" && /property|land/i.test(s)) ||
+    (wanted === "family matters" && /family|matrimonial/i.test(s)) ||
+    (wanted === "consumer matters" && /consumer/i.test(s)) ||
+    (wanted === "corporate / commercial law" && /corporate|commercial/i.test(s)) ||
+    (wanted === "labour & employment law" && /labour|labor|employment/i.test(s))
+  );
+}
+
+function dateValue(v) {
+  if (!v) return 0;
+  if (typeof v.toMillis === "function") return v.toMillis();
+  if (typeof v.toDate === "function") return v.toDate().getTime();
+  if (typeof v.seconds === "number") return v.seconds * 1000;
+  if (typeof v === "number") return v;
+
+  const d = Date.parse(v);
+  return Number.isNaN(d) ? 0 : d;
+}
+
+function sortNewest(list) {
+  return [...list].sort((a, b) => {
+    const da = Math.max(
+      dateValue(a.updatedAt),
+      dateValue(a.reviewedAt),
+      dateValue(a.submittedAt),
+      dateValue(a.createdAt)
+    );
+
+    const db = Math.max(
+      dateValue(b.updatedAt),
+      dateValue(b.reviewedAt),
+      dateValue(b.submittedAt),
+      dateValue(b.createdAt)
+    );
+
+    return db - da;
+  });
+}
+
+/* Display only a masked Indian mobile number. */
+function getMaskedMobile(a) {
+  const raw = [
+    a.mobile,
+    a.mobileNumber,
+    a.phone,
+    a.phoneNumber,
+    a.contactNumber,
+    a.telephone
+  ].find(v => v !== undefined && v !== null && String(v).trim() !== "");
+
+  if (raw === undefined) return "";
+
+  let digits = String(raw).replace(/\D/g, "");
+
+  if (digits.length === 12 && digits.startsWith("91")) {
+    digits = digits.slice(2);
+  } else if (digits.length === 11 && digits.startsWith("0")) {
+    digits = digits.slice(1);
+  }
+
+  return /^[6-9]\d{9}$/.test(digits)
+    ? "XXXXXX" + digits.slice(-4)
+    : "";
+}
+
+function getPhoto(a) {
+  return text(a.photoURL || a.photoUrl || a.photo || a.profilePhoto || a.profileImage || a.imageUrl);
+}
+
+function getEnrollment(a) {
+  return text(
+    a.enrolmentNumber ||
+    a.enrollmentNumber ||
+    a.enrolmentNo ||
+    a.enrollmentNo ||
+    a.barCouncilEnrollmentNumber ||
+    a.barCouncilEnrolmentNumber ||
+    a.enrollment_number ||
+    a.enrolment_number
+  );
+}
+
+function getCourt(a) {
+  return text(a.court || a.courtName || a.practiceLocation);
+}
+
+function getQualification(a) {
+  return text(a.qualification || a.qualifications || a.education);
+}
+
+function getBio(a) {
+  return text(a.introduction || a.bio || a.about || a.description);
+}
+
+function getState(a) {
+  return text(a.state || a.stateName || a.stateUT || a.stateUnionTerritory);
+}
+
+function getDistrict(a) {
+  return text(a.district || a.districtName);
+}
+
+function getName(a) {
+  return text(a.name || a.fullName || a.advocateName, "Advocate");
+}
+
+/* Full advocate profile popup */
+function openAdvocateProfile(a) {
+  $("profileModalName").textContent = getName(a);
+
+  const details = $("profileModalDetails");
+  details.replaceChildren();
+
+  const photo = getPhoto(a);
+  const hero = document.createElement("div");
+  hero.className = "profile-hero";
+
+  const imageBox = document.createElement("div");
+  imageBox.className = "profile-photo";
+
+  if (photo) {
+    const img = document.createElement("img");
+    img.src = photo;
+    img.alt = getName(a) + " profile photo";
+    img.loading = "lazy";
+
+    img.onerror = () => {
+      imageBox.replaceChildren();
+      imageBox.textContent = getName(a).charAt(0).toUpperCase();
+    };
+
+    imageBox.appendChild(img);
+  } else {
+    imageBox.textContent = getName(a).charAt(0).toUpperCase();
+  }
+
+  hero.appendChild(imageBox);
+
+  const heading = document.createElement("div");
+  addText(heading, "div", "location", "✓ APPROVED ADVOCATE");
+  addText(
+    heading,
+    "div",
+    "",
+    [getDistrict(a), getState(a)].filter(Boolean).join(", ")
+  );
+
+  hero.appendChild(heading);
+  details.appendChild(hero);
+
+  const row = (label, value) => {
+    const v = text(value);
+    if (!v) return;
+
+    const item = document.createElement("div");
+    item.className = "profile-row";
+
+    addText(item, "strong", "", label);
+    addText(item, "span", "", v);
+
+    details.appendChild(item);
+  };
+
+  row("State", getState(a));
+  row("District", getDistrict(a));
+  row("Court", getCourt(a));
+  row("Legal Expertise", getSectors(a).join(", "));
+  row("Experience", a.experience || a.experienceYears);
+  row("Qualification", getQualification(a));
+  row("Enrollment Number", getEnrollment(a));
+  row("Introduction", getBio(a));
+  row("Mobile", getMaskedMobile(a));
+
+  $("profileModalBackdrop").classList.add("open");
+  $("profileModalClose").focus();
+}
+
+function closeProfile() {
+  $("profileModalBackdrop").classList.remove("open");
+}
+
+$("profileModalClose").addEventListener("click", closeProfile);
+
+$("profileModalBackdrop").addEventListener("click", e => {
+  if (e.target === $("profileModalBackdrop")) closeProfile();
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") closeProfile();
+});
+
+/* Advocate card */
+function createAdvocateCard(a) {
+  const card = document.createElement("article");
+  card.className = "advocate-card";
+
+  const name = getName(a);
+  const top = document.createElement("div");
+  top.className = "card-top";
+
+  const avatar = document.createElement("div");
+  avatar.className = "avatar";
+
+  const photo = getPhoto(a);
+
+  if (photo) {
+    const img = document.createElement("img");
+    img.src = photo;
+    img.alt = "";
+    img.loading = "lazy";
+
+    img.onerror = () => {
+      avatar.replaceChildren();
+      avatar.textContent = name.charAt(0).toUpperCase();
+    };
+
+    avatar.appendChild(img);
+  } else {
+    avatar.textContent = name.charAt(0).toUpperCase();
+  }
+
+  top.appendChild(avatar);
+
+  const identity = document.createElement("div");
+  identity.className = "identity";
+
+  addText(identity, "h3", "advocate-name", name);
+  addText(
+    identity,
+    "div",
+    "location",
+    "📍 " + [getDistrict(a), getState(a)].filter(Boolean).join(", ")
+  );
+  addText(identity, "span", "approved-label", "✓ APPROVED PROFILE");
+
+  top.appendChild(identity);
+  card.appendChild(top);
+
+  const divider = document.createElement("hr");
+  divider.className = "divider";
+  card.appendChild(divider);
+
+  addText(card, "div", "detail-label", "LEGAL SECTOR");
+
+  const sectors = document.createElement("div");
+  sectors.className = "sector-list";
+
+  const list = getSectors(a);
+  (list.length ? list : ["Not specified"]).forEach(s => {
+    addText(sectors, "span", "sector-tag", s);
+  });
+
+  card.appendChild(sectors);
+
+  const experience = text(a.experience || a.experienceYears);
+  if (experience) {
+    addText(card, "div", "experience", "💼 Experience: " + experience);
+  }
+
+  const intro = getBio(a);
+  if (intro) {
+    addText(card, "p", "introduction", intro);
+  }
+
+  const maskedMobile = getMaskedMobile(a);
+
+  if (maskedMobile) {
+    const mobileRow = document.createElement("div");
+    mobileRow.className = "mobile-info";
+
+    addText(mobileRow, "span", "", "📱 Mobile: ");
+    addText(mobileRow, "span", "mobile-number", maskedMobile);
+
+    card.appendChild(mobileRow);
+  }
+
+  const button = addText(card, "button", "contact-button", "View Full Profile →");
+  button.type = "button";
+  button.addEventListener("click", () => openAdvocateProfile(a));
+
+  return card;
+}
+
+/* Only approved public profiles are loaded. */
+async function getApprovedAdvocates() {
+  const q = query(
+    collection(db, "publicAdvocates"),
+    where("status", "==", "Approved")
+  );
+
+  const snapshot = await getDocs(q);
+
+  return snapshot.docs
+    .map(d => ({ id: d.id, ...d.data() }))
+    .filter(a => getName(a) !== "Advocate");
+}
+
+/* Featured profiles */
+async function loadFeaturedAdvocates() {
+  const featuredSlider = $("featuredSlider");
+
+  try {
+    const advocates = sortNewest(await getApprovedAdvocates());
+
+    featuredSlider.replaceChildren();
+
+    if (!advocates.length) {
+      addText(
+        featuredSlider,
+        "p",
+        "",
+        "No approved advocate profiles are currently available."
+      );
+      return;
+    }
+
+    advocates.forEach(a => {
+      featuredSlider.appendChild(createAdvocateCard(a));
+    });
+  } catch (error) {
+    console.error("Featured advocates loading failed:", error);
+
+    featuredSlider.replaceChildren();
+
+    addText(
+      featuredSlider,
+      "p",
+      "",
+      "Could not load profiles. Please refresh and try again."
+    );
+  }
+}
+
+/* Search by state, district and optional legal sector */
+$("searchForm").addEventListener("submit", async event => {
+  event.preventDefault();
+
+  const state = $("stateFilter").value.trim();
+  const district = $("districtFilter").value.trim();
+  const sector = $("sectorFilter").value.trim();
+
+  if (!state || !district) {
+    showStatus("Please select a state and enter a district.", true);
+    return;
+  }
+
+  const searchButton = $("searchButton");
+  const resultsGrid = $("resultsGrid");
+  const emptyState = $("emptyState");
+  const resultCount = $("resultCount");
+
+  searchButton.disabled = true;
+  searchButton.textContent = "Searching…";
+
+  resultsGrid.replaceChildren();
+  emptyState.hidden = true;
+  clearStatus();
+  resultCount.textContent = "Searching…";
+
+  try {
+    const advocates = await getApprovedAdvocates();
+
+    const matched = sortNewest(
+      advocates.filter(a =>
+        normalize(getState(a)) === normalize(state) &&
+        normalize(getDistrict(a)) === normalize(district) &&
+        matchesSector(a, sector)
+      )
+    );
+
+    resultCount.textContent =
+      matched.length + (matched.length === 1 ? " advocate" : " advocates");
+
+    if (!matched.length) {
+      emptyState.hidden = false;
+      emptyState.querySelector("h3").textContent = "No Approved Advocates Found";
+      emptyState.querySelector("p").textContent =
+        "No approved profiles match these filters. Check the spelling or try another area.";
+      return;
+    }
+
+    matched.forEach(a => {
+      resultsGrid.appendChild(createAdvocateCard(a));
+    });
+  } catch (error) {
+    console.error("Advocate search failed:", error);
+
+    resultCount.textContent = "Search unavailable";
+
+    showStatus(
+      "Could not load advocate profiles. Check your connection and try again.",
+      true
+    );
+
+    emptyState.hidden = false;
+    emptyState.querySelector("h3").textContent = "Unable to Load Profiles";
+    emptyState.querySelector("p").textContent =
+      "Please refresh the page and try again.";
+  } finally {
+    searchButton.disabled = false;
+    searchButton.textContent = "Search Advocates →";
+  }
+});
+
+/* Reset filters */
+$("resetButton").addEventListener("click", () => {
+  $("searchForm").reset();
+  $("resultsGrid").replaceChildren();
+  $("resultCount").textContent = "Not searched yet";
+
+  const emptyState = $("emptyState");
+  emptyState.hidden = false;
+  emptyState.querySelector("h3").textContent = "⚖️ Find Advocates in Your District";
+  emptyState.querySelector("p").textContent =
+    "Select a state and district, then tap Search Advocates.";
+
+  clearStatus();
+});
+
+/* Featured slider controls */
+const featuredSlider = $("featuredSlider");
+
+$("featuredPrev").addEventListener("click", () => {
+  featuredSlider.scrollBy({
+    left: -featuredSlider.clientWidth * 0.8,
+    behavior: "smooth"
+  });
+});
+
+$("featuredNext").addEventListener("click", () => {
+  featuredSlider.scrollBy({
+    left: featuredSlider.clientWidth * 0.8,
+    behavior: "smooth"
+  });
+});
+
+loadFeaturedAdvocates();
+</script>
+</body>
+</html>
+class="modal-backdrop" id="profileModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="profileModalName">
   <div class="modal">
     <div class="modal-head">
       <div>
