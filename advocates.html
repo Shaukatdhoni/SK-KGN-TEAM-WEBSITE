@@ -6,7 +6,6 @@
 <meta name="theme-color" content="#071a3b">
 <title>Find an Advocate | SK KGN TEAM</title>
 <link rel="icon" href="Logo.jpg">
-
 <style>
 :root{--navy:#071a3b;--blue:#175fce;--ink:#18243a;--muted:#6b7688;--line:#e1e7ef;--paper:#f3f6fb;--green:#167447}
 *{box-sizing:border-box}
@@ -50,7 +49,8 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:12px 0}
 .sector-list{display:flex;gap:7px;flex-wrap:wrap}
 .sector-tag{font-size:11px;background:#edf4ff;color:#174a8b;padding:5px 9px;border-radius:7px}
 .experience{font-size:12px;margin-top:12px}
-.mobile-info{font-size:12px;margin-top:12px;background:#f5f8fd;padding:10px;border-radius:8px}
+.mobile-info{font-size:12px;margin-top:12px;background:#f5f8fd;padding:10px;border-radius:8px}.mobile-number{font-weight:bold;letter-spacing:.5px;color:var(--navy)}
+.mobile-info{background:#f5f8fd;padding:10px;border-radius:8px}
 .mobile-number{font-weight:bold;letter-spacing:.5px;color:var(--navy)}
 .introduction{font-size:13px;color:#5d687a;white-space:pre-line}
 .contact-button{display:inline-block;margin-top:14px;border:0;border-radius:8px;background:var(--navy);color:white;padding:10px 15px;font-size:12px;font-weight:bold;cursor:pointer}
@@ -77,144 +77,55 @@ h1{font-size:clamp(30px,5vw,46px);line-height:1.2;margin:12px 0}
 .profile-photo img{width:100%;height:100%;object-fit:cover}
 .profile-row{padding:10px 0;border-bottom:1px solid #edf0f5;overflow-wrap:anywhere;font-size:13px}
 .profile-row strong{display:block;font-size:10px;color:var(--muted);letter-spacing:1px;margin-bottom:3px}
-@media(max-width:760px){
-.search-grid,.results-grid{grid-template-columns:1fr}
-.featured-slider .advocate-card{flex-basis:88%}
-.hero{padding:35px 0}
-.nav-link{font-size:11px;padding:7px 9px}
-.modal{padding:18px;max-height:88vh}
-}
+@media(max-width:760px){.search-grid,.results-grid{grid-template-columns:1fr}.featured-slider .advocate-card{flex-basis:88%}.hero{padding:35px 0}.nav-link{font-size:11px;padding:7px 9px}.modal{padding:18px;max-height:88vh}}
 </style>
 </head>
-
 <body>
 <header class="topbar">
   <div class="container nav">
-    <a class="brand" href="index.html">
-      <img src="Logo.jpg" alt="SK KGN TEAM Logo">
-      <span>SK KGN TEAM<br><small>Find an Advocate</small></span>
-    </a>
+    <a class="brand" href="index.html"><img src="Logo.jpg" alt="SK KGN TEAM Logo"><span>SK KGN TEAM<br><small>Find an Advocate</small></span></a>
     <a class="nav-link" href="index.html">← Main Website</a>
   </div>
 </header>
-
 <main>
-<section class="hero">
-  <div class="container">
-    <div class="eyebrow">ADVOCATE DIRECTORY</div>
-    <h1>Find an Advocate Near You</h1>
-    <p>Search approved advocate profiles by state, district and legal sector.</p>
-  </div>
-</section>
-
-<section class="section">
-<div class="container">
-  <div class="heading">
-    <h2>Search Advocate Directory</h2>
-    <p>Select your state and district. Legal Sector is optional.</p>
-  </div>
-
+<section class="hero"><div class="container"><div class="eyebrow">ADVOCATE DIRECTORY</div><h1>Find an Advocate Near You</h1><p>Search approved advocate profiles by state, district and legal sector.</p></div></section>
+<section class="section"><div class="container">
+  <div class="heading"><h2>Search Advocate Directory</h2><p>Select your state and district. Legal Sector is optional.</p></div>
   <form class="search-panel" id="searchForm">
     <h3>Find Advocates in Your Area</h3>
     <div class="search-grid">
-      <div class="field">
-        <label for="stateFilter">State / Union Territory</label>
-        <select id="stateFilter" required>
-          <option value="">Select State</option>
-          <option>Andhra Pradesh</option><option>Arunachal Pradesh</option>
-          <option>Assam</option><option>Bihar</option><option>Chhattisgarh</option>
-          <option>Goa</option><option>Gujarat</option><option>Haryana</option>
-          <option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option>
-          <option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option>
-          <option>Manipur</option><option>Meghalaya</option><option>Mizoram</option>
-          <option>Nagaland</option><option>Odisha</option><option>Punjab</option>
-          <option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option>
-          <option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option>
-          <option>Uttarakhand</option><option>West Bengal</option>
-          <option>Andaman and Nicobar Islands</option><option>Chandigarh</option>
-          <option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option>
-          <option>Jammu and Kashmir</option><option>Ladakh</option>
-          <option>Lakshadweep</option><option>Puducherry</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="districtFilter">District</label>
-        <input id="districtFilter" maxlength="80" placeholder="Enter district name" required>
-      </div>
-
-      <div class="field">
-        <label for="sectorFilter">Legal Sector (Optional)</label>
-        <select id="sectorFilter">
-          <option value="">All Legal Sectors</option>
-          <option>Civil</option><option>Criminal</option>
-          <option>Consumer Matters</option><option>Family Matters</option>
-          <option>Property / Land</option><option>Service Matters</option>
-          <option>Corporate / Commercial Law</option><option>Constitutional Law</option>
-          <option>Labour &amp; Employment Law</option><option>Cyber Crime</option>
-          <option>Other</option>
-        </select>
-      </div>
+      <div class="field"><label for="stateFilter">State / Union Territory</label><select id="stateFilter" required>
+        <option value="">Select State</option>
+        <option>Andhra Pradesh</option><option>Arunachal Pradesh</option><option>Assam</option><option>Bihar</option><option>Chhattisgarh</option><option>Goa</option><option>Gujarat</option><option>Haryana</option><option>Himachal Pradesh</option><option>Jharkhand</option><option>Karnataka</option><option>Kerala</option><option>Madhya Pradesh</option><option>Maharashtra</option><option>Manipur</option><option>Meghalaya</option><option>Mizoram</option><option>Nagaland</option><option>Odisha</option><option>Punjab</option><option>Rajasthan</option><option>Sikkim</option><option>Tamil Nadu</option><option>Telangana</option><option>Tripura</option><option>Uttar Pradesh</option><option>Uttarakhand</option><option>West Bengal</option><option>Andaman and Nicobar Islands</option><option>Chandigarh</option><option>Dadra and Nagar Haveli and Daman and Diu</option><option>Delhi</option><option>Jammu and Kashmir</option><option>Ladakh</option><option>Lakshadweep</option><option>Puducherry</option>
+      </select></div>
+      <div class="field"><label for="districtFilter">District</label><input id="districtFilter" maxlength="80" placeholder="Enter district name" required></div>
+      <div class="field"><label for="sectorFilter">Legal Sector (Optional)</label><select id="sectorFilter"><option value="">All Legal Sectors</option><option>Civil</option><option>Criminal</option><option>Consumer Matters</option><option>Family Matters</option><option>Property / Land</option><option>Service Matters</option><option>Corporate / Commercial Law</option><option>Constitutional Law</option><option>Labour &amp; Employment Law</option><option>Cyber Crime</option><option>Other</option></select></div>
     </div>
-
-    <div class="actions">
-      <button class="button primary" id="searchButton" type="submit">Search Advocates →</button>
-      <button class="button secondary" id="resetButton" type="button">Reset Filters</button>
-    </div>
+    <div class="actions"><button class="button primary" id="searchButton" type="submit">Search Advocates →</button><button class="button secondary" id="resetButton" type="button">Reset Filters</button></div>
   </form>
-
-  <div class="results-header">
-    <h2>Advocates in Your Area</h2>
-    <span class="result-count" id="resultCount">Not searched yet</span>
-  </div>
-
+  <div class="results-header"><h2>Advocates in Your Area</h2><span class="result-count" id="resultCount">Not searched yet</span></div>
   <div id="statusMessage" class="status-message" role="status" hidden></div>
-
-  <div id="emptyState" class="empty-state">
-    <h3>⚖️ Find Advocates in Your District</h3>
-    <p>Select a state and district, then tap Search Advocates.</p>
-  </div>
-
+  <div id="emptyState" class="empty-state"><h3>⚖️ Find Advocates in Your District</h3><p>Select a state and district, then tap Search Advocates.</p></div>
   <div class="results-grid" id="resultsGrid"></div>
-
   <section class="featured-section">
-    <div class="featured-heading">
-      <div>
-        <h2>Featured Advocates</h2>
-        <small>Latest approved profiles across the network.</small>
-      </div>
-      <div class="slider-controls">
-        <button id="featuredPrev" type="button" aria-label="Previous advocates">←</button>
-        <button id="featuredNext" type="button" aria-label="Next advocates">→</button>
-      </div>
-    </div>
-    <div class="featured-slider" id="featuredSlider">
-      <p>Loading approved profiles...</p>
-    </div>
+    <div class="featured-heading"><div><h2>Featured Advocates</h2><small>Latest approved profiles across the network.</small></div><div class="slider-controls"><button id="featuredPrev" type="button" aria-label="Previous advocates">←</button><button id="featuredNext" type="button" aria-label="Next advocates">→</button></div></div>
+    <div class="featured-slider" id="featuredSlider"><p>Loading approved profiles...</p></div>
   </section>
-
-  <div class="notice">
-    <strong>Note:</strong> Profiles are displayed based on information provided and the network's approval process. Approval does not guarantee independent verification of professional credentials.
+  <div class="notice"><strong>Note:</strong> Profiles are displayed based on information provided and the network's approval process. Approval does not guarantee independent verification of professional credentials.</div>
+</div></section>
+</main>
+<footer class="footer"><div class="container footer-inner"><div><strong>SK KGN TEAM</strong><br>Advocate Network &amp; Professional Collaboration</div><div>© <span id="year"></span> SK KGN TEAM. All rights reserved.</div></div></footer>
+<div class="modal-backdrop" id="profileModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="profileModalName">
+  <div class="modal">
+    <div class="modal-head"><div><div class="detail-label">ADVOCATE PROFILE</div><h2 id="profileModalName">Advocate</h2></div><button class="modal-close" id="profileModalClose" type="button" aria-label="Close">×</button></div>
+    <div id="profileModalDetails"></div>
   </div>
 </div>
-</section>
-</main>
-
-<footer class="footer">
-  <div class="container footer-inner">
-    <div><strong>SK KGN TEAM</strong><br>Advocate Network &amp; Professional Collaboration</div>
-    <div>© <span id="year"></span> SK KGN TEAM. All rights reserved.</div>
-  </div>
-</footer>
-
-<div
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import {
-  getFirestore, collection, getDocs, query, where
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-/* Firebase configuration */
+/* EXISTING FIREBASE CONFIGURATION — UNCHANGED */
 const firebaseConfig = {
   apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaYXRkPBPTZ9oHKVQ",
   authDomain: "sk-kgn-team.firebaseapp.com",
@@ -225,11 +136,9 @@ const firebaseConfig = {
   appId: "1:228612697498:web:a304b57bf5a59d2933de23",
   measurementId: "G-BXWT6BPTB6"
 };
-
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const $ = id => document.getElementById(id);
-
 $("year").textContent = new Date().getFullYear();
 
 function text(value, fallback = "") {
@@ -240,11 +149,7 @@ function text(value, fallback = "") {
   }
   return fallback;
 }
-
-function normalize(value) {
-  return text(value).toLocaleLowerCase().replace(/\s+/g, " ");
-}
-
+function normalize(value) { return text(value).toLocaleLowerCase().replace(/\s+/g, " "); }
 function addText(parent, tag, className, value) {
   const el = document.createElement(tag);
   if (className) el.className = className;
@@ -252,199 +157,116 @@ function addText(parent, tag, className, value) {
   parent.appendChild(el);
   return el;
 }
-
 function showStatus(message, error = false) {
   $("statusMessage").textContent = message;
   $("statusMessage").className = error ? "status-message error" : "status-message";
   $("statusMessage").hidden = false;
 }
-
-function clearStatus() {
-  $("statusMessage").hidden = true;
-  $("statusMessage").textContent = "";
-}
+function clearStatus() { $("statusMessage").hidden = true; $("statusMessage").textContent = ""; }
 
 function getSectors(a) {
   for (const value of [a.practiceAreas, a.legalSectors]) {
-    if (Array.isArray(value) && value.length) {
-      return value.map(x => String(x).trim()).filter(Boolean);
-    }
+    if (Array.isArray(value) && value.length) return value.map(x => String(x).trim()).filter(Boolean);
   }
-
   const single = text(a.practiceArea || a.legalSector || a.specialization);
   return single ? single.split(",").map(x => x.trim()).filter(Boolean) : [];
 }
-
 function matchesSector(a, sector) {
   if (!sector) return true;
-
   const wanted = normalize(sector);
-
-  return getSectors(a).some(s =>
-    normalize(s) === wanted ||
+  return getSectors(a).some(s => normalize(s) === wanted ||
     (wanted === "property / land" && /property|land/i.test(s)) ||
     (wanted === "family matters" && /family|matrimonial/i.test(s)) ||
     (wanted === "consumer matters" && /consumer/i.test(s)) ||
     (wanted === "corporate / commercial law" && /corporate|commercial/i.test(s)) ||
-    (wanted === "labour & employment law" && /labour|labor|employment/i.test(s))
-  );
+    (wanted === "labour & employment law" && /labour|labor|employment/i.test(s)));
 }
-
 function dateValue(v) {
   if (!v) return 0;
   if (typeof v.toMillis === "function") return v.toMillis();
   if (typeof v.toDate === "function") return v.toDate().getTime();
   if (typeof v.seconds === "number") return v.seconds * 1000;
   if (typeof v === "number") return v;
-
   const d = Date.parse(v);
   return Number.isNaN(d) ? 0 : d;
 }
-
 function sortNewest(list) {
-  return [...list].sort((a, b) => {
-    const da = Math.max(
-      dateValue(a.updatedAt),
-      dateValue(a.reviewedAt),
-      dateValue(a.submittedAt),
-      dateValue(a.createdAt)
-    );
-
-    const db = Math.max(
-      dateValue(b.updatedAt),
-      dateValue(b.reviewedAt),
-      dateValue(b.submittedAt),
-      dateValue(b.createdAt)
-    );
-
-    return db - da;
+  return [...list].sort((a,b) => {
+    const da = Math.max(dateValue(a.updatedAt),dateValue(a.reviewedAt),dateValue(a.submittedAt),dateValue(a.createdAt));
+    const db = Math.max(dateValue(b.updatedAt),dateValue(b.reviewedAt),dateValue(b.submittedAt),dateValue(b.createdAt));
+    return db-da;
   });
 }
-
-/* Display only a masked Indian mobile number. */
 function getMaskedMobile(a) {
-  const raw = [
-    a.mobile,
-    a.mobileNumber,
-    a.phone,
-    a.phoneNumber,
-    a.contactNumber,
-    a.telephone
-  ].find(v => v !== undefined && v !== null && String(v).trim() !== "");
-
+  const raw = [a.mobile, a.mobileNumber, a.phone, a.phoneNumber, a.contactNumber, a.telephone]
+    .find(v => v !== undefined && v !== null && String(v).trim() !== "");
   if (raw === undefined) return "";
-
   let digits = String(raw).replace(/\D/g, "");
-
-  if (digits.length === 12 && digits.startsWith("91")) {
-    digits = digits.slice(2);
-  } else if (digits.length === 11 && digits.startsWith("0")) {
-    digits = digits.slice(1);
-  }
-
-  return /^[6-9]\d{9}$/.test(digits)
-    ? "XXXXXX" + digits.slice(-4)
-    : "";
+  if (digits.length === 12 && digits.startsWith("91")) digits = digits.slice(2);
+  else if (digits.length === 11 && digits.startsWith("0")) digits = digits.slice(1);
+  return /^[6-9]\d{9}$/.test(digits) ? "XXXXXX" + digits.slice(-4) : "";
 }
-
 function getPhoto(a) {
-  return text(a.photoURL || a.photoUrl || a.photo || a.profilePhoto || a.profileImage || a.imageUrl);
+  return text(a.photoURL || a.photoUrl || a.photoURL || a.photo || a.profilePhoto || a.profileImage || a.imageUrl);
 }
-
 function getEnrollment(a) {
-  return text(
-    a.enrolmentNumber ||
-    a.enrollmentNumber ||
-    a.enrolmentNo ||
-    a.enrollmentNo ||
-    a.barCouncilEnrollmentNumber ||
-    a.barCouncilEnrolmentNumber ||
-    a.enrollment_number ||
-    a.enrolment_number
-  );
+  return text(a.enrolmentNumber || a.enrollmentNumber || a.enrolmentNo || a.enrollmentNo ||
+    a.barCouncilEnrollmentNumber || a.barCouncilEnrolmentNumber || a.enrollment_number || a.enrolment_number);
+}
+function getCourt(a) { return text(a.court || a.courtName || a.practiceLocation); }
+function getQualification(a) { return text(a.qualification || a.qualifications || a.education); }
+function getBio(a) { return text(a.introduction || a.bio || a.about || a.description); }
+function getState(a) { return text(a.state || a.stateName || a.stateUT || a.stateUnionTerritory); }
+function getDistrict(a) { return text(a.district || a.districtName); }
+function getName(a) { return text(a.name || a.fullName || a.advocateName, "Advocate"); }
+
+/* Only show a masked mobile number; never render the full number publicly. */
+function getMaskedMobile(a) {
+  const raw = [a.mobile, a.mobileNumber, a.phone, a.phoneNumber, a.contactNumber, a.telephone]
+    .find(v => v !== undefined && v !== null && String(v).trim() !== "");
+  if (raw === undefined) return "";
+  let digits = String(raw).replace(/\D/g, "");
+  if (digits.length === 12 && digits.startsWith("91")) digits = digits.slice(2);
+  else if (digits.length === 11 && digits.startsWith("0")) digits = digits.slice(1);
+  return /^[6-9]\d{9}$/.test(digits) ? "XXXXXX" + digits.slice(-4) : "";
 }
 
-function getCourt(a) {
-  return text(a.court || a.courtName || a.practiceLocation);
-}
-
-function getQualification(a) {
-  return text(a.qualification || a.qualifications || a.education);
-}
-
-function getBio(a) {
-  return text(a.introduction || a.bio || a.about || a.description);
-}
-
-function getState(a) {
-  return text(a.state || a.stateName || a.stateUT || a.stateUnionTerritory);
-}
-
-function getDistrict(a) {
-  return text(a.district || a.districtName);
-}
-
-function getName(a) {
-  return text(a.name || a.fullName || a.advocateName, "Advocate");
-}
-
-/* Full advocate profile popup */
 function openAdvocateProfile(a) {
   $("profileModalName").textContent = getName(a);
-
   const details = $("profileModalDetails");
   details.replaceChildren();
 
   const photo = getPhoto(a);
   const hero = document.createElement("div");
   hero.className = "profile-hero";
-
   const imageBox = document.createElement("div");
   imageBox.className = "profile-photo";
-
   if (photo) {
     const img = document.createElement("img");
     img.src = photo;
     img.alt = getName(a) + " profile photo";
     img.loading = "lazy";
-
-    img.onerror = () => {
-      imageBox.replaceChildren();
-      imageBox.textContent = getName(a).charAt(0).toUpperCase();
-    };
-
+    img.onerror = () => { imageBox.replaceChildren(); imageBox.textContent = getName(a).charAt(0).toUpperCase(); };
     imageBox.appendChild(img);
   } else {
     imageBox.textContent = getName(a).charAt(0).toUpperCase();
   }
-
   hero.appendChild(imageBox);
-
   const heading = document.createElement("div");
   addText(heading, "div", "location", "✓ APPROVED ADVOCATE");
-  addText(
-    heading,
-    "div",
-    "",
-    [getDistrict(a), getState(a)].filter(Boolean).join(", ")
-  );
-
+  addText(heading, "div", "", [getDistrict(a),getState(a)].filter(Boolean).join(", "));
   hero.appendChild(heading);
   details.appendChild(hero);
 
   const row = (label, value) => {
     const v = text(value);
     if (!v) return;
-
     const item = document.createElement("div");
     item.className = "profile-row";
-
     addText(item, "strong", "", label);
     addText(item, "span", "", v);
-
     details.appendChild(item);
   };
-
   row("State", getState(a));
   row("District", getDistrict(a));
   row("Court", getCourt(a));
@@ -454,283 +276,122 @@ function openAdvocateProfile(a) {
   row("Enrollment Number", getEnrollment(a));
   row("Introduction", getBio(a));
   row("Mobile", getMaskedMobile(a));
-
   $("profileModalBackdrop").classList.add("open");
   $("profileModalClose").focus();
 }
-
-function closeProfile() {
-  $("profileModalBackdrop").classList.remove("open");
-}
-
+function closeProfile() { $("profileModalBackdrop").classList.remove("open"); }
 $("profileModalClose").addEventListener("click", closeProfile);
+$("profileModalBackdrop").addEventListener("click", e => { if (e.target === $("profileModalBackdrop")) closeProfile(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape") closeProfile(); });
 
-$("profileModalBackdrop").addEventListener("click", e => {
-  if (e.target === $("profileModalBackdrop")) closeProfile();
-});
-
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closeProfile();
-});
-
-/* Advocate card */
 function createAdvocateCard(a) {
   const card = document.createElement("article");
   card.className = "advocate-card";
-
   const name = getName(a);
   const top = document.createElement("div");
   top.className = "card-top";
-
   const avatar = document.createElement("div");
   avatar.className = "avatar";
-
   const photo = getPhoto(a);
-
   if (photo) {
     const img = document.createElement("img");
-    img.src = photo;
-    img.alt = "";
-    img.loading = "lazy";
-
-    img.onerror = () => {
-      avatar.replaceChildren();
-      avatar.textContent = name.charAt(0).toUpperCase();
-    };
-
+    img.src = photo; img.alt = ""; img.loading = "lazy";
+    img.onerror = () => { avatar.replaceChildren(); avatar.textContent = name.charAt(0).toUpperCase(); };
     avatar.appendChild(img);
-  } else {
-    avatar.textContent = name.charAt(0).toUpperCase();
-  }
-
+  } else avatar.textContent = name.charAt(0).toUpperCase();
   top.appendChild(avatar);
-
   const identity = document.createElement("div");
   identity.className = "identity";
-
   addText(identity, "h3", "advocate-name", name);
-  addText(
-    identity,
-    "div",
-    "location",
-    "📍 " + [getDistrict(a), getState(a)].filter(Boolean).join(", ")
-  );
+  addText(identity, "div", "location", "📍 " + [getDistrict(a),getState(a)].filter(Boolean).join(", "));
   addText(identity, "span", "approved-label", "✓ APPROVED PROFILE");
-
-  top.appendChild(identity);
-  card.appendChild(top);
-
-  const divider = document.createElement("hr");
-  divider.className = "divider";
-  card.appendChild(divider);
-
+  top.appendChild(identity); card.appendChild(top);
+  const divider = document.createElement("hr"); divider.className = "divider"; card.appendChild(divider);
   addText(card, "div", "detail-label", "LEGAL SECTOR");
-
-  const sectors = document.createElement("div");
-  sectors.className = "sector-list";
-
+  const sectors = document.createElement("div"); sectors.className = "sector-list";
   const list = getSectors(a);
-  (list.length ? list : ["Not specified"]).forEach(s => {
-    addText(sectors, "span", "sector-tag", s);
-  });
-
+  (list.length ? list : ["Not specified"]).forEach(s => addText(sectors, "span", "sector-tag", s));
   card.appendChild(sectors);
-
   const experience = text(a.experience || a.experienceYears);
-  if (experience) {
-    addText(card, "div", "experience", "💼 Experience: " + experience);
-  }
-
+  if (experience) addText(card, "div", "experience", "💼 Experience: " + experience);
   const intro = getBio(a);
-  if (intro) {
-    addText(card, "p", "introduction", intro);
-  }
+  if (intro) addText(card, "p", "introduction", intro);
 
   const maskedMobile = getMaskedMobile(a);
-
   if (maskedMobile) {
     const mobileRow = document.createElement("div");
     mobileRow.className = "mobile-info";
-
     addText(mobileRow, "span", "", "📱 Mobile: ");
     addText(mobileRow, "span", "mobile-number", maskedMobile);
-
     card.appendChild(mobileRow);
   }
 
   const button = addText(card, "button", "contact-button", "View Full Profile →");
   button.type = "button";
   button.addEventListener("click", () => openAdvocateProfile(a));
-
   return card;
 }
 
-/* Only approved public profiles are loaded. */
+/* Read only published profiles from publicAdvocates; do not expose private application records. */
 async function getApprovedAdvocates() {
-  const q = query(
-    collection(db, "publicAdvocates"),
-    where("status", "==", "Approved")
-  );
-
+  const q = query(collection(db, "publicAdvocates"), where("status", "==", "Approved"));
   const snapshot = await getDocs(q);
-
-  return snapshot.docs
-    .map(d => ({ id: d.id, ...d.data() }))
-    .filter(a => getName(a) !== "Advocate");
+  return snapshot.docs.map(d => ({ id:d.id, ...d.data() })).filter(a => getName(a) !== "Advocate");
 }
-
-/* Featured profiles */
 async function loadFeaturedAdvocates() {
-  const featuredSlider = $("featuredSlider");
-
   try {
-    const advocates = sortNewest(await getApprovedAdvocates());
-
+    const advocates = sortNewest(await getApprovedAdvocates()); // no artificial 3-profile limit
     featuredSlider.replaceChildren();
-
-    if (!advocates.length) {
-      addText(
-        featuredSlider,
-        "p",
-        "",
-        "No approved advocate profiles are currently available."
-      );
-      return;
-    }
-
-    advocates.forEach(a => {
-      featuredSlider.appendChild(createAdvocateCard(a));
-    });
+    if (!advocates.length) { addText(featuredSlider, "p", "", "No approved advocate profiles are currently available."); return; }
+    advocates.forEach(a => featuredSlider.appendChild(createAdvocateCard(a)));
   } catch (error) {
     console.error("Featured advocates loading failed:", error);
-
     featuredSlider.replaceChildren();
-
-    addText(
-      featuredSlider,
-      "p",
-      "",
-      "Could not load profiles. Please refresh and try again."
-    );
+    addText(featuredSlider, "p", "", "Could not load profiles. Please refresh and try again.");
   }
 }
-
-/* Search by state, district and optional legal sector */
 $("searchForm").addEventListener("submit", async event => {
   event.preventDefault();
-
-  const state = $("stateFilter").value.trim();
-  const district = $("districtFilter").value.trim();
-  const sector = $("sectorFilter").value.trim();
-
-  if (!state || !district) {
-    showStatus("Please select a state and enter a district.", true);
-    return;
-  }
-
-  const searchButton = $("searchButton");
-  const resultsGrid = $("resultsGrid");
-  const emptyState = $("emptyState");
-  const resultCount = $("resultCount");
-
-  searchButton.disabled = true;
-  searchButton.textContent = "Searching…";
-
-  resultsGrid.replaceChildren();
-  emptyState.hidden = true;
-  clearStatus();
-  resultCount.textContent = "Searching…";
-
+  const state = stateFilter.value.trim();
+  const district = districtFilter.value.trim();
+  const sector = sectorFilter.value.trim();
+  if (!state || !district) { showStatus("Please select a state and enter a district.", true); return; }
+  searchButton.disabled = true; searchButton.textContent = "Searching…";
+  resultsGrid.replaceChildren(); emptyState.hidden = true; clearStatus(); resultCount.textContent = "Searching…";
   try {
     const advocates = await getApprovedAdvocates();
-
-    const matched = sortNewest(
-      advocates.filter(a =>
-        normalize(getState(a)) === normalize(state) &&
-        normalize(getDistrict(a)) === normalize(district) &&
-        matchesSector(a, sector)
-      )
-    );
-
-    resultCount.textContent =
-      matched.length + (matched.length === 1 ? " advocate" : " advocates");
-
+    const matched = sortNewest(advocates.filter(a =>
+      normalize(getState(a)) === normalize(state) &&
+      normalize(getDistrict(a)) === normalize(district) &&
+      matchesSector(a, sector)
+    ));
+    resultCount.textContent = matched.length + (matched.length === 1 ? " advocate" : " advocates");
     if (!matched.length) {
       emptyState.hidden = false;
       emptyState.querySelector("h3").textContent = "No Approved Advocates Found";
-      emptyState.querySelector("p").textContent =
-        "No approved profiles match these filters. Check the spelling or try another area.";
+      emptyState.querySelector("p").textContent = "No approved profiles match these filters. Check the spelling or try another area.";
       return;
     }
-
-    matched.forEach(a => {
-      resultsGrid.appendChild(createAdvocateCard(a));
-    });
+    matched.forEach(a => resultsGrid.appendChild(createAdvocateCard(a)));
   } catch (error) {
     console.error("Advocate search failed:", error);
-
     resultCount.textContent = "Search unavailable";
-
-    showStatus(
-      "Could not load advocate profiles. Check your connection and try again.",
-      true
-    );
-
+    showStatus("Could not load advocate profiles. Check your connection and try again.", true);
     emptyState.hidden = false;
     emptyState.querySelector("h3").textContent = "Unable to Load Profiles";
-    emptyState.querySelector("p").textContent =
-      "Please refresh the page and try again.";
+    emptyState.querySelector("p").textContent = "Please refresh the page and try again.";
   } finally {
-    searchButton.disabled = false;
-    searchButton.textContent = "Search Advocates →";
+    searchButton.disabled = false; searchButton.textContent = "Search Advocates →";
   }
 });
-
-/* Reset filters */
 $("resetButton").addEventListener("click", () => {
-  $("searchForm").reset();
-  $("resultsGrid").replaceChildren();
-  $("resultCount").textContent = "Not searched yet";
-
-  const emptyState = $("emptyState");
-  emptyState.hidden = false;
-  emptyState.querySelector("h3").textContent = "⚖️ Find Advocates in Your District";
-  emptyState.querySelector("p").textContent =
-    "Select a state and district, then tap Search Advocates.";
-
-  clearStatus();
+  $("searchForm").reset(); resultsGrid.replaceChildren(); resultCount.textContent = "Not searched yet";
+  emptyState.hidden = false; emptyState.querySelector("h3").textContent = "⚖️ Find Advocates in Your District";
+  emptyState.querySelector("p").textContent = "Select a state and district, then tap Search Advocates."; clearStatus();
 });
-
-/* Featured slider controls */
-const featuredSlider = $("featuredSlider");
-
-$("featuredPrev").addEventListener("click", () => {
-  featuredSlider.scrollBy({
-    left: -featuredSlider.clientWidth * 0.8,
-    behavior: "smooth"
-  });
-});
-
-$("featuredNext").addEventListener("click", () => {
-  featuredSlider.scrollBy({
-    left: featuredSlider.clientWidth * 0.8,
-    behavior: "smooth"
-  });
-});
-
+$("featuredPrev").addEventListener("click", () => featuredSlider.scrollBy({left:-featuredSlider.clientWidth*.8,behavior:"smooth"}));
+$("featuredNext").addEventListener("click", () => featuredSlider.scrollBy({left:featuredSlider.clientWidth*.8,behavior:"smooth"}));
 loadFeaturedAdvocates();
 </script>
 </body>
 </html>
-class="modal-backdrop" id="profileModalBackdrop" role="dialog" aria-modal="true" aria-labelledby="profileModalName">
-  <div class="modal">
-    <div class="modal-head">
-      <div>
-        <div class="detail-label">ADVOCATE PROFILE</div>
-        <h2 id="profileModalName">Advocate</h2>
-      </div>
-      <button class="modal-close" id="profileModalClose" type="button" aria-label="Close">×</button>
-    </div>
-    <div id="profileModalDetails"></div>
-  </div>
-</div>
