@@ -438,5 +438,48 @@ $("featuredPrev").addEventListener("click", () => featuredSlider.scrollBy({left:
 $("featuredNext").addEventListener("click", () => featuredSlider.scrollBy({left:featuredSlider.clientWidth*.8,behavior:"smooth"}));
 loadFeaturedAdvocates();
 </script>
+<!-- ADVOCATE PROFILE POPUP -->
+<div id="advocateProfilePopup"
+     style="display:none;position:fixed;inset:0;z-index:99999;
+     background:rgba(0,0,0,.75);align-items:center;
+     justify-content:center;padding:16px;">
+
+  <div style="background:#fff;width:100%;max-width:430px;
+       max-height:85vh;overflow-y:auto;border-radius:18px;
+       box-shadow:0 20px 60px #0005;">
+
+    <div style="background:linear-gradient(135deg,#071a3b,#175fce);
+         color:white;padding:22px;position:relative;">
+
+      <button type="button" onclick="closeAdvocateProfile()"
+              style="position:absolute;right:14px;top:12px;
+              border:0;background:#ffffff25;color:white;
+              font-size:25px;border-radius:8px;">
+        &times;
+      </button>
+
+      <div style="font-size:10px;letter-spacing:2px;color:#d4e3ff;">
+        SK KGN TEAM
+      </div>
+
+      <h2 id="popupAdvocateName"
+          style="font-size:23px;margin:8px 35px 0 0;">
+        Advocate Profile
+      </h2>
+    </div>
+
+    <div id="popupAdvocateDetails" style="padding:22px;"></div>
+
+    <div style="padding:0 22px 22px;">
+      <button type="button" onclick="closeAdvocateProfile()"
+              style="width:100%;padding:13px;border:0;
+              border-radius:10px;background:#071a3b;
+              color:white;font-weight:bold;">
+        Close Profile
+      </button>
+    </div>
+
+  </div>
+</div>
 </body>
 </html>
