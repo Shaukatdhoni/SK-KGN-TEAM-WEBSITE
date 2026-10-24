@@ -481,5 +481,126 @@ loadFeaturedAdvocates();
 
   </div>
 </div>
+<script>
+function openAdvocateProfile(button) {
+  let advocate;
+
+  try {
+    advocate = JSON.parse(
+      decodeURIComponent(button.dataset.advocate)
+    );
+  } catch (error) {
+    alert("Advocate details could not be loaded.");
+    return;
+  }
+
+  const name = advocate.name || advocate.fullName ||
+               advocate.advocateName || "Advocate Profile";
+
+  document.getElementById("popupAdvocateName").textContent = name;
+
+  const details = document.getElementById("popupAdvocateDetails");
+  details.replaceChildren();
+
+  function addDetail(label, value) {
+    if (value === undefined || value === null ||
+        String(value).trim() === "") return;
+
+    const row = document.createElement("div");
+    row.style.cssText =
+      "padding:12px 0;border-bottom:1px solid #edf0f5;";
+
+    const heading = document.createElement("div");
+    heading.textContent = label;
+    heading.style.cssText =
+      "font-size:10px;color:#788397;font-weight:bold;" +
+      "text-transform:uppercase;margin-bottom:5px;";
+
+    const content = document.createElement("div");
+    content.textContent = value;
+    content.style.cssText =
+      "font-size:14px;color:#102e60;font-weight:700;overflow-wrap:anywhere;";
+
+    row.append(heading, content);
+    details.appendChild(row);
+  }
+
+  const mobile = [
+    advocate.mobile, advocate.mobileNumber, advocate.phone,
+    advocate.phoneNumber, advocate.contactNumber, advocate.telephone
+  ].find(value => value !== undefined && value !== null &&
+                  String(value).trim() !== "");
+
+  let maskedMobile = "";
+
+  if (mobile) {
+    let digits = String(mobile).replace(/\D/g, "");
+
+    if (digits.length === 12 && digits.startsWith("91")) {
+      digits = digits.slice(2);
+    } else if (digits.length === 11 && digits.startsWith("0")) {
+      digits = digits.slice(1);
+    }
+
+    if (/^[6-9]\d{9}$/.test(digits)) {
+      maskedMobile = "XXXXXX" + digits.slice(-4);
+    }
+  }
+
+  const sectors = advocate.practiceAreas ||
+                  advocate.legalSectors ||
+                  advocate.practiceArea ||
+                  advocate.legalSector ||
+                  advocate.specialization;
+
+  addDetail("Full Name", name);
+  addDetail("State", advocate.state);
+  addDetail("District", advocate.district);
+  addDetail("Mobile Number", maskedMobile);
+
+  addDetail(
+    "Legal Expertise",
+    Array.isArray(sectors) ? sectors.join(", ") : sectors
+  );
+
+  addDetail(
+    "Experience",
+    advocate.experience || advocate.experienceYears
+  );
+
+  addDetail(
+    "Bar Council Enrollment",
+    advocate.enrollmentNumber ||
+    advocate.barCouncilNumber ||
+    advocate.enrollmentNo
+  );
+
+  addDetail(
+    "About Advocate",
+    advocate.introduction ||
+    advocate.bio ||
+    advocate.about ||
+    advocate.description
+  );
+
+  const popup = document.getElementById("advocateProfilePopup");
+  popup.style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeAdvocateProfile() {
+  document.getElementById("advocateProfilePopup").style.display = "none";
+  document.body.style.overflow = "";
+}
+
+document.getElementById("advocateProfilePopup")
+  .addEventListener("click", function(event) {
+    if (event.target === this) closeAdvocateProfile();
+  });
+
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape") closeAdvocateProfile();
+});
+</script>
 </body>
 </html>
