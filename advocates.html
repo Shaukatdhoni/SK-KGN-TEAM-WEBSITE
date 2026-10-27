@@ -771,6 +771,9 @@ function getExperience(a) {
 
 /* Public display: mask the mobile number */
 function getMaskedMobile(a) {
+if (a.mobileMasked) {
+  return String(a.mobileMasked);
+}
   const raw = [
     a.mobile,
     a.mobileNumber,
