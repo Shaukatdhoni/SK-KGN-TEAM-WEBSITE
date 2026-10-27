@@ -578,8 +578,17 @@ const normalizeStatus = value => {
 };
 const fullName = item => pick(item, "fullName", "name", "advocateName") || "Unnamed advocate";
 const emailOf = item => pick(item, "email");
-const mobileOf = item => pick(item, "mobile", "phone", "mobileNumber");
+const mobileOf = item => pick(
+  item,
+  "mobile",
+  "phone",
+  "mobileNumber",
+  "phoneNumber",
+  "contactNumber",
+  "whatsappNumber"
+);
 const districtOf = item => pick(item, "district");
+const stateOf = item => pick(item, "state", "stateName", "barCouncilState", "registeredState");
 const courtOf = item => pick(item, "court", "courtName");
 const practiceOf = item => pick(item, "practiceArea", "specialization", "practiceAreas");
 const photoOf = item => pick(item, "photoURL", "profilePhotoURL", "photoUrl");
@@ -845,6 +854,7 @@ function openModal(item) {
   $("detailGrid").innerHTML = [
     detail("Email", emailOf(item)),
     detail("Mobile", mobileOf(item)),
+    detail("State", stateOf(item)),
     detail("District", districtOf(item)),
     detail("Court", courtOf(item)),
     detail("Practice area", practiceOf(item)),
