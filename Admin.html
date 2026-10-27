@@ -588,7 +588,15 @@ const mobileOf = item => pick(
   "whatsappNumber"
 );
 const districtOf = item => pick(item, "district");
-const stateOf = item => pick(item, "state", "stateName", "barCouncilState", "registeredState");
+const stateOf = item => pick(
+  item,
+  "state",
+  "stateName",
+  "stateUT",
+  "stateUnionTerritory",
+  "barCouncilState",
+  "registeredState"
+);
 const courtOf = item => pick(item, "court", "courtName");
 const practiceOf = item => pick(item, "practiceArea", "specialization", "practiceAreas");
 const photoOf = item => pick(item, "photoURL", "profilePhotoURL", "photoUrl");
