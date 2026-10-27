@@ -924,6 +924,7 @@ async function saveApplication(nextStatus = null) {
         practiceArea: practiceOf(item),
         experience: pick(item,"experience","experienceYears"),
         district: districtOf(item),
+        state: stateOf(item),
         court: courtOf(item),
         photoURL: photoOf(item),
         bio: pick(item,"bio","about","description"),
