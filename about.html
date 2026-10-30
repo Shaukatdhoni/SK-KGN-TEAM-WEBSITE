@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,1339 +12,775 @@ content="Meet the team behind SK KGN TEAM.">
 
 <style>
 
-/* =========================================================
-   RESET
-========================================================= */
+/* ================= RESET ================= */
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html{
-  scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#020711;
-  color:#fff;
-  overflow-x:hidden;
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #020711;
+  color: #fff;
+  overflow-x: hidden;
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:9999;
-
-  background:rgba(2,8,20,.92);
-  backdrop-filter:blur(18px);
-
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.header-inner{
-  max-width:1320px;
-  min-height:76px;
-  margin:auto;
-  padding:0 35px;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:13px;
-}
-
-.brand img{
-  width:52px;
-  height:52px;
-
-  object-fit:contain;
-  border-radius:50%;
-
-  border:1px solid rgba(105,180,255,.35);
-}
-
-.brand-name{
-  font-size:21px;
-  font-weight:900;
-}
-
-.brand-name span{
-  color:#69b4ff;
-}
-
-.home-button{
-  padding:12px 22px;
-
-  border:1px solid rgba(91,170,250,.35);
-  border-radius:13px;
-
-  background:rgba(70,145,230,.07);
-
-  color:#9acbff;
-
-  font-size:13px;
-  font-weight:800;
-
-  transition:.3s ease;
-}
-
-.home-button:hover{
-  transform:translateY(-2px);
-  background:rgba(70,145,230,.15);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+/* ================= HEADER ================= */
 
-.hero{
-  position:relative;
-  min-height:680px;
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  background: rgba(2,8,20,.95);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
 
-  display:flex;
-  align-items:center;
+.header-inner {
+  max-width: 1320px;
+  min-height: 76px;
+  margin: auto;
+  padding: 0 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  overflow:hidden;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
 
+.brand img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 1px solid rgba(105,180,255,.35);
+}
+
+.brand-name {
+  font-size: 21px;
+  font-weight: 900;
+}
+
+.brand-name span {
+  color: #69b4ff;
+}
+
+.home-button {
+  padding: 12px 22px;
+  border: 1px solid rgba(91,170,250,.35);
+  border-radius: 13px;
+  background: rgba(70,145,230,.07);
+  color: #9acbff;
+  font-size: 13px;
+  font-weight: 800;
+  transition: .3s;
+}
+
+.home-button:hover {
+  background: rgba(70,145,230,.15);
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+  position: relative;
+  min-height: 680px;
+  display: flex;
+  align-items: center;
   background:
-    radial-gradient(
-      circle at 15% 45%,
-      rgba(27,91,170,.20),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 90% 70%,
-      rgba(92,46,170,.13),
-      transparent 35%
-    ),
+    radial-gradient(circle at 15% 45%, rgba(27,91,170,.20), transparent 35%),
+    radial-gradient(circle at 90% 70%, rgba(92,46,170,.13), transparent 35%),
     #020711;
 }
 
-.hero::after{
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  height:1px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(90,170,245,.3),
-      transparent
-    );
+.hero-inner {
+  width: 100%;
+  max-width: 1320px;
+  margin: auto;
+  padding: 75px 35px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 70px;
+  align-items: center;
 }
 
-.hero-inner{
-  width:100%;
-  max-width:1320px;
-
-  margin:auto;
-
-  padding:75px 35px;
-
-  display:grid;
-
-  grid-template-columns:
-    1.1fr .9fr;
-
-  gap:70px;
-
-  align-items:center;
-}
-
-
-/* =========================================================
-   HERO TEXT
-========================================================= */
-
-.eyebrow{
-  display:flex;
-  align-items:center;
-  gap:12px;
-
-  color:#71b9fb;
-
-  font-size:10px;
-  font-weight:900;
-
-  letter-spacing:4px;
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #71b9fb;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 4px;
 }
 
 .eyebrow::before,
-.eyebrow::after{
-  content:"";
-
-  width:30px;
-  height:1px;
-
-  background:#71b9fb;
+.eyebrow::after {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background: #71b9fb;
 }
 
-.hero h1{
-  margin-top:22px;
-
-  max-width:750px;
-
-  font-size:
-    clamp(55px,6.5vw,88px);
-
-  line-height:.94;
-
-  letter-spacing:-4px;
-
-  font-weight:900;
+.hero h1 {
+  margin-top: 22px;
+  max-width: 750px;
+  font-size: clamp(55px,6.5vw,88px);
+  line-height: .94;
+  letter-spacing: -4px;
+  font-weight: 900;
 }
 
-.hero h1 span{
-  display:block;
-
-  background:
-    linear-gradient(
-      90deg,
-      #fff,
-      #65b1ff,
-      #a06cff,
-      #fff
-    );
-
-  background-size:200% auto;
-
-  -webkit-background-clip:text;
-  background-clip:text;
-
-  color:transparent;
-
-  animation:titleShine 7s linear infinite;
+.hero h1 span {
+  display: block;
+  color: #69b4ff;
 }
 
-@keyframes titleShine{
-
-  0%{
-    background-position:0% center;
-  }
-
-  100%{
-    background-position:200% center;
-  }
-
+.hero-description {
+  max-width: 650px;
+  margin-top: 28px;
+  color: #a6b8cc;
+  font-size: 16px;
+  line-height: 1.85;
 }
 
-.hero-description{
-  max-width:650px;
-
-  margin-top:28px;
-
-  color:#a6b8cc;
-
-  font-size:16px;
-
-  line-height:1.85;
+.hero-button {
+  display: inline-flex;
+  margin-top: 32px;
+  padding: 14px 23px;
+  border-radius: 13px;
+  background: #146ac4;
+  font-size: 12px;
+  font-weight: 900;
+  transition: .3s;
 }
 
-.hero-button{
-  display:inline-flex;
-
-  margin-top:32px;
-
-  padding:14px 23px;
-
-  border-radius:13px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #146ac4,
-      #6531b8
-    );
-
-  font-size:12px;
-
-  font-weight:900;
-
-  box-shadow:
-    0 15px 45px rgba(35,110,210,.25);
-
-  transition:.35s ease;
-}
-
-.hero-button:hover{
-  transform:translateY(-4px);
-
-  box-shadow:
-    0 22px 55px rgba(35,110,210,.38);
+.hero-button:hover {
+  background: #247fdb;
+  transform: translateY(-2px);
 }
 
 
-/* =========================================================
-   HERO VISUAL
-========================================================= */
+/* ================= HERO VISUAL ================= */
 
-.hero-visual{
-
-  position:relative;
-
-  min-height:430px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
+.hero-visual {
+  position: relative;
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero-circle{
-
-  width:350px;
-  height:350px;
-
-  border-radius:50%;
-
-  border:
-    1px solid rgba(85,170,250,.20);
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(50,125,215,.16),
-      rgba(255,255,255,.015) 65%,
-      transparent 70%
-    );
-
-  box-shadow:
-    0 0 100px rgba(40,125,220,.12);
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.hero-circle {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: 1px solid rgba(85,170,250,.20);
+  background: radial-gradient(circle, rgba(50,125,215,.16), transparent 70%);
+  box-shadow: 0 0 100px rgba(40,125,220,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hero-circle::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:265px;
-  height:265px;
-
-  border-radius:50%;
-
-  border:
-    1px solid rgba(150,100,245,.20);
+.hero-circle::before {
+  content: "";
+  position: absolute;
+  width: 265px;
+  height: 265px;
+  border-radius: 50%;
+  border: 1px solid rgba(150,100,245,.20);
 }
 
-.hero-circle::after{
-
-  content:"";
-
-  position:absolute;
-
-  width:185px;
-  height:185px;
-
-  border-radius:50%;
-
-  border:
-    1px solid rgba(90,175,250,.22);
+.hero-circle::after {
+  content: "";
+  position: absolute;
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+  border: 1px solid rgba(90,175,250,.22);
 }
 
-.hero-symbol{
-
-  position:relative;
-  z-index:5;
-
-  width:135px;
-  height:135px;
-
-  border-radius:50%;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:52px;
-
-  background:
-    rgba(20,65,115,.28);
-
-  border:
-    1px solid rgba(110,190,255,.35);
-
-  box-shadow:
-    0 0 55px rgba(45,140,230,.18);
-
-  animation:
-    softFloat 5s ease-in-out infinite;
-}
-
-@keyframes softFloat{
-
-  0%,100%{
-    transform:translateY(0);
-  }
-
-  50%{
-    transform:translateY(-8px);
-  }
-
+.hero-symbol {
+  position: relative;
+  z-index: 5;
+  width: 135px;
+  height: 135px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  background: rgba(20,65,115,.28);
+  border: 1px solid rgba(110,190,255,.35);
 }
 
 
-/* =========================================================
-   TEAM SECTION
-========================================================= */
+/* ================= TEAM SECTION ================= */
 
-.team-section{
-
-  position:relative;
-
-  padding:
-    115px 35px 130px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #020711,
-      #06162b
-    );
+.team-section {
+  padding: 100px 35px;
+  background: linear-gradient(180deg,#020711,#06162b);
 }
 
-.team-container{
-  max-width:1320px;
-  margin:auto;
+.team-container {
+  max-width: 1320px;
+  margin: auto;
 }
 
-.section-heading{
-
-  max-width:800px;
-
-  margin:
-    0 auto 65px;
-
-  text-align:center;
+.section-heading {
+  max-width: 800px;
+  margin: 0 auto 55px;
+  text-align: center;
 }
 
-.section-heading small{
-
-  color:#71b9fb;
-
-  font-size:10px;
-
-  font-weight:900;
-
-  letter-spacing:4px;
+.section-heading small {
+  color: #71b9fb;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 4px;
 }
 
-.section-heading h2{
-
-  margin-top:15px;
-
-  font-size:
-    clamp(43px,5vw,68px);
-
-  letter-spacing:-3px;
-
-  font-weight:900;
+.section-heading h2 {
+  margin-top: 15px;
+  font-size: clamp(43px,5vw,68px);
+  letter-spacing: -3px;
+  font-weight: 900;
 }
 
-.section-heading p{
-
-  margin-top:18px;
-
-  color:#9db2c9;
-
-  font-size:15px;
-
-  line-height:1.8;
+.section-heading p {
+  margin-top: 18px;
+  color: #9db2c9;
+  font-size: 15px;
+  line-height: 1.8;
 }
 
 
-/* =========================================================
-   TEAM GRID
-========================================================= */
+/* ================= TEAM GRID ================= */
 
-.team-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:22px;
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px;
 }
 
+.member-card {
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: linear-gradient(150deg,rgba(255,255,255,.075),rgba(255,255,255,.025));
+  box-shadow: 0 20px 55px rgba(0,0,0,.25);
 
-/* =========================================================
-   MEMBER CARD
-========================================================= */
-
-.member-card{
-
-  position:relative;
-
-  overflow:hidden;
-
-  border-radius:27px;
-
-  border:
-    1px solid rgba(255,255,255,.10);
-
-  background:
-    linear-gradient(
-      150deg,
-      rgba(255,255,255,.075),
-      rgba(255,255,255,.025)
-    );
-
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.32);
-
-  opacity:0;
-
-  transform:
-    translateY(80px)
-    scale(.94);
+  opacity: 0;
+  transform: translateY(25px);
 
   transition:
-    opacity .8s ease,
-    transform .9s cubic-bezier(.16,1,.3,1),
-    border-color .35s ease,
-    box-shadow .35s ease;
+    opacity .7s ease,
+    transform .7s ease,
+    border-color .3s ease;
 }
 
-.member-card.visible{
-
-  opacity:1;
-
-  transform:
-    translateY(0)
-    scale(1);
+.member-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.member-card:nth-child(2){
-  transition-delay:.10s;
+.member-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(85,175,250,.38);
 }
 
-.member-card:nth-child(3){
-  transition-delay:.20s;
+.member-card:nth-child(2) {
+  transition-delay: .08s;
 }
 
-.member-card:nth-child(4){
-  transition-delay:.30s;
+.member-card:nth-child(3) {
+  transition-delay: .16s;
 }
 
-.member-card:hover{
+.member-card:nth-child(4) {
+  transition-delay: .24s;
+}
 
-  transform:
-    translateY(-8px)
-    scale(1.01);
-
-  border-color:
-    rgba(85,175,250,.38);
-
-  box-shadow:
-    0 35px 90px rgba(0,0,0,.46);
+.member-card:nth-child(5) {
+  transition-delay: .32s;
 }
 
 
-/* =========================================================
-   PHOTO AREA
-========================================================= */
+/* ================= MEMBER PHOTO ================= */
 
-.photo-area{
-
-  position:relative;
-
-  height:350px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(35,115,205,.16),
-      transparent 60%
-    );
+.photo-area {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle,rgba(35,115,205,.16),transparent 65%);
 }
 
-.photo-number{
-
-  position:absolute;
-
-  top:19px;
-  right:20px;
-
-  color:
-    rgba(255,255,255,.30);
-
-  font-size:11px;
-
-  font-weight:900;
-
-  letter-spacing:3px;
-
-  z-index:10;
+.photo-number {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: rgba(255,255,255,.30);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  z-index: 10;
 }
 
-
-/* =========================================================
-   PHOTO RING - STATIC, NO ROTATION
-========================================================= */
-
-.photo-ring{
-
-  position:absolute;
-
-  width:255px;
-  height:255px;
-
-  border-radius:50%;
-
-  border:
-    1px solid rgba(90,175,250,.22);
-
-  box-shadow:
-    0 0 35px rgba(45,130,220,.08);
+.photo-ring {
+  position: absolute;
+  width: 225px;
+  height: 225px;
+  border-radius: 50%;
+  border: 1px solid rgba(90,175,250,.22);
 }
 
-.photo-ring::before{
+.photo-ring::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.06);
+}
 
-  content:"";
-
-  position:absolute;
-
-  inset:12px;
-
-  border-radius:50%;
-
-  border:
-    1px solid rgba(255,255,255,.06);
+.member-photo {
+  position: relative;
+  z-index: 5;
+  width: 180px;
+  height: 180px;
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid rgba(255,255,255,.94);
+  background: #07172b;
+  box-shadow: 0 20px 45px rgba(0,0,0,.4);
 }
 
 
-/* =========================================================
-   MEMBER PHOTO
-========================================================= */
+/* ================= MEMBER INFO ================= */
 
-.member-photo{
-
-  position:relative;
-
-  z-index:5;
-
-  width:205px;
-  height:205px;
-
-  display:block;
-
-  border-radius:50%;
-
-  object-fit:cover;
-
-  border:
-    5px solid rgba(255,255,255,.94);
-
-  background:#07172b;
-
-  box-shadow:
-    0 0 0 8px rgba(70,150,235,.07),
-    0 25px 55px rgba(0,0,0,.45);
-
-  opacity:0;
-
-  transform:
-    scale(.55);
-
-  filter:
-    blur(8px)
-    brightness(.7);
-
-  transition:
-    opacity .9s ease,
-    transform 1s cubic-bezier(.16,1,.3,1),
-    filter 1s ease;
+.member-info {
+  padding: 24px 22px 26px;
+  background: rgba(2,9,22,.75);
 }
 
-.member-card.visible .member-photo{
+.member-role {
+  display: inline-block;
+  padding: 6px 9px;
+  border-radius: 7px;
+  background: rgba(75,155,235,.09);
+  border: 1px solid rgba(90,170,245,.20);
+  color: #75baff;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+}
 
-  opacity:1;
+.member-info h3 {
+  margin-top: 12px;
+  font-size: 20px;
+  line-height: 1.3;
+  font-weight: 900;
+}
 
-  transform:
-    scale(1);
+.member-info p {
+  margin-top: 10px;
+  color: #91a7bf;
+  font-size: 12px;
+  line-height: 1.7;
+}
 
-  filter:
-    blur(0)
-    brightness(1);
+.member-line {
+  width: 45px;
+  height: 2px;
+  margin-top: 18px;
+  background: #55aaf4;
 }
 
 
-/* =========================================================
-   MEMBER INFO
-========================================================= */
+/* ================= GROUP PHOTO ================= */
 
-.member-info{
-
-  padding:
-    25px 24px 28px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(2,9,22,.62),
-      rgba(2,9,22,.98)
-    );
+.group-photo-section {
+  max-width: 650px;
+  margin: 75px auto 0;
+  text-align: center;
 }
 
-.member-role{
-
-  display:inline-block;
-
-  padding:
-    6px 9px;
-
-  border-radius:7px;
-
-  background:
-    rgba(75,155,235,.09);
-
-  border:
-    1px solid rgba(90,170,245,.20);
-
-  color:#75baff;
-
-  font-size:8px;
-
-  font-weight:900;
-
-  letter-spacing:1.7px;
+.group-photo-section img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 9px;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 12px 35px rgba(0,0,0,.28);
 }
 
-.member-info h3{
-
-  margin-top:12px;
-
-  font-size:22px;
-
-  line-height:1.2;
-
-  font-weight:900;
-}
-
-.member-info p{
-
-  margin-top:10px;
-
-  color:#91a7bf;
-
-  font-size:12px;
-
-  line-height:1.7;
-}
-
-.member-line{
-
-  width:45px;
-
-  height:2px;
-
-  margin-top:18px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #55aaf4,
-      transparent
-    );
+.group-photo-caption {
+  margin-top: 15px;
+  color: #a9c9e9;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
 
-/* =========================================================
-   VALUES
-========================================================= */
+/* ================= VALUES ================= */
 
-.values-section{
-
-  padding:
-    110px 35px;
-
-  background:#06162b;
+.values-section {
+  padding: 100px 35px;
+  background: #06162b;
 }
 
-.values-grid{
-
-  max-width:1050px;
-
-  margin:
-    45px auto 0;
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:20px;
+.values-grid {
+  max-width: 1050px;
+  margin: 45px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 20px;
 }
 
-.value-box{
-
-  padding:32px 25px;
-
-  text-align:center;
-
-  border-radius:21px;
-
-  border:
-    1px solid rgba(255,255,255,.08);
-
-  background:
-    rgba(255,255,255,.035);
-
-  transition:.35s ease;
+.value-box {
+  padding: 32px 25px;
+  text-align: center;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.035);
+  transition: .3s;
 }
 
-.value-box:hover{
-
-  transform:translateY(-7px);
-
-  border-color:
-    rgba(90,170,245,.30);
+.value-box:hover {
+  transform: translateY(-5px);
+  border-color: rgba(90,170,245,.30);
 }
 
-.value-icon{
-
-  width:58px;
-  height:58px;
-
-  margin:
-    0 auto 16px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  border-radius:17px;
-
-  background:
-    rgba(60,140,220,.10);
-
-  font-size:27px;
+.value-icon {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  background: rgba(60,140,220,.10);
+  font-size: 27px;
 }
 
-.value-box h3{
-  font-size:17px;
+.value-box h3 {
+  font-size: 17px;
 }
 
-.value-box p{
-
-  margin-top:9px;
-
-  color:#8fa5bc;
-
-  font-size:12px;
-
-  line-height:1.7;
+.value-box p {
+  margin-top: 9px;
+  color: #8fa5bc;
+  font-size: 12px;
+  line-height: 1.7;
 }
 
 
-/* =========================================================
-   MISSION
-========================================================= */
+/* ================= MISSION ================= */
 
-.mission-section{
-
-  padding:
-    110px 35px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #020711,
-      #071a34
-    );
+.mission-section {
+  padding: 100px 35px;
+  background: linear-gradient(145deg,#020711,#071a34);
 }
 
-.mission-box{
-
-  max-width:1000px;
-
-  margin:auto;
-
-  padding:
-    65px 40px;
-
-  text-align:center;
-
-  border-radius:30px;
-
-  border:
-    1px solid rgba(90,170,245,.16);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(25,90,155,.14),
-      rgba(85,40,165,.09)
-    );
-
-  box-shadow:
-    0 30px 90px rgba(0,0,0,.30);
+.mission-box {
+  max-width: 1000px;
+  margin: auto;
+  padding: 65px 40px;
+  text-align: center;
+  border-radius: 25px;
+  border: 1px solid rgba(90,170,245,.16);
+  background: linear-gradient(135deg,rgba(25,90,155,.14),rgba(85,40,165,.09));
 }
 
-.mission-box small{
-
-  color:#72b9fb;
-
-  font-size:10px;
-
-  font-weight:900;
-
-  letter-spacing:4px;
+.mission-box small {
+  color: #72b9fb;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 4px;
 }
 
-.mission-box h2{
-
-  margin-top:14px;
-
-  font-size:
-    clamp(38px,5vw,58px);
-
-  font-weight:900;
+.mission-box h2 {
+  margin-top: 14px;
+  font-size: clamp(38px,5vw,58px);
+  font-weight: 900;
 }
 
-.mission-box p{
-
-  max-width:700px;
-
-  margin:
-    18px auto 0;
-
-  color:#9eb3c9;
-
-  font-size:14px;
-
-  line-height:1.8;
+.mission-box p {
+  max-width: 700px;
+  margin: 18px auto 0;
+  color: #9eb3c9;
+  font-size: 14px;
+  line-height: 1.8;
 }
 
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* ================= FOOTER ================= */
 
-.footer{
-
-  padding:
-    28px 20px;
-
-  text-align:center;
-
-  background:#01050c;
-
-  border-top:
-    1px solid rgba(255,255,255,.07);
-
-  color:#6f849b;
-
-  font-size:11px;
+.footer {
+  padding: 32px 20px;
+  text-align: center;
+  background: #01050c;
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: #8294a9;
+  font-size: 12px;
+  line-height: 1.8;
 }
 
-.footer strong{
-  color:#fff;
+.footer strong {
+  color: #fff;
+}
+
+.footer a {
+  color: #9db2c9;
+}
+
+.footer a:hover {
+  color: #69b4ff;
 }
 
 
-/* =========================================================
-   TABLET
-========================================================= */
+/* ================= TABLET ================= */
 
-@media(min-width:768px) and (max-width:1100px){
+@media(min-width:768px) and (max-width:1100px) {
 
-  .header-inner{
-    padding:0 25px;
+  .hero-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
   }
 
-  .hero{
-    min-height:auto;
-  }
-
-  .hero-inner{
-
-    grid-template-columns:
-      1fr 1fr;
-
-    gap:30px;
-
-    padding:
-      70px 25px;
-  }
-
-  .hero h1{
-
-    font-size:
-      clamp(48px,7vw,65px);
-  }
-
-  .hero-visual{
-    min-height:360px;
-  }
-
-  .hero-circle{
-
-    width:300px;
-    height:300px;
-  }
-
-  .team-grid{
-
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .member-card:nth-child(3){
-    transition-delay:.10s;
-  }
-
-  .member-card:nth-child(4){
-    transition-delay:.20s;
+  .team-grid {
+    grid-template-columns: repeat(2,1fr);
   }
 
 }
 
 
-/* =========================================================
-   MOBILE
-========================================================= */
+/* ================= MOBILE ================= */
 
-@media(max-width:767px){
+@media(max-width:767px) {
 
-  .header-inner{
-
-    min-height:68px;
-
-    padding:
-      0 15px;
+  .header-inner {
+    min-height: 68px;
+    padding: 0 15px;
   }
 
-  .brand{
-    gap:9px;
+  .brand {
+    gap: 9px;
   }
 
-  .brand img{
-
-    width:43px;
-    height:43px;
+  .brand img {
+    width: 43px;
+    height: 43px;
   }
 
-  .brand-name{
-    font-size:16px;
+  .brand-name {
+    font-size: 16px;
   }
 
-  .home-button{
-
-    padding:
-      9px 13px;
-
-    font-size:10px;
+  .home-button {
+    padding: 9px 13px;
+    font-size: 10px;
   }
 
-
-  /* HERO */
-
-  .hero{
-
-    min-height:auto;
+  .hero {
+    min-height: auto;
   }
 
-  .hero-inner{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:25px;
-
-    padding:
-      70px 20px 80px;
-
-    text-align:center;
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 70px 20px 80px;
+    text-align: center;
   }
 
-  .eyebrow{
-
-    justify-content:center;
-
-    font-size:8px;
-
-    letter-spacing:3px;
+  .eyebrow {
+    justify-content: center;
+    font-size: 8px;
+    letter-spacing: 3px;
   }
 
   .eyebrow::before,
-  .eyebrow::after{
-
-    width:18px;
+  .eyebrow::after {
+    width: 18px;
   }
 
-  .hero h1{
-
-    margin-top:18px;
-
-    font-size:
-      clamp(42px,12vw,55px);
-
-    letter-spacing:-2.5px;
+  .hero h1 {
+    margin-top: 18px;
+    font-size: clamp(42px,12vw,55px);
+    letter-spacing: -2.5px;
   }
 
-  .hero-description{
-
-    margin-top:20px;
-
-    font-size:13px;
-
-    line-height:1.8;
+  .hero-description {
+    margin-top: 20px;
+    font-size: 13px;
+    line-height: 1.8;
   }
 
-  .hero-button{
-
-    margin-top:25px;
-
-    padding:
-      13px 19px;
-
-    font-size:10px;
+  .hero-button {
+    margin-top: 25px;
   }
 
-
-  /* HERO VISUAL */
-
-  .hero-visual{
-
-    min-height:270px;
+  .hero-visual {
+    min-height: 270px;
   }
 
-  .hero-circle{
-
-    width:245px;
-    height:245px;
+  .hero-circle {
+    width: 245px;
+    height: 245px;
   }
 
-  .hero-circle::before{
-
-    width:185px;
-    height:185px;
+  .hero-circle::before {
+    width: 185px;
+    height: 185px;
   }
 
-  .hero-circle::after{
-
-    width:135px;
-    height:135px;
+  .hero-circle::after {
+    width: 135px;
+    height: 135px;
   }
 
-  .hero-symbol{
-
-    width:105px;
-    height:105px;
-
-    font-size:40px;
+  .hero-symbol {
+    width: 105px;
+    height: 105px;
+    font-size: 40px;
   }
 
-
-  /* TEAM */
-
-  .team-section{
-
-    padding:
-      80px 15px 90px;
+  .team-section {
+    padding: 75px 15px;
   }
 
-  .section-heading{
-
-    margin-bottom:45px;
+  .section-heading {
+    margin-bottom: 40px;
   }
 
-  .section-heading small{
-
-    font-size:8px;
-
-    letter-spacing:3px;
+  .section-heading small {
+    font-size: 8px;
+    letter-spacing: 3px;
   }
 
-  .section-heading h2{
-
-    margin-top:12px;
-
-    font-size:40px;
-
-    letter-spacing:-1.5px;
+  .section-heading h2 {
+    margin-top: 12px;
+    font-size: 40px;
+    letter-spacing: -1.5px;
   }
 
-  .section-heading p{
-
-    font-size:13px;
+  .section-heading p {
+    font-size: 13px;
   }
 
-  .team-grid{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:22px;
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
   }
 
-  .member-card{
-
-    border-radius:24px;
+  .photo-area {
+    height: 310px;
   }
 
-  .photo-area{
-
-    height:350px;
+  .photo-ring {
+    width: 235px;
+    height: 235px;
   }
 
-  .photo-ring{
-
-    width:255px;
-    height:255px;
+  .member-photo {
+    width: 190px;
+    height: 190px;
   }
 
-  .member-photo{
-
-    width:205px;
-    height:205px;
+  .member-info {
+    padding: 23px 21px 28px;
   }
 
-  .member-info{
-
-    padding:
-      23px 21px 28px;
+  .member-info h3 {
+    font-size: 23px;
   }
 
-  .member-info h3{
-
-    font-size:24px;
+  .group-photo-section {
+    max-width: 100%;
+    margin-top: 50px;
   }
 
-  .member-info p{
-
-    font-size:12px;
+  .group-photo-caption {
+    font-size: 10px;
   }
 
-
-  /* VALUES */
-
-  .values-section{
-
-    padding:
-      80px 15px;
+  .values-section {
+    padding: 75px 15px;
   }
 
-  .values-grid{
-
-    grid-template-columns:1fr;
-
-    margin-top:35px;
+  .values-grid {
+    grid-template-columns: 1fr;
+    margin-top: 35px;
   }
 
-
-  /* MISSION */
-
-  .mission-section{
-
-    padding:
-      80px 15px;
+  .mission-section {
+    padding: 75px 15px;
   }
 
-  .mission-box{
-
-    padding:
-      50px 20px;
-
-    border-radius:25px;
+  .mission-box {
+    padding: 48px 20px;
+    border-radius: 20px;
   }
 
-  .mission-box h2{
-
-    font-size:35px;
+  .mission-box h2 {
+    font-size: 35px;
   }
 
 }
 
 
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
+/* ================= SMALL MOBILE ================= */
 
-@media(max-width:380px){
+@media(max-width:380px) {
 
-  .brand-name{
-    font-size:14px;
+  .brand-name {
+    font-size: 14px;
   }
 
-  .hero h1{
-    font-size:40px;
+  .hero h1 {
+    font-size: 40px;
   }
 
-  .photo-area{
-    height:325px;
+  .photo-area {
+    height: 290px;
   }
 
-  .member-photo{
-
-    width:190px;
-    height:190px;
-  }
-
-  .photo-ring{
-
-    width:240px;
-    height:240px;
+  .member-photo {
+    width: 175px;
+    height: 175px;
   }
 
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media(prefers-reduced-motion:reduce){
+@media(prefers-reduced-motion:reduce) {
 
   *,
   *::before,
-  *::after{
-
-    animation:none !important;
-
-    transition:none !important;
-
-    scroll-behavior:auto !important;
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
   }
 
 }
@@ -1360,9 +792,7 @@ a{
 <body>
 
 
-<!-- =======================================================
-     HEADER
-======================================================= -->
+<!-- ================= HEADER ================= -->
 
 <header class="site-header">
 
@@ -1370,9 +800,7 @@ a{
 
     <a href="index.html" class="brand">
 
-      <img
-        src="Logo.jpg"
-        alt="SK KGN TEAM">
+      <img src="Logo.jpg" alt="SK KGN TEAM">
 
       <div class="brand-name">
         SK <span>KGN TEAM</span>
@@ -1380,12 +808,8 @@ a{
 
     </a>
 
-    <a
-      href="index.html"
-      class="home-button">
-
+    <a href="index.html" class="home-button">
       ← Home
-
     </a>
 
   </div>
@@ -1393,15 +817,11 @@ a{
 </header>
 
 
-
-<!-- =======================================================
-     HERO
-======================================================= -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
   <div class="hero-inner">
-
 
     <div class="hero-content">
 
@@ -1409,78 +829,48 @@ a{
         ABOUT SK KGN TEAM
       </div>
 
-
       <h1>
-
         The People
-
-        <span>
-          Behind The Mission.
-        </span>
-
+        <span>Behind The Mission.</span>
       </h1>
 
-
       <p class="hero-description">
-
         SK KGN TEAM is driven by a dedicated group of people
         working together to build a more organized,
         accessible and transparent complaint assistance
         experience.
-
       </p>
 
-
-      <a
-        href="#our-team"
-        class="hero-button">
-
+      <a href="#our-team" class="hero-button">
         MEET OUR TEAM ↓
-
       </a>
 
     </div>
 
-
     <div class="hero-visual">
 
       <div class="hero-circle">
-
-        <div class="hero-symbol">
-          ⚖️
-        </div>
-
+        <div class="hero-symbol">⚖️</div>
       </div>
 
     </div>
-
 
   </div>
 
 </section>
 
 
+<!-- ================= TEAM ================= -->
 
-<!-- =======================================================
-     TEAM
-======================================================= -->
-
-<section
-  class="team-section"
-  id="our-team">
+<section class="team-section" id="our-team">
 
   <div class="team-container">
 
-
     <div class="section-heading">
 
-      <small>
-        THE PEOPLE BEHIND SK KGN TEAM
-      </small>
+      <small>THE PEOPLE BEHIND SK KGN TEAM</small>
 
-      <h2>
-        Meet Our Team
-      </h2>
+      <h2>Meet Our Team</h2>
 
       <p>
         Five people. One vision. Working together to create
@@ -1490,31 +880,26 @@ a{
     </div>
 
 
-
     <div class="team-grid">
 
 
-      <!-- =================================================
-           01 SHOUKAT
-      ================================================== -->
+      <!-- 01 SHOUKAT -->
 
       <article class="member-card">
 
         <div class="photo-area">
 
-          <span class="photo-number">
-            01
-          </span>
+          <span class="photo-number">01</span>
 
           <div class="photo-ring"></div>
 
           <img
             src="shaukat.jpg"
             alt="Shaukat Ali Khan"
-            class="member-photo">
+            class="member-photo"
+            loading="lazy">
 
         </div>
-
 
         <div class="member-info">
 
@@ -1522,9 +907,7 @@ a{
             FOUNDER & CEO
           </span>
 
-          <h3>
-            Shaukat Ali Khan
-          </h3>
+          <h3>Shaukat Ali Khan</h3>
 
           <p>
             Founder and CEO of SK KGN TEAM. Leads the vision,
@@ -1540,28 +923,23 @@ a{
       </article>
 
 
-
-      <!-- =================================================
-           02 SHUBHAM
-      ================================================== -->
+      <!-- 02 SHUBHAM -->
 
       <article class="member-card">
 
         <div class="photo-area">
 
-          <span class="photo-number">
-            02
-          </span>
+          <span class="photo-number">02</span>
 
           <div class="photo-ring"></div>
 
           <img
             src="shubham.jpg"
             alt="Shubham Singh Yadav"
-            class="member-photo">
+            class="member-photo"
+            loading="lazy">
 
         </div>
-
 
         <div class="member-info">
 
@@ -1569,9 +947,7 @@ a{
             OPERATIONS & SUPPORT
           </span>
 
-          <h3>
-            Shubham Singh Yadav
-          </h3>
+          <h3>Shubham Singh Yadav</h3>
 
           <p>
             Supports team operations, complaint coordination
@@ -1586,28 +962,23 @@ a{
       </article>
 
 
-
-      <!-- =================================================
-           03 AAKASH
-      ================================================== -->
+      <!-- 03 AAKASH -->
 
       <article class="member-card">
 
         <div class="photo-area">
 
-          <span class="photo-number">
-            03
-          </span>
+          <span class="photo-number">03</span>
 
           <div class="photo-ring"></div>
 
           <img
             src="aakash.jpg"
             alt="Aakash Kumar Prajapati"
-            class="member-photo">
+            class="member-photo"
+            loading="lazy">
 
         </div>
-
 
         <div class="member-info">
 
@@ -1615,9 +986,7 @@ a{
             DIGITAL & TECH SUPPORT
           </span>
 
-          <h3>
-            Aakash Kumar Prajapati
-          </h3>
+          <h3>Aakash Kumar Prajapati</h3>
 
           <p>
             Supports the website, digital systems and
@@ -1632,28 +1001,23 @@ a{
       </article>
 
 
-
-      <!-- =================================================
-           04 SAURABH
-      ================================================== -->
+      <!-- 04 SAURABH -->
 
       <article class="member-card">
 
         <div class="photo-area">
 
-          <span class="photo-number">
-            04
-          </span>
+          <span class="photo-number">04</span>
 
           <div class="photo-ring"></div>
 
           <img
             src="saurabh.jpg?v=2"
             alt="Saurabh Singh Yadav"
-            class="member-photo">
+            class="member-photo"
+            loading="lazy">
 
         </div>
-
 
         <div class="member-info">
 
@@ -1661,9 +1025,7 @@ a{
             MARKETING EXECUTIVE
           </span>
 
-          <h3>
-            Saurabh Singh Yadav
-          </h3>
+          <h3>Saurabh Singh Yadav</h3>
 
           <p>
             Supports marketing, outreach and communication
@@ -1678,107 +1040,81 @@ a{
       </article>
 
 
-    </div>
-<!-- =================================================
-     05 ABHISHEK
-================================================== -->
+      <!-- 05 ABHISHEK -->
 
-<article class="member-card">
+      <article class="member-card">
 
-  <div class="photo-area">
+        <div class="photo-area">
 
-    <span class="photo-number">05</span>
+          <span class="photo-number">05</span>
 
-    <div class="photo-ring"></div>
+          <div class="photo-ring"></div>
 
-    <img
-      src="abhishek.jpg"
-      alt="Abhishek - Grievance Executive"
-      class="member-photo"
-      loading="lazy">
+          <img
+            src="abhishek.jpg"
+            alt="Abhishek Chandrashekhar Azad Gond"
+            class="member-photo"
+            loading="lazy">
 
-  </div>
+        </div>
 
-  <div class="member-info">
+        <div class="member-info">
 
-    <span class="member-role">
-      GRIEVANCE EXECUTIVE
-    </span>
+          <span class="member-role">
+            GRIEVANCE EXECUTIVE
+          </span>
 
-    <h3>Abhishek Chandrashekhar Azad Gond</h3>
+          <h3>Abhishek Chandrashekhar Azad Gond</h3>
 
-    <p>
-      As a Grievance Executive, Abhishek supports complaint
-      documentation, application preparation and grievance
-      coordination to maintain accurate records and provide
-      organized user support.
-    </p>
+          <p>
+            As a Grievance Executive, Abhishek supports
+            complaint documentation, application preparation
+            and grievance coordination to maintain accurate
+            records and provide organized user support.
+          </p>
 
-    <div class="member-line"></div>
+          <div class="member-line"></div>
 
-  </div>
+        </div>
 
-</article>
+      </article>
 
-  </div>
-<!-- TEAM GROUP PHOTO -->
 
-<section class="team-section">
-
-  <div class="team-container">
-
-    <div class="section-heading">
-      <small>OUR TEAM</small>
-      <h2>SK KGN TEAM</h2>
-      <p>One Team. One Vision.</p>
     </div>
 
-    <div style="max-width:750px; margin:25px auto; text-align:center;">
+
+    <!-- GROUP PHOTO -->
+
+    <div class="group-photo-section">
 
       <img
         src="skkgnteam.png"
         alt="SK KGN TEAM Group Photo"
-        loading="lazy"
-        style="
-          display:block;
-          width:100%;
-          height:auto;
-          border-radius:8px;
-        "
-      >
+        loading="lazy">
 
-      <p style="
-        margin:14px 0 0;
-        color:#285b91;
-        font-size:15px;
-        font-weight:700;
-        letter-spacing:1px;
-      ">
-        Still Alive. Still United.
+      <p class="group-photo-caption">
+        STILL ALIVE. STILL UNITED.
       </p>
 
     </div>
 
+
   </div>
 
-</section> =======================================================
-     VALUES
-======================================================= -->
+</section>
+
+
+<!-- ================= VALUES ================= -->
 
 <section class="values-section">
 
   <div class="team-container">
 
-
     <div class="section-heading">
 
-      <small>
-        WHAT WE STAND FOR
-      </small>
+      <small>WHAT WE STAND FOR</small>
 
-      <h2>
-        Our Core Values
-      </h2>
+      <h2>Our Core Values</h2>
 
     </div>
 
@@ -1788,13 +1124,9 @@ a{
 
       <div class="value-box">
 
-        <div class="value-icon">
-          ⚖️
-        </div>
+        <div class="value-icon">⚖️</div>
 
-        <h3>
-          Responsibility
-        </h3>
+        <h3>Responsibility</h3>
 
         <p>
           We approach every complaint with seriousness,
@@ -1806,13 +1138,9 @@ a{
 
       <div class="value-box">
 
-        <div class="value-icon">
-          🔎
-        </div>
+        <div class="value-icon">🔎</div>
 
-        <h3>
-          Transparency
-        </h3>
+        <h3>Transparency</h3>
 
         <p>
           Clear information and organized communication
@@ -1824,13 +1152,9 @@ a{
 
       <div class="value-box">
 
-        <div class="value-icon">
-          🤝
-        </div>
+        <div class="value-icon">🤝</div>
 
-        <h3>
-          People First
-        </h3>
+        <h3>People First</h3>
 
         <p>
           We aim to make the assistance experience simpler,
@@ -1847,22 +1171,15 @@ a{
 </section>
 
 
-
-<!-- =======================================================
-     MISSION
-======================================================= -->
+<!-- ================= MISSION ================= -->
 
 <section class="mission-section">
 
   <div class="mission-box">
 
-    <small>
-      OUR MISSION
-    </small>
+    <small>OUR MISSION</small>
 
-    <h2>
-      Your Voice Matters.
-    </h2>
+    <h2>Your Voice Matters.</h2>
 
     <p>
       SK KGN TEAM aims to provide an organized digital
@@ -1875,20 +1192,19 @@ a{
 </section>
 
 
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
+<!-- ================= FOOTER ================= -->
 
 <footer class="footer">
 
-  <strong>
-    SK KGN TEAM
-  </strong>
+  <strong>SK KGN TEAM</strong>
 
   &nbsp; • &nbsp;
 
-  About Us
+  <a href="about.html">About Us</a>
+
+  &nbsp; • &nbsp;
+
+  <a href="index.html">Home</a>
 
   &nbsp; • &nbsp;
 
@@ -1897,57 +1213,50 @@ a{
 </footer>
 
 
+<!-- ================= SCRIPT ================= -->
 
 <script>
 
-/* =========================================================
-   PREMIUM SCROLL REVEAL
-========================================================= */
+(function() {
 
-(function(){
+  const cards = document.querySelectorAll(".member-card");
 
-  const cards =
-    document.querySelectorAll(".member-card");
+  if (!("IntersectionObserver" in window)) {
+    cards.forEach(card => card.classList.add("visible"));
+    return;
+  }
 
-  if(!cards.length) return;
+  const observer = new IntersectionObserver(
 
+    function(entries) {
 
-  const observer =
-    new IntersectionObserver(
+      entries.forEach(function(entry) {
 
-      function(entries){
+        if (entry.isIntersecting) {
 
-        entries.forEach(function(entry){
+          entry.target.classList.add("visible");
 
-          if(entry.isIntersecting){
+          observer.unobserve(entry.target);
 
-            entry.target.classList.add("visible");
+        }
 
-            observer.unobserve(entry.target);
+      });
 
-          }
+    },
 
-        });
+    {
+      threshold: 0.12
+    }
 
-      },
+  );
 
-      {
-        threshold:.18
-      }
-
-    );
-
-
-  cards.forEach(function(card){
-
+  cards.forEach(function(card) {
     observer.observe(card);
-
   });
 
 })();
 
 </script>
-
 
 </body>
 </html>
