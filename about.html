@@ -1722,48 +1722,111 @@ a{
 
   </div>
 
-</section>
-<!-- TEAM GROUP PHOTO -->
+<!-- ================= TEAM PHOTO SECTION ================= -->
 
-<section class="team-section">
+<section class="team-photo-section">
 
-  <div class="team-container">
+  <div class="team-photo-inner">
 
-    <div class="section-heading">
-      <small>OUR TEAM</small>
+    <div class="team-photo-heading">
+      <span>OUR TEAM</span>
       <h2>SK KGN TEAM</h2>
       <p>One Team. One Vision.</p>
     </div>
 
-    <div style="max-width:750px; margin:25px auto; text-align:center;">
-
+    <div class="team-photo-image">
       <img
         src="skkgnteam.png"
-        alt="SK KGN TEAM Group Photo"
+        alt="SK KGN TEAM Members"
         loading="lazy"
-        style="
-          display:block;
-          width:100%;
-          height:auto;
-          border-radius:8px;
-        "
       >
+    </div>
 
-      <p style="
-        margin:14px 0 0;
-        color:#285b91;
-        font-size:15px;
-        font-weight:700;
-        letter-spacing:1px;
-      ">
-        Still Alive. Still United.
-      </p>
-
+    <div class="team-photo-tagline">
+      STILL ALIVE. STILL UNITED.
     </div>
 
   </div>
 
 </section>
+
+<style>
+
+.team-photo-section {
+  padding: 45px 20px;
+  background: #172b43;
+  position: relative;
+  overflow: hidden;
+}
+
+.team-photo-inner {
+  max-width: 950px;
+  margin: auto;
+}
+
+.team-photo-heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.team-photo-heading span {
+  color: #8db9e4;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.team-photo-heading h2 {
+  margin: 9px 0;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.team-photo-heading p {
+  color: #bdcbd9;
+  font-size: 13px;
+  margin: 0;
+}
+
+.team-photo-image {
+  max-width: 750px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 12px 30px rgba(0,0,0,.20);
+}
+
+.team-photo-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.team-photo-tagline {
+  margin-top: 23px;
+  text-align: center;
+  color: #d5e5f5;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+@media(max-width:600px) {
+  .team-photo-section {
+    padding: 35px 15px;
+  }
+
+  .team-photo-heading h2 {
+    font-size: 25px;
+  }
+
+  .team-photo-tagline {
+    font-size: 11px;
+  }
+}
+
+</style>
 
 
 <!-- =======================================================
