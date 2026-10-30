@@ -2089,58 +2089,262 @@ class="whatsapp">
 </section>
 
 
-<!-- =======================================================
-     SERVICES
-======================================================= -->
+<!-- ================= SERVICES SECTION ================= -->
 
-<section
-class="section"
-id="services">
+<section class="section" id="services">
 
-<div class="container">
+  <div class="container">
 
+    <div class="plan-card">
 
-<div
-class="section-head"
-data-reveal>
+      <div class="plan-main">
 
-<div>
+        <span class="plan-tag">SK KGN TEAM</span>
 
-<h2>
-Our Services
-</h2>
+        <h2>Need Assistance?</h2>
 
-<p>
+        <p>
+          Private assistance with complaints, applications,
+          follow-ups and selected citizen services.
+        </p>
 
-Private assistance for complaint drafting, submission
-procedures, tracking and selected citizen-service matters.
-] Plans
-</p>
+        <div class="plan-prices">
+          <span>₹99</span>
+          <span>₹199</span>
+          <span>₹299</span>
+        </div>
 
-<span class="store-plans">
+        <a href="store.html" class="plan-button">
+          Explore Plans <span>→</span>
+        </a>
 
-₹99 • ₹199 • ₹299 
+      </div>
 
-</span>
+      <!-- CONTACT PANEL -->
 
-</div>
+      <div class="plan-side">
 
-</div>
+        <span class="contact-label">NEED HELP CHOOSING?</span>
 
-</div>
+        <h3>Not sure which plan is right for you?</h3>
 
+        <p>
+          No problem! Contact us for assistance.
+        </p>
 
-<div class="store-arrow">
+        <div class="contact-number">
+          +91 70070 27158
+        </div>
 
-EXPLORE<br>
-SERVICES →
+        <div class="contact-actions">
 
-</div>
+          <a
+            href="https://wa.me/917007027158"
+            target="_blank"
+            rel="noopener"
+            class="contact-btn whatsapp-btn">
+            WhatsApp
+          </a>
 
+          <a
+            href="tel:+917007027158"
+            class="contact-btn call-btn">
+            Call Now
+          </a>
 
-</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
+
+
+<style>
+
+#services .plan-card {
+  display: grid;
+  grid-template-columns: 1.5fr 0.85fr;
+  overflow: hidden;
+  background: linear-gradient(120deg, #fff, #f7faff);
+  border: 1px solid #dce6f1;
+  border-radius: 12px;
+  box-shadow: 0 5px 18px rgba(30,65,100,.06);
+}
+
+#services .plan-main {
+  padding: 27px 30px;
+}
+
+#services .plan-tag {
+  color: #32699e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+#services .plan-main h2 {
+  margin: 10px 0 7px;
+  color: #1b3552;
+  font-size: 27px;
+}
+
+#services .plan-main p {
+  max-width: 480px;
+  margin: 0;
+  color: #647386;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+#services .plan-prices {
+  display: flex;
+  gap: 9px;
+  margin: 19px 0;
+}
+
+#services .plan-prices span {
+  min-width: 59px;
+  padding: 7px 12px;
+  text-align: center;
+  color: #315d87;
+  background: #edf4fb;
+  border: 1px solid #dce8f4;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+#services .plan-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 17px;
+  color: white;
+  background: #285d91;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+#services .plan-button:hover {
+  background: #19466f;
+}
+
+#services .plan-button span {
+  font-size: 19px;
+}
+
+/* CONTACT PANEL */
+
+#services .plan-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 23px;
+  background:
+    radial-gradient(circle at 90% 10%, rgba(86,139,190,.14), transparent 42%),
+    linear-gradient(145deg,#edf4fb,#e5eef8);
+  border-left: 1px solid #dce6f1;
+}
+
+#services .contact-label {
+  color: #376b99;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+#services .plan-side h3 {
+  margin: 9px 0 5px;
+  color: #203d5c;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+#services .plan-side p {
+  margin: 0 0 10px;
+  color: #69798b;
+  font-size: 12px;
+}
+
+#services .contact-number {
+  margin-bottom: 13px;
+  color: #244e78;
+  font-size: 15px;
+  font-weight: 750;
+  letter-spacing: .3px;
+}
+
+#services .contact-actions {
+  display: flex;
+  gap: 8px;
+}
+
+#services .contact-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9px 13px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+#services .whatsapp-btn {
+  color: #fff;
+  background: #278b59;
+}
+
+#services .whatsapp-btn:hover {
+  background: #1d7047;
+}
+
+#services .call-btn {
+  color: #285d91;
+  background: #fff;
+  border: 1px solid #cbdbea;
+}
+
+#services .call-btn:hover {
+  background: #eaf2fa;
+}
+
+/* MOBILE */
+
+@media(max-width:650px) {
+
+  #services .plan-card {
+    grid-template-columns: 1fr;
+  }
+
+  #services .plan-main {
+    padding: 23px 19px;
+  }
+
+  #services .plan-main h2 {
+    font-size: 24px;
+  }
+
+  #services .plan-side {
+    padding: 19px;
+    border-left: none;
+    border-top: 1px solid #dce6f1;
+  }
+
+  #services .plan-side h3 {
+    font-size: 16px;
+  }
+
+}
+
+</style>
 
 
 <!-- =======================================================
