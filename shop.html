@@ -3,238 +3,661 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+
 <title>SK KGN TEAM | Official Store</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1769d2;
+  --blue-dark:#1255ad;
+  --dark:#20252d;
+  --text:#444b55;
+  --muted:#737b86;
+  --border:#e5e7eb;
+  --light:#f7f8fa;
+  --white:#fff;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   font-family:Arial,Helvetica,sans-serif;
   background:#fff;
-  color:#222;
+  color:var(--dark);
+  line-height:1.5;
 }
+
+button,input{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* HEADER */
+
 header{
-  height:70px;
-  border-bottom:1px solid #e5e5e5;
+  height:72px;
+  padding:0 6%;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:0 6%;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+  position:sticky;
+  top:0;
+  z-index:50;
 }
-.logo{font-size:21px;font-weight:800}
-.logo span{color:#1769d2}
-nav{display:flex;gap:27px}
-nav a{
+
+.logo{
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:-.5px;
+  color:#20252d;
   text-decoration:none;
-  color:#333;
-  font-size:14px;
 }
-.cart{
-  border:1px solid #ddd;
-  background:white;
-  padding:10px 17px;
-  border-radius:4px;
-  cursor:pointer;
+
+.logo span{
+  color:var(--blue);
 }
-.hero{
-  background:#f4f6f8;
-  padding:65px 8%;
-  min-height:270px;
+
+nav{
   display:flex;
   align-items:center;
+  gap:30px;
 }
-.hero-content{max-width:560px}
-.hero h1{
-  font-size:38px;
-  font-weight:700;
-  margin-bottom:14px;
-}
-.hero p{
-  color:#666;
-  line-height:1.7;
-  font-size:15px;
-}
-.hero a{
-  display:inline-block;
-  margin-top:22px;
-  background:#1769d2;
-  color:white;
+
+nav a{
   text-decoration:none;
-  padding:12px 22px;
-  border-radius:4px;
+  color:#454b54;
   font-size:14px;
+  font-weight:500;
 }
+
+nav a:hover{
+  color:var(--blue);
+}
+
+.cart-button{
+  background:#fff;
+  border:1px solid #d8dce2;
+  padding:10px 17px;
+  border-radius:5px;
+  font-size:14px;
+  color:#333;
+}
+
+.cart-button:hover{
+  border-color:var(--blue);
+  color:var(--blue);
+}
+
+/* HERO */
+
+.hero{
+  background:#f4f6f8;
+  padding:70px 8%;
+}
+
+.hero-inner{
+  max-width:1250px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:40px;
+}
+
+.hero-content{
+  max-width:570px;
+}
+
+.hero-label{
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1.3px;
+  color:var(--blue);
+  margin-bottom:17px;
+}
+
+.hero h1{
+  font-size:43px;
+  line-height:1.2;
+  letter-spacing:-1.2px;
+  margin-bottom:17px;
+  font-weight:700;
+  color:#20252d;
+}
+
+.hero p{
+  font-size:16px;
+  color:#626a75;
+  line-height:1.8;
+  max-width:490px;
+}
+
+.hero-button{
+  display:inline-block;
+  margin-top:25px;
+  padding:13px 23px;
+  background:var(--blue);
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:600;
+  border-radius:5px;
+  transition:.2s;
+}
+
+.hero-button:hover{
+  background:var(--blue-dark);
+}
+
+.hero-side{
+  width:280px;
+  min-height:210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#e9edf2;
+  border:1px solid #e0e4e9;
+  border-radius:5px;
+  text-align:center;
+  padding:25px;
+}
+
+.hero-side h2{
+  font-size:28px;
+  line-height:1.35;
+  color:#303b4b;
+}
+
+.hero-side span{
+  color:var(--blue);
+}
+
+/* MAIN */
+
 .container{
   max-width:1250px;
   margin:auto;
-  padding:45px 25px;
+  padding:60px 25px 75px;
 }
-.heading{
+
+.section-heading{
+  margin-bottom:25px;
+}
+
+.section-heading h2{
+  font-size:29px;
+  font-weight:700;
+  letter-spacing:-.6px;
+}
+
+.section-heading p{
+  color:var(--muted);
+  font-size:14px;
+  margin-top:6px;
+}
+
+/* SEARCH */
+
+.search-area{
+  margin-bottom:23px;
+}
+
+.search{
+  width:100%;
+  height:51px;
+  padding:0 16px;
+  border:1px solid #d9dde3;
+  border-radius:5px;
+  font-size:15px;
+  outline:none;
+  color:#333;
+  background:#fff;
+}
+
+.search:focus{
+  border-color:var(--blue);
+}
+
+/* FILTERS */
+
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-bottom:30px;
+}
+
+.filters button{
+  padding:10px 19px;
+  border:1px solid #dfe2e7;
+  background:#fff;
+  color:#454b54;
+  border-radius:5px;
+  font-size:14px;
+  transition:.2s;
+}
+
+.filters button:hover{
+  border-color:var(--blue);
+  color:var(--blue);
+}
+
+.filters button.active{
+  background:var(--blue);
+  color:#fff;
+  border-color:var(--blue);
+}
+
+/* PRODUCT HEADER */
+
+.results-info{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  flex-wrap:wrap;
-  gap:15px;
-  margin-bottom:25px;
+  margin-bottom:19px;
+  color:var(--muted);
+  font-size:13px;
 }
-.heading h2{font-size:25px}
-.search{
-  padding:11px 13px;
-  border:1px solid #ddd;
-  border-radius:4px;
-  width:240px;
-  outline:none;
-}
-.filters{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:28px;
-}
-.filters button{
-  padding:9px 16px;
-  background:white;
-  border:1px solid #ddd;
-  border-radius:3px;
-  cursor:pointer;
-  color:#444;
-}
-.filters button.active{
-  background:#1769d2;
-  color:white;
-  border-color:#1769d2;
-}
+
+/* PRODUCTS */
+
 .products{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(4,minmax(0,1fr));
   gap:22px;
 }
+
 .product{
-  border:1px solid #e7e7e7;
-  background:white;
+  border:1px solid #e5e7eb;
+  border-radius:5px;
+  overflow:hidden;
+  background:#fff;
+  transition:border-color .2s;
 }
-.product img{
+
+.product:hover{
+  border-color:#c5d2e3;
+}
+
+.product-image{
+  height:225px;
+  background:#f5f6f7;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.product-image img{
   width:100%;
-  height:220px;
+  height:100%;
   object-fit:contain;
-  background:#f7f7f7;
   padding:12px;
+  transition:transform .3s;
 }
-.details{padding:15px}
+
+.product:hover .product-image img{
+  transform:scale(1.035);
+}
+
+.image-fallback{
+  color:#a0a6af;
+  font-size:13px;
+}
+
+.details{
+  padding:16px;
+}
+
+.product-category{
+  display:inline-block;
+  font-size:11px;
+  color:var(--blue);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.7px;
+  margin-bottom:8px;
+}
+
 .details h3{
   font-size:16px;
-  margin-bottom:9px;
+  font-weight:600;
+  margin-bottom:7px;
+  color:#272c34;
 }
+
 .details p{
+  color:#777f89;
   font-size:13px;
-  color:#777;
-  line-height:1.5;
-  min-height:35px;
+  line-height:1.6;
+  min-height:40px;
 }
+
 .price{
   font-size:19px;
-  font-weight:bold;
-  margin:13px 0;
+  font-weight:700;
+  color:#242a32;
+  margin:14px 0;
 }
+
 .add{
   width:100%;
   padding:11px;
-  background:#1769d2;
+  border:1px solid var(--blue);
+  border-radius:4px;
+  background:var(--blue);
   color:white;
-  border:0;
-  border-radius:3px;
-  cursor:pointer;
+  font-size:13px;
+  font-weight:600;
 }
-.add:disabled{background:#999}
+
+.add:hover{
+  background:var(--blue-dark);
+}
+
+.add:disabled{
+  background:#999;
+  border-color:#999;
+  cursor:not-allowed;
+}
+
+/* EMPTY / LOADING */
+
 .empty{
   grid-column:1/-1;
+  padding:65px 20px;
   text-align:center;
-  padding:65px 15px;
-  color:#555;
-  border:1px solid #eee;
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:5px;
 }
-.empty h3{font-size:22px;margin-bottom:10px}
-.empty p{font-size:14px;color:#777}
+
+.empty h3{
+  font-size:21px;
+  color:#454b54;
+  margin-bottom:8px;
+}
+
+.empty p{
+  font-size:14px;
+  color:#858b94;
+}
+
+.loading{
+  color:var(--blue);
+}
+
+/* FOOTER */
+
 footer{
-  border-top:1px solid #eee;
-  padding:25px;
+  border-top:1px solid var(--border);
+  padding:30px 20px;
+  background:#fff;
   text-align:center;
-  color:#777;
-  font-size:13px;
+  color:#777f89;
+  font-size:14px;
 }
+
+footer strong{
+  color:#303640;
+}
+
+/* CART OVERLAY */
+
 .overlay{
   display:none;
   position:fixed;
   inset:0;
-  background:#0007;
-  z-index:10;
+  background:rgba(0,0,0,.42);
+  z-index:100;
 }
-.overlay.show{display:block}
+
+.overlay.show{
+  display:block;
+}
+
 .cart-panel{
-  background:white;
-  width:min(400px,100%);
+  background:#fff;
+  width:min(410px,100%);
   height:100%;
   margin-left:auto;
   padding:25px;
-  overflow:auto;
+  overflow-y:auto;
+  animation:slideIn .2s ease;
 }
+
+@keyframes slideIn{
+  from{transform:translateX(30px)}
+  to{transform:translateX(0)}
+}
+
 .cart-title{
   display:flex;
   justify-content:space-between;
-  margin-bottom:25px;
+  align-items:center;
+  padding-bottom:19px;
+  border-bottom:1px solid var(--border);
 }
+
+.cart-title h2{
+  font-size:21px;
+}
+
 .cart-title button{
-  border:0;background:white;font-size:25px;cursor:pointer;
+  background:none;
+  border:none;
+  font-size:27px;
+  color:#444;
 }
+
 .cart-item{
-  padding:15px 0;
+  padding:17px 0;
   border-bottom:1px solid #eee;
   display:flex;
   justify-content:space-between;
-  gap:10px;
+  gap:12px;
 }
-.cart-item small{color:#777}
-.qty{margin-top:9px;display:flex;gap:12px;align-items:center}
+
+.cart-item strong{
+  font-size:14px;
+}
+
+.cart-item small{
+  display:block;
+  margin-top:4px;
+  color:#777;
+}
+
+.qty{
+  margin-top:10px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
 .qty button{
-  width:25px;height:25px;
-  border:1px solid #ddd;background:white;cursor:pointer;
+  width:27px;
+  height:27px;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:3px;
+  font-size:16px;
 }
+
+.qty button:hover{
+  border-color:var(--blue);
+  color:var(--blue);
+}
+
+.remove{
+  border:0;
+  background:none;
+  color:#d04444;
+  font-size:12px;
+  margin-top:8px;
+}
+
 .total{
   display:flex;
   justify-content:space-between;
-  font-weight:bold;
   font-size:19px;
+  font-weight:700;
   margin:25px 0;
 }
+
 .checkout{
   width:100%;
-  padding:13px;
-  background:#1769d2;
-  color:white;
+  padding:14px;
   border:0;
-  cursor:pointer;
+  border-radius:4px;
+  background:var(--blue);
+  color:white;
+  font-size:14px;
+  font-weight:600;
 }
-@media(max-width:900px){
-  .products{grid-template-columns:repeat(3,1fr)}
+
+.checkout:hover{
+  background:var(--blue-dark);
 }
-@media(max-width:650px){
-  header{padding:0 4%}
-  nav{display:none}
-  .hero{padding:45px 6%;min-height:230px}
-  .hero h1{font-size:29px}
-  .container{padding:30px 15px}
-  .products{grid-template-columns:repeat(2,1fr);gap:12px}
-  .product img{height:160px}
-  .details{padding:11px}
-  .details h3{font-size:14px}
-  .search{width:100%}
+
+/* MOBILE */
+
+@media(max-width:950px){
+  .products{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@media(max-width:700px){
+
+  header{
+    height:65px;
+    padding:0 17px;
+  }
+
+  .logo{
+    font-size:19px;
+  }
+
+  nav{
+    display:none;
+  }
+
+  .cart-button{
+    padding:9px 12px;
+    font-size:13px;
+  }
+
+  .hero{
+    padding:50px 23px;
+  }
+
+  .hero-inner{
+    display:block;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  .hero p{
+    font-size:14px;
+  }
+
+  .hero-side{
+    display:none;
+  }
+
+  .container{
+    padding:40px 16px 55px;
+  }
+
+  .section-heading h2{
+    font-size:25px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+  }
+
+  .product-image{
+    height:165px;
+  }
+
+  .details{
+    padding:12px;
+  }
+
+  .details h3{
+    font-size:14px;
+  }
+
+  .details p{
+    font-size:12px;
+  }
+
+  .price{
+    font-size:17px;
+  }
+
+  .filters{
+    gap:8px;
+  }
+
+  .filters button{
+    padding:9px 13px;
+    font-size:13px;
+  }
+
+  .search{
+    height:47px;
+  }
+
+  .results-info{
+    font-size:12px;
+  }
+}
+
+@media(max-width:360px){
+  .product-image{
+    height:140px;
+  }
+
+  .details{
+    padding:9px;
+  }
+
+  .add{
+    font-size:12px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header>
-  <div class="logo">SK <span>KGN</span> TEAM</div>
+
+  <a href="index.html" class="logo">
+    SK <span>KGN</span> TEAM
+  </a>
 
   <nav>
     <a href="index.html">Home</a>
@@ -242,92 +665,222 @@ footer{
     <a href="about.html">About Us</a>
   </nav>
 
-  <button class="cart" onclick="toggleCart()">
+  <button class="cart-button" onclick="toggleCart()">
     🛒 Cart (<span id="count">0</span>)
   </button>
+
 </header>
 
+
+<!-- HERO -->
+
 <section class="hero">
-  <div class="hero-content">
-    <h1>Official SK KGN TEAM Store</h1>
-    <p>
-      Explore our official collection of products.
-      Represent the brand with pride.
-    </p>
-    <a href="#products">Explore Products</a>
+
+  <div class="hero-inner">
+
+    <div class="hero-content">
+
+      <div class="hero-label">
+        SK KGN TEAM · OFFICIAL STORE
+      </div>
+
+      <h1>Official SK KGN TEAM Store</h1>
+
+      <p>
+        Explore our official collection of products.
+        Represent the brand with pride.
+      </p>
+
+      <a href="#products" class="hero-button">
+        Explore Products →
+      </a>
+
+    </div>
+
+    <div class="hero-side">
+      <h2>
+        SK KGN<br>
+        <span>TEAM STORE</span>
+      </h2>
+    </div>
+
   </div>
+
 </section>
+
+
+<!-- PRODUCTS -->
 
 <main class="container" id="products">
 
-  <div class="heading">
+  <div class="section-heading">
+
     <h2>Our Products</h2>
-    <input id="search" class="search"
-      placeholder="Search products..."
-      oninput="renderProducts()">
+
+    <p>
+      Browse our official product collection.
+    </p>
+
   </div>
+
+
+  <div class="search-area">
+
+    <input
+      type="search"
+      id="search"
+      class="search"
+      placeholder="Search products..."
+      oninput="renderProducts()"
+    >
+
+  </div>
+
 
   <div class="filters">
-    <button class="active" onclick="setCategory('All',this)">All</button>
-    <button onclick="setCategory('Books',this)">Books</button>
-    <button onclick="setCategory('T-Shirts',this)">T-Shirts</button>
-    <button onclick="setCategory('Caps',this)">Caps</button>
-    <button onclick="setCategory('Hoodies',this)">Hoodies</button>
-    <button onclick="setCategory('Accessories',this)">Accessories</button>
+
+    <button class="active"
+      onclick="setCategory('All',this)">
+      All
+    </button>
+
+    <button onclick="setCategory('Books',this)">
+      Books
+    </button>
+
+    <button onclick="setCategory('T-Shirts',this)">
+      T-Shirts
+    </button>
+
+    <button onclick="setCategory('Caps',this)">
+      Caps
+    </button>
+
+    <button onclick="setCategory('Hoodies',this)">
+      Hoodies
+    </button>
+
+    <button onclick="setCategory('Accessories',this)">
+      Accessories
+    </button>
+
   </div>
 
+
+  <div class="results-info">
+    <span id="resultCount">Loading products...</span>
+    <span>Official Collection</span>
+  </div>
+
+
   <div class="products" id="productGrid">
+
     <div class="empty">
-      <h3>Loading Products...</h3>
+      <h3 class="loading">Loading Products...</h3>
+      <p>Please wait while we load our collection.</p>
     </div>
+
   </div>
 
 </main>
 
+
+<!-- FOOTER -->
+
 <footer>
+
+  <strong>SK KGN TEAM</strong>
+
+  <br><br>
+
   © <span id="year"></span> SK KGN TEAM. All Rights Reserved.
+
 </footer>
 
+
+<!-- CART -->
+
 <div class="overlay" id="overlay" onclick="toggleCart()">
+
   <div class="cart-panel" onclick="event.stopPropagation()">
+
     <div class="cart-title">
+
       <h2>Your Cart</h2>
+
       <button onclick="toggleCart()">×</button>
+
     </div>
 
     <div id="cartItems"></div>
 
     <div class="total">
+
       <span>Total</span>
+
       <span id="total">₹0</span>
+
     </div>
 
     <button class="checkout" onclick="checkout()">
       Proceed to Checkout
     </button>
+
   </div>
+
 </div>
 
+
+<!-- FIREBASE -->
+
 <script type="module">
-import {initializeApp,getApps,getApp}
+
+import {
+  initializeApp,
+  getApps,
+  getApp
+}
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
-import {getFirestore,collection,getDocs}
+import {
+  getFirestore,
+  collection,
+  getDocs
+}
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+
+/* FIREBASE CONFIG */
+
 const firebaseConfig={
+
   apiKey:"AIzaSyAOdyFtVEoAeVd1T1WjaXrkPBPTz9oHKQ",
+
   authDomain:"sk-kgn-team.firebaseapp.com",
+
   databaseURL:"https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+
   projectId:"sk-kgn-team",
+
   storageBucket:"sk-kgn-team.firebasestorage.app",
+
   messagingSenderId:"228612697498",
+
   appId:"1:228612697498:web:a304b57bf5a59d2933de23",
+
   measurementId:"G-BXWT6BPTB6"
+
 };
 
-const app=getApps().length?getApp():initializeApp(firebaseConfig);
+
+const app=getApps().length
+  ?getApp()
+  :initializeApp(firebaseConfig);
+
 const db=getFirestore(app);
+
+
+/* VARIABLES */
 
 let products=[];
 let cart=[];
@@ -335,146 +888,530 @@ let category="All";
 
 const grid=document.getElementById("productGrid");
 
+
+/* SAFE TEXT */
+
 function safe(value){
+
   return String(value??"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",
-    '"':"&quot;","'":"&#39;"
+
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+
   }[c]));
+
 }
+
+
+/* IMAGE URL */
 
 function safeImage(value){
+
   try{
+
     const u=new URL(value,location.href);
-    return ["https:","http:"].includes(u.protocol)?safe(u.href):"";
-  }catch{return ""}
+
+    return ["https:","http:"].includes(u.protocol)
+      ?safe(u.href)
+      :"";
+
+  }catch{
+
+    return "";
+
+  }
+
 }
+
+
+/* LOAD PRODUCTS FROM FIRESTORE */
 
 async function loadProducts(){
-  try{
-    const snap=await getDocs(collection(db,"storeProducts"));
 
-    products=snap.docs.map(d=>({id:d.id,...d.data()}))
-      .filter(p=>p.active!==false && p.status!=="inactive" && p.status!=="draft");
+  grid.innerHTML=`
+    <div class="empty">
+      <h3 class="loading">Loading Products...</h3>
+      <p>Please wait.</p>
+    </div>
+  `;
+
+  try{
+
+    const snap=await getDocs(
+      collection(db,"storeProducts")
+    );
+
+    products=snap.docs.map(d=>({
+
+      id:d.id,
+      ...d.data()
+
+    })).filter(p=>
+
+      p.active!==false &&
+      p.status!=="inactive" &&
+      p.status!=="draft"
+
+    );
 
     renderProducts();
-  }catch(e){
-    console.error(e);
-    grid.innerHTML=`<div class="empty">
-      <h3>Products could not be loaded</h3>
-      <p>Please try again later.</p>
-    </div>`;
+
   }
+
+  catch(error){
+
+    console.error("Firebase Store Error:",error);
+
+    let message="Please try again later.";
+
+    if(error.code==="permission-denied"){
+
+      message="Store database permission denied. Please check Firestore security rules.";
+
+    }
+
+    grid.innerHTML=`
+      <div class="empty">
+
+        <h3>Products could not be loaded</h3>
+
+        <p>${safe(message)}</p>
+
+        <button
+          onclick="location.reload()"
+          style="
+            margin-top:18px;
+            padding:10px 20px;
+            background:#1769d2;
+            border:0;
+            color:white;
+            border-radius:4px;
+          ">
+          Try Again
+        </button>
+
+      </div>
+    `;
+
+    document.getElementById("resultCount").textContent=
+      "Unable to load products";
+
+  }
+
 }
 
+
+/* CATEGORY FILTER */
+
 window.setCategory=(value,btn)=>{
+
   category=value;
+
   document.querySelectorAll(".filters button")
     .forEach(b=>b.classList.remove("active"));
+
   btn.classList.add("active");
+
   renderProducts();
+
 };
+
+
+/* RENDER PRODUCTS */
 
 window.renderProducts=()=>{
-  const q=document.getElementById("search").value.toLowerCase();
 
-  const list=products.filter(p=>
-    (category==="All" || p.category===category) &&
-    String(p.name||p.title||"").toLowerCase().includes(q)
-  );
+  const q=document
+    .getElementById("search")
+    .value
+    .toLowerCase()
+    .trim();
+
+  const list=products.filter(p=>{
+
+    const name=String(p.name||p.title||"").toLowerCase();
+
+    const description=String(p.description||"").toLowerCase();
+
+    const cat=String(p.category||"").toLowerCase();
+
+    const categoryMatch=
+      category==="All" ||
+      cat===category.toLowerCase();
+
+    const searchMatch=
+      name.includes(q) ||
+      description.includes(q);
+
+    return categoryMatch && searchMatch;
+
+  });
+
+
+  document.getElementById("resultCount").textContent=
+    `${list.length} Products`;
+
 
   if(!list.length){
-    grid.innerHTML=`<div class="empty">
-      <h3>${products.length?"No Products Found":"Coming Soon"}</h3>
-      <p>${products.length
-        ?"Try another search or category."
-        :"Our official products will be available here soon."}</p>
-    </div>`;
+
+    grid.innerHTML=`
+      <div class="empty">
+
+        <h3>${products.length?"No Products Found":"Coming Soon"}</h3>
+
+        <p>
+          ${products.length
+            ?"Try another search or category."
+            :"Our official products will appear here soon."
+          }
+        </p>
+
+      </div>
+    `;
+
     return;
+
   }
 
+
   grid.innerHTML=list.map(p=>{
+
     const stock=Number(p.stock??999);
-    return `<article class="product">
-      <img src="${safeImage(p.imageUrl||p.image||"")}"
-           alt="${safe(p.name||p.title)}">
-      <div class="details">
-        <h3>${safe(p.name||p.title||"Product")}</h3>
-        <p>${safe(p.description||"Official SK KGN TEAM product.")}</p>
-        <div class="price">₹${Number(p.price||0).toLocaleString("en-IN")}</div>
-        <button class="add" ${stock<=0?"disabled":""}
-          onclick="addToCart('${safe(p.id)}')">
-          ${stock<=0?"Out of Stock":"Add to Cart"}
-        </button>
-      </div>
-    </article>`;
+
+    const image=safeImage(
+      p.imageUrl||p.image||""
+    );
+
+    const price=Number(p.price||0);
+
+    return `
+
+      <article class="product">
+
+        <div class="product-image">
+
+          ${
+            image
+            ?`
+              <img
+                src="${image}"
+                alt="${safe(p.name||p.title||"Product")}"
+                loading="lazy"
+                onerror="
+                  this.style.display='none';
+                  this.parentElement.innerHTML='<span class=image-fallback>Image unavailable</span>';
+                "
+              >
+            `
+            :`
+              <span class="image-fallback">
+                Image unavailable
+              </span>
+            `
+          }
+
+        </div>
+
+
+        <div class="details">
+
+          <span class="product-category">
+            ${safe(p.category||"Product")}
+          </span>
+
+          <h3>
+            ${safe(p.name||p.title||"Product")}
+          </h3>
+
+          <p>
+            ${safe(p.description||"Official SK KGN TEAM product.")}
+          </p>
+
+          <div class="price">
+            ₹${price.toLocaleString("en-IN")}
+          </div>
+
+          <button
+            class="add"
+            data-add="${safe(p.id)}"
+            ${stock<=0?"disabled":""}
+          >
+
+            ${stock<=0?"Out of Stock":"Add to Cart"}
+
+          </button>
+
+        </div>
+
+      </article>
+
+    `;
+
   }).join("");
+
 };
 
+
+/* ADD TO CART */
+
 window.addToCart=id=>{
+
   const p=products.find(x=>x.id===id);
+
   if(!p)return;
 
   const stock=Number(p.stock??999);
+
+  if(stock<=0){
+
+    alert("This product is out of stock.");
+
+    return;
+
+  }
+
   const item=cart.find(x=>x.id===id);
 
   if(item){
-    if(item.qty>=stock){alert("Stock limit reached.");return;}
+
+    if(item.qty>=stock){
+
+      alert("Available stock limit reached.");
+
+      return;
+
+    }
+
     item.qty++;
-  }else{
-    if(stock<=0)return;
-    cart.push({
-      id,
-      name:p.name||p.title||"Product",
-      price:Number(p.price||0),
-      qty:1,
-      stock
-    });
+
   }
+
+  else{
+
+    cart.push({
+
+      id:id,
+
+      name:p.name||p.title||"Product",
+
+      price:Number(p.price||0),
+
+      qty:1,
+
+      stock:stock
+
+    });
+
+  }
+
   updateCart();
+
 };
+
+
+/* PRODUCT BUTTON EVENTS */
+
+grid.addEventListener("click",e=>{
+
+  const btn=e.target.closest("[data-add]");
+
+  if(btn){
+
+    addToCart(btn.dataset.add);
+
+  }
+
+});
+
+
+/* UPDATE CART */
 
 function updateCart(){
-  document.getElementById("count").textContent=
-    cart.reduce((s,x)=>s+x.qty,0);
+
+  const count=cart.reduce(
+    (s,x)=>s+x.qty,0
+  );
+
+  document.getElementById("count").textContent=count;
+
+
+  const total=cart.reduce(
+    (s,x)=>s+x.price*x.qty,0
+  );
 
   document.getElementById("total").textContent=
-    "₹"+cart.reduce((s,x)=>s+x.price*x.qty,0).toLocaleString("en-IN");
+    "₹"+total.toLocaleString("en-IN");
 
-  document.getElementById("cartItems").innerHTML=cart.length?
-    cart.map(x=>`<div class="cart-item">
-      <div>
-        <strong>${safe(x.name)}</strong><br>
-        <small>₹${x.price} each</small>
-        <div class="qty">
-          <button onclick="changeQty('${x.id}',-1)">−</button>
-          ${x.qty}
-          <button onclick="changeQty('${x.id}',1)">+</button>
-        </div>
+
+  const container=document.getElementById("cartItems");
+
+
+  if(!cart.length){
+
+    container.innerHTML=`
+      <div class="empty">
+        <h3>Your Cart Is Empty</h3>
+        <p>Add products to get started.</p>
       </div>
-      <strong>₹${x.price*x.qty}</strong>
-    </div>`).join(""):"Your cart is empty.";
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML=cart.map(x=>`
+
+    <div class="cart-item">
+
+      <div>
+
+        <strong>${safe(x.name)}</strong>
+
+        <small>
+          ₹${x.price.toLocaleString("en-IN")} each
+        </small>
+
+        <div class="qty">
+
+          <button data-qty="${safe(x.id)}" data-change="-1">
+            −
+          </button>
+
+          <span>${x.qty}</span>
+
+          <button data-qty="${safe(x.id)}" data-change="1">
+            +
+          </button>
+
+        </div>
+
+        <button class="remove" data-remove="${safe(x.id)}">
+          Remove
+        </button>
+
+      </div>
+
+      <strong>
+        ₹${(x.price*x.qty).toLocaleString("en-IN")}
+      </strong>
+
+    </div>
+
+  `).join("");
+
 }
 
+
+/* CART EVENTS */
+
+document.getElementById("cartItems")
+.addEventListener("click",e=>{
+
+  const qtyBtn=e.target.closest("[data-qty]");
+
+  const removeBtn=e.target.closest("[data-remove]");
+
+  if(qtyBtn){
+
+    changeQty(
+      qtyBtn.dataset.qty,
+      Number(qtyBtn.dataset.change)
+    );
+
+  }
+
+  if(removeBtn){
+
+    cart=cart.filter(
+      x=>x.id!==removeBtn.dataset.remove
+    );
+
+    updateCart();
+
+  }
+
+});
+
+
+/* CHANGE QUANTITY */
+
 window.changeQty=(id,n)=>{
-  const x=cart.find(i=>i.id===id);
-  if(!x)return;
-  x.qty+=n;
-  if(x.qty<=0)cart=cart.filter(i=>i.id!==id);
-  else if(x.qty>x.stock){x.qty=x.stock;alert("Stock limit reached.");}
+
+  const item=cart.find(x=>x.id===id);
+
+  if(!item)return;
+
+  const next=item.qty+n;
+
+  if(next<=0){
+
+    cart=cart.filter(x=>x.id!==id);
+
+  }
+
+  else if(next>item.stock){
+
+    alert("Available stock limit reached.");
+
+  }
+
+  else{
+
+    item.qty=next;
+
+  }
+
   updateCart();
+
 };
+
+
+/* CART OPEN / CLOSE */
 
 window.toggleCart=()=>{
-  document.getElementById("overlay").classList.toggle("show");
+
+  document
+    .getElementById("overlay")
+    .classList.toggle("show");
+
 };
+
+
+/* CHECKOUT */
 
 window.checkout=()=>{
-  if(!cart.length){alert("Your cart is empty.");return;}
-  alert("Secure Razorpay checkout will be connected after backend verification.");
+
+  if(!cart.length){
+
+    alert("Your cart is empty.");
+
+    return;
+
+  }
+
+  alert(
+    "Online ordering is not connected yet. Checkout backend and payment verification are required."
+  );
+
 };
 
-document.getElementById("year").textContent=new Date().getFullYear();
+
+/* YEAR */
+
+document.getElementById("year").textContent=
+  new Date().getFullYear();
+
+
+/* INITIALIZE */
+
+updateCart();
+
 loadProducts();
+
 </script>
 
 </body>
