@@ -1028,18 +1028,18 @@ footer{
 
 .books-slider {
   width:100%;
-  overflow:hidden;
+  overflow-x:auto;
+  overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:thin;
+  scrollbar-color:#bbb #f5f5f5;
 }
 
 .books-track {
   display:flex;
   width:max-content;
   gap:18px;
-  animation:booksScroll 35s linear infinite;
-}
-
-.books-slider:hover .books-track {
-  animation-play-state:paused;
+  padding:0 15px 10px;
 }
 
 .book-card {
@@ -1110,15 +1110,6 @@ footer{
   background:#294e70;
 }
 
-@keyframes booksScroll {
-  from {
-    transform:translateX(0);
-  }
-  to {
-    transform:translateX(-50%);
-  }
-}
-
 @media(max-width:600px) {
   .books-section {
     padding:35px 0;
@@ -1146,13 +1137,6 @@ footer{
 
   .books-track {
     gap:13px;
-    animation-duration:32s;
-  }
-}
-
-@media(prefers-reduced-motion:reduce) {
-  .books-track {
-    animation:none;
   }
 }
 </style>
