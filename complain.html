@@ -3,173 +3,753 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Complaint Portal | SK KGN TEAM</title>
+<meta name="description" content="SK KGN TEAM Complaint Assistance Portal.">
+<meta name="theme-color" content="#0B1F3B">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --navy:#123765;--blue:#2563a6;--royal:#3478bd;
-  --pale:#edf5fc;--line:#dce6f0;--text:#25384e;--muted:#788da3;
+--navy:#0B1F3B;
+--blue:#2563EB;
+--royal:#60A5FA;
+--pale:#DBEAFE;
+--line:#C8DCF5;
+--text:#172B4D;
+--muted:#647A98;
+--background:#F0F7FF;
 }
-body{font-family:Arial,Helvetica,sans-serif;background:#f2f6fa;color:var(--text)}
-.header{background:#fff;border-bottom:1px solid var(--line)}
-.header-inner{max-width:1180px;margin:auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{width:49px;height:49px;object-fit:contain}
-.brand-name{font-size:19px;font-weight:800;color:var(--navy)}
-.brand-sub{font-size:10px;letter-spacing:1.3px;color:var(--muted);margin-top:4px}
-.header-link{text-decoration:none;color:var(--blue);font-size:13px;font-weight:700}
-.intro{background:linear-gradient(115deg,#123765,#2866a4);color:white;padding:45px 20px 72px;text-align:center}
-.intro .eyebrow{color:#d0e4f8;font-size:11px;font-weight:700;letter-spacing:2px}
-.intro h1{font-size:clamp(28px,5vw,39px);margin:13px 0 10px}
-.intro p{color:#e0ebf6;font-size:14px;line-height:1.7}
-.main{max-width:880px;margin:-38px auto 55px;padding:0 18px}
-.panel{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 38px rgba(23,65,108,.09);overflow:hidden}
-.progress-area{padding:23px 30px;border-bottom:1px solid var(--line)}
-.progress-top{display:flex;justify-content:space-between;margin-bottom:12px}
-.progress-top span{font-size:11px;font-weight:700;color:var(--muted)}
-.progress-top strong{font-size:12px;color:var(--blue)}
-.progress-track{height:5px;background:#e9f0f7;border-radius:10px;overflow:hidden}
-.progress-fill{height:100%;width:16.66%;background:var(--royal);transition:width .45s}
-.content{padding:35px 40px 30px;min-height:355px}
-.step-label{color:var(--blue);font-size:11px;letter-spacing:1.4px;font-weight:800;margin-bottom:15px}
-.question{font-size:25px;color:var(--navy);margin-bottom:9px;line-height:1.3}
-.description{color:var(--muted);font-size:13px;margin-bottom:27px;line-height:1.6}
-.field{margin-bottom:18px}
-.field label{display:block;font-size:12px;font-weight:700;margin-bottom:8px;color:#405b77}
-input,select,textarea{width:100%;padding:14px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--text);font-family:inherit;font-size:14px;outline:none}
-input:focus,select:focus,textarea:focus{border-color:var(--royal);box-shadow:0 0 0 3px rgba(52,120,189,.09)}
-textarea{min-height:125px;resize:vertical}
-.options{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.option{border:1px solid var(--line);border-radius:9px;padding:19px 17px;cursor:pointer;display:block;transition:.2s}
-.option:hover{border-color:#91b5d8;background:#f8fbff;transform:translateY(-3px)}
-.option input{position:absolute;opacity:0;width:1px}
-.option:has(input:checked){border:1.5px solid var(--royal);background:#eff6fd;box-shadow:0 0 0 3px rgba(52,120,189,.08)}
-.option-title{display:block;color:var(--navy);font-weight:800;font-size:14px;margin-bottom:7px}
-.option-desc{display:block;color:var(--muted);font-size:11px;line-height:1.5}
-.option-mark{display:inline-block;font-size:10px;font-weight:800;color:var(--blue);background:#e3effa;border-radius:4px;padding:5px 8px;margin-top:12px}
-.preview-sheet{border:1px solid #d7e2ed;border-radius:9px;overflow:hidden;background:#fff}
-.preview-head{background:#eaf3fc;border-bottom:2px solid var(--blue);padding:20px;display:flex;align-items:center;gap:14px}
-.preview-head img{width:55px;height:55px;object-fit:contain}
-.preview-brand{color:var(--navy);font-size:17px;font-weight:800}
-.preview-sub{font-size:10px;color:#66809a;letter-spacing:1px;margin-top:4px}
-.preview-title{text-align:center;padding:19px 15px;color:var(--navy);font-size:18px;font-weight:800;border-bottom:1px solid var(--line)}
-.preview-body{padding:20px}
-.preview-section{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:1px;padding-bottom:9px;border-bottom:1px solid var(--line);margin:17px 0 8px}
-.preview-row{display:grid;grid-template-columns:155px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid #edf1f5;font-size:12px;line-height:1.6}
-.preview-row strong{color:#60768c}
-.preview-row span{color:#263e56;overflow-wrap:anywhere}
-.preview-foot{padding:13px 20px;background:#f5f8fb;border-top:1px solid var(--line);color:#72859a;font-size:10px;text-align:center}
-.navigation{border-top:1px solid var(--line);padding:20px 30px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-button{font-family:inherit;cursor:pointer}
-.back-btn,.print-btn{border:1px solid var(--line);background:#fff;color:var(--navy);border-radius:6px;padding:12px 18px;font-size:13px;font-weight:700}
-.next-btn{border:0;background:var(--navy);color:white;border-radius:6px;padding:13px 24px;font-size:13px;font-weight:700}
-.next-btn:hover{background:var(--blue)}
-.back-btn:disabled{opacity:.35;cursor:not-allowed}
-.print-btn{background:#eaf3fc;border-color:#d1e2f2;color:var(--blue)}
-.error{color:#c0392b;font-size:12px;margin-top:12px;min-height:17px}
-.footer{text-align:center;color:#8799aa;font-size:11px;padding:20px}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'DM Sans',Arial,sans-serif;
+background:var(--background);
+color:var(--text);
+line-height:1.7;
+}
+
+button,input,select,textarea{font-family:inherit}
+button{cursor:pointer}
+
+/* HEADER */
+
+.header{
+background:#fff;
+border-bottom:1px solid var(--line);
+}
+
+.header-inner{
+max-width:1180px;
+margin:auto;
+padding:10px 6%;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+text-decoration:none;
+}
+
+.brand img{
+width:55px;
+height:55px;
+object-fit:contain;
+}
+
+.brand-name{
+font-size:21px;
+font-weight:800;
+color:var(--navy);
+line-height:1.2;
+}
+
+.brand-name span{color:var(--blue)}
+
+.brand-sub{
+font-size:10px;
+letter-spacing:1px;
+font-weight:700;
+color:var(--muted);
+margin-top:4px;
+}
+
+.header-link{
+color:var(--blue);
+text-decoration:none;
+font-size:13px;
+font-weight:800;
+}
+
+/* COMPACT HERO */
+
+.intro{
+background:linear-gradient(120deg,#0B1F3B,#17457D);
+color:#fff;
+padding:27px 15px 58px;
+text-align:center;
+}
+
+.eyebrow{
+font-size:10px;
+letter-spacing:2px;
+font-weight:800;
+color:#BFDBFE;
+}
+
+.intro h1{
+font-family:'Playfair Display',serif;
+font-size:clamp(25px,5vw,34px);
+margin:6px 0;
+line-height:1.3;
+}
+
+.intro p{
+font-size:12px;
+color:#DBEAFE;
+}
+
+/* MAIN */
+
+.main{
+max-width:900px;
+margin:-35px auto 55px;
+padding:0 18px;
+}
+
+.panel{
+background:#fff;
+border:1px solid var(--line);
+border-radius:12px;
+box-shadow:0 15px 40px rgba(11,31,59,.10);
+overflow:hidden;
+}
+
+/* PROGRESS */
+
+.progress-area{
+padding:22px 30px;
+background:#fff;
+border-bottom:1px solid var(--line);
+}
+
+.progress-top{
+display:flex;
+justify-content:space-between;
+margin-bottom:12px;
+}
+
+.progress-top span{
+font-size:11px;
+font-weight:800;
+color:var(--muted);
+}
+
+.progress-top strong{
+color:var(--blue);
+font-size:12px;
+}
+
+.progress-track{
+height:7px;
+background:#DBEAFE;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-fill{
+height:100%;
+width:16.66%;
+background:linear-gradient(90deg,#2563EB,#60A5FA);
+border-radius:20px;
+transition:width .4s ease;
+}
+
+/* FORM CONTENT */
+
+.content{
+padding:32px 35px;
+min-height:340px;
+}
+
+.step-label{
+color:var(--blue);
+font-size:11px;
+font-weight:800;
+letter-spacing:1.5px;
+margin-bottom:12px;
+}
+
+.question{
+font-family:'Playfair Display',serif;
+font-size:26px;
+color:var(--navy);
+line-height:1.3;
+margin-bottom:8px;
+}
+
+.description{
+color:var(--muted);
+font-size:13px;
+margin-bottom:25px;
+}
+
+.field{
+margin-bottom:18px;
+}
+
+.field label{
+display:block;
+font-size:12px;
+font-weight:800;
+color:var(--navy);
+margin-bottom:7px;
+}
+
+input,select,textarea{
+width:100%;
+padding:14px;
+border:1px solid var(--line);
+border-radius:8px;
+background:#fff;
+color:var(--navy);
+font-size:14px;
+outline:none;
+transition:.2s;
+}
+
+input:focus,select:focus,textarea:focus{
+border-color:var(--blue);
+box-shadow:0 0 0 3px rgba(37,99,235,.10);
+}
+
+textarea{
+min-height:125px;
+resize:vertical;
+}
+
+/* OPTIONS */
+
+.options{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+
+.option{
+display:block;
+padding:21px;
+border:1px solid var(--line);
+border-radius:10px;
+background:#fff;
+cursor:pointer;
+transition:.2s;
+}
+
+.option:hover{
+border-color:var(--royal);
+background:#F8FBFF;
+transform:translateY(-2px);
+}
+
+.option input{
+position:absolute;
+opacity:0;
+width:1px;
+height:1px;
+}
+
+.option:has(input:checked){
+border:2px solid var(--blue);
+background:#EFF6FF;
+box-shadow:0 5px 18px rgba(37,99,235,.09);
+}
+
+.option-title{
+display:block;
+color:var(--navy);
+font-size:15px;
+font-weight:800;
+}
+
+.option-desc{
+display:block;
+color:var(--muted);
+font-size:12px;
+margin-top:7px;
+}
+
+.option-mark{
+display:inline-block;
+margin-top:13px;
+padding:6px 12px;
+background:#DBEAFE;
+color:#1D4ED8;
+border-radius:5px;
+font-size:11px;
+font-weight:800;
+}
+
+.paid-mark{
+background:#E0ECFF;
+color:#1E40AF;
+}
+
+/* PREVIEW */
+
+.preview-sheet{
+border:1px solid var(--line);
+border-radius:10px;
+overflow:hidden;
+background:#fff;
+}
+
+.preview-head{
+background:#DBEAFE;
+border-bottom:2px solid var(--blue);
+padding:18px;
+display:flex;
+align-items:center;
+gap:13px;
+}
+
+.preview-head img{
+width:52px;
+height:52px;
+object-fit:contain;
+}
+
+.preview-brand{
+color:var(--navy);
+font-size:17px;
+font-weight:800;
+}
+
+.preview-sub{
+font-size:10px;
+color:#47658C;
+letter-spacing:1px;
+}
+
+.preview-title{
+text-align:center;
+padding:17px;
+color:var(--navy);
+font-size:17px;
+font-weight:800;
+border-bottom:1px solid var(--line);
+}
+
+.preview-body{padding:18px}
+
+.preview-section{
+font-size:11px;
+font-weight:800;
+color:var(--blue);
+letter-spacing:1px;
+padding-bottom:8px;
+border-bottom:1px solid var(--line);
+margin:16px 0 8px;
+}
+
+.preview-row{
+display:grid;
+grid-template-columns:145px 1fr;
+gap:12px;
+padding:8px 0;
+border-bottom:1px solid #EAF1FA;
+font-size:12px;
+line-height:1.6;
+}
+
+.preview-row strong{color:#647A98}
+
+.preview-row span{
+color:var(--navy);
+overflow-wrap:anywhere;
+}
+
+.preview-foot{
+padding:12px;
+background:#F0F7FF;
+border-top:1px solid var(--line);
+color:var(--muted);
+font-size:10px;
+text-align:center;
+}
+
+/* NAVIGATION */
+
+.navigation{
+border-top:1px solid var(--line);
+padding:20px 30px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+background:#fff;
+}
+
+.nav-actions{
+display:flex;
+gap:9px;
+}
+
+.back-btn,.print-btn,.next-btn{
+border-radius:7px;
+padding:12px 19px;
+font-size:13px;
+font-weight:800;
+}
+
+.back-btn{
+background:#fff;
+border:1px solid var(--line);
+color:var(--navy);
+}
+
+.back-btn:hover{background:#F0F7FF}
+
+.next-btn{
+background:var(--blue);
+color:#fff;
+border:0;
+box-shadow:0 4px 12px rgba(37,99,235,.18);
+}
+
+.next-btn:hover{background:var(--navy)}
+
+.print-btn{
+background:#DBEAFE;
+border:1px solid #BFDBFE;
+color:#1D4ED8;
+}
+
+button:disabled{
+opacity:.45;
+cursor:not-allowed;
+}
+
+.error{
+color:#c0392b;
+font-size:12px;
+margin-top:12px;
+min-height:18px;
+}
+
 .hidden{display:none!important}
-.success-box{background:#edf9f1;border:1px solid #ccebd5;padding:22px;border-radius:9px;text-align:center}
-.success-box h2{color:#176c3a;margin-bottom:10px}
-.success-box p{font-size:13px;line-height:1.7;color:#466453}
+
+/* SUCCESS */
+
+.success-box{
+background:#EFF6FF;
+border:1px solid #BFDBFE;
+padding:25px;
+border-radius:10px;
+text-align:center;
+}
+
+.success-box h2{
+color:#176c3a;
+margin-bottom:10px;
+}
+
+.success-box p{
+color:#466453;
+font-size:13px;
+line-height:1.7;
+overflow-wrap:anywhere;
+}
+
+/* FOOTER */
+
+.footer{
+background:var(--navy);
+color:#DBEAFE;
+padding:27px 15px;
+text-align:center;
+font-size:12px;
+}
+
+.footer-brand{
+color:#fff;
+font-size:20px;
+font-weight:800;
+}
+
+.footer-copy{
+color:#9BB8DB;
+margin-top:10px;
+}
+
+/* MOBILE */
+
 @media(max-width:600px){
-.header-inner{padding:12px 17px}.brand img{width:43px;height:43px}
-.brand-name{font-size:16px}.brand-sub{font-size:8px}
-.intro{padding:35px 17px 65px}.main{padding:0 12px}
-.content{padding:27px 20px}.question{font-size:22px}
-.progress-area{padding:19px 20px}.navigation{padding:17px 20px}
-.options{grid-template-columns:1fr}.preview-row{grid-template-columns:115px 1fr}
+
+.header-inner{padding:9px 14px}
+
+.brand{gap:8px}
+
+.brand img{
+width:46px;
+height:46px;
 }
+
+.brand-name{font-size:17px}
+.brand-sub{font-size:8px;letter-spacing:.5px}
+
+.intro{
+padding:23px 12px 49px;
+}
+
+.intro h1{font-size:27px}
+.intro p{font-size:11px}
+
+.main{
+padding:0 10px;
+margin-top:-29px;
+margin-bottom:40px;
+}
+
+.content{padding:25px 17px}
+
+.question{font-size:23px}
+
+.progress-area{padding:18px}
+
+.navigation{
+padding:15px 16px;
+}
+
+.options{grid-template-columns:1fr}
+
+.preview-row{
+grid-template-columns:105px 1fr;
+gap:8px;
+}
+
+.back-btn,.next-btn,.print-btn{
+padding:11px 12px;
+font-size:11px;
+}
+
+.footer{padding:23px 12px}
+
+}
+
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{
+scroll-behavior:auto!important;
+transition:none!important;
+}
+}
+
+/* PRINT */
+
 @media print{
-@page{size:A4;margin:15mm}
-body{background:#fff}
-body *{visibility:hidden!important}
-#printDocument,#printDocument *{visibility:visible!important}
-#printDocument{display:block!important;position:absolute;left:0;top:0;width:100%}
+
+@page{
+size:A4;
+margin:15mm;
 }
+
+body *{
+visibility:hidden!important;
+}
+
+#printDocument,#printDocument *{
+visibility:visible!important;
+}
+
+#printDocument{
+display:block!important;
+position:absolute;
+left:0;
+top:0;
+width:100%;
+}
+
+}
+
 #printDocument{display:none}
+
 </style>
 </head>
 
 <body>
 
+<!-- HEADER -->
+
 <header class="header">
+
 <div class="header-inner">
-<div class="brand">
+
+<a href="index.html" class="brand">
+
 <img src="Logo.jpg" alt="SK KGN TEAM Logo">
+
 <div>
-<div class="brand-name">SK KGN TEAM</div>
+<div class="brand-name">SK <span>KGN TEAM</span></div>
 <div class="brand-sub">PRIVATE COMPLAINT CONSULTANCY</div>
 </div>
+
+</a>
+
+<a href="index.html" class="header-link">← Home</a>
+
 </div>
-<a class="header-link" href="index.html">← Home</a>
-</div>
+
 </header>
 
+<!-- COMPACT HERO -->
+
 <section class="intro">
-<div class="eyebrow">SK KGN TEAM · COMPLAINT DESK</div>
-<h1>How can we assist you?</h1>
-<p>Share your concern through our guided complaint form.</p>
+
+<div class="eyebrow">SK KGN TEAM</div>
+
+<h1>Complaint Desk</h1>
+
+<p>Register your complaint online.</p>
+
 </section>
 
+<!-- MAIN FORM -->
+
 <main class="main">
+
 <div class="panel">
 
 <div class="progress-area" id="progressArea">
+
 <div class="progress-top">
-<span id="stepName">STEP 01 — COMPLAINT TYPE</span>
-<strong id="stepCount">01 / 06</strong>
+<span id="stepName"></span>
+<strong id="stepCount"></strong>
 </div>
-<div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+
+<div class="progress-track">
+<div class="progress-fill" id="progressFill"></div>
+</div>
+
 </div>
 
 <div class="content" id="content">
+
 <div class="step-label" id="stepLabel"></div>
+
 <h2 class="question" id="question"></h2>
+
 <p class="description" id="description"></p>
+
 <div id="answerArea"></div>
+
 <div class="error" id="error"></div>
+
 </div>
 
 <div class="navigation" id="navigation">
-<button class="back-btn" id="backBtn" type="button">← Previous</button>
-<div style="display:flex;gap:9px">
-<button class="print-btn hidden" id="printBtn" type="button">▤ Print</button>
-<button class="next-btn" id="nextBtn" type="button">Continue →</button>
+
+<button class="back-btn" id="backBtn" type="button">
+← Previous
+</button>
+
+<div class="nav-actions">
+
+<button class="print-btn hidden" id="printBtn" type="button">
+Print
+</button>
+
+<button class="next-btn" id="nextBtn" type="button">
+Continue →
+</button>
+
 </div>
+
 </div>
 
 <div id="successArea" class="content hidden">
+
 <div class="success-box">
-<h2>✓ Complaint Successfully Submitted</h2>
+
+<h2>✓ Complaint Successfully Recorded</h2>
+
 <p id="successMessage"></p>
-<button class="next-btn" id="successPrintBtn" type="button" style="margin-top:18px">Print Complaint</button>
-</div>
+
+<button class="next-btn" id="successPrintBtn" type="button" style="margin-top:18px">
+Print Acknowledgement
+</button>
+
 </div>
 
 </div>
+
+</div>
+
 </main>
 
-<footer class="footer">© 2026 SK KGN TEAM. All Rights Reserved.</footer>
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="footer-brand">SK KGN TEAM</div>
+
+<p>PRIVATE COMPLAINT CONSULTANCY</p>
+
+<p>Knowledge. Awareness. Meaningful Change.</p>
+
+<div class="footer-copy">
+© 2026 SK KGN TEAM. All Rights Reserved.
+</div>
+
+</footer>
+
+<!-- PRINT DOCUMENT -->
 
 <div id="printDocument">
-<div style="text-align:center;border-bottom:2px solid #123765;padding-bottom:15px;margin-bottom:20px">
-<h1 style="color:#123765;font-size:24px">SK KGN TEAM</h1>
-<p style="font-size:10px;letter-spacing:1px;margin-top:5px">PRIVATE COMPLAINT CONSULTANCY</p>
-<h2 style="margin-top:20px;font-size:18px">COMPLAINT SUBMISSION ACKNOWLEDGEMENT</h2>
+
+<div style="text-align:center;border-bottom:2px solid #0B1F3B;padding-bottom:15px;margin-bottom:20px">
+
+<h1 style="color:#0B1F3B">SK KGN TEAM</h1>
+
+<p>PRIVATE COMPLAINT CONSULTANCY</p>
+
+<h2 style="margin-top:20px">COMPLAINT ACKNOWLEDGEMENT</h2>
+
 </div>
+
 <div id="printDetails" style="font-size:13px;line-height:1.8"></div>
+
 <p style="font-size:10px;border-top:1px solid #ccc;margin-top:35px;padding-top:12px">
-This acknowledgement confirms that the complaint details were recorded by SK KGN TEAM. It is not a government-issued document or proof of action by a public authority.
+This acknowledgement confirms that complaint details were recorded by SK KGN TEAM. It is not a government-issued document or proof of action by a public authority.
 </p>
+
 </div>
 
 <script type="module">
-import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import {getFirestore,collection,doc,getDoc,setDoc,serverTimestamp} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+import {initializeApp}
+from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+
+import {
+getFirestore,collection,doc,getDoc,setDoc,serverTimestamp
+}
+from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+
+/* FIREBASE */
 
 const firebaseConfig={
+
 apiKey:"AIzaSyAOdyFtVEoAeVdT1nWjaXRkPBPTZ9oHKQ",
 authDomain:"sk-kgn-team.firebaseapp.com",
 databaseURL:"https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
@@ -178,294 +758,834 @@ storageBucket:"sk-kgn-team.firebasestorage.app",
 messagingSenderId:"228612697498",
 appId:"1:228612697498:web:a304b57bf5a59d2933de23",
 measurementId:"G-BXWT6BPTB6"
+
 };
 
 const app=initializeApp(firebaseConfig);
 const db=getFirestore(app);
 
+/* FORM STEPS */
+
 const steps=[
-{name:"COMPLAINT TYPE",label:"STEP 01 · SELECT TYPE",question:"What kind of complaint do you have?",description:"Choose the type of assistance you are looking for.",type:"choice",key:"type",options:[
-{value:"public",title:"Public Complaint",desc:"Issues affecting the public or community.",badge:"FREE"},
-{value:"personal",title:"Personal Complaint",desc:"Individual complaint assistance.",badge:"PAID ASSISTANCE"}
-]},
-{name:"PERSONAL DETAILS",label:"STEP 02 · YOUR INFORMATION",question:"First, tell us about yourself.",description:"Enter your contact details.",type:"fields",fields:[
+
+{
+name:"COMPLAINT TYPE",
+label:"STEP 01 · SELECT TYPE",
+question:"What kind of complaint do you have?",
+description:"Choose the type of assistance you require.",
+type:"choice",
+key:"type",
+
+options:[
+
+{
+value:"public",
+title:"Public Complaint",
+desc:"Issues affecting the public or community.",
+badge:"FREE"
+},
+
+{
+value:"personal",
+title:"Personal Complaint",
+desc:"Individual complaint assistance.",
+badge:"₹199 · PAID"
+}
+
+]
+
+},
+
+{
+name:"PERSONAL DETAILS",
+label:"STEP 02 · YOUR INFORMATION",
+question:"Tell us about yourself.",
+description:"Enter your contact details.",
+type:"fields",
+
+fields:[
+
 {key:"name",label:"Full Name",placeholder:"Enter your full name",required:true},
+
 {key:"mobile",label:"Mobile Number",placeholder:"10-digit mobile number",required:true,type:"tel"},
-{key:"email",label:"Email Address",placeholder:"Email address (optional)",required:false,type:"email"}
-]},
-{name:"LOCATION",label:"STEP 03 · YOUR LOCATION",question:"Where is the issue located?",description:"Enter the location related to your complaint.",type:"fields",fields:[
-{key:"state",label:"State / Union Territory",type:"select",required:true,options:["Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Delhi","Jammu and Kashmir","Ladakh","Puducherry","Other"]},
+
+{key:"email",label:"Email Address",placeholder:"Email address (optional)",type:"email"}
+
+]
+
+},
+
+{
+name:"LOCATION",
+label:"STEP 03 · YOUR LOCATION",
+question:"Where is the issue located?",
+description:"Enter the location related to your complaint.",
+type:"fields",
+
+fields:[
+
+{
+key:"state",
+label:"State / Union Territory",
+type:"select",
+required:true,
+
+options:[
+"Andhra Pradesh","Arunachal Pradesh","Assam","Bihar",
+"Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh",
+"Jharkhand","Karnataka","Kerala","Madhya Pradesh",
+"Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland",
+"Odisha","Punjab","Rajasthan","Sikkim","Tamil Nadu",
+"Telangana","Tripura","Uttar Pradesh","Uttarakhand",
+"West Bengal","Delhi","Jammu and Kashmir","Ladakh",
+"Puducherry","Other"
+]
+
+},
+
 {key:"district",label:"District",placeholder:"Enter district",required:true},
-{key:"village",label:"Village / City",placeholder:"Enter village or city",required:false}
-]},
-{name:"CATEGORY",label:"STEP 04 · ISSUE CATEGORY",question:"Which department is your issue related to?",description:"Select the category that best describes your concern.",type:"fields",fields:[
-{key:"category",label:"Complaint Category",type:"select",required:true,options:["Electricity","Water Supply","Police","Revenue / Land","Road and Transport","Education","Health","Municipal Services","Ration / PDS","Pension","Other"]},
-{key:"department",label:"Department (if known)",placeholder:"Enter department name",required:false}
-]},
-{name:"COMPLAINT DETAILS",label:"STEP 05 · EXPLAIN YOUR ISSUE",question:"Tell us what happened.",description:"Write a short subject and explain the issue clearly.",type:"fields",fields:[
+
+{key:"village",label:"Village / City",placeholder:"Enter village or city"}
+
+]
+
+},
+
+{
+name:"CATEGORY",
+label:"STEP 04 · ISSUE CATEGORY",
+question:"Which department is your issue related to?",
+description:"Select the category that best describes your concern.",
+type:"fields",
+
+fields:[
+
+{
+key:"category",
+label:"Complaint Category",
+type:"select",
+required:true,
+
+options:[
+"Electricity","Water Supply","Police","Revenue / Land",
+"Road and Transport","Education","Health","Municipal Services",
+"Ration / PDS","Pension","Other"
+]
+
+},
+
+{key:"department",label:"Department (if known)",placeholder:"Enter department name"}
+
+]
+
+},
+
+{
+name:"COMPLAINT DETAILS",
+label:"STEP 05 · EXPLAIN YOUR ISSUE",
+question:"Tell us what happened.",
+description:"Write a subject and explain your issue clearly.",
+type:"fields",
+
+fields:[
+
 {key:"subject",label:"Complaint Subject",placeholder:"Short subject",required:true},
+
 {key:"details",label:"Complaint Description",type:"textarea",placeholder:"Describe your issue here...",required:true}
-]},
-{name:"PREVIEW",label:"STEP 06 · REVIEW YOUR COMPLAINT",question:"Your complaint preview.",description:"Review your information before submitting.",type:"preview"}
+
+]
+
+},
+
+{
+name:"PREVIEW",
+label:"STEP 06 · REVIEW YOUR COMPLAINT",
+question:"Review your complaint.",
+description:"Check all information before submission.",
+type:"preview"
+
+}
+
 ];
 
 let current=0;
+
 const answers={};
+
 const area=document.getElementById("answerArea");
 const error=document.getElementById("error");
 
+/* RENDER */
+
 function render(){
+
 const s=steps[current];
-document.getElementById("stepName").textContent=`STEP ${String(current+1).padStart(2,"0")} — ${s.name}`;
-document.getElementById("stepCount").textContent=`${String(current+1).padStart(2,"0")} / 06`;
-document.getElementById("progressFill").style.width=`${((current+1)/steps.length)*100}%`;
+
+document.getElementById("stepName").textContent=
+`STEP ${String(current+1).padStart(2,"0")} — ${s.name}`;
+
+document.getElementById("stepCount").textContent=
+`${String(current+1).padStart(2,"0")} / 06`;
+
+document.getElementById("progressFill").style.width=
+`${((current+1)/steps.length)*100}%`;
+
 document.getElementById("question").textContent=s.question;
 document.getElementById("description").textContent=s.description;
 document.getElementById("stepLabel").textContent=s.label;
+
 document.getElementById("backBtn").disabled=current===0;
-document.getElementById("nextBtn").textContent=current===5?"Submit Complaint →":"Continue →";
-document.getElementById("printBtn").classList.add("hidden");
+
+document.getElementById("nextBtn").textContent=
+current===5?"Submit Complaint →":"Continue →";
+
 error.textContent="";
 area.innerHTML="";
+
 if(s.type==="choice")renderChoices(s);
 if(s.type==="fields")renderFields(s);
 if(s.type==="preview")renderPreview();
+
 }
+
+/* CHOICES */
 
 function renderChoices(s){
-const box=document.createElement("div");box.className="options";
+
+const box=document.createElement("div");
+box.className="options";
+
 s.options.forEach(o=>{
-const el=document.createElement("label");el.className="option";
-el.innerHTML=`<input type="radio" name="answer" value="${o.value}"><span class="option-title">${o.title}</span><span class="option-desc">${o.desc}</span><span class="option-mark">${o.badge}</span>`;
-const input=el.querySelector("input");input.checked=answers[s.key]===o.value;
-input.addEventListener("change",()=>answers[s.key]=o.value);
-box.appendChild(el);
+
+const el=document.createElement("label");
+el.className="option";
+
+el.innerHTML=`
+<input type="radio" name="answer" value="${o.value}">
+<span class="option-title">${o.title}</span>
+<span class="option-desc">${o.desc}</span>
+<span class="option-mark ${o.value==="personal"?"paid-mark":""}">${o.badge}</span>
+`;
+
+const input=el.querySelector("input");
+
+input.checked=answers[s.key]===o.value;
+
+input.addEventListener("change",()=>{
+answers[s.key]=o.value;
 });
+
+box.appendChild(el);
+
+});
+
 area.appendChild(box);
+
 }
+
+/* FIELDS */
 
 function renderFields(s){
+
 s.fields.forEach(f=>{
-const wrap=document.createElement("div");wrap.className="field";
+
+const wrap=document.createElement("div");
+wrap.className="field";
+
 const id="field_"+f.key;
-const lab=document.createElement("label");lab.htmlFor=id;lab.textContent=f.label;
+
+const lab=document.createElement("label");
+lab.htmlFor=id;
+lab.textContent=f.label;
+
 let input;
+
 if(f.type==="select"){
+
 input=document.createElement("select");
-const first=document.createElement("option");first.value="";first.textContent="Select an option";input.appendChild(first);
-f.options.forEach(v=>{const op=document.createElement("option");op.value=v;op.textContent=v;input.appendChild(op)});
-}else if(f.type==="textarea"){input=document.createElement("textarea")}
-else{input=document.createElement("input");input.type=f.type||"text"}
-input.id=id;input.placeholder=f.placeholder||"";input.required=!!f.required;input.value=answers[f.key]||"";
-if(f.key==="mobile"){input.maxLength=10;input.inputMode="numeric"}
-input.addEventListener("input",()=>answers[f.key]=input.value);
-input.addEventListener("change",()=>answers[f.key]=input.value);
-wrap.append(lab,input);area.appendChild(wrap);
+
+const first=document.createElement("option");
+first.value="";
+first.textContent="Select an option";
+
+input.appendChild(first);
+
+f.options.forEach(v=>{
+
+const op=document.createElement("option");
+op.value=v;
+op.textContent=v;
+
+input.appendChild(op);
+
 });
+
+}else if(f.type==="textarea"){
+
+input=document.createElement("textarea");
+
+}else{
+
+input=document.createElement("input");
+input.type=f.type||"text";
+
 }
 
-function addSection(body,title){
-const el=document.createElement("div");el.className="preview-section";el.textContent=title;body.appendChild(el);
+input.id=id;
+input.placeholder=f.placeholder||"";
+input.required=!!f.required;
+input.value=answers[f.key]||"";
+
+if(f.key==="mobile"){
+input.maxLength=10;
+input.inputMode="numeric";
 }
+
+input.addEventListener("input",()=>{
+answers[f.key]=input.value;
+});
+
+input.addEventListener("change",()=>{
+answers[f.key]=input.value;
+});
+
+wrap.append(lab,input);
+area.appendChild(wrap);
+
+});
+
+}
+
+/* PREVIEW */
+
+function addSection(body,title){
+
+const el=document.createElement("div");
+el.className="preview-section";
+el.textContent=title;
+
+body.appendChild(el);
+
+}
+
 function addRow(body,label,value){
+
 if(!value)return;
-const el=document.createElement("div");el.className="preview-row";
-const a=document.createElement("strong");a.textContent=label;
-const b=document.createElement("span");b.textContent=value;
-el.append(a,b);body.appendChild(el);
+
+const el=document.createElement("div");
+el.className="preview-row";
+
+const a=document.createElement("strong");
+a.textContent=label;
+
+const b=document.createElement("span");
+b.textContent=value;
+
+el.append(a,b);
+body.appendChild(el);
+
 }
 
 function renderPreview(){
-const sheet=document.createElement("div");sheet.className="preview-sheet";sheet.id="previewSheet";
-sheet.innerHTML=`<div class="preview-head"><img src="Logo.jpg" alt="SK KGN TEAM"><div><div class="preview-brand">SK KGN TEAM</div><div class="preview-sub">PRIVATE COMPLAINT CONSULTANCY</div></div></div><div class="preview-title">COMPLAINT DETAILS</div><div class="preview-body" id="previewBody"></div><div class="preview-foot">SK KGN TEAM · Complaint Information Preview</div>`;
+
+const sheet=document.createElement("div");
+sheet.className="preview-sheet";
+
+sheet.innerHTML=`
+
+<div class="preview-head">
+
+<img src="Logo.jpg" alt="SK KGN TEAM">
+
+<div>
+<div class="preview-brand">SK KGN TEAM</div>
+<div class="preview-sub">PRIVATE COMPLAINT CONSULTANCY</div>
+</div>
+
+</div>
+
+<div class="preview-title">COMPLAINT DETAILS</div>
+
+<div class="preview-body" id="previewBody"></div>
+
+<div class="preview-foot">
+SK KGN TEAM · Complaint Information Preview
+</div>
+
+`;
+
 area.appendChild(sheet);
+
 const body=sheet.querySelector("#previewBody");
+
 addSection(body,"COMPLAINT INFORMATION");
-addRow(body,"Complaint Type",answers.type==="public"?"Public Complaint":"Personal Complaint");
+
+addRow(body,"Complaint Type",
+answers.type==="public"?"Public Complaint":"Personal Complaint");
+
+addRow(body,"Assistance Fee",
+answers.type==="public"?"FREE":"₹199");
+
 addRow(body,"Category",answers.category);
 addRow(body,"Department",answers.department);
 addRow(body,"Subject",answers.subject);
+
 addSection(body,"APPLICANT INFORMATION");
+
 addRow(body,"Full Name",answers.name);
-addRow(body,"Mobile Number",answers.mobile);
-addRow(body,"Email Address",answers.email);
+addRow(body,"Mobile",answers.mobile);
+addRow(body,"Email",answers.email);
+
 addSection(body,"LOCATION");
+
 addRow(body,"State",answers.state);
 addRow(body,"District",answers.district);
 addRow(body,"Village / City",answers.village);
+
 addSection(body,"COMPLAINT DESCRIPTION");
-const details=document.createElement("div");details.style.cssText="font-size:13px;color:#30465d;padding:12px 0;white-space:pre-wrap;line-height:1.7";details.textContent=answers.details||"";body.appendChild(details);
+
+const details=document.createElement("div");
+
+details.style.cssText=
+"font-size:13px;padding:12px 0;white-space:pre-wrap;line-height:1.7;overflow-wrap:anywhere";
+
+details.textContent=answers.details||"";
+
+body.appendChild(details);
+
 }
+
+/* VALIDATION */
 
 function validate(){
+
 const s=steps[current];
-if(s.type==="choice"&&!answers[s.key]){error.textContent="Please select an option.";return false}
+
+if(s.type==="choice"&&!answers[s.key]){
+
+error.textContent="Please select an option.";
+return false;
+
+}
+
 if(s.type==="fields"){
+
 for(const f of s.fields){
+
 const input=document.getElementById("field_"+f.key);
-if(f.required&&!input.value.trim()){error.textContent="Please complete "+f.label+".";input.focus();return false}
-if(f.key==="mobile"&&!/^[6-9][0-9]{9}$/.test(input.value.trim())){error.textContent="Enter a valid 10-digit mobile number.";input.focus();return false}
-if(f.key==="email"&&input.value.trim()&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())){error.textContent="Enter a valid email address.";input.focus();return false}
+
+if(f.required&&!input.value.trim()){
+
+error.textContent="Please complete "+f.label+".";
+input.focus();
+
+return false;
+
+}
+
+if(f.key==="mobile"&&
+!/^[6-9][0-9]{9}$/.test(input.value.trim())){
+
+error.textContent="Enter a valid 10-digit mobile number.";
+input.focus();
+
+return false;
+
+}
+
+if(f.key==="email"&&input.value.trim()&&
+!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim())){
+
+error.textContent="Enter a valid email address.";
+input.focus();
+
+return false;
+
+}
+
 answers[f.key]=input.value.trim();
+
 }
+
 }
+
 return true;
+
 }
+
+/* SUCCESS */
 
 function showSuccess(complaintId,paymentId=""){
+
 document.getElementById("progressArea").classList.add("hidden");
+
 document.getElementById("content").classList.add("hidden");
+
 document.getElementById("navigation").classList.add("hidden");
+
 document.getElementById("successArea").classList.remove("hidden");
-document.getElementById("successMessage").textContent="Your complaint has been successfully recorded. Complaint ID: "+complaintId;
+
+document.getElementById("successMessage").textContent=
+"Your complaint has been recorded. Complaint ID: "+complaintId;
+
 const rows=[
+
 ["Complaint ID",complaintId],
 ["Submission Date",new Date().toLocaleString("en-IN")],
+
 ["Complaint Type",answers.type==="public"?"Public Complaint":"Personal Complaint"],
-["Name",answers.name],["Mobile",answers.mobile],
-["Email",answers.email],["State",answers.state],
-["District",answers.district],["Village / City",answers.village],
-["Category",answers.category],["Department",answers.department],
-["Subject",answers.subject],["Details",answers.details],
+
+["Name",answers.name],
+["Mobile",answers.mobile],
+["Email",answers.email],
+["State",answers.state],
+["District",answers.district],
+["Village / City",answers.village],
+["Category",answers.category],
+["Department",answers.department],
+["Subject",answers.subject],
+["Details",answers.details],
+
+["Assistance Fee",answers.type==="public"?"FREE":"₹199"],
+
 ["Payment Status",answers.type==="public"?"Not Applicable - Free":"Completed"],
+
 ["Payment Reference",paymentId]
+
 ];
+
 const print=document.getElementById("printDetails");
+
 print.innerHTML="";
+
 rows.forEach(([label,value])=>{
+
 if(!value)return;
+
 const row=document.createElement("div");
-row.style.cssText="display:grid;grid-template-columns:155px 1fr;gap:12px;border-bottom:1px solid #ddd;padding:8px 0;overflow-wrap:anywhere";
-const a=document.createElement("strong");a.textContent=label;
-const b=document.createElement("span");b.textContent=value;
-row.append(a,b);print.appendChild(row);
+
+row.style.cssText=
+"display:grid;grid-template-columns:155px 1fr;gap:12px;border-bottom:1px solid #ddd;padding:8px 0;overflow-wrap:anywhere";
+
+const a=document.createElement("strong");
+a.textContent=label;
+
+const b=document.createElement("span");
+b.textContent=value;
+
+row.append(a,b);
+print.appendChild(row);
+
 });
+
 }
+
+/* PUBLIC COMPLAINT - FREE */
 
 async function savePublicComplaint(){
+
 const id="SKKGN-"+Date.now();
+
 const ref=doc(collection(db,"complaints"),id);
+
 await setDoc(ref,{
+
 complaintId:id,
-name:answers.name,mobile:answers.mobile,email:answers.email||"",
-subject:answers.subject,details:answers.details,
+
+name:answers.name,
+mobile:answers.mobile,
+email:answers.email||"",
+
+subject:answers.subject,
+details:answers.details,
+
 complaintType:"Public Complaint",
-state:answers.state,district:answers.district,
-village:answers.village||"",category:answers.category,
+
+state:answers.state,
+district:answers.district,
+village:answers.village||"",
+
+category:answers.category,
 department:answers.department||"",
-plan:"Free",status:"Submitted",
+
+plan:"Free",
+status:"Submitted",
 paymentStatus:"Not Required",
+
 createdAt:serverTimestamp()
+
 });
+
 showSuccess(id);
+
 }
+
+/* PERSONAL COMPLAINT - ₹199 */
 
 async function startPaidPayment(){
-sessionStorage.setItem("SKKGN_PENDING_COMPLAINT",JSON.stringify(answers));
-const response=await fetch("https://skkgn-razorpay-backend.vercel.app/api/create-payment-link",{
-method:"POST",headers:{"Content-Type":"application/json"},
+
+sessionStorage.setItem(
+"SKKGN_PENDING_COMPLAINT",
+JSON.stringify(answers)
+);
+
+const response=await fetch(
+"https://skkgn-razorpay-backend.vercel.app/api/create-payment-link",
+{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+
 body:JSON.stringify({
-plan:"Basic",name:answers.name,mobile:answers.mobile,
-subject:answers.subject,details:answers.details
+
+plan:"Basic",
+amount:19900,
+
+name:answers.name,
+mobile:answers.mobile,
+subject:answers.subject,
+details:answers.details
+
 })
-});
-const data=await response.json();
-if(!response.ok||!data.shortUrl)throw new Error(data.message||"Payment link could not be created.");
-sessionStorage.setItem("SKKGN_ACTIVE_PAYMENT",JSON.stringify({
-shortUrl:data.shortUrl,plan:"Basic",amount:99,
-paymentLinkId:data.paymentLinkId||"",referenceId:data.referenceId||""
-}));
-window.location.href=data.shortUrl;
+
 }
+);
+
+const data=await response.json();
+
+if(!response.ok||!data.shortUrl){
+
+throw new Error(
+data.message||"Payment link could not be created."
+);
+
+}
+
+sessionStorage.setItem(
+"SKKGN_ACTIVE_PAYMENT",
+JSON.stringify({
+
+shortUrl:data.shortUrl,
+plan:"Basic",
+amount:199,
+
+paymentLinkId:data.paymentLinkId||"",
+referenceId:data.referenceId||""
+
+})
+);
+
+window.location.href=data.shortUrl;
+
+}
+
+/* NEXT */
 
 document.getElementById("nextBtn").addEventListener("click",async()=>{
+
 if(current<5){
+
 if(!validate())return;
-current++;render();window.scrollTo({top:0,behavior:"smooth"});return;
+
+current++;
+render();
+
+window.scrollTo({top:0,behavior:"smooth"});
+
+return;
+
 }
+
 const button=document.getElementById("nextBtn");
-button.disabled=true;button.textContent="Processing...";
+
+button.disabled=true;
+button.textContent="Processing...";
+
 error.textContent="";
+
 try{
+
 if(answers.type==="public"){
+
 await savePublicComplaint();
+
 }else{
+
 await startPaidPayment();
+
 }
+
 }catch(e){
+
 error.textContent=e.message||"Submission failed. Please try again.";
-button.disabled=false;button.textContent="Submit Complaint →";
+
+button.disabled=false;
+button.textContent="Submit Complaint →";
+
 }
+
 });
+
+/* BACK */
 
 document.getElementById("backBtn").addEventListener("click",()=>{
-if(current>0){current--;render();window.scrollTo({top:0,behavior:"smooth"})}
+
+if(current>0){
+
+current--;
+render();
+
+window.scrollTo({top:0,behavior:"smooth"});
+
+}
+
 });
 
-document.getElementById("successPrintBtn").addEventListener("click",()=>window.print());
+/* PRINT */
+
+document.getElementById("successPrintBtn").addEventListener("click",()=>{
+
+window.print();
+
+});
+
+/* PAYMENT VERIFICATION */
 
 async function verifyPayment(){
+
 const params=new URLSearchParams(location.search);
+
 if(params.get("payment")==="failed"){
+
 error.textContent="Payment was not completed. Please try again.";
 return;
+
 }
+
 if(params.get("payment")!=="verified")return;
+
 const token=params.get("token");
+
 if(!token)return;
 
 document.getElementById("progressArea").classList.add("hidden");
+
 document.getElementById("content").classList.remove("hidden");
-document.getElementById("question").textContent="Verifying your payment...";
-document.getElementById("description").textContent="Please wait. Do not close this page.";
-document.getElementById("answerArea").innerHTML="";
+
+document.getElementById("question").textContent=
+"Verifying your payment...";
+
+document.getElementById("description").textContent=
+"Please wait. Do not close this page.";
+
+area.innerHTML="";
+
 document.getElementById("navigation").classList.add("hidden");
 
 try{
-const response=await fetch("https://skkgn-razorpay-backend.vercel.app/api/verify-payment?token="+encodeURIComponent(token));
+
+const response=await fetch(
+"https://skkgn-razorpay-backend.vercel.app/api/verify-payment?token="+encodeURIComponent(token)
+);
+
 const data=await response.json();
-if(!response.ok||!data.ok||data.paymentStatus!=="Completed"||!data.razorpayPaymentId||!data.complaint){
-throw new Error("Payment could not be verified. Please contact support.");
+
+if(!response.ok||
+!data.ok||
+data.paymentStatus!=="Completed"||
+!data.razorpayPaymentId||
+!data.complaint){
+
+throw new Error(
+"Payment could not be verified. Please contact support."
+);
+
 }
-const pending=JSON.parse(sessionStorage.getItem("SKKGN_PENDING_COMPLAINT")||"{}");
+
+const pending=JSON.parse(
+sessionStorage.getItem("SKKGN_PENDING_COMPLAINT")||"{}"
+);
+
 const complaint={...data.complaint,...pending};
+
 const paymentId=data.razorpayPaymentId;
+
 const ref=doc(db,"complaints",paymentId);
+
 const existing=await getDoc(ref);
+
 let complaintId;
+
 if(existing.exists()){
+
 complaintId=existing.data().complaintId||paymentId;
+
 }else{
+
 complaintId="SKKGN-"+Date.now();
+
 await setDoc(ref,{
+
 complaintId,
-name:complaint.name,mobile:complaint.mobile,
+
+name:complaint.name,
+mobile:complaint.mobile,
 email:complaint.email||"",
-subject:complaint.subject,details:complaint.details,
+
+subject:complaint.subject,
+details:complaint.details,
+
 complaintType:"Personal Complaint",
-state:complaint.state||"",district:complaint.district||"",
-village:complaint.village||"",category:complaint.category||"",
+
+state:complaint.state||"",
+district:complaint.district||"",
+village:complaint.village||"",
+
+category:complaint.category||"",
 department:complaint.department||"",
-plan:complaint.plan||"Basic",status:"Submitted",
-paymentStatus:"Completed",razorpayPaymentId:paymentId,
+
+plan:"Basic",
+status:"Submitted",
+paymentStatus:"Completed",
+
+razorpayPaymentId:paymentId,
+
 paymentLinkId:complaint.paymentLinkId||"",
 referenceId:complaint.referenceId||"",
+
 createdAt:serverTimestamp()
+
 });
+
 }
+
 Object.assign(answers,complaint,{type:"personal"});
+
 showSuccess(complaintId,paymentId);
+
 sessionStorage.removeItem("SKKGN_PENDING_COMPLAINT");
+
 sessionStorage.removeItem("SKKGN_ACTIVE_PAYMENT");
+
 history.replaceState({},document.title,location.pathname);
+
 }catch(e){
-document.getElementById("question").textContent="Payment verification pending";
-document.getElementById("description").textContent=e.message||"Please contact support.";
+
+document.getElementById("question").textContent=
+"Payment verification pending";
+
+document.getElementById("description").textContent=
+e.message||"Please contact support.";
+
 }
+
 }
+
+/* INITIALIZE */
 
 render();
 verifyPayment();
+
 </script>
+
 </body>
 </html>
