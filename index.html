@@ -1114,66 +1114,6 @@ nav a:hover{
 
 
 /* =========================================================
-   SCHEMES
-========================================================= */
-
-.scheme-list{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-  margin-top:25px;
-}
-
-.scheme-item{
-  background:#fff;
-  border:1px solid #e4e7ec;
-  border-radius:18px;
-  padding:22px;
-  transition:.4s;
-}
-
-.scheme-item:hover{
-  transform:translateY(-4px);
-  box-shadow:0 15px 35px rgba(16,24,40,.09);
-}
-
-.scheme-item h3{
-  font-size:17px;
-  margin-bottom:6px;
-}
-
-.scheme-item p{
-  color:#68707d;
-  font-size:13px;
-  margin-bottom:12px;
-}
-
-.scheme-item a,
-.scheme-more a,
-.scheme-help a{
-  color:#164a9c;
-  font-weight:800;
-  font-size:13px;
-}
-
-.scheme-more,
-.scheme-help{
-  margin-top:18px;
-  padding:25px;
-  border-radius:18px;
-  background:#eef4ff;
-  border:1px solid #d9e7ff;
-}
-
-.scheme-more p,
-.scheme-help p{
-  color:#68707d;
-  font-size:13px;
-  margin-bottom:10px;
-}
-
-
-/* =========================================================
    CTA
 ========================================================= */
 
@@ -1248,7 +1188,24 @@ footer a:hover{
   color:#778091;
   font-size:12px;
 }
+/* FOOTER LANGUAGE */
 
+.footer-language{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  margin:15px auto;
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
+}
+
+.footer-language select{
+  padding:8px 12px;
+  border-radius:8px;
+}
 
 /* =========================================================
    COMPLAINT FIELDS
