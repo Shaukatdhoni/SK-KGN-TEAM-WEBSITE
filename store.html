@@ -2,837 +2,438 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#07152f">
-<meta name="robots" content="index, follow">
-
-<link rel="icon" type="image/png" href="/favicon.png">
-
 <title>Service Plans | SK KGN TEAM</title>
-
-<meta name="description" content="Explore SK KGN TEAM service plans for complaint drafting, submission assistance, document preparation and complaint process guidance.">
+<meta name="description" content="SK KGN TEAM Complaint Assistance Service Plans.">
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-
 html{scroll-behavior:smooth}
-
 body{
-font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-background:#f6f8fc;
-color:#172033;
-line-height:1.6;
-overflow-x:hidden
+  font-family:Inter,"Segoe UI",Arial,sans-serif;
+  background:#f5f7fb;
+  color:#172033;
+  line-height:1.6;
+  overflow-x:hidden;
 }
-
 a{text-decoration:none;color:inherit}
-button{font:inherit}
-.container{width:min(1160px,92%);margin:auto}
+.container{width:min(1120px,92%);margin:auto}
 
 /* HEADER */
-
 header{
-position:sticky;
-top:0;
-z-index:1000;
-background:rgba(255,255,255,.94);
-backdrop-filter:blur(16px);
-border-bottom:1px solid #e7ebf2;
-transition:.3s
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:#fff;
+  border-bottom:1px solid #e5e9f0;
+  box-shadow:0 3px 15px rgba(0,0,0,.025);
 }
-
-header.scrolled{
-box-shadow:0 8px 25px rgba(15,23,42,.08)
-}
-
 .nav{
-min-height:72px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:15px
+  min-height:76px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
 }
-
 .brand{
-display:flex;
-align-items:center;
-gap:11px
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
-
 .brand img{
-width:46px;
-height:46px;
-object-fit:contain;
-border-radius:50%
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  border-radius:50%;
 }
-
 .brand-name{
-font-size:21px;
-font-weight:900;
-letter-spacing:-.6px
+  font-size:22px;
+  font-weight:900;
+  color:#101c32;
+  line-height:1.3;
 }
-
-.brand-name span{color:#1754a5}
-
+.brand-name span{color:#2865a5}
 .brand-sub{
-display:block;
-font-size:9px;
-color:#778195;
-font-weight:750;
-letter-spacing:.8px
+  display:block;
+  font-size:10px;
+  letter-spacing:1px;
+  color:#7b8493;
+  font-weight:800;
 }
-
 .home-btn{
-display:inline-flex;
-align-items:center;
-gap:7px;
-padding:10px 16px;
-border-radius:11px;
-background:#111827;
-color:#fff;
-font-size:12px;
-font-weight:800;
-transition:.25s
+  background:#101a2c;
+  color:#fff;
+  padding:11px 17px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:800;
+  white-space:nowrap;
+  transition:.2s;
 }
-
-.home-btn:hover{transform:translateY(-2px)}
-
-/* HERO */
-
-.hero{
-padding:75px 0 65px;
-background:
-radial-gradient(circle at 85% 15%,rgba(37,99,235,.13),transparent 30%),
-radial-gradient(circle at 15% 85%,rgba(124,58,237,.07),transparent 30%),
-#f4f7fc
-}
-
-.hero-grid{
-display:grid;
-grid-template-columns:1.15fr .85fr;
-gap:45px;
-align-items:center
-}
-
-.kicker{
-display:inline-flex;
-align-items:center;
-gap:8px;
-padding:8px 13px;
-border-radius:30px;
-background:#eaf2ff;
-border:1px solid #d7e5fb;
-color:#164a9c;
-font-size:10px;
-font-weight:850;
-letter-spacing:.8px;
-margin-bottom:20px
-}
-
-.kicker-dot{
-width:7px;
-height:7px;
-border-radius:50%;
-background:#2563eb
-}
-
-.hero h1{
-font-size:clamp(42px,6vw,68px);
-line-height:1.04;
-letter-spacing:-3px;
-margin-bottom:20px
-}
-
-.hero h1 span{
-color:#2563eb
-}
-
-.hero-description{
-max-width:640px;
-color:#626e80;
-font-size:15px;
-line-height:1.85;
-margin-bottom:25px
-}
-
-.hero-buttons{
-display:flex;
-flex-wrap:wrap;
-gap:11px
-}
-
-.btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-padding:13px 19px;
-border-radius:12px;
-font-size:13px;
-font-weight:850;
-transition:.25s
-}
-
-.btn-primary{
-background:#111827;
-color:#fff
-}
-
-.btn-secondary{
-background:#fff;
-color:#172033;
-border:1px solid #dce3ed
-}
-
-.btn:hover{transform:translateY(-3px)}
-
-/* HERO CARD */
-
-.hero-visual{
-position:relative;
-min-height:330px
-}
-
-.visual-main{
-position:absolute;
-inset:12px 0 12px 15px;
-border-radius:26px;
-background:linear-gradient(145deg,#06142d,#0b2d57 60%,#152c51);
-box-shadow:0 25px 60px rgba(7,21,47,.2);
-overflow:hidden
-}
-
-.visual-main:before{
-content:"";
-position:absolute;
-inset:0;
-background:radial-gradient(circle at 80% 15%,rgba(96,165,250,.25),transparent 35%)
-}
-
-.visual-content{
-position:relative;
-z-index:2;
-padding:32px;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:center
-}
-
-.visual-icon{
-width:62px;
-height:62px;
-display:grid;
-place-items:center;
-border-radius:18px;
-background:rgba(255,255,255,.1);
-border:1px solid rgba(255,255,255,.17);
-font-size:29px;
-margin-bottom:20px
-}
-
-.visual-content h2{
-color:#fff;
-font-size:27px;
-line-height:1.2;
-margin-bottom:12px
-}
-
-.visual-content p{
-color:#bdcadd;
-font-size:13px;
-line-height:1.8
-}
-
-.visual-tag{
-display:inline-block;
-width:max-content;
-max-width:100%;
-margin-top:19px;
-padding:7px 11px;
-border-radius:30px;
-background:rgba(96,165,250,.12);
-color:#dbeafe;
-font-size:9px;
-font-weight:850;
-letter-spacing:.4px
-}
-
-.floating-card{
-position:absolute;
-z-index:3;
-padding:13px 16px;
-background:#fff;
-border-radius:14px;
-box-shadow:0 12px 30px rgba(15,23,42,.15)
-}
-
-.floating-card.one{top:0;right:-5px}
-
-.float-title{
-font-size:9px;
-font-weight:850;
-color:#7b8495
-}
-
-.float-value{
-font-size:13px;
-font-weight:900;
-color:#172033;
-margin-top:3px
-}
-
-/* SECTION HEADING */
-
-.section-title{
-text-align:center;
-margin-bottom:38px
-}
-
-.section-label{
-font-size:10px;
-font-weight:900;
-letter-spacing:1.5px;
-color:#1754a5;
-margin-bottom:9px
-}
-
-.section-title h2{
-font-size:clamp(29px,5vw,43px);
-letter-spacing:-1.5px;
-line-height:1.15
-}
-
-.section-title h2 span{color:#2563eb}
-
-.section-title p{
-max-width:650px;
-margin:12px auto 0;
-color:#6b7688;
-font-size:13px;
-line-height:1.8
-}
+.home-btn:hover{background:#2865a5}
 
 /* PLANS */
+.plans-section{padding:48px 0 65px}
+.section-title{text-align:center;margin-bottom:38px}
+.section-label{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  color:#2865a5;
+}
+.section-title h1{
+  font-size:clamp(29px,5vw,42px);
+  letter-spacing:-1px;
+  margin-top:5px;
+  color:#101c32;
+}
+.section-title h1 span{color:#2865a5}
+.section-title p{
+  font-size:13px;
+  color:#7b8493;
+  margin-top:7px;
+}
 
-.plans-section{padding:25px 0 75px}
-
+/* PLAN CARDS */
 .plan-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:18px;
-align-items:stretch
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+  align-items:stretch;
 }
-
 .plan{
-position:relative;
-padding:25px;
-border:1px solid #e0e6ef;
-border-radius:21px;
-background:#fff;
-box-shadow:0 12px 32px rgba(16,24,40,.055);
-transition:.3s;
-overflow:hidden
+  background:#fff;
+  border:1px solid #e0e5ed;
+  border-radius:22px;
+  padding:25px 23px;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  box-shadow:0 10px 30px rgba(15,35,65,.045);
+  transition:.25s;
 }
-
 .plan:hover{
-transform:translateY(-7px);
-box-shadow:0 22px 45px rgba(16,24,40,.1)
+  transform:translateY(-4px);
+  box-shadow:0 16px 35px rgba(15,35,65,.08);
 }
-
-.plan.basic{border-top:3px solid #10b981}
-.plan.advance{border-top:3px solid #2563eb}
-.plan.premium{border-top:3px solid #7c3aed}
+.basic{border-top:4px solid #10a477}
+.advance{border-top:4px solid #2865c7}
+.premium{border-top:4px solid #8239d9}
 
 .plan-badge{
-display:inline-block;
-padding:6px 10px;
-border-radius:30px;
-font-size:9px;
-font-weight:900;
-letter-spacing:.5px;
-margin-bottom:17px
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  padding:7px 12px;
+  border-radius:30px;
+  font-size:10px;
+  font-weight:900;
+  margin-bottom:18px;
 }
-
-.basic .plan-badge{background:#ecfdf5;color:#047857}
-.advance .plan-badge{background:#eff6ff;color:#1d4ed8}
-.premium .plan-badge{background:#f5f3ff;color:#6d28d9}
+.basic .plan-badge{background:#eaf8f2;color:#07835c}
+.advance .plan-badge{background:#edf3ff;color:#245bb4}
+.premium .plan-badge{background:#f3edff;color:#7430c3}
 
 .plan-head{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:10px
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
 }
-
-.plan h3{
-font-size:17px;
-line-height:1.3
-}
-
+.plan h2{font-size:17px;font-weight:800}
 .plan-price{
-font-size:31px;
-font-weight:950;
-letter-spacing:-1px;
-white-space:nowrap
+  font-size:34px;
+  font-weight:900;
+  white-space:nowrap;
+  letter-spacing:-1px;
 }
-
-.basic .plan-price{color:#059669}
-.advance .plan-price{color:#2563eb}
-.premium .plan-price{color:#7c3aed}
+.basic .plan-price{color:#07966b}
+.advance .plan-price{color:#2865c7}
+.premium .plan-price{color:#8239d9}
 
 .plan-subtitle{
-font-size:10px;
-font-weight:850;
-margin-top:8px;
-min-height:35px
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.5px;
+  margin-top:8px;
+  min-height:20px;
 }
-
-.basic .plan-subtitle{color:#059669}
-.advance .plan-subtitle{color:#2563eb}
-.premium .plan-subtitle{color:#7c3aed}
+.basic .plan-subtitle{color:#07966b}
+.advance .plan-subtitle{color:#2865c7}
+.premium .plan-subtitle{color:#8239d9}
 
 .plan-divider{
-height:1px;
-background:#e8ecf2;
-margin:18px 0
+  height:1px;
+  background:#e9edf2;
+  margin:20px 0;
 }
-
 .features{
-list-style:none;
-display:grid;
-gap:13px;
-margin-bottom:24px
+  list-style:none;
+  display:grid;
+  gap:15px;
+  margin-bottom:25px;
+  flex:1;
 }
-
 .features li{
-display:flex;
-align-items:flex-start;
-gap:9px;
-color:#596577;
-font-size:12px;
-line-height:1.65
+  display:flex;
+  align-items:flex-start;
+  gap:11px;
+  font-size:13px;
+  color:#5e6878;
+  line-height:1.55;
 }
-
 .check{
-flex:0 0 19px;
-height:19px;
-display:grid;
-place-items:center;
-border-radius:50%;
-color:#fff;
-font-size:10px;
-font-weight:900;
-margin-top:1px
+  width:21px;
+  height:21px;
+  flex:0 0 21px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:white;
+  font-size:12px;
+  font-weight:900;
 }
-
-.basic .check{background:#10b981}
-.advance .check{background:#2563eb}
-.premium .check{background:#7c3aed}
+.basic .check{background:#10a477}
+.advance .check{background:#2865c7}
+.premium .check{background:#8239d9}
 
 .plan-button{
-display:flex;
-align-items:center;
-justify-content:center;
-width:100%;
-min-height:49px;
-padding:10px;
-border-radius:12px;
-color:#fff;
-font-size:12px;
-font-weight:900;
-text-align:center;
-transition:.25s
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:52px;
+  width:100%;
+  border-radius:12px;
+  color:#fff;
+  font-size:13px;
+  font-weight:900;
+  margin-top:auto;
+  transition:.2s;
 }
-
-.plan-button:hover{transform:translateY(-2px)}
-
+.plan-button:hover{filter:brightness(1.08)}
 .basic .plan-button{
-background:linear-gradient(135deg,#059669,#10b981)
+  background:linear-gradient(120deg,#07966b,#19b58a);
 }
-
 .advance .plan-button{
-background:linear-gradient(135deg,#1d4ed8,#3b82f6)
+  background:linear-gradient(120deg,#2057bd,#397ce4);
 }
-
 .premium .plan-button{
-background:linear-gradient(135deg,#6d28d9,#9333ea)
+  background:linear-gradient(120deg,#7130ce,#963ce7);
 }
-
 .payment-note{
-text-align:center;
-margin-top:11px;
-color:#8791a1;
-font-size:9px;
-font-weight:700
+  text-align:center;
+  font-size:11px;
+  color:#929baa;
+  font-weight:700;
+  margin-top:13px;
 }
 
-/* TRANSPARENCY */
-
-.transparency{padding:0 0 70px}
-
+/* INFORMATION CARDS */
+.transparency{padding:0 0 60px}
 .transparency-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:12px
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:13px;
 }
-
 .transparency-card{
-padding:20px 15px;
-border:1px solid #e0e6ef;
-border-radius:16px;
-background:#fff;
-text-align:center
+  background:#fff;
+  border:1px solid #e4e8ef;
+  border-radius:15px;
+  padding:18px 12px;
+  text-align:center;
 }
-
-.transparency-icon{
-width:40px;
-height:40px;
-display:grid;
-place-items:center;
-margin:0 auto 11px;
-border-radius:12px;
-background:#edf4ff;
-font-size:19px
-}
-
-.transparency-card h3{
-font-size:12px;
-margin-bottom:5px
-}
-
+.transparency-icon{font-size:22px;margin-bottom:7px}
+.transparency-card h3{font-size:12px}
 .transparency-card p{
-font-size:10px;
-line-height:1.7;
-color:#788293
+  font-size:10px;
+  color:#7d8796;
+  margin-top:4px;
 }
 
 /* PROCESS */
-
 .how-section{
-padding:65px 0;
-background:linear-gradient(135deg,#06142d,#0b2347 65%,#0b1220);
-color:#fff
+  background:linear-gradient(135deg,#0a1b36,#102b50);
+  color:white;
+  padding:55px 0 65px;
 }
-
 .how-label{
-color:#93c5fd;
-font-size:10px;
-font-weight:900;
-letter-spacing:1.5px
+  color:#8fc2ff;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:1.5px;
 }
-
-.how-title{
-font-size:clamp(28px,4vw,40px);
-letter-spacing:-1px;
-margin-top:8px
-}
-
-.how-subtitle{
-color:#b6c3d5;
-font-size:13px;
-margin-top:8px
-}
-
+.how-title{font-size:32px;margin-top:5px}
 .steps{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
-margin-top:30px
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-top:28px;
 }
-
 .step{
-padding:21px;
-border:1px solid rgba(255,255,255,.12);
-border-radius:17px;
-background:rgba(255,255,255,.045);
-transition:.25s
+  padding:20px;
+  border:1px solid #ffffff20;
+  border-radius:15px;
+  background:#ffffff09;
 }
-
-.step:hover{transform:translateY(-5px)}
-
 .step-number{
-font-size:10px;
-color:#60a5fa;
-font-weight:900;
-margin-bottom:12px
+  font-size:11px;
+  font-weight:900;
+  color:#79b6ff;
 }
-
-.step-icon{
-font-size:23px;
-margin-bottom:12px
-}
-
-.step h3{
-font-size:14px;
-margin-bottom:7px
-}
-
+.step-icon{font-size:22px;margin:10px 0}
+.step h3{font-size:14px;margin-bottom:5px}
 .step p{
-font-size:11px;
-color:#b3bfd0;
-line-height:1.75
+  font-size:11px;
+  color:#c0cbd9;
+  line-height:1.7;
 }
 
-/* SERVICE NOTICE */
-
-.limits{padding:65px 0}
-
-.limits-box{
-padding:27px;
-background:#fff;
-border:1px solid #e0e6ef;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(15,23,42,.04)
-}
-
-.limits-head{
-display:flex;
-gap:13px;
-align-items:center;
-margin-bottom:18px
-}
-
-.limits-icon{
-width:43px;
-height:43px;
-flex:0 0 43px;
-display:grid;
-place-items:center;
-border-radius:13px;
-background:#fff7ed;
-font-size:21px
-}
-
-.limits-box h2{font-size:22px}
-
-.limits-box .intro{
-font-size:12px;
-color:#6b7688
-}
-
-.limits-list{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px 18px
-}
-
-.limits-list div{
-padding:11px 13px;
-border-radius:10px;
-background:#f8fafc;
-border:1px solid #edf0f4;
-font-size:11px;
-color:#5f6978;
-line-height:1.7
-}
-
-.limits-list strong{color:#172033}
-
-/* CTA */
-
-.cta{padding:0 0 70px}
-
+/* CONTACT */
+.cta{padding:55px 0}
 .cta-box{
-padding:35px;
-border-radius:23px;
-background:linear-gradient(120deg,#164a9c,#0c326c);
-color:#fff;
-box-shadow:0 20px 45px rgba(22,74,156,.17)
+  padding:32px;
+  border-radius:22px;
+  background:linear-gradient(120deg,#174b94,#10366f);
+  color:white;
 }
-
 .cta-content{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
 }
-
-.cta-box h2{
-font-size:clamp(24px,4vw,34px);
-letter-spacing:-.8px
-}
-
+.cta-box h2{font-size:29px}
 .cta-box p{
-font-size:12px;
-color:#d7e6ff;
-margin-top:7px
+  font-size:13px;
+  color:#d4e2f5;
+  margin-top:5px;
 }
-
 .cta-button{
-display:inline-flex;
-padding:12px 17px;
-border-radius:11px;
-background:#fff;
-color:#164a9c;
-font-size:12px;
-font-weight:900;
-white-space:nowrap
+  display:inline-flex;
+  align-items:center;
+  padding:13px 19px;
+  border-radius:11px;
+  background:white;
+  color:#174b94;
+  font-size:13px;
+  font-weight:900;
+  white-space:nowrap;
 }
 
 /* FOOTER */
-
 footer{
-background:#080e19;
-color:#fff;
-padding:45px 0 20px
+  background:#080f1c;
+  color:white;
+  padding:38px 0 20px;
 }
-
 .footer-grid{
-display:grid;
-grid-template-columns:1.4fr 1fr 1fr;
-gap:35px
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:30px;
 }
-
 .footer-brand{
-display:flex;
-align-items:center;
-gap:10px;
-margin-bottom:12px
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
 }
-
 .footer-brand img{
-width:43px;
-height:43px;
-object-fit:contain;
-border-radius:50%
+  width:46px;
+  height:46px;
+  object-fit:contain;
+  border-radius:50%;
 }
-
-.footer-brand strong{font-size:18px}
-.footer-brand strong span{color:#60a5fa}
-
+.footer-brand strong{
+  font-size:20px;
+  font-weight:900;
+}
+.footer-brand strong span{color:#67a9ed}
 .footer-description{
-max-width:390px;
-color:#9ba6b7;
-font-size:11px;
-line-height:1.8
+  max-width:340px;
+  font-size:11px;
+  color:#a6b1c1;
+  line-height:1.8;
 }
-
-footer h3{
-font-size:13px;
-margin-bottom:13px
-}
-
+footer h3{font-size:13px;margin-bottom:12px}
 footer a{
-display:block;
-color:#9ba6b7;
-font-size:11px;
-margin:9px 0;
-transition:.2s
+  display:block;
+  font-size:11px;
+  color:#a6b1c1;
+  margin:9px 0;
 }
-
 footer a:hover{color:#fff}
-
 .contact-line{
-color:#9ba6b7;
-font-size:11px;
-margin:9px 0;
-overflow-wrap:anywhere
+  font-size:11px;
+  color:#a6b1c1;
+  margin:9px 0;
+  overflow-wrap:anywhere;
 }
-
 .contact-line a{display:inline;margin:0}
 
-.footer-disclaimer{
-margin-top:30px;
-padding:17px 0;
-border-top:1px solid rgba(255,255,255,.09);
-border-bottom:1px solid rgba(255,255,255,.09);
-color:#929eaf;
-font-size:10px;
-line-height:1.8
-}
-
-.footer-disclaimer strong{color:#d2d9e4}
-
-.footer-bottom{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:12px;
-flex-wrap:wrap;
-padding-top:17px;
-color:#788497;
-font-size:10px
-}
-
 .footer-legal-links{
-display:flex;
-justify-content:center;
-align-items:center;
-flex-direction:row;
-flex-wrap:wrap;
-gap:8px 18px;
-margin:15px auto;
-text-align:center
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px 20px;
+  margin:20px 0;
 }
-
-.footer-legal-links a{
-display:inline-block;
-font-size:11px;
-white-space:nowrap;
-margin:0
-}
-
-/* REVEAL */
-
-.reveal{
-opacity:0;
-transform:translateY(20px);
-transition:opacity .65s ease,transform .65s ease
-}
-
-.reveal.show{
-opacity:1;
-transform:none
+.footer-legal-links a{margin:0}
+.footer-bottom{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+  padding-top:15px;
+  border-top:1px solid #ffffff15;
+  font-size:10px;
+  color:#8190a4;
 }
 
 /* RESPONSIVE */
-
-@media(max-width:950px){
-.hero-grid{grid-template-columns:1fr}
-.hero-visual{max-width:650px;width:100%;margin:15px auto 0}
-.plan-grid{grid-template-columns:repeat(2,1fr)}
-.plan.premium{grid-column:1/-1;max-width:550px;width:100%;margin:auto}
-.transparency-grid{grid-template-columns:repeat(2,1fr)}
-.steps{grid-template-columns:repeat(2,1fr)}
+@media(max-width:900px){
+  .plan-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .premium{
+    grid-column:1/-1;
+    width:100%;
+    max-width:550px;
+    margin:auto;
+  }
+  .transparency-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
 }
 
-@media(max-width:700px){
-.nav{min-height:65px}
-.brand-name{font-size:18px}
-.brand-sub{font-size:7px}
-.brand img{width:40px;height:40px}
-.home-btn{padding:9px 12px;font-size:11px}
-.hero{padding:50px 0 45px}
-.hero h1{font-size:clamp(39px,11vw,53px);letter-spacing:-2px}
-.hero-description{font-size:14px}
-.hero-visual{min-height:290px}
-.visual-main{inset:12px 0}
-.visual-content{padding:23px}
-.visual-content h2{font-size:24px}
-.plan-grid{grid-template-columns:1fr}
-.plan.premium{grid-column:auto;max-width:none}
-.limits-list{grid-template-columns:1fr}
-.steps{grid-template-columns:1fr}
-.cta-box{padding:25px 21px}
-.cta-content{display:block}
-.cta-button{margin-top:17px}
-.footer-grid{grid-template-columns:1fr;gap:25px}
-.footer-bottom{display:block}
-.footer-bottom span{display:block;margin-top:6px}
-}
+@media(max-width:650px){
+  .nav{min-height:72px}
+  .brand img{width:42px;height:42px}
+  .brand-name{font-size:18px}
+  .brand-sub{font-size:8px}
+  .home-btn{padding:10px 13px;font-size:12px}
 
-@media(max-width:430px){
-.hero-buttons{display:grid;grid-template-columns:1fr}
-.btn{width:100%}
-.plan{padding:22px}
-.transparency-grid{gap:8px}
-.transparency-card{padding:16px 9px}
-.footer-legal-links{gap:8px 12px}
+  .plans-section{padding:38px 0 45px}
+  .plan-grid{grid-template-columns:1fr;gap:18px}
+  .premium{grid-column:auto;max-width:none}
+  .plan{padding:25px 23px}
+
+  .transparency-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+
+  .cta-content{display:block}
+  .cta-button{margin-top:17px}
+
+  .footer-grid{grid-template-columns:1fr;gap:23px}
+  .footer-bottom{display:block}
+  .footer-bottom span{
+    display:block;
+    margin-top:6px;
+  }
 }
 
 @media(prefers-reduced-motion:reduce){
-*{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-.reveal{opacity:1;transform:none}
+  *{
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
 }
 </style>
 </head>
@@ -840,15 +441,14 @@ transform:none
 <body>
 
 <!-- HEADER -->
-
-<header id="siteHeader">
+<header>
 <div class="container nav">
 
 <a href="index.html" class="brand">
 <img src="Logo.jpg" alt="SK KGN TEAM Logo">
 <div>
 <div class="brand-name">SK <span>KGN TEAM</span></div>
-<span class="brand-sub">PRIVATE COMPLAINT CONSULTANCY</span>
+<div class="brand-sub">PRIVATE COMPLAINT CONSULTANCY</div>
 </div>
 </a>
 
@@ -859,87 +459,24 @@ transform:none
 
 <main>
 
-<!-- HERO -->
-
-<section class="hero">
-<div class="container hero-grid">
-
-<div>
-
-<div class="kicker">
-<span class="kicker-dot"></span>
-INDEPENDENT PRIVATE SERVICE
-</div>
-
-<h1>
-Complaint Support.<br>
-<span>Clear Process.</span>
-</h1>
-
-<p class="hero-description">
-SK KGN TEAM provides assistance with complaint drafting, document preparation and submission procedures. Choose the service plan that matches the assistance you need.
-</p>
-
-<div class="hero-buttons">
-<a href="#plans" class="btn btn-primary">View Service Plans →</a>
-<a href="about.html" class="btn btn-secondary">About SK KGN TEAM</a>
-</div>
-
-</div>
-
-<div class="hero-visual">
-
-<div class="visual-main">
-<div class="visual-content">
-
-<div class="visual-icon">⚖️</div>
-
-<h2>Private Complaint<br>Consultancy</h2>
-
-<p>
-Practical assistance with preparing complaints, organising documents and understanding the relevant submission process.
-</p>
-
-<div class="visual-tag">
-INDEPENDENT • CLEAR • PROCESS-BASED
-</div>
-
-</div>
-</div>
-
-<div class="floating-card one">
-<div class="float-title">SERVICE MODEL</div>
-<div class="float-value">Private Consultancy</div>
-</div>
-
-</div>
-
-</div>
-</section>
-
 <!-- PLANS -->
-
-<section class="plans-section" id="plans">
+<section class="plans-section">
 <div class="container">
 
-<div class="section-title reveal">
-<div class="section-label">SERVICE OPTIONS</div>
-<h2>Choose Your <span>Assistance Plan</span></h2>
-<p>
-Each plan covers a different level of assistance. Review the services and price before proceeding.
-</p>
+<div class="section-title">
+<div class="section-label">OUR SERVICES</div>
+<h1>Choose Your <span>Assistance Plan</span></h1>
+<p>Select the service you need.</p>
 </div>
 
 <div class="plan-grid">
 
 <!-- BASIC -->
-
-<article class="plan basic reveal">
-
-<div class="plan-badge">● START HERE</div>
+<article class="plan basic">
+<div class="plan-badge">● BASIC</div>
 
 <div class="plan-head">
-<h3>BASIC SERVICE</h3>
+<h2>Basic Service</h2>
 <div class="plan-price">₹99</div>
 </div>
 
@@ -947,113 +484,106 @@ Each plan covers a different level of assistance. Review the services and price 
 <div class="plan-divider"></div>
 
 <ul class="features">
-<li><span class="check">✓</span><span>Complaint draft prepared using the information supplied by you.</span></li>
-<li><span class="check">✓</span><span>Drafting available in Hindi or English.</span></li>
-<li><span class="check">✓</span><span>Prepared complaint provided in PDF format.</span></li>
-<li><span class="check">✓</span><span>Suitable when you need help preparing a complaint document.</span></li>
+<li><span class="check">✓</span><span>Complaint drafting</span></li>
+<li><span class="check">✓</span><span>Hindi or English</span></li>
+<li><span class="check">✓</span><span>PDF document</span></li>
 </ul>
 
-<a class="plan-button" href="https://rzp.io/rzp/aCUa2Mtm" target="_blank" rel="noopener noreferrer">
-Choose Basic Plan • ₹99
-</a>
+<a class="plan-button"
+href="https://rzp.io/rzp/aCUa2Mtm"
+target="_blank"
+rel="noopener noreferrer">SELECT PLAN</a>
 
-<div class="payment-note">🔒 Secure payment through Razorpay</div>
-
+<div class="payment-note">🔒 Secure payment</div>
 </article>
 
 <!-- ADVANCE -->
-
-<article class="plan advance reveal">
-
-<div class="plan-badge">◆ EXTENDED ASSISTANCE</div>
+<article class="plan advance">
+<div class="plan-badge">◆ ADVANCE</div>
 
 <div class="plan-head">
-<h3>ADVANCE SERVICE</h3>
+<h2>Advance Service</h2>
 <div class="plan-price">₹199</div>
 </div>
 
-<div class="plan-subtitle">DRAFTING & SUBMISSION GUIDANCE</div>
+<div class="plan-subtitle">COMPLAINT SUBMISSION</div>
 <div class="plan-divider"></div>
 
 <ul class="features">
-<li><span class="check">✓</span><span>Complaint drafting based on the details provided.</span></li>
-<li><span class="check">✓</span><span>Guidance on the applicable complaint submission procedure.</span></li>
-<li><span class="check">✓</span><span>Submission copy or record, where available.</span></li>
-<li><span class="check">✓</span><span>Information about the next step in the relevant process.</span></li>
+<li><span class="check">✓</span><span>Complaint drafting</span></li>
+<li><span class="check">✓</span><span>Complaint submission by our team</span></li>
+<li><span class="check">✓</span><span>Submission record, where available</span></li>
+<li><span class="check">✓</span><span>Basic status update</span></li>
 </ul>
 
-<a class="plan-button" href="https://rzp.io/rzp/Fc1SXRUZ" target="_blank" rel="noopener noreferrer">
-Choose Advance Plan • ₹199
-</a>
+<a class="plan-button"
+href="https://rzp.io/rzp/Fc1SXRUZ"
+target="_blank"
+rel="noopener noreferrer">SELECT PLAN</a>
 
-<div class="payment-note">🔒 Secure payment through Razorpay</div>
-
+<div class="payment-note">🔒 Secure payment</div>
 </article>
 
 <!-- PREMIUM -->
-
-<article class="plan premium reveal">
-
-<div class="plan-badge">◆ CONTINUED ASSISTANCE</div>
+<article class="plan premium">
+<div class="plan-badge">◆ PREMIUM</div>
 
 <div class="plan-head">
-<h3>PREMIUM SERVICE</h3>
+<h2>Premium Service</h2>
 <div class="plan-price">₹299</div>
 </div>
 
-<div class="plan-subtitle">COMPREHENSIVE PROCESS ASSISTANCE</div>
+<div class="plan-subtitle">COMPLETE COMPLAINT ASSISTANCE</div>
 <div class="plan-divider"></div>
 
 <ul class="features">
-<li><span class="check">✓</span><span>Complaint drafting and document preparation.</span></li>
-<li><span class="check">✓</span><span>Guidance on complaint filing and submission procedures.</span></li>
-<li><span class="check">✓</span><span>Assistance with checking complaint status, where tracking is available.</span></li>
-<li><span class="check">✓</span><span>Follow-up process guidance, where applicable.</span></li>
-<li><span class="check">✓</span><span>One further complaint submission assistance, where applicable.</span></li>
-<li><span class="check">✓</span><span>Help organising relevant documents and information.</span></li>
+<li><span class="check">✓</span><span>Complaint preparation and submission by our team</span></li>
+<li><span class="check">✓</span><span>One re-complaint, if required</span></li>
+<li><span class="check">✓</span><span>Follow-up assistance</span></li>
+<li><span class="check">✓</span><span>Reminder updates</span></li>
+<li><span class="check">✓</span><span>Complaint status updates</span></li>
+<li><span class="check">✓</span><span>Feedback and response updates</span></li>
 </ul>
 
-<a class="plan-button" href="https://rzp.io/rzp/jF1l9F5" target="_blank" rel="noopener noreferrer">
-Choose Premium Plan • ₹299
-</a>
+<a class="plan-button"
+href="https://rzp.io/rzp/jF1l9F5"
+target="_blank"
+rel="noopener noreferrer">SELECT PLAN</a>
 
-<div class="payment-note">🔒 Secure payment through Razorpay</div>
-
+<div class="payment-note">🔒 Secure payment</div>
 </article>
 
 </div>
 </div>
 </section>
 
-<!-- TRANSPARENCY -->
-
+<!-- INFORMATION CARDS -->
 <section class="transparency">
 <div class="container">
-
 <div class="transparency-grid">
 
-<div class="transparency-card reveal">
+<div class="transparency-card">
 <div class="transparency-icon">📄</div>
-<h3>Defined Services</h3>
-<p>Plan details are available for review before payment.</p>
+<h3>Document Support</h3>
+<p>Complaint preparation</p>
 </div>
 
-<div class="transparency-card reveal">
-<div class="transparency-icon">💳</div>
+<div class="transparency-card">
+<div class="transparency-icon">📨</div>
+<h3>Submission</h3>
+<p>As per selected plan</p>
+</div>
+
+<div class="transparency-card">
+<div class="transparency-icon">🔔</div>
+<h3>Updates</h3>
+<p>Where applicable</p>
+</div>
+
+<div class="transparency-card">
+<div class="transparency-icon">🔒</div>
 <h3>Secure Payment</h3>
-<p>Payments are handled through the Razorpay checkout page.</p>
-</div>
-
-<div class="transparency-card reveal">
-<div class="transparency-icon">🔎</div>
-<h3>Status Assistance</h3>
-<p>Tracking assistance is available where the relevant system supports it.</p>
-</div>
-
-<div class="transparency-card reveal">
-<div class="transparency-icon">⚠️</div>
-<h3>Independent Decisions</h3>
-<p>Final decisions on complaints rest with the concerned authority.</p>
+<p>Razorpay checkout</p>
 </div>
 
 </div>
@@ -1061,130 +591,87 @@ Choose Premium Plan • ₹299
 </section>
 
 <!-- HOW IT WORKS -->
-
 <section class="how-section">
 <div class="container">
 
-<div class="how-label">HOW THE SERVICE WORKS</div>
-<h2 class="how-title">The Process, Step by Step</h2>
-<p class="how-subtitle">Here is what to expect when you choose a service plan.</p>
+<div class="how-label">HOW IT WORKS</div>
+<h2 class="how-title">Simple Process</h2>
 
 <div class="steps">
 
-<div class="step reveal">
+<div class="step">
 <div class="step-number">01</div>
 <div class="step-icon">🛒</div>
 <h3>Select a Plan</h3>
-<p>Review the available services and choose the plan that suits your requirement.</p>
+<p>Choose your required service.</p>
 </div>
 
-<div class="step reveal">
+<div class="step">
 <div class="step-number">02</div>
 <div class="step-icon">💳</div>
 <h3>Make Payment</h3>
-<p>Open the applicable Razorpay page and check the amount before completing payment.</p>
+<p>Complete the payment.</p>
 </div>
 
-<div class="step reveal">
+<div class="step">
 <div class="step-number">03</div>
 <div class="step-icon">📋</div>
 <h3>Share Details</h3>
-<p>Provide the relevant information and documents needed for the selected service.</p>
+<p>Provide the required information.</p>
 </div>
 
-<div class="step reveal">
+<div class="step">
 <div class="step-number">04</div>
 <div class="step-icon">✓</div>
-<h3>Receive Assistance</h3>
-<p>The requested work is handled within the scope of the selected plan.</p>
+<h3>Service Begins</h3>
+<p>Our team starts the selected work.</p>
 </div>
 
 </div>
 </div>
 </section>
 
-<!-- SERVICE SCOPE -->
-
-<section class="limits">
-<div class="container">
-
-<div class="limits-box reveal">
-
-<div class="limits-head">
-<div class="limits-icon">⚠️</div>
-<div>
-<h2>Service Scope & Important Information</h2>
-<p class="intro">Please read these points before selecting a plan.</p>
-</div>
-</div>
-
-<div class="limits-list">
-
-<div><strong>Private service:</strong> SK KGN TEAM provides independent consultancy and process assistance.</div>
-
-<div><strong>No government affiliation:</strong> SK KGN TEAM is not a government department or authority.</div>
-
-<div><strong>No outcome guarantee:</strong> Filing or drafting assistance does not guarantee acceptance or resolution.</div>
-
-<div><strong>Authority decisions:</strong> The concerned government or private authority decides the outcome of a complaint.</div>
-
-<div><strong>Information supplied:</strong> Work is based on the facts and documents provided by the customer.</div>
-
-<div><strong>Legal representation:</strong> The service does not include representation by an advocate or legal advice unless expressly provided by a qualified professional.</div>
-
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- CONTACT CTA -->
-
+<!-- CONTACT -->
 <section class="cta">
 <div class="container">
-
 <div class="cta-box">
+
 <div class="cta-content">
-
 <div>
-<h2>Need More Information?</h2>
-<p>Contact SK KGN TEAM for enquiries about the available assistance plans.</p>
+<h2>Need Help?</h2>
+<p>Contact our team for service-related enquiries.</p>
 </div>
 
-<a href="https://wa.me/917007027158" target="_blank" rel="noopener noreferrer" class="cta-button">
-Contact on WhatsApp →
-</a>
+<a href="https://wa.me/917007027158"
+target="_blank"
+rel="noopener noreferrer"
+class="cta-button">Contact on WhatsApp →</a>
+</div>
 
 </div>
-</div>
-
 </div>
 </section>
 
 </main>
 
 <!-- FOOTER -->
-
 <footer>
 <div class="container">
 
 <div class="footer-grid">
 
 <div>
-
 <div class="footer-brand">
 <img src="Logo.jpg" alt="SK KGN TEAM Logo">
 <strong>SK <span>KGN TEAM</span></strong>
 </div>
 
 <p class="footer-description">
-SK KGN TEAM provides independent assistance with complaint drafting, document preparation, submission procedures and selected citizen-service matters.
+Independent assistance with complaint drafting, document preparation and submission procedures.
 </p>
-
 </div>
 
 <div>
-
 <h3>Contact</h3>
 
 <div class="contact-line">
@@ -1200,101 +687,35 @@ Website: <a href="https://skkgnteam.in">skkgnteam.in</a>
 </div>
 
 <div class="contact-line">
-WhatsApp: <a href="https://wa.me/917007027158" target="_blank" rel="noopener noreferrer">Contact Us</a>
+WhatsApp: <a href="https://wa.me/917007027158">Contact Us</a>
 </div>
-
 </div>
 
 <div>
-
 <h3>Information</h3>
-
 <a href="index.html">Home</a>
 <a href="about.html">About Us</a>
-<a href="legal.html">Legal & RTI Information</a>
+<a href="legal.html">Legal &amp; RTI Information</a>
 <a href="public.html">Public Services</a>
 <a href="status.html">Check Complaint Status</a>
-
 </div>
 
 </div>
 
-<div class="footer-disclaimer">
-<strong>Disclaimer:</strong> SK KGN TEAM is an independent private consultancy and is not affiliated with any government department, court, police authority or statutory body. Our role is limited to the assistance described in the selected service plan. Decisions on complaints and applications are made solely by the concerned authorities.
-</div>
-
+<!-- LEGAL LINKS -->
 <div class="footer-legal-links">
 <a href="privacy-policy.html">Privacy Policy</a>
-<a href="terms-and-conditions.html">Terms & Conditions</a>
+<a href="terms-and-conditions.html">Terms &amp; Conditions</a>
 <a href="disclaimer.html">Disclaimer</a>
 </div>
 
 <div class="footer-bottom">
 <span>© 2026 SK KGN TEAM. All rights reserved.</span>
-<span>Independent Private Complaint Consultancy</span>
+<span>Independent Private Consultancy</span>
 </div>
 
 </div>
 </footer>
-
-<!-- JAVASCRIPT -->
-
-<script>
-
-/* HEADER */
-
-const siteHeader=document.getElementById("siteHeader");
-
-function updateHeader(){
-if(window.scrollY>20){
-siteHeader.classList.add("scrolled");
-}else{
-siteHeader.classList.remove("scrolled");
-}
-}
-
-window.addEventListener("scroll",updateHeader,{passive:true});
-updateHeader();
-
-/* SCROLL REVEAL */
-
-const revealItems=document.querySelectorAll(".reveal");
-
-if("IntersectionObserver" in window){
-
-const observer=new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-observer.unobserve(entry.target);
-}
-});
-},{threshold:.12});
-
-revealItems.forEach(item=>observer.observe(item));
-
-}else{
-
-revealItems.forEach(item=>item.classList.add("show"));
-
-}
-
-/* PLAN LINK */
-
-document.querySelectorAll('a[href="#plans"]').forEach(link=>{
-link.addEventListener("click",function(event){
-
-const plans=document.getElementById("plans");
-
-if(plans){
-event.preventDefault();
-plans.scrollIntoView({behavior:"smooth",block:"start"});
-}
-
-});
-});
-
-</script>
 
 </body>
 </html>
