@@ -1,32 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://www.skkgnteam.in/</loc>
+    <loc>https://skkgnteam.in/</loc>
   </url>
 
   <url>
-    <loc>https://www.skkgnteam.in/about.html</loc>
+    <loc>https://skkgnteam.in/about.html</loc>
   </url>
 
   <url>
-    <loc>https://www.skkgnteam.in/carrier.html</loc>
+    <loc>https://skkgnteam.in/advocate-network.html</loc>
   </url>
 
   <url>
-    <loc>https://www.skkgnteam.in/legal.html</loc>
+    <loc>https://skkgnteam.in/advocates.html</loc>
   </url>
 
   <url>
-    <loc>https://www.skkgnteam.in/public.html</loc>
+    <loc>https://skkgnteam.in/book.html</loc>
   </url>
 
   <url>
-    <loc>https://www.skkgnteam.in/status.html</loc>
+    <loc>https://skkgnteam.in/carrier.html</loc>
   </url>
 
   <url>
-    <loc>https://www.skkgnteam.in/store.html</loc>
+    <loc>https://skkgnteam.in/complain.html</loc>
+  </url>
+
+  <url>
+    <loc>https://skkgnteam.in/disclaimer.html</loc>
+  </url>
+
+  <url>
+    <loc>https://skkgnteam.in/legal.html</loc>
+  </url>
+
+  <url>
+    <loc>https://skkgnteam.in/privacy-policy.html</loc>
+  </url>
+
+  <url>
+    <loc>https://skkgnteam.in/public.html</loc>
+  </url>
+
+  <url>
+    <loc>https://skkgnteam.in/status.html</loc>
+  </url>
+
+  <url>
+    <loc>https://skkgnteam.in/store.html</loc>
+  </url>
+
+  <url>
+    <loc>https://skkgnteam.in/terms-and-conditions.html</loc>
   </url>
 
 </urlset>
