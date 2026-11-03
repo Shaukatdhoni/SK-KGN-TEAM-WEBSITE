@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /Admin.html
+Disallow: /admin.html
+
+Sitemap: https://skkgnteam.in/sitemap.xml
