@@ -3,781 +3,546 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Join the Advocate Network | SK KGN TEAM</title>
 
-<meta name="description" content="Apply to join the SK KGN TEAM Advocate Network. Submit your advocate registration application for review and approval.">
-
-<meta name="robots" content="index, follow">
-
-<link rel="canonical" href="https://skkgnteam.in/advocate-network.html">
-
-<meta name="theme-color" content="#071a3b">
-<link rel="icon" type="image/jpeg" href="Logo.jpg">
-
-<!-- OPEN GRAPH -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Join the Advocate Network | SK KGN TEAM">
-<meta property="og:description" content="Apply to join the SK KGN TEAM Advocate Network. Registration is subject to review and approval.">
-<meta property="og:url" content="https://skkgnteam.in/advocate-network.html">
-<meta property="og:site_name" content="SK KGN TEAM">
-<meta property="og:image" content="https://skkgnteam.in/preview.png">
-
-<!-- TWITTER -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Join the Advocate Network | SK KGN TEAM">
-<meta name="twitter:description" content="Submit your advocate registration application for review.">
-<meta name="twitter:image" content="https://skkgnteam.in/preview.png">
+<title>Advocate Registration | SK KGN TEAM</title>
+<meta name="description" content="Register as an advocate with SK KGN TEAM Advocate Network.">
 
 <style>
-:root{
-  --navy:#071a3b;
-  --navy2:#102e60;
-  --blue:#175fce;
-  --ink:#18243a;
-  --muted:#6b7688;
-  --line:#e1e7ef;
-  --paper:#f3f6fb;
-  --white:#fff;
-  --green:#176b45;
-  --red:#a62d27;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  font-family:Inter,"Segoe UI",Arial,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-  line-height:1.6
-}
-button,input,select,textarea{font:inherit}
-.container{width:min(1120px,92%);margin:auto}
-.topbar{
-  background:var(--navy);
-  color:#fff;
-  border-bottom:1px solid #263e65
-}
-.nav{
-  min-height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px
-}
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:white
-}
-.brand img{
-  width:46px;height:46px;object-fit:contain;
-  background:white;border-radius:11px;padding:3px
-}
-.brand-name{display:block;font-size:17px;font-weight:800}
-.brand-sub{
-  display:block;font-size:10px;letter-spacing:1.4px;
-  text-transform:uppercase;color:#b9c8df
-}
-.nav-link{
-  border:1px solid #7185a5;border-radius:9px;
-  padding:9px 13px;color:#fff;text-decoration:none;
-  font-size:12px;font-weight:700;white-space:nowrap
-} 
-.hero{
-  color:white;
-  padding:65px 0;
-  background:linear-gradient(120deg,#071a3b,#102e60 70%,#174b91)
-}
-.eyebrow{
-  font-size:11px;letter-spacing:2px;
-  text-transform:uppercase;color:#c3d7f5;font-weight:800
-}
-.hero h1{
-  font-size:clamp(32px,5vw,53px);
-  line-height:1.12;letter-spacing:-1px;
-  max-width:760px;margin:12px 0 18px
-}
-.hero p{max-width:700px;color:#d8e2f1;font-size:16px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.button{
-  display:inline-flex;align-items:center;justify-content:center;
-  gap:8px;padding:13px 18px;border-radius:9px;
-  border:1px solid transparent;text-decoration:none;
-  font-size:13px;font-weight:800;cursor:pointer
-}
-.button-primary{background:#fff;color:var(--navy)}
-.button-outline{border-color:#7185a5;color:#fff}
-.hero-note{font-size:11px!important;color:#b9c8df!important;margin-top:20px}
-.section{padding:54px 0}
-.section-white{background:#fff;border-block:1px solid var(--line)}
-.section-heading{max-width:750px;margin-bottom:28px}
-.section-kicker{
-  font-size:11px;letter-spacing:1.5px;
-  text-transform:uppercase;color:var(--blue);font-weight:800
-}
-h2{font-size:clamp(25px,3vw,35px);line-height:1.2;color:var(--navy);margin:8px 0 12px}
-.section-heading p{color:var(--muted);font-size:14px}
-.process-grid,.benefit-grid{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px
-}
-.process-card,.benefit-card{
-  background:#fff;border:1px solid var(--line);
-  border-radius:12px;padding:20px
-}
-.process-no{
-  background:#eaf1fc;color:var(--navy2);
-  width:35px;height:35px;border-radius:9px;
-  display:grid;place-items:center;font-weight:900;font-size:12px
-}
-.process-card h3,.benefit-card h3{font-size:15px;color:var(--navy)}
-.process-card p,.benefit-card p{font-size:12px;color:var(--muted)}
-.benefit-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-.application-layout{
-  display:grid;grid-template-columns:minmax(240px,.8fr) minmax(0,1.5fr);
-  gap:24px;align-items:start
-}
-.side-panel{
-  background:var(--navy);color:white;
-  border-radius:13px;padding:24px
-}
-.side-panel p,.side-panel li{font-size:12px;color:#d0dced}
-.side-panel ul{padding-left:18px}
-.side-panel li{padding:6px 0}
-.form-card{
-  background:#fff;border:1px solid var(--line);
-  border-radius:14px;padding:clamp(18px,3vw,30px);
-  box-shadow:0 8px 25px #102e6008
-}
-.form-top{border-bottom:1px solid var(--line);padding-bottom:15px;margin-bottom:20px}
-.form-top h3{margin:0;color:var(--navy);font-size:21px}
-.form-top p{font-size:12px;color:var(--muted)}
-fieldset{border:0;border-bottom:1px solid var(--line);padding:0 0 22px;margin:0 0 22px}
-legend{font-weight:900;color:var(--navy);font-size:13px;margin-bottom:15px}
-.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
-.field{min-width:0}
-.field.full{grid-column:1/-1}
-label,.field-label{display:block;font-size:12px;font-weight:750;margin-bottom:7px}
-.required{color:#c0392b}
-input:not([type=checkbox]),select,textarea{
-  width:100%;min-height:44px;border:1px solid #d5dce7;
-  border-radius:8px;padding:11px 12px;background:white;
-  color:var(--ink);outline:none;font-size:13px
-}
-input:focus,select:focus,textarea:focus{
-  border-color:var(--blue);box-shadow:0 0 0 3px #175fce18
-}
-textarea{resize:vertical;min-height:95px}
-.hint{font-size:11px;color:var(--muted);margin-top:5px}
-.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-.check{
-  display:flex;align-items:center;gap:10px;
-  padding:12px;background:#f7f9fc;
-  border:1px solid var(--line);border-radius:9px;
-  font-size:13px;cursor:pointer;margin:0
-}
-.check input,.consent input{
-  width:17px;height:17px;min-width:17px;
-  accent-color:var(--blue);margin:0
-}
-.consent{
-  display:flex;align-items:flex-start;gap:11px;
-  font-size:12px;line-height:1.7;color:#596579;margin:18px 0
-}
-.consent input{margin-top:3px}
-.form-submit{
-  width:100%;min-height:52px;background:var(--navy);
-  color:#fff;border:0;border-radius:10px;font-size:14px
-}
-.form-submit:hover{background:#10316a}
-.form-submit:disabled{opacity:.65;cursor:wait}
-.policy{font-size:11px;color:#7b8595;line-height:1.7;margin-top:15px}
-.footer{background:#06142d;color:#c6d1e0;padding:24px 0}
-.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.footer-brand{font-size:13px;color:white;font-weight:800}
-.footer small{font-size:10px}
-[hidden]{display:none!important}
 
-/* ACTUAL SUBMISSION SUCCESS / ERROR POPUP */
-.modal{
-  position:fixed;inset:0;z-index:9999;
-  display:flex;align-items:center;justify-content:center;
-  padding:18px;background:rgba(3,12,29,.78);
-  backdrop-filter:blur(7px);overflow-y:auto
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6fa;
+    color: #172033;
 }
-.modal-card{
-  width:min(510px,100%);background:#fff;
-  border-radius:20px;overflow:hidden;
-  box-shadow:0 25px 90px #0005;
-  animation:modalIn .25s ease-out;
-  max-height:calc(100dvh - 36px);overflow-y:auto
+
+header {
+    background: #101d35;
+    color: white;
+    padding: 15px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 }
-@keyframes modalIn{
-  from{opacity:0;transform:translateY(12px) scale(.98)}
-  to{opacity:1;transform:translateY(0) scale(1)}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
-.modal-head{
-  text-align:center;color:white;padding:30px 20px 27px;
-  background:linear-gradient(130deg,#071a3b,#175fce)
+
+.brand img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+    border-radius: 6px;
 }
-.success-icon{
-  width:68px;height:68px;border:2px solid #d7e7ff;
-  color:white;border-radius:50%;display:grid;
-  place-items:center;margin:0 auto 16px;font-size:35px;font-weight:500
+
+.brand h2 {
+    font-size: 17px;
 }
-.modal-brand{
-  font-size:10px;letter-spacing:2px;
-  font-weight:800;color:#d6e4fa;text-transform:uppercase
+
+.brand small {
+    display: block;
+    font-size: 11px;
+    color: #b9c8df;
+    margin-top: 3px;
 }
-.modal-head h2{font-size:30px;color:white;margin:12px 0 8px}
-.modal-head p{font-size:13px;color:#e0eaff;margin:0}
-.modal-body{padding:25px}
-.modal-body h3{font-size:21px;color:var(--navy);margin:0 0 8px}
-.modal-description{font-size:13px;color:var(--muted);line-height:1.7}
-.reference-box{
-  border:1px solid #d8e4f5;background:#f3f7fd;
-  padding:17px;border-radius:12px;margin:20px 0
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    border: 1px solid #64748b;
+    padding: 9px 13px;
+    border-radius: 6px;
 }
-.reference-label{
-  color:#536b8d;font-size:10px;font-weight:900;
-  letter-spacing:1.4px;text-transform:uppercase
+
+.container {
+    max-width: 720px;
+    margin: 30px auto;
+    padding: 0 15px;
 }
-.reference-id{
-  display:block;margin:10px 0 15px;color:var(--navy);
-  font-size:17px;font-weight:900;overflow-wrap:anywhere
+
+.intro {
+    text-align: center;
+    margin-bottom: 22px;
 }
-.copy-button{
-  width:100%;padding:13px;border-radius:9px;
-  background:white;border:1px solid #cbd8e9;
-  color:var(--navy);font-size:12px;font-weight:900;cursor:pointer
+
+.intro h1 {
+    font-size: 25px;
+    color: #142849;
+    margin-bottom: 8px;
 }
-.status-pill{
-  display:table;margin:0 auto 18px;padding:9px 15px;
-  border-radius:50px;background:#eaf2ff;color:#20579a;
-  font-size:11px;font-weight:900
+
+.intro p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
 }
-.modal-footnote{text-align:center;color:#7b8595;font-size:11px;margin:0 0 20px}
-.close-modal{
-  width:100%;background:var(--navy);color:#fff;
-  border:0;border-radius:10px;padding:15px;
-  font-size:13px;font-weight:900;cursor:pointer
+
+.form-box {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
 }
-@media(max-width:850px){
-  .process-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .application-layout{grid-template-columns:1fr}
+
+.section-title {
+    font-size: 17px;
+    color: #142849;
+    border-bottom: 1px solid #e5eaf1;
+    padding-bottom: 11px;
+    margin: 5px 0 18px;
 }
-@media(max-width:560px){
-  .nav{min-height:68px}
-  .brand img{width:40px;height:40px}
-  .brand-name{font-size:14px}
-  .brand-sub{font-size:9px;letter-spacing:.7px}
-  .nav-link{font-size:10px;padding:8px}
-  .hero{padding:46px 0}
-  .section{padding:40px 0}
-  .process-grid,.form-grid,.checks{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
-  .benefit-grid{grid-template-columns:1fr}
-  .modal-head{padding:25px 17px}
-  .modal-head h2{font-size:26px}
-  .modal-body{padding:21px 18px}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    color: #334155;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+    color: #172033;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #2563eb;
+}
+
+textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+.required {
+    color: #dc2626;
+}
+
+.declaration {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #475569;
+    margin: 18px 0;
+}
+
+.declaration input {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+}
+
+button {
+    width: 100%;
+    border: none;
+    padding: 14px;
+    border-radius: 7px;
+    background: #173968;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #10294d;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#message {
+    display: none;
+    padding: 13px;
+    border-radius: 7px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+footer {
+    background: #101d35;
+    color: #cbd5e1;
+    text-align: center;
+    padding: 22px 15px;
+    margin-top: 40px;
+    font-size: 12px;
+}
+
+footer img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.footer-links {
+    margin: 12px 0;
+}
+
+@media(max-width: 550px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+    .form-box {
+        padding: 18px;
+    }
+
+    .intro h1 {
+        font-size: 22px;
+    }
+
+    header {
+        padding: 12px 4%;
+    }
+
+    .brand h2 {
+        font-size: 15px;
+    }
 }
 </style>
 </head>
 
 <body>
-<header class="topbar">
-  <div class="container nav">
-    <a class="brand" href="index.html">
-      <img src="Logo.jpg" alt="SK KGN TEAM logo">
-      <span>
-        <span class="brand-name">SK KGN TEAM</span>
-        <span class="brand-sub">Advocate Network</span>
-      </span>
-    </a>
-    <a class="nav-link" href="index.html">← Main Website</a>
-  </div>
+
+<header>
+    <div class="brand">
+        <img src="Logo.jpg" alt="SK KGN TEAM Logo">
+        <div>
+            <h2>SK KGN TEAM</h2>
+            <small>ADVOCATE NETWORK</small>
+        </div>
+    </div>
+
+    <a href="index.html">Main Website</a>
 </header>
 
-<main>
-  <section class="hero">
-    <div class="container">
-      <div class="eyebrow">Professional Network</div>
-      <h1>Advocate Network &amp; Professional Collaboration</h1>
-      <p>Join a professional network designed to support structured coordination, professional connections and suitable legal-assistance enquiries.</p>
-      <div class="actions">
-        <a class="button button-primary" href="#application">Apply to Join →</a>
-        <a class="button button-outline" href="#process">Review the Process</a>
-      </div>
-      <p class="hero-note">Applications are reviewed individually. Submission does not guarantee approval, clients, referrals or work.</p>
+<main class="container">
+
+    <div class="intro">
+        <h1>Advocate Registration</h1>
+        <p>
+            Join the SK KGN TEAM Advocate Network.
+            Submit your professional details for review.
+        </p>
     </div>
-  </section>
 
-  <section class="section" id="process">
-    <div class="container">
-      <div class="section-heading">
-        <div class="section-kicker">Application Process</div>
-        <h2>A clear onboarding process</h2>
-        <p>Each application is reviewed before participation in the network is confirmed.</p>
-      </div>
-      <div class="process-grid">
-        <article class="process-card">
-          <div class="process-no">01</div>
-          <h3>Application</h3>
-          <p>Submit contact, location and professional enrolment information.</p>
-        </article>
-        <article class="process-card">
-          <div class="process-no">02</div>
-          <h3>Review</h3>
-          <p>Submitted details may be checked and clarification requested.</p>
-        </article>
-        <article class="process-card">
-          <div class="process-no">03</div>
-          <h3>Decision</h3>
-          <p>The application is reviewed against onboarding requirements.</p>
-        </article>
-        <article class="process-card">
-          <div class="process-no">04</div>
-          <h3>Update</h3>
-          <p>The applicant receives an update after the review process.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+    <div class="form-box">
 
-  <section class="section section-white">
-    <div class="container">
-      <div class="section-heading">
-        <div class="section-kicker">Professional Collaboration</div>
-        <h2>Built around clarity and independence</h2>
-        <p>The network is intended to support appropriate coordination while respecting each advocate's independent professional judgment.</p>
-      </div>
-      <div class="benefit-grid">
-        <article class="benefit-card">
-          <h3>Professional Connections</h3>
-          <p>Connect with professionals across practice areas and locations where appropriate.</p>
-        </article>
-        <article class="benefit-card">
-          <h3>Structured Coordination</h3>
-          <p>Use a documented process for application review and communication.</p>
-        </article>
-        <article class="benefit-card">
-          <h3>Practice Information</h3>
-          <p>Provide practice-area and location details for network consideration.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+        <div id="message"></div>
 
-  <section class="section" id="application">
-    <div class="container">
-      <div class="section-heading">
-        <div class="section-kicker">Network Application</div>
-        <h2>Apply to join the advocate network</h2>
-        <p>Complete the form accurately. Do not include confidential client or case information.</p>
-      </div>
+        <form id="advocateForm">
 
-      <div class="application-layout">
-        <aside class="side-panel">
-          <h3>Before You Apply</h3>
-          <p>Keep your enrolment details accurate. Supporting documents may be requested through an appropriate channel.</p>
-          <ul>
-            <li>Applications are subject to review.</li>
-            <li>Professional details may be checked.</li>
-            <li>Membership does not guarantee work or referrals.</li>
-            <li>Advocates retain their professional independence.</li>
-          </ul>
-        </aside>
+            <h3 class="section-title">Personal Details</h3>
 
-        <form class="form-card" id="advocateForm">
-          <div class="form-top">
-            <h3>Advocate Details</h3>
-            <p>Fields marked <span class="required">*</span> are required.</p>
-          </div>
-
-          <fieldset>
-            <legend>01 — Contact Information</legend>
             <div class="form-grid">
-              <div class="field">
-                <label for="fullName">Full Name <span class="required">*</span></label>
-                <input id="fullName" name="fullName" maxlength="100" autocomplete="name" required>
-              </div>
-              <div class="field">
-                <label for="mobile">Mobile Number <span class="required">*</span></label>
-                <input id="mobile" name="mobile" type="tel" inputmode="numeric"
-                  pattern="[0-9]{10}" minlength="10" maxlength="10"
-                  placeholder="10-digit mobile number" required>
-                <div class="hint">Enter 10 digits without spaces or country code.</div>
-              </div>
-              <div class="field">
-                <label for="email">Professional Email <span class="required">*</span></label>
-                <input id="email" name="email" type="email" maxlength="254" autocomplete="email" required>
-              </div>
-              <div class="field">
-                <label for="state">State / Union Territory <span class="required">*</span></label>
-                <input id="state" name="state" maxlength="80" required>
-              </div>
-              <div class="field">
-                <label for="district">District <span class="required">*</span></label>
-                <input id="district" name="district" maxlength="80" required>
-              </div>
-              <div class="field">
-                <label for="city">City / Practice Location <span class="required">*</span></label>
-                <input id="city" name="city" maxlength="100" required>
-              </div>
-            </div>
-          </fieldset>
 
-          <fieldset>
-            <legend>02 — Professional Information</legend>
-            <div class="form-grid">
-              <div class="field">
-                <label for="barCouncil">Bar Council <span class="required">*</span></label>
-                <input id="barCouncil" name="barCouncil" maxlength="150"
-                  placeholder="e.g. Bar Council of Uttar Pradesh" required>
-              </div>
-              <div class="field">
-                <label for="enrolmentNumber">Enrolment Number <span class="required">*</span></label>
-                <input id="enrolmentNumber" name="enrolmentNumber" maxlength="80" required>
-              </div>
-              <div class="field">
-                <label for="enrolmentYear">Year of Enrolment <span class="required">*</span></label>
-                <select id="enrolmentYear" name="enrolmentYear" required>
-                  <option value="">Select year</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="yearsOfPractice">Years in Practice <span class="required">*</span></label>
-                <select id="yearsOfPractice" name="yearsOfPractice" required>
-                  <option value="">Select experience</option>
-                  <option value="Under 1 year">Under 1 year</option>
-                  <option value="1–3 years">1–3 years</option>
-                  <option value="4–7 years">4–7 years</option>
-                  <option value="8–15 years">8–15 years</option>
-                  <option value="16+ years">16+ years</option>
-                </select>
-              </div>
-
-              <div class="field full">
-                <span class="field-label">Practice Areas <span class="required">*</span></span>
-                <div class="checks">
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Civil"> Civil</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Criminal"> Criminal</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Consumer Matters"> Consumer Matters</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Family Matters"> Family Matters</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Property / Land"> Property / Land</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Service Matters"> Service Matters</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Corporate / Commercial Law"> Corporate / Commercial Law</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Constitutional Law"> Constitutional Law</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Labour & Employment Law"> Labour &amp; Employment Law</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Cyber Crime"> Cyber Crime</label>
-                  <label class="check"><input type="checkbox" name="practiceAreas" value="Other"> Other</label>
+                <div class="field full">
+                    <label>Full Name <span class="required">*</span></label>
+                    <input type="text" id="name" required maxlength="100">
                 </div>
-                <div class="hint">Select one or more practice areas.</div>
-              </div>
 
-              <div class="field full">
-                <label for="officeAddress">Office Address (Optional)</label>
-                <textarea id="officeAddress" name="officeAddress" maxlength="500"
-                  placeholder="Office or chamber address; do not include client information"></textarea>
-              </div>
-              <div class="field full">
-                <label for="introduction">Professional Introduction (Optional)</label>
-                <textarea id="introduction" name="introduction" maxlength="1200"
-                  placeholder="Briefly describe your professional practice and experience."></textarea>
-                <div class="hint">Maximum 1,200 characters. Do not include confidential case details.</div>
-              </div>
+                <div class="field">
+                    <label>Mobile Number <span class="required">*</span></label>
+                    <input type="tel" id="mobile" required
+                    pattern="[0-9]{10}" maxlength="10"
+                    placeholder="10-digit mobile number">
+                </div>
+
+                <div class="field">
+                    <label>Email Address</label>
+                    <input type="email" id="email">
+                </div>
+
+                <div class="field">
+                    <label>State <span class="required">*</span></label>
+                    <input type="text" id="state" required>
+                </div>
+
+                <div class="field">
+                    <label>District <span class="required">*</span></label>
+                    <input type="text" id="district" required>
+                </div>
+
             </div>
-          </fieldset>
 
-          <label class="consent">
-            <input type="checkbox" id="declaration" required>
-            <span>I confirm that the information supplied is accurate and consent to its review. I understand that submission does not guarantee acceptance, clients or referrals.</span>
-          </label>
+            <h3 class="section-title">Professional Details</h3>
 
-          <label class="consent">
-            <input type="checkbox" id="publicConsent" required>
-            <span>I authorize publication of selected professional details in a public directory if my application is approved. My private mobile number, email and enrolment number will not be published by default.</span>
-          </label>
+            <div class="form-grid">
 
-          <button class="button form-submit" type="submit" id="submitButton">
-            Submit Application →
-          </button>
+                <div class="field">
+                    <label>Bar Council <span class="required">*</span></label>
+                    <input type="text" id="barCouncil" required
+                    placeholder="e.g. Bar Council of Uttar Pradesh">
+                </div>
 
-          <p class="policy">
-            Submitted information will be used for application review and related communication.
-            Submission does not create an advocate-client relationship or replace independent professional judgment.
-          </p>
+                <div class="field">
+                    <label>Enrolment Number <span class="required">*</span></label>
+                    <input type="text" id="enrolmentNumber" required>
+                </div>
+
+                <div class="field">
+                    <label>Enrolment Year</label>
+                    <input type="number" id="enrolmentYear"
+                    min="1950" max="2026" placeholder="e.g. 2020">
+                </div>
+
+                <div class="field">
+                    <label>Experience <span class="required">*</span></label>
+                    <select id="experience" required>
+                        <option value="">Select Experience</option>
+                        <option>Fresher</option>
+                        <option>1-3 Years</option>
+                        <option>3-5 Years</option>
+                        <option>5-10 Years</option>
+                        <option>10+ Years</option>
+                    </select>
+                </div>
+
+                <div class="field full">
+                    <label>Legal Practice Area <span class="required">*</span></label>
+                    <select id="practiceArea" required>
+                        <option value="">Select Practice Area</option>
+                        <option>Civil Law</option>
+                        <option>Criminal Law</option>
+                        <option>Family Law</option>
+                        <option>Property / Land Matters</option>
+                        <option>Consumer Matters</option>
+                        <option>Corporate Law</option>
+                        <option>Labour Law</option>
+                        <option>Constitutional Law</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <h3 class="section-title">Court Details</h3>
+
+            <div class="form-grid">
+
+                <div class="field full">
+                    <label>Primary Court Name <span class="required">*</span></label>
+                    <input type="text" id="courtName" required
+                    placeholder="Enter court name">
+                </div>
+
+                <div class="field">
+                    <label>Court Type</label>
+                    <select id="courtType">
+                        <option value="">Select Court Type</option>
+                        <option>District Court</option>
+                        <option>High Court</option>
+                        <option>Supreme Court</option>
+                        <option>Tribunal</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Languages</label>
+                    <input type="text" id="languages"
+                    placeholder="Hindi, English, etc.">
+                </div>
+
+            </div>
+
+            <label class="declaration">
+                <input type="checkbox" id="declaration" required>
+                <span>
+                    I confirm that the information provided is correct.
+                    I understand that my application will be reviewed
+                    before approval.
+                </span>
+            </label>
+
+            <button type="submit" id="submitBtn">
+                Submit Registration
+            </button>
+
         </form>
-      </div>
     </div>
-  </section>
+
 </main>
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <div>
-      <div class="footer-brand">SK KGN TEAM</div>
-      <small>Advocate Network &amp; Professional Collaboration</small>
+<footer>
+    <img src="Logo.jpg" alt="SK KGN TEAM">
+    <p><strong>SK KGN TEAM</strong></p>
+
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="advocates.html">Find an Advocate</a>
+        <a href="legal.html">Legal</a>
     </div>
-    <small>© <span id="year"></span> SK KGN TEAM. All rights reserved.</small>
-  </div>
+
+    <p>© 2026 SK KGN TEAM. All Rights Reserved.</p>
 </footer>
 
-<!-- ACTUAL SUCCESS POPUP -->
-<div class="modal" id="successModal" role="dialog"
-     aria-modal="true" aria-labelledby="successTitle" hidden>
-  <div class="modal-card">
-    <div class="modal-head">
-      <div class="success-icon" aria-hidden="true">✓</div>
-      <div class="modal-brand">SK KGN TEAM / ADVOCATE NETWORK</div>
-      <h2 id="successTitle">Congratulations!</h2>
-      <p>Your application has been submitted successfully.</p>
-    </div>
-    <div class="modal-body">
-      <h3>Application Submitted</h3>
-      <p class="modal-description">
-        Your application has been received. Keep your reference ID for future communication.
-        The application is pending administrative review.
-      </p>
-      <div class="reference-box">
-        <div class="reference-label">Your Application Reference ID</div>
-        <span class="reference-id" id="referenceId">—</span>
-        <button class="copy-button" type="button" id="copyReference">
-          ▣ &nbsp; COPY REFERENCE ID
-        </button>
-      </div>
-      <div class="status-pill">● APPLICATION STATUS: PENDING REVIEW</div>
-      <p class="modal-footnote">
-        Approval is subject to review. Submission does not guarantee acceptance or referrals.
-      </p>
-      <button class="close-modal" type="button" id="closeModal">CLOSE</button>
-    </div>
-  </div>
-</div>
-
-<!-- ERROR POPUP -->
-<div class="modal" id="errorModal" role="alertdialog"
-     aria-modal="true" aria-labelledby="errorTitle" hidden>
-  <div class="modal-card">
-    <div class="modal-head">
-      <div class="success-icon" aria-hidden="true">!</div>
-      <div class="modal-brand">SK KGN TEAM / ADVOCATE NETWORK</div>
-      <h2 id="errorTitle">Submission Unsuccessful</h2>
-      <p>Your application could not be saved.</p>
-    </div>
-    <div class="modal-body">
-      <h3>Please Try Again</h3>
-      <p class="modal-description" id="errorMessage">
-        Check your internet connection and try again.
-      </p>
-      <button class="close-modal" type="button" id="closeError">CLOSE</button>
-    </div>
-  </div>
-</div>
-
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 import {
-  getFirestore,
-  collection,
-  addDoc,
-  serverTimestamp
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+    getFirestore,
+    collection,
+    addDoc,
+    serverTimestamp
+} from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTZ9oHKVQ",
-  authDomain: "sk-kgn-team.firebaseapp.com",
-  databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "sk-kgn-team",
-  storageBucket: "sk-kgn-team.firebasestorage.app",
-  messagingSenderId: "228612697498",
-  appId: "1:228612697498:web:a304b57bf5a59d2933de23",
-  measurementId: "G-BXWT6BPTB6"
+    apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTZ9oHKVQ",
+    authDomain: "sk-kgn-team.firebaseapp.com",
+    databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "sk-kgn-team",
+    storageBucket: "sk-kgn-team.firebasestorage.app",
+    messagingSenderId: "228612697498",
+    appId: "1:228612697498:web:a304b57bf5a59d2933de23",
+    measurementId: "G-BXWT6BPTB6"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 const form = document.getElementById("advocateForm");
-const submitButton = document.getElementById("submitButton");
-const successModal = document.getElementById("successModal");
-const errorModal = document.getElementById("errorModal");
-const referenceIdElement = document.getElementById("referenceId");
-const errorMessage = document.getElementById("errorMessage");
-const enrolmentYearSelect = document.getElementById("enrolmentYear");
+const submitBtn = document.getElementById("submitBtn");
+const message = document.getElementById("message");
 
-document.getElementById("year").textContent = new Date().getFullYear();
-
-/* Populate enrolment years from 1950 through current year */
-const currentYear = new Date().getFullYear();
-for (let year = currentYear; year >= 1950; year--) {
-  const option = document.createElement("option");
-  option.value = String(year);
-  option.textContent = String(year);
-  enrolmentYearSelect.appendChild(option);
+function showMessage(text, success) {
+    message.style.display = "block";
+    message.style.background = success ? "#dcfce7" : "#fee2e2";
+    message.style.color = success ? "#166534" : "#991b1b";
+    message.textContent = text;
+    message.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-function makeApplicationId() {
-  const random = new Uint8Array(4);
-  crypto.getRandomValues(random);
-  const suffix = Array.from(
-    random,
-    n => n.toString(16).padStart(2, "0")
-  ).join("").toUpperCase();
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  return `SKKGN-ADV-${Date.now().toString(36).toUpperCase()}-${suffix}`;
-}
+    if (!form.reportValidity()) return;
 
-function showError(message) {
-  errorMessage.textContent = message;
-  errorModal.hidden = false;
-}
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Submitting...";
 
-function closeError() {
-  errorModal.hidden = true;
-}
+    const name = document.getElementById("name").value.trim();
+    const mobile = document.getElementById("mobile").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const state = document.getElementById("state").value.trim();
+    const district = document.getElementById("district").value.trim();
+    const barCouncil = document.getElementById("barCouncil").value.trim();
+    const enrolmentNumber = document.getElementById("enrolmentNumber").value.trim();
+    const enrolmentYear = document.getElementById("enrolmentYear").value;
+    const experience = document.getElementById("experience").value;
+    const practiceArea = document.getElementById("practiceArea").value;
+    const courtName = document.getElementById("courtName").value.trim();
+    const courtType = document.getElementById("courtType").value;
+    const languages = document.getElementById("languages").value.trim();
 
-document.getElementById("closeError").addEventListener("click", closeError);
+    try {
 
-document.getElementById("closeModal").addEventListener("click", () => {
-  successModal.hidden = true;
-});
+        await addDoc(collection(db, "advocateApplications"), {
 
-document.getElementById("copyReference").addEventListener("click", async () => {
-  const id = referenceIdElement.textContent;
-  const button = document.getElementById("copyReference");
+            applicationId: "ADV-" + Date.now(),
 
-  try {
-    await navigator.clipboard.writeText(id);
-    button.textContent = "✓ COPIED SUCCESSFULLY";
-  } catch {
-    const range = document.createRange();
-    range.selectNodeContents(referenceIdElement);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    button.textContent = "SELECTED — COPY THE ID";
-  }
-});
+            name,
+            mobile,
+            email,
 
-form.addEventListener("submit", async (event) => {
-  event.preventDefault();
+            state,
+            district,
 
-  if (submitButton.disabled) return;
+            barCouncil,
+            enrolmentNumber,
+            enrolmentYear: enrolmentYear ? Number(enrolmentYear) : null,
 
-  const practiceAreas = Array.from(
-    form.querySelectorAll('input[name="practiceAreas"]:checked')
-  ).map(input => input.value);
+            experience,
+            practiceArea,
+            practiceAreas: [practiceArea],
 
-  if (practiceAreas.length === 0) {
-    showError("Please select at least one practice area before submitting.");
-    return;
-  }
+            courtName,
+            courtType,
+            languages,
 
-  const mobile = form.elements.mobile.value.trim();
-  if (!/^[0-9]{10}$/.test(mobile)) {
-    showError("Please enter a valid 10-digit mobile number.");
-    form.elements.mobile.focus();
-    return;
-  }
+            status: "Pending",
+            publicConsent: true,
+            declarationAccepted: true,
 
-  const enrolmentYear = Number(enrolmentYearSelect.value);
-  if (
-    !Number.isInteger(enrolmentYear) ||
-    enrolmentYear < 1950 ||
-    enrolmentYear > new Date().getFullYear()
-  ) {
-    showError("Please select a valid year of enrolment.");
-    enrolmentYearSelect.focus();
-    return;
-  }
+            submittedAt: serverTimestamp()
 
-  if (!document.getElementById("declaration").checked) {
-    showError("Please accept the declaration before submitting.");
-    return;
-  }
+        });
 
-  if (!document.getElementById("publicConsent").checked) {
-    showError("Please provide consent for publication of selected professional details.");
-    return;
-  }
+        showMessage(
+            "Your registration has been submitted successfully. Your application is pending review.",
+            true
+        );
 
-  const applicationId = makeApplicationId();
+        form.reset();
 
-  /*
-   * These fields match the existing Firestore advocateApplications rules.
-   * Keep status = "Pending" and submittedAt = serverTimestamp().
-   */
-  const payload = {
-    applicationId,
-    name: form.elements.fullName.value.trim(),
-    mobile,
-    email: form.elements.email.value.trim().toLowerCase(),
-    state: form.elements.state.value.trim(),
-    district: form.elements.district.value.trim(),
-    practiceLocation: form.elements.city.value.trim(),
-    barCouncil: form.elements.barCouncil.value.trim(),
-    enrolmentNumber: form.elements.enrolmentNumber.value.trim(),
-    enrolmentYear,
-    experience: form.elements.yearsOfPractice.value,
-    practiceArea: practiceAreas.join(", "),
-    practiceAreas,
-    officeAddress: form.elements.officeAddress.value.trim(),
-    introduction: form.elements.introduction.value.trim(),
-    status: "Pending",
-    publicConsent: true,
-    declarationAccepted: true,
-    submittedAt: serverTimestamp()
-  };
+    } catch (error) {
 
-  submitButton.disabled = true;
-  submitButton.textContent = "Submitting Application…";
-  errorModal.hidden = true;
+        console.error("Registration error:", error);
 
-  const startTime = Date.now();
+        showMessage(
+            "Registration could not be submitted. Please check your internet connection or try again later.",
+            false
+        );
 
-  try {
-    /* Save the real application to Firebase */
-    await addDoc(collection(db, "advocateApplications"), payload);
+    } finally {
 
-    /* Keep the submission state visible for at least 2 seconds */
-    const elapsed = Date.now() - startTime;
-    const remaining = Math.max(0, 2000 - elapsed);
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Registration";
 
-    if (remaining > 0) {
-      await new Promise(resolve => setTimeout(resolve, remaining));
     }
-
-    referenceIdElement.textContent = applicationId;
-    document.getElementById("copyReference").textContent =
-      "▣  COPY REFERENCE ID";
-
-    form.reset();
-    successModal.hidden = false;
-
-  } catch (error) {
-    console.error(
-      "Advocate application submission failed:",
-      error.code,
-      error.message
-    );
-
-    if (error.code === "permission-denied") {
-      showError(
-        "Firebase permission denied. Please check the Firestore rules for advocateApplications. No success confirmation has been shown."
-      );
-    } else {
-      showError(
-        "Your application could not be saved. Check your internet connection and try again. If the problem continues, contact SK KGN TEAM."
-      );
-    }
-
-  } finally {
-    submitButton.disabled = false;
-    submitButton.innerHTML = "Submit Application →";
-  }
 });
+
 </script>
+
 </body>
 </html>
