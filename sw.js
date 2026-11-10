@@ -1,26 +1,104 @@
-const CACHE_NAME = "sk-kgn-team-v1";
+const CACHE_NAME = "sk-kgn-team-v2";
+
+const OFFLINE_PAGE = "./offline.html";
+
+const CORE_FILES = [
+    "./offline.html",
+    "./Logo.jpg"
+];
+
+/* INSTALL */
 
 self.addEventListener("install", event => {
-  self.skipWaiting();
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => cache.addAll(CORE_FILES))
+            .then(() => self.skipWaiting())
+    );
 });
+
+/* ACTIVATE */
 
 self.addEventListener("activate", event => {
-  event.waitUntil(self.clients.claim());
+    event.waitUntil(
+        caches.keys()
+            .then(keys => Promise.all(
+                keys
+                    .filter(key =>
+                        key.startsWith("sk-kgn-team-") &&
+                        key !== CACHE_NAME
+                    )
+                    .map(key => caches.delete(key))
+            ))
+            .then(() => self.clients.claim())
+    );
 });
 
-self.addEventListener("fetch", event => {
-  if (event.request.method !== "GET") return;
+/* FETCH */
 
-  event.respondWith(
-    fetch(event.request).catch(() => {
-      return new Response(
-        "You are offline. Please check your internet connection.",
-        {
-          headers: {
-            "Content-Type": "text/plain; charset=utf-8"
-          }
-        }
-      );
-    })
-  );
+self.addEventListener("fetch", event => {
+
+    const request = event.request;
+
+    if (request.method !== "GET") return;
+
+    const url = new URL(request.url);
+
+    // External websites and Firebase requests are not cached.
+    if (url.origin !== self.location.origin) return;
+
+    // Page navigation: Network first, cached page or offline page as fallback.
+    if (request.mode === "navigate") {
+
+        event.respondWith(
+            fetch(request)
+                .then(response => {
+
+                    if (response.ok) {
+                        const copy = response.clone();
+
+                        caches.open(CACHE_NAME)
+                            .then(cache => cache.put(request, copy));
+                    }
+
+                    return response;
+                })
+                .catch(async () => {
+
+                    const cachedPage = await caches.match(request);
+
+                    if (cachedPage) return cachedPage;
+
+                    return caches.match(OFFLINE_PAGE);
+                })
+        );
+
+        return;
+    }
+
+    // Static assets: Cache first, then network.
+    if (
+        ["style", "script", "image", "font"].includes(request.destination)
+    ) {
+
+        event.respondWith(
+            caches.match(request).then(cached => {
+
+                if (cached) return cached;
+
+                return fetch(request).then(response => {
+
+                    if (response.ok) {
+                        const copy = response.clone();
+
+                        caches.open(CACHE_NAME)
+                            .then(cache => cache.put(request, copy));
+                    }
+
+                    return response;
+                });
+            })
+        );
+    }
+
 });
