@@ -1,56 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 - Page Not Found | SK KGN TEAM</title>
-<link rel="icon" href="Logo.jpg">
+<meta name="theme-color" content="#ffffff">
+<meta name="robots" content="noindex, follow">
+
+<title>404 – Page Not Found | SK KGN TEAM</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-    font-family:Arial,sans-serif;
-    background:#fff;
-    color:#102445;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    text-align:center;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.container{max-width:500px;width:100%}
-.logo{width:105px;height:105px;object-fit:contain;margin-bottom:22px}
-.brand{font-size:22px;font-weight:800;margin-bottom:30px}
-.brand span{color:#0068B1}
-.code{font-size:100px;font-weight:800;color:#0068B1;line-height:1}
-h1{font-size:27px;margin:18px 0 12px}
-p{font-size:14px;line-height:1.8;color:#657386;margin-bottom:25px}
-a{
-    display:inline-block;
-    background:#0068B1;
-    color:#fff;
-    text-decoration:none;
-    padding:14px 25px;
-    border-radius:5px;
-    font-size:14px;
-    font-weight:700;
+
+body {
+    min-height: 100vh;
+    background: #ffffff;
+    color: #172b46;
+    font-family: "Noto Sans Devanagari", "Mangal", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
-a:hover{background:#102445}
-small{display:block;margin-top:30px;color:#8290a0;font-size:12px}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 560px;
+    text-align: center;
+}
+
+.error-code {
+    color: #0878bd;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(90px, 20vw, 125px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -6px;
+    margin-bottom: 22px;
+}
+
+h1 {
+    color: #102445;
+    font-size: clamp(23px, 5vw, 29px);
+    font-weight: 800;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.message {
+    color: #788494;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.funny {
+    margin-top: 17px;
+    color: #34465c;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.9;
+}
+
+.funny span {
+    color: #0878bd;
+}
+
+footer {
+    text-align: center;
+    padding: 17px;
+    color: #a0a8b2;
+    font-size: 11px;
+    border-top: 1px solid #edf0f3;
+}
+
+@media(max-width: 480px) {
+    main {
+        padding: 25px 18px;
+    }
+
+    .error-code {
+        font-size: 92px;
+        margin-bottom: 17px;
+    }
+
+    h1 {
+        font-size: 23px;
+    }
+
+    .message {
+        font-size: 13px;
+    }
+
+    .funny {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+}
 </style>
 </head>
+
 <body>
-<div class="container">
-    <img src="Logo.jpg" class="logo" alt="SK KGN TEAM Logo">
-    <div class="brand">SK <span>KGN TEAM</span></div>
-    <div class="code">404</div>
-    <h1>Page Not Found</h1>
-    <p>
-        The page you are looking for may have been moved,
-        deleted, or is temporarily unavailable.
-    </p>
-    <a href="index.html">Back to Homepage</a>
-    <small>© SK KGN TEAM. All Rights Reserved.</small>
-</div>
+
+<main>
+    <div class="container">
+
+        <div class="error-code">404</div>
+
+        <h1>अरे! गलत पेज पर आ गए जनाब!</h1>
+
+        <p class="message">
+            माफ़ कीजिए, यह पेज यहाँ मौजूद नहीं है।
+        </p>
+
+        <p class="funny">
+            ज़िंदगी में तो कभी सही रास्ता पकड़ नहीं पाए,<br>
+            कम से कम <span>सही पेज</span> ही निकाल लेते! 😂
+        </p>
+
+    </div>
+</main>
+
+<footer>
+    © 2026 SK KGN TEAM. All Rights Reserved.
+</footer>
+
 </body>
 </html>
