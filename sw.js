@@ -1,11 +1,13 @@
-const CACHE_NAME = "sk-kgn-team-v4";
+const CACHE_NAME = "sk-kgn-team-v5";
+
+const OFFLINE_PAGE = "/offline.html";
 
 const CORE_FILES = [
     "/offline.html",
     "/shaukat.jpg"
 ];
 
-// INSTALL
+// INSTALL SERVICE WORKER
 self.addEventListener("install", event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -14,58 +16,79 @@ self.addEventListener("install", event => {
     );
 });
 
-// ACTIVATE
+
+// ACTIVATE SERVICE WORKER
 self.addEventListener("activate", event => {
     event.waitUntil(
         caches.keys()
-            .then(keys => Promise.all(
-                keys
-                    .filter(key =>
-                        key.startsWith("sk-kgn-team-") &&
-                        key !== CACHE_NAME
-                    )
-                    .map(key => caches.delete(key))
-            ))
+            .then(keys => {
+                return Promise.all(
+                    keys
+                        .filter(key =>
+                            key.startsWith("sk-kgn-team-") &&
+                            key !== CACHE_NAME
+                        )
+                        .map(key => caches.delete(key))
+                );
+            })
             .then(() => self.clients.claim())
     );
 });
 
-// FETCH
+
+// HANDLE NETWORK REQUESTS
 self.addEventListener("fetch", event => {
+
     const request = event.request;
 
+    // Only GET requests
     if (request.method !== "GET") return;
 
     const url = new URL(request.url);
 
+    // Ignore external websites
     if (url.origin !== self.location.origin) return;
 
-    // PAGE REQUESTS
+
+    // PAGE NAVIGATION
     if (request.mode === "navigate") {
+
         event.respondWith(
             fetch(request)
                 .then(response => {
+
                     if (response.ok) {
                         const copy = response.clone();
 
                         caches.open(CACHE_NAME)
-                            .then(cache => cache.put(request, copy));
+                            .then(cache => {
+                                cache.put(request, copy);
+                            });
                     }
 
                     return response;
                 })
+
                 .catch(async () => {
+
+                    // Previously cached page
                     const cachedPage = await caches.match(request);
 
-                    if (cachedPage) return cachedPage;
+                    if (cachedPage) {
+                        return cachedPage;
+                    }
 
+                    // Show custom offline page
                     const offlinePage =
-                        await caches.match("/offline.html");
+                        await caches.match(OFFLINE_PAGE);
 
-                    if (offlinePage) return offlinePage;
+                    if (offlinePage) {
+                        return offlinePage;
+                    }
 
+                    // Final fallback
                     return new Response(
-                        "You are offline. Please check your internet connection.",
+                        "आप अभी Offline हैं। इंटरनेट कनेक्शन चेक करें।",
                         {
                             status: 503,
                             headers: {
@@ -79,27 +102,38 @@ self.addEventListener("fetch", event => {
         return;
     }
 
-    // CSS, JS, IMAGES AND FONTS
+
+    // CACHE CSS, JAVASCRIPT, IMAGES AND FONTS
     if (
         ["style", "script", "image", "font"].includes(
             request.destination
         )
     ) {
+
         event.respondWith(
-            caches.match(request).then(cached => {
-                if (cached) return cached;
+            caches.match(request)
+                .then(cached => {
 
-                return fetch(request).then(response => {
-                    if (response.ok) {
-                        const copy = response.clone();
-
-                        caches.open(CACHE_NAME)
-                            .then(cache => cache.put(request, copy));
+                    if (cached) {
+                        return cached;
                     }
 
-                    return response;
-                });
-            })
+                    return fetch(request)
+                        .then(response => {
+
+                            if (response.ok) {
+                                const copy = response.clone();
+
+                                caches.open(CACHE_NAME)
+                                    .then(cache => {
+                                        cache.put(request, copy);
+                                    });
+                            }
+
+                            return response;
+                        });
+                })
         );
     }
+
 });
