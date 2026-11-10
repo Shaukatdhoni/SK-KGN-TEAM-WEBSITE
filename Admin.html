@@ -3,537 +3,919 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080d1c">
-<title>SK KGN TEAM | Advocate Command</title>
+<title>SK KGN TEAM | Admin Panel</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
-:root{
-  --bg:#080d1c;
-  --surface:#10182b;
-  --surface2:#141f35;
-  --line:#273650;
-  --text:#eef4ff;
-  --muted:#91a1bd;
-  --cyan:#65f0dc;
-  --blue:#7598ff;
-  --green:#66e6aa;
-  --red:#ff8999;
-  --yellow:#ffd080;
+:root {
+  --blue: #2563eb;
+  --blue-dark: #1d4ed8;
+  --blue-light: #eff6ff;
+  --black: #111827;
+  --text: #374151;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f8fafc;
+  --white: #ffffff;
+  --green: #15803d;
+  --orange: #c2410c;
+  --red: #dc2626;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  min-height:100vh;
-  color:var(--text);
-  background:
-    radial-gradient(ellipse at 5% 0%,#1a3158 0,transparent 34%),
-    radial-gradient(ellipse at 100% 20%,#103b42 0,transparent 27%),
-    var(--bg);
-  font-family:'DM Sans',sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-button:disabled{opacity:.5;cursor:not-allowed}
-.hidden{display:none!important}
-.muted{color:var(--muted)}
-.eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);font-weight:800}
-h1,h2,h3,.brand-title,.stat-number{font-family:'Space Grotesk',sans-serif}
-button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--black);
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
 
 /* LOGIN */
-#loginScreen{
-  min-height:100vh;
-  display:grid;
-  place-items:center;
-  padding:22px;
-  position:relative;
-  overflow:hidden;
-}
-.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(2px)}
-.orb-a{width:420px;height:420px;background:#3c5b9b28;top:-180px;left:-120px}
-.orb-b{width:400px;height:400px;background:#24c8b61b;right:-130px;bottom:-170px}
-.login-card{
-  position:relative;
-  width:min(460px,100%);
-  padding:32px;
-  border:1px solid #34435f;
-  border-radius:26px;
-  background:linear-gradient(145deg,#131e34f5,#0b1324f7);
-  box-shadow:0 35px 100px #0008;
-}
-.brand-row{display:flex;align-items:center;gap:13px}
-.brand-mark{
-  width:49px;height:49px;border-radius:16px;
-  display:grid;place-items:center;
-  color:#07111d;font-size:20px;font-weight:1000;
-  background:linear-gradient(135deg,var(--cyan),var(--blue));
-  box-shadow:0 8px 30px #65f0dc22;
-}
-.brand-title{font-size:15px;font-weight:800;letter-spacing:.5px}
-.brand-sub{font-size:11px;color:var(--muted);margin-top:3px}
-.login-card h1{font-size:40px;line-height:1.06;letter-spacing:-1.7px;margin:32px 0 12px}
-.login-card h1 span{color:var(--cyan)}
-.login-card .intro{font-size:13px;color:var(--muted);line-height:1.8;margin-bottom:25px}
-.field{margin-top:16px}
-.field label{display:block;font-size:12px;font-weight:700;margin-bottom:8px;color:#d7e2f6}
-input,select,textarea{
-  width:100%;padding:12px 13px;
-  background:#0a1223;color:var(--text);
-  border:1px solid #2c3b57;border-radius:12px;
-  outline:none;transition:.2s;
-}
-input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #7598ff1b}
-input::placeholder,textarea::placeholder{color:#677792}
-.btn{
-  border:1px solid transparent;border-radius:11px;
-  padding:11px 14px;font-weight:800;transition:.2s;
-}
-.btn:hover{transform:translateY(-1px);filter:brightness(1.1)}
-.btn-primary{
-  color:#07121c;background:linear-gradient(110deg,var(--cyan),#8ba5ff);
-  box-shadow:0 8px 25px #4b9dcb20;
-}
-.btn-soft{background:#1a2741;color:#e6edff;border-color:#30415f}
-.btn-danger{background:#391f30;color:#ffb0bb;border-color:#69364b}
-.btn-good{background:#13372f;color:#91f1c3;border-color:#236650}
-.btn-wide{width:100%;padding:14px;margin-top:21px}
-.secure-note{font-size:11px;color:var(--muted);margin-top:20px;display:flex;gap:9px;align-items:center}
-.message{padding:12px 14px;border-radius:12px;margin-top:13px;font-size:12px;overflow-wrap:anywhere}
-.message.error{background:#361d2b;color:#ffb6c0;border:1px solid #693044}
-.message.ok{background:#12352f;color:#91f1c6;border:1px solid #236650}
-.message.info{background:#172744;color:#b9d0ff;border:1px solid #2e4774}
 
-/* APP LAYOUT */
-#appScreen{min-height:100vh}
-.sidebar{
-  position:fixed;z-index:20;left:0;top:0;bottom:0;
-  width:248px;padding:23px 17px;
-  background:#0a1120eF;
-  border-right:1px solid #24314a;
-  backdrop-filter:blur(22px);
-  display:flex;flex-direction:column;
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f8fafc;
 }
-.sidebar .brand-row{padding:0 5px 28px;border-bottom:1px solid #24314a}
-.side-label{font-size:10px;letter-spacing:1.8px;color:#667a99;font-weight:800;margin:27px 10px 10px}
-.nav-item{
-  display:flex;align-items:center;gap:12px;
-  width:100%;text-align:left;padding:12px 13px;
-  border:1px solid transparent;border-radius:12px;
-  background:transparent;color:#aab9d1;font-weight:700;
-  margin:3px 0;
-}
-.nav-item .nav-icon{width:24px;text-align:center;font-size:17px}
-.nav-item.active{
-  color:#eaf5ff;border-color:#34496c;
-  background:linear-gradient(100deg,#1d3656,#14243b);
-  box-shadow:inset 3px 0 var(--cyan);
-}
-.nav-item:hover{background:#17253b;color:white}
-.sidebar-bottom{margin-top:auto}
-.admin-chip{border:1px solid #283852;background:#111c30;border-radius:15px;padding:13px;margin:12px 0}
-.admin-chip small{display:block;color:var(--muted);font-size:11px}
-.admin-chip strong{display:block;font-size:12px;margin-top:5px;overflow-wrap:anywhere}
-.sidebar-foot{font-size:10px;color:#60718d;line-height:1.7;padding:10px 6px}
 
-.main{margin-left:248px;padding:26px 30px 45px;max-width:1800px}
-.topbar{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:30px}
-.topbar-left{display:flex;align-items:center;gap:13px}
-.topbar h1{font-size:clamp(23px,3vw,34px);letter-spacing:-1px;margin:4px 0}
-.topbar p{margin:0;color:var(--muted);font-size:12px}
-.top-actions{display:flex;align-items:center;gap:10px}
-.live-pill{display:flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid #285347;background:#102a29;border-radius:30px;color:#9af0d2;font-size:11px;font-weight:800}
-.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
-.mobile-menu{display:none}
+.login-card {
+  width: 100%;
+  max-width: 390px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 35px;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, .06);
+}
 
-/* HERO */
-.hero{
-  position:relative;overflow:hidden;
-  display:flex;align-items:center;justify-content:space-between;gap:20px;
-  padding:27px 28px;border-radius:22px;
-  border:1px solid #344765;
-  background:linear-gradient(115deg,#172c4a,#142238 55%,#113237);
-  box-shadow:0 18px 55px #0002;
-  margin-bottom:23px;
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--blue);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 17px;
+  margin-bottom: 20px;
 }
-.hero:after{
-  content:"⚖";position:absolute;right:8%;top:-42px;
-  font-size:180px;line-height:1;color:#b4d8ff0b;
-  transform:rotate(-13deg);pointer-events:none;
+
+.login-card h1 {
+  font-size: 24px;
+  margin-bottom: 7px;
 }
-.hero-content{position:relative;z-index:1}
-.hero h2{font-size:clamp(23px,3vw,32px);letter-spacing:-1px;margin:10px 0}
-.hero p{color:#aebdd5;font-size:12px;line-height:1.8;margin:0;max-width:550px}
-.hero-tag{display:inline-flex;gap:8px;align-items:center;padding:7px 10px;border-radius:8px;border:1px solid #3d6172;background:#173c4a;color:var(--cyan);font-size:10px;font-weight:900;letter-spacing:1px}
-.hero-side{position:relative;z-index:1;min-width:145px;text-align:right}
-.hero-side .big{font:700 40px 'Space Grotesk';letter-spacing:-2px}
-.hero-side small{display:block;color:#aebdd5;font-size:11px}
+
+.login-card p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 25px;
+}
+
+.field {
+  margin-bottom: 17px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  color: var(--black);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.10);
+}
+
+.btn {
+  border: 0;
+  border-radius: 8px;
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .2s;
+}
+
+.btn-blue {
+  background: var(--blue);
+  color: white;
+}
+
+.btn-blue:hover {
+  background: var(--blue-dark);
+}
+
+.btn-light {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.btn-danger {
+  background: #fef2f2;
+  color: var(--red);
+}
+
+.btn-success {
+  background: #f0fdf4;
+  color: var(--green);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.message {
+  font-size: 13px;
+  margin-top: 14px;
+  color: var(--red);
+}
+
+/* DASHBOARD */
+
+.dashboard {
+  display: none;
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 245px;
+  background: white;
+  border-right: 1px solid var(--border);
+  padding: 24px 16px;
+  z-index: 20;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 8px 27px;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-brand .brand-mark {
+  margin: 0;
+  flex-shrink: 0;
+}
+
+.sidebar-brand strong {
+  font-size: 15px;
+}
+
+.sidebar-brand small {
+  display: block;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.nav-heading {
+  font-size: 10px;
+  font-weight: 800;
+  color: #9ca3af;
+  letter-spacing: 1px;
+  padding: 24px 10px 10px;
+}
+
+.nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 12px;
+  margin-bottom: 5px;
+  border: 0;
+  border-radius: 8px;
+  color: var(--text);
+  background: transparent;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nav-item:hover {
+  background: #f3f6fb;
+}
+
+.nav-item.active {
+  background: var(--blue-light);
+  color: var(--blue);
+}
+
+.nav-count {
+  margin-left: auto;
+  font-size: 11px;
+  background: #e5e7eb;
+  padding: 3px 7px;
+  border-radius: 20px;
+}
+
+.sidebar-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 16px;
+  right: 16px;
+}
+
+.logout-btn {
+  width: 100%;
+  background: #fef2f2;
+  color: var(--red);
+  border: 0;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 700;
+}
+
+.main {
+  margin-left: 245px;
+  padding: 28px;
+  max-width: 1600px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 27px;
+}
+
+.topbar h1 {
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.topbar p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.admin-badge {
+  background: var(--blue-light);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 9px 13px;
+  border-radius: 7px;
+}
 
 /* STATS */
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:23px}
-.stat-card{
-  position:relative;overflow:hidden;
-  padding:19px;border:1px solid var(--line);
-  border-radius:17px;background:linear-gradient(145deg,#121d31,#0e1728);
-  min-width:0;transition:transform .2s,border-color .2s;
-}
-.stat-card:hover{transform:translateY(-3px);border-color:#526b90}
-.stat-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
-.stat-label{font-size:11px;color:var(--muted);font-weight:700}
-.stat-icon{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:#1c2b45;font-size:16px}
-.stat-number{font-size:32px;font-weight:700;letter-spacing:-1.5px;margin:13px 0 4px}
-.stat-foot{font-size:10px;color:#7486a4}
-.stat-card:after{content:"";position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);opacity:.7}
-.stat-card:nth-child(2):after{background:linear-gradient(90deg,var(--blue),transparent)}
-.stat-card:nth-child(3):after{background:linear-gradient(90deg,var(--green),transparent)}
-.stat-card:nth-child(4):after{background:linear-gradient(90deg,var(--red),transparent)}
 
-/* CONTENT PANEL */
-.panel{border:1px solid var(--line);border-radius:18px;background:#0e1728ed;overflow:hidden}
-.panel-head{padding:21px 21px 16px;display:flex;justify-content:space-between;align-items:center;gap:15px}
-.panel-head h2{font-size:18px;margin:0 0 5px;letter-spacing:-.4px}
-.panel-head p{font-size:11px;color:var(--muted);margin:0}
-.panel-tools{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-.panel-tools input{width:220px}
-.panel-tools select{width:145px}
-.filters{display:flex;gap:7px;padding:0 21px 16px;flex-wrap:wrap}
-.filter-btn{padding:8px 12px;border-radius:9px;border:1px solid #2a3953;background:#111c30;color:#9eafc9;font-size:11px;font-weight:800}
-.filter-btn.active{background:#1b3650;border-color:#3d6c7d;color:var(--cyan)}
-.table-wrap{overflow:auto;border-top:1px solid #25324a}
-table{border-collapse:collapse;width:100%;min-width:760px}
-th{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#7f91ae;text-align:left;background:#111b2e;padding:13px 17px;font-weight:900;white-space:nowrap}
-td{padding:15px 17px;border-top:1px solid #202d44;font-size:12px;vertical-align:middle}
-tbody tr{transition:background .15s}
-tbody tr:hover{background:#152238}
-.person{display:flex;align-items:center;gap:11px;min-width:190px}
-.avatar{width:39px;height:39px;border-radius:13px;flex-shrink:0;display:grid;place-items:center;overflow:hidden;background:linear-gradient(135deg,#254a65,#344176);border:1px solid #46607d;color:#dffaff;font-weight:900;font-size:13px}
-.avatar img{width:100%;height:100%;object-fit:cover}
-.person strong{display:block;font-size:12px;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.person small{display:block;color:var(--muted);font-size:10px;margin-top:4px}
-.status{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:30px;font-size:10px;font-weight:900;white-space:nowrap;border:1px solid transparent}
-.status:before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
-.status.pending{color:var(--yellow);background:#352a19;border-color:#57452a}
-.status.approved{color:var(--green);background:#123329;border-color:#245c49}
-.status.rejected{color:var(--red);background:#381f2b;border-color:#673546}
-.action-btn{padding:8px 10px;font-size:10px;border:1px solid #34445f;background:#1a2840;color:#dce8ff;border-radius:9px}
-.empty-state{padding:55px 20px;text-align:center;color:var(--muted)}
-.empty-state .empty-icon{font-size:34px;margin-bottom:12px}
-.empty-state strong{display:block;color:#dce7fa;font-size:15px;margin-bottom:6px}
-.table-footer{padding:13px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:11px;color:var(--muted);border-top:1px solid #25324a}
-.notice{font-size:11px;color:#7185a5;line-height:1.7;margin:15px 2px}
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 25px;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  padding: 19px;
+}
+
+.stat-card small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.stat-card h2 {
+  font-size: 28px;
+  margin-top: 11px;
+}
+
+.stat-card .stat-line {
+  width: 30px;
+  height: 3px;
+  background: var(--blue);
+  border-radius: 10px;
+  margin-top: 12px;
+}
+
+/* CONTENT */
+
+.content-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.content-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.content-header h2 {
+  font-size: 17px;
+}
+
+.content-header p {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.filters {
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.filters input,
+.filters select {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  background: white;
+  font-size: 12px;
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: var(--blue);
+}
+
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+th {
+  background: #f8fafc;
+  color: #6b7280;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  text-align: left;
+  padding: 14px 17px;
+  white-space: nowrap;
+}
+
+td {
+  padding: 15px 17px;
+  border-top: 1px solid #f0f1f3;
+  font-size: 12px;
+  color: var(--text);
+}
+
+tbody tr:hover {
+  background: #fafcff;
+}
+
+.applicant-name {
+  color: var(--black);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.applicant-sub {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.status-pending {
+  background: #fff7ed;
+  color: var(--orange);
+}
+
+.status-approved {
+  background: #f0fdf4;
+  color: var(--green);
+}
+
+.status-rejected {
+  background: #fef2f2;
+  color: var(--red);
+}
+
+.status-other {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+.action-btn {
+  padding: 7px 11px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--blue);
+  background: var(--blue-light);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 45px 15px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.loading {
+  text-align: center;
+  padding: 35px;
+  color: var(--muted);
+  font-size: 13px;
+}
 
 /* MODAL */
-.modal-backdrop{
-  position:fixed;inset:0;z-index:100;background:#020612c9;
-  backdrop-filter:blur(10px);display:grid;place-items:center;
-  padding:18px;overflow:auto;
-}
-.modal{
-  width:min(760px,100%);max-height:92vh;overflow:auto;
-  background:linear-gradient(145deg,#131f34,#0b1425);
-  border:1px solid #3b4d69;border-radius:22px;
-  box-shadow:0 35px 100px #000b;
-}
-.modal-head{padding:21px 23px;display:flex;justify-content:space-between;align-items:flex-start;gap:15px;border-bottom:1px solid #283650}
-.modal-head h2{margin:5px 0;font-size:23px;letter-spacing:-.7px}
-.modal-head p{margin:0;color:var(--muted);font-size:11px}
-.close-btn{width:36px;height:36px;padding:0;border:1px solid #34445f;background:#1b2940;color:white;border-radius:11px;font-size:19px}
-.modal-body{padding:22px}
-.profile-head{display:flex;gap:15px;align-items:center;padding:17px;border:1px solid #2b3d59;background:#101c30;border-radius:16px;margin-bottom:19px}
-.profile-photo{width:64px;height:64px;border-radius:17px;overflow:hidden;display:grid;place-items:center;background:#263c5b;font-size:22px;font-weight:900;flex-shrink:0}
-.profile-photo img{width:100%;height:100%;object-fit:cover}
-.profile-head h3{font-size:19px;margin:0 0 4px}
-.profile-head p{margin:0;color:var(--muted);font-size:11px}
-.detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
-.detail{padding:12px;border:1px solid #273650;background:#0c1526;border-radius:12px;min-width:0}
-.detail label{display:block;color:#8193b0;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px}
-.detail div{font-size:12px;overflow-wrap:anywhere;white-space:pre-wrap}
-.detail.full{grid-column:1/-1}
-.modal .field{margin-top:17px}
-.modal .field textarea{min-height:80px;resize:vertical}
-.modal-actions{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:17px 22px;border-top:1px solid #283650;background:#0c1525}
-.action-group{display:flex;gap:8px;flex-wrap:wrap}
-#toast{
-  position:fixed;right:22px;bottom:22px;z-index:200;
-  max-width:min(400px,calc(100% - 44px));
-  padding:14px 17px;border-radius:13px;
-  background:#15243a;border:1px solid #3a5375;color:#edf5ff;
-  box-shadow:0 18px 50px #0008;font-size:12px;
-}
-#toast.error{border-color:#7d3b50;color:#ffc1c9}
-#toast.ok{border-color:#2b775c;color:#a2f4ce}
-.loading{opacity:.65;pointer-events:none}
-.spinner{display:inline-block;width:13px;height:13px;border:2px solid #ffffff44;border-top-color:currentColor;border-radius:50%;animation:spin .7s linear infinite;vertical-align:middle;margin-right:7px}
-@keyframes spin{to{transform:rotate(360deg)}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.hero,.stat-card,.panel{animation:fadeUp .45s ease both}
-.stat-card:nth-child(2){animation-delay:.04s}.stat-card:nth-child(3){animation-delay:.08s}.stat-card:nth-child(4){animation-delay:.12s}
 
-@media(max-width:1100px){
-  .sidebar{width:218px}.main{margin-left:218px;padding:22px 20px}
-  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .panel-head{align-items:flex-start;flex-direction:column}
-  .panel-tools{width:100%}.panel-tools input{flex:1;width:auto}
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(15,23,42,.48);
+  padding: 20px;
+  overflow-y: auto;
+  align-items: center;
+  justify-content: center;
 }
-@media(max-width:760px){
-  .sidebar{position:relative;width:100%;height:auto;bottom:auto;padding:13px 15px;display:block;border-right:0;border-bottom:1px solid #24314a}
-  .sidebar .brand-row{padding:0 0 12px;border-bottom:0}
-  .sidebar .side-label,.sidebar .sidebar-bottom,.sidebar .admin-chip,.sidebar .sidebar-foot{display:none}
-  .sidebar nav{display:flex;gap:7px;overflow-x:auto;padding:4px 0 0}
-  .nav-item{width:auto;white-space:nowrap;padding:9px 11px;margin:0;font-size:11px}
-  .nav-item .nav-icon{width:auto}
-  .main{margin:0;padding:18px 14px 30px}
-  .topbar{margin-bottom:20px;align-items:flex-start}
-  .topbar h1{font-size:25px}
-  .topbar p{max-width:240px;line-height:1.6}
-  .top-actions{gap:6px}.live-pill{font-size:0;padding:10px}.live-dot{width:8px;height:8px}
-  .hero{padding:22px 19px}.hero-side{display:none}.hero h2{font-size:25px}
-  .stats{gap:10px}.stat-card{padding:14px}.stat-number{font-size:28px}.stat-icon{width:30px;height:30px}
-  .panel-head{padding:17px 15px 14px}
-  .panel-tools{display:grid;grid-template-columns:1fr 1fr}
-  .panel-tools input{grid-column:1/-1;width:100%}.panel-tools select{width:100%}
-  .filters{padding:0 15px 14px}
-  .table-footer{padding:12px 15px}
-  .login-card{padding:25px}
+
+.modal {
+  background: white;
+  width: 100%;
+  max-width: 650px;
+  border-radius: 13px;
+  overflow: hidden;
+  margin: auto;
 }
-@media(max-width:420px){
-  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .stat-label{font-size:10px}.stat-number{font-size:26px}
-  .hero h2{font-size:22px}
-  .detail-grid{grid-template-columns:1fr}
-  .detail.full{grid-column:auto}
-  .modal-actions{flex-direction:column}.action-group{width:100%}.action-group .btn{flex:1}
-  .login-card h1{font-size:34px}
+
+.modal-header {
+  padding: 20px 23px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
 }
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+.modal-header h2 {
+  font-size: 18px;
+}
+
+.close-modal {
+  border: 0;
+  background: #f3f4f6;
+  width: 31px;
+  height: 31px;
+  border-radius: 7px;
+  font-size: 20px;
+}
+
+.modal-body {
+  padding: 22px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 17px;
+}
+
+.detail-item {
+  border-bottom: 1px solid #f0f1f3;
+  padding-bottom: 11px;
+  min-width: 0;
+}
+
+.detail-item small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 6px;
+}
+
+.detail-item strong {
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.remark-area {
+  margin-top: 22px;
+}
+
+.remark-area label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.remark-area textarea {
+  width: 100%;
+  min-height: 80px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 11px;
+  outline: none;
+}
+
+.modal-footer {
+  padding: 16px 22px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 9px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.toast {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 200;
+  background: #111827;
+  color: white;
+  padding: 13px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  display: none;
+  max-width: calc(100% - 44px);
+}
+
+.mobile-menu {
+  display: none;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 7px;
+  padding: 8px 11px;
+  font-size: 18px;
+}
+
+@media(max-width: 1000px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 700px) {
+  .sidebar {
+    transform: translateX(-100%);
+    transition: .25s;
+    box-shadow: 8px 0 25px rgba(0,0,0,.08);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main {
+    margin-left: 0;
+    padding: 18px 13px;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .topbar h1 {
+    font-size: 21px;
+  }
+
+  .admin-badge {
+    display: none;
+  }
+
+  .stats {
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+
+  .stat-card h2 {
+    font-size: 24px;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+    padding: 13px;
+  }
+
+  .content-header {
+    padding: 16px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+  }
+
+  .modal-body {
+    padding: 17px;
+  }
+
+  .modal-footer {
+    justify-content: stretch;
+  }
+
+  .modal-footer button {
+    flex: 1;
+  }
+}
+
+@media(max-width: 380px) {
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<section id="loginScreen">
-  <div class="orb orb-a"></div><div class="orb orb-b"></div>
-  <div class="login-card">
-    <div class="brand-row">
-      <div class="brand-mark">SK</div>
-      <div>
-        <div class="brand-title">SK KGN TEAM</div>
-        <div class="brand-sub">ADVOCATE COMMAND CENTER</div>
-      </div>
-    </div>
+<!-- LOGIN SCREEN -->
 
-    <div class="eyebrow" style="margin-top:34px">SECURE ADMIN ACCESS</div>
-    <h1>Lead with<br><span>integrity.</span></h1>
-    <p class="intro">Advocate applications, review decisions and public directory management — all in one dedicated workspace.</p>
+<section class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="brand-mark">SK</div>
+    <h1>Admin Login</h1>
+    <p>SK KGN TEAM · Advocate Management</p>
 
     <form id="loginForm">
       <div class="field">
-        <label for="loginEmail">Admin email</label>
-        <input id="loginEmail" type="email" placeholder="admin@example.com" autocomplete="username" required>
+        <label>Email Address</label>
+        <input type="email" id="loginEmail" placeholder="Admin email" required>
       </div>
+
       <div class="field">
-        <label for="loginPassword">Password</label>
-        <input id="loginPassword" type="password" placeholder="Enter your password" autocomplete="current-password" required>
+        <label>Password</label>
+        <input type="password" id="loginPassword" placeholder="Enter password" required>
       </div>
-      <button class="btn btn-primary btn-wide" id="loginButton" type="submit">Unlock Command Center ↗</button>
-      <div id="loginMessage" class="message hidden"></div>
+
+      <button class="btn btn-blue btn-full" id="loginBtn" type="submit">
+        Sign In
+      </button>
+
+      <div class="message" id="loginMessage"></div>
     </form>
-    <div class="secure-note"><span>◈</span><span>Authenticated access · Advocate management only</span></div>
   </div>
 </section>
 
-<!-- APP -->
-<div id="appScreen" class="hidden">
-  <aside class="sidebar">
-    <div class="brand-row">
+<!-- DASHBOARD -->
+
+<div class="dashboard" id="dashboard">
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
       <div class="brand-mark">SK</div>
       <div>
-        <div class="brand-title">SK KGN TEAM</div>
-        <div class="brand-sub">ADVOCATE COMMAND</div>
+        <strong>SK KGN TEAM</strong>
+        <small>Administration</small>
       </div>
     </div>
 
-    <div class="side-label">WORKSPACE</div>
-    <nav>
-      <button class="nav-item active" id="navDashboard" type="button" data-view="all"><span class="nav-icon">◈</span> Overview</button>
-      <button class="nav-item" type="button" data-view="Pending"><span class="nav-icon">◷</span> Pending review</button>
-      <button class="nav-item" type="button" data-view="Approved"><span class="nav-icon">✓</span> Approved</button>
-      <button class="nav-item" type="button" data-view="Rejected"><span class="nav-icon">×</span> Rejected</button>
-    </nav>
+    <div class="nav-heading">WORKSPACE</div>
+
+    <button class="nav-item active" data-filter="all">
+      ▦ Overview
+    </button>
+
+    <button class="nav-item" data-filter="Pending">
+      ◷ Pending Applications
+      <span class="nav-count" id="pendingNav">0</span>
+    </button>
+
+    <button class="nav-item" data-filter="Approved">
+      ✓ Approved
+    </button>
+
+    <button class="nav-item" data-filter="Rejected">
+      ✕ Rejected
+    </button>
 
     <div class="sidebar-bottom">
-      <div class="side-label">SESSION</div>
-      <div class="admin-chip">
-        <div style="display:flex;align-items:center;gap:9px">
-          <span style="font-size:18px">◉</span>
-          <div style="min-width:0">
-            <small>Signed in as</small>
-            <strong id="adminEmail">Admin</strong>
-          </div>
-        </div>
-      </div>
-      <button class="nav-item" id="logoutButton" type="button"><span class="nav-icon">↪</span> Sign out</button>
-      <div class="sidebar-foot">SK KGN TEAM<br>Advocate Administration · v1.0</div>
+      <button class="logout-btn" id="logoutBtn">↪ Sign Out</button>
     </div>
   </aside>
 
   <main class="main">
+
     <header class="topbar">
-      <div class="topbar-left">
+      <div style="display:flex;align-items:flex-start;gap:12px;">
+        <button class="mobile-menu" id="mobileMenu">☰</button>
         <div>
-          <div class="eyebrow">CONTROL ROOM / ADVOCATES</div>
-          <h1 id="pageTitle">Command Center</h1>
-          <p id="todayText">Your advocate network at a glance.</p>
+          <h1>Admin Dashboard</h1>
+          <p>Manage advocate registration applications.</p>
         </div>
       </div>
-      <div class="top-actions">
-        <div class="live-pill"><span class="live-dot"></span> SYSTEM ONLINE</div>
-        <button class="btn btn-soft" id="refreshButton" type="button" title="Refresh applications">↻ Refresh</button>
-      </div>
+
+      <div class="admin-badge">● ADMIN PANEL</div>
     </header>
 
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-tag">✦ ADVOCATE NETWORK</div>
-        <h2>Trust begins with<br>the right people.</h2>
-        <p>Review every application carefully. Approved profiles become visible in the public advocate directory. Keep the network credible, verified and professional.</p>
-      </div>
-      <div class="hero-side">
-        <div class="eyebrow">TOTAL APPLICATIONS</div>
-        <div class="big" id="heroTotal">—</div>
-        <small>Across all review stages</small>
-      </div>
-    </section>
-
     <section class="stats">
-      <article class="stat-card">
-        <div class="stat-top"><div class="stat-label">TOTAL APPLICATIONS</div><div class="stat-icon">▤</div></div>
-        <div class="stat-number" id="statTotal">—</div>
-        <div class="stat-foot">All submitted applications</div>
-      </article>
-      <article class="stat-card">
-        <div class="stat-top"><div class="stat-label">PENDING REVIEW</div><div class="stat-icon">◷</div></div>
-        <div class="stat-number" id="statPending">—</div>
-        <div class="stat-foot">Awaiting an admin decision</div>
-      </article>
-      <article class="stat-card">
-        <div class="stat-top"><div class="stat-label">APPROVED</div><div class="stat-icon">✓</div></div>
-        <div class="stat-number" id="statApproved">—</div>
-        <div class="stat-foot">Eligible for public listing</div>
-      </article>
-      <article class="stat-card">
-        <div class="stat-top"><div class="stat-label">REJECTED</div><div class="stat-icon">×</div></div>
-        <div class="stat-number" id="statRejected">—</div>
-        <div class="stat-foot">Not approved for listing</div>
-      </article>
-    </section>
-
-    <section class="panel">
-      <div class="panel-head">
-        <div>
-          <div class="eyebrow" style="margin-bottom:7px">APPLICATION DIRECTORY</div>
-          <h2 id="listTitle">All applications</h2>
-          <p>Open an application to inspect details, add a remark and decide its status.</p>
-        </div>
-        <div class="panel-tools">
-          <input id="searchInput" type="search" placeholder="⌕  Search name, district, email...">
-          <select id="districtFilter" aria-label="Filter by district">
-            <option value="">All districts</option>
-          </select>
-          <select id="sortSelect" aria-label="Sort applications">
-            <option value="newest">Newest first</option>
-            <option value="oldest">Oldest first</option>
-            <option value="name">Name A–Z</option>
-          </select>
-        </div>
+      <div class="stat-card">
+        <small>TOTAL APPLICATIONS</small>
+        <h2 id="totalCount">0</h2>
+        <div class="stat-line"></div>
       </div>
 
-      <div class="filters" id="statusFilters">
-        <button class="filter-btn active" data-filter="all" type="button">All applications</button>
-        <button class="filter-btn" data-filter="Pending" type="button">◷ Pending</button>
-        <button class="filter-btn" data-filter="Approved" type="button">✓ Approved</button>
-        <button class="filter-btn" data-filter="Rejected" type="button">× Rejected</button>
+      <div class="stat-card">
+        <small>PENDING REVIEW</small>
+        <h2 id="pendingCount">0</h2>
+        <div class="stat-line" style="background:#f59e0b;"></div>
+      </div>
+
+      <div class="stat-card">
+        <small>APPROVED</small>
+        <h2 id="approvedCount">0</h2>
+        <div class="stat-line" style="background:#16a34a;"></div>
+      </div>
+
+      <div class="stat-card">
+        <small>REJECTED</small>
+        <h2 id="rejectedCount">0</h2>
+        <div class="stat-line" style="background:#dc2626;"></div>
+      </div>
+    </section>
+
+    <section class="content-card">
+      <div class="content-header">
+        <div>
+          <h2 id="listTitle">All Applications</h2>
+          <p>Review and manage registered advocate profiles.</p>
+        </div>
+
+        <button class="btn btn-light" id="refreshBtn">↻ Refresh</button>
+      </div>
+
+      <div class="filters">
+        <input type="search" id="searchInput" placeholder="Search name, email, mobile...">
+
+        <input type="text" id="districtFilter" placeholder="Filter by district">
+
+        <select id="statusFilter">
+          <option value="all">All Status</option>
+          <option value="Pending">Pending</option>
+          <option value="Approved">Approved</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+
+        <select id="sortFilter">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="name">Name A-Z</option>
+        </select>
       </div>
 
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>Advocate</th>
-              <th>District / Court</th>
-              <th>Practice area</th>
+              <th>Applicant</th>
+              <th>District / State</th>
+              <th>Practice Area</th>
               <th>Submitted</th>
               <th>Status</th>
-              <th>Review</th>
+              <th>Action</th>
             </tr>
           </thead>
-          <tbody id="applicationsBody"></tbody>
+
+          <tbody id="applicationsTable">
+            <tr>
+              <td colspan="6" class="loading">Loading applications...</td>
+            </tr>
+          </tbody>
         </table>
-        <div id="emptyState" class="empty-state hidden">
-          <div class="empty-icon">⌕</div>
-          <strong>No applications found</strong>
-          <span>Try changing your search or filter.</span>
-        </div>
-      </div>
-      <div class="table-footer">
-        <span id="resultsCount">Loading applications…</span>
-        <span>Data source: advocateApplications</span>
       </div>
     </section>
 
-    <p class="notice">🔒 Advocate administration is separate from complaints and career applications. Only approved profiles should appear in the public directory. Firestore security rules must restrict review and publishing writes to authorized admins.</p>
   </main>
 </div>
 
-<!-- DETAILS MODAL -->
-<div id="modalBackdrop" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+<!-- APPLICATION MODAL -->
+
+<div class="modal-backdrop" id="modalBackdrop">
   <div class="modal">
-    <div class="modal-head">
+
+    <div class="modal-header">
       <div>
-        <div class="eyebrow">APPLICATION REVIEW</div>
-        <h2 id="modalTitle">Advocate details</h2>
-        <p id="modalSubtitle">Review the submitted information.</p>
+        <h2>Application Details</h2>
+        <p style="font-size:11px;color:#6b7280;margin-top:5px;" id="modalSubtitle"></p>
       </div>
-      <button class="close-btn" id="closeModal" type="button" aria-label="Close">×</button>
+      <button class="close-modal" id="closeModal">×</button>
     </div>
+
     <div class="modal-body">
-      <div id="profileHead" class="profile-head"></div>
-      <div id="detailGrid" class="detail-grid"></div>
-      <div class="field">
-        <label for="adminRemark">Admin remark / review note</label>
-        <textarea id="adminRemark" placeholder="Add an internal note or reason for the decision…"></textarea>
-      </div>
-      <div id="modalMessage" class="message hidden"></div>
-    </div>
-    <div class="modal-actions">
-      <button class="btn btn-soft" id="saveRemarkButton" type="button">Save remark</button>
-      <div class="action-group">
-        <button class="btn btn-danger" id="rejectButton" type="button">× Reject</button>
-        <button class="btn btn-good" id="approveButton" type="button">✓ Approve & Publish</button>
+      <div class="details-grid" id="detailsGrid"></div>
+
+      <div class="remark-area">
+        <label>Admin Remark</label>
+        <textarea id="adminRemark" placeholder="Write an internal review remark..."></textarea>
       </div>
     </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-light" id="saveRemarkBtn">Save Remark</button>
+      <button class="btn btn-danger" id="rejectBtn">Reject</button>
+      <button class="btn btn-blue" id="approveBtn">Approve & Publish</button>
+    </div>
+
   </div>
 </div>
 
-<div id="toast" class="hidden" role="status" aria-live="polite"></div>
+<div class="toast" id="toast"></div>
 
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
 import {
-  getFirestore, collection, getDocs, doc, updateDoc, setDoc,
-  serverTimestamp, deleteDoc
-} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-import {
-  getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
+  getAuth,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-/* Existing SK KGN TEAM Firebase project */
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  updateDoc,
+  setDoc,
+  deleteDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+/* FIREBASE CONFIG */
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTZ9oHKVQ",
   authDomain: "sk-kgn-team.firebaseapp.com",
   databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "sk-kgn-team",
@@ -544,444 +926,611 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-const $ = id => document.getElementById(id);
-const state = {
-  applications: [],
-  activeFilter: "all",
-  selected: null,
-  loading: false
-};
 
-const text = value => {
-  if (value === null || value === undefined || value === "") return "—";
-  if (Array.isArray(value)) return value.join(", ");
-  if (typeof value === "object") return JSON.stringify(value);
-  return String(value);
-};
-const pick = (obj, ...keys) => {
+/* ELEMENTS */
+
+const loginScreen = document.getElementById("loginScreen");
+const dashboard = document.getElementById("dashboard");
+const loginForm = document.getElementById("loginForm");
+const loginMessage = document.getElementById("loginMessage");
+const loginBtn = document.getElementById("loginBtn");
+
+const tableBody = document.getElementById("applicationsTable");
+const modalBackdrop = document.getElementById("modalBackdrop");
+
+let applications = [];
+let selectedApplication = null;
+let currentFilter = "all";
+
+
+/* HELPERS */
+
+function value(obj, keys, fallback = "—") {
   for (const key of keys) {
-    if (obj && obj[key] !== undefined && obj[key] !== null && obj[key] !== "") return obj[key];
+    const v = obj?.[key];
+
+    if (v !== undefined && v !== null && String(v).trim() !== "") {
+      if (Array.isArray(v)) return v.join(", ");
+      return String(v);
+    }
   }
-  return "";
-};
-const safe = value => String(value ?? "").replace(/[&<>"']/g, c => ({
-  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-}[c]));
-const normalizeStatus = value => {
-  const status = String(value || "Pending").trim().toLowerCase();
-  if (status === "approved") return "Approved";
-  if (status === "rejected") return "Rejected";
+
+  return fallback;
+}
+
+function escapeHTML(input) {
+  return String(input ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  })[char]);
+}
+
+function normalizeStatus(status) {
+  const s = String(status || "Pending").toLowerCase();
+
+  if (s === "approved") return "Approved";
+  if (s === "rejected") return "Rejected";
+
   return "Pending";
-};
-const fullName = item => pick(item, "fullName", "name", "advocateName") || "Unnamed advocate";
-const emailOf = item => pick(item, "email");
-const mobileOf = item => pick(
-  item,
-  "mobile",
-  "phone",
-  "mobileNumber",
-  "phoneNumber",
-  "contactNumber",
-  "whatsappNumber"
-);
-const maskedMobileOf = item => {
-  let digits = String(mobileOf(item) || "").replace(/\D/g, "");
+}
 
-  if (digits.length === 12 && digits.startsWith("91")) {
-    digits = digits.slice(2);
-  } else if (digits.length === 11 && digits.startsWith("0")) {
-    digits = digits.slice(1);
-  }
+function getDate(appData) {
+  const raw =
+    appData.submittedAt ||
+    appData.createdAt ||
+    appData.updatedAt ||
+    appData.timestamp;
 
-  return /^[6-9]\d{9}$/.test(digits)
-    ? "XXXXXX" + digits.slice(-4)
-    : "";
-};
-const districtOf = item => pick(item, "district");
-const stateOf = item => pick(
-  item,
-  "state",
-  "stateName",
-  "stateUT",
-  "stateUnionTerritory",
-  "barCouncilState",
-  "registeredState"
-);
-const courtOf = item => pick(item, "court", "courtName");
-const practiceOf = item => pick(item, "practiceArea", "specialization", "practiceAreas");
-const photoOf = item => pick(item, "photoURL", "profilePhotoURL", "photoUrl");
-const dateOf = item => pick(item, "createdAt", "submittedAt", "applicationDate", "timestamp");
-const dateValue = value => {
-  if (!value) return 0;
-  if (typeof value.toDate === "function") return value.toDate().getTime();
-  const parsed = new Date(value).getTime();
-  return Number.isNaN(parsed) ? 0 : parsed;
-};
-const formatDate = value => {
-  const ms = dateValue(value);
-  if (!ms) return "—";
-  return new Intl.DateTimeFormat("en-IN", {
-    day:"2-digit", month:"short", year:"numeric"
-  }).format(new Date(ms));
-};
-const initials = name => text(name).trim().split(/\s+/).slice(0,2).map(x=>x[0]||"").join("").toUpperCase() || "A";
+  if (!raw) return null;
 
-function showToast(message, kind = "ok") {
-  const toast = $("toast");
+  if (raw.toDate) return raw.toDate();
+
+  if (raw.seconds) return new Date(raw.seconds * 1000);
+
+  const date = new Date(raw);
+
+  return isNaN(date.getTime()) ? null : date;
+}
+
+function formatDate(data) {
+  const date = getDate(data);
+
+  if (!date) return "—";
+
+  return date.toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric"
+  });
+}
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+
   toast.textContent = message;
-  toast.className = kind;
-  clearTimeout(showToast.timer);
-  showToast.timer = setTimeout(() => toast.classList.add("hidden"), 3800);
-}
-function setMessage(el, message, kind = "info") {
-  el.textContent = message;
-  el.className = "message " + kind;
-}
-function clearMessage(el) {
-  el.textContent = "";
-  el.className = "message hidden";
-}
-function setBusy(button, busy, label) {
-  if (!button.dataset.originalLabel) button.dataset.originalLabel = button.textContent;
-  button.disabled = busy;
-  button.innerHTML = busy ? '<span class="spinner"></span>' + label : button.dataset.originalLabel;
-}
-function statusBadge(value) {
-  const status = normalizeStatus(value);
-  return `<span class="status ${status.toLowerCase()}">${safe(status)}</span>`;
+  toast.style.display = "block";
+
+  setTimeout(() => {
+    toast.style.display = "none";
+  }, 3000);
 }
 
-/* AUTH */
-$("loginForm").addEventListener("submit", async event => {
-  event.preventDefault();
-  const button = $("loginButton");
-  const message = $("loginMessage");
-  clearMessage(message);
-  setBusy(button, true, "Signing in…");
+function getName(a) {
+  return value(a, ["fullName", "name", "advocateName"]);
+}
+
+function getMobile(a) {
+  return value(a, ["mobile", "phone", "mobileNumber", "contact"]);
+}
+
+function getState(a) {
+  return value(a, ["state", "stateName"]);
+}
+
+function getDistrict(a) {
+  return value(a, ["district", "districtName"]);
+}
+
+function getPractice(a) {
+  return value(a, [
+    "practiceArea",
+    "practiceAreas",
+    "legalSector",
+    "legalSectors",
+    "specialization"
+  ]);
+}
+
+function getCourt(a) {
+  return value(a, ["courtName", "court", "primaryCourt"]);
+}
+
+function getEnrolment(a) {
+  return value(a, ["enrolmentNumber", "enrollmentNumber", "barRegistrationNumber"]);
+}
+
+
+/* LOGIN */
+
+loginForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  loginBtn.disabled = true;
+  loginBtn.textContent = "Signing In...";
+  loginMessage.textContent = "";
+
   try {
     await signInWithEmailAndPassword(
       auth,
-      $("loginEmail").value.trim(),
-      $("loginPassword").value
+      document.getElementById("loginEmail").value.trim(),
+      document.getElementById("loginPassword").value
     );
+
   } catch (error) {
-    setMessage(message, friendlyAuthError(error), "error");
+    loginMessage.textContent = error.message;
+
   } finally {
-    setBusy(button, false);
+    loginBtn.disabled = false;
+    loginBtn.textContent = "Sign In";
   }
 });
 
-function friendlyAuthError(error) {
-  const code = error?.code || "";
-  if (code.includes("invalid-credential") || code.includes("wrong-password") || code.includes("user-not-found")) {
-    return "Email or password is incorrect.";
-  }
-  if (code.includes("too-many-requests")) return "Too many attempts. Please wait and try again.";
-  if (code.includes("network")) return "Network issue. Check your internet connection.";
-  return error?.message || "Unable to sign in.";
-}
 
-onAuthStateChanged(auth, async user => {
+/* AUTH STATE */
+
+onAuthStateChanged(auth, async (user) => {
   if (user) {
-    $("loginScreen").classList.add("hidden");
-    $("appScreen").classList.remove("hidden");
-    $("adminEmail").textContent = user.email || "Authenticated admin";
-    $("todayText").textContent = new Intl.DateTimeFormat("en-IN", {
-      weekday:"long", day:"numeric", month:"long", year:"numeric"
-    }).format(new Date()) + " · Your advocate network at a glance.";
+    loginScreen.style.display = "none";
+    dashboard.style.display = "block";
+
     await loadApplications();
+
   } else {
-    $("appScreen").classList.add("hidden");
-    $("loginScreen").classList.remove("hidden");
+    dashboard.style.display = "none";
+    loginScreen.style.display = "flex";
   }
 });
 
-$("logoutButton").addEventListener("click", async () => {
-  try {
-    await signOut(auth);
-    showToast("Signed out successfully.");
-  } catch (error) {
-    showToast(error.message || "Sign-out failed.", "error");
-  }
+
+/* LOGOUT */
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  await signOut(auth);
 });
 
-/* LOAD + RENDER */
+
+/* LOAD APPLICATIONS */
+
 async function loadApplications() {
-  if (state.loading) return;
-  state.loading = true;
-  $("refreshButton").disabled = true;
-  $("applicationsBody").innerHTML = `<tr><td colspan="6" style="text-align:center;padding:35px"><span class="spinner"></span>Loading applications…</td></tr>`;
-  $("emptyState").classList.add("hidden");
+  tableBody.innerHTML = `
+    <tr><td colspan="6" class="loading">Loading applications...</td></tr>
+  `;
 
   try {
     const snapshot = await getDocs(collection(db, "advocateApplications"));
-    state.applications = snapshot.docs.map(item => ({
+
+    applications = snapshot.docs.map(item => ({
       id: item.id,
       ...item.data()
     }));
-    populateDistricts();
-    render();
+
+    updateStats();
+    renderApplications();
+
   } catch (error) {
-    $("applicationsBody").innerHTML = "";
-    $("emptyState").classList.remove("hidden");
-    $("emptyState").innerHTML = `<div class="empty-icon">⚠</div><strong>Could not load applications</strong><span>${safe(error.message || "Check your Firestore permissions and connection.")}</span>`;
-    $("resultsCount").textContent = "Failed to load";
-    showToast("Unable to load applications. Check Firestore rules.", "error");
-  } finally {
-    state.loading = false;
-    $("refreshButton").disabled = false;
+    console.error(error);
+
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="6" class="empty-state">
+          Unable to load applications. Check Firestore permissions.
+        </td>
+      </tr>
+    `;
   }
 }
 
-function populateDistricts() {
-  const select = $("districtFilter");
-  const current = select.value;
-  const districts = [...new Set(state.applications.map(districtOf).filter(Boolean).map(String))]
-    .sort((a,b)=>a.localeCompare(b));
-  select.innerHTML = '<option value="">All districts</option>' +
-    districts.map(d => `<option value="${safe(d)}">${safe(d)}</option>`).join("");
-  if (districts.includes(current)) select.value = current;
+
+/* STATS */
+
+function updateStats() {
+  const total = applications.length;
+
+  const pending = applications.filter(
+    a => normalizeStatus(a.status) === "Pending"
+  ).length;
+
+  const approved = applications.filter(
+    a => normalizeStatus(a.status) === "Approved"
+  ).length;
+
+  const rejected = applications.filter(
+    a => normalizeStatus(a.status) === "Rejected"
+  ).length;
+
+  document.getElementById("totalCount").textContent = total;
+  document.getElementById("pendingCount").textContent = pending;
+  document.getElementById("approvedCount").textContent = approved;
+  document.getElementById("rejectedCount").textContent = rejected;
+  document.getElementById("pendingNav").textContent = pending;
 }
 
-function filteredApplications() {
-  const query = $("searchInput").value.trim().toLowerCase();
-  const district = $("districtFilter").value;
-  const sort = $("sortSelect").value;
 
-  let items = state.applications.filter(item => {
-    const status = normalizeStatus(item.status);
-    if (state.activeFilter !== "all" && status !== state.activeFilter) return false;
-    if (district && districtOf(item) !== district) return false;
-    if (query) {
-      const searchable = [
-        fullName(item), emailOf(item), mobileOf(item), districtOf(item),
-        courtOf(item), practiceOf(item), pick(item,"enrolmentNumber","enrollmentNumber","barCouncilNumber")
-      ].join(" ").toLowerCase();
-      if (!searchable.includes(query)) return false;
-    }
-    return true;
+/* FILTERS AND NAVIGATION */
+
+document.querySelectorAll(".nav-item").forEach(button => {
+  button.addEventListener("click", () => {
+    document.querySelectorAll(".nav-item").forEach(item =>
+      item.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+    currentFilter = button.dataset.filter;
+
+    document.getElementById("statusFilter").value = currentFilter;
+    document.getElementById("listTitle").textContent =
+      currentFilter === "all"
+        ? "All Applications"
+        : currentFilter + " Applications";
+
+    renderApplications();
+
+    document.getElementById("sidebar").classList.remove("open");
+  });
+});
+
+document.getElementById("searchInput").addEventListener("input", renderApplications);
+document.getElementById("districtFilter").addEventListener("input", renderApplications);
+
+document.getElementById("statusFilter").addEventListener("change", e => {
+  currentFilter = e.target.value;
+  renderApplications();
+});
+
+document.getElementById("sortFilter").addEventListener("change", renderApplications);
+
+document.getElementById("refreshBtn").addEventListener("click", loadApplications);
+
+
+/* RENDER TABLE */
+
+function renderApplications() {
+  const search = document.getElementById("searchInput").value.toLowerCase().trim();
+  const district = document.getElementById("districtFilter").value.toLowerCase().trim();
+  const sort = document.getElementById("sortFilter").value;
+
+  let list = [...applications];
+
+  if (currentFilter !== "all") {
+    list = list.filter(a => normalizeStatus(a.status) === currentFilter);
+  }
+
+  list = list.filter(a => {
+    const searchable = [
+      getName(a),
+      getMobile(a),
+      value(a, ["email"]),
+      getDistrict(a),
+      getState(a),
+      getPractice(a)
+    ].join(" ").toLowerCase();
+
+    return searchable.includes(search) &&
+      getDistrict(a).toLowerCase().includes(district);
   });
 
-  items.sort((a,b) => {
-    if (sort === "name") return fullName(a).localeCompare(fullName(b));
-    const diff = dateValue(dateOf(a)) - dateValue(dateOf(b));
-    return sort === "oldest" ? diff : -diff;
-  });
-  return items;
-}
+  if (sort === "newest") {
+    list.sort((a, b) =>
+      (getDate(b)?.getTime() || 0) - (getDate(a)?.getTime() || 0)
+    );
+  }
 
-function render() {
-  const items = filteredApplications();
-  const all = state.applications;
-  const pending = all.filter(x=>normalizeStatus(x.status)==="Pending").length;
-  const approved = all.filter(x=>normalizeStatus(x.status)==="Approved").length;
-  const rejected = all.filter(x=>normalizeStatus(x.status)==="Rejected").length;
+  if (sort === "oldest") {
+    list.sort((a, b) =>
+      (getDate(a)?.getTime() || 0) - (getDate(b)?.getTime() || 0)
+    );
+  }
 
-  $("statTotal").textContent = all.length;
-  $("statPending").textContent = pending;
-  $("statApproved").textContent = approved;
-  $("statRejected").textContent = rejected;
-  $("heroTotal").textContent = all.length;
+  if (sort === "name") {
+    list.sort((a, b) => getName(a).localeCompare(getName(b)));
+  }
 
-  const titles = {
-    all:"All applications",
-    Pending:"Pending applications",
-    Approved:"Approved advocates",
-    Rejected:"Rejected applications"
-  };
-  $("listTitle").textContent = titles[state.activeFilter] || "All applications";
-  $("pageTitle").textContent = state.activeFilter === "all" ? "Command Center" : titles[state.activeFilter];
+  if (!list.length) {
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="6" class="empty-state">
+          No applications found.
+        </td>
+      </tr>
+    `;
+    return;
+  }
 
-  document.querySelectorAll(".filter-btn").forEach(button => {
-    button.classList.toggle("active", button.dataset.filter === state.activeFilter);
-  });
-  document.querySelectorAll(".nav-item[data-view]").forEach(button => {
-    button.classList.toggle("active", button.dataset.view === state.activeFilter);
-  });
+  tableBody.innerHTML = list.map(a => {
+    const status = normalizeStatus(a.status);
 
-  $("resultsCount").textContent = `Showing ${items.length} of ${all.length} application${all.length === 1 ? "" : "s"}`;
-  $("applicationsBody").innerHTML = items.map(item => {
-    const name = fullName(item);
-    const photo = photoOf(item);
-    const avatar = photo
-      ? `<div class="avatar"><img src="${safe(photo)}" alt="" referrerpolicy="no-referrer" onerror="this.parentElement.textContent='${safe(initials(name))}'"></div>`
-      : `<div class="avatar">${safe(initials(name))}</div>`;
-    return `<tr>
-      <td>
-        <div class="person">${avatar}<div>
-          <strong title="${safe(name)}">${safe(name)}</strong>
-          <small>${safe(emailOf(item) || mobileOf(item) || "Contact not provided")}</small>
-        </div></div>
-      </td>
-      <td><strong>${safe(districtOf(item) || "—")}</strong><br><span class="muted">${safe(courtOf(item) || "Court not specified")}</span></td>
-      <td>${safe(practiceOf(item) || "—")}</td>
-      <td>${safe(formatDate(dateOf(item)))}</td>
-      <td>${statusBadge(item.status)}</td>
-      <td><button class="action-btn" type="button" data-open="${safe(item.id)}">View details ↗</button></td>
-    </tr>`;
+    const statusClass =
+      status === "Approved" ? "status-approved" :
+      status === "Rejected" ? "status-rejected" :
+      "status-pending";
+
+    return `
+      <tr>
+        <td>
+          <div class="applicant-name">${escapeHTML(getName(a))}</div>
+          <div class="applicant-sub">${escapeHTML(value(a, ["email"]))}</div>
+        </td>
+
+        <td>
+          ${escapeHTML(getDistrict(a))}
+          <div class="applicant-sub">${escapeHTML(getState(a))}</div>
+        </td>
+
+        <td>${escapeHTML(getPractice(a))}</td>
+
+        <td>${escapeHTML(formatDate(a))}</td>
+
+        <td>
+          <span class="status ${statusClass}">${status}</span>
+        </td>
+
+        <td>
+          <button class="action-btn" data-open="${escapeHTML(a.id)}">
+            View Details
+          </button>
+        </td>
+      </tr>
+    `;
   }).join("");
 
-  $("emptyState").classList.toggle("hidden", items.length > 0);
-  if (!items.length) $("applicationsBody").innerHTML = "";
-  $("heroTotal").textContent = all.length;
-}
-
-$("applicationsBody").addEventListener("click", event => {
-  const button = event.target.closest("[data-open]");
-  if (!button) return;
-  const item = state.applications.find(x => x.id === button.dataset.open);
-  if (item) openModal(item);
-});
-$("refreshButton").addEventListener("click", loadApplications);
-$("searchInput").addEventListener("input", render);
-$("districtFilter").addEventListener("change", render);
-$("sortSelect").addEventListener("change", render);
-
-document.querySelectorAll(".filter-btn").forEach(button => {
-  button.addEventListener("click", () => {
-    state.activeFilter = button.dataset.filter;
-    render();
+  tableBody.querySelectorAll("[data-open]").forEach(button => {
+    button.addEventListener("click", () => {
+      openApplication(button.dataset.open);
+    });
   });
-});
-document.querySelectorAll(".nav-item[data-view]").forEach(button => {
-  button.addEventListener("click", () => {
-    state.activeFilter = button.dataset.view;
-    render();
-  });
-});
-
-/* APPLICATION MODAL */
-function detail(label, value, full = false) {
-  return `<div class="detail ${full ? "full" : ""}"><label>${safe(label)}</label><div>${safe(text(value))}</div></div>`;
 }
 
-function openModal(item) {
-  state.selected = item;
-  const name = fullName(item);
-  const photo = photoOf(item);
 
-  $("modalTitle").textContent = name;
-  $("modalSubtitle").textContent = `Application ID: ${item.id}`;
-  $("profileHead").innerHTML = `
-    <div class="profile-photo">${photo ? `<img src="${safe(photo)}" alt="" referrerpolicy="no-referrer" onerror="this.remove()">` : safe(initials(name))}</div>
-    <div style="min-width:0;flex:1">
-      <h3>${safe(name)}</h3>
-      <p>${safe(pick(item,"qualification") || "Qualification not provided")} · ${safe(districtOf(item) || "District not specified")}</p>
-      <div style="margin-top:9px">${statusBadge(item.status)}</div>
-    </div>`;
-  $("detailGrid").innerHTML = [
-    detail("Email", emailOf(item)),
-    detail("Mobile", mobileOf(item)),
-    detail("State", stateOf(item)),
-    detail("District", districtOf(item)),
-    detail("Court", courtOf(item)),
-    detail("Practice area", practiceOf(item)),
-    detail("Experience", pick(item,"experience","experienceYears")),
-    detail("Enrolment / Bar number", pick(item,"enrolmentNumber","enrollmentNumber","barCouncilNumber")),
-    detail("Qualification", pick(item,"qualification")),
-    detail("Office address", pick(item,"officeAddress","address"), true),
-    detail("About / Bio", pick(item,"bio","about","description"), true),
-    detail("Declaration / Consent", pick(item,"declaration","consent"), true),
-    detail("Submitted on", formatDate(dateOf(item)))
-  ].join("");
+/* OPEN MODAL */
 
-  $("adminRemark").value = pick(item,"adminRemark");
-  clearMessage($("modalMessage"));
-  $("approveButton").disabled = false;
-  $("rejectButton").disabled = false;
-  $("saveRemarkButton").disabled = false;
-  $("modalBackdrop").classList.remove("hidden");
-  document.body.style.overflow = "hidden";
+function openApplication(id) {
+  selectedApplication = applications.find(a => a.id === id);
+
+  if (!selectedApplication) return;
+
+  const a = selectedApplication;
+
+  document.getElementById("modalSubtitle").textContent =
+    "Application ID: " + a.id;
+
+  const fields = [
+    ["Full Name", getName(a)],
+    ["Mobile Number", getMobile(a)],
+    ["Email Address", value(a, ["email"])],
+    ["State", getState(a)],
+    ["District", getDistrict(a)],
+    ["Bar Council", value(a, ["barCouncil"])],
+    ["Enrolment Number", getEnrolment(a)],
+    ["Enrolment Year", value(a, ["enrolmentYear"])],
+    ["Experience", value(a, ["experience"])],
+    ["Practice Area", getPractice(a)],
+    ["Primary Court", getCourt(a)],
+    ["Court Type", value(a, ["courtType"])],
+    ["Languages", value(a, ["languages"])],
+    ["Declaration", value(a, ["declarationAccepted", "declaration"])],
+    ["Public Consent", value(a, ["publicConsent"])],
+    ["Submitted", formatDate(a)],
+    ["Current Status", normalizeStatus(a.status)]
+  ];
+
+  document.getElementById("detailsGrid").innerHTML =
+    fields.map(([label, val]) => `
+      <div class="detail-item">
+        <small>${escapeHTML(label)}</small>
+        <strong>${escapeHTML(val)}</strong>
+      </div>
+    `).join("");
+
+  document.getElementById("adminRemark").value =
+    a.adminRemark || a.remark || "";
+
+  const status = normalizeStatus(a.status);
+
+  document.getElementById("approveBtn").style.display =
+    status === "Approved" ? "none" : "inline-block";
+
+  document.getElementById("rejectBtn").style.display =
+    status === "Rejected" ? "none" : "inline-block";
+
+  modalBackdrop.style.display = "flex";
 }
+
 function closeModal() {
-  $("modalBackdrop").classList.add("hidden");
-  document.body.style.overflow = "";
-  state.selected = null;
+  modalBackdrop.style.display = "none";
+  selectedApplication = null;
 }
-$("closeModal").addEventListener("click", closeModal);
-$("modalBackdrop").addEventListener("click", event => {
-  if (event.target === $("modalBackdrop")) closeModal();
-});
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && !$("modalBackdrop").classList.contains("hidden")) closeModal();
+
+document.getElementById("closeModal").addEventListener("click", closeModal);
+
+modalBackdrop.addEventListener("click", e => {
+  if (e.target === modalBackdrop) closeModal();
 });
 
-/* SAVE REVIEW NOTE / APPROVE / REJECT */
-async function saveApplication(nextStatus = null) {
-  const item = state.selected;
-  if (!item) return;
-  const buttons = [$("saveRemarkButton"), $("approveButton"), $("rejectButton")];
-  buttons.forEach(b=>b.disabled=true);
-  clearMessage($("modalMessage"));
+
+/* SAVE REMARK */
+
+document.getElementById("saveRemarkBtn").addEventListener("click", async () => {
+  if (!selectedApplication) return;
 
   try {
-    const remark = $("adminRemark").value.trim();
-    const currentStatus = normalizeStatus(item.status);
-    const finalStatus = nextStatus || currentStatus;
+    const remark = document.getElementById("adminRemark").value.trim();
 
-    const update = {
-      adminRemark: remark,
+    await updateDoc(
+      doc(db, "advocateApplications", selectedApplication.id),
+      {
+        adminRemark: remark,
+        updatedAt: serverTimestamp()
+      }
+    );
+
+    selectedApplication.adminRemark = remark;
+
+    showToast("Remark saved successfully.");
+
+    await loadApplications();
+
+  } catch (error) {
+    console.error(error);
+    showToast("Unable to save remark.");
+  }
+});
+
+
+/* APPROVE AND PUBLISH */
+
+document.getElementById("approveBtn").addEventListener("click", async () => {
+  if (!selectedApplication) return;
+
+  const a = selectedApplication;
+
+  if (!confirm("Approve this advocate and publish the public profile?")) {
+    return;
+  }
+
+  const button = document.getElementById("approveBtn");
+  button.disabled = true;
+  button.textContent = "Processing...";
+
+  try {
+    const remark = document.getElementById("adminRemark").value.trim();
+
+    const publicProfile = {
+      applicationId: a.id,
+      name: getName(a),
+      qualification: value(a, ["qualification"]),
+      practiceArea: getPractice(a),
+      experience: value(a, ["experience"]),
+      district: getDistrict(a),
+      state: getState(a),
+      mobileMasked: maskMobile(getMobile(a)),
+      court: getCourt(a),
+      photoURL: "",
+      bio: value(a, ["bio"]),
+      status: "Approved",
       updatedAt: serverTimestamp()
     };
-    if (nextStatus) {
-      update.status = nextStatus;
-      update.reviewedAt = serverTimestamp();
-    }
 
-    await updateDoc(doc(db, "advocateApplications", item.id), update);
+    /*
+      First publish the public profile, then update
+      the application status. If publication fails,
+      the application remains pending.
+    */
 
-    if (finalStatus === "Approved") {
-      /*
-       * Public directory document contains only public profile fields.
-       * Phone, email, enrolment number and office address are deliberately excluded.
-       */
-      await setDoc(doc(db, "publicAdvocates", item.id), {
-        applicationId: item.id,
-        name: fullName(item),
-        qualification: pick(item,"qualification"),
-        practiceArea: practiceOf(item),
-        experience: pick(item,"experience","experienceYears"),
-        district: districtOf(item),
-state: stateOf(item),
-mobileMasked: maskedMobileOf(item),
-court: courtOf(item),
-        photoURL: photoOf(item),
-        bio: pick(item,"bio","about","description"),
+    await setDoc(
+      doc(db, "publicAdvocates", a.id),
+      publicProfile,
+      { merge: true }
+    );
+
+    await updateDoc(
+      doc(db, "advocateApplications", a.id),
+      {
         status: "Approved",
+        adminRemark: remark,
+        reviewedAt: serverTimestamp(),
         updatedAt: serverTimestamp()
-      }, { merge: true });
-    } else if (finalStatus === "Rejected" && currentStatus === "Approved") {
-      // Remove a previously approved profile from the public directory.
-      await deleteDoc(doc(db, "publicAdvocates", item.id));
-    }
+      }
+    );
 
-    item.adminRemark = remark;
-    item.status = finalStatus;
+    showToast("Application approved and published.");
+
     closeModal();
-    render();
-    showToast(nextStatus ? `Application ${nextStatus.toLowerCase()} successfully.` : "Review remark saved.", "ok");
+    await loadApplications();
+
   } catch (error) {
-    setMessage($("modalMessage"), error.message || "Could not save the review. Check Firestore permissions.", "error");
-    showToast("Save failed. Check Firestore rules and try again.", "error");
+    console.error(error);
+    showToast("Approval failed: " + error.message);
+
   } finally {
-    buttons.forEach(b=>b.disabled=false);
+    button.disabled = false;
+    button.textContent = "Approve & Publish";
   }
+});
+
+
+/* REJECT APPLICATION */
+
+document.getElementById("rejectBtn").addEventListener("click", async () => {
+  if (!selectedApplication) return;
+
+  if (!confirm("Are you sure you want to reject this application?")) {
+    return;
+  }
+
+  const a = selectedApplication;
+  const button = document.getElementById("rejectBtn");
+
+  button.disabled = true;
+  button.textContent = "Processing...";
+
+  try {
+    const remark = document.getElementById("adminRemark").value.trim();
+
+    await updateDoc(
+      doc(db, "advocateApplications", a.id),
+      {
+        status: "Rejected",
+        adminRemark: remark,
+        reviewedAt: serverTimestamp(),
+        updatedAt: serverTimestamp()
+      }
+    );
+
+    await deleteDoc(doc(db, "publicAdvocates", a.id));
+
+    showToast("Application rejected.");
+
+    closeModal();
+    await loadApplications();
+
+  } catch (error) {
+    console.error(error);
+    showToast("Rejection failed: " + error.message);
+
+  } finally {
+    button.disabled = false;
+    button.textContent = "Reject";
+  }
+});
+
+
+/* MASK MOBILE */
+
+function maskMobile(number) {
+  const digits = String(number || "").replace(/\D/g, "");
+
+  if (!digits) return "";
+
+  const lastFour = digits.slice(-4);
+
+  return "xxxxxx" + lastFour;
 }
 
-$("saveRemarkButton").addEventListener("click", () => saveApplication());
-$("approveButton").addEventListener("click", async () => {
-  if (!state.selected) return;
-  const confirmed = window.confirm(`Approve ${fullName(state.selected)} and publish their profile to the public directory?`);
-  if (confirmed) await saveApplication("Approved");
+
+/* MOBILE MENU */
+
+document.getElementById("mobileMenu").addEventListener("click", () => {
+  document.getElementById("sidebar").classList.toggle("open");
 });
-$("rejectButton").addEventListener("click", async () => {
-  if (!state.selected) return;
-  const confirmed = window.confirm(`Reject the application from ${fullName(state.selected)}?`);
-  if (confirmed) await saveApplication("Rejected");
-});
+
 </script>
+
 </body>
 </html>
