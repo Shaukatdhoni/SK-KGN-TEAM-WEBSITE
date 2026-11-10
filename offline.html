@@ -1,58 +1,215 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>You Are Offline | SK KGN TEAM</title>
-<link rel="icon" href="Logo.jpg">
+<meta name="theme-color" content="#ffffff">
+
+<title>Offline | SK KGN TEAM</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-    font-family:Arial,sans-serif;
-    background:#fff;
-    color:#102445;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:20px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-.container{max-width:480px;width:100%}
-.logo{width:105px;height:105px;object-fit:contain;margin-bottom:22px}
-.brand{font-size:22px;font-weight:800;margin-bottom:35px}
-.brand span{color:#0068B1}
-.icon{
-    width:75px;height:75px;
-    border:3px solid #0068B1;
-    border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    margin:0 auto 22px;
-    font-size:30px;font-weight:700;color:#0068B1;
+
+body {
+    min-height: 100vh;
+    background: #fff;
+    color: #172b46;
+    font-family: "Noto Sans Devanagari", "Mangal", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
 }
-h1{font-size:26px;margin-bottom:13px}
-p{font-size:14px;color:#657386;line-height:1.8;margin-bottom:25px}
-button{
-    border:0;background:#0068B1;color:white;
-    padding:14px 25px;border-radius:5px;
-    font-size:14px;font-weight:700;cursor:pointer;
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 22px;
 }
-button:hover{background:#102445}
-small{display:block;margin-top:30px;color:#8290a0;font-size:12px}
+
+.container {
+    width: 100%;
+    max-width: 510px;
+    text-align: center;
+}
+
+/* PHOTO */
+
+.photo {
+    width: 116px;
+    height: 116px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 25px;
+}
+
+/* QUOTE */
+
+.quote {
+    font-size: clamp(19px, 4.5vw, 25px);
+    line-height: 1.9;
+    font-weight: 700;
+    color: #172b46;
+    letter-spacing: -.4px;
+    padding: 0 5px;
+}
+
+.quote span {
+    color: #0878bd;
+}
+
+.author {
+    margin-top: 12px;
+    color: #0878bd;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* DIVIDER */
+
+.divider {
+    width: 38px;
+    height: 3px;
+    background: #0878bd;
+    margin: 34px auto;
+}
+
+/* OFFLINE */
+
+h1 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 9px;
+    letter-spacing: -.5px;
+}
+
+.message {
+    color: #7b8795;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* BUTTON */
+
+button {
+    margin-top: 24px;
+    padding: 13px 28px;
+    background: #0878bd;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+button:active {
+    background: #102445;
+}
+
+#status {
+    min-height: 20px;
+    margin-top: 13px;
+    font-size: 12px;
+    color: #a17432;
+}
+
+footer {
+    text-align: center;
+    padding: 17px;
+    color: #a0a8b2;
+    font-size: 10px;
+    border-top: 1px solid #f0f1f3;
+}
+
+@media(max-width: 480px) {
+    .photo {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 22px;
+    }
+
+    .quote {
+        font-size: 19px;
+        line-height: 1.85;
+    }
+
+    .divider {
+        margin: 28px auto;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+}
 </style>
 </head>
+
 <body>
-<div class="container">
-    <img src="Logo.jpg" class="logo" alt="SK KGN TEAM Logo">
-    <div class="brand">SK <span>KGN TEAM</span></div>
-    <div class="icon">!</div>
-    <h1>You Are Offline</h1>
-    <p>
-        Your internet connection is unavailable.
-        Please check your connection and try again.
-    </p>
-    <button onclick="window.location.reload()">Try Again</button>
-    <small>© SK KGN TEAM. All Rights Reserved.</small>
-</div>
+
+<main>
+    <div class="container">
+
+        <img
+            src="/shaukat.jpg"
+            alt="Shaukat Ali"
+            class="photo"
+        >
+
+        <div class="quote">
+            रिश्तों में भरोसा और मोबाइल में नेटवर्क न हो,
+            तो लोग <span>गेम खेलने लगते हैं....!!</span>
+        </div>
+
+        <div class="author">— SHAUKAT ALI</div>
+
+        <div class="divider"></div>
+
+        <h1>अरे! इंटरनेट नहीं है।</h1>
+
+        <p class="message">
+            कनेक्शन वापस आने का इंतज़ार है। 😄
+        </p>
+
+        <button onclick="retryConnection()">
+            ↻ फिर कोशिश करें
+        </button>
+
+        <div id="status" aria-live="polite"></div>
+
+    </div>
+</main>
+
+<footer>
+    © 2026 SK KGN TEAM
+</footer>
+
+<script>
+function retryConnection() {
+    const status = document.getElementById("status");
+
+    if (navigator.onLine) {
+        status.textContent = "इंटरनेट वापस आ गया!";
+        setTimeout(() => location.reload(), 700);
+    } else {
+        status.textContent = "अभी नेटवर्क नहीं आया। 😄";
+    }
+}
+
+window.addEventListener("online", () => {
+    document.getElementById("status").textContent =
+        "कनेक्शन वापस आ गया!";
+    setTimeout(() => location.reload(), 1000);
+});
+</script>
+
 </body>
 </html>
