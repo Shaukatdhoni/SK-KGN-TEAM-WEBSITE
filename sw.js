@@ -1,14 +1,11 @@
-const CACHE_NAME = "sk-kgn-team-v2";
-
-const OFFLINE_PAGE = "./offline.html";
+const CACHE_NAME = "sk-kgn-team-v4";
 
 const CORE_FILES = [
-    "./offline.html",
-    "./Logo.jpg"
+    "/offline.html",
+    "/shaukat.jpg"
 ];
 
-/* INSTALL */
-
+// INSTALL
 self.addEventListener("install", event => {
     event.waitUntil(
         caches.open(CACHE_NAME)
@@ -17,8 +14,7 @@ self.addEventListener("install", event => {
     );
 });
 
-/* ACTIVATE */
-
+// ACTIVATE
 self.addEventListener("activate", event => {
     event.waitUntil(
         caches.keys()
@@ -34,26 +30,21 @@ self.addEventListener("activate", event => {
     );
 });
 
-/* FETCH */
-
+// FETCH
 self.addEventListener("fetch", event => {
-
     const request = event.request;
 
     if (request.method !== "GET") return;
 
     const url = new URL(request.url);
 
-    // External websites and Firebase requests are not cached.
     if (url.origin !== self.location.origin) return;
 
-    // Page navigation: Network first, cached page or offline page as fallback.
+    // PAGE REQUESTS
     if (request.mode === "navigate") {
-
         event.respondWith(
             fetch(request)
                 .then(response => {
-
                     if (response.ok) {
                         const copy = response.clone();
 
@@ -64,30 +55,41 @@ self.addEventListener("fetch", event => {
                     return response;
                 })
                 .catch(async () => {
-
                     const cachedPage = await caches.match(request);
 
                     if (cachedPage) return cachedPage;
 
-                    return caches.match(OFFLINE_PAGE);
+                    const offlinePage =
+                        await caches.match("/offline.html");
+
+                    if (offlinePage) return offlinePage;
+
+                    return new Response(
+                        "You are offline. Please check your internet connection.",
+                        {
+                            status: 503,
+                            headers: {
+                                "Content-Type": "text/plain; charset=utf-8"
+                            }
+                        }
+                    );
                 })
         );
 
         return;
     }
 
-    // Static assets: Cache first, then network.
+    // CSS, JS, IMAGES AND FONTS
     if (
-        ["style", "script", "image", "font"].includes(request.destination)
+        ["style", "script", "image", "font"].includes(
+            request.destination
+        )
     ) {
-
         event.respondWith(
             caches.match(request).then(cached => {
-
                 if (cached) return cached;
 
                 return fetch(request).then(response => {
-
                     if (response.ok) {
                         const copy = response.clone();
 
@@ -100,5 +102,4 @@ self.addEventListener("fetch", event => {
             })
         );
     }
-
 });
