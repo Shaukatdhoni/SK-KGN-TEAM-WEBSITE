@@ -1136,6 +1136,25 @@ SK KGN TEAM · Complaint Information Preview
 
 area.appendChild(sheet);
 
+const consentBox = document.createElement("div");
+consentBox.className = "consent-box";
+
+consentBox.innerHTML = `
+  <label class="consent-label">
+    <input type="checkbox" id="customerConsent" required>
+    <span>
+      I agree to the
+      <a href="terms-and-conditions.html" target="_blank">Terms</a>,
+      <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+      &amp;
+      <a href="disclaimer.html" target="_blank">Disclaimer</a>,
+      and authorise SK KGN TEAM to assist with my complaint.
+    </span>
+  </label>
+`;
+
+area.appendChild(consentBox);
+
 const body=sheet.querySelector("#previewBody");
 
 addSection(body,"COMPLAINT INFORMATION");
