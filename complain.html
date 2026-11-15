@@ -1472,6 +1472,17 @@ button.textContent="Processing...";
 
 error.textContent="";
 
+if (current === 5 &&
+    !document.getElementById("customerConsent")?.checked) {
+
+  error.textContent =
+    "Please accept the Customer Consent before submitting.";
+
+  button.disabled = false;
+  button.textContent = "Submit Complaint →";
+  return;
+}
+
 try{
 
 if(answers.type==="public"){
