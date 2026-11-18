@@ -928,26 +928,15 @@ function createAdvocateCard(a) {
   top.className = "card-top";
 
   const avatar = document.createElement("div");
-  avatar.className = "avatar";
+avatar.className = "avatar";
 
-  const photo = getPhoto(a);
+const img = document.createElement("img");
 
-  if (photo) {
-    const img = document.createElement("img");
+img.src = "adv.png";
+img.alt = "SK KGN TEAM Advocate Logo";
+img.loading = "lazy";
 
-    img.src = photo;
-    img.alt = name + " profile photo";
-    img.loading = "lazy";
-
-    img.onerror = () => {
-      avatar.replaceChildren();
-      avatar.textContent = name.charAt(0).toUpperCase();
-    };
-
-    avatar.appendChild(img);
-  } else {
-    avatar.textContent = name.charAt(0).toUpperCase();
-  }
+avatar.appendChild(img);
 
   top.appendChild(avatar);
 
