@@ -1448,6 +1448,96 @@ h1{
 
 }
 
+
+/* =========================================
+   SK KGN TEAM — REFINED COMPLAINT PROGRESS
+========================================= */
+
+.result-card .timeline {
+  padding: 4px 24px 20px;
+  margin: 0;
+}
+
+.result-card .timeline h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: #173B68;
+  margin: 0 0 18px;
+  padding: 0;
+}
+
+.result-card .track {
+  position: relative;
+  padding: 0;
+}
+
+.result-card .track:before {
+  left: 15px;
+  top: 16px;
+  bottom: 16px;
+  width: 2px;
+  background: #DCE5EF;
+}
+
+.result-card .stage {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 0 16px;
+}
+
+.result-card .stage:last-child {
+  padding-bottom: 0;
+}
+
+.result-card .stage-icon {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  box-sizing: border-box;
+  border: 3px solid #FFFFFF;
+  font-size: 13px;
+}
+
+.result-card .stage.done .stage-icon {
+  background: #20B875;
+  color: #FFFFFF;
+}
+
+.result-card .stage.current .stage-icon {
+  background: #2563EB;
+  color: #FFFFFF;
+  box-shadow: 0 0 0 4px #DBEAFE;
+}
+
+.result-card .stage-title {
+  padding-top: 0;
+  font-size: 13px;
+  font-weight: 750;
+  color: #344054;
+}
+
+.result-card .stage.current .stage-title {
+  color: #173B68;
+}
+
+.result-card .stage-note {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #7B8797;
+}
+
+.result-card > .actions {
+  margin-top: 12px;
+}
+
+@media(max-width:560px) {
+  .result-card .timeline {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
+
 </style>
 </head>
 
