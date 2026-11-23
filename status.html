@@ -891,21 +891,21 @@ h1{
 
 /* 
 
-/* PROFESSIONAL ADMIN REMARK */
 
+/* ===== SK KGN PROFESSIONAL UI ===== */
+
+/* ADMIN REMARK */
 .remark-box {
   margin: 0 24px 24px;
   padding: 18px 20px;
   background: #F8FAFC;
   border: 1px solid #E2E8F0;
-  border-radius: 14px;
+  border-radius: 13px;
   box-shadow: none;
-  overflow: hidden;
+  animation: none;
 }
 
 .remark-top {
-  display: flex;
-  align-items: center;
   gap: 11px;
   margin-bottom: 12px;
 }
@@ -914,32 +914,25 @@ h1{
   width: 36px;
   height: 36px;
   flex: 0 0 36px;
-  display: grid;
-  place-items: center;
   border-radius: 9px;
   background: #EAF1FB;
+  font-size: 0;
+}
+
+.remark-icon::after {
+  content: "✎";
+  font-size: 23px;
   color: #2457A7;
 }
 
-.remark-icon svg {
-  width: 19px;
-  height: 19px;
-}
-
 .remark-heading h3 {
-  margin: 0;
   font-size: 14px;
-  font-weight: 800;
   color: #173B68;
 }
 
 .remark-heading span {
-  display: block;
-  margin-top: 3px;
-  color: #718096;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .5px;
+  letter-spacing: .4px;
 }
 
 .remark-message {
@@ -947,9 +940,7 @@ h1{
   background: transparent;
   color: #334155;
   font-size: 14px;
-  line-height: 1.75;
-  white-space: pre-wrap;
-  overflow-wrap: anywhere;
+  line-height: 1.7;
 }
 
 .remark-box.cancelled {
@@ -957,14 +948,67 @@ h1{
   border-color: #FECACA;
 }
 
-.remark-box.cancelled .remark-icon {
-  background: #FEE2E2;
-  color: #B91C1C;
+/* ACTION BUTTONS */
+.actions {
+  gap: 10px;
+  padding: 0 24px 24px;
 }
 
-.remark-box.cancelled .remark-heading h3 {
-  color: #B91C1C;
+.action {
+  min-height: 48px;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  background: #F8FAFC;
+  color: #26364A;
+  font-size: 0;
+  font-weight: 700;
+  box-shadow: none;
+  transform: none;
 }
+
+.action::after {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.action:nth-child(1)::after { content: "Copy ID"; }
+.action:nth-child(2)::after { content: "Refresh"; }
+.action:nth-child(3)::after { content: "Share"; }
+.action:nth-child(4)::after { content: "Print"; }
+.action:nth-child(5)::after { content: "Call Support"; }
+.action:nth-child(6)::after { content: "WhatsApp"; }
+
+.action.primary {
+  background: #EFF6FF;
+  border-color: #DBEAFE;
+  color: #2457A7;
+}
+
+.action.call,
+.action.whatsapp {
+  background: #F0F9F4;
+  border-color: #D5EBDD;
+  color: #16734B;
+}
+
+.action:hover {
+  transform: none;
+  box-shadow: none;
+  background-color: #EFF6FF;
+}
+
+@media(max-width:560px) {
+  .remark-box {
+    margin-left: 19px;
+    margin-right: 19px;
+  }
+
+  .actions {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}
+
  =========================================================
    TIMELINE
 ========================================================= */
