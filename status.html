@@ -948,64 +948,70 @@ h1{
   border-color: #FECACA;
 }
 
-/* ACTION BUTTONS */
+
+/* =========================================================
+   SK KGN TEAM — ACTION BUTTONS
+========================================================= */
+
 .actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   padding: 0 24px 24px;
 }
 
 .action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
   min-height: 48px;
-  border: 1px solid #E2E8F0;
-  border-radius: 10px;
-  background: #F8FAFC;
-  color: #26364A;
-  font-size: 0;
-  font-weight: 700;
-  box-shadow: none;
-  transform: none;
-}
+  box-sizing: border-box;
+  padding: 12px 8px;
 
-.action::after {
+  border: 1px solid #E1E7EF;
+  border-radius: 10px;
+  background: #FFFFFF;
+  color: #263B56;
+
+  font-family: inherit;
   font-size: 13px;
   font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
-.action:nth-child(1)::after { content: "Copy ID"; }
-.action:nth-child(2)::after { content: "Refresh"; }
-.action:nth-child(3)::after { content: "Share"; }
-.action:nth-child(4)::after { content: "Print"; }
-.action:nth-child(5)::after { content: "Call Support"; }
-.action:nth-child(6)::after { content: "WhatsApp"; }
-
 .action.primary {
-  background: #EFF6FF;
-  border-color: #DBEAFE;
-  color: #2457A7;
+  background: #173B68;
+  border-color: #173B68;
+  color: #FFFFFF;
 }
 
 .action.call,
 .action.whatsapp {
-  background: #F0F9F4;
-  border-color: #D5EBDD;
-  color: #16734B;
+  background: #F1F8F4;
+  border-color: #D5E9DC;
+  color: #176B45;
 }
 
 .action:hover {
-  transform: none;
-  box-shadow: none;
-  background-color: #EFF6FF;
+  background: #F2F6FC;
+  border-color: #B8CBE5;
 }
 
 @media(max-width:560px) {
-  .remark-box {
-    margin-left: 19px;
-    margin-right: 19px;
-  }
-
   .actions {
     padding-left: 19px;
     padding-right: 19px;
+    gap: 9px;
+  }
+
+  .action {
+    min-height: 47px;
+    font-size: 12px;
   }
 }
 
