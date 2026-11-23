@@ -1288,40 +1288,197 @@ h1{
 }
 
 
+/* 
 /* =========================================================
-   PRINT
+   SK KGN TEAM — PROFESSIONAL PRINT REPORT
 ========================================================= */
 
-@media print{
+@page {
+  size: A4;
+  margin: 15mm 14mm;
+}
+
+@media print {
+
+  * {
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #172033 !important;
+    font-family: Arial, sans-serif !important;
+    min-height: auto !important;
+  }
+
+  /* HIDE UNNECESSARY ELEMENTS */
 
   .intro-screen,
   .scan,
-  .top,
   .hero,
   .footer,
-  .actions{
-    display:none !important;
+  .actions {
+    display: none !important;
   }
 
-  body{
-    background:#fff;
+  /* COMPANY HEADER WITH EXISTING LOGO */
+
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 auto !important;
   }
 
-  .container{
-    width:100%;
+  .top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 0 0 16px !important;
+    margin-bottom: 22px !important;
+    border-bottom: 2px solid #173B68 !important;
+    position: relative !important;
   }
 
-  .result{
-    display:block !important;
-
-    margin:0;
+  .brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 13px !important;
+    color: #173B68 !important;
+    font-size: 23px !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
   }
 
-  .result-card{
-    box-shadow:none;
+  .brand img {
+    display: block !important;
+    width: 58px !important;
+    height: 58px !important;
+    object-fit: contain !important;
+    border-radius: 50% !important;
+    background: #ffffff !important;
+  }
 
-    border:
-      1px solid #ddd;
+  .top::after {
+    content: "COMPLAINT STATUS REPORT";
+    display: block;
+    color: #52647A;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-align: right;
+  }
+
+  /* RESULT AREA */
+
+  .result {
+    display: block !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .result-card {
+    display: block !important;
+    border: 1px solid #D9E1EA !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    animation: none !important;
+  }
+
+  /* STATUS HEADER */
+
+  .result-head {
+    padding: 20px 22px !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .result-head h2 {
+    font-size: 21px !important;
+  }
+
+  .status-pill {
+    border: 1px solid #E2E8F0 !important;
+  }
+
+  /* COMPLAINT DETAILS */
+
+  .details {
+    padding: 15px 22px !important;
+  }
+
+  .detail {
+    padding: 11px 0 !important;
+    border-bottom: 1px solid #E8EDF3 !important;
+    break-inside: avoid !important;
+  }
+
+  .detail label {
+    color: #64748B !important;
+    font-size: 9px !important;
+  }
+
+  .detail div {
+    color: #172033 !important;
+    font-size: 12px !important;
+  }
+
+  /* ADMIN REMARK */
+
+  .remark-box {
+    margin: 5px 22px 20px !important;
+    padding: 14px 16px !important;
+    border: 1px solid #D9E3F0 !important;
+    border-radius: 10px !important;
+    background: #F7F9FC !important;
+    box-shadow: none !important;
+    animation: none !important;
+    break-inside: avoid !important;
+  }
+
+  .remark-icon {
+    print-color-adjust: exact !important;
+  }
+
+  .remark-message {
+    color: #26364A !important;
+    font-size: 12px !important;
+  }
+
+  /* PROGRESS TIMELINE */
+
+  .timeline {
+    padding: 0 22px 22px !important;
+  }
+
+  .timeline h3 {
+    font-size: 15px !important;
+    color: #173B68 !important;
+    margin-bottom: 15px !important;
+  }
+
+  .stage {
+    break-inside: avoid !important;
+  }
+
+  /* CLEAN REPORT BORDERS */
+
+  .result-head,
+  .details,
+  .timeline,
+  .remark-box {
+    break-inside: avoid !important;
+  }
+
+  /* REMOVE SCREEN EFFECTS */
+
+  .result-card,
+  .remark-box,
+  .action {
+    transform: none !important;
+    transition: none !important;
   }
 
 }
