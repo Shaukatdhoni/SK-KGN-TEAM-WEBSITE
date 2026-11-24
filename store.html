@@ -923,5 +923,172 @@ WhatsApp: <a href="https://wa.me/917007027158">Contact Us</a>
   #skRegSuccess button{display:none!important}
 }
 </style>
+
+<script>
+(() => {
+  const BACKEND_URL = "https://skkgn-razorpay-backend.vercel.app";
+  const ACTIVE_PAYMENT_KEY = "SKKGN_ACTIVE_PAYMENT";
+
+  const popup = document.getElementById("skRegistrationPopup");
+  const form = document.getElementById("skRegistrationForm");
+  const submitBtn = document.getElementById("skSubmitBtn");
+  const errorBox = document.getElementById("skRegError");
+
+  const plans = {
+    Basic: 99,
+    Advance: 199,
+    Premium: 299
+  };
+
+  let selectedPlan = "";
+
+  if (!popup || !form || !submitBtn) {
+    console.error("SKKGN registration form not found.");
+    return;
+  }
+
+  // Popup close button
+  const closeBtn = document.createElement("button");
+  closeBtn.type = "button";
+  closeBtn.textContent = "×";
+  closeBtn.setAttribute("aria-label", "Close registration");
+  closeBtn.style.cssText =
+    "position:sticky;top:0;float:right;width:36px;height:36px;" +
+    "padding:0;border:0;border-radius:50%;background:#edf2f8;" +
+    "color:#123b6d;font-size:25px;line-height:1;cursor:pointer;";
+
+  popup.querySelector(".sk-reg-box").prepend(closeBtn);
+
+  function closePopup() {
+    popup.style.display = "none";
+  }
+
+  closeBtn.addEventListener("click", closePopup);
+
+  popup.addEventListener("click", (event) => {
+    if (event.target === popup) closePopup();
+  });
+
+  // Open registration form for selected plan
+  document.querySelectorAll("[data-plan]").forEach(button => {
+    button.addEventListener("click", () => {
+      selectedPlan = button.dataset.plan;
+
+      if (!plans[selectedPlan]) return;
+
+      errorBox.textContent = "";
+      submitBtn.disabled = false;
+      submitBtn.textContent =
+        "Continue to Payment — ₹" + plans[selectedPlan];
+
+      popup.style.display = "block";
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function hidePopup() {
+    popup.style.display = "none";
+    document.body.style.overflow = "";
+  }
+
+  closeBtn.addEventListener("click", () => {
+    document.body.style.overflow = "";
+  });
+
+  // Create a fresh Razorpay Payment Link for every submission
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!plans[selectedPlan]) {
+      errorBox.textContent = "Please select a valid service plan.";
+      return;
+    }
+
+    if (!form.reportValidity()) return;
+
+    const name = document.getElementById("skName").value.trim();
+    const mobile = document.getElementById("skMobile").value.trim();
+    const email = document.getElementById("skEmail").value.trim();
+    const type = document.getElementById("skType").value;
+    const department = document.getElementById("skDepartment").value.trim();
+    const state = document.getElementById("skState").value.trim();
+    const district = document.getElementById("skDistrict").value.trim();
+    const issue = document.getElementById("skDetails").value.trim();
+    const consent = document.getElementById("skConsent").checked;
+
+    if (!consent) {
+      errorBox.textContent = "Please accept the terms before continuing.";
+      return;
+    }
+
+    const subject = [
+      type,
+      "Department: " + department,
+      "State: " + state,
+      "District: " + district
+    ].join(" | ");
+
+    const details = [
+      issue,
+      email ? "Email: " + email : ""
+    ].filter(Boolean).join("\n");
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Preparing Secure Payment...";
+    errorBox.textContent = "";
+
+    try {
+      const response = await fetch(
+        BACKEND_URL + "/api/create-payment-link",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            plan: selectedPlan,
+            name,
+            mobile,
+            subject,
+            details
+          })
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok || !data.ok || !data.shortUrl) {
+        throw new Error(data.error || "Payment link could not be created.");
+      }
+
+      sessionStorage.setItem(
+        ACTIVE_PAYMENT_KEY,
+        JSON.stringify({
+          shortUrl: data.shortUrl,
+          plan: selectedPlan,
+          amount: plans[selectedPlan],
+          paymentLinkId: data.paymentLinkId,
+          referenceId: data.referenceId
+        })
+      );
+
+      window.location.href = data.shortUrl;
+
+    } catch (error) {
+      console.error("SKKGN payment error:", error);
+      errorBox.textContent =
+        error.message || "Unable to start payment. Please try again.";
+
+      submitBtn.disabled = false;
+      submitBtn.textContent =
+        "Continue to Payment — ₹" + plans[selectedPlan];
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
+
 </body>
 </html>
