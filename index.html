@@ -5567,70 +5567,34 @@ is securely verified.
       );
 
 
-    const existing=
-      await getDoc(paymentDoc);
+   
+const paymentSuffix =
+  String(data.razorpayPaymentId)
+    .replace(/[^a-zA-Z0-9]/g, "")
+    .slice(-6)
+    .toUpperCase();
 
+const complaintId =
+  "SKKGN-" + paymentSuffix;
 
-    let complaintId;
-
-
-    if(existing.exists()){
-
-      complaintId=
-        existing.data().complaintId;
-
-    }else{
-
-      complaintId=
-        generateComplaintId();
-
-
-      await setDoc(
-
-        paymentDoc,
-
-        {
-
-          complaintId,
-
-          name:
-            complaint.name,
-
-          mobile:
-            complaint.mobile,
-
-          subject:
-            complaint.subject,
-
-          details:
-            complaint.details,
-
-          plan:
-            complaint.plan||"",
-
-          status:
-            "Submitted",
-
-          paymentStatus:
-            "Completed",
-
-          razorpayPaymentId:
-            data.razorpayPaymentId,
-
-          paymentLinkId:
-            data.paymentLinkId||"",
-
-          referenceId:
-            data.referenceId||"",
-
-          createdAt:
-            serverTimestamp()
-
-        }
-
-      );
-
-    }
+await setDoc(
+  paymentDoc,
+  {
+    complaintId,
+    name: complaint.name,
+    mobile: complaint.mobile,
+    subject: complaint.subject,
+    details: complaint.details,
+    plan: complaint.plan || "",
+    status: "Submitted",
+    paymentStatus: "Completed",
+    razorpayPaymentId: data.razorpayPaymentId,
+    paymentLinkId: data.paymentLinkId || "",
+    referenceId: data.referenceId || "",
+    createdAt: serverTimestamp()
+  },
+  { merge: true }
+);
 
 
     sessionStorage.removeItem(
