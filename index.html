@@ -2783,6 +2783,20 @@ Complaint ID is generated for tracking.
     font-size:16px;
   }
 }
+/* HERO — REMOVE RIGHT CARD */
+.hero-card {
+  display: none !important;
+}
+
+.hero-grid {
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 0 !important;
+}
+
+.hero-grid > div:first-child {
+  width: 100%;
+  max-width: 900px;
+}
 </style> 
 
 <!-- Advocate Network -->
