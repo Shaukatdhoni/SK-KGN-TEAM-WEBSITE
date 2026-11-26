@@ -1088,5 +1088,175 @@ WhatsApp: <a href="https://wa.me/917007027158">Contact Us</a>
 
 })();
 </script>
+
+<script type="module">
+import {
+  initializeApp,
+  getApps,
+  getApp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTz9oHKVQ",
+  authDomain: "sk-kgn-team.firebaseapp.com",
+  databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "sk-kgn-team",
+  storageBucket: "sk-kgn-team.firebasestorage.app",
+  messagingSenderId: "228612697498",
+  appId: "1:228612697498:web:a304b57bf5a59d2933de23",
+  measurementId: "G-BXWT6BPTB6"
+};
+
+const app = getApps().length
+  ? getApp()
+  : initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+const BACKEND_URL =
+  "https://skkgn-razorpay-backend.vercel.app";
+
+const params = new URLSearchParams(location.search);
+const payment = params.get("payment");
+const token = params.get("token");
+
+const popup = document.getElementById("skRegistrationPopup");
+const form = document.getElementById("skRegistrationForm");
+const successBox = document.getElementById("skRegSuccess");
+const errorBox = document.getElementById("skRegError");
+const submitBtn = document.getElementById("skSubmitBtn");
+
+function cleanUrl() {
+  history.replaceState({}, document.title, location.pathname);
+}
+
+function showError(message) {
+  popup.style.display = "block";
+  document.body.style.overflow = "hidden";
+  form.style.display = "block";
+  successBox.style.display = "none";
+  errorBox.textContent = message;
+  errorBox.style.color = "#b42318";
+}
+
+async function verifyAndSavePayment() {
+  if (payment === "failed") {
+    sessionStorage.removeItem("SKKGN_ACTIVE_PAYMENT");
+    showError("Payment complete nahi hua. Aap dobara payment try kar sakte hain.");
+    cleanUrl();
+    return;
+  }
+
+  if (payment !== "verified" || !token) return;
+
+  popup.style.display = "block";
+  document.body.style.overflow = "hidden";
+  form.style.display = "none";
+  successBox.style.display = "none";
+
+  const loading = document.createElement("div");
+  loading.id = "skStorePaymentLoading";
+  loading.style.cssText =
+    "text-align:center;padding:25px;color:#123b6d;font-weight:700;";
+  loading.textContent = "Payment verify ho raha hai. Kripya wait karein...";
+  popup.querySelector(".sk-reg-box").appendChild(loading);
+
+  try {
+    const response = await fetch(
+      BACKEND_URL + "/api/verify-payment?token=" +
+      encodeURIComponent(token)
+    );
+
+    const data = await response.json();
+
+    if (
+      !response.ok ||
+      !data.ok ||
+      data.paymentStatus !== "Completed"
+    ) {
+      throw new Error(data.error || "Payment verify nahi ho paya.");
+    }
+
+    const complaint = data.complaint;
+
+    if (
+      !complaint ||
+      !complaint.name ||
+      !complaint.mobile ||
+      !complaint.subject ||
+      !complaint.details ||
+      !data.razorpayPaymentId
+    ) {
+      throw new Error("Verified complaint details incomplete hain.");
+    }
+
+    const paymentId = String(data.razorpayPaymentId);
+
+    const suffix = paymentId
+      .replace(/[^a-zA-Z0-9]/g, "")
+      .slice(-6)
+      .toUpperCase();
+
+    if (!suffix) {
+      throw new Error("Complaint ID generate nahi ho payi.");
+    }
+
+    const complaintId = "SKKGN-" + suffix;
+
+    await setDoc(
+      doc(db, "complaints", paymentId),
+      {
+        complaintId: complaintId,
+        name: complaint.name,
+        mobile: complaint.mobile,
+        subject: complaint.subject,
+        details: complaint.details,
+        plan: complaint.plan || "",
+        status: "Submitted",
+        paymentStatus: "Completed",
+        razorpayPaymentId: paymentId,
+        paymentLinkId: data.paymentLinkId || "",
+        referenceId: data.referenceId || "",
+        createdAt: serverTimestamp()
+      },
+      { merge: true }
+    );
+
+    document.getElementById("skComplaintId").textContent = complaintId;
+    document.getElementById("skRegDate").textContent =
+      "Registration Date: " + new Date().toLocaleString("en-IN");
+
+    form.style.display = "none";
+    successBox.style.display = "block";
+    errorBox.textContent = "";
+
+    sessionStorage.removeItem("SKKGN_ACTIVE_PAYMENT");
+
+    cleanUrl();
+
+  } catch (error) {
+    console.error("Store payment verification/save error:", error);
+
+    showError(
+      "Payment verify ya complaint save nahi ho payi: " +
+      (error.message || "Please try again.")
+    );
+
+    // Query token ko jaanbujhkar rakha gaya hai,
+    // taaki page refresh karke verification dobara ho sake.
+  } finally {
+    loading.remove();
+  }
+}
+
+verifyAndSavePayment();
+</script>
 </body>
 </html>
