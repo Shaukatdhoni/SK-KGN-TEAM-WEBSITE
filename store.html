@@ -1045,13 +1045,14 @@ WhatsApp: <a href="https://wa.me/917007027158">Contact Us</a>
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify({
-            plan: selectedPlan,
-            name,
-            mobile,
-            subject,
-            details
-          })
+       body: JSON.stringify({
+  plan: selectedPlan,
+  name,
+  mobile,
+  subject,
+  details,
+  returnTo: "store"
+})
         }
       );
 
