@@ -3,6 +3,29 @@
 
 <head>
 
+<script>
+(function () {
+  try {
+    const returnFlag = sessionStorage.getItem("SKKGN_COMPLAINT_RETURN");
+    const params = new URLSearchParams(window.location.search);
+    const payment = params.get("payment");
+
+    if (
+      returnFlag === "1" &&
+      (payment === "verified" || payment === "failed")
+    ) {
+      sessionStorage.removeItem("SKKGN_COMPLAINT_RETURN");
+
+      window.location.replace(
+        "complain.html" + window.location.search + window.location.hash
+      );
+    }
+  } catch (error) {
+    console.error("Complaint payment return error:", error);
+  }
+})();
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
