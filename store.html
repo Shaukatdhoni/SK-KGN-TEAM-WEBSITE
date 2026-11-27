@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,7 +73,7 @@ header{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid
 .basic .plan-button{background:linear-gradient(120deg,#07966b,#19b58a)}
 .advance .plan-button{background:linear-gradient(120deg,#2057bd,#397ce4)}
 .premium .plan-button{background:linear-gradient(120deg,#7130ce,#963ce7)}
-.payment-note{ text-align:center;font-size:11px;color:#929baa;font-weight:700;margin-top:13px}
+.payment-note{text-align:center;font-size:11px;color:#929baa;font-weight:700;margin-top:13px}
 .demo-plan{border-top:4px solid #64748b}
 .demo-plan .plan-badge{background:#edf1f5;color:#475569}
 .demo-plan h3{font-size:17px}
@@ -119,12 +120,12 @@ footer a:hover{color:#fff}
 
 /* Registration popup */
 #skRegistrationPopup{position:fixed;inset:0;z-index:99999;background:rgba(5,20,43,.76);overflow-y:auto;padding:15px}
-.sk-reg-box{max-width:520px;margin:20px auto;background:#fff;border-radius:15px;padding:22px;color:#172b45;box-shadow:0 15px 45px rgba(0,0,0,.2)}
+.sk-reg-box{max-width:520px;margin:20px auto;background:#fff;border-radius:18px;padding:22px;color:#172b45;box-shadow:0 15px 45px rgba(0,0,0,.2)}
 .sk-reg-head{display:flex;align-items:center;gap:12px;background:#fff;color:#123b6d;padding:10px 2px 16px;border-bottom:1px solid #e6ebf2;border-radius:0}
-.sk-reg-head img{width:48px;height:48px;object-fit:contain;background:#fff;border:1px solid #e6ebf2;border-radius:8px;padding:3px}
+.sk-reg-head img{width:48px;height:48px;object-fit:contain;background:#fff;border:1px solid #e6ebf2;border-radius:50%;padding:3px}
 .sk-reg-head strong,.sk-reg-head small{display:block}
-.sk-reg-head strong{font-size:17px}
-.sk-reg-head small{font-size:11px;color:#66758a;margin-top:3px}
+.sk-reg-head strong{font-size:19px;font-weight:900}
+.sk-reg-head small{font-size:10px;letter-spacing:1px;color:#66758a;margin-top:3px}
 .sk-reg-box h2{font-size:22px;margin:20px 0 5px;color:#123b6d}
 .sk-reg-sub{font-size:13px;color:#667085;margin-bottom:15px}
 .sk-reg-box label:not(.sk-consent){display:block;font-size:12px;font-weight:700;margin:13px 0 6px}
@@ -136,10 +137,28 @@ footer a:hover{color:#fff}
 .sk-reg-box button{width:100%;padding:14px;border:0;border-radius:8px;background:#174b94;color:white;font-weight:800;font-size:14px;cursor:pointer}
 .sk-reg-box button:disabled{opacity:.6;cursor:wait}
 #skRegError{font-size:12px;color:#c62828;margin-top:10px}
-#skRegSuccess{text-align:center;padding-top:15px}
-#skRegSuccess h2{line-height:1.4}
-#skRegSuccess p{font-size:13px;color:#586579}
-.sk-success-icon{width:55px;height:55px;border-radius:50%;background:#e5f6eb;color:#168044;display:grid;place-items:center;margin:15px auto;font-size:30px}
+
+/* Three payment states */
+.sk-status-panel{text-align:center;padding:24px 5px 12px}
+.sk-status-icon{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;margin:0 auto 16px;font-size:35px;font-weight:700}
+.sk-status-processing{background:#edf4ff;color:#2865c7}
+.sk-status-success{background:#e9f8ef;color:#168044}
+.sk-status-failed{background:#fff0f0;color:#c62828}
+.sk-status-panel h2{font-size:23px;line-height:1.35;margin:0 0 10px;color:#123b6d}
+.sk-status-panel p{font-size:13px;line-height:1.7;color:#64748b;margin:7px 0}
+.sk-status-tag{display:inline-block;margin-top:14px;padding:7px 13px;border-radius:30px;font-size:10px;font-weight:900;letter-spacing:.7px}
+.sk-tag-success{background:#e9f8ef;color:#168044}
+.sk-tag-failed{background:#fff0f0;color:#c62828}
+.sk-tag-processing{background:#edf4ff;color:#2865c7}
+.sk-status-panel .sk-reg-id{margin:20px 0 5px}
+.sk-status-panel .sk-reg-id strong{letter-spacing:.5px}
+.sk-status-panel .sk-small-note{font-size:11px;margin-top:14px}
+.sk-status-panel .sk-status-action{display:block;margin-top:19px}
+.sk-status-panel .sk-contact-link{display:inline-block;margin-top:14px;color:#174b94;font-size:12px;font-weight:800}
+.sk-spin{animation:skSpin 1s linear infinite}
+@keyframes skSpin{to{transform:rotate(360deg)}}
+
+#skRegSuccess{padding-top:15px}
 .sk-reg-id{padding:15px;background:#f1f6fc;border:1px solid #dce7f4;border-radius:9px;margin:20px 0}
 .sk-reg-id small,.sk-reg-id strong,.sk-reg-id span{display:block}
 .sk-reg-id small{font-size:10px;color:#65758b}
@@ -179,7 +198,7 @@ footer a:hover{color:#fff}
  .footer-bottom span{display:block;margin-top:6px}
 }
 @media(max-width:430px){.sk-reg-box{padding:16px}.sk-reg-grid{gap:8px}.sk-receipt-row{grid-template-columns:112px minmax(0,1fr);gap:8px}}
-@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;animation:none!important}}
 @media print{
  @page{size:A4 portrait;margin:13mm}
  html,body{margin:0!important;padding:0!important;background:#fff!important}
@@ -310,9 +329,13 @@ footer a:hover{color:#fff}
 <!-- Registration popup -->
 <div id="skRegistrationPopup" style="display:none">
  <div class="sk-reg-box">
+
   <div class="sk-reg-head">
    <img src="Logo.jpg" alt="SK KGN TEAM">
-   <div><strong>SK KGN TEAM</strong><small>Complaint Assistance</small></div>
+   <div>
+    <strong>SK KGN TEAM</strong>
+    <small>YOUR VOICE, YOUR RIGHT</small>
+   </div>
   </div>
 
   <div id="skRegIntro">
@@ -342,13 +365,43 @@ footer a:hover{color:#fff}
    <p id="skRegError" role="alert"></p>
   </form>
 
-  <div id="skRegSuccess" style="display:none">
-   <div class="sk-success-icon">✓</div>
-   <h2>Your Complaint Has Been Successfully Registered</h2>
-   <p>Our team will contact you shortly regarding your registration.</p>
-   <div class="sk-reg-id"><small>COMPLAINT ID</small><strong id="skComplaintId"></strong><span id="skRegDate"></span></div>
-   <button type="button" id="skPrintButton">Print Acknowledgement</button>
-   <p>Thank you for choosing SK KGN TEAM.</p>
+  <!-- PAYMENT PROCESSING -->
+  <div id="skRegProcessing" class="sk-status-panel" style="display:none">
+   <div class="sk-status-icon sk-status-processing">
+    <span class="sk-spin">↻</span>
+   </div>
+   <h2>Processing Payment</h2>
+   <p>Please wait while we securely verify your payment.</p>
+   <p>Do not close this page.</p>
+   <span class="sk-status-tag sk-tag-processing">PROCESSING</span>
+  </div>
+
+  <!-- PAYMENT SUCCESS -->
+  <div id="skRegSuccess" class="sk-status-panel" style="display:none">
+   <div class="sk-status-icon sk-status-success">✓</div>
+   <h2>Payment Successful</h2>
+   <p><strong>Your Complaint Has Been Registered Successfully!</strong></p>
+   <p>Our team will contact you shortly regarding your complaint and the next steps.</p>
+   <div class="sk-reg-id">
+    <small>COMPLAINT ID</small>
+    <strong id="skComplaintId"></strong>
+    <span id="skRegDate"></span>
+   </div>
+   <span class="sk-status-tag sk-tag-success">REGISTRATION CONFIRMED</span>
+   <button type="button" id="skPrintButton" style="margin-top:19px">Print Acknowledgement</button>
+  </div>
+
+  <!-- PAYMENT FAILURE / REGISTRATION PENDING -->
+  <div id="skRegFailed" class="sk-status-panel" style="display:none">
+   <div class="sk-status-icon sk-status-failed" id="skFailedIcon">×</div>
+   <h2 id="skFailedHeading">Payment Failed</h2>
+   <p id="skFailedMessage">We couldn't verify your transaction. Please check your payment status.</p>
+   <span class="sk-status-tag sk-tag-failed" id="skFailedTag">VERIFICATION FAILED</span>
+   <p class="sk-small-note" id="skFailedNote">
+    If money was deducted, please contact our support team before making another payment.
+   </p>
+   <button type="button" id="skFailedAction" class="sk-status-action">Return to Plans</button>
+   <a class="sk-contact-link" href="https://wa.me/917007027158" target="_blank" rel="noopener noreferrer">Contact SK KGN TEAM Support</a>
   </div>
 
   <section id="skPrintReceipt" aria-label="Complaint acknowledgement">
@@ -389,6 +442,19 @@ footer a:hover{color:#fff}
     return;
   }
 
+  const regIntro = document.getElementById("skRegIntro");
+  const processingBox = document.getElementById("skRegProcessing");
+  const successBox = document.getElementById("skRegSuccess");
+  const failedBox = document.getElementById("skRegFailed");
+
+  function showOnly(section) {
+    regIntro.style.display = section === "intro" ? "block" : "none";
+    form.style.display = section === "form" ? "block" : "none";
+    processingBox.style.display = section === "processing" ? "block" : "none";
+    successBox.style.display = section === "success" ? "block" : "none";
+    failedBox.style.display = section === "failed" ? "block" : "none";
+  }
+
   // Popup close control
   const closeBtn = document.createElement("button");
   closeBtn.type = "button";
@@ -421,9 +487,7 @@ footer a:hover{color:#fff}
       submitBtn.disabled = false;
       submitBtn.textContent = "Continue to Payment — ₹" + plans[selectedPlan];
 
-      document.getElementById("skRegIntro").style.display = "block";
-      form.style.display = "block";
-      document.getElementById("skRegSuccess").style.display = "none";
+      showOnly("form");
       popup.style.display = "block";
       document.body.style.overflow = "hidden";
     });
@@ -537,7 +601,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAOdyFtVEoAeVd1TnWjaXrkPBPTZ9oHKVQ",
+  apiKey: "AIzaSyAOdyFtVEaOeVd1TnWjaXrkPBPTZ9oHKVQ",
   authDomain: "sk-kgn-team.firebaseapp.com",
   databaseURL: "https://sk-kgn-team-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "sk-kgn-team",
@@ -569,18 +633,72 @@ const regIntro = document.getElementById("skRegIntro");
 const printButton = document.getElementById("skPrintButton");
 const receiptFields = document.getElementById("skReceiptFields");
 
+const processingBox = document.getElementById("skRegProcessing");
+const failedBox = document.getElementById("skRegFailed");
+
+let paymentVerified = false;
+
 function cleanUrl() {
   history.replaceState({}, document.title, location.pathname);
 }
 
-function showError(message) {
+function showOnly(section) {
+  regIntro.style.display = section === "intro" ? "block" : "none";
+  form.style.display = section === "form" ? "block" : "none";
+  processingBox.style.display = section === "processing" ? "block" : "none";
+  successBox.style.display = section === "success" ? "block" : "none";
+  failedBox.style.display = section === "failed" ? "block" : "none";
+}
+
+function showError(message, heading = "Payment Failed", mode = "failed") {
   popup.style.display = "block";
   document.body.style.overflow = "hidden";
-  regIntro.style.display = "block";
-  form.style.display = "block";
-  successBox.style.display = "none";
-  errorBox.textContent = message;
-  errorBox.style.color = "#b42318";
+
+  showOnly("failed");
+
+  const headingBox = document.getElementById("skFailedHeading");
+  const messageBox = document.getElementById("skFailedMessage");
+  const noteBox = document.getElementById("skFailedNote");
+  const tagBox = document.getElementById("skFailedTag");
+  const iconBox = document.getElementById("skFailedIcon");
+  const actionButton = document.getElementById("skFailedAction");
+
+  headingBox.textContent = heading;
+  messageBox.textContent = message;
+
+  if (mode === "pending") {
+    iconBox.textContent = "!";
+    iconBox.className = "sk-status-icon sk-status-processing";
+    tagBox.textContent = "REGISTRATION PENDING";
+    tagBox.className = "sk-status-tag sk-tag-processing";
+    noteBox.textContent =
+      "Your payment is verified. Please do not pay again. Contact our team to complete registration.";
+    actionButton.textContent = "Close";
+    actionButton.onclick = () => {
+      popup.style.display = "none";
+      document.body.style.overflow = "";
+    };
+  } else if (mode === "verify") {
+    iconBox.textContent = "!";
+    iconBox.className = "sk-status-icon sk-status-processing";
+    tagBox.textContent = "VERIFICATION PENDING";
+    tagBox.className = "sk-status-tag sk-tag-processing";
+    noteBox.textContent =
+      "If money was deducted, do not make another payment until the transaction status is confirmed.";
+    actionButton.textContent = "Retry Verification";
+    actionButton.onclick = () => location.reload();
+  } else {
+    iconBox.textContent = "×";
+    iconBox.className = "sk-status-icon sk-status-failed";
+    tagBox.textContent = "PAYMENT NOT COMPLETED";
+    tagBox.className = "sk-status-tag sk-tag-failed";
+    noteBox.textContent =
+      "If money was deducted, please contact our support team before making another payment.";
+    actionButton.textContent = "Return to Plans";
+    actionButton.onclick = () => {
+      location.href = "store.html";
+    };
+  }
 }
 
 function addReceiptRow(label, value) {
@@ -661,21 +779,30 @@ function prepareAcknowledgement(complaint, complaintId, paymentId, data) {
   addReceiptRow("Plan Amount", planAmounts[plan] || "As per selected plan");
   addReceiptRow("Payment Status", "Completed");
   addReceiptRow("Payment Reference", paymentId);
-  addReceiptRow("Registration Date", registeredAt);
 
-  // Optional reference values returned by the existing verification API.
   if (data.paymentLinkId) {
     addReceiptRow("Payment Link Reference", data.paymentLinkId);
   }
   if (data.referenceId) {
     addReceiptRow("Order Reference", data.referenceId);
   }
+
+  addReceiptRow("Registration Date", registeredAt);
 }
 
 async function verifyAndSavePayment() {
   if (payment === "failed") {
     sessionStorage.removeItem("SKKGN_ACTIVE_PAYMENT");
-    showError("Payment was not completed. You can try again.");
+
+    popup.style.display = "block";
+    document.body.style.overflow = "hidden";
+
+    showError(
+      "Your transaction was not completed. Please check your bank or UPI app before trying again.",
+      "Payment Failed",
+      "failed"
+    );
+
     cleanUrl();
     return;
   }
@@ -684,16 +811,7 @@ async function verifyAndSavePayment() {
 
   popup.style.display = "block";
   document.body.style.overflow = "hidden";
-  form.style.display = "none";
-  successBox.style.display = "none";
-  regIntro.style.display = "block";
-
-  const loading = document.createElement("div");
-  loading.id = "skStorePaymentLoading";
-  loading.style.cssText =
-    "text-align:center;padding:25px;color:#123b6d;font-weight:700;";
-  loading.textContent = "Verifying your payment securely. Please wait...";
-  popup.querySelector(".sk-reg-box").appendChild(loading);
+  showOnly("processing");
 
   try {
     const response = await fetch(
@@ -723,6 +841,10 @@ async function verifyAndSavePayment() {
     ) {
       throw new Error("The verified complaint information is incomplete.");
     }
+
+    // Payment is verified. From this point, a database error
+    // must NOT be shown as a normal payment failure.
+    paymentVerified = true;
 
     const paymentId = String(data.razorpayPaymentId);
 
@@ -758,9 +880,7 @@ async function verifyAndSavePayment() {
 
     prepareAcknowledgement(complaint, complaintId, paymentId, data);
 
-    form.style.display = "none";
-    regIntro.style.display = "none";
-    successBox.style.display = "block";
+    showOnly("success");
     errorBox.textContent = "";
 
     sessionStorage.removeItem("SKKGN_ACTIVE_PAYMENT");
@@ -770,14 +890,21 @@ async function verifyAndSavePayment() {
   } catch (error) {
     console.error("Store payment verification/save error:", error);
 
-    showError(
-      "Payment verification or complaint registration could not be completed: " +
-      (error.message || "Please try again.")
-    );
+    if (paymentVerified) {
+      showError(
+        "Your payment has been verified, but your complaint registration is still pending. Please contact our support team to complete registration. Do not pay again.",
+        "Payment Verified · Registration Pending",
+        "pending"
+      );
+    } else {
+      showError(
+        "We couldn't verify your transaction. If money was deducted, please contact support before making another payment.",
+        "Payment Could Not Be Verified",
+        "verify"
+      );
+    }
 
-    // Keep the verification token so a page refresh can retry verification.
-  } finally {
-    loading.remove();
+    // Keep verification token for a possible verification retry.
   }
 }
 
