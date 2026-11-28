@@ -703,6 +703,20 @@ nav a:hover{
   animation:gradientMove 5s ease infinite;
 }
 
+.typewriter {
+  display: inline-block;
+  min-height: 1.2em;
+  color: #2563eb;
+  border-right: 3px solid #2563eb;
+  padding-right: 5px;
+  white-space: nowrap;
+  animation: typingCursor 0.7s steps(1) infinite;
+}
+
+@keyframes typingCursor {
+  50% { border-color: transparent; }
+}
+
 .hero p{
   max-width:620px;
   color:#606875;
