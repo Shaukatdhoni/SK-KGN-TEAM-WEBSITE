@@ -6816,6 +6816,54 @@ document.addEventListener("dragstart", function(e) {
   }
 });
 </script>
+
+<script>
+(function () {
+  const words = [
+    "Bribery Cases",
+    "Caste & Minority",
+    "Consumer Cases",
+    "Govt. Complaints",
+    "Govt. Schemes",
+    "Find Advocates",
+    "Public Grievances"
+  ];
+
+  const element = document.getElementById("skTypewriter");
+  if (!element) return;
+
+  let wordIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function typeEffect() {
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+      charIndex++;
+      element.textContent = currentWord.substring(0, charIndex);
+
+      if (charIndex === currentWord.length) {
+        deleting = true;
+        setTimeout(typeEffect, 1400);
+        return;
+      }
+    } else {
+      charIndex--;
+      element.textContent = currentWord.substring(0, charIndex);
+
+      if (charIndex === 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+      }
+    }
+
+    setTimeout(typeEffect, deleting ? 55 : 100);
+  }
+
+  typeEffect();
+})();
+</script>
 </body>
 
 </html>
